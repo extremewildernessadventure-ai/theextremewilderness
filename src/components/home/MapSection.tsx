@@ -113,7 +113,7 @@ export default function MapSection() {
                 src={maps[country]}
                 alt={`${country} destinations map`}
                 fill
-                className="object-contain"
+                className="object-contain object-center"
                 sizes="(max-width: 1024px) 100vw, 72vw"
                 priority
               />
