@@ -157,7 +157,7 @@ export default function KiliRouteMap() {
           {/* Right — map + info */}
           <div className="flex-1 flex flex-col gap-4">
             {/* Map image */}
-            <div className="relative w-full rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-black/30" style={{ height: 380 }}>
+            <div className="relative w-full rounded-2xl overflow-hidden border border-white/15 bg-black/40 backdrop-blur-sm" style={{ height: 380 }}>
               <Image
                 key={active.id}
                 src={`/Route%20maps/${active.mapFile}`}

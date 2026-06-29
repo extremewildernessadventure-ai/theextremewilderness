@@ -14,19 +14,27 @@ export const metadata: Metadata = {
 export default function SafarisPage() {
   return (
     <>
-      <section className="pt-28 pb-12 bg-brand">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="text-white/50 text-sm mb-6">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-white">Safari Packages</span>
-          </nav>
-          <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-4">
-            Safari <span className="text-gold">Packages</span>
-          </h1>
-          <p className="text-white/70 text-lg max-w-xl">
-            Every safari is tailor-made — these are starting points. Tell us your dream and we'll craft something just for you.
-          </p>
+      <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/gallery/safari-114.jpg"
+            alt="Safari vehicles on the Serengeti plains"
+            fill
+            className="object-cover object-center"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/75" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-4">
+              Safari <span className="text-gold">Packages</span>
+            </h1>
+            <p className="text-white/70 text-lg max-w-xl">
+              Every safari is tailor-made — these are starting points. Tell us your dream and we&apos;ll craft something just for you.
+            </p>
+          </div>
         </div>
       </section>
 

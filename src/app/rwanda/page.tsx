@@ -199,10 +199,10 @@ export default function RwandaPage() {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/kilimanjaro%20(4).png"
+            src="/images/gallery/gorilla.png"
             alt="Volcanic mountain peaks with lush green heathland — Rwanda Virunga massif"
             fill
-            className="object-cover object-center"
+            className="object-cover object-bottom"
             priority
             sizes="100vw"
           />

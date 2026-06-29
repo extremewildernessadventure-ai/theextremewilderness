@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Clock, MapPin, Star, ChevronRight } from 'lucide-react'
+import { ArrowRight, Clock, MapPin, Star } from 'lucide-react'
 import NewsletterForm from '@/components/home/NewsletterForm'
 
 export const metadata: Metadata = {
@@ -208,12 +208,12 @@ export default function ExperiencesPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[75vh] flex items-end overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <Image
           src="/images/gallery/safari-019.jpg"
           alt="East Africa safari landscape"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
           sizes="100vw"
         />
@@ -221,14 +221,7 @@ export default function ExperiencesPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-white/60 text-sm mb-6">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-white">Experiences</span>
-          </nav>
-
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-gold font-semibold text-sm uppercase tracking-widest mb-3">East Africa</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] mb-6 max-w-3xl">
             Wilderness<br />
