@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import Providers from '@/components/layout/Providers'
+import WhatsAppButton from '@/components/shared/WhatsAppButton'
 
 const geist = Geist({
   variable: '--font-geist-sans',
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
+          <WhatsAppButton />
         </Providers>
       </body>
     </html>
