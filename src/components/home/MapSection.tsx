@@ -106,14 +106,14 @@ export default function MapSection() {
 
           {/* Map image panel */}
           <div className="flex-1 min-w-0">
-            <div className="relative w-full rounded-2xl overflow-hidden border border-gray-100 shadow-xl bg-[#f5f0e8]"
-                 style={{ aspectRatio: '14 / 10' }}>
+            <div className="w-full rounded-2xl overflow-hidden border border-gray-100 shadow-xl bg-[#f5f0e8] flex items-center justify-center p-4">
               <Image
                 key={country}
                 src={maps[country]}
                 alt={`${country} destinations map`}
-                fill
-                className="object-contain object-center"
+                width={1400}
+                height={1000}
+                className="w-full h-auto"
                 sizes="(max-width: 1024px) 100vw, 72vw"
                 priority
               />
