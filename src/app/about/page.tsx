@@ -1,130 +1,374 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, MapPin, Star, Users, Award } from 'lucide-react'
-import InquiryForm from '@/components/shared/InquiryForm'
+import {
+  ArrowRight, ChevronRight, MapPin, Star, Users, Award,
+  Globe, Shield, Clock, Leaf,
+  Mail, Phone,
+} from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About The Extreme Wilderness | Tanzania-Born Safari Company',
-  description:
-    "We are Tanzania. Not an agency selling Africa from abroad — a team of local experts born in the wilderness. Meet the team behind East Africa's best safari experience.",
+  title: 'About Us | The Extreme Wilderness',
+  description: 'Tanzania-born and locally owned since 2009. Meet the guides and team behind The Extreme Wilderness — East Africa\'s premier custom safari operator.',
 }
+
+const stats = [
+  { value: '4.9', label: 'TripAdvisor Rating', sub: '800+ verified reviews', icon: Star },
+  { value: '1,200+', label: 'Happy Travellers', sub: 'Since 2009', icon: Users },
+  { value: '10', label: 'Tanzania Regions', sub: 'Every park covered', icon: MapPin },
+  { value: 'TATO', label: 'Certified Member', sub: 'Tanzania operators assoc.', icon: Award },
+]
+
+const values = [
+  {
+    icon: Globe,
+    title: 'Locally Owned',
+    body: 'Born and based in Arusha, not a foreign franchise. Every dollar spent stays in Tanzania and supports local conservation.',
+  },
+  {
+    icon: Shield,
+    title: 'Expert Guides',
+    body: 'TANAPA-certified, multi-lingual guides who grew up tracking wildlife in the parks they now share with you.',
+  },
+  {
+    icon: Users,
+    title: 'Private Only',
+    body: 'No group tours, no strangers in your vehicle. Every safari is exclusive to you and the people you choose to bring.',
+  },
+  {
+    icon: Clock,
+    title: '15+ Years',
+    body: 'Running safaris since 2009 — over 1,200 travellers, thousands of sunrises in the bush, and counting.',
+  },
+]
 
 const team = [
   {
+    initials: 'SM',
     name: 'Samuel Mwangi',
-    role: 'Lead Safari Guide & Co-Founder',
-    image: 'https://placehold.co/200x200/1C3A2A/D4A853?text=SM',
-    bio: 'Born in Arusha, Samuel has 18 years guiding in the Serengeti and Ngorongoro. TANAPA certified, speaks 4 languages.',
+    role: 'Lead Guide & Co-Founder',
+    bio: 'Born in Arusha, Samuel has spent 18 years guiding in the Serengeti and Ngorongoro. TANAPA-certified, fluent in 4 languages, and still the first to spot a leopard in tall grass.',
+    colour: 'bg-brand',
   },
   {
+    initials: 'GK',
     name: 'Grace Kimaro',
     role: 'Operations Director',
-    image: 'https://placehold.co/200x200/2D5A3D/D4A853?text=GK',
-    bio: 'Grace ensures every safari runs flawlessly — from the first enquiry to your final airport drop-off.',
+    bio: 'Grace ensures every safari runs flawlessly — from your first enquiry to the airport drop-off. A decade of logistics expertise means nothing is ever left to chance.',
+    colour: 'bg-brand-secondary',
   },
   {
+    initials: 'DO',
     name: 'David Olerai',
     role: 'Senior Wildlife Guide',
-    image: 'https://placehold.co/200x200/1C3A2A/D4A853?text=DO',
-    bio: 'Maasai-born, Ol\' David knows the Northern Circuit like the back of his hand. Big cat specialist.',
+    bio: 'Maasai-born and raised on the Northern Circuit, David knows every kopje and crossing on the Serengeti. His specialty: big cats and the Great Migration.',
+    colour: 'bg-brand',
   },
+]
+
+const galleryImages = [
+  '/images/gallery/serengeti (1).png',
+  '/images/gallery/safari-007.jpg',
+  '/images/gallery/kilimanjaro (1).png',
+  '/images/gallery/elephants.png',
+  '/images/gallery/safari-014.jpg',
+  '/images/gallery/zanzibar (1).png',
 ]
 
 export default function AboutPage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="pt-28 pb-16 bg-brand">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="text-white/50 text-sm mb-6">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-white">About</span>
+    <main className="bg-white">
+
+      {/* ── Hero — split layout ───────────────────────────────────────────── */}
+      <section className="relative bg-brand min-h-[90vh] flex items-stretch overflow-hidden">
+
+        {/* Left: text */}
+        <div className="relative z-10 flex flex-col justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 pt-32 pb-16 lg:py-32">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-1.5 text-white/40 text-xs mb-8">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="w-3 h-3" />
+            <span className="text-gold">About Us</span>
           </nav>
-          <div className="max-w-2xl">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-4">Our Story</span>
-            <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-5">
-              We Are <span className="text-gold">Tanzania</span>
-            </h1>
-            <p className="text-white/80 text-lg leading-relaxed">
-              The Extreme Wilderness was founded by Tanzanian guides who were tired of watching foreign operators sell Africa from offices in London and Cape Town. We decided to do it properly — from Arusha, in the shadow of Kilimanjaro, where we were born.
-            </p>
-          </div>
-        </div>
-      </section>
 
-      {/* Stats */}
-      <section className="py-12 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {[
-              { Icon: Star, value: '4.9/5', label: 'TripAdvisor Rating', sub: '800+ reviews' },
-              { Icon: Users, value: '1,200+', label: 'Happy Travellers', sub: 'Since 2009' },
-              { Icon: MapPin, value: '10', label: 'Tanzania Regions', sub: 'Every park covered' },
-              { Icon: Award, value: 'TATO', label: 'Certified Member', sub: 'Tanzania operators assoc.' },
-            ].map(({ Icon, value, label, sub }) => (
-              <div key={label}>
-                <Icon className="w-6 h-6 text-gold mx-auto mb-2" />
-                <div className="text-2xl font-bold text-brand">{value}</div>
-                <div className="font-medium text-sm text-brand">{label}</div>
-                <div className="text-text-muted text-xs mt-0.5">{sub}</div>
-              </div>
+          <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">Our Story</p>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+            We Are <span className="text-gold">Tanzania</span>
+          </h1>
+          <p className="text-white/75 text-lg leading-relaxed mb-10 max-w-lg">
+            We are Tanzanian guides who grew tired of watching foreign operators sell Africa from abroad. So in 2009, we built something different — a safari company that is authentically, entirely of this land.
+          </p>
+
+          {/* Trust pills */}
+          <div className="flex flex-wrap gap-3 mb-10">
+            {['Est. 2009', 'TATO Certified', '100% Locally Owned', 'Arusha-based'].map((pill) => (
+              <span key={pill} className="inline-flex items-center px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs font-medium">
+                {pill}
+              </span>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Story */}
-      <section className="py-16 bg-light-green" id="why-us">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-lg text-text-muted">
-          <h2 className="text-2xl font-semibold text-brand not-prose mb-4">Why Choose a Local Operator?</h2>
-          <p>
-            When you book with a foreign safari company, your money flows out of Africa. When you book with The Extreme Wilderness, it stays here — paying our guides fairly, supporting local communities, and funding conservation.
-          </p>
-          <p>
-            But beyond the ethics, it's about quality. Our guides grew up tracking wildlife. They know which waterhole the leopard visits every morning, which hill gives the best sunrise view over the Serengeti, and which camp chef makes the best nyama choma in the Northern Circuit.
-          </p>
-          <p>
-            You can't buy that knowledge from a brochure. You only get it by being born here.
-          </p>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="py-16 bg-white" id="guides">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-semibold text-brand">Meet the Team</h2>
-            <p className="text-text-muted mt-2">Born in Tanzania. Passionate about wildlife. Ready to share it with you.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            {team.map((member) => (
-              <div key={member.name} className="text-center">
-                <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-4 border-gold">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
-                </div>
-                <h3 className="font-semibold text-brand">{member.name}</h3>
-                <p className="text-gold text-xs font-medium mb-2">{member.role}</p>
-                <p className="text-text-muted text-sm leading-relaxed">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact CTA */}
-      <section className="py-16 bg-brand">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-semibold text-white mb-4">Ready to Plan Your Safari?</h2>
-          <p className="text-white/70 mb-8">Get in touch — we'll design your perfect East Africa adventure in 24 hours.</p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors"
+            className="inline-flex items-center gap-2 px-7 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors self-start"
           >
-            Contact Us <ArrowRight className="w-4 h-4" />
+            Plan Your Safari
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
+
+        {/* Right: image panel (desktop) */}
+        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2">
+          <div className="absolute inset-y-0 left-0 w-32 z-10 bg-gradient-to-r from-brand to-transparent" />
+          <Image
+            src="/images/gallery/serengeti (1).png"
+            alt="Serengeti at sunrise"
+            fill
+            className="object-cover"
+            priority
+            sizes="50vw"
+          />
+        </div>
+
+        {/* Mobile: faint image overlay */}
+        <div className="lg:hidden absolute inset-0 z-0">
+          <Image
+            src="/images/gallery/serengeti (1).png"
+            alt="Serengeti at sunrise"
+            fill
+            className="object-cover opacity-20"
+            priority
+            sizes="100vw"
+          />
+        </div>
       </section>
-    </>
+
+      {/* ── Stats band ───────────────────────────────────────────────────── */}
+      <section className="bg-brand border-t border-white/10 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-white/10">
+            {stats.map(({ value, label, sub, icon: Icon }) => (
+              <div key={label} className="flex flex-col items-center text-center px-6 py-4">
+                <Icon className="w-5 h-5 text-gold mb-3" />
+                <span className="text-4xl font-black text-gold leading-none mb-1">{value}</span>
+                <span className="text-white text-sm font-semibold">{label}</span>
+                <span className="text-white/50 text-xs mt-0.5">{sub}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Our Story ────────────────────────────────────────────────────── */}
+      <section id="why-us" className="bg-light-green py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+
+            {/* Text */}
+            <div>
+              <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">Why Local Matters</p>
+              <h2 className="text-3xl lg:text-4xl font-bold text-brand mb-6 leading-tight">
+                Why Choose a<br />Local Operator?
+              </h2>
+
+              <p className="text-text-muted leading-relaxed mb-5">
+                When you book with a locally owned operator, your money stays in Africa. It pays fair wages to guides, porters, and camp staff. It funds the community schools and water projects that our team personally support. It does not disappear into a head office in London or New York.
+              </p>
+
+              {/* Pull-quote */}
+              <div className="bg-white rounded-2xl p-6 border-l-4 border-gold my-7 shadow-sm">
+                <p className="text-brand font-semibold text-base italic leading-relaxed">
+                  &ldquo;Our knowledge cannot be bought from a textbook. It comes from being born here, growing up in the bush, and spending decades learning what no guidebook will ever tell you.&rdquo;
+                </p>
+                <p className="text-text-muted text-xs mt-3 font-medium">— Samuel Mwangi, Co-Founder</p>
+              </div>
+
+              <p className="text-text-muted leading-relaxed mb-5">
+                Safari quality comes from lived experience, not glossy brochures. We know which crossing on the Mara River is most active in August. We know the ranger who has been tracking a particular pride for six years. We know the back roads and the secret viewpoints that group-tour operators never visit.
+              </p>
+              <p className="text-text-muted leading-relaxed">
+                That is the difference. And it is a difference you will feel every single day in the bush.
+              </p>
+            </div>
+
+            {/* Image */}
+            <div className="relative">
+              <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/gallery/kilimanjaro (1).png"
+                  alt="Guide in the field"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand/40 to-transparent" />
+              </div>
+              {/* Floating card */}
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gold/10 rounded-xl flex items-center justify-center">
+                    <Leaf className="w-5 h-5 text-gold" />
+                  </div>
+                  <div>
+                    <p className="text-brand font-bold text-sm">Eco-Conscious</p>
+                    <p className="text-text-muted text-xs">Low-impact travel principles</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── What Makes Us Different ──────────────────────────────────────── */}
+      <section className="bg-white py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">Our Difference</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-brand">What Makes Us Different</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {values.map(({ icon: Icon, title, body }) => (
+              <div
+                key={title}
+                className="bg-gray-50 rounded-2xl p-7 border border-gray-100 hover:border-brand/30 hover:shadow-md hover:-translate-y-0.5 transition-all"
+              >
+                <div className="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-5">
+                  <Icon className="w-6 h-6 text-brand" />
+                </div>
+                <h3 className="text-brand font-bold text-lg mb-2">{title}</h3>
+                <p className="text-text-muted text-sm leading-relaxed">{body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Gallery strip ────────────────────────────────────────────────── */}
+      <div className="grid grid-cols-3 lg:grid-cols-6">
+        {galleryImages.map((src, i) => (
+          <div key={i} className="relative aspect-square overflow-hidden group">
+            <Image
+              src={src}
+              alt="Safari moment"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 1024px) 33vw, 16vw"
+            />
+            <div className="absolute inset-0 bg-brand/20 group-hover:bg-transparent transition-colors" />
+          </div>
+        ))}
+      </div>
+
+      {/* ── Team ─────────────────────────────────────────────────────────── */}
+      <section id="guides" className="bg-white py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">The People</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-brand mb-3">Meet the Team</h2>
+            <p className="text-text-muted max-w-xl mx-auto text-sm leading-relaxed">
+              Born in Tanzania. Passionate about wildlife. Ready to share it with you.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {team.map(({ initials, name, role, bio, colour }) => (
+              <div
+                key={name}
+                className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all text-center group"
+              >
+                <div className="flex justify-center mb-5">
+                  <div className={`w-20 h-20 rounded-full ${colour} flex items-center justify-center text-white text-2xl font-black ring-4 ring-gold/30 group-hover:ring-gold/60 transition-all`}>
+                    {initials}
+                  </div>
+                </div>
+                <span className="inline-flex px-3 py-1 bg-gold/10 text-gold text-xs font-bold rounded-full uppercase tracking-wider mb-3">
+                  {role}
+                </span>
+                <h3 className="text-brand font-bold text-xl mb-3">{name}</h3>
+                <p className="text-text-muted text-sm leading-relaxed">{bio}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ──────────────────────────────────────────────────────────── */}
+      <section className="bg-brand py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+            <div>
+              <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">Let&apos;s Start Planning</p>
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-5 leading-tight">
+                Ready to Plan<br />Your Safari?
+              </h2>
+              <p className="text-white/70 leading-relaxed mb-8 text-base">
+                Get in touch — our team will design your perfect East Africa adventure and have a personalised itinerary in your inbox within 24 hours. No generic packages, no pushy sales. Just honest advice from people who live this every day.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/safaris"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors"
+                >
+                  View Safari Packages
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 border border-white/20 hover:bg-white/10 text-white font-semibold rounded-xl transition-colors"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+
+            {/* Contact card */}
+            <div className="bg-white/10 border border-white/20 rounded-2xl p-8">
+              <p className="text-white font-bold text-lg mb-6">Reach Us Directly</p>
+              <div className="space-y-4 mb-8">
+                <a
+                  href="mailto:info@theextremewilderness.com"
+                  className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
+                >
+                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                    <Mail className="w-5 h-5 text-gold" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-white/50 mb-0.5">Email</p>
+                    <p className="text-sm font-medium">info@theextremewilderness.com</p>
+                  </div>
+                </a>
+                <a
+                  href="tel:+255767000000"
+                  className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
+                >
+                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+                    <Phone className="w-5 h-5 text-gold" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-white/50 mb-0.5">Phone / WhatsApp</p>
+                    <p className="text-sm font-medium">+255 (0) 767 000 000</p>
+                  </div>
+                </a>
+                <div className="flex items-center gap-3 text-white/80">
+                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-gold" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-white/50 mb-0.5">Office</p>
+                    <p className="text-sm font-medium">Arusha, Tanzania</p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-white/40 text-xs">We typically respond within 2–4 hours during business hours (EAT, UTC+3).</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
   )
 }
