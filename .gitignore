@@ -40,6 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large media assets — host on CDN/cloud storage
-/public/images/
-/public/Video/
+# compression script (dev only)
+/scripts/compress-images.mjs
