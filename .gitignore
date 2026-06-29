@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large media assets — host on CDN/cloud storage
+/public/images/
+/public/Video/
