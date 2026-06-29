@@ -609,7 +609,7 @@ export default function RwandaPage() {
               style={{ aspectRatio: '14/10' }}
             >
               <Image
-                src="/maps/Rwanda%20major%20destinations%20travel%20map.png"
+                src="/Maps/Rwanda%20major%20destinations%20travel%20map.png"
                 alt="Rwanda major destinations map"
                 fill
                 className="object-contain"

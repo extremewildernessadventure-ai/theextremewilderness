@@ -659,7 +659,7 @@ export default function KenyaPage() {
               style={{ aspectRatio: '14/10' }}
             >
               <Image
-                src="/maps/Kenya%20map%20of%20major%20destinations.png"
+                src="/Maps/Kenya%20map%20of%20major%20destinations.png"
                 alt="Kenya major destinations map"
                 fill
                 className="object-contain"

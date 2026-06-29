@@ -11,9 +11,9 @@ const countries = ['Tanzania', 'Kenya', 'Rwanda'] as const
 type Country = (typeof countries)[number]
 
 const maps: Record<Country, string> = {
-  Tanzania: '/maps/Tanzania%20major%20destinations%20travel%20map.png',
-  Kenya:    '/maps/Kenya%20map%20of%20major%20destinations.png',
-  Rwanda:   '/maps/Rwanda%20major%20destinations%20travel%20map.png',
+  Tanzania: '/Maps/Tanzania%20major%20destinations%20travel%20map.png',
+  Kenya:    '/Maps/Kenya%20map%20of%20major%20destinations.png',
+  Rwanda:   '/Maps/Rwanda%20major%20destinations%20travel%20map.png',
 }
 
 const flags: Record<Country, string> = {
