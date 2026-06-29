@@ -53,11 +53,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Main footer — 5 columns on xl, tighter gap to fit */}
-        <div className="py-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.6fr_1fr_1fr_0.8fr_1fr] gap-6 lg:gap-8">
+        <div className="py-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.6fr_1fr_1fr_0.8fr_1fr] gap-6 lg:gap-8 text-center md:text-left">
 
           {/* Brand column */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
               <div className="w-9 h-9 bg-gold rounded-full flex items-center justify-center">
                 <span className="text-brand font-bold text-sm">EW</span>
               </div>
@@ -70,20 +70,20 @@ export default function Footer() {
               Where the Wild Calls You Home. Tanzania-born and locally owned, crafting custom safaris since 2009.
             </p>
             <div className="space-y-2 text-sm text-white/70">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 justify-center md:justify-start">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0" />
                 <span>Arusha, Tanzania</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 justify-center md:justify-start">
                 <Phone className="w-4 h-4 text-gold flex-shrink-0" />
                 <span>+255 (0) 767 000 000</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 justify-center md:justify-start">
                 <Mail className="w-4 h-4 text-gold flex-shrink-0" />
                 <span>info@theextremewilderness.com</span>
               </div>
             </div>
-            <div className="flex gap-3 mt-5">
+            <div className="flex gap-3 mt-5 justify-center md:justify-start">
               {(['Instagram', 'Facebook', 'YouTube'] as const).map((label) => (
                 <a
                   key={label}
@@ -147,7 +147,7 @@ export default function Footer() {
                 src="/Route%20maps/membership.png"
                 alt="Our memberships and affiliations"
                 fill
-                className="object-contain object-left-top"
+                className="object-contain object-center md:object-left-top"
                 sizes="180px"
               />
             </div>
