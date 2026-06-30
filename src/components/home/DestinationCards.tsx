@@ -25,7 +25,7 @@ const featured = [
   {
     name: 'Zanzibar Island',
     href: '/destinations/zanzibar',
-    image: 'https://placehold.co/600x400/2D5A3D/D4A853?text=Zanzibar',
+    image: 'https://placehold.co/600x400/1C3A2A/D4A853?text=Zanzibar',
     packages: 10,
     wildlife: 'Dolphins · Turtles · Colobus Monkey',
     heat: 4,
@@ -33,7 +33,7 @@ const featured = [
   {
     name: 'Tarangire National Park',
     href: '/destinations/tarangire',
-    image: 'https://placehold.co/600x400/2D5A3D/D4A853?text=Tarangire',
+    image: 'https://placehold.co/600x400/1C3A2A/D4A853?text=Tarangire',
     packages: 12,
     wildlife: 'Elephant · Lion · Baobab · 550 Birds',
     heat: 4,
@@ -56,19 +56,6 @@ const featured = [
   },
 ]
 
-function HeatDots({ level }: { level: number }) {
-  return (
-    <div className="flex gap-1">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <div
-          key={i}
-          className={`w-1.5 h-1.5 rounded-full ${i < level ? 'bg-gold' : 'bg-white/30'}`}
-        />
-      ))}
-    </div>
-  )
-}
-
 function DestCard({ dest }: { dest: (typeof featured)[number] }) {
   return (
     <Link
@@ -82,19 +69,22 @@ function DestCard({ dest }: { dest: (typeof featured)[number] }) {
         className="object-cover transition-transform duration-500 group-hover:scale-105"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/20 to-transparent" />
-      <div className="absolute inset-0 p-5 flex flex-col justify-between">
+      {/* Stronger gradient so image text doesn't bleed through */}
+      <div className="absolute inset-0 bg-gradient-to-t from-brand via-brand/60 to-brand/10" />
+      <div className="absolute inset-0 p-4 flex flex-col justify-between">
         <div className="self-end">
           <span className="text-xs bg-white/20 text-white backdrop-blur-sm px-2 py-1 rounded-full">
             {dest.packages} packages
           </span>
         </div>
         <div>
-          <HeatDots level={dest.heat} />
-          <h3 className="text-white font-semibold text-lg mt-1">{dest.name}</h3>
-          <p className="text-white/70 text-xs mt-1">{dest.wildlife}</p>
-          <div className="flex items-center gap-1 mt-3 text-gold text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-            Explore <ArrowRight className="w-3.5 h-3.5" />
+          <h3 className="text-white font-semibold text-base leading-snug line-clamp-1">
+            {dest.name}
+          </h3>
+          <p className="text-white/65 text-xs mt-1 line-clamp-1">{dest.wildlife}</p>
+          {/* Always visible on mobile (no hover); hover-only on desktop */}
+          <div className="flex items-center gap-1 mt-2 text-gold text-xs font-semibold sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+            Explore <ArrowRight className="w-3 h-3" />
           </div>
         </div>
       </div>
