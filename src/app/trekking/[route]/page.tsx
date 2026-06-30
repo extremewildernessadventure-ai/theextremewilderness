@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, Clock, TrendingUp, Trophy, Check, MapPin } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
+import KiliRouteMapSVG from '@/components/trekking/KiliRouteMapSVG'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -996,7 +997,15 @@ export default async function RouteDetailPage({
               <div className="mt-5 pt-4 border-t border-brand/10">
                 <div className="text-xs text-text-muted mb-1">Starting from</div>
                 <div className="text-2xl font-bold text-brand">${data.pricing[0].priceFrom.toLocaleString()}</div>
-                <div className="text-xs text-text-muted">per person · {data.pricing[0].label}</div>
+                <div className="text-xs text-text-muted mb-4">per person · {data.pricing[0].label}</div>
+                <BookNowButton
+                  packageName={data.name}
+                  packageType="Kilimanjaro Trek"
+                  priceFrom={`$${data.pricing[0].priceFrom.toLocaleString()}`}
+                  duration={data.days}
+                  label="Book This Route"
+                  className="flex w-full items-center justify-center gap-2 py-3 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
+                />
               </div>
             </div>
           </div>
@@ -1073,16 +1082,10 @@ export default async function RouteDetailPage({
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Trail Map</span>
           <h2 className="text-3xl font-semibold text-brand mb-8">Route Overview Map</h2>
-          <div className="relative w-full rounded-2xl overflow-hidden border border-gray-100 shadow-lg bg-gray-50" style={{ height: 420 }}>
-            <Image
-              src={`/Route%20maps/${data.mapFile}`}
-              alt={`${data.name} map`}
-              fill
-              className="object-contain"
-              sizes="(max-width: 768px) 100vw, 768px"
-            />
+          <div className="w-full rounded-2xl overflow-hidden border border-brand/10 shadow-lg">
+            <KiliRouteMapSVG routeId={data.id} />
           </div>
-          <p className="text-xs text-text-muted mt-3">Map shows the official TANAPA-approved trail for the {data.name}</p>
+          <p className="text-xs text-text-muted mt-3">Custom topographic map · {data.name} · TANAPA approved trail</p>
         </div>
       </section>
 

@@ -1,10 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, Clock, TrendingUp, Trophy, ArrowRight, ChevronRight } from 'lucide-react'
 import { useBooking } from '@/context/BookingContext'
+import KiliRouteMapSVG from '@/components/trekking/KiliRouteMapSVG'
 
 const routes = [
   {
@@ -106,6 +106,13 @@ export default function KiliRouteMap() {
 
   return (
     <section className="relative py-24 overflow-hidden bg-brand-dark">
+      <style>{`
+        @keyframes kili-fade-in {
+          from { opacity: 0; transform: scale(0.98); }
+          to   { opacity: 1; transform: scale(1); }
+        }
+        .kili-map-enter { animation: kili-fade-in 0.35s ease-out both; }
+      `}</style>
       {/* Kilimanjaro summit background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -156,17 +163,22 @@ export default function KiliRouteMap() {
 
           {/* Right — map + info */}
           <div className="flex-1 flex flex-col gap-4">
-            {/* Map image */}
-            <div className="relative w-full rounded-2xl overflow-hidden border border-white/15 bg-black/40 backdrop-blur-sm" style={{ height: 380 }}>
-              <Image
-                key={active.id}
-                src={`/Route%20maps/${active.mapFile}`}
-                alt={`${active.name} map`}
-                fill
-                className="object-contain"
-                sizes="(max-width: 1024px) 100vw, 70vw"
-                priority
-              />
+            {/* SVG route map */}
+            <div className="w-full rounded-2xl overflow-hidden border border-white/15 shadow-2xl">
+              <div key={activeId} className="kili-map-enter">
+                <KiliRouteMapSVG routeId={active.id} />
+              </div>
+            </div>
+
+            {/* Map caption */}
+            <div className="flex justify-center">
+              <div className="inline-flex items-center gap-2 bg-black/35 backdrop-blur-sm border border-gold/60 rounded-full px-4 py-1.5">
+                <span className="text-white/45 text-[11px] tracking-wide">Custom topographic map</span>
+                <span className="text-white/25 text-[11px]">·</span>
+                <span className="text-gold text-[11px] font-semibold tracking-wide">{active.name}</span>
+                <span className="text-white/25 text-[11px]">·</span>
+                <span className="text-white/45 text-[11px] tracking-wide">TANAPA Approved Trail</span>
+              </div>
             </div>
 
             {/* Route info card */}

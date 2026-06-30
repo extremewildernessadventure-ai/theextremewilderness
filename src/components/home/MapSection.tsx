@@ -106,17 +106,28 @@ export default function MapSection() {
 
           {/* Map image panel */}
           <div className="flex-1 min-w-0">
-            <div className="w-full rounded-2xl overflow-hidden border border-gray-100 shadow-xl bg-[#f5f0e8] flex items-center justify-center p-4">
-              <Image
-                key={country}
-                src={maps[country]}
-                alt={`${country} destinations map`}
-                width={1400}
-                height={1000}
-                className="w-full h-auto"
-                sizes="(max-width: 1024px) 100vw, 72vw"
-                priority
+            <div className="relative w-full rounded-2xl p-[4px] overflow-hidden shadow-xl">
+              {/* Rotating green bar border */}
+              <div
+                className="absolute inset-0 animate-[spin_3s_linear_infinite]"
+                style={{
+                  background:
+                    'conic-gradient(from 0deg, transparent 0deg, transparent 270deg, #1C3A2A 300deg, #3a7a52 335deg, #1C3A2A 355deg, transparent 360deg)',
+                }}
               />
+              {/* Map content */}
+              <div className="relative rounded-[12px] overflow-hidden bg-[#f5f0e8] flex items-center justify-center p-4">
+                <Image
+                  key={country}
+                  src={maps[country]}
+                  alt={`${country} destinations map`}
+                  width={1400}
+                  height={1000}
+                  className="w-full h-auto"
+                  sizes="(max-width: 1024px) 100vw, 72vw"
+                  priority
+                />
+              </div>
             </div>
             {/* Caption */}
             <p className="text-center text-xs text-text-muted mt-2 flex items-center justify-center gap-1.5">
