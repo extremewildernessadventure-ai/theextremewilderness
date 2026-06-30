@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
@@ -40,6 +40,9 @@ export default function BottomNav() {
     }`
 
   const close = () => setMoreOpen(false)
+
+  // Close sheet whenever the route changes (handles <Link> client-side navigation)
+  useEffect(() => { setMoreOpen(false) }, [pathname])
 
   return (
     <>
@@ -81,7 +84,6 @@ export default function BottomNav() {
                 <Link
                   key={href}
                   href={href}
-                  onClick={close}
                   className="flex items-center gap-3 bg-white/10 hover:bg-white/20 active:bg-white/25 rounded-xl px-4 py-3 transition-colors"
                 >
                   <Icon className="w-5 h-5 text-gold flex-shrink-0" />
