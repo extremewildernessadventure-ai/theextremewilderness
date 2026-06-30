@@ -1,3 +1,6 @@
+'use client'
+
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
@@ -66,7 +69,64 @@ function HeatDots({ level }: { level: number }) {
   )
 }
 
+function DestCard({ dest }: { dest: (typeof featured)[number] }) {
+  return (
+    <Link
+      href={dest.href}
+      className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand block"
+    >
+      <Image
+        src={dest.image}
+        alt={dest.name}
+        fill
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/20 to-transparent" />
+      <div className="absolute inset-0 p-5 flex flex-col justify-between">
+        <div className="self-end">
+          <span className="text-xs bg-white/20 text-white backdrop-blur-sm px-2 py-1 rounded-full">
+            {dest.packages} packages
+          </span>
+        </div>
+        <div>
+          <HeatDots level={dest.heat} />
+          <h3 className="text-white font-semibold text-lg mt-1">{dest.name}</h3>
+          <p className="text-white/70 text-xs mt-1">{dest.wildlife}</p>
+          <div className="flex items-center gap-1 mt-3 text-gold text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+            Explore <ArrowRight className="w-3.5 h-3.5" />
+          </div>
+        </div>
+      </div>
+    </Link>
+  )
+}
+
 export default function DestinationCards() {
+  const [active, setActive] = useState(0)
+  const touchX = useRef(0)
+
+  // Auto-advance; resets timer on each manual interaction
+  useEffect(() => {
+    const id = setInterval(
+      () => setActive((i) => (i + 1) % featured.length),
+      4000,
+    )
+    return () => clearInterval(id)
+  }, [active])
+
+  const prev = () => setActive((i) => (i - 1 + featured.length) % featured.length)
+  const next = () => setActive((i) => (i + 1) % featured.length)
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchX.current = e.touches[0].clientX
+  }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchX.current - e.changedTouches[0].clientX
+    if (delta > 50) next()
+    else if (delta < -50) prev()
+  }
+
   return (
     <section className="py-20 bg-light-green">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,40 +147,46 @@ export default function DestinationCards() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {featured.map((dest) => (
-            <Link
-              key={dest.href}
-              href={dest.href}
-              className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand block"
+        {/* ── Mobile carousel (< 640px) ── */}
+        <div className="sm:hidden">
+          <div
+            className="overflow-hidden rounded-2xl"
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${active * 100}%)` }}
             >
-              <Image
-                src={dest.image}
-                alt={dest.name}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/20 to-transparent" />
+              {featured.map((dest) => (
+                <div key={dest.href} className="flex-shrink-0 w-full">
+                  <DestCard dest={dest} />
+                </div>
+              ))}
+            </div>
+          </div>
 
-              {/* Content */}
-              <div className="absolute inset-0 p-5 flex flex-col justify-between">
-                <div className="self-end">
-                  <span className="text-xs bg-white/20 text-white backdrop-blur-sm px-2 py-1 rounded-full">
-                    {dest.packages} packages
-                  </span>
-                </div>
-                <div>
-                  <HeatDots level={dest.heat} />
-                  <h3 className="text-white font-semibold text-lg mt-1">{dest.name}</h3>
-                  <p className="text-white/70 text-xs mt-1">{dest.wildlife}</p>
-                  <div className="flex items-center gap-1 mt-3 text-gold text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    Explore <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
-                </div>
-              </div>
-            </Link>
+          {/* Dot indicators */}
+          <div className="flex justify-center items-center gap-2 mt-4">
+            {featured.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                aria-label={`Go to destination ${i + 1}`}
+                className={`rounded-full transition-all duration-300 ${
+                  i === active
+                    ? 'w-5 h-2 bg-brand'
+                    : 'w-2 h-2 bg-brand/30 hover:bg-brand/50'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* ── Desktop grid (unchanged) ── */}
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {featured.map((dest) => (
+            <DestCard key={dest.href} dest={dest} />
           ))}
         </div>
 
