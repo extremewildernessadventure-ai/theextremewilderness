@@ -84,10 +84,16 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex gap-3 mt-5 justify-center md:justify-start">
-              {(['Instagram', 'Facebook', 'YouTube'] as const).map((label) => (
+              {([
+                { label: 'Instagram', href: 'https://www.instagram.com/extremewildernessadventure/' },
+                { label: 'Facebook',  href: 'https://www.facebook.com/theextremewilderness/' },
+                { label: 'YouTube',   href: '#' },
+              ] as const).map(({ label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target={href !== '#' ? '_blank' : undefined}
+                  rel={href !== '#' ? 'noopener noreferrer' : undefined}
                   aria-label={label}
                   className="w-9 h-9 bg-white/10 hover:bg-gold hover:text-brand rounded-lg flex items-center justify-center transition-colors"
                 >
