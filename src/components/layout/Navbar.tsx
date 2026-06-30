@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
 const navLinks = [
   {
@@ -61,7 +61,6 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   useEffect(() => {
@@ -73,7 +72,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || mobileOpen ? 'bg-brand shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-brand shadow-lg' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,7 +133,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA + mobile toggle */}
+          {/* CTA */}
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
@@ -142,65 +141,10 @@ export default function Navbar() {
             >
               Plan My Safari
             </Link>
-            <button
-              className="lg:hidden p-2 text-white"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="lg:hidden bg-brand border-t border-white/10">
-          <div className="px-4 py-4 space-y-1">
-            {navLinks.map((link) => (
-              <div key={link.label}>
-                <Link
-                  href={link.href}
-                  className="block px-3 py-2 text-white font-medium rounded-lg hover:bg-white/10"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </Link>
-                {link.children && (
-                  <div className="ml-4 space-y-0.5 mt-1">
-                    {link.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        <div>
-                          <div className="text-sm text-white font-medium">{child.label}</div>
-                          {'desc' in child && (
-                            <div className="text-xs text-white/50 leading-tight">
-                              {(child as { desc: string }).desc}
-                            </div>
-                          )}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-            <div className="pt-3">
-              <Link
-                href="/contact"
-                className="block w-full text-center px-5 py-3 bg-gold text-brand font-semibold rounded-lg"
-                onClick={() => setMobileOpen(false)}
-              >
-                Plan My Safari
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   )
 }
