@@ -60,7 +60,7 @@ function DestCard({ dest }: { dest: (typeof featured)[number] }) {
   return (
     <Link
       href={dest.href}
-      className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand block"
+      className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand block ring-1 ring-gold/50"
     >
       <Image
         src={dest.image}
