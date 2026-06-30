@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, MapPin } from 'lucide-react'
@@ -16,15 +16,9 @@ const maps: Record<Country, string> = {
   Rwanda:   '/Maps/Rwanda%20major%20destinations%20travel%20map.png',
 }
 
-const flags: Record<Country, string> = {
-  Tanzania: '🇹🇿',
-  Kenya:    '🇰🇪',
-  Rwanda:   '🇷🇼',
-}
-
 const countryDesc: Record<Country, string> = {
   Tanzania:
-    'Home to the Serengeti, Kilimanjaro, Ngorongoro Crater and Zanzibar — Africa\'s most complete safari destination.',
+    "Home to the Serengeti, Kilimanjaro, Ngorongoro Crater and Zanzibar — Africa's most complete safari destination.",
   Kenya:
     'Birthplace of the Great Migration and home to the iconic Masai Mara. World-class big cat country.',
   Rwanda:
@@ -65,7 +59,35 @@ const allLink: Record<Country, string> = {
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function MapSection() {
+  // Desktop state
   const [country, setCountry] = useState<Country>('Tanzania')
+
+  // Mobile carousel state (independent from desktop tabs)
+  const [mobileIdx, setMobileIdx] = useState(0)
+  const touchX = useRef(0)
+
+  // Auto-advance mobile carousel; resets timer on each manual swipe
+  useEffect(() => {
+    const id = setInterval(
+      () => setMobileIdx((i) => (i + 1) % countries.length),
+      5000,
+    )
+    return () => clearInterval(id)
+  }, [mobileIdx])
+
+  const mobilePrev = () =>
+    setMobileIdx((i) => (i - 1 + countries.length) % countries.length)
+  const mobileNext = () =>
+    setMobileIdx((i) => (i + 1) % countries.length)
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchX.current = e.touches[0].clientX
+  }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchX.current - e.changedTouches[0].clientX
+    if (delta > 50) mobileNext()
+    else if (delta < -50) mobilePrev()
+  }
 
   return (
     <section className="py-20 bg-white">
@@ -84,100 +106,195 @@ export default function MapSection() {
           </p>
         </div>
 
-        {/* Country tab switcher */}
-        <div className="flex justify-center gap-2 mb-8 flex-wrap">
-          {countries.map((c) => (
-            <button
-              key={c}
-              onClick={() => setCountry(c)}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all border ${
-                country === c
-                  ? 'bg-brand text-white border-brand shadow-md'
-                  : 'border-gray-200 text-text-muted bg-white hover:border-brand hover:text-brand'
-              }`}
+        {/* ── Mobile carousel ── */}
+        <div className="lg:hidden">
+          <div
+            className="overflow-hidden"
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${mobileIdx * 100}%)` }}
             >
-              {c}
-            </button>
-          ))}
-        </div>
-
-        {/* Main layout: map + sidebar */}
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
-
-          {/* Map image panel */}
-          <div className="flex-1 min-w-0">
-            <div className="relative w-full rounded-2xl p-[4px] overflow-hidden shadow-xl">
-              {/* Rotating green bar border */}
-              <div
-                className="absolute inset-0 animate-[spin_3s_linear_infinite]"
-                style={{
-                  background:
-                    'conic-gradient(from 0deg, transparent 0deg, transparent 270deg, #1C3A2A 300deg, #3a7a52 335deg, #1C3A2A 355deg, transparent 360deg)',
-                }}
-              />
-              {/* Map content */}
-              <div className="relative rounded-[12px] overflow-hidden bg-[#f5f0e8] flex items-center justify-center p-4">
-                <Image
-                  key={country}
-                  src={maps[country]}
-                  alt={`${country} destinations map`}
-                  width={1400}
-                  height={1000}
-                  className="w-full h-auto"
-                  sizes="(max-width: 1024px) 100vw, 72vw"
-                  priority
-                />
-              </div>
-            </div>
-            {/* Caption */}
-            <p className="text-center text-xs text-text-muted mt-2 flex items-center justify-center gap-1.5">
-              <MapPin className="w-3 h-3" />
-              {country} — Map of Major Destinations
-            </p>
-          </div>
-
-          {/* Sidebar */}
-          <div className="w-full lg:w-64 flex-shrink-0">
-            {/* Country description */}
-            <div className="bg-light-green rounded-2xl p-4 mb-4 border border-brand/10">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="font-bold text-brand text-sm">{country}</span>
-              </div>
-              <p className="text-xs text-text-muted leading-relaxed">{countryDesc[country]}</p>
-            </div>
-
-            {/* Region list */}
-            <h3 className="font-semibold text-brand text-xs uppercase tracking-wider mb-2 px-1">
-              Top Regions
-            </h3>
-            <div className="space-y-1.5">
-              {sidebar[country].map((r) => (
-                <Link
-                  key={r.name}
-                  href={r.href}
-                  className="flex items-center gap-2.5 p-3 rounded-xl border border-gray-100 hover:border-brand hover:bg-light-green transition-all group"
-                >
-                  <span className="flex-1 text-sm font-medium text-brand leading-tight">{r.name}</span>
-                  <div className="flex items-center gap-1.5 flex-shrink-0">
-                    <span className="text-[10px] bg-brand/10 text-brand font-bold px-1.5 py-0.5 rounded-full">
-                      {r.pkg}
-                    </span>
-                    <ArrowRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-brand transition-colors" />
+              {countries.map((c) => (
+                <div key={c} className="flex-shrink-0 w-full">
+                  {/* Map image */}
+                  <div className="relative w-full rounded-2xl p-[4px] overflow-hidden shadow-xl mb-3">
+                    <div
+                      className="absolute inset-0 animate-[spin_3s_linear_infinite]"
+                      style={{
+                        background:
+                          'conic-gradient(from 0deg, transparent 0deg, transparent 270deg, #1C3A2A 300deg, #3a7a52 335deg, #1C3A2A 355deg, transparent 360deg)',
+                      }}
+                    />
+                    <div className="relative rounded-[12px] overflow-hidden bg-[#f5f0e8] flex items-center justify-center p-3">
+                      <Image
+                        src={maps[c]}
+                        alt={`${c} destinations map`}
+                        width={1400}
+                        height={1000}
+                        className="w-full h-auto"
+                        sizes="100vw"
+                        priority={c === 'Tanzania'}
+                      />
+                    </div>
                   </div>
-                </Link>
+
+                  {/* Caption */}
+                  <p className="text-center text-xs text-text-muted mb-4 flex items-center justify-center gap-1.5">
+                    <MapPin className="w-3 h-3" />
+                    {c} — Map of Major Destinations
+                  </p>
+
+                  {/* Country description */}
+                  <div className="bg-light-green rounded-2xl p-4 mb-4 border border-brand/10">
+                    <p className="font-bold text-brand text-sm mb-1">{c}</p>
+                    <p className="text-xs text-text-muted leading-relaxed">{countryDesc[c]}</p>
+                  </div>
+
+                  {/* Top regions (first 4) */}
+                  <h3 className="font-semibold text-brand text-xs uppercase tracking-wider mb-2 px-1">
+                    Top Regions
+                  </h3>
+                  <div className="space-y-1.5 mb-4">
+                    {sidebar[c].slice(0, 4).map((r) => (
+                      <Link
+                        key={r.name}
+                        href={r.href}
+                        className="flex items-center gap-2.5 p-3 rounded-xl border border-gray-100 hover:border-brand hover:bg-light-green transition-all group"
+                      >
+                        <span className="flex-1 text-sm font-medium text-brand leading-tight">{r.name}</span>
+                        <div className="flex items-center gap-1.5 flex-shrink-0">
+                          <span className="text-[10px] bg-brand/10 text-brand font-bold px-1.5 py-0.5 rounded-full">
+                            {r.pkg}
+                          </span>
+                          <ArrowRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-brand transition-colors" />
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <Link
+                    href={allLink[c]}
+                    className="flex items-center justify-center gap-2 px-4 py-3 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
+                  >
+                    All {c} Safaris
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               ))}
             </div>
+          </div>
 
-            {/* CTA */}
-            <Link
-              href={allLink[country]}
-              className="flex items-center justify-center gap-2 mt-4 px-4 py-3 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
-            >
-              All {country} Safaris
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+          {/* Dot indicators */}
+          <div className="flex justify-center items-center gap-2 mt-5">
+            {countries.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setMobileIdx(i)}
+                aria-label={`Go to ${countries[i]}`}
+                className={`rounded-full transition-all duration-300 ${
+                  i === mobileIdx
+                    ? 'w-5 h-2 bg-brand'
+                    : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
           </div>
         </div>
+
+        {/* ── Desktop layout (unchanged) ── */}
+        <div className="hidden lg:block">
+          {/* Country tab switcher */}
+          <div className="flex justify-center gap-2 mb-8 flex-wrap">
+            {countries.map((c) => (
+              <button
+                key={c}
+                onClick={() => setCountry(c)}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all border ${
+                  country === c
+                    ? 'bg-brand text-white border-brand shadow-md'
+                    : 'border-gray-200 text-text-muted bg-white hover:border-brand hover:text-brand'
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-6 items-start">
+            {/* Map image panel */}
+            <div className="flex-1 min-w-0">
+              <div className="relative w-full rounded-2xl p-[4px] overflow-hidden shadow-xl">
+                <div
+                  className="absolute inset-0 animate-[spin_3s_linear_infinite]"
+                  style={{
+                    background:
+                      'conic-gradient(from 0deg, transparent 0deg, transparent 270deg, #1C3A2A 300deg, #3a7a52 335deg, #1C3A2A 355deg, transparent 360deg)',
+                  }}
+                />
+                <div className="relative rounded-[12px] overflow-hidden bg-[#f5f0e8] flex items-center justify-center p-4">
+                  <Image
+                    key={country}
+                    src={maps[country]}
+                    alt={`${country} destinations map`}
+                    width={1400}
+                    height={1000}
+                    className="w-full h-auto"
+                    sizes="(max-width: 1024px) 100vw, 72vw"
+                    priority
+                  />
+                </div>
+              </div>
+              <p className="text-center text-xs text-text-muted mt-2 flex items-center justify-center gap-1.5">
+                <MapPin className="w-3 h-3" />
+                {country} — Map of Major Destinations
+              </p>
+            </div>
+
+            {/* Sidebar */}
+            <div className="w-full lg:w-64 flex-shrink-0">
+              <div className="bg-light-green rounded-2xl p-4 mb-4 border border-brand/10">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="font-bold text-brand text-sm">{country}</span>
+                </div>
+                <p className="text-xs text-text-muted leading-relaxed">{countryDesc[country]}</p>
+              </div>
+
+              <h3 className="font-semibold text-brand text-xs uppercase tracking-wider mb-2 px-1">
+                Top Regions
+              </h3>
+              <div className="space-y-1.5">
+                {sidebar[country].map((r) => (
+                  <Link
+                    key={r.name}
+                    href={r.href}
+                    className="flex items-center gap-2.5 p-3 rounded-xl border border-gray-100 hover:border-brand hover:bg-light-green transition-all group"
+                  >
+                    <span className="flex-1 text-sm font-medium text-brand leading-tight">{r.name}</span>
+                    <div className="flex items-center gap-1.5 flex-shrink-0">
+                      <span className="text-[10px] bg-brand/10 text-brand font-bold px-1.5 py-0.5 rounded-full">
+                        {r.pkg}
+                      </span>
+                      <ArrowRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-brand transition-colors" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              <Link
+                href={allLink[country]}
+                className="flex items-center justify-center gap-2 mt-4 px-4 py-3 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
+              >
+                All {country} Safaris
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   )
