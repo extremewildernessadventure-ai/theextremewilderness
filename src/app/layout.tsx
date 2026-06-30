@@ -52,6 +52,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
           <main className="flex-1 pb-16 lg:pb-0">{children}</main>
           <Footer />
+          {/* Spacer so the bottom tab bar doesn't overlay footer content on mobile */}
+          <div className="h-16 lg:hidden" aria-hidden="true" />
           <WhatsAppButton />
           <BottomNav />
         </Providers>

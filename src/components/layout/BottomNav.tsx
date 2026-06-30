@@ -43,7 +43,15 @@ export default function BottomNav() {
 
   return (
     <>
-      {/* Backdrop */}
+      <style>{`
+        @keyframes tew-sheet-up {
+          from { transform: translateY(100%); opacity: 0; }
+          to   { transform: translateY(0);    opacity: 1; }
+        }
+        .tew-sheet-enter { animation: tew-sheet-up 0.22s ease-out both; }
+      `}</style>
+
+      {/* Backdrop — only mounted when sheet is open */}
       {moreOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-[59] lg:hidden"
@@ -51,41 +59,39 @@ export default function BottomNav() {
         />
       )}
 
-      {/* Slide-up "More" sheet */}
-      <div
-        className={`fixed bottom-16 left-0 right-0 z-[60] lg:hidden bg-brand rounded-t-2xl border-t border-white/10 transition-transform duration-200 ease-out ${
-          moreOpen ? 'translate-y-0' : 'translate-y-full pointer-events-none'
-        }`}
-      >
-        <div className="p-5 pb-6">
-          <div className="flex items-center justify-between mb-5">
-            <span className="text-white/60 text-[11px] font-semibold uppercase tracking-widest">
-              More Sections
-            </span>
-            <button
-              onClick={close}
-              className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-              aria-label="Close"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3">
-            {moreItems.map(({ label, href, Icon }) => (
-              <Link
-                key={href}
-                href={href}
+      {/* "More" slide-up sheet — conditionally mounted so it never peeks through */}
+      {moreOpen && (
+        <div className="tew-sheet-enter fixed bottom-16 left-0 right-0 z-[60] lg:hidden bg-brand rounded-t-2xl border-t border-white/10 max-h-[75vh] overflow-y-auto">
+          <div className="p-5 pb-6">
+            <div className="flex items-center justify-between mb-5">
+              <span className="text-white/60 text-[11px] font-semibold uppercase tracking-widest">
+                More Sections
+              </span>
+              <button
                 onClick={close}
-                className="flex items-center gap-3 bg-white/10 hover:bg-white/20 active:bg-white/25 rounded-xl px-4 py-3 transition-colors"
+                className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                aria-label="Close"
               >
-                <Icon className="w-5 h-5 text-gold flex-shrink-0" />
-                <span className="text-white text-sm font-medium">{label}</span>
-              </Link>
-            ))}
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              {moreItems.map(({ label, href, Icon }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={close}
+                  className="flex items-center gap-3 bg-white/10 hover:bg-white/20 active:bg-white/25 rounded-xl px-4 py-3 transition-colors"
+                >
+                  <Icon className="w-5 h-5 text-gold flex-shrink-0" />
+                  <span className="text-white text-sm font-medium">{label}</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Bottom tab bar */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 lg:hidden h-16 bg-brand border-t border-white/10 flex items-stretch">
