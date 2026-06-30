@@ -158,7 +158,7 @@ export default async function SafariPackagePage({ params }: Props) {
                 <div className="text-2xl font-bold text-brand">${pkg.priceFrom.toLocaleString()}</div>
                 <div className="text-text-muted text-xs">per person · {pkg.duration} nights</div>
               </div>
-              <InquiryForm destination={pkg.name} />
+              <InquiryForm />
             </div>
           </div>
         </div>

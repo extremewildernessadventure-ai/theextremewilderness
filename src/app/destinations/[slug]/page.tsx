@@ -217,7 +217,7 @@ export default async function DestinationPage({ params }: Props) {
               Tell us your dream and we'll craft a custom itinerary within 24 hours.
             </p>
           </div>
-          <InquiryForm destination={dest.name} />
+          <InquiryForm />
         </div>
       </section>
     </>
