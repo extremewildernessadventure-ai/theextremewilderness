@@ -60,7 +60,7 @@ function DestCard({ dest }: { dest: (typeof featured)[number] }) {
   return (
     <Link
       href={dest.href}
-      className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand block ring-1 ring-gold/50"
+      className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand block"
     >
       <Image
         src={dest.image}
@@ -140,7 +140,7 @@ export default function DestinationCards() {
         {/* ── Mobile carousel (< 640px) ── */}
         <div className="sm:hidden">
           <div
-            className="overflow-hidden rounded-2xl"
+            className="overflow-hidden rounded-2xl border-[3px] border-gold"
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
           >
@@ -176,7 +176,9 @@ export default function DestinationCards() {
         {/* ── Desktop grid (unchanged) ── */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {featured.map((dest) => (
-            <DestCard key={dest.href} dest={dest} />
+            <div key={dest.href} className="rounded-2xl border-[3px] border-gold">
+              <DestCard dest={dest} />
+            </div>
           ))}
         </div>
 
