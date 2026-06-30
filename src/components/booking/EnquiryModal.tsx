@@ -6,6 +6,7 @@ import {
   Users, Wallet, Bed, MessageSquare, ChevronDown, Mountain, Tent,
 } from 'lucide-react'
 import { useBooking } from '@/context/BookingContext'
+import { useTranslations } from 'next-intl'
 
 // ─── Static Options ───────────────────────────────────────────────────────────
 
@@ -126,6 +127,7 @@ function Stepper({ label, sublabel, value, onChange, min = 0 }: {
 // ─── Main Modal ───────────────────────────────────────────────────────────────
 
 export default function EnquiryModal() {
+  const t = useTranslations('forms')
   const { isOpen, bookingInfo, closeBooking } = useBooking()
   const scrollRef = useRef<HTMLDivElement>(null)
 

@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
+import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import { Mail, Phone, MapPin } from 'lucide-react'
 
@@ -22,37 +23,37 @@ const socialIcons = {
   ),
 }
 
-const destinations = [
-  { label: 'Serengeti National Park', href: '/destinations/serengeti' },
-  { label: 'Ngorongoro Crater', href: '/destinations/ngorongoro' },
-  { label: 'Tarangire National Park', href: '/destinations/tarangire' },
-  { label: 'Zanzibar Island', href: '/destinations/zanzibar' },
-  { label: 'Masai Mara, Kenya', href: '/kenya' },
-  { label: 'Gorilla Trekking, Rwanda', href: '/rwanda' },
-]
+export default async function Footer() {
+  const t = await getTranslations('footer')
 
-const safaris = [
-  { label: '7 Days Serengeti & Ngorongoro', href: '/safaris/7-day-serengeti-ngorongoro' },
-  { label: '10 Days Northern Circuit', href: '/safaris/10-day-northern-circuit' },
-  { label: 'Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' },
-  { label: 'Kilimanjaro Machame Route', href: '/safaris/kilimanjaro-machame-7day' },
-  { label: 'Southern Circuit', href: '/safaris/7-day-southern-circuit' },
-]
+  const destinations = [
+    { label: 'Serengeti National Park', href: '/destinations/serengeti' },
+    { label: 'Ngorongoro Crater', href: '/destinations/ngorongoro' },
+    { label: 'Tarangire National Park', href: '/destinations/tarangire' },
+    { label: 'Zanzibar Island', href: '/destinations/zanzibar' },
+    { label: 'Masai Mara, Kenya', href: '/kenya' },
+    { label: 'Gorilla Trekking, Rwanda', href: '/rwanda' },
+  ] as const
 
-const company = [
-  { label: 'About Us', href: '/about' },
-  { label: 'Why Choose Us', href: '/about#why-us' },
-  { label: 'Our Guides', href: '/about#guides' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
-]
+  const safaris = [
+    { label: '7 Days Serengeti & Ngorongoro', href: '/safaris/7-day-serengeti-ngorongoro' },
+    { label: '10 Days Northern Circuit', href: '/safaris/10-day-northern-circuit' },
+    { label: 'Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' },
+    { label: 'Kilimanjaro Machame Route', href: '/safaris/kilimanjaro-machame-7day' },
+    { label: 'Southern Circuit', href: '/safaris/7-day-southern-circuit' },
+  ] as const
 
-export default function Footer() {
+  const company = [
+    { label: t('companyAbout'), href: '/about' },
+    { label: t('companyWhyUs'), href: '/about#why-us' },
+    { label: t('companyGuides'), href: '/about#guides' },
+    { label: t('companyBlog'), href: '/blog' },
+    { label: t('companyContact'), href: '/contact' },
+  ] as const
+
   return (
     <footer className="bg-brand text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Main footer — 5 columns on xl, tighter gap to fit */}
         <div className="py-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.6fr_1fr_1fr_0.8fr_1fr] gap-6 lg:gap-8 text-center md:text-left">
 
           {/* Brand column */}
@@ -66,9 +67,7 @@ export default function Footer() {
                 <div className="text-gold text-xs tracking-widest uppercase">Wilderness</div>
               </div>
             </div>
-            <p className="text-white/70 text-sm leading-relaxed mb-5">
-              Where the Wild Calls You Home. Tanzania-born and locally owned, crafting custom safaris since 2009.
-            </p>
+            <p className="text-white/70 text-sm leading-relaxed mb-5">{t('tagline')}</p>
             <div className="space-y-2 text-sm text-white/70">
               <div className="flex items-center gap-2 justify-center md:justify-start">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0" />
@@ -87,13 +86,13 @@ export default function Footer() {
               {([
                 { label: 'Instagram', href: 'https://www.instagram.com/extremewildernessadventure/' },
                 { label: 'Facebook',  href: 'https://www.facebook.com/theextremewilderness/' },
-                { label: 'YouTube',   href: '#' },
+                { label: 'YouTube',   href: 'https://www.youtube.com/@ExtremeWildernessAdventure' },
               ] as const).map(({ label, href }) => (
                 <a
                   key={label}
                   href={href}
-                  target={href !== '#' ? '_blank' : undefined}
-                  rel={href !== '#' ? 'noopener noreferrer' : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-9 h-9 bg-white/10 hover:bg-gold hover:text-brand rounded-lg flex items-center justify-center transition-colors"
                 >
@@ -105,7 +104,7 @@ export default function Footer() {
 
           {/* Destinations */}
           <div>
-            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">Destinations</h3>
+            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('destinations')}</h3>
             <ul className="space-y-2">
               {destinations.map((d) => (
                 <li key={d.href}>
@@ -119,7 +118,7 @@ export default function Footer() {
 
           {/* Safaris */}
           <div>
-            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">Safari Packages</h3>
+            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('safariPackages')}</h3>
             <ul className="space-y-2">
               {safaris.map((s) => (
                 <li key={s.href}>
@@ -133,7 +132,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">Company</h3>
+            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('company')}</h3>
             <ul className="space-y-2">
               {company.map((c) => (
                 <li key={c.href}>
@@ -147,7 +146,7 @@ export default function Footer() {
 
           {/* Membership / Affiliation */}
           <div>
-            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">Memberships &amp; Affiliations</h3>
+            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('memberships')}</h3>
             <div className="relative w-full h-28">
               <Image
                 src="/Route%20maps/membership.png"
@@ -165,8 +164,8 @@ export default function Footer() {
         <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/50">
           <p>© {new Date().getFullYear()} The Extreme Wilderness. All rights reserved.</p>
           <div className="flex gap-5">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">{t('privacy')}</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">{t('terms')}</Link>
           </div>
         </div>
       </div>

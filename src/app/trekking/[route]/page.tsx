@@ -86,9 +86,9 @@ const routeData: Record<string, RouteInfo> = {
     nickname: 'The Whiskey Route',
     heroImage: '/images/gallery/kilimanjaro.png',
     galleryImages: [
-      '/images/gallery/safari-120.jpg',
-      '/images/gallery/safari-125.jpg',
-      '/images/gallery/kilimanjaro%20(4).png',
+      '/images/gallery/machame1.jpg',
+      '/images/gallery/Barafu-Camp.jpg',
+      '/images/gallery/Uhuru-Peak.jpg',
     ],
     mapFile: 'machame.webp',
     difficulty: 'Hard',
@@ -208,9 +208,9 @@ const routeData: Record<string, RouteInfo> = {
     nickname: 'The Scenic Route',
     heroImage: '/images/gallery/kilimanjaro%20(4).png',
     galleryImages: [
-      '/images/gallery/safari-116.jpg',
-      '/images/gallery/kilimanjaro%20(1).png',
-      '/images/gallery/safari-110.jpg',
+      '/images/gallery/Lemosho.jpg',
+      '/images/gallery/Shira-1-Camp.jpeg',
+      '/images/gallery/Uhuru-Peak-1.jpg',
     ],
     mapFile: 'lemosho.webp',
     difficulty: 'Moderate',
@@ -350,9 +350,9 @@ const routeData: Record<string, RouteInfo> = {
     nickname: 'The Coca-Cola Route',
     heroImage: '/images/gallery/kilimanjaro%20(1).png',
     galleryImages: [
-      '/images/gallery/safari-120.jpg',
-      '/images/gallery/kilimanjaro.png',
-      '/images/gallery/safari-125.jpg',
+      '/images/gallery/marangu.jpg',
+      '/images/gallery/Horombo-Hut.png',
+      '/images/gallery/Uhuru-Peak-7.jpg',
     ],
     mapFile: 'marangu.webp',
     difficulty: 'Moderate',
@@ -462,9 +462,9 @@ const routeData: Record<string, RouteInfo> = {
     nickname: 'The Northern Approach',
     heroImage: '/images/gallery/kilimanjaro%20(2).png',
     galleryImages: [
-      '/images/gallery/safari-116.jpg',
-      '/images/gallery/kilimanjaro%20(3).png',
-      '/images/gallery/safari-110.jpg',
+      '/images/gallery/rongai-1.jpg',
+      '/images/gallery/Moir-Hut.jpg',
+      '/images/gallery/Uhuru-Peak.jpg',
     ],
     mapFile: 'rongai.webp',
     difficulty: 'Easy–Moderate',
@@ -584,9 +584,9 @@ const routeData: Record<string, RouteInfo> = {
     nickname: 'The Direct Route',
     heroImage: '/images/gallery/kilimanjaro%20(3).png',
     galleryImages: [
-      '/images/gallery/safari-125.jpg',
-      '/images/gallery/kilimanjaro%20(4).png',
-      '/images/gallery/safari-120.jpg',
+      '/images/gallery/Umbwe-Route.jpg',
+      '/images/gallery/Barranco-Camp.jpg',
+      '/images/gallery/Uhuru-Peak-1.jpg',
     ],
     mapFile: 'umbwe.webp',
     difficulty: 'Very Hard',
@@ -707,7 +707,7 @@ const routeData: Record<string, RouteInfo> = {
     heroImage: '/images/gallery/kilimanjaro%20(5).png',
     galleryImages: [
       '/images/gallery/kilimanjaro%20(2).png',
-      '/images/gallery/safari-110.jpg',
+      '/images/gallery/Moir-Hut-2.jpg',
       '/images/gallery/kilimanjaro%20(1).png',
     ],
     mapFile: 'northern-circuit.webp',
@@ -912,14 +912,7 @@ export default async function RouteDetailPage({
 
         <div className="relative z-10 w-full pb-12 pt-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-white/60 text-sm mb-6">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              <span>/</span>
-              <Link href="/trekking" className="hover:text-white transition-colors">Trekking</Link>
-              <span>/</span>
-              <span className="text-white">{data.name}</span>
-            </nav>
+
 
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
               <div>

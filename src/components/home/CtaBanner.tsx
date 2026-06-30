@@ -1,4 +1,7 @@
-import Link from 'next/link'
+'use client'
+
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { ArrowRight, Mail } from 'lucide-react'
 import NewsletterForm from './NewsletterForm'
 
@@ -16,9 +19,10 @@ const FbIcon = () => (
 )
 
 export default function CtaBanner() {
+  const t = useTranslations('home')
+
   return (
     <section className="py-20 bg-brand relative overflow-hidden">
-      {/* Decorative orbs */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-0 left-0 w-96 h-96 bg-gold rounded-full -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold rounded-full translate-x-1/2 translate-y-1/2" />
@@ -27,59 +31,52 @@ export default function CtaBanner() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* ── Left: CTA ── */}
           <div className="text-center lg:text-left">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-4">
-              Ready to go?
+              {t('readyToGo')}
             </span>
             <h2 className="text-3xl lg:text-5xl font-semibold text-white mb-4">
-              Your Safari Starts Here
+              {t('yourSafariStartsHere')}
             </h2>
             <p className="text-white/70 text-lg mb-10">
-              Tell us your dream. We'll design a tailor-made safari around you —
-              your dates, your budget, your bucket list.
+              {t('ctaDesc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors"
               >
-                Plan My Safari <ArrowRight className="w-4 h-4" />
+                {t('exploreDest')} <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/safaris"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors"
               >
-                Browse Packages
+                {t('browsePackages')}
               </Link>
             </div>
-            <p className="text-white/40 text-xs mt-6">
-              Average response time: under 2 hours · No commitment required
-            </p>
+            <p className="text-white/40 text-xs mt-6">{t('responseTimeNote')}</p>
           </div>
 
-          {/* ── Right: Newsletter ── */}
           <div className="lg:border-l lg:border-white/10 lg:pl-16">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
                 <Mail className="w-4 h-4 text-gold" />
               </div>
               <span className="text-gold font-semibold text-xs uppercase tracking-widest">
-                Stay Inspired
+                {t('stayInspired')}
               </span>
             </div>
             <h3 className="text-white font-semibold text-2xl lg:text-3xl mb-2">
-              The Wilderness Edit
+              {t('wildernessEdit')}
             </h3>
             <p className="text-white/60 text-sm mb-7 leading-relaxed">
-              Safari tips, wildlife spotting guides, monthly travel inspiration
-              and exclusive early-bird deals — delivered straight to your inbox.
+              {t('newsletterDesc')}
             </p>
             <NewsletterForm dark={true} />
 
-            {/* Follow us */}
             <div className="mt-5 pt-4 border-t border-white/10 flex items-center gap-3">
-              <span className="text-white/40 text-xs uppercase tracking-wider shrink-0">Follow us</span>
+              <span className="text-white/40 text-xs uppercase tracking-wider shrink-0">{t('followUs')}</span>
               <a
                 href="https://www.instagram.com/extremewildernessadventure/"
                 target="_blank"

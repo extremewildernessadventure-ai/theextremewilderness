@@ -85,14 +85,7 @@ export default function PrivacyPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-white/50 text-xs mb-6">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-white/30">Legal</span>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-gold">Privacy Policy</span>
-          </nav>
+
 
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full text-white/70 text-xs mb-5">

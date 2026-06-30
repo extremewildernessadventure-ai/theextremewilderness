@@ -1,3 +1,7 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
+
 const months = [
   { name: 'Jan', rating: 4, bestFor: ['Zanzibar', 'Serengeti calving'] },
   { name: 'Feb', rating: 5, bestFor: ['Calving season', 'Ngorongoro'] },
@@ -33,12 +37,12 @@ const kiliData = [
   { name: 'Dec', rating: 4, note: 'Dry again, scenic snowy summit' },
 ]
 
-function ratingLabel(r: number) {
-  if (r >= 5) return 'Peak'
-  if (r === 4) return 'Great'
-  if (r === 3) return 'Good'
-  if (r === 2) return 'Low'
-  return 'Avoid'
+function ratingLabel(r: number, t: (key: string) => string) {
+  if (r >= 5) return t('peak')
+  if (r === 4) return t('great')
+  if (r === 3) return t('good')
+  if (r === 2) return t('low')
+  return t('avoid')
 }
 
 function safariBarColor(r: number) {
@@ -58,19 +62,21 @@ function kiliBarColor(r: number) {
 }
 
 export default function TravelByMonth() {
+  const t = useTranslations('home')
+
   return (
     <section className="py-20 bg-light-green">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-12">
           <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-            Plan Your Timing
+            {t('planTiming')}
           </span>
           <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-4">
-            When to Safari in East Africa
+            {t('whenToSafari')}
           </h2>
           <p className="text-text-muted max-w-xl mx-auto text-sm">
-            Every month offers something special — here's your guide to timing your visit perfectly.
+            {t('timingDesc')}
           </p>
         </div>
 
@@ -94,7 +100,7 @@ export default function TravelByMonth() {
                       : 'bg-gray-100 text-text-muted'
                   }`}
                 >
-                  {ratingLabel(month.rating)}
+                  {ratingLabel(month.rating, t)}
                 </span>
               </div>
 
@@ -125,7 +131,7 @@ export default function TravelByMonth() {
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
             <div className="mb-4">
               <span className="text-gold font-semibold text-xs uppercase tracking-widest">
-                Great Migration Tracker
+                {t('migrationTracker')}
               </span>
               <p className="text-xs text-text-muted mt-0.5">Approximate herd activity &amp; location by month</p>
             </div>
@@ -135,7 +141,7 @@ export default function TravelByMonth() {
                 <div key={month.name} className="flex-1 flex flex-col items-center gap-1.5">
                   <div
                     className={`w-full rounded h-8 transition-colors ${safariBarColor(month.rating)}`}
-                    title={`${month.name}: ${ratingLabel(month.rating)} season`}
+                    title={`${month.name}: ${ratingLabel(month.rating, t)} season`}
                   />
                   <span className="text-xs text-text-muted">{month.name}</span>
                 </div>
@@ -173,7 +179,7 @@ export default function TravelByMonth() {
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
             <div className="mb-4">
               <span className="text-gold font-semibold text-xs uppercase tracking-widest">
-                Kilimanjaro Trekking Tracker
+                {t('kiliTracker')}
               </span>
               <p className="text-xs text-text-muted mt-0.5">Summit success likelihood &amp; trail conditions by month</p>
             </div>

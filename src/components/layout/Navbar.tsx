@@ -1,67 +1,40 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 import { ChevronDown } from 'lucide-react'
-
-const navLinks = [
-  {
-    label: 'Destinations',
-    href: '/destinations',
-    children: [
-      {
-        label: 'Tanzania',
-        href: '/tanzania',
-        flag: '🇹🇿',
-        desc: 'Serengeti · Ngorongoro · Zanzibar',
-      },
-      {
-        label: 'Kenya',
-        href: '/kenya',
-        flag: '🇰🇪',
-        desc: 'Masai Mara · Amboseli · Tsavo',
-      },
-      {
-        label: 'Rwanda',
-        href: '/rwanda',
-        flag: '🇷🇼',
-        desc: 'Volcanoes NP · Gorilla Trekking',
-      },
-    ],
-  },
-  {
-    label: 'Safaris',
-    href: '/safaris',
-    children: [
-      {
-        label: 'Tanzania Safaris',
-        href: '/safaris',
-        flag: '🇹🇿',
-        desc: 'Wildlife · Migration · Beach & Safari',
-      },
-      {
-        label: 'Kenya Safaris',
-        href: '/kenya',
-        flag: '🇰🇪',
-        desc: 'Big Cat Country · Masai Mara',
-      },
-      {
-        label: 'Rwanda Safaris',
-        href: '/rwanda',
-        flag: '🇷🇼',
-        desc: 'Gorilla Trekking · Nyungwe',
-      },
-    ],
-  },
-  { label: 'Experiences', href: '/experiences' },
-  { label: 'Itineraries', href: '/itineraries' },
-  { label: 'Trekking', href: '/trekking' },
-  { label: 'About', href: '/about' },
-]
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Navbar() {
+  const t = useTranslations('nav')
   const [scrolled, setScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+
+  const navLinks = [
+    {
+      label: t('destinations'),
+      href: '/destinations' as const,
+      children: [
+        { label: t('tanzania'), href: '/tanzania' as const, flag: '🇹🇿', desc: 'Serengeti · Ngorongoro · Zanzibar' },
+        { label: t('kenya'), href: '/kenya' as const, flag: '🇰🇪', desc: 'Masai Mara · Amboseli · Tsavo' },
+        { label: t('rwanda'), href: '/rwanda' as const, flag: '🇷🇼', desc: 'Volcanoes NP · Gorilla Trekking' },
+      ],
+    },
+    {
+      label: t('safaris'),
+      href: '/safaris' as const,
+      children: [
+        { label: t('tanzaniaSafaris'), href: '/safaris' as const, flag: '🇹🇿', desc: 'Wildlife · Migration · Beach & Safari' },
+        { label: t('kenyaSafaris'), href: '/kenya' as const, flag: '🇰🇪', desc: 'Big Cat Country · Masai Mara' },
+        { label: t('rwandaSafaris'), href: '/rwanda' as const, flag: '🇷🇼', desc: 'Gorilla Trekking · Nyungwe' },
+      ],
+    },
+    { label: t('experiences'), href: '/experiences' as const },
+    { label: t('itineraries'), href: '/itineraries' as const },
+    { label: t('trekking'), href: '/trekking' as const },
+    { label: t('about'), href: '/about' as const },
+  ]
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40)
@@ -133,9 +106,11 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Social icons + CTA */}
+          {/* Language switcher + Social + CTA */}
           <div className="flex items-center gap-3">
-            {/* Instagram */}
+            <div className="hidden lg:flex">
+              <LanguageSwitcher />
+            </div>
             <a
               href="https://www.instagram.com/extremewildernessadventure/"
               target="_blank"
@@ -149,7 +124,6 @@ export default function Navbar() {
                 <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
               </svg>
             </a>
-            {/* Facebook */}
             <a
               href="https://www.facebook.com/theextremewilderness/"
               target="_blank"
@@ -165,12 +139,11 @@ export default function Navbar() {
               href="/contact"
               className="hidden sm:inline-flex items-center px-5 py-2.5 bg-gold hover:bg-gold-dark text-brand font-semibold text-sm rounded-lg transition-colors"
             >
-              Plan My Safari
+              {t('cta')}
             </Link>
           </div>
         </div>
       </div>
-
     </header>
   )
 }

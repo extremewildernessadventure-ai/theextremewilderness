@@ -2,13 +2,13 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import { packages } from '@/data/packages'
 
-// Defined outside so React never remounts it as a new component type
-function PackageCard({ pkg }: { pkg: (typeof packages)[number] }) {
+function PackageCard({ pkg, tc }: { pkg: (typeof packages)[number]; tc: ReturnType<typeof useTranslations> }) {
   return (
     <Link
       href={`/safaris/${pkg.slug}`}
@@ -27,10 +27,10 @@ function PackageCard({ pkg }: { pkg: (typeof packages)[number] }) {
             <Badge
               label={
                 pkg.badge === 'bestseller'
-                  ? 'Bestseller'
+                  ? tc('bestseller')
                   : pkg.badge === 'new'
-                  ? 'New'
-                  : 'Popular'
+                  ? tc('new')
+                  : tc('popular')
               }
             />
           </div>
@@ -45,15 +45,15 @@ function PackageCard({ pkg }: { pkg: (typeof packages)[number] }) {
         <div className="flex flex-wrap gap-3 text-xs text-text-muted mb-4">
           <span className="flex items-center gap-1">
             <Clock className="w-3.5 h-3.5" />
-            {pkg.duration} nights
+            {pkg.duration} {tc('nights')}
           </span>
           <span className="flex items-center gap-1">
             <MapPin className="w-3.5 h-3.5" />
-            {pkg.destinations.length} destinations
+            {pkg.destinations.length} {tc('parks')}
           </span>
           <span className="flex items-center gap-1">
             <Users className="w-3.5 h-3.5" />
-            {pkg.groupSize.min}–{pkg.groupSize.max} pax
+            {pkg.groupSize.min}–{pkg.groupSize.max} {tc('pax')}
           </span>
         </div>
 
@@ -68,14 +68,12 @@ function PackageCard({ pkg }: { pkg: (typeof packages)[number] }) {
 
         <div className="flex items-center justify-between pt-3 border-t border-gray-100">
           <div>
-            <span className="text-xs text-text-muted">From</span>
-            <span className="ml-1 text-brand font-bold text-lg">
-              ${pkg.priceFrom.toLocaleString()}
-            </span>
-            <span className="text-xs text-text-muted"> / person</span>
+            <span className="text-xs text-text-muted">{tc('from')}</span>
+            <span className="ml-1 text-brand font-bold text-lg">${pkg.priceFrom.toLocaleString()}</span>
+            <span className="text-xs text-text-muted"> / {tc('perPerson').split(' ')[0]}</span>
           </div>
           <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">
-            View package <ArrowRight className="w-3.5 h-3.5" />
+            {tc('viewPackage')} <ArrowRight className="w-3.5 h-3.5" />
           </span>
         </div>
       </div>
@@ -84,11 +82,13 @@ function PackageCard({ pkg }: { pkg: (typeof packages)[number] }) {
 }
 
 export default function FeaturedPackages() {
+  const t = useTranslations('home')
+  const tc = useTranslations('common')
+
   const featured = packages.slice(0, 4)
   const [active, setActive] = useState(0)
   const touchX = useRef(0)
 
-  // Reset interval whenever active changes so manual swipes restart the timer
   useEffect(() => {
     const id = setInterval(
       () => setActive((i) => (i + 1) % featured.length),
@@ -100,9 +100,7 @@ export default function FeaturedPackages() {
   const prev = () => setActive((i) => (i - 1 + featured.length) % featured.length)
   const next = () => setActive((i) => (i + 1) % featured.length)
 
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchX.current = e.touches[0].clientX
-  }
+  const onTouchStart = (e: React.TouchEvent) => { touchX.current = e.touches[0].clientX }
   const onTouchEnd = (e: React.TouchEvent) => {
     const delta = touchX.current - e.changedTouches[0].clientX
     if (delta > 50) next()
@@ -115,21 +113,21 @@ export default function FeaturedPackages() {
         <div className="flex items-end justify-between mb-10">
           <div>
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-              Safari Packages
+              {t('safariPackages')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand">
-              Our Most Popular Safaris
+              {t('mostPopularSafaris')}
             </h2>
           </div>
           <Link
             href="/safaris"
             className="hidden sm:flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-secondary transition-colors"
           >
-            All packages <ArrowRight className="w-4 h-4" />
+            {tc('allPackages')} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
-        {/* ── Mobile carousel (single card, swipeable) ── */}
+        {/* Mobile carousel */}
         <div className="md:hidden">
           <div
             className="overflow-hidden rounded-2xl"
@@ -142,33 +140,30 @@ export default function FeaturedPackages() {
             >
               {featured.map((pkg) => (
                 <div key={pkg.slug} className="flex-shrink-0 w-full">
-                  <PackageCard pkg={pkg} />
+                  <PackageCard pkg={pkg} tc={tc} />
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Dot indicators */}
           <div className="flex justify-center items-center gap-2 mt-4">
             {featured.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
-                aria-label={`Go to slide ${i + 1}`}
+                aria-label={tc('goToSlide', { n: i + 1 })}
                 className={`rounded-full transition-all duration-300 ${
-                  i === active
-                    ? 'w-5 h-2 bg-brand'
-                    : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
+                  i === active ? 'w-5 h-2 bg-brand' : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
                 }`}
               />
             ))}
           </div>
         </div>
 
-        {/* ── Desktop grid (unchanged) ── */}
+        {/* Desktop grid */}
         <div className="hidden md:grid md:grid-cols-2 gap-6">
           {featured.map((pkg) => (
-            <PackageCard key={pkg.slug} pkg={pkg} />
+            <PackageCard key={pkg.slug} pkg={pkg} tc={tc} />
           ))}
         </div>
 
@@ -177,7 +172,7 @@ export default function FeaturedPackages() {
             href="/safaris"
             className="inline-flex items-center gap-2 px-7 py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-secondary transition-colors"
           >
-            View All Packages <ArrowRight className="w-4 h-4" />
+            {t('viewAllPackages')} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

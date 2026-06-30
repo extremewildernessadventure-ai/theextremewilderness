@@ -18,11 +18,7 @@ export default function BlogPage() {
     <>
       <section className="pt-28 pb-12 bg-brand">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="text-white/50 text-sm mb-6">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-white">Blog</span>
-          </nav>
+
           <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-4">
             Safari <span className="text-gold">Journal</span>
           </h1>

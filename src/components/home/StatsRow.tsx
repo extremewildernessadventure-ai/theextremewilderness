@@ -1,13 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-
-const stats = [
-  { value: 1200, suffix: '+', label: 'Safaris Delivered' },
-  { value: 15, suffix: '+', label: 'Years Experience' },
-  { value: 10, suffix: '', label: 'Tanzania Regions' },
-  { value: 98, suffix: '%', label: 'Satisfaction Rate' },
-]
+import { useTranslations } from 'next-intl'
 
 function useCountUp(target: number, duration = 1800, started: boolean) {
   const [count, setCount] = useState(0)
@@ -29,7 +23,7 @@ function useCountUp(target: number, duration = 1800, started: boolean) {
   return count
 }
 
-function StatCard({ value, suffix, label }: (typeof stats)[0]) {
+function StatCard({ value, suffix, label }: { value: number; suffix: string; label: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const [started, setStarted] = useState(false)
   const count = useCountUp(value, 1800, started)
@@ -54,6 +48,15 @@ function StatCard({ value, suffix, label }: (typeof stats)[0]) {
 }
 
 export default function StatsRow() {
+  const t = useTranslations('home')
+
+  const stats = [
+    { value: 1200, suffix: '+', label: t('safarisDelivered') },
+    { value: 15, suffix: '+', label: t('yearsExperience') },
+    { value: 10, suffix: '', label: t('tanzaniaRegions') },
+    { value: 98, suffix: '%', label: t('satisfactionRate') },
+  ]
+
   return (
     <section className="bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

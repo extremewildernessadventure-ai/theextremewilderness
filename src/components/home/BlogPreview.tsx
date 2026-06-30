@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 import { Calendar, Clock, ArrowRight } from 'lucide-react'
 
 const posts = [
@@ -36,6 +37,9 @@ const posts = [
 ]
 
 export default function BlogPreview() {
+  const t = useTranslations('home')
+  const tc = useTranslations('common')
+
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,17 +47,17 @@ export default function BlogPreview() {
         <div className="flex items-end justify-between mb-10">
           <div>
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-              From the Bush
+              {t('fromTheBush')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand">
-              Stories, Tips &amp; Wildlife Insights
+              {t('storiesTips')}
             </h2>
           </div>
           <Link
             href="/blog"
             className="hidden sm:flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-secondary transition-colors"
           >
-            All articles <ArrowRight className="w-4 h-4" />
+            {tc('viewAll')} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -99,7 +103,7 @@ export default function BlogPreview() {
                     </span>
                   </div>
                   <span className="text-xs font-semibold text-gold group-hover:underline">
-                    Read more &rarr;
+                    {tc('readMore')} &rarr;
                   </span>
                 </div>
               </div>
@@ -113,7 +117,7 @@ export default function BlogPreview() {
             href="/blog"
             className="inline-flex items-center gap-2 text-sm font-semibold text-brand"
           >
-            View all articles <ArrowRight className="w-4 h-4" />
+            {tc('viewAll')} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

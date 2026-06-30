@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 import {
   Home,
   Compass,
@@ -30,19 +30,20 @@ const FbIcon = () => (
   </svg>
 )
 
-const moreItems = [
-  { label: 'Destinations', href: '/destinations', Icon: MapPin },
-  { label: 'Tanzania',     href: '/tanzania',     Icon: Globe },
-  { label: 'Kenya',        href: '/kenya',        Icon: Globe },
-  { label: 'Rwanda',       href: '/rwanda',       Icon: Globe },
-  { label: 'Experiences',  href: '/experiences',  Icon: Sparkles },
-  { label: 'Itineraries',  href: '/itineraries',  Icon: List },
-  { label: 'About',        href: '/about',        Icon: Info },
-]
-
 export default function BottomNav() {
+  const t = useTranslations('bottomNav')
   const [moreOpen, setMoreOpen] = useState(false)
   const pathname = usePathname()
+
+  const moreItems = [
+    { label: t('destinations'), href: '/destinations' as const, Icon: MapPin },
+    { label: t('tanzania'),     href: '/tanzania' as const,     Icon: Globe },
+    { label: t('kenya'),        href: '/kenya' as const,        Icon: Globe },
+    { label: t('rwanda'),       href: '/rwanda' as const,       Icon: Globe },
+    { label: t('experiences'),  href: '/experiences' as const,  Icon: Sparkles },
+    { label: t('itineraries'),  href: '/itineraries' as const,  Icon: List },
+    { label: t('about'),        href: '/about' as const,        Icon: Info },
+  ]
 
   const isActive = (path: string) =>
     path === '/' ? pathname === '/' : pathname.startsWith(path)
@@ -54,7 +55,6 @@ export default function BottomNav() {
 
   const close = () => setMoreOpen(false)
 
-  // Close sheet whenever the route changes (handles <Link> client-side navigation)
   useEffect(() => { setMoreOpen(false) }, [pathname])
 
   return (
@@ -67,7 +67,6 @@ export default function BottomNav() {
         .tew-sheet-enter { animation: tew-sheet-up 0.22s ease-out both; }
       `}</style>
 
-      {/* Backdrop — only mounted when sheet is open */}
       {moreOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-[59] lg:hidden"
@@ -75,13 +74,12 @@ export default function BottomNav() {
         />
       )}
 
-      {/* "More" slide-up sheet — conditionally mounted so it never peeks through */}
       {moreOpen && (
         <div className="tew-sheet-enter fixed bottom-16 left-0 right-0 z-[60] lg:hidden bg-brand rounded-t-2xl border-t border-white/10 max-h-[75vh] overflow-y-auto">
           <div className="p-5 pb-6">
             <div className="flex items-center justify-between mb-5">
               <span className="text-white/60 text-[11px] font-semibold uppercase tracking-widest">
-                More Sections
+                {t('moreSections')}
               </span>
               <button
                 onClick={close}
@@ -105,9 +103,8 @@ export default function BottomNav() {
               ))}
             </div>
 
-            {/* Social links */}
             <div className="mt-4 pt-4 border-t border-white/10 flex items-center gap-3">
-              <span className="text-white/40 text-xs uppercase tracking-wider">Follow us</span>
+              <span className="text-white/40 text-xs uppercase tracking-wider">{t('followUs')}</span>
               <a
                 href="https://www.instagram.com/extremewildernessadventure/"
                 target="_blank"
@@ -133,27 +130,22 @@ export default function BottomNav() {
         </div>
       )}
 
-      {/* Bottom tab bar */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 lg:hidden h-16 bg-brand border-t border-white/10 flex items-stretch">
-        {/* Home */}
         <Link href="/" className={tabCls(isActive('/'))}>
           <Home className="w-5 h-5" />
-          <span>Home</span>
+          <span>{t('home')}</span>
         </Link>
 
-        {/* Safaris */}
         <Link href="/safaris" className={tabCls(isActive('/safaris'))}>
           <Compass className="w-5 h-5" />
-          <span>Safaris</span>
+          <span>{t('safaris')}</span>
         </Link>
 
-        {/* Trekking */}
         <Link href="/trekking" className={tabCls(isActive('/trekking'))}>
           <Mountain className="w-5 h-5" />
-          <span>Trekking</span>
+          <span>{t('trekking')}</span>
         </Link>
 
-        {/* Plan My Safari — gold CTA pill */}
         <Link
           href="/contact"
           className={`flex-1 flex flex-col items-center justify-center gap-1 text-[10px] font-medium transition-colors ${
@@ -163,17 +155,16 @@ export default function BottomNav() {
           <div className="bg-gold rounded-full p-1.5">
             <CalendarDays className="w-4 h-4 text-brand" />
           </div>
-          <span>Plan</span>
+          <span>{t('plan')}</span>
         </Link>
 
-        {/* More */}
         <button
           onClick={() => setMoreOpen((o) => !o)}
           className={tabCls(moreOpen)}
           aria-label="More"
         >
           <Grid2x2 className="w-5 h-5" />
-          <span>More</span>
+          <span>{t('more')}</span>
         </button>
       </nav>
     </>

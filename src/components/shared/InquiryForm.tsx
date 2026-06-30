@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { Send, Check, ChevronDown } from 'lucide-react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 // ─── Shared option lists (mirrors EnquiryModal exactly) ──────────────────────
 
@@ -93,6 +94,7 @@ interface InquiryFormProps {
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function InquiryForm({ tripType }: InquiryFormProps) {
+  const t = useTranslations('forms')
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [privacyAgreed, setPrivacyAgreed] = useState(false)

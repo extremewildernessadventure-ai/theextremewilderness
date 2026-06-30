@@ -106,7 +106,7 @@ const extra = [
     name: 'Kilimanjaro Machame Route',
     duration: 7,
     priceFrom: 2100,
-    image: '/images/gallery/safari-030.jpg',
+    image: '/images/gallery/kilimanjaro.png',
     destinations: ['Tanzania — Kilimanjaro NP (Machame → Uhuru Peak)'],
     badge: null,
   },

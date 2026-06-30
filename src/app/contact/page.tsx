@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Clock, ChevronRight, Star, Award, MessageCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, Star, Award, MessageCircle } from 'lucide-react'
 import InquiryForm from '@/components/shared/InquiryForm'
 
 export const metadata: Metadata = {
@@ -54,11 +54,7 @@ export default function ContactPage() {
 
         {/* Left: text */}
         <div className="relative z-10 flex flex-col justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 pt-32 pb-16 lg:py-28">
-          <nav className="flex items-center gap-1.5 text-white/40 text-xs mb-8">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-gold">Contact</span>
-          </nav>
+
 
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">Get In Touch</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">

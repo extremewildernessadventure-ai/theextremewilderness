@@ -2,66 +2,63 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 import { ArrowRight } from 'lucide-react'
 
 const featured = [
   {
+    name: 'Masai Mara, Kenya',
+    href: '/kenya',
+    image: '/images/gallery/maasai-mara.jpg',
+    packages: 2,
+    wildlife: 'Great Migration Crossings · Lion · Cheetah',
+    heat: 5,
+  },
+  {
     name: 'Serengeti National Park',
     href: '/destinations/serengeti',
-    image: 'https://placehold.co/600x400/1C3A2A/D4A853?text=Serengeti',
-    packages: 24,
+    image: '/images/gallery/Serengeti-National-park.jpg',
+    packages: 18,
     wildlife: 'Lion · Leopard · Wildebeest · Elephant',
     heat: 5,
   },
   {
-    name: 'Ngorongoro Crater',
-    href: '/destinations/ngorongoro',
-    image: 'https://placehold.co/600x400/1C3A2A/D4A853?text=Ngorongoro',
-    packages: 18,
-    wildlife: 'Big Five · Flamingo · Hyena',
+    name: 'Volcanoes National Park',
+    href: '/destinations/volcanoes',
+    image: '/images/gallery/Volcanoes%20NP.png',
+    packages: 2,
+    wildlife: 'Mountain Gorilla · Golden Monkey · Elephant',
+    heat: 5,
+  },
+  {
+    name: 'Kilimanjaro',
+    image: '/images/gallery/kilimanjaro.png',
+    packages: 6,
+    wildlife: "Africa's Highest Peak · 5,895m",
     heat: 5,
   },
   {
     name: 'Zanzibar Island',
     href: '/destinations/zanzibar',
-    image: 'https://placehold.co/600x400/1C3A2A/D4A853?text=Zanzibar',
-    packages: 10,
+    image: '/images/gallery/zanzibar-1.jpg',
+    packages: 4,
     wildlife: 'Dolphins · Turtles · Colobus Monkey',
     heat: 4,
   },
   {
-    name: 'Tarangire National Park',
-    href: '/destinations/tarangire',
-    image: 'https://placehold.co/600x400/1C3A2A/D4A853?text=Tarangire',
-    packages: 12,
-    wildlife: 'Elephant · Lion · Baobab · 550 Birds',
+    name: 'Mombasa',
+    href: '/destinations/kenyan-coast',
+    image: '/images/gallery/mombasa.png',
+    packages: 2,
+    wildlife: 'White Sand Beaches · Coral Reefs · Swahili Culture',
     heat: 4,
-  },
-  {
-    name: 'Masai Mara, Kenya',
-    href: '/kenya/masai-mara',
-    image: 'https://placehold.co/600x400/1C3A2A/D4A853?text=Masai+Mara',
-    packages: 8,
-    wildlife: 'Great Migration Crossings · Lion · Cheetah',
-    heat: 5,
-  },
-  {
-    name: 'Kilimanjaro',
-    href: '/trekking/kilimanjaro',
-    image: 'https://placehold.co/600x400/1C3A2A/D4A853?text=Kilimanjaro',
-    packages: 6,
-    wildlife: "Africa's Highest Peak · 5,895m",
-    heat: 5,
   },
 ]
 
 function DestCard({ dest }: { dest: (typeof featured)[number] }) {
-  return (
-    <Link
-      href={dest.href}
-      className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand block"
-    >
+  const inner = (
+    <>
       <Image
         src={dest.image}
         alt={dest.name}
@@ -82,17 +79,37 @@ function DestCard({ dest }: { dest: (typeof featured)[number] }) {
             {dest.name}
           </h3>
           <p className="text-white/65 text-xs mt-1 line-clamp-1">{dest.wildlife}</p>
-          {/* Always visible on mobile (no hover); hover-only on desktop */}
-          <div className="flex items-center gap-1 mt-2 text-gold text-xs font-semibold sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-            Explore <ArrowRight className="w-3 h-3" />
-          </div>
+          {dest.href && (
+            <div className="flex items-center gap-1 mt-2 text-gold text-xs font-semibold sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+              Explore <ArrowRight className="w-3 h-3" />
+            </div>
+          )}
         </div>
       </div>
-    </Link>
+    </>
+  )
+
+  if (dest.href) {
+    return (
+      <Link
+        href={dest.href}
+        className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand block"
+      >
+        {inner}
+      </Link>
+    )
+  }
+
+  return (
+    <div className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-brand">
+      {inner}
+    </div>
   )
 }
 
 export default function DestinationCards() {
+  const t = useTranslations('home')
+  const tc = useTranslations('common')
   const [active, setActive] = useState(0)
   const touchX = useRef(0)
 
@@ -123,17 +140,17 @@ export default function DestinationCards() {
         <div className="flex items-end justify-between mb-10">
           <div>
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-              Top Destinations
+              {t('topDestinations')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand">
-              Explore East Africa
+              {t('exploreEastAfrica')}
             </h2>
           </div>
           <Link
             href="/destinations"
             className="hidden sm:flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-secondary transition-colors"
           >
-            All destinations <ArrowRight className="w-4 h-4" />
+            {tc('allDestinations')} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
@@ -149,7 +166,7 @@ export default function DestinationCards() {
               style={{ transform: `translateX(-${active * 100}%)` }}
             >
               {featured.map((dest) => (
-                <div key={dest.href} className="flex-shrink-0 w-full">
+                <div key={dest.name} className="flex-shrink-0 w-full">
                   <DestCard dest={dest} />
                 </div>
               ))}
@@ -176,7 +193,7 @@ export default function DestinationCards() {
         {/* ── Desktop grid (unchanged) ── */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {featured.map((dest) => (
-            <div key={dest.href} className="rounded-2xl border-[3px] border-gold">
+            <div key={dest.name} className="rounded-2xl border-[3px] border-gold">
               <DestCard dest={dest} />
             </div>
           ))}
@@ -187,7 +204,7 @@ export default function DestinationCards() {
             href="/destinations"
             className="inline-flex items-center gap-2 text-sm font-semibold text-brand"
           >
-            All destinations <ArrowRight className="w-4 h-4" />
+            {tc('allDestinations')} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>

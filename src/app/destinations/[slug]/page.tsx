@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Calendar, MapPin, Ruler, ArrowRight, Check } from 'lucide-react'
 import { destinations } from '@/data/destinations'
 import { packages } from '@/data/packages'
-import InquiryForm from '@/components/shared/InquiryForm'
+import BookNowButton from '@/components/booking/BookNowButton'
 
 const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
@@ -46,19 +46,13 @@ export default async function DestinationPage({ params }: Props) {
           src={dest.heroImage}
           alt={dest.name}
           fill
-          className="object-cover"
+          className={`object-cover ${dest.heroImagePosition === 'top' ? 'object-top' : 'object-center'}`}
           priority
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/30 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
-          <nav className="text-white/60 text-sm mb-4">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <span className="mx-2">/</span>
-            <Link href="/destinations" className="hover:text-white">Destinations</Link>
-            <span className="mx-2">/</span>
-            <span className="text-white">{dest.name}</span>
-          </nav>
+
           <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-2">{dest.name}</h1>
           <p className="text-gold text-lg font-medium">{dest.tagline}</p>
         </div>
@@ -131,12 +125,13 @@ export default async function DestinationPage({ params }: Props) {
               {/* Quick CTA */}
               <div className="mt-5 p-5 bg-brand rounded-2xl text-white text-center">
                 <p className="font-semibold mb-3">Ready to visit {dest.name.split(' ')[0]}?</p>
-                <Link
-                  href="/contact"
+                <BookNowButton
+                  label="Get a Free Quote"
+                  arrow={false}
+                  packageName={dest.name}
+                  packageType="Wildlife Safari"
                   className="block w-full py-2.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl text-sm transition-colors"
-                >
-                  Get a Free Quote
-                </Link>
+                />
               </div>
             </div>
           </div>
@@ -206,18 +201,22 @@ export default async function DestinationPage({ params }: Props) {
         </section>
       )}
 
-      {/* Inquiry form */}
-      <section className="py-16 bg-light-green" id="inquiry">
-        <div className="max-w-2xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-semibold text-brand">
-              Plan a {dest.name.split(' ')[0]} Safari
-            </h2>
-            <p className="text-text-muted mt-2 text-sm">
-              Tell us your dream and we'll craft a custom itinerary within 24 hours.
-            </p>
-          </div>
-          <InquiryForm />
+      {/* CTA */}
+      <section className="py-16 bg-brand" id="inquiry">
+        <div className="max-w-2xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-semibold text-white mb-2">
+            Plan a {dest.name.split(' ')[0]} Safari
+          </h2>
+          <p className="text-white/70 text-sm mb-8">
+            Tell us your dream and we&apos;ll craft a custom itinerary within 24 hours.
+          </p>
+          <BookNowButton
+            label="Request a Free Quote"
+            packageName={dest.name}
+            packageType="Wildlife Safari"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
+          />
+          <p className="text-white/50 text-xs mt-4">No payment required · Response within 2 hours</p>
         </div>
       </section>
     </>

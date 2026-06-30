@@ -27,7 +27,7 @@ const destinations = [
     name: 'Volcanoes National Park',
     tagline: 'Home of the Mountain Gorilla',
     size: '160 km2 · 4,507 m elevation',
-    image: '/images/gallery/safari-113.jpg',
+    image: '/images/gallery/volcanoes.jpg',
     badge: 'Top Experience',
     badgeColor: 'bg-gold text-brand',
     highlights: [
@@ -51,7 +51,7 @@ const destinations = [
     name: 'Nyungwe National Park',
     tagline: "Africa's Most Diverse Primate Destination",
     size: '1,020 km2 · Ancient Rainforest',
-    image: '/images/gallery/kilimanjarosasa.png',
+    image: '/images/gallery/nyungwe.jpg',
     badge: 'Primate Paradise',
     badgeColor: 'bg-brand text-white',
     highlights: [
@@ -75,7 +75,7 @@ const destinations = [
     name: 'Akagera National Park',
     tagline: "Rwanda's Big Five Savannah Safari",
     size: '1,122 km2 · Savannah & Wetlands',
-    image: '/images/gallery/kilimanjaro%20(6).png',
+    image: '/images/gallery/akagera.jpg',
     badge: 'Big Five',
     badgeColor: 'bg-brand-secondary text-white',
     highlights: [
@@ -123,7 +123,7 @@ const destinations = [
     name: 'Kigali',
     tagline: "Africa's Cleanest, Greenest Capital City",
     size: "Rwanda's Capital · Pop. 1.5 million",
-    image: '/images/gallery/kilimanjaro%20(7).png',
+    image: '/images/gallery/kigali-city.jpg',
     badge: 'Cultural Hub',
     badgeColor: 'bg-brand text-white',
     highlights: [
@@ -660,7 +660,7 @@ export default function RwandaPage() {
           <div className="bg-brand rounded-3xl p-8 lg:p-14 text-center relative overflow-hidden">
             <div
               className="absolute inset-0 opacity-10"
-              style={{ backgroundImage: "url('/images/gallery/kilimanjaro%20(4).png')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+              style={{ backgroundImage: "url('/images/gallery/rwanda.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
             />
             <div className="relative z-10">
               <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">

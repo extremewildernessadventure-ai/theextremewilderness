@@ -1,6 +1,10 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
+  const tf = useTranslations('forms')
+
   const inputCls = dark
     ? 'w-full px-4 py-3 rounded-xl bg-white/15 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold'
     : 'w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-brand placeholder-gray-400 text-sm focus:outline-none focus:border-gold'
@@ -11,12 +15,12 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
 
   return (
     <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-      <input type="text" placeholder="Your name" className={inputCls} />
-      <input type="email" placeholder="Your email address" className={inputCls} />
+      <input type="text" placeholder={tf('yourNamePlaceholder')} className={inputCls} />
+      <input type="email" placeholder={tf('yourEmailPlaceholder')} className={inputCls} />
       <button type="submit" className={btnCls}>
-        Subscribe to The Wilderness Edit
+        {tf('subscribeButton')}
       </button>
-      <p className={noteCls}>Unsubscribe any time. No spam, ever.</p>
+      <p className={noteCls}>{tf('noSpam')}</p>
     </form>
   )
 }

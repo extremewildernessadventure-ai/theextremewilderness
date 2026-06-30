@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Clock, Users, Check, X, ChevronDown } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
-import InquiryForm from '@/components/shared/InquiryForm'
+import BookNowButton from '@/components/booking/BookNowButton'
 import { packages } from '@/data/packages'
 
 interface Props {
@@ -37,13 +37,7 @@ export default async function SafariPackagePage({ params }: Props) {
         <Image src={pkg.heroImage} alt={pkg.name} fill className="object-cover" priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/20 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
-          <nav className="text-white/60 text-sm mb-4">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <span className="mx-2">/</span>
-            <Link href="/safaris" className="hover:text-white">Safaris</Link>
-            <span className="mx-2">/</span>
-            <span className="text-white">{pkg.name}</span>
-          </nav>
+
           <div className="flex items-start justify-between flex-wrap gap-4">
             <div>
               {pkg.badge && (
@@ -151,14 +145,29 @@ export default async function SafariPackagePage({ params }: Props) {
             </div>
           </div>
 
-          {/* Sidebar — inquiry form */}
+          {/* Sidebar — CTA */}
           <div>
-            <div className="sticky top-24">
-              <div className="bg-light-green rounded-2xl p-4 mb-4 text-center">
-                <div className="text-2xl font-bold text-brand">${pkg.priceFrom.toLocaleString()}</div>
-                <div className="text-text-muted text-xs">per person · {pkg.duration} nights</div>
+            <div className="sticky top-24 space-y-4">
+              <div className="bg-light-green rounded-2xl p-6 text-center">
+                <div className="text-3xl font-bold text-brand">${pkg.priceFrom.toLocaleString()}</div>
+                <div className="text-text-muted text-xs mt-1">per person · {pkg.duration} nights</div>
               </div>
-              <InquiryForm />
+              <div className="bg-brand rounded-2xl p-6 text-center space-y-4">
+                <div>
+                  <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">Free & No Commitment</p>
+                  <h3 className="text-white font-bold text-lg">Book This Package</h3>
+                  <p className="text-white/60 text-xs mt-1">We respond within 2 hours with a personalised itinerary</p>
+                </div>
+                <BookNowButton
+                  label="Send an Enquiry"
+                  packageName={pkg.name}
+                  packageType={pkg.type}
+                  priceFrom={`$${pkg.priceFrom.toLocaleString()}`}
+                  duration={`${pkg.duration} nights`}
+                  className="w-full flex items-center justify-center gap-2 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
+                />
+                <p className="text-white/40 text-xs">No payment required · Cancel anytime</p>
+              </div>
             </div>
           </div>
         </div>

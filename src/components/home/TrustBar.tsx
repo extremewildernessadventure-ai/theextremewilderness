@@ -1,13 +1,18 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
 import { Star, Shield, MapPin, Headphones } from 'lucide-react'
 
-const items = [
-  { Icon: Star, text: '4.9 TripAdvisor Rating', sub: '800+ verified reviews' },
-  { Icon: Shield, text: 'TATO Certified', sub: 'Tanzania tour operator' },
-  { Icon: MapPin, text: 'Tanzania-Based', sub: 'Locally owned since 2009' },
-  { Icon: Headphones, text: '24/7 Safari Support', sub: 'Always here for you' },
-]
-
 export default function TrustBar() {
+  const t = useTranslations('home')
+
+  const items = [
+    { Icon: Star,       text: t('trustRating'),     sub: t('trustRatingSub') },
+    { Icon: Shield,     text: t('tatoCertified'),    sub: t('tatoCertifiedSub') },
+    { Icon: MapPin,     text: t('tanzaniaBased'),    sub: t('tanzaniaBasedSub') },
+    { Icon: Headphones, text: t('support'),          sub: t('supportSub') },
+  ]
+
   return (
     <div className="bg-brand-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
-  ArrowRight, ChevronRight, MapPin, Star, Users, Award,
+  ArrowRight, MapPin, Star, Users, Award,
   Globe, Shield, Clock, Leaf,
   Mail, Phone,
 } from 'lucide-react'
@@ -84,12 +84,7 @@ export default function AboutPage() {
 
         {/* Left: text */}
         <div className="relative z-10 flex flex-col justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 pt-32 pb-16 lg:py-32">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-white/40 text-xs mb-8">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-gold">About Us</span>
-          </nav>
+
 
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">Our Story</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
@@ -121,7 +116,7 @@ export default function AboutPage() {
         <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2">
           <div className="absolute inset-y-0 left-0 w-32 z-10 bg-gradient-to-r from-brand to-transparent" />
           <Image
-            src="/images/gallery/serengeti (1).png"
+            src="/images/gallery/elephants.png"
             alt="Serengeti at sunrise"
             fill
             className="object-cover"
@@ -133,7 +128,7 @@ export default function AboutPage() {
         {/* Mobile: faint image overlay */}
         <div className="lg:hidden absolute inset-0 z-0">
           <Image
-            src="/images/gallery/serengeti (1).png"
+            src="/images/gallery/elephants.png"
             alt="Serengeti at sunrise"
             fill
             className="object-cover opacity-20"

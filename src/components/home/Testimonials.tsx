@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { Star, Users, Globe, Award, ChevronLeft, ChevronRight, MapPin } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
 
@@ -93,12 +94,7 @@ const testimonials = [
   },
 ]
 
-const stats = [
-  { value: '4.9 / 5', label: 'Average Rating',    Icon: Star,  iconClass: 'fill-gold text-gold' },
-  { value: '200+',    label: 'Happy Guests',       Icon: Users, iconClass: 'text-brand' },
-  { value: '40+',     label: 'Countries Served',   Icon: Globe, iconClass: 'text-brand' },
-  { value: '100%',    label: 'Big Five Sightings', Icon: Award, iconClass: 'text-brand' },
-]
+
 
 const PAGE_SIZE = 6
 
@@ -113,7 +109,15 @@ function getInitials(name: string) {
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function Testimonials() {
+  const t = useTranslations('home')
   const [page, setPage]   = useState(0)
+
+  const stats = [
+    { value: '4.9 / 5', label: t('averageRating'),    Icon: Star,  iconClass: 'fill-gold text-gold' },
+    { value: '200+',    label: t('happyGuests'),       Icon: Users, iconClass: 'text-brand' },
+    { value: '40+',     label: t('countriesServed'),   Icon: Globe, iconClass: 'text-brand' },
+    { value: '100%',    label: t('bigFiveSightings'),  Icon: Award, iconClass: 'text-brand' },
+  ]
   const [dir, setDir]     = useState<'next' | 'prev'>('next')
 
   const totalPages = Math.ceil(testimonials.length / PAGE_SIZE)
@@ -157,13 +161,13 @@ export default function Testimonials() {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-            Verified Guest Reviews
+            {t('verifiedGuestReviews')}
           </span>
           <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-2">
-            Trusted by Travelers from 40+ Countries
+            {t('trustedByTravelers')}
           </h2>
           <p className="text-text-muted text-sm max-w-lg mx-auto">
-            Real stories from real guests — unedited, unsponsored, unforgettable.
+            {t('realStories')}
           </p>
         </div>
 
@@ -196,7 +200,7 @@ export default function Testimonials() {
               dir === 'next' ? 'tew-slide-next' : 'tew-slide-prev'
             }`}
           >
-            {visible.map((t, i) => (
+            {visible.map((review, i) => (
               <div
                 key={i}
                 className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col gap-4"
@@ -204,7 +208,7 @@ export default function Testimonials() {
                 {/* Stars + badge */}
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex gap-0.5">
-                    {Array.from({ length: t.rating }).map((_, j) => (
+                    {Array.from({ length: review.rating }).map((_, j) => (
                       <Star key={j} className="w-4 h-4 fill-gold text-gold" />
                     ))}
                   </div>
@@ -215,19 +219,19 @@ export default function Testimonials() {
 
                 {/* Quote */}
                 <blockquote className="italic text-sm leading-relaxed text-text-muted line-clamp-5 flex-1">
-                  &ldquo;{t.text}&rdquo;
+                  &ldquo;{review.text}&rdquo;
                 </blockquote>
 
                 {/* Reviewer */}
                 <div className="flex items-center gap-3 pt-3 border-t border-gray-100">
                   <div className="w-10 h-10 rounded-full bg-brand text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
-                    {getInitials(t.name)}
+                    {getInitials(review.name)}
                   </div>
                   <div className="min-w-0">
-                    <div className="font-semibold text-brand text-sm truncate">{t.name}</div>
+                    <div className="font-semibold text-brand text-sm truncate">{review.name}</div>
                     <div className="flex items-center gap-1 text-[11px] text-text-muted">
                       <MapPin className="w-3 h-3 flex-shrink-0" />
-                      <span className="truncate">{t.country} · {t.trip}</span>
+                      <span className="truncate">{review.country} · {review.trip}</span>
                     </div>
                   </div>
                 </div>

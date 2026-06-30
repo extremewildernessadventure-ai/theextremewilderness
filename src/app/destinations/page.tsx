@@ -84,7 +84,7 @@ const circuits = [
         name: 'Tarangire National Park',
         tagline: "Tanzania's Elephant Capital",
         size: '2,850 km²',
-        image: '/images/gallery/kilimanjarosasa.png',
+        image: '/images/gallery/tarangire-1.jpg',
         badge: 'Elephant Paradise',
         badgeColor: 'bg-brand text-white',
         highlights: [
@@ -166,7 +166,7 @@ const circuits = [
         name: 'Gombe Stream National Park',
         tagline: "Jane Goodall's Chimpanzee Kingdom",
         size: '35 km²',
-        image: '/images/gallery/safari-138.jpg',
+        image: '/images/gallery/gombe-stream.jpg',
         badge: 'Conservation Icon',
         badgeColor: 'bg-gold text-brand',
         highlights: [
@@ -248,7 +248,7 @@ const circuits = [
         name: 'Nyerere National Park',
         tagline: "Africa's Largest Protected Area",
         size: '54,600 km²',
-        image: '/images/gallery/safari-122.jpg',
+        image: '/images/gallery/selous.jpg',
         badge: 'UNESCO Heritage',
         badgeColor: 'bg-gold text-brand',
         highlights: [
@@ -276,7 +276,7 @@ const extras = [
     id: 'zanzibar',
     name: 'Zanzibar Island',
     tagline: 'Spice Island Paradise — Indian Ocean',
-    image: '/images/gallery/kilimanjaro%20(7).png',
+    image: '/images/gallery/zanzibar-1.jpg',
     desc: "The perfect ending to any Tanzania safari. Powder-white beaches, Stone Town UNESCO heritage, spice tours, coral reefs, and Swahili culture on the Indian Ocean. Nungwi, Kendwa & Paje are among East Africa's finest beaches.",
     badge: 'Beach & Culture',
     slug: 'zanzibar',

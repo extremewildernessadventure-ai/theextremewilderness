@@ -130,7 +130,7 @@ const destinations = [
     name: 'Ol Pejeta Conservancy',
     tagline: 'The Last Northern White Rhinos on Earth',
     size: '364 km²',
-    image: '/images/gallery/safari-128.jpg',
+    image: '/images/gallery/pejeta.jpg',
     badge: 'Conservation Icon',
     badgeColor: 'bg-gold text-brand',
     highlights: [
@@ -180,7 +180,7 @@ const destinations = [
     name: 'The Kenyan Coast',
     tagline: 'Ancient Swahili Culture Meets the Indian Ocean',
     size: 'Diani · Lamu · Watamu',
-    image: '/images/gallery/safari-122.jpg',
+    image: '/images/gallery/zanzibar.jpg',
     badge: 'Beach & Marine',
     badgeColor: 'bg-brand-secondary text-white',
     highlights: [

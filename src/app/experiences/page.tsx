@@ -33,7 +33,7 @@ const experiences = [
     tagline: "Earth's greatest wildlife show — timed perfectly",
     description:
       'Over 1.5 million wildebeest and 200,000 zebra move in an eternal circle across the Serengeti-Mara ecosystem. We plan your journey around the exact season — calving in Ndutu (Jan–Mar), the dramatic river crossings in the Mara (Jul–Oct) — so you witness the moment, not just the aftermath.',
-    image: '/images/gallery/safari-002.jpg',
+    image: '/images/gallery/Wildebeest-Migration.jpeg',
     durationLabel: '6 – 10 days',
     highlights: ['Mara River crossings at peak', 'Ndutu calving grounds', 'Private mobile camp options', 'Month-by-month migration guide'],
     priceFrom: '$3,200',
@@ -48,7 +48,7 @@ const experiences = [
     tagline: 'Trek into the jungle, meet our closest relatives',
     description:
       'Deep in the forests above Lake Tanganyika, the Mahale chimps have been habituated to human presence for over 40 years. You approach on foot through dense jungle, guided by trackers following fresh prints and calls. When you find them — grooming, playing, building nests — time stops. There is nothing like it on Earth.',
-    image: '/images/gallery/safari-003.jpg',
+    image: '/images/gallery/Jozani-forest.jpg',
     durationLabel: '3 – 5 days',
     highlights: ['Habituated Mahale chimp community', 'Lake Tanganyika snorkelling', 'Fly-in access from Arusha', 'Small exclusive camps'],
     priceFrom: '$4,100',
@@ -63,7 +63,7 @@ const experiences = [
     tagline: 'A face-to-face encounter that changes everything',
     description:
       'The Virunga Volcanoes rise steeply through bamboo and Hagenia forest. Somewhere in that mist, mountain gorillas — critically endangered, the closest thing to looking into a mirror — live their family lives. Each permit grants you one silent hour. Trackers lead the way. Our expert guides debrief you. It never leaves you.',
-    image: '/images/gallery/safari-004.jpg',
+    image: '/images/gallery/gorilla.png',
     durationLabel: '2 – 4 days',
     highlights: ['Gorilla trekking permits arranged', 'Golden monkey tracking available', 'Volcanoes NP luxury lodges', 'Dian Fossey Research Centre visit'],
     priceFrom: '$2,800',
@@ -93,7 +93,7 @@ const experiences = [
     tagline: 'Bush to beach — the ultimate East Africa escape',
     description:
       "End a safari high with turquoise Indian Ocean water and sugar-white sand. Zanzibar's Stone Town is a UNESCO labyrinth of history; Nungwi and Paje are world-class beaches. We seamlessly combine 4–6 days of Tanzania safari with 3–4 nights on the island. One holiday, two completely different worlds.",
-    image: '/images/gallery/safari-006.jpg',
+    image: '/images/gallery/zanzibar-1.jpg',
     durationLabel: '7 – 12 days',
     highlights: ['Serengeti safari + Zanzibar beach', 'Stone Town spice tour', 'Snorkelling & diving at Mnemba Atoll', 'Boutique beach lodge options'],
     priceFrom: '$3,600',
@@ -123,7 +123,7 @@ const experiences = [
     tagline: 'Put your feet on African soil. Feel everything change.',
     description:
       "Nyerere National Park (formerly Selous) — Africa's largest protected area — is one of the few places in Tanzania where walking safaris are permitted in genuine wilderness. Armed rangers lead you through acacia thickets, along hippo-filled rivers and across open floodplains. Every sense is heightened. The bush reveals itself differently on foot.",
-    image: '/images/gallery/safari-008.jpg',
+    image: '/images/gallery/nyerere.jpg',
     durationLabel: '4 – 7 days',
     highlights: ['Guided walks with armed rangers', 'Boat safari on Rufiji River', 'Wild dogs & huge elephant herds', 'Remote fly-camp options'],
     priceFrom: '$2,900',
@@ -138,7 +138,7 @@ const experiences = [
     tagline: 'Your itinerary. Your pace. No compromises.',
     description:
       'Private use of a luxury mobile camp or exclusive-use lodge. Your own vehicle, guide and tracker. Dining under the stars, sundowners on a kopje with the Serengeti horizon at your feet. Designed for couples, honeymooners and small families who want total immersion without sharing a sundowner with strangers.',
-    image: '/images/gallery/safari-009.jpg',
+    image: '/images/gallery/honey.jpg',
     durationLabel: '5 – 14 days',
     highlights: ['Exclusive-use camps & lodges', 'Private vehicle & guide all day', 'Bespoke itinerary designed for you', 'Sommelier-curated meals in the bush'],
     priceFrom: '$5,500',
@@ -153,7 +153,7 @@ const experiences = [
     tagline: 'The adventure that becomes a family legend',
     description:
       "A child's first giraffe. A teenager's photo of a cheetah hunt. These moments shape lives. Our family safaris are paced for children, with junior ranger programmes, kid-friendly lodges with pools, shorter drives and age-appropriate guides who know how to keep young minds lit with wonder. Safe, seamless, unforgettable.",
-    image: '/images/gallery/safari-011.jpg',
+    image: '/images/gallery/family1.jpg',
     durationLabel: '6 – 10 days',
     highlights: ['Junior ranger bush walks', 'Family lodges with pools', 'Shorter child-friendly drives', 'Cultural visits to Maasai villages'],
     priceFrom: '$2,600',
@@ -183,7 +183,7 @@ const experiences = [
     tagline: 'Drift over the Serengeti at the first light of day',
     description:
       'Launch from a dawn-lit airstrip, rise silently over acacia and kopje as the Serengeti reveals itself from above — herds threading through grass, rivers glinting silver, a world that feels infinite. One hour of floating silence over Africa. Followed by a bush champagne breakfast served by white-gloved staff. Unmissable.',
-    image: '/images/gallery/safari-014.jpg',
+    image: '/images/gallery/migr1.webp',
     durationLabel: 'Half-day add-on',
     highlights: ['Serengeti sunrise balloon flight', 'Bush champagne breakfast', 'Certificate of flight', 'Combine with any safari package'],
     priceFrom: '$550',
@@ -210,7 +210,7 @@ export default function ExperiencesPage() {
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <Image
-          src="/images/gallery/safari-019.jpg"
+          src="/images/gallery/safari-118.jpg"
           alt="East Africa safari landscape"
           fill
           className="object-cover object-center"
@@ -371,7 +371,7 @@ export default function ExperiencesPage() {
       {/* ── CTA / NEWSLETTER ─────────────────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/gallery/safari-030.jpg"
+          src="/images/gallery/safari-128.jpg"
           alt="Sunset safari"
           fill
           className="object-cover"

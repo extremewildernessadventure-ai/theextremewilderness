@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 import { ArrowRight, MapPin } from 'lucide-react'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -16,13 +17,10 @@ const maps: Record<Country, string> = {
   Rwanda:   '/Maps/Rwanda%20major%20destinations%20travel%20map.png',
 }
 
-const countryDesc: Record<Country, string> = {
-  Tanzania:
-    "Home to the Serengeti, Kilimanjaro, Ngorongoro Crater and Zanzibar — Africa's most complete safari destination.",
-  Kenya:
-    'Birthplace of the Great Migration and home to the iconic Masai Mara. World-class big cat country.',
-  Rwanda:
-    '"Land of a Thousand Hills" — famous for mountain gorilla trekking, pristine rainforests and warm hospitality.',
+const countryDescKeys: Record<Country, string> = {
+  Tanzania: 'tanzaniaDesc',
+  Kenya:    'kenyaDesc',
+  Rwanda:   'rwandaDesc',
 }
 
 const sidebar: Record<Country, { name: string; href: string; pkg: number; icon: string }[]> = {
@@ -59,6 +57,7 @@ const allLink: Record<Country, string> = {
 // ─── Component ────────────────────────────────────────────────────────────────
 
 export default function MapSection() {
+  const t = useTranslations('home')
   const [country, setCountry] = useState<Country>('Tanzania')
 
   return (
@@ -68,13 +67,13 @@ export default function MapSection() {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-            Destination Maps
+            {t('destinationMaps')}
           </span>
           <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-3">
-            Explore East Africa by Region
+            {t('exploreByRegion')}
           </h2>
           <p className="text-text-muted max-w-lg mx-auto text-sm">
-            Select a country to view national parks, wildlife reserves and key destinations across East Africa.
+            {t('exploreByRegionDesc')}
           </p>
         </div>
 
@@ -135,7 +134,7 @@ export default function MapSection() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="font-bold text-brand text-sm">{country}</span>
               </div>
-              <p className="text-xs text-text-muted leading-relaxed">{countryDesc[country]}</p>
+              <p className="text-xs text-text-muted leading-relaxed">{t(countryDescKeys[country])}</p>
             </div>
 
             <h3 className="font-semibold text-brand text-xs uppercase tracking-wider mb-2 px-1">
@@ -143,19 +142,15 @@ export default function MapSection() {
             </h3>
             <div className="space-y-1.5">
               {sidebar[country].map((r) => (
-                <Link
+                <div
                   key={r.name}
-                  href={r.href}
-                  className="flex items-center gap-2.5 p-3 rounded-xl border border-gray-100 hover:border-brand hover:bg-light-green transition-all group"
+                  className="flex items-center gap-2.5 p-3 rounded-xl border border-brand bg-white shadow-sm cursor-default"
                 >
                   <span className="flex-1 text-sm font-medium text-brand leading-tight">{r.name}</span>
-                  <div className="flex items-center gap-1.5 flex-shrink-0">
-                    <span className="text-[10px] bg-brand/10 text-brand font-bold px-1.5 py-0.5 rounded-full">
-                      {r.pkg}
-                    </span>
-                    <ArrowRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-brand transition-colors" />
-                  </div>
-                </Link>
+                  <span className="text-[10px] bg-brand/10 text-brand font-bold px-1.5 py-0.5 rounded-full flex-shrink-0">
+                    {r.pkg}
+                  </span>
+                </div>
               ))}
             </div>
 

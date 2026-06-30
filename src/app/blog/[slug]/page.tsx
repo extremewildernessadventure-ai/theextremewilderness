@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, Clock, Calendar, Tag, MapPin, ArrowRight } from 'lucide-react'
+import { Clock, Calendar, Tag, MapPin, ArrowRight } from 'lucide-react'
 import { blogPosts, getPostMeta } from '@/data/blog/index'
 import { getArticleContent } from '@/data/blog/articles'
 import type { SectionType } from '@/data/blog/types'
@@ -174,10 +174,6 @@ export default async function BlogArticlePage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm mb-6 transition-colors">
-            <ArrowLeft size={14} />
-            Back to Blog
-          </Link>
           <div className="flex flex-wrap gap-3 items-center mb-4">
             <span className="bg-brand text-white text-xs font-semibold px-3 py-1 rounded-full">{post.category}</span>
             <span className="flex items-center gap-1 text-white/60 text-sm"><Calendar size={13} />{post.date}</span>

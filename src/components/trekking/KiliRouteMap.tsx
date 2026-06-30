@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { MapPin, Clock, TrendingUp, Trophy, ArrowRight, ChevronRight } from 'lucide-react'
 import { useBooking } from '@/context/BookingContext'
 import KiliRouteMapSVG from '@/components/trekking/KiliRouteMapSVG'
