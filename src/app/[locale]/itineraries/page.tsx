@@ -27,7 +27,7 @@ const editions = [
   {
     label: 'The Primate Edition',
     subtitle: 'Small Group Safaris',
-    slug: '/rwanda/volcanoes',
+    slug: '/safaris/12-days-rwanda-primates',
     image: '/images/gallery/safari-021.jpg',
     duration: '8 days',
     priceFrom: 4800,
@@ -67,7 +67,7 @@ const extra = [
     badge: 'Luxury' as string | null,
   },
   {
-    slug: '/kenya/masai-mara',
+    slug: '/safaris/11-days-kenya-undisputed',
     name: 'Tanzania & Kenya Circuit',
     duration: 12,
     priceFrom: 5200,
@@ -76,7 +76,7 @@ const extra = [
     badge: null,
   },
   {
-    slug: '/destinations/serengeti',
+    slug: '/safaris/10-day-northern-circuit',
     name: 'Northern Tanzania Circuit',
     duration: 9,
     priceFrom: 3900,
@@ -94,7 +94,7 @@ const extra = [
     badge: null,
   },
   {
-    slug: '/kenya',
+    slug: '/safaris/11-days-kenya-undisputed',
     name: 'Kenya Wildlife Circuit',
     duration: 9,
     priceFrom: 4100,
@@ -103,7 +103,7 @@ const extra = [
     badge: null,
   },
   {
-    slug: '/trekking',
+    slug: '/safaris/kilimanjaro-machame-7day',
     name: 'Kilimanjaro Machame Route',
     duration: 7,
     priceFrom: 2100,
