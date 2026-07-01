@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
-import { packages } from '@/data/packages'
+import { getPackages } from '@/data/packages.i18n'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -14,6 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function SafarisPage() {
+  const locale = await getLocale()
+  const packages = getPackages(locale)
   const t = await getTranslations('safari')
   const tc = await getTranslations('common')
 

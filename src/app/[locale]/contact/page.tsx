@@ -50,7 +50,7 @@ export default async function ContactPage() {
   ]
 
   return (
-    <main className="bg-white">
+    <main>
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative bg-brand min-h-[60vh] flex items-stretch overflow-hidden">

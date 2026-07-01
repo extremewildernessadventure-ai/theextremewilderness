@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react'
 import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Navbar() {
   const t = useTranslations('nav')
+  const tc = useTranslations('common')
   const [scrolled, setScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
@@ -16,18 +18,18 @@ export default function Navbar() {
       label: t('destinations'),
       href: '/destinations' as const,
       children: [
-        { label: t('tanzania'), href: '/tanzania' as const, flag: '🇹🇿', desc: 'Serengeti · Ngorongoro · Zanzibar' },
-        { label: t('kenya'), href: '/kenya' as const, flag: '🇰🇪', desc: 'Masai Mara · Amboseli · Tsavo' },
-        { label: t('rwanda'), href: '/rwanda' as const, flag: '🇷🇼', desc: 'Volcanoes NP · Gorilla Trekking' },
+        { label: t('tanzania'), href: '/tanzania' as const, flag: '🇹🇿', desc: t('tanzaniaDesc') },
+        { label: t('kenya'), href: '/kenya' as const, flag: '🇰🇪', desc: t('kenyaDesc') },
+        { label: t('rwanda'), href: '/rwanda' as const, flag: '🇷🇼', desc: t('rwandaDesc') },
       ],
     },
     {
       label: t('safaris'),
       href: '/safaris' as const,
       children: [
-        { label: t('tanzaniaSafaris'), href: '/safaris' as const, flag: '🇹🇿', desc: 'Wildlife · Migration · Beach & Safari' },
-        { label: t('kenyaSafaris'), href: '/kenya' as const, flag: '🇰🇪', desc: 'Big Cat Country · Masai Mara' },
-        { label: t('rwandaSafaris'), href: '/rwanda' as const, flag: '🇷🇼', desc: 'Gorilla Trekking · Nyungwe' },
+        { label: t('tanzaniaSafaris'), href: '/safaris' as const, flag: '🇹🇿', desc: t('tanzaniaSafarisDesc') },
+        { label: t('kenyaSafaris'), href: '/kenya#packages', flag: '🇰🇪', desc: t('kenyaSafarisDesc') },
+        { label: t('rwandaSafaris'), href: '/rwanda#packages', flag: '🇷🇼', desc: t('rwandaSafarisDesc') },
       ],
     },
     { label: t('experiences'), href: '/experiences' as const },
@@ -51,14 +53,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-brand font-bold text-sm">EW</span>
-            </div>
-            <div>
-              <div className="text-white font-semibold text-sm leading-tight">The Extreme</div>
-              <div className="text-gold text-xs leading-tight tracking-widest uppercase">Wilderness</div>
-            </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/EWA logo.png"
+              alt="EWA Safari Outfitters"
+              width={160}
+              height={80}
+              className="object-contain w-16 h-auto lg:w-24 lg:h-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -79,26 +82,41 @@ export default function Navbar() {
                 </Link>
 
                 {link.children && activeDropdown === link.label && (
-                  <div className="absolute top-full left-0 pt-1 min-w-56">
-                    <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+                  <div className="absolute top-full left-0 pt-2 min-w-[280px]">
+                    <div className="bg-brand rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
+                      <div className="px-5 py-3 border-b border-white/10">
+                        <span className="text-gold text-[10px] font-bold uppercase tracking-[0.15em]">
+                          {link.label}
+                        </span>
+                      </div>
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="flex items-center gap-3 px-4 py-3 hover:bg-light-green transition-colors group/item"
+                          className="flex items-center gap-4 px-5 py-4 border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors group/item"
                         >
-                          <div>
-                            <div className="text-sm font-semibold text-brand group-hover/item:text-brand-secondary transition-colors">
+                          <span className="text-2xl flex-shrink-0">{child.flag}</span>
+                          <div className="flex-1 min-w-0">
+                            <div className="text-white font-bold text-sm group-hover/item:text-gold transition-colors">
                               {child.label}
                             </div>
                             {'desc' in child && (
-                              <div className="text-xs text-text-muted leading-tight mt-0.5">
+                              <div className="text-white/50 text-xs leading-tight mt-0.5 truncate">
                                 {(child as { desc: string }).desc}
                               </div>
                             )}
                           </div>
+                          <ArrowRight className="w-3.5 h-3.5 text-white/20 group-hover/item:text-gold group-hover/item:translate-x-0.5 transition-all flex-shrink-0" />
                         </Link>
                       ))}
+                      <div className="px-5 py-3 border-t border-white/10">
+                        <Link
+                          href={link.href}
+                          className="inline-flex items-center gap-1.5 text-gold text-xs font-semibold hover:gap-2.5 transition-all"
+                        >
+                          {tc('viewAll')} {link.label} <ArrowRight className="w-3 h-3" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -108,9 +126,7 @@ export default function Navbar() {
 
           {/* Language switcher + Social + CTA */}
           <div className="flex items-center gap-3">
-            <div className="hidden lg:flex">
-              <LanguageSwitcher />
-            </div>
+            <LanguageSwitcher />
             <a
               href="https://www.instagram.com/extremewildernessadventure/"
               target="_blank"

@@ -243,7 +243,7 @@ export default function ExperiencesPage() {
       </section>
 
       {/* ── INTRO ────────────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -262,7 +262,7 @@ export default function ExperiencesPage() {
               </p>
               <div className="flex flex-wrap gap-8">
                 {[
-                  { n: '15+', l: 'Years in the field' },
+                  { n: '5+', l: 'Years in the field' },
                   { n: '3', l: 'Countries covered' },
                   { n: '98%', l: 'Guest satisfaction' },
                   { n: '100%', l: 'Locally owned' },
@@ -314,7 +314,7 @@ export default function ExperiencesPage() {
       </section>
 
       {/* ── HOW IT WORKS ─────────────────────────────────────────────────── */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Simple process</span>

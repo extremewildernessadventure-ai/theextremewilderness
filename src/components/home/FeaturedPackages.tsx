@@ -85,7 +85,18 @@ export default function FeaturedPackages() {
   const t = useTranslations('home')
   const tc = useTranslations('common')
 
-  const featured = packages.slice(0, 4)
+  const pkgOverrides = [
+    { name: t('pkg0Name'), highlights: [t('pkg0H0'), t('pkg0H1'), t('pkg0H2')] },
+    { name: t('pkg1Name'), highlights: [t('pkg1H0'), t('pkg1H1'), t('pkg1H2')] },
+    { name: t('pkg2Name'), highlights: [t('pkg2H0'), t('pkg2H1'), t('pkg2H2')] },
+    { name: t('pkg3Name'), highlights: [t('pkg3H0'), t('pkg3H1'), t('pkg3H2')] },
+  ]
+  const featured = packages.slice(0, 4).map((pkg, i) => ({
+    ...pkg,
+    name: pkgOverrides[i].name,
+    highlights: [...pkgOverrides[i].highlights, ...pkg.highlights.slice(3)],
+  }))
+
   const [active, setActive] = useState(0)
   const touchX = useRef(0)
 
@@ -108,7 +119,7 @@ export default function FeaturedPackages() {
   }
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-10">
           <div>

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, MapPin, Clock, Users, Star, Mountain, CheckCircle2, Car, Headphones, Shield, Compass, Trophy } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
+import { getTranslations } from 'next-intl/server'
 
 export const metadata: Metadata = {
   title: 'Rwanda Safari & Gorilla Trekking | Volcanoes, Nyungwe & Akagera',
@@ -193,7 +194,11 @@ const seasons = [
   },
 ]
 
-export default function RwandaPage() {
+export default async function RwandaPage() {
+  const t = await getTranslations('rwanda')
+  const tc = await getTranslations('common')
+  const statLabels = [t('statGorillas'), t('statPrimates'), t('statBirds'), t('statPlants'), t('statPeak'), t('statCapital')]
+  const seasonLabels = [t('season1Label'), t('season2Label'), t('season3Label'), t('season4Label')]
   return (
     <>
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
@@ -210,10 +215,10 @@ export default function RwandaPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl">
-            <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-4">Rwanda Safaris</p>
+            <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-              Land of a<br />
-              <span className="text-gold">Thousand Hills.</span>
+              {t('heroTitle')}<br />
+              <span className="text-gold">{t('heroTitleGold')}</span>
             </h1>
             <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-xl">
               Meet the mountain gorillas. Trek ancient rainforests with chimpanzees. Safari the savannahs.
@@ -224,7 +229,7 @@ export default function RwandaPage() {
               <BookNowButton
                 packageName="Rwanda Gorilla Safari"
                 packageType="Rwanda Safari"
-                label="Plan My Rwanda Safari"
+                label={t('planMyRwandaSafari')}
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg"
                 arrow
               />
@@ -232,7 +237,7 @@ export default function RwandaPage() {
                 href="#destinations"
                 className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors"
               >
-                Explore Destinations <ArrowRight className="w-4 h-4" />
+                {t('exploreDestinations')} <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -242,24 +247,24 @@ export default function RwandaPage() {
       <section className="bg-brand py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-            {whyRwanda.map((item) => (
+            {whyRwanda.map((item, i) => (
               <div key={item.label} className="flex flex-col items-center gap-1">
                 <span className="text-gold font-bold text-xl">{item.stat}</span>
-                <span className="text-white/60 text-xs leading-tight">{item.label}</span>
+                <span className="text-white/60 text-xs leading-tight">{statLabels[i]}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-              Why Choose Rwanda
+              {t('introEyebrow')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-5">
-              Africa&apos;s Most Remarkable Story
+              {t('introHeading')}
             </h2>
             <p className="text-text-muted leading-relaxed">
               Rwanda has undergone one of the most extraordinary transformations in modern history &mdash; from tragedy
@@ -274,14 +279,14 @@ export default function RwandaPage() {
       </section>
 
       {/* 2×2 Overview Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
             {/* Box 1 — Rwanda Destinations */}
             <div className="bg-brand rounded-3xl p-8 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">5 Unmissable Destinations</p>
-              <h3 className="text-2xl font-bold text-white mb-6">Rwanda&apos;s Wild Places at a Glance</h3>
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box1Eyebrow')}</p>
+              <h3 className="text-2xl font-bold text-white mb-6">{t('box1Heading')}</h3>
               <div className="space-y-3 flex-1">
                 {[
                   { icon: '🦍', label: 'Volcanoes National Park', desc: 'Mountain Gorillas · Virunga Volcanoes' },
@@ -304,22 +309,22 @@ export default function RwandaPage() {
                 ))}
               </div>
               <div className="mt-6 pt-5 border-t border-white/10">
-                <p className="text-white/50 text-xs">Only 96 gorilla permits issued per day &mdash; <span className="text-white/70 font-medium">book well in advance</span></p>
+                <p className="text-white/50 text-xs">{t('gorillaPermitNotice')}</p>
               </div>
             </div>
 
             {/* Box 2 — Why Book With Us */}
             <div className="bg-amber-50 rounded-3xl p-8 border border-amber-100 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">Our Promise</p>
-              <h3 className="text-2xl font-bold text-brand mb-6">Why Book With The Extreme Wilderness</h3>
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box2Eyebrow')}</p>
+              <h3 className="text-2xl font-bold text-brand mb-6">{t('box2Heading')}</h3>
               <div className="grid grid-cols-2 gap-4 flex-1">
                 {[
-                  { icon: Compass, title: 'Born in Arusha', desc: 'Our guides grew up next to these parks. Local knowledge, no middlemen.' },
-                  { icon: Car, title: 'Private 4×4 Vehicles', desc: 'Every safari is in a dedicated, custom-fitted 4×4 — never shared.' },
-                  { icon: Users, title: 'Small Groups Only', desc: 'Maximum 6 guests per vehicle. Closer wildlife, better photos.' },
-                  { icon: Shield, title: 'Fully Insured & Licensed', desc: 'TATO-registered, fully bonded, and government licensed.' },
-                  { icon: Headphones, title: '24/7 Support', desc: 'Your dedicated planner is reachable before, during, and after.' },
-                  { icon: Trophy, title: '20+ Years Experience', desc: 'Hundreds of safaris led. Every park, every season, mastered.' },
+                  { icon: Compass, title: tc('whyBorn'), desc: tc('whyBornDesc') },
+                  { icon: Car, title: tc('whyVehicles'), desc: tc('whyVehiclesDesc') },
+                  { icon: Users, title: tc('whyGroups'), desc: tc('whyGroupsDesc') },
+                  { icon: Shield, title: tc('whyLicensed'), desc: tc('whyLicensedDesc') },
+                  { icon: Headphones, title: tc('whySupport'), desc: tc('whySupportDesc') },
+                  { icon: Trophy, title: tc('whyYears'), desc: tc('whyYearsDesc') },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
                     <div className="w-8 h-8 bg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -336,8 +341,8 @@ export default function RwandaPage() {
 
             {/* Box 3 — Rwanda in Numbers */}
             <div className="bg-light-green rounded-3xl p-8 border border-brand/10 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">The Records</p>
-              <h3 className="text-2xl font-bold text-brand mb-6">Rwanda in Numbers</h3>
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box3Eyebrow')}</p>
+              <h3 className="text-2xl font-bold text-brand mb-6">{t('box3Heading')}</h3>
               <div className="grid grid-cols-2 gap-5 flex-1">
                 {[
                   { stat: '~1,000', label: 'Mountain gorillas on Earth', sub: 'Only great ape population growing' },
@@ -358,14 +363,14 @@ export default function RwandaPage() {
 
             {/* Box 4 — How It Works */}
             <div className="rounded-3xl p-8 flex flex-col" style={{ backgroundColor: '#0a2e1a' }}>
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">The Process</p>
-              <h3 className="text-2xl font-bold text-white mb-6">How to Book Your Safari</h3>
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box4Eyebrow')}</p>
+              <h3 className="text-2xl font-bold text-white mb-6">{t('box4Heading')}</h3>
               <div className="space-y-5 flex-1">
                 {[
-                  { step: '01', title: 'Share Your Vision', desc: 'Tell us your travel dates, group size, budget, and dream wildlife. No rigid packages — every trip starts from scratch.' },
-                  { step: '02', title: 'We Design Your Itinerary', desc: 'Your dedicated Arusha-based planner crafts a tailor-made route. You review, adjust, and perfect it together.' },
-                  { step: '03', title: 'Confirm & Secure', desc: 'Lock in your safari with a deposit. We handle all park fees, lodge bookings, transfers, and permits.' },
-                  { step: '04', title: 'Arrive & Experience', desc: 'Your private guide meets you at the airport. From here, Rwanda unfolds exactly as you imagined it.' },
+                  { step: '01', title: tc('step1Title'), desc: tc('step1Desc') },
+                  { step: '02', title: tc('step2Title'), desc: tc('step2Desc') },
+                  { step: '03', title: tc('step3Title'), desc: tc('step3Desc') },
+                  { step: '04', title: tc('step4Title'), desc: tc('step4DescRwanda') },
                 ].map((s) => (
                   <div key={s.step} className="flex items-start gap-4">
                     <div className="w-9 h-9 rounded-full bg-gold flex items-center justify-center flex-shrink-0">
@@ -382,7 +387,7 @@ export default function RwandaPage() {
                 <BookNowButton
                   packageName="Rwanda Gorilla Safari"
                   packageType="Rwanda Safari"
-                  label="Start Planning — It's Free"
+                  label={t('startPlanningFree')}
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                   arrow
                 />
@@ -399,7 +404,7 @@ export default function RwandaPage() {
             <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6">
               <div className="flex-1">
                 <h3 className="text-white font-bold text-xl mb-2">
-                  Mountain Gorilla Permits &mdash; Book Well in Advance
+                  {t('permitHeading')}
                 </h3>
                 <p className="text-white/70 text-sm leading-relaxed mb-4">
                   Rwanda issues just 96 gorilla permits per day (8 per habituated family, 12 families). Permits are
@@ -419,7 +424,7 @@ export default function RwandaPage() {
                 packageName="Rwanda Gorilla Trek"
                 packageType="Rwanda Gorilla Safari"
                 priceFrom="$1,500"
-                label="Secure My Permit"
+                label={t('secureMyPermit')}
                 className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors whitespace-nowrap"
                 arrow
               />
@@ -428,18 +433,17 @@ export default function RwandaPage() {
         </div>
       </section>
 
-      <section id="destinations" className="py-20 bg-white scroll-mt-20">
+      <section id="destinations" className="py-20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-              5 Unmissable Destinations
+              {t('destSectionEyebrow')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-4">
-              Discover Rwanda&apos;s Wild Places
+              {t('destSectionHeading')}
             </h2>
             <p className="text-text-muted max-w-xl mx-auto text-sm">
-              From volcanic gorilla forests to savannah plains, ancient rainforests to lakeside towns &mdash; Rwanda
-              packs remarkable diversity into a country smaller than Belgium.
+              {t('destSectionSubtitle')}
             </p>
           </div>
 
@@ -475,9 +479,9 @@ export default function RwandaPage() {
                     <div className="flex flex-wrap gap-3 text-xs text-text-muted">
                       <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {dest.duration}</span>
                       <span className="flex items-center gap-1">
-                        <Star className="w-3 h-3 text-gold fill-gold" /> Best: {dest.bestTime}
+                        <Star className="w-3 h-3 text-gold fill-gold" /> {t('bestTimePrefix')} {dest.bestTime}
                       </span>
-                      <span className="flex items-center gap-1 font-semibold text-brand">From {dest.priceFrom} / person</span>
+                      <span className="flex items-center gap-1 font-semibold text-brand">{t('fromPrice', { price: dest.priceFrom })}</span>
                     </div>
                   </div>
 
@@ -493,7 +497,7 @@ export default function RwandaPage() {
                   </div>
 
                   <div className="mb-5">
-                    <p className="text-xs font-semibold text-brand/50 uppercase tracking-wider mb-2">Wildlife</p>
+                    <p className="text-xs font-semibold text-brand/50 uppercase tracking-wider mb-2">{t('wildlifeLabel')}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {dest.wildlife.map((w) => (
                         <span key={w} className="text-xs bg-light-green text-brand px-2.5 py-1 rounded-full border border-brand/10 font-medium">
@@ -504,7 +508,7 @@ export default function RwandaPage() {
                   </div>
 
                   <div className="mb-6">
-                    <p className="text-xs font-semibold text-brand/50 uppercase tracking-wider mb-2">Activities</p>
+                    <p className="text-xs font-semibold text-brand/50 uppercase tracking-wider mb-2">{t('activitiesLabel')}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {dest.activities.map((a) => (
                         <span key={a} className="text-xs bg-brand/5 text-brand/70 px-2.5 py-1 rounded-full border border-brand/10">
@@ -524,7 +528,7 @@ export default function RwandaPage() {
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
                       arrow
                     />
-                    <span className="text-xs text-text-muted">Free consultation &middot; No commitment</span>
+                    <span className="text-xs text-text-muted">{t('freeConsultation')}</span>
                   </div>
                 </div>
               </div>
@@ -537,19 +541,19 @@ export default function RwandaPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-              Plan Your Visit
+              {t('seasonEyebrow')}
             </span>
-            <h2 className="text-3xl font-semibold text-brand mb-3">Best Time to Visit Rwanda</h2>
+            <h2 className="text-3xl font-semibold text-brand mb-3">{t('seasonHeading')}</h2>
             <p className="text-text-muted max-w-lg mx-auto text-sm">
               Rwanda is a year-round destination. Gorilla trekking is possible every day, but dry seasons bring
               easier trails and more comfortable conditions.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {seasons.map((s) => (
+            {seasons.map((s, i) => (
               <div key={s.months} className={`rounded-2xl border p-5 ${s.color}`}>
                 <p className="font-bold text-brand text-base mb-1">{s.months}</p>
-                <p className={`text-xs font-semibold uppercase tracking-wide mb-3 ${s.labelColor}`}>{s.label}</p>
+                <p className={`text-xs font-semibold uppercase tracking-wide mb-3 ${s.labelColor}`}>{seasonLabels[i]}</p>
                 <p className="text-xs text-text-muted leading-relaxed">{s.tip}</p>
               </div>
             ))}
@@ -557,16 +561,16 @@ export default function RwandaPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-                The Ultimate Combination
+                {t('comboEyebrow')}
               </span>
               <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-5">
-                Rwanda + Tanzania:<br />
-                <span className="text-gold">Gorillas to the Serengeti</span>
+                {t('comboHeading')}<br />
+                <span className="text-gold">{t('comboHeadingGold')}</span>
               </h2>
               <p className="text-text-muted leading-relaxed mb-5">
                 Rwanda&apos;s gorillas and Tanzania&apos;s Serengeti plains are the two most iconic wildlife
@@ -591,7 +595,7 @@ export default function RwandaPage() {
                 <BookNowButton
                   packageName="Rwanda & Tanzania Safari"
                   packageType="Combined Safari"
-                  label="Design My Combined Safari"
+                  label={t('designCombinedSafari')}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-brand hover:bg-brand-secondary text-white font-bold rounded-xl transition-colors"
                   arrow
                 />
@@ -599,7 +603,7 @@ export default function RwandaPage() {
                   href="/destinations"
                   className="inline-flex items-center gap-2 px-6 py-3 border border-brand text-brand hover:bg-brand hover:text-white font-semibold rounded-xl transition-colors"
                 >
-                  Tanzania Destinations <ArrowRight className="w-4 h-4" />
+                  {t('tanzaniaDestinations')} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -630,7 +634,7 @@ export default function RwandaPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Mountain className="w-10 h-10 text-gold mx-auto mb-4" />
           <h2 className="text-2xl lg:text-3xl font-semibold text-white mb-3">
-            Your Visit Funds Gorilla Conservation
+            {t('conservationHeading')}
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto text-sm leading-relaxed mb-6">
             Rwanda&apos;s gorilla permit fees directly fund conservation programmes and benefit local communities.
@@ -655,7 +659,7 @@ export default function RwandaPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-brand rounded-3xl p-8 lg:p-14 text-center relative overflow-hidden">
             <div
@@ -664,10 +668,10 @@ export default function RwandaPage() {
             />
             <div className="relative z-10">
               <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-                Ready for Rwanda?
+                {t('ctaEyebrow')}
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                Let&apos;s Plan Your Rwanda Adventure Together
+                {t('ctaHeading')}
               </h2>
               <p className="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
                 Gorilla permits are the most sought-after wildlife permits in Africa. Reach out now and our team
@@ -677,7 +681,7 @@ export default function RwandaPage() {
                 <BookNowButton
                   packageName="Rwanda Gorilla Safari"
                   packageType="Rwanda Safari"
-                  label="Start Planning — It's Free"
+                  label={t('startPlanningFree')}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-base shadow-lg"
                   arrow
                 />
@@ -685,7 +689,7 @@ export default function RwandaPage() {
                   href="/destinations"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors text-base"
                 >
-                  Explore Tanzania Too <ArrowRight className="w-4 h-4" />
+                  {t('exploreTanzaniaToo')} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
               <p className="text-white/40 text-xs mt-6">

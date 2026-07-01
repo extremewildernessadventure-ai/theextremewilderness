@@ -396,7 +396,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* Intro */}
-      <section className="py-16 bg-white">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
@@ -419,7 +419,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* 2×2 Overview Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
@@ -659,7 +659,7 @@ export default function DestinationsPage() {
       ))}
 
       {/* Zanzibar + Arusha extras */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
@@ -766,7 +766,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-brand rounded-3xl p-8 lg:p-14 text-center relative overflow-hidden">
             <div

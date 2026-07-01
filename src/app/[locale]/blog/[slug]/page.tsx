@@ -3,13 +3,15 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { Clock, Calendar, Tag, MapPin, ArrowRight } from 'lucide-react'
-import { blogPosts, getPostMeta } from '@/data/blog/index'
-import { getArticleContent } from '@/data/blog/articles'
+import { blogPosts } from '@/data/blog/index'
+import { getBlogPosts, getBlogPostMeta } from '@/data/blog/index.i18n'
+import { getLocalizedArticleContent } from '@/data/blog/articles.i18n'
 import type { SectionType } from '@/data/blog/types'
 import BookNowButton from '@/components/booking/BookNowButton'
-import { packages } from '@/data/packages'
-import { destinations } from '@/data/destinations'
+import { getPackages, getPackage } from '@/data/packages.i18n'
+import { getDestinations, getDestination } from '@/data/destinations.i18n'
 import { routing } from '@/i18n/routing'
+import { getTranslations } from 'next-intl/server'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
@@ -22,8 +24,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
-  const post = getPostMeta(slug)
+  const { slug, locale } = await params
+  const post = getBlogPostMeta(slug, locale)
   if (!post) return {}
   return {
     title: post.metaTitle,
@@ -141,18 +143,23 @@ function renderSection(section: SectionType, idx: number) {
 }
 
 export default async function BlogArticlePage({ params }: Props) {
-  const { slug } = await params
-  const post = getPostMeta(slug)
+  const { slug, locale } = await params
+  const [post, t, tCommon] = await Promise.all([
+    Promise.resolve(getBlogPostMeta(slug, locale)),
+    getTranslations('blog'),
+    getTranslations('common'),
+  ])
   if (!post) notFound()
 
-  const content = getArticleContent(slug)
+  const content = getLocalizedArticleContent(slug, locale)
   if (!content) notFound()
 
-  const related = blogPosts.filter((p) => p.slug !== slug && p.category === post.category).slice(0, 3)
+  const allPosts = getBlogPosts(locale)
+  const related = allPosts.filter((p) => p.slug !== slug && p.category === post.category).slice(0, 3)
 
   const links = articleLinks[slug] ?? { packageSlugs: [], destSlugs: [] }
-  const linkedPackages = links.packageSlugs.map(s => packages.find(p => p.slug === s)).filter(Boolean)
-  const linkedDestinations = links.destSlugs.map(s => destinations.find(d => d.slug === s)).filter(Boolean)
+  const linkedPackages = links.packageSlugs.map(s => getPackage(s, locale)).filter(Boolean)
+  const linkedDestinations = links.destSlugs.map(s => getDestination(s, locale)).filter(Boolean)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -202,11 +209,11 @@ export default async function BlogArticlePage({ params }: Props) {
 
               {/* Bottom CTA */}
               <div className="mt-14 bg-brand rounded-2xl p-8 md:p-10 text-white text-center">
-                <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-2">Based in Arusha, Tanzania</p>
-                <h3 className="text-2xl md:text-3xl font-bold mb-3">Ready to Experience It First-Hand?</h3>
-                <p className="text-white/75 mb-7 max-w-lg mx-auto">Our expert team creates custom itineraries for every budget and timeframe. Get your personalised quote within 24 hours.</p>
+                <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-2">{t('basedInArusha')}</p>
+                <h3 className="text-2xl md:text-3xl font-bold mb-3">{t('readyToExperience')}</h3>
+                <p className="text-white/75 mb-7 max-w-lg mx-auto">{t('customItinerariesText')}</p>
                 <BookNowButton
-                  label="Get a Free Quote"
+                  label={t('getFreeQuote')}
                   packageName="Custom Safari Enquiry"
                   packageType="safari"
                   arrow
@@ -220,9 +227,9 @@ export default async function BlogArticlePage({ params }: Props) {
               {/* Plan Your Trip */}
               <div className="bg-brand rounded-2xl overflow-hidden">
                 <div className="px-6 pt-6 pb-4">
-                  <p className="text-gold text-[10px] font-semibold uppercase tracking-widest mb-1">Ready to go?</p>
-                  <h4 className="text-white font-bold text-lg leading-snug">Plan Your Trip</h4>
-                  <p className="text-white/60 text-xs mt-1">Custom itineraries from our Arusha team</p>
+                  <p className="text-gold text-[10px] font-semibold uppercase tracking-widest mb-1">{t('readyToGo')}</p>
+                  <h4 className="text-white font-bold text-lg leading-snug">{t('planYourTripBlog')}</h4>
+                  <p className="text-white/60 text-xs mt-1">{t('customItinerariesTeam')}</p>
                 </div>
 
                 {linkedPackages.length > 0 && (
@@ -235,7 +242,7 @@ export default async function BlogArticlePage({ params }: Props) {
                       >
                         <div>
                           <p className="text-white text-sm font-semibold leading-snug">{pkg.name}</p>
-                          <p className="text-white/50 text-xs mt-0.5">{pkg.duration} days &middot; from ${pkg.priceFrom?.toLocaleString()}</p>
+                          <p className="text-white/50 text-xs mt-0.5">{t('packageSummary', { days: pkg.duration, price: pkg.priceFrom?.toLocaleString() ?? '' })}</p>
                         </div>
                         <ArrowRight size={14} className="text-gold flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
                       </Link>
@@ -245,7 +252,7 @@ export default async function BlogArticlePage({ params }: Props) {
 
                 <div className="px-4 pb-5">
                   <BookNowButton
-                    label="Get a Custom Quote"
+                    label={t('getCustomQuote')}
                     packageName="Custom Safari Enquiry"
                     packageType="safari"
                     arrow
@@ -258,7 +265,7 @@ export default async function BlogArticlePage({ params }: Props) {
                 <div className="bg-gray-50 rounded-2xl p-5">
                   <h4 className="font-bold text-brand text-sm mb-3 flex items-center gap-2">
                     <MapPin size={14} className="text-gold" />
-                    Explore Destinations
+                    {t('exploreDestinations')}
                   </h4>
                   <div className="space-y-2">
                     {linkedDestinations.map((dest) => dest && (
@@ -276,7 +283,7 @@ export default async function BlogArticlePage({ params }: Props) {
                     href="/destinations"
                     className="mt-3 flex items-center gap-1 text-xs font-semibold text-brand hover:text-brand-dark transition-colors"
                   >
-                    View all destinations <ArrowRight size={11} />
+                    {t('viewAllDestinations')} <ArrowRight size={11} />
                   </Link>
                 </div>
               )}
@@ -284,7 +291,7 @@ export default async function BlogArticlePage({ params }: Props) {
               {/* Related Articles */}
               {related.length > 0 && (
                 <div className="bg-gray-50 rounded-2xl p-5">
-                  <h4 className="font-bold text-brand text-sm mb-4">Related Articles</h4>
+                  <h4 className="font-bold text-brand text-sm mb-4">{t('relatedArticles')}</h4>
                   <div className="space-y-4">
                     {related.map((rp) => (
                       <Link key={rp.slug} href={`/blog/${rp.slug}`} className="flex gap-3 group">
@@ -305,7 +312,7 @@ export default async function BlogArticlePage({ params }: Props) {
               <div className="bg-gray-50 rounded-2xl p-5">
                 <h4 className="font-bold text-brand text-sm mb-3 flex items-center gap-2">
                   <Tag size={13} className="text-gold" />
-                  Topics
+                  {t('topics')}
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {post.keywords.map((kw) => (
@@ -316,10 +323,10 @@ export default async function BlogArticlePage({ params }: Props) {
 
               {/* Contact nudge */}
               <div className="border border-gray-200 rounded-2xl p-5 text-center">
-                <p className="font-semibold text-brand-dark text-sm mb-1">Have a question?</p>
-                <p className="text-xs text-gray-500 mb-4 leading-relaxed">Our Arusha-based team responds within 24 hours — no sales pressure.</p>
+                <p className="font-semibold text-brand-dark text-sm mb-1">{t('haveAQuestion')}</p>
+                <p className="text-xs text-gray-500 mb-4 leading-relaxed">{t('arushaResponds')}</p>
                 <Link href="/contact" className="inline-block bg-brand text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-brand-dark transition-colors w-full text-center">
-                  Contact Us
+                  {tCommon('contactUs')}
                 </Link>
               </div>
 

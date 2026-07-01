@@ -5,7 +5,8 @@ import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import { Calendar, MapPin, Ruler, ArrowRight, Check } from 'lucide-react'
 import { destinations } from '@/data/destinations'
-import { packages } from '@/data/packages'
+import { getDestination, getDestinations } from '@/data/destinations.i18n'
+import { getPackages } from '@/data/packages.i18n'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { routing } from '@/i18n/routing'
 
@@ -22,8 +23,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
-  const dest = destinations.find((d) => d.slug === slug)
+  const { slug, locale } = await params
+  const dest = getDestination(slug, locale)
   if (!dest) return {}
   return {
     title: `${dest.name} Safari | The Extreme Wilderness Tanzania`,
@@ -33,15 +34,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function DestinationPage({ params }: Props) {
-  const { slug } = await params
-  const dest = destinations.find((d) => d.slug === slug)
+  const { slug, locale } = await params
+  const dest = getDestination(slug, locale)
   if (!dest) notFound()
 
   const t = await getTranslations('destination')
   const tc = await getTranslations('common')
 
-  const destPackages = packages.filter((p) => p.destinations.includes(dest.slug))
-  const nearby = destinations
+  const allPackages = getPackages(locale)
+  const allDestinations = getDestinations(locale)
+  const destPackages = allPackages.filter((p) => p.destinations.includes(dest.slug))
+  const nearby = allDestinations
     .filter((d) => d.country === dest.country && d.slug !== dest.slug)
     .slice(0, 3)
 

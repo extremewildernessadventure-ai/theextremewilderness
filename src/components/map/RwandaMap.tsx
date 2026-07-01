@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps'
 
 // GADM admin-1 (provinces) for Rwanda
@@ -47,6 +48,7 @@ export default function RwandaMap() {
   const router = useRouter()
   const [hovered, setHovered] = useState<string | null>(null)
   const [tip, setTip] = useState<Tip | null>(null)
+  const t = useTranslations('destinations')
 
   const getZone = (name: string) => ZONE_MAP[name]
 
@@ -125,15 +127,15 @@ export default function RwandaMap() {
           <p className="font-semibold text-sm">{tip.zone.name}</p>
           <p className="text-white/65 text-[10px] mt-0.5 mb-1.5">{tip.zone.subtext}</p>
           <p className="text-gold font-semibold text-[11px]">
-            {tip.zone.packages > 0 ? `${tip.zone.packages} packages · ${'★'.repeat(tip.zone.heatLevel)}` : 'Cultural region'}
+            {tip.zone.packages > 0 ? `${tip.zone.packages} ${t('mapPackagesLabel')} · ${'★'.repeat(tip.zone.heatLevel)}` : t('mapCulturalRegion')}
           </p>
         </div>
       )}
 
       <div className="mt-3 flex items-center justify-center gap-5 text-xs text-text-muted">
-        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm inline-block bg-[#8ab89a]" />Low activity</span>
-        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm inline-block bg-[#3d7a52]" />Some safaris</span>
-        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm inline-block bg-[#1C3A2A]" />Top safari</span>
+        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm inline-block bg-[#8ab89a]" />{t('mapLowActivity')}</span>
+        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm inline-block bg-[#3d7a52]" />{t('mapSomeSafaris')}</span>
+        <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm inline-block bg-[#1C3A2A]" />{t('mapTopSafari')}</span>
       </div>
     </div>
   )

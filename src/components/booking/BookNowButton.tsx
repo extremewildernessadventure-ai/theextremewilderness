@@ -1,6 +1,7 @@
 'use client'
 
 import { useBooking, type BookingInfo } from '@/context/BookingContext'
+import { useTranslations } from 'next-intl'
 import { ArrowRight } from 'lucide-react'
 
 interface Props extends BookingInfo {
@@ -10,7 +11,7 @@ interface Props extends BookingInfo {
 }
 
 export default function BookNowButton({
-  label = 'Book Now',
+  label,
   className,
   arrow = true,
   packageName,
@@ -19,7 +20,9 @@ export default function BookNowButton({
   duration,
   route,
 }: Props) {
+  const t = useTranslations('common')
   const { openBooking } = useBooking()
+  const buttonLabel = label ?? t('bookNow')
 
   return (
     <button
@@ -30,7 +33,7 @@ export default function BookNowButton({
         'inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm'
       }
     >
-      {label}
+      {buttonLabel}
       {arrow && <ArrowRight className="w-4 h-4" />}
     </button>
   )

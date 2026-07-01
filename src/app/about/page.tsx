@@ -9,13 +9,13 @@ import {
 
 export const metadata: Metadata = {
   title: 'About Us | The Extreme Wilderness',
-  description: 'Tanzania-born and locally owned since 2009. Meet the guides and team behind The Extreme Wilderness — East Africa\'s premier custom safari operator.',
+  description: 'Tanzania-born and locally owned since 2022. Meet the guides and team behind The Extreme Wilderness — East Africa\'s premier custom safari operator.',
 }
 
 const stats = [
-  { value: '4.9', label: 'TripAdvisor Rating', sub: '800+ verified reviews', icon: Star },
-  { value: '1,200+', label: 'Happy Travellers', sub: 'Since 2009', icon: Users },
-  { value: '10', label: 'Tanzania Regions', sub: 'Every park covered', icon: MapPin },
+  { value: '4.9', label: 'TripAdvisor Rating', sub: 'Trusted by global travellers', icon: Star },
+  { value: '200+', label: 'Happy Travellers', sub: 'Since 2022', icon: Users },
+  { value: '20+', label: 'Tanzania Regions', sub: 'Every park covered', icon: MapPin },
   { value: 'TATO', label: 'Certified Member', sub: 'Tanzania operators assoc.', icon: Award },
 ]
 
@@ -37,32 +37,29 @@ const values = [
   },
   {
     icon: Clock,
-    title: '15+ Years',
-    body: 'Running safaris since 2009 — over 1,200 travellers, thousands of sunrises in the bush, and counting.',
+    title: '5+ Years',
+    body: 'Running safaris since 2022 — over 200 travellers, thousands of sunrises in the bush, and counting.',
   },
 ]
 
 const team = [
   {
-    initials: 'SM',
-    name: 'Samuel Mwangi',
-    role: 'Lead Guide & Co-Founder',
-    bio: 'Born in Arusha, Samuel has spent 18 years guiding in the Serengeti and Ngorongoro. TANAPA-certified, fluent in 4 languages, and still the first to spot a leopard in tall grass.',
-    colour: 'bg-brand',
+    image: '/Team/Mike Mawolle.png',
+    name: 'Mike Mawolle',
+    role: 'Destinations Manager',
+    bio: 'Mike oversees our entire destination portfolio across Tanzania, Kenya, and Rwanda. He knows every park, lodge, and back road — and makes sure every itinerary is built around what each destination does best.',
   },
   {
-    initials: 'GK',
-    name: 'Grace Kimaro',
-    role: 'Operations Director',
-    bio: 'Grace ensures every safari runs flawlessly — from your first enquiry to the airport drop-off. A decade of logistics expertise means nothing is ever left to chance.',
-    colour: 'bg-brand-secondary',
+    image: '/Team/Johnson Rafael.jpeg',
+    name: 'Johnson Rafael',
+    role: 'Safari Guide',
+    bio: 'Johnson brings the bush to life with expert wildlife knowledge and calm precision behind the wheel. TANAPA-certified and fluent in multiple languages, he turns every game drive into a story worth telling.',
   },
   {
-    initials: 'DO',
-    name: 'David Olerai',
-    role: 'Senior Wildlife Guide',
-    bio: 'Maasai-born and raised on the Northern Circuit, David knows every kopje and crossing on the Serengeti. His specialty: big cats and the Great Migration.',
-    colour: 'bg-brand',
+    image: '/Team/Joshua Meela.jpeg',
+    name: 'Josh Meela',
+    role: 'Mountain Guide',
+    bio: 'Joshua has led hundreds of climbers to the Kilimanjaro summit across all major routes. His deep knowledge of altitude, weather patterns, and pacing keeps every trekker safe and on track.',
   },
 ]
 
@@ -77,7 +74,7 @@ const galleryImages = [
 
 export default function AboutPage() {
   return (
-    <main className="bg-white">
+    <main>
 
       {/* ── Hero — split layout ───────────────────────────────────────────── */}
       <section className="relative bg-brand min-h-[90vh] flex items-stretch overflow-hidden">
@@ -91,12 +88,12 @@ export default function AboutPage() {
             We Are <span className="text-gold">Tanzania</span>
           </h1>
           <p className="text-white/75 text-lg leading-relaxed mb-10 max-w-lg">
-            We are Tanzanian guides who grew tired of watching foreign operators sell Africa from abroad. So in 2009, we built something different — a safari company that is authentically, entirely of this land.
+            We are Tanzanian guides who grew tired of watching foreign operators sell Africa from abroad. So in 2022, we built something different — a safari company that is authentically, entirely of this land.
           </p>
 
           {/* Trust pills */}
           <div className="flex flex-wrap gap-3 mb-10">
-            {['Est. 2009', 'TATO Certified', '100% Locally Owned', 'Arusha-based'].map((pill) => (
+            {['Est. 2022', 'TATO Certified', '100% Locally Owned', 'Arusha-based'].map((pill) => (
               <span key={pill} className="inline-flex items-center px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-white/80 text-xs font-medium">
                 {pill}
               </span>
@@ -216,7 +213,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── What Makes Us Different ──────────────────────────────────────── */}
-      <section className="bg-white py-20 lg:py-28">
+      <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">Our Difference</p>
@@ -257,7 +254,7 @@ export default function AboutPage() {
       </div>
 
       {/* ── Team ─────────────────────────────────────────────────────────── */}
-      <section id="guides" className="bg-white py-20 lg:py-28">
+      <section id="guides" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">The People</p>
@@ -268,14 +265,14 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {team.map(({ initials, name, role, bio, colour }) => (
+            {team.map(({ image, name, role, bio }) => (
               <div
                 key={name}
                 className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all text-center group"
               >
                 <div className="flex justify-center mb-5">
-                  <div className={`w-20 h-20 rounded-full ${colour} flex items-center justify-center text-white text-2xl font-black ring-4 ring-gold/30 group-hover:ring-gold/60 transition-all`}>
-                    {initials}
+                  <div className="w-32 h-32 rounded-full overflow-hidden ring-4 ring-gold/30 group-hover:ring-gold/60 transition-all flex-shrink-0">
+                    <Image src={image} alt={name} width={128} height={128} className="w-full h-full object-cover object-top" />
                   </div>
                 </div>
                 <span className="inline-flex px-3 py-1 bg-gold/10 text-gold text-xs font-bold rounded-full uppercase tracking-wider mb-3">
@@ -285,6 +282,52 @@ export default function AboutPage() {
                 <p className="text-text-muted text-sm leading-relaxed">{bio}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Office Location ──────────────────────────────────────────────── */}
+      <section className="bg-light-green py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">Our Location</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-brand">Find Our Office</h2>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <div className="bg-brand rounded-2xl p-8 lg:p-10 flex flex-col min-h-[400px]">
+              <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
+                <MapPin className="w-7 h-7 text-gold" />
+              </div>
+              <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-2">Our Office</p>
+              <h3 className="text-white font-bold text-2xl leading-snug mb-6">
+                The Extreme Wilderness Adventure
+              </h3>
+              <div className="border-t border-white/10 mb-6" />
+              <div className="space-y-1">
+                <p className="text-white/70 text-sm">Near Kaloleni Primary School</p>
+                <p className="text-white/70 text-sm">Kaloleni, Arusha</p>
+                <p className="text-white/70 text-sm">Tanzania, East Africa</p>
+              </div>
+              <div className="mt-auto pt-8">
+                <a
+                  href="https://www.google.com/maps/place/The+Extreme+Wilderness+Adventure/@-3.3649565,36.6889837,17z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
+                >
+                  Get Directions <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-sm min-h-[400px] ring-1 ring-black/5">
+              <iframe
+                src="https://maps.google.com/maps?q=-3.3649565,36.6889837&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full min-h-[400px] border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="The Extreme Wilderness Adventure office location"
+              />
+            </div>
           </div>
         </div>
       </section>

@@ -6,57 +6,24 @@ import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { ArrowRight } from 'lucide-react'
 
-const featured = [
-  {
-    name: 'Masai Mara, Kenya',
-    href: '/kenya',
-    image: '/images/gallery/maasai-mara.jpg',
-    packages: 2,
-    wildlife: 'Great Migration Crossings · Lion · Cheetah',
-    heat: 5,
-  },
-  {
-    name: 'Serengeti National Park',
-    href: '/destinations/serengeti',
-    image: '/images/gallery/Serengeti-National-park.jpg',
-    packages: 18,
-    wildlife: 'Lion · Leopard · Wildebeest · Elephant',
-    heat: 5,
-  },
-  {
-    name: 'Volcanoes National Park',
-    href: '/destinations/volcanoes',
-    image: '/images/gallery/Volcanoes%20NP.png',
-    packages: 2,
-    wildlife: 'Mountain Gorilla · Golden Monkey · Elephant',
-    heat: 5,
-  },
-  {
-    name: 'Kilimanjaro',
-    image: '/images/gallery/kilimanjaro.png',
-    packages: 6,
-    wildlife: "Africa's Highest Peak · 5,895m",
-    heat: 5,
-  },
-  {
-    name: 'Zanzibar Island',
-    href: '/destinations/zanzibar',
-    image: '/images/gallery/zanzibar-1.jpg',
-    packages: 4,
-    wildlife: 'Dolphins · Turtles · Colobus Monkey',
-    heat: 4,
-  },
-  {
-    name: 'Mombasa',
-    href: '/destinations/kenyan-coast',
-    image: '/images/gallery/mombasa.png',
-    packages: 2,
-    wildlife: 'White Sand Beaches · Coral Reefs · Swahili Culture',
-    heat: 4,
-  },
-]
+interface DestItem {
+  name: string
+  href: string
+  image: string
+  packages: number
+  wildlife: string
+}
 
-function DestCard({ dest }: { dest: (typeof featured)[number] }) {
+const featuredMeta = [
+  { nameKey: 'dc0Name', wildlifeKey: 'dc0Wildlife', href: '/destinations/masai-mara', image: '/images/gallery/maasai-mara.jpg', packages: 2 },
+  { nameKey: 'dc1Name', wildlifeKey: 'dc1Wildlife', href: '/destinations/serengeti', image: '/images/gallery/Serengeti-National-park.jpg', packages: 18 },
+  { nameKey: 'dc2Name', wildlifeKey: 'dc2Wildlife', href: '/destinations/volcanoes', image: '/images/gallery/Volcanoes%20NP.png', packages: 2 },
+  { nameKey: 'dc3Name', wildlifeKey: 'dc3Wildlife', href: '/trekking', image: '/images/gallery/kilimanjaro.png', packages: 6 },
+  { nameKey: 'dc4Name', wildlifeKey: 'dc4Wildlife', href: '/destinations/zanzibar', image: '/images/gallery/zanzibar-1.jpg', packages: 4 },
+  { nameKey: 'dc5Name', wildlifeKey: 'dc5Wildlife', href: '/destinations/kenyan-coast', image: '/images/gallery/mombasa.png', packages: 2 },
+] as const
+
+function DestCard({ dest, exploreLabel }: { dest: DestItem; exploreLabel: string }) {
   const inner = (
     <>
       <Image
@@ -66,7 +33,6 @@ function DestCard({ dest }: { dest: (typeof featured)[number] }) {
         className="object-cover transition-transform duration-500 group-hover:scale-105"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
-      {/* Stronger gradient so image text doesn't bleed through */}
       <div className="absolute inset-0 bg-gradient-to-t from-brand via-brand/60 to-brand/10" />
       <div className="absolute inset-0 p-4 flex flex-col justify-between">
         <div className="self-end">
@@ -81,7 +47,7 @@ function DestCard({ dest }: { dest: (typeof featured)[number] }) {
           <p className="text-white/65 text-xs mt-1 line-clamp-1">{dest.wildlife}</p>
           {dest.href && (
             <div className="flex items-center gap-1 mt-2 text-gold text-xs font-semibold sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
-              Explore <ArrowRight className="w-3 h-3" />
+              {exploreLabel} <ArrowRight className="w-3 h-3" />
             </div>
           )}
         </div>
@@ -113,14 +79,21 @@ export default function DestinationCards() {
   const [active, setActive] = useState(0)
   const touchX = useRef(0)
 
-  // Auto-advance; resets timer on each manual interaction
+  const featured: DestItem[] = featuredMeta.map((m) => ({
+    href: m.href,
+    image: m.image,
+    packages: m.packages,
+    name: t(m.nameKey),
+    wildlife: t(m.wildlifeKey),
+  }))
+
   useEffect(() => {
     const id = setInterval(
       () => setActive((i) => (i + 1) % featured.length),
       4000,
     )
     return () => clearInterval(id)
-  }, [active])
+  }, [active, featured.length])
 
   const prev = () => setActive((i) => (i - 1 + featured.length) % featured.length)
   const next = () => setActive((i) => (i + 1) % featured.length)
@@ -133,6 +106,8 @@ export default function DestinationCards() {
     if (delta > 50) next()
     else if (delta < -50) prev()
   }
+
+  const exploreLabel = tc('explore')
 
   return (
     <section className="py-20 bg-light-green">
@@ -167,13 +142,12 @@ export default function DestinationCards() {
             >
               {featured.map((dest) => (
                 <div key={dest.name} className="flex-shrink-0 w-full">
-                  <DestCard dest={dest} />
+                  <DestCard dest={dest} exploreLabel={exploreLabel} />
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Dot indicators */}
           <div className="flex justify-center items-center gap-2 mt-4">
             {featured.map((_, i) => (
               <button
@@ -190,11 +164,11 @@ export default function DestinationCards() {
           </div>
         </div>
 
-        {/* ── Desktop grid (unchanged) ── */}
+        {/* ── Desktop grid ── */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {featured.map((dest) => (
             <div key={dest.name} className="rounded-2xl border-[3px] border-gold">
-              <DestCard dest={dest} />
+              <DestCard dest={dest} exploreLabel={exploreLabel} />
             </div>
           ))}
         </div>

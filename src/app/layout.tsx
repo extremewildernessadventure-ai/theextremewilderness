@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: '%s | The Extreme Wilderness',
   },
   description:
-    "Tanzania's premier locally-owned safari operator. Custom safaris to Serengeti, Ngorongoro, Zanzibar & beyond. Kilimanjaro trekking from Arusha. 15+ years, 98% satisfaction.",
+    "Tanzania's premier locally-owned safari operator. Custom safaris to Serengeti, Ngorongoro, Zanzibar & beyond. Kilimanjaro trekking from Arusha. 5+ years, 98% satisfaction.",
   keywords: [
     'Tanzania safari',
     'Serengeti safari',

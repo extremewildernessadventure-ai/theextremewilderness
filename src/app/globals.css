@@ -6,7 +6,7 @@
   --color-brand-secondary: #2D5A3D;
   --color-gold: #D4A853;
   --color-gold-dark: #b8903d;
-  --color-light-green: #F0F7F2;
+  --color-light-green: #E8EDEA;
   --color-text-dark: #1a1a1a;
   --color-text-muted: #6B7280;
   --font-sans: var(--font-geist-sans);
@@ -14,7 +14,7 @@
 
 body {
   color: #1a1a1a;
-  background: #ffffff;
+  background: #EDE7D7;
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   line-height: 1.7;
   font-size: 16px;

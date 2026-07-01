@@ -5,8 +5,7 @@ import { useTranslations } from 'next-intl'
 import { Send, Check, ChevronDown } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 
-// ─── Shared option lists (mirrors EnquiryModal exactly) ──────────────────────
-
+// Country list stays in English (universal standard across all locales)
 const COUNTRIES = [
   'United States', 'United Kingdom', 'Australia', 'Canada', 'Germany',
   'France', 'Italy', 'Netherlands', 'Belgium', 'Switzerland', 'Sweden',
@@ -16,43 +15,6 @@ const COUNTRIES = [
   'Brazil', 'Mexico', 'Argentina', 'Singapore', 'Malaysia', 'Russia',
   'Poland', 'Czech Republic', 'Romania', 'Hungary', 'Ukraine', 'Other',
 ]
-
-const TRIP_TYPES = [
-  'Wildlife Safari', 'Kilimanjaro Trek', 'Beach & Safari Combo',
-  'Gorilla Trekking (Rwanda)', 'Honeymoon / Anniversary', 'Family Safari',
-  'Photography Safari', 'Multi-country Adventure', 'Custom Trip',
-]
-
-const BUDGET_OPTIONS = [
-  'Under $1,000 per person',
-  '$1,000 – $2,000 per person',
-  '$2,000 – $3,500 per person',
-  '$3,500 – $5,000 per person',
-  '$5,000 – $8,000 per person',
-  '$8,000+ per person (luxury)',
-  'Flexible / Not sure yet',
-]
-
-const ACCOMMODATION_OPTIONS = [
-  'Budget (basic lodges & guesthouses)',
-  'Mid-range (comfortable camps & lodges)',
-  'Luxury (premium camps & lodges)',
-  'Ultra-luxury (private exclusive camps)',
-  'Mix of styles',
-]
-
-const SPECIAL_REQS = [
-  'Vegetarian', 'Vegan', 'Halal', 'Kosher',
-  'Gluten-free', 'Dairy-free', 'Wheelchair accessible', 'Private guide',
-]
-
-const CONTACT_PREFS = [
-  { value: 'whatsapp', label: '💬 WhatsApp' },
-  { value: 'email',    label: '✉️ Email' },
-  { value: 'phone',    label: '📞 Phone call' },
-]
-
-// ─── Shared styling ───────────────────────────────────────────────────────────
 
 const inputCls =
   'w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-brand focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 bg-white placeholder-gray-400 transition-all'
@@ -85,13 +47,9 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   )
 }
 
-// ─── Props ────────────────────────────────────────────────────────────────────
-
 interface InquiryFormProps {
   tripType?: string
 }
-
-// ─── Component ────────────────────────────────────────────────────────────────
 
 export default function InquiryForm({ tripType }: InquiryFormProps) {
   const t = useTranslations('forms')
@@ -99,6 +57,54 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
   const [submitting, setSubmitting] = useState(false)
   const [privacyAgreed, setPrivacyAgreed] = useState(false)
   const [specialReqs, setSpecialReqs] = useState<string[]>([])
+
+  // Translated option arrays (inside component so t() is in scope)
+  const TRIP_TYPES = [
+    t('tripTypes.wildlifeSafari'),
+    t('tripTypes.kilimanjaroTrek'),
+    t('tripTypes.beachSafariCombo'),
+    t('tripTypes.gorillaTrekking'),
+    t('tripTypes.honeymoon'),
+    t('tripTypes.familySafari'),
+    t('tripTypes.photographySafari'),
+    t('tripTypes.multiCountry'),
+    t('tripTypes.customTrip'),
+  ]
+
+  const BUDGET_OPTIONS = [
+    t('budgetOptions.under1k'),
+    t('budgetOptions.1k2k'),
+    t('budgetOptions.2k3500'),
+    t('budgetOptions.3500_5k'),
+    t('budgetOptions.5k8k'),
+    t('budgetOptions.8kPlus'),
+    t('budgetOptions.flexible'),
+  ]
+
+  const ACCOMMODATION_OPTIONS = [
+    t('accomOptions.budget'),
+    t('accomOptions.midRange'),
+    t('accomOptions.luxury'),
+    t('accomOptions.ultraLuxury'),
+    t('accomOptions.mix'),
+  ]
+
+  const SPECIAL_REQS = [
+    t('specialReqs.vegetarian'),
+    t('specialReqs.vegan'),
+    t('specialReqs.halal'),
+    t('specialReqs.kosher'),
+    t('specialReqs.glutenFree'),
+    t('specialReqs.dairyFree'),
+    t('specialReqs.wheelchair'),
+    t('specialReqs.privateGuide'),
+  ]
+
+  const CONTACT_PREFS = [
+    { value: 'whatsapp', label: `💬 ${t('contactOptions.whatsapp')}` },
+    { value: 'email',    label: `✉️ ${t('contactOptions.email')}` },
+    { value: 'phone',    label: `📞 ${t('contactOptions.phone')}` },
+  ]
 
   const [form, setForm] = useState({
     firstName: '',
@@ -142,24 +148,31 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
     e.preventDefault()
     if (!canSubmit) return
     setSubmitting(true)
-    await new Promise((r) => setTimeout(r, 1000))
-    setSubmitting(false)
-    setSubmitted(true)
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, specialReqs, source: 'contact_page' }),
+      })
+      if (!res.ok) throw new Error('send failed')
+      setSubmitted(true)
+    } catch {
+      // Keep form open so user can retry
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (submitted) {
+    const contactLabel = CONTACT_PREFS.find((p) => p.value === form.contactPref)?.label ?? t('contactOptions.email')
     return (
       <div className="bg-white rounded-2xl p-10 text-center shadow-sm border border-gray-100">
         <div className="w-16 h-16 bg-light-green rounded-full flex items-center justify-center mx-auto mb-5">
           <Check className="w-8 h-8 text-brand" />
         </div>
-        <h3 className="text-2xl font-bold text-brand mb-2">Enquiry Sent!</h3>
+        <h3 className="text-2xl font-bold text-brand mb-2">{t('enquirySent')}</h3>
         <p className="text-text-muted text-sm leading-relaxed max-w-sm mx-auto">
-          Thank you, {form.firstName}! Our team will be in touch via{' '}
-          <span className="font-semibold text-brand">
-            {CONTACT_PREFS.find((p) => p.value === form.contactPref)?.label ?? 'email'}
-          </span>{' '}
-          within 2 hours with a personalised itinerary.
+          {t('thankYouMessage', { name: form.firstName, method: contactLabel })}
         </p>
       </div>
     )
@@ -170,42 +183,42 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
 
       {/* Form header */}
       <div className="bg-brand px-7 py-5">
-        <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">Free & No Commitment</p>
-        <h3 className="text-white font-bold text-lg">Send Your Enquiry</h3>
-        <p className="text-white/60 text-xs mt-0.5">Our team responds within 2 hours · Personalised itinerary included</p>
+        <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">{t('freeNoCommitment')}</p>
+        <h3 className="text-white font-bold text-lg">{t('sendYourEnquiry')}</h3>
+        <p className="text-white/60 text-xs mt-0.5">{t('formSubheading')}</p>
       </div>
 
       <div className="p-6 sm:p-8 space-y-8">
 
         {/* 1. Personal Details */}
         <div>
-          <SectionTitle>Personal Details</SectionTitle>
+          <SectionTitle>{t('personalDetails')}</SectionTitle>
           <div className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label>First Name *</Label>
+                <Label>{t('firstName')}</Label>
                 <input name="firstName" required value={form.firstName} onChange={handleChange} placeholder="Jane" className={inputCls} />
               </div>
               <div>
-                <Label>Last Name *</Label>
+                <Label>{t('lastName')}</Label>
                 <input name="lastName" required value={form.lastName} onChange={handleChange} placeholder="Smith" className={inputCls} />
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label>Email Address *</Label>
+                <Label>{t('emailAddress')}</Label>
                 <input name="email" type="email" required value={form.email} onChange={handleChange} placeholder="jane@email.com" className={inputCls} />
               </div>
               <div>
-                <Label>Phone / WhatsApp *</Label>
+                <Label>{t('phoneWhatsapp')}</Label>
                 <input name="phone" type="tel" required value={form.phone} onChange={handleChange} placeholder="+1 555 000 0000" className={inputCls} />
               </div>
             </div>
             <div>
-              <Label>Country</Label>
+              <Label>{t('country')}</Label>
               <SelectWrapper>
                 <select name="country" value={form.country} onChange={handleChange} className={selectCls}>
-                  <option value="">Select your country</option>
+                  <option value="">{t('selectCountry')}</option>
                   {COUNTRIES.map((c) => <option key={c}>{c}</option>)}
                 </select>
               </SelectWrapper>
@@ -215,34 +228,34 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
 
         {/* 2. Trip Details */}
         <div>
-          <SectionTitle>Trip Details</SectionTitle>
+          <SectionTitle>{t('tripDetails')}</SectionTitle>
           <div className="space-y-4">
             <div>
-              <Label>Trip Type</Label>
+              <Label>{t('tripType')}</Label>
               <SelectWrapper>
                 <select name="tripType" value={form.tripType} onChange={handleChange} className={selectCls}>
-                  <option value="">Select trip type</option>
-                  {TRIP_TYPES.map((t) => <option key={t}>{t}</option>)}
+                  <option value="">{t('selectTripType')}</option>
+                  {TRIP_TYPES.map((type) => <option key={type}>{type}</option>)}
                 </select>
               </SelectWrapper>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label>Arrival Date</Label>
+                <Label>{t('arrivalDate')}</Label>
                 <input name="arrivalDate" type="date" min={minDateStr} value={form.arrivalDate} onChange={handleChange} className={inputCls} />
               </div>
               <div>
-                <Label>Departure Date</Label>
+                <Label>{t('departureDate')}</Label>
                 <input name="departureDate" type="date" min={form.arrivalDate || minDateStr} value={form.departureDate} onChange={handleChange} className={inputCls} />
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label>Adults</Label>
+                <Label>{t('adults')}</Label>
                 <input name="adults" type="number" min="1" max="20" value={form.adults} onChange={handleChange} className={inputCls} />
               </div>
               <div>
-                <Label>Children</Label>
+                <Label>{t('children')}</Label>
                 <input name="children" type="number" min="0" max="10" value={form.children} onChange={handleChange} className={inputCls} />
               </div>
             </div>
@@ -251,28 +264,28 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
 
         {/* 3. Budget & Preferences */}
         <div>
-          <SectionTitle>Budget & Preferences</SectionTitle>
+          <SectionTitle>{t('budgetPreferences')}</SectionTitle>
           <div className="space-y-4">
             <div>
-              <Label>Budget Range</Label>
+              <Label>{t('budgetRange')}</Label>
               <SelectWrapper>
                 <select name="budget" value={form.budget} onChange={handleChange} className={selectCls}>
-                  <option value="">Select budget range</option>
+                  <option value="">{t('selectBudget')}</option>
                   {BUDGET_OPTIONS.map((b) => <option key={b}>{b}</option>)}
                 </select>
               </SelectWrapper>
             </div>
             <div>
-              <Label>Accommodation Style</Label>
+              <Label>{t('accommodationStyle')}</Label>
               <SelectWrapper>
                 <select name="accommodation" value={form.accommodation} onChange={handleChange} className={selectCls}>
-                  <option value="">Select accommodation style</option>
+                  <option value="">{t('selectAccommodation')}</option>
                   {ACCOMMODATION_OPTIONS.map((a) => <option key={a}>{a}</option>)}
                 </select>
               </SelectWrapper>
             </div>
             <div>
-              <Label>Special Requirements</Label>
+              <Label>{t('specialRequirements')}</Label>
               <div className="flex flex-wrap gap-2 mt-1">
                 {SPECIAL_REQS.map((req) => {
                   const active = specialReqs.includes(req)
@@ -298,10 +311,10 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
 
         {/* 4. Contact & Message */}
         <div>
-          <SectionTitle>Message & Contact Preference</SectionTitle>
+          <SectionTitle>{t('messageContact')}</SectionTitle>
           <div className="space-y-4">
             <div>
-              <Label>Preferred Contact Method</Label>
+              <Label>{t('preferredContact')}</Label>
               <div className="flex gap-3 flex-wrap">
                 {CONTACT_PREFS.map(({ value, label }) => (
                   <label
@@ -326,13 +339,13 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
               </div>
             </div>
             <div>
-              <Label>Tell Us Your Dream Safari</Label>
+              <Label>{t('tellUsDream')}</Label>
               <textarea
                 name="message"
                 value={form.message}
                 onChange={handleChange}
                 rows={4}
-                placeholder="Describe your dream trip — wildlife priorities, physical fitness, any special occasions, dietary needs, or questions for our team..."
+                placeholder={t('dreamPlaceholder')}
                 className={`${inputCls} resize-none`}
               />
             </div>
@@ -349,9 +362,11 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
               className="mt-0.5 w-4 h-4 accent-brand flex-shrink-0"
             />
             <span className="text-xs text-text-muted leading-relaxed">
-              I agree to the{' '}
-              <Link href="/privacy" className="text-brand underline hover:no-underline">Privacy Policy</Link>
-              {' '}and consent to The Extreme Wilderness contacting me about my enquiry.
+              {t.rich('privacyConsentText', {
+                privacyLink: (chunks) => (
+                  <Link href="/privacy" className="text-brand underline hover:no-underline">{chunks}</Link>
+                ),
+              })}
             </span>
           </label>
 
@@ -365,11 +380,11 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
             ) : (
               <Send className="w-4 h-4" />
             )}
-            {submitting ? 'Sending…' : 'Send My Enquiry'}
+            {submitting ? t('sending') : t('sendEnquiry')}
           </button>
 
           <p className="text-center text-xs text-text-muted">
-            ⏱ Average response: under 2 hours · No payment or commitment required
+            {t('responseNote')}
           </p>
         </div>
 

@@ -220,7 +220,7 @@ export default function ItinerariesPage() {
 
           <div className="flex flex-wrap gap-x-8 gap-y-3 text-white/55 text-sm">
             {[
-              '15+ Years in East Africa',
+              '5+ Years in East Africa',
               'Fully Bespoke Itineraries',
               'Locally Owned & Operated',
               'Small Groups. No Compromise.',
@@ -239,8 +239,8 @@ export default function ItinerariesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             {[
-              { value: '500+', label: 'Safaris Delivered' },
-              { value: '15+',  label: 'Years in East Africa' },
+              { value: '200+', label: 'Safaris Delivered' },
+              { value: '5+',   label: 'Years in East Africa' },
               { value: '98%',  label: 'Guest Satisfaction' },
               { value: '6',    label: 'Countries Covered' },
             ].map(({ value, label }) => (
@@ -254,7 +254,7 @@ export default function ItinerariesPage() {
       </section>
 
       {/* ── 3. SIGNATURE EDITIONS ────────────────────────────────────────────── */}
-      <section id="itineraries" className="bg-white py-24">
+      <section id="itineraries" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Section header */}
@@ -433,7 +433,7 @@ export default function ItinerariesPage() {
       </section>
 
       {/* ── 6. PLANNING GUIDE ────────────────────────────────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-14">

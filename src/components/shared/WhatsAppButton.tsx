@@ -1,17 +1,21 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 export default function WhatsAppButton() {
+  const t = useTranslations('common')
+
   return (
     <a
       href="https://wa.me/255767000000"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with us on WhatsApp"
+      aria-label={t('whatsAppAriaLabel')}
       className="fixed bottom-20 lg:bottom-6 right-6 z-50 group flex items-center gap-3"
     >
       {/* Tooltip */}
       <span className="hidden sm:block opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-200 bg-gray-900 text-white text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none">
-        Chat on WhatsApp
+        {t('whatsAppTooltip')}
       </span>
 
       {/* Button */}

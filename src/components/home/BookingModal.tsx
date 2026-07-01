@@ -1,9 +1,12 @@
 'use client'
 
 import { useBooking } from '@/context/BookingContext'
+import { useTranslations } from 'next-intl'
 
 export default function BookingModal() {
   const { openBooking } = useBooking()
+  const tc = useTranslations('common')
+  const t  = useTranslations('home')
 
   return (
     <div className="flex flex-col sm:flex-row gap-4">
@@ -11,13 +14,13 @@ export default function BookingModal() {
         onClick={() => openBooking({ packageType: 'Custom Safari' })}
         className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-base shadow-lg"
       >
-        Plan My Safari →
+        {tc('planMySafari')} →
       </button>
       <a
         href="/destinations"
         className="inline-flex items-center gap-2 px-8 py-4 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors text-base"
       >
-        Explore Destinations
+        {t('exploreDest')}
       </a>
     </div>
   )

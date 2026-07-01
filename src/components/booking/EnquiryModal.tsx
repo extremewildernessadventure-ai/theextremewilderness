@@ -8,8 +8,7 @@ import {
 import { useBooking } from '@/context/BookingContext'
 import { useTranslations } from 'next-intl'
 
-// ─── Static Options ───────────────────────────────────────────────────────────
-
+// Country list stays in English (universal standard)
 const COUNTRIES = [
   'United States', 'United Kingdom', 'Australia', 'Canada', 'Germany',
   'France', 'Italy', 'Netherlands', 'Belgium', 'Switzerland', 'Sweden',
@@ -19,41 +18,6 @@ const COUNTRIES = [
   'Brazil', 'Mexico', 'Argentina', 'Singapore', 'Malaysia', 'Russia',
   'Poland', 'Czech Republic', 'Romania', 'Hungary', 'Ukraine', 'Other',
 ]
-
-const TRIP_TYPES = [
-  'Wildlife Safari', 'Kilimanjaro Trek', 'Beach & Safari Combo',
-  'Gorilla Trekking (Rwanda)', 'Honeymoon / Anniversary', 'Family Safari',
-  'Photography Safari', 'Multi-country Adventure', 'Custom Trip',
-]
-
-const BUDGET_OPTIONS = [
-  'Under $1,000 per person',
-  '$1,000 – $2,000 per person',
-  '$2,000 – $3,500 per person',
-  '$3,500 – $5,000 per person',
-  '$5,000 – $8,000 per person',
-  '$8,000+ per person (luxury)',
-  'Flexible / Not sure yet',
-]
-
-const ACCOMMODATION_OPTIONS = [
-  'Budget (basic lodges & guesthouses)',
-  'Mid-range (comfortable camps & lodges)',
-  'Luxury (premium camps & lodges)',
-  'Ultra-luxury (private exclusive camps)',
-  'Mix of styles',
-]
-
-const CHILD_AGE_RANGES = [
-  'Under 2', '2–4', '5–7', '8–11', '12–15', '16–17',
-]
-
-const SPECIAL_REQS = [
-  'Vegetarian', 'Vegan', 'Halal', 'Kosher',
-  'Gluten-free', 'Dairy-free', 'Wheelchair accessible', 'Private guide',
-]
-
-// ─── Sub-components ────────────────────────────────────────────────────────────
 
 function Label({ children }: { children: React.ReactNode }) {
   return (
@@ -124,12 +88,74 @@ function Stepper({ label, sublabel, value, onChange, min = 0 }: {
   )
 }
 
-// ─── Main Modal ───────────────────────────────────────────────────────────────
-
 export default function EnquiryModal() {
   const t = useTranslations('forms')
   const { isOpen, bookingInfo, closeBooking } = useBooking()
   const scrollRef = useRef<HTMLDivElement>(null)
+
+  // Translated option arrays
+  const TRIP_TYPES = [
+    t('tripTypes.wildlifeSafari'),
+    t('tripTypes.kilimanjaroTrek'),
+    t('tripTypes.beachSafariCombo'),
+    t('tripTypes.gorillaTrekking'),
+    t('tripTypes.honeymoon'),
+    t('tripTypes.familySafari'),
+    t('tripTypes.photographySafari'),
+    t('tripTypes.multiCountry'),
+    t('tripTypes.customTrip'),
+  ]
+
+  const BUDGET_OPTIONS = [
+    t('budgetOptions.under1k'),
+    t('budgetOptions.1k2k'),
+    t('budgetOptions.2k3500'),
+    t('budgetOptions.3500_5k'),
+    t('budgetOptions.5k8k'),
+    t('budgetOptions.8kPlus'),
+    t('budgetOptions.flexible'),
+  ]
+
+  const ACCOMMODATION_OPTIONS = [
+    t('accomOptions.budget'),
+    t('accomOptions.midRange'),
+    t('accomOptions.luxury'),
+    t('accomOptions.ultraLuxury'),
+    t('accomOptions.mix'),
+  ]
+
+  const CHILD_AGE_RANGES = [
+    t('childAgeRanges.under2'),
+    t('childAgeRanges.2to4'),
+    t('childAgeRanges.5to7'),
+    t('childAgeRanges.8to11'),
+    t('childAgeRanges.12to15'),
+    t('childAgeRanges.16to17'),
+  ]
+
+  const SPECIAL_REQS = [
+    t('specialReqs.vegetarian'),
+    t('specialReqs.vegan'),
+    t('specialReqs.halal'),
+    t('specialReqs.kosher'),
+    t('specialReqs.glutenFree'),
+    t('specialReqs.dairyFree'),
+    t('specialReqs.wheelchair'),
+    t('specialReqs.privateGuide'),
+  ]
+
+  const FLEXIBILITY_OPTIONS = [
+    { value: 'fixed',    label: t('flexibilityOptions.fixed') },
+    { value: '3days',    label: t('flexibilityOptions.threeDays') },
+    { value: 'week',     label: t('flexibilityOptions.oneWeek') },
+    { value: 'flexible', label: t('flexibilityOptions.flexible') },
+  ]
+
+  const CONTACT_OPTIONS = [
+    { value: 'whatsapp', label: t('contactOptions.whatsapp'), emoji: '💬' },
+    { value: 'email',    label: t('contactOptions.email'),    emoji: '✉️' },
+    { value: 'phone',    label: t('contactOptions.phone'),    emoji: '📞' },
+  ]
 
   // ── Form state ────────────────────────────────────────────────────────
   const [firstName, setFirstName] = useState('')
@@ -154,14 +180,12 @@ export default function EnquiryModal() {
   const [submitted, setSubmitted]   = useState(false)
   const [submitting, setSubmitting] = useState(false)
 
-  // Sync trip type when bookingInfo changes
   useEffect(() => {
     if (bookingInfo?.packageType) setTripType(bookingInfo.packageType)
     if (scrollRef.current) scrollRef.current.scrollTop = 0
     setSubmitted(false)
   }, [bookingInfo, isOpen])
 
-  // Sync child age fields when children count changes
   useEffect(() => {
     setChildAges((prev) => {
       if (children > prev.length) return [...prev, ...Array(children - prev.length).fill('')]
@@ -169,13 +193,11 @@ export default function EnquiryModal() {
     })
   }, [children])
 
-  // Body scroll lock
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [isOpen])
 
-  // Escape key
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') closeBooking() }
     if (isOpen) window.addEventListener('keydown', onKey)
@@ -192,16 +214,39 @@ export default function EnquiryModal() {
     e.preventDefault()
     if (!firstName || !lastName || !email || !phone || !privacyAgreed) return
     setSubmitting(true)
-    await new Promise((r) => setTimeout(r, 1200))
-    setSubmitting(false)
-    setSubmitted(true)
-    setTimeout(() => {
-      closeBooking()
-      setSubmitted(false)
-    }, 3500)
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName, lastName, email, phone, gender, country,
+          tripType, arrivalDate, departureDate, flexibility,
+          adults, children, childAges,
+          budget, accommodation, specialReqs,
+          contactPref, message,
+          packageName: bookingInfo?.packageName,
+          packageType: bookingInfo?.packageType,
+          duration: bookingInfo?.duration,
+          priceFrom: bookingInfo?.priceFrom,
+          source: 'booking_modal',
+        }),
+      })
+      if (!res.ok) throw new Error('send failed')
+      setSubmitted(true)
+      setTimeout(() => {
+        closeBooking()
+        setSubmitted(false)
+      }, 3500)
+    } catch {
+      // Keep modal open so user can try again
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (!isOpen) return null
+
+  const contactMethodLabel = CONTACT_OPTIONS.find((o) => o.value === contactPref)?.label ?? t('contactOptions.email')
 
   return (
     <div
@@ -219,7 +264,7 @@ export default function EnquiryModal() {
           <button
             onClick={closeBooking}
             className="absolute top-4 right-4 w-8 h-8 bg-white/15 hover:bg-white/25 rounded-full flex items-center justify-center transition-colors"
-            aria-label="Close"
+            aria-label={t('closeLabel')}
           >
             <X className="w-4 h-4 text-white" />
           </button>
@@ -229,8 +274,8 @@ export default function EnquiryModal() {
               <Tent className="w-5 h-5 text-brand" />
             </div>
             <div>
-              <h2 className="text-white font-bold text-xl leading-tight">Plan Your African Adventure</h2>
-              <p className="text-white/70 text-sm mt-0.5">Our team responds within 2 hours · No commitment required</p>
+              <h2 className="text-white font-bold text-xl leading-tight">{t('planYourTrip')}</h2>
+              <p className="text-white/70 text-sm mt-0.5">{t('modalSubheading')}</p>
             </div>
           </div>
 
@@ -246,7 +291,7 @@ export default function EnquiryModal() {
                 </div>
               </div>
               <span className="text-[10px] font-bold text-brand bg-gold px-2 py-0.5 rounded-full uppercase tracking-wide flex-shrink-0">
-                Selected
+                {t('selected')}
               </span>
             </div>
           )}
@@ -256,16 +301,15 @@ export default function EnquiryModal() {
         <div ref={scrollRef} className="flex-1 overflow-y-auto">
 
           {submitted ? (
-            /* ── Success state ──────────────────────────────────── */
             <div className="flex flex-col items-center justify-center py-16 px-6 text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                 <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-brand mb-2">Enquiry Sent!</h3>
+              <h3 className="text-xl font-bold text-brand mb-2">{t('successTitle')}</h3>
               <p className="text-text-muted text-sm max-w-xs">
-                Thank you, {firstName}! Our team will be in touch via {contactPref === 'whatsapp' ? 'WhatsApp' : contactPref === 'email' ? 'email' : 'phone'} within 2 hours.
+                {t('successMessage', { name: firstName, method: contactMethodLabel })}
               </p>
             </div>
           ) : (
@@ -273,10 +317,10 @@ export default function EnquiryModal() {
 
               {/* ── 1. Personal Details ──────────────────────────── */}
               <div>
-                <SectionHeader icon={User} title="Personal Details" />
+                <SectionHeader icon={User} title={t('personalDetails')} />
                 <div className="grid grid-cols-2 gap-3 mb-3">
                   <div>
-                    <Label>First name *</Label>
+                    <Label>{t('firstNameLabel')}</Label>
                     <input
                       type="text" required value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
@@ -284,7 +328,7 @@ export default function EnquiryModal() {
                     />
                   </div>
                   <div>
-                    <Label>Last name *</Label>
+                    <Label>{t('lastNameLabel')}</Label>
                     <input
                       type="text" required value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
@@ -294,7 +338,7 @@ export default function EnquiryModal() {
                 </div>
                 <div className="grid grid-cols-2 gap-3 mb-3">
                   <div>
-                    <Label>Email address *</Label>
+                    <Label>{t('emailLabel')}</Label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
@@ -306,7 +350,7 @@ export default function EnquiryModal() {
                     </div>
                   </div>
                   <div>
-                    <Label>Phone (WhatsApp preferred) *</Label>
+                    <Label>{t('phoneLabel')}</Label>
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
@@ -320,22 +364,22 @@ export default function EnquiryModal() {
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <Label>Gender</Label>
+                    <Label>{t('gender')}</Label>
                     <SelectWrapper>
                       <select value={gender} onChange={(e) => setGender(e.target.value)} className={selectCls}>
-                        <option value="">Select gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Non-binary</option>
-                        <option>Prefer not to say</option>
+                        <option value="">{t('selectGender')}</option>
+                        <option>{t('male')}</option>
+                        <option>{t('female')}</option>
+                        <option>{t('nonBinary')}</option>
+                        <option>{t('preferNotToSay')}</option>
                       </select>
                     </SelectWrapper>
                   </div>
                   <div>
-                    <Label>Country of residence</Label>
+                    <Label>{t('countryOfResidence')}</Label>
                     <SelectWrapper>
                       <select value={country} onChange={(e) => setCountry(e.target.value)} className={selectCls}>
-                        <option value="">Select country</option>
+                        <option value="">{t('selectCountryModal')}</option>
                         {COUNTRIES.map((c) => <option key={c}>{c}</option>)}
                       </select>
                     </SelectWrapper>
@@ -345,19 +389,19 @@ export default function EnquiryModal() {
 
               {/* ── 2. Trip Details ──────────────────────────────── */}
               <div>
-                <SectionHeader icon={Calendar} title="Trip Details" />
+                <SectionHeader icon={Calendar} title={t('tripDetails')} />
                 <div className="mb-3">
-                  <Label>Trip type</Label>
+                  <Label>{t('tripLabel')}</Label>
                   <SelectWrapper>
                     <select value={tripType} onChange={(e) => setTripType(e.target.value)} className={selectCls}>
-                      <option value="">Select trip type</option>
-                      {TRIP_TYPES.map((t) => <option key={t}>{t}</option>)}
+                      <option value="">{t('selectTripType')}</option>
+                      {TRIP_TYPES.map((type) => <option key={type}>{type}</option>)}
                     </select>
                   </SelectWrapper>
                 </div>
                 <div className="grid grid-cols-2 gap-3 mb-3">
                   <div>
-                    <Label>Preferred arrival date</Label>
+                    <Label>{t('preferredArrival')}</Label>
                     <input
                       type="date" value={arrivalDate}
                       onChange={(e) => setArrivalDate(e.target.value)}
@@ -366,7 +410,7 @@ export default function EnquiryModal() {
                     />
                   </div>
                   <div>
-                    <Label>Preferred departure date</Label>
+                    <Label>{t('preferredDeparture')}</Label>
                     <input
                       type="date" value={departureDate}
                       onChange={(e) => setDepartureDate(e.target.value)}
@@ -376,14 +420,9 @@ export default function EnquiryModal() {
                   </div>
                 </div>
                 <div>
-                  <Label>Date flexibility</Label>
+                  <Label>{t('dateFlexibility')}</Label>
                   <div className="flex flex-wrap gap-2">
-                    {[
-                      { value: 'fixed', label: 'Fixed dates' },
-                      { value: '3days', label: '±3 days' },
-                      { value: 'week', label: '±1 week' },
-                      { value: 'flexible', label: 'Fully flexible' },
-                    ].map((opt) => (
+                    {FLEXIBILITY_OPTIONS.map((opt) => (
                       <button
                         key={opt.value} type="button"
                         onClick={() => setFlexibility(opt.value)}
@@ -402,29 +441,28 @@ export default function EnquiryModal() {
 
               {/* ── 3. Your Party ────────────────────────────────── */}
               <div>
-                <SectionHeader icon={Users} title="Your Party" />
+                <SectionHeader icon={Users} title={t('yourParty')} />
                 <div className="bg-gray-50 rounded-xl p-4 space-y-3 divide-y divide-gray-100">
                   <Stepper
-                    label="Adults"
-                    sublabel="Age 18+"
+                    label={t('adults')}
+                    sublabel={t('adults18')}
                     value={adults}
                     onChange={setAdults}
                     min={1}
                   />
                   <div className="pt-3">
                     <Stepper
-                      label="Children"
-                      sublabel="Under 18"
+                      label={t('children')}
+                      sublabel={t('childrenUnder18')}
                       value={children}
                       onChange={setChildren}
                     />
                   </div>
                 </div>
 
-                {/* Child age selectors */}
                 {children > 0 && (
                   <div className="mt-3">
-                    <Label>Children&rsquo;s ages</Label>
+                    <Label>{t('childrenAgesLabel')}</Label>
                     <div className="grid grid-cols-3 gap-2">
                       {childAges.map((age, i) => (
                         <div key={i} className="relative">
@@ -438,7 +476,7 @@ export default function EnquiryModal() {
                               }}
                               className={selectCls}
                             >
-                              <option value="">Child {i + 1}</option>
+                              <option value="">{t('childPlaceholder', { n: i + 1 })}</option>
                               {CHILD_AGE_RANGES.map((r) => <option key={r}>{r}</option>)}
                             </select>
                           </SelectWrapper>
@@ -451,29 +489,29 @@ export default function EnquiryModal() {
 
               {/* ── 4. Budget & Preferences ──────────────────────── */}
               <div>
-                <SectionHeader icon={Wallet} title="Budget & Preferences" />
+                <SectionHeader icon={Wallet} title={t('budgetPreferences')} />
                 <div className="grid grid-cols-2 gap-3 mb-4">
                   <div>
-                    <Label>Budget per person</Label>
+                    <Label>{t('budgetPerPerson')}</Label>
                     <SelectWrapper>
                       <select value={budget} onChange={(e) => setBudget(e.target.value)} className={selectCls}>
-                        <option value="">Select budget</option>
+                        <option value="">{t('selectBudgetModal')}</option>
                         {BUDGET_OPTIONS.map((b) => <option key={b}>{b}</option>)}
                       </select>
                     </SelectWrapper>
                   </div>
                   <div>
-                    <Label>Accommodation style</Label>
+                    <Label>{t('accommodationStyleModal')}</Label>
                     <SelectWrapper>
                       <select value={accommodation} onChange={(e) => setAccommodation(e.target.value)} className={selectCls}>
-                        <option value="">Select style</option>
+                        <option value="">{t('selectStyleModal')}</option>
                         {ACCOMMODATION_OPTIONS.map((a) => <option key={a}>{a}</option>)}
                       </select>
                     </SelectWrapper>
                   </div>
                 </div>
                 <div>
-                  <Label>Special requirements (select all that apply)</Label>
+                  <Label>{t('specialReqsSelect')}</Label>
                   <div className="flex flex-wrap gap-2">
                     {SPECIAL_REQS.map((req) => (
                       <button
@@ -494,15 +532,11 @@ export default function EnquiryModal() {
 
               {/* ── 5. Contact & Message ─────────────────────────── */}
               <div>
-                <SectionHeader icon={MessageSquare} title="Contact & Message" />
+                <SectionHeader icon={MessageSquare} title={t('contactMessage')} />
                 <div className="mb-4">
-                  <Label>I prefer to be contacted via</Label>
+                  <Label>{t('contactVia')}</Label>
                   <div className="flex gap-3 flex-wrap">
-                    {[
-                      { value: 'whatsapp', label: 'WhatsApp', emoji: '💬' },
-                      { value: 'email',    label: 'E-mail',   emoji: '✉️' },
-                      { value: 'phone',    label: 'Phone call', emoji: '📞' },
-                    ].map((opt) => (
+                    {CONTACT_OPTIONS.map((opt) => (
                       <label
                         key={opt.value}
                         className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl border cursor-pointer transition-all ${
@@ -517,17 +551,17 @@ export default function EnquiryModal() {
                           onChange={() => setContactPref(opt.value)}
                           className="sr-only"
                         />
-                        <span className="text-sm font-medium">{opt.label}</span>
+                        <span className="text-sm font-medium">{opt.emoji} {opt.label}</span>
                       </label>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <Label>Any questions or special requests?</Label>
+                  <Label>{t('questionsRequests')}</Label>
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Tell us about your dream trip — wildlife you want to see, physical fitness level, special occasions, dietary preferences, or anything else we should know..."
+                    placeholder={t('questionPlaceholder')}
                     rows={4}
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-brand focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 resize-none placeholder-gray-400 transition-all"
                   />
@@ -548,9 +582,11 @@ export default function EnquiryModal() {
                 className="w-4 h-4 accent-brand cursor-pointer"
               />
               <label htmlFor="privacy" className="text-xs text-gray-500 cursor-pointer leading-tight">
-                By submitting this form I agree to the{' '}
-                <a href="/privacy" className="text-brand underline hover:text-gold">Privacy Policy</a>
-                {' '}and consent to being contacted by The Extreme Wilderness.
+                {t.rich('bySubmitting', {
+                  privacyLink: (chunks) => (
+                    <a href="/privacy" className="text-brand underline hover:text-gold">{chunks}</a>
+                  ),
+                })}
               </label>
             </div>
             <button
@@ -566,17 +602,17 @@ export default function EnquiryModal() {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                   </svg>
-                  Sending your enquiry…
+                  {t('sendingEnquiry')}
                 </>
               ) : (
                 <>
                   <Send className="w-4 h-4" />
-                  Send My Enquiry
+                  {t('sendEnquiry')}
                 </>
               )}
             </button>
             <p className="text-center text-xs text-gray-400 mt-2">
-              ⏱ Average response time: under 2 hours · No payment or commitment required
+              {t('noPayment')}
             </p>
           </div>
         )}

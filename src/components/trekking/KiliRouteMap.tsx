@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Link } from '@/i18n/navigation'
 import { MapPin, Clock, TrendingUp, Trophy, ArrowRight, ChevronRight } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useBooking } from '@/context/BookingContext'
 import KiliRouteMapSVG from '@/components/trekking/KiliRouteMapSVG'
 
@@ -103,6 +104,7 @@ export default function KiliRouteMap() {
   const [activeId, setActiveId] = useState('machame')
   const active = routes.find((r) => r.id === activeId)!
   const { openBooking } = useBooking()
+  const t = useTranslations('trekking')
 
   return (
     <section className="relative py-24 overflow-hidden bg-brand-dark">
@@ -125,13 +127,13 @@ export default function KiliRouteMap() {
         {/* Section heading */}
         <div className="text-center mb-12">
           <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-            Choose Your Path
+            {t('chooseYourPath')}
           </span>
           <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-3">
-            Kilimanjaro Route Maps
+            {t('routeMapHeading')}
           </h2>
           <p className="text-white/60 text-sm max-w-lg mx-auto">
-            Select a route to explore its map, difficulty, and what makes it unique.
+            {t('routeMapSubtitle')}
           </p>
         </div>
 
@@ -173,11 +175,11 @@ export default function KiliRouteMap() {
             {/* Map caption */}
             <div className="flex justify-center">
               <div className="inline-flex items-center gap-2 bg-black/35 backdrop-blur-sm border border-gold/60 rounded-full px-4 py-1.5">
-                <span className="text-white/45 text-[11px] tracking-wide">Custom topographic map</span>
+                <span className="text-white/45 text-[11px] tracking-wide">{t('topoMapLabel')}</span>
                 <span className="text-white/25 text-[11px]">·</span>
                 <span className="text-gold text-[11px] font-semibold tracking-wide">{active.name}</span>
                 <span className="text-white/25 text-[11px]">·</span>
-                <span className="text-white/45 text-[11px] tracking-wide">TANAPA Approved Trail</span>
+                <span className="text-white/45 text-[11px] tracking-wide">{t('tanapaApproved')}</span>
               </div>
             </div>
 
@@ -199,7 +201,7 @@ export default function KiliRouteMap() {
                   </div>
                   <div className="flex items-center gap-1.5 bg-black/30 rounded-lg px-3 py-1.5">
                     <Trophy className="w-3.5 h-3.5 text-gold" />
-                    <span className="text-white text-xs font-medium">{active.successRate} success</span>
+                    <span className="text-white text-xs font-medium">{t('successRateLabel', { rate: active.successRate })}</span>
                   </div>
                 </div>
               </div>
@@ -220,9 +222,9 @@ export default function KiliRouteMap() {
 
               <div className="flex items-center justify-between pt-4 border-t border-white/10">
                 <div>
-                  <span className="text-white/50 text-xs">From </span>
+                  <span className="text-white/50 text-xs">{t('startingFrom')} </span>
                   <span className="text-gold font-bold text-lg">${active.priceFrom.toLocaleString()}</span>
-                  <span className="text-white/50 text-xs"> / person</span>
+                  <span className="text-white/50 text-xs"> {t('perPerson')}</span>
                 </div>
                 <button
                   type="button"
@@ -234,7 +236,7 @@ export default function KiliRouteMap() {
                   })}
                   className="flex items-center gap-2 px-5 py-2.5 bg-gold hover:bg-gold-dark text-brand font-bold text-sm rounded-xl transition-colors"
                 >
-                  Book This Route <ArrowRight className="w-3.5 h-3.5" />
+                  {t('bookThisRoute')} <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>

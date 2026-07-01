@@ -5,96 +5,14 @@ import { useTranslations } from 'next-intl'
 import { Star, Users, Globe, Award, ChevronLeft, ChevronRight, MapPin } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-const testimonials = [
-  {
-    name: 'James Kowalski',
-    country: 'United States',
-    rating: 5,
-    text: "I've done safaris in Kenya and South Africa, but Tanzania with The Extreme Wilderness was on another level. No crowds, no cookie-cutter experiences — pure, authentic wilderness. The balloon over the Serengeti at sunrise was life-changing.",
-    trip: '10-Day Northern Circuit',
-  },
-  {
-    name: 'Erick Edwin',
-    country: 'United States',
-    rating: 5,
-    text: "Wow, just wow, what an experience! My girlfriend and I had a 5-day tour of Lake Manyara, Serengeti and Ngorongoro Crater and it was nothing short of spectacular. Our guide George's enthusiasm for Tanzania and the wildlife was so contagious. We saw so many animals and managed to spot the Big 5!! He definitely went above and beyond.",
-    trip: 'Lake Manyara, Serengeti & Ngorongoro',
-  },
-  {
-    name: 'Lauren',
-    country: 'United States',
-    rating: 5,
-    text: "Phenomenal! Upon our arrival Mike called us up as soon as we landed. The trip he put together for us was more than we could have expected. From our very first game drive we were blown away by the wildlife we encountered. Mike showed incredible passion, professionalism, and people skills. We would go back in a heartbeat.",
-    trip: 'Tanzania Safari',
-  },
-  {
-    name: 'Renard',
-    country: 'United States',
-    rating: 5,
-    text: "Unforgettable! We completed a 5-day tour that was genuinely life-changing. The accommodations, transportation, and game drives were all top-notch. Our guide was extraordinary — deeply passionate about wildlife and conservation, and his knowledge made every drive educational and thrilling. Extreme Wilderness truly delivered beyond our expectations.",
-    trip: '5-Day Tanzania Safari',
-  },
-  {
-    name: 'Abimbola',
-    country: 'United States',
-    rating: 5,
-    text: "Professional and easy going — that perfectly sums up Extreme Wilderness. Our guide Mike was very friendly, easy to talk to, and deeply knowledgeable about the wildlife and ecosystems. He made every game drive exciting and informative. The whole team was responsive, efficient, and responsible throughout the entire trip. Cannot recommend them enough.",
-    trip: 'Tanzania Safari',
-  },
-  {
-    name: 'Ruaika',
-    country: 'Canada',
-    rating: 5,
-    text: "It was my first time visiting Tanzania and experiencing the magical wilderness — I was so excited. A friend recommended Extreme Wilderness and I cannot thank him enough. They were amazingly quick to answer my inquiry and helped us get the best accommodations. When we touched down in Arusha, they welcomed us like royals — a bottle of champagne and exotic Tanzanian fruits. We were all so pleasantly surprised!",
-    trip: 'Wildlife Safari Tanzania',
-  },
-  {
-    name: 'Cindy',
-    country: 'United States',
-    rating: 5,
-    text: "Great experience! We had an amazing time during this safari journey. Mike was always present and left a great impression — he was warm, professional, and made sure we saw as much wildlife as possible. It was one of the most extraordinary experiences we have ever had in Tanzania. I would not hesitate to book with Extreme Wilderness again.",
-    trip: 'Tanzania Wildlife Safari',
-  },
-  {
-    name: 'Sarah & Michael Thompson',
-    country: 'United Kingdom',
-    rating: 5,
-    text: "The Extreme Wilderness gave us the most incredible experience of our lives. Our guide Samuel knew exactly where to find the leopard we'd been hoping to see — and delivered it on our last morning. Every detail was perfect. We'll be back for Kilimanjaro!",
-    trip: '7-Day Serengeti & Ngorongoro',
-  },
-  {
-    name: 'Yangmeng',
-    country: 'China',
-    rating: 5,
-    text: "A dream safari with Extreme Wilderness Adventure — and the perfect choice for families! Everything was so well organised, from the airport pick-up to the game drives. Our guide was incredibly knowledgeable and patient with the kids. I would highly recommend Extreme Wilderness to anyone looking for an unforgettable African safari experience.",
-    trip: 'Family Safari Tanzania',
-  },
-  {
-    name: 'Alessandra & Aimo',
-    country: 'Italy',
-    rating: 5,
-    text: "Well organised and fun! Before leaving we were uncertain about what to expect, but our guide Peter was very efficient and always showed up on time. He was friendly, knowledgeable, and knew exactly where to take us to maximise our game-viewing. The routes were perfect and the tent camp was a lovely bonus surprise. We saw all the Big Five and had an absolute blast!",
-    trip: 'Tanzania Safari',
-  },
-  {
-    name: 'Marie & François Dupont',
-    country: 'France',
-    rating: 5,
-    text: "Notre lune de miel parfaite — safari au Serengeti puis Zanzibar. The team arranged everything flawlessly and our French-speaking guide was exceptional. We saw all the Big Five in three days. Magnifique!",
-    trip: 'Safari & Zanzibar Honeymoon',
-  },
-  {
-    name: 'Christina',
-    country: 'Italy',
-    rating: 4,
-    text: "So helpful! The team at Extreme Wilderness was incredibly supportive in planning our trip and answered all our questions promptly. Our guide was knowledgeable and enthusiastic throughout. It was a wonderful experience in Tanzania that I will cherish for years to come.",
-    trip: 'Tanzania Safari',
-  },
-]
-
-
+const COUNTRY_KEYS: Record<string, 'countryUS' | 'countryCA' | 'countryUK' | 'countryFR' | 'countryIT' | 'countryCN'> = {
+  'United States':  'countryUS',
+  'Canada':         'countryCA',
+  'United Kingdom': 'countryUK',
+  'France':         'countryFR',
+  'Italy':          'countryIT',
+  'China':          'countryCN',
+}
 
 const PAGE_SIZE = 6
 
@@ -110,7 +28,28 @@ function getInitials(name: string) {
 
 export default function Testimonials() {
   const t = useTranslations('home')
+  const tc = useTranslations('common')
   const [page, setPage]   = useState(0)
+
+  const tCountry = (c: string) => {
+    const key = COUNTRY_KEYS[c]
+    return key ? t(key) : c
+  }
+
+  const testimonials = [
+    { name: 'James Kowalski',          country: 'United States', rating: 5, text: t('rev0Text'),  trip: t('rev0Trip')  },
+    { name: 'Erick Edwin',             country: 'United States', rating: 5, text: t('rev1Text'),  trip: t('rev1Trip')  },
+    { name: 'Lauren',                  country: 'United States', rating: 5, text: t('rev2Text'),  trip: t('rev2Trip')  },
+    { name: 'Renard',                  country: 'United States', rating: 5, text: t('rev3Text'),  trip: t('rev3Trip')  },
+    { name: 'Abimbola',                country: 'United States', rating: 5, text: t('rev4Text'),  trip: t('rev4Trip')  },
+    { name: 'Ruaika',                  country: 'Canada',        rating: 5, text: t('rev5Text'),  trip: t('rev5Trip')  },
+    { name: 'Cindy',                   country: 'United States', rating: 5, text: t('rev6Text'),  trip: t('rev6Trip')  },
+    { name: 'Sarah & Michael Thompson',country: 'United Kingdom',rating: 5, text: t('rev7Text'),  trip: t('rev7Trip')  },
+    { name: 'Yangmeng',                country: 'China',         rating: 5, text: t('rev8Text'),  trip: t('rev8Trip')  },
+    { name: 'Alessandra & Aimo',       country: 'Italy',         rating: 5, text: t('rev9Text'),  trip: t('rev9Trip')  },
+    { name: 'Marie & François Dupont', country: 'France',        rating: 5, text: t('rev10Text'), trip: t('rev10Trip') },
+    { name: 'Christina',               country: 'Italy',         rating: 4, text: t('rev11Text'), trip: t('rev11Trip') },
+  ]
 
   const stats = [
     { value: '4.9 / 5', label: t('averageRating'),    Icon: Star,  iconClass: 'fill-gold text-gold' },
@@ -213,7 +152,7 @@ export default function Testimonials() {
                     ))}
                   </div>
                   <span className="text-[10px] bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full border border-green-200 flex-shrink-0 whitespace-nowrap">
-                    Verified Guest
+                    {t('verifiedGuest')}
                   </span>
                 </div>
 
@@ -231,7 +170,7 @@ export default function Testimonials() {
                     <div className="font-semibold text-brand text-sm truncate">{review.name}</div>
                     <div className="flex items-center gap-1 text-[11px] text-text-muted">
                       <MapPin className="w-3 h-3 flex-shrink-0" />
-                      <span className="truncate">{review.country} · {review.trip}</span>
+                      <span className="truncate">{tCountry(review.country)} · {review.trip}</span>
                     </div>
                   </div>
                 </div>
@@ -274,9 +213,9 @@ export default function Testimonials() {
         {/* Footer CTA */}
         <div className="text-center">
           <p className="text-text-muted text-sm mb-5">
-            Join 200+ travelers who&rsquo;ve explored Africa with us — and came back for more.
+            {t('joinTravelers')}
           </p>
-          <BookNowButton label="Plan My Safari" arrow />
+          <BookNowButton label={tc('planMySafari')} arrow />
         </div>
 
       </div>

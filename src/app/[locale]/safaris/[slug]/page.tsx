@@ -7,6 +7,7 @@ import { Clock, Users, Check, X, ChevronDown } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { packages } from '@/data/packages'
+import { getPackage } from '@/data/packages.i18n'
 import { routing } from '@/i18n/routing'
 
 interface Props {
@@ -20,8 +21,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
-  const pkg = packages.find((p) => p.slug === slug)
+  const { slug, locale } = await params
+  const pkg = getPackage(slug, locale)
   if (!pkg) return {}
   return {
     title: `${pkg.name} | Tanzania Safari`,
@@ -30,8 +31,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function SafariPackagePage({ params }: Props) {
-  const { slug } = await params
-  const pkg = packages.find((p) => p.slug === slug)
+  const { slug, locale } = await params
+  const pkg = getPackage(slug, locale)
   if (!pkg) notFound()
 
   const t = await getTranslations('safari')

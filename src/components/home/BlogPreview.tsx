@@ -3,47 +3,43 @@ import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { Calendar, Clock, ArrowRight } from 'lucide-react'
 
-const posts = [
-  {
-    slug: 'great-migration-guide',
-    title: 'The Complete Guide to the Great Wildebeest Migration',
-    excerpt:
-      "Every year, 1.5 million wildebeest cross the Serengeti in one of nature's greatest spectacles. Here's everything you need to know to witness it.",
-    date: 'June 12, 2025',
-    readTime: '15 min read',
-    category: 'Wildlife',
-    image: '/images/gallery/serengeti (1).png',
-  },
-  {
-    slug: 'kilimanjaro-climbing-guide',
-    title: 'How to Climb Kilimanjaro: Routes, Cost & Everything You Need to Know',
-    excerpt:
-      "Africa's highest peak doesn't require technical climbing skills — but it demands preparation. Here's the complete 2025 guide to every route and what to expect.",
-    date: 'May 10, 2025',
-    readTime: '14 min read',
-    category: 'Trekking',
-    image: '/images/gallery/kilimanjaro (1).png',
-  },
-  {
-    slug: 'zanzibar-travel-guide',
-    title: 'Zanzibar Travel Guide: Beaches, Stone Town & Safari Combos',
-    excerpt:
-      "White coral sand, turquoise Indian Ocean water, ancient Swahili culture — Zanzibar is the perfect final chapter to any Tanzania safari.",
-    date: 'March 30, 2025',
-    readTime: '13 min read',
-    category: 'Planning',
-    image: '/images/gallery/zanzibar.png',
-  },
-]
-
 export default function BlogPreview() {
   const t = useTranslations('home')
   const tc = useTranslations('common')
 
+  const posts = [
+    {
+      slug: 'great-migration-guide',
+      title: t('blog0Title'),
+      excerpt: t('blog0Excerpt'),
+      date: t('blog0Date'),
+      readTime: t('blog0ReadTime'),
+      category: t('blog0Category'),
+      image: '/images/gallery/serengeti (1).png',
+    },
+    {
+      slug: 'kilimanjaro-climbing-guide',
+      title: t('blog1Title'),
+      excerpt: t('blog1Excerpt'),
+      date: t('blog1Date'),
+      readTime: t('blog1ReadTime'),
+      category: t('blog1Category'),
+      image: '/images/gallery/kilimanjaro (1).png',
+    },
+    {
+      slug: 'zanzibar-travel-guide',
+      title: t('blog2Title'),
+      excerpt: t('blog2Excerpt'),
+      date: t('blog2Date'),
+      readTime: t('blog2ReadTime'),
+      category: t('blog2Category'),
+      image: '/images/gallery/zanzibar.png',
+    },
+  ]
+
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading row */}
         <div className="flex items-end justify-between mb-10">
           <div>
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
@@ -61,7 +57,6 @@ export default function BlogPreview() {
           </Link>
         </div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {posts.map((post) => (
             <Link
@@ -69,7 +64,6 @@ export default function BlogPreview() {
               href={`/blog/${post.slug}`}
               className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 flex flex-col"
             >
-              {/* Image */}
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src={post.image}
@@ -83,7 +77,6 @@ export default function BlogPreview() {
                 </span>
               </div>
 
-              {/* Content */}
               <div className="p-5 flex-1 flex flex-col">
                 <h3 className="font-semibold text-brand text-base mb-2 leading-snug group-hover:text-brand-secondary transition-colors">
                   {post.title}
@@ -111,7 +104,6 @@ export default function BlogPreview() {
           ))}
         </div>
 
-        {/* Mobile "view all" link */}
         <div className="text-center mt-8 sm:hidden">
           <Link
             href="/blog"

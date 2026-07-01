@@ -239,7 +239,7 @@ export default function TrekkingPage() {
       </section>
 
       {/* Why Kilimanjaro */}
-      <section className="py-16 bg-white">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-12">
             {[
@@ -356,7 +356,7 @@ export default function TrekkingPage() {
       </section>
 
       {/* When to Summit */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Summit Intelligence</span>

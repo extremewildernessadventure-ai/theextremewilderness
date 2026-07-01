@@ -42,12 +42,12 @@ const contactCards = [
 const trustSignals = [
   { icon: Star, text: '4.9★ on TripAdvisor' },
   { icon: Award, text: 'TATO Certified' },
-  { icon: MessageCircle, text: 'Est. 2009' },
+  { icon: MessageCircle, text: 'Est. 2022' },
 ]
 
 export default function ContactPage() {
   return (
-    <main className="bg-white">
+    <main>
 
       {/* ── Hero — split layout ───────────────────────────────────────────── */}
       <section className="relative bg-brand min-h-[60vh] flex items-stretch overflow-hidden">
@@ -159,7 +159,7 @@ export default function ContactPage() {
                   ))}
                 </div>
                 <p className="text-brand font-bold text-sm">4.9 / 5 on TripAdvisor</p>
-                <p className="text-text-muted text-xs mt-0.5">800+ verified reviews from real travellers</p>
+                <p className="text-text-muted text-xs mt-0.5">Trusted by global travellers</p>
               </div>
             </div>
 

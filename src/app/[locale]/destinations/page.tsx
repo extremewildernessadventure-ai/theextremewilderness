@@ -3,6 +3,9 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, MapPin, Clock, Star, CheckCircle2, Binoculars, Users, Car, Headphones, Shield, Compass, Trophy } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
+import { getTranslations } from 'next-intl/server'
+import { getLocale } from 'next-intl/server'
+import { getDestinations } from '@/data/destinations.i18n'
 
 export const metadata: Metadata = {
   title: 'Tanzania Safari Destinations | Serengeti, Ngorongoro & More',
@@ -22,319 +25,125 @@ export const metadata: Metadata = {
   ],
 }
 
-const circuits = [
+const tanzaniaStats = [
+  { icon: '🦁', stat: '26' },
+  { icon: '🌍', stat: '28%' },
+  { icon: '🐦', stat: '1,100+' },
+  { icon: '🦒', stat: '70+' },
+  { icon: '🏔️', stat: '5,895 m' },
+  { icon: '🏆', stat: '#1' },
+]
+
+const DEST_EXTRA: Record<string, { badge: string; badgeColor: string; bestTime: string; duration: string; priceFrom: string }> = {
+  serengeti:       { badge: 'Must-Visit',          badgeColor: 'bg-gold text-brand',           bestTime: 'Jul – Oct & Jan – Feb', duration: '3–7 days', priceFrom: '$280' },
+  ngorongoro:      { badge: 'UNESCO World Heritage', badgeColor: 'bg-brand text-white',         bestTime: 'Jun – Oct & Jan – Mar', duration: '1–2 days', priceFrom: '$240' },
+  tarangire:       { badge: 'Elephant Paradise',   badgeColor: 'bg-brand text-white',           bestTime: 'Jun – Oct',             duration: '2–3 days', priceFrom: '$200' },
+  manyara:         { badge: 'Scenic Wonder',        badgeColor: 'bg-gold text-brand',            bestTime: 'Jun – Oct & Jan – Feb', duration: '1–2 days', priceFrom: '$180' },
+  katavi:          { badge: 'Raw Wilderness',       badgeColor: 'bg-brand-secondary text-white', bestTime: 'Jul – Oct',             duration: '3–4 days', priceFrom: '$350' },
+  gombe:           { badge: 'Conservation Icon',    badgeColor: 'bg-gold text-brand',            bestTime: 'Aug – Nov',             duration: '2–3 days', priceFrom: '$300' },
+  'lake-victoria': { badge: 'Hidden Gem',           badgeColor: 'bg-brand text-white',           bestTime: 'Jun – Oct',             duration: '2–4 days', priceFrom: '$180' },
+  ruaha:           { badge: 'Big Cat Country',      badgeColor: 'bg-brand text-white',           bestTime: 'May – Nov',             duration: '3–5 days', priceFrom: '$260' },
+  nyerere:         { badge: 'UNESCO Heritage',      badgeColor: 'bg-gold text-brand',            bestTime: 'Jun – Oct',             duration: '3–5 days', priceFrom: '$240' },
+}
+
+const EXTRA_META: Record<string, { badge: string; priceFrom: string }> = {
+  zanzibar: { badge: 'Beach & Culture', priceFrom: '$160' },
+  arusha:   { badge: 'Gateway City',    priceFrom: '$80'  },
+}
+
+const CIRCUIT_META = [
   {
     id: 'northern',
-    label: 'Northern Circuit',
-    tagline: 'The Classic Safari — Most Wildlife, Most Icons',
+    regions: ['northern', 'tarangire'],
+    labelKey: 'circuitNorthernLabel' as const,
+    taglineKey: 'circuitNorthernTagline' as const,
+    box1DescKey: 'box1NorthernDesc' as const,
     icon: '🦁',
     color: 'bg-amber-50 border-amber-200',
     labelColor: 'text-amber-800',
-    destinations: [
-      {
-        id: 'serengeti',
-        name: 'Serengeti National Park',
-        tagline: 'The Greatest Wildlife Show on Earth',
-        size: '14,763 km²',
-        image: '/images/gallery/safari-118.jpg',
-        badge: 'Must-Visit',
-        badgeColor: 'bg-gold text-brand',
-        highlights: [
-          'Great Migration — 1.5 million wildebeest',
-          'Highest big cat density in Africa',
-          'All Big Five in a single game drive',
-          'Hot air balloon safaris at sunrise',
-          '70 large mammal species · 500 bird species',
-          'Endless golden plains — Maasai means "endless"',
-        ],
-        wildlife: ['Lion', 'Leopard', 'Cheetah', 'Elephant', 'Buffalo', 'Rhino', 'Wild Dog', 'Hippo', 'Crocodile'],
-        bestTime: 'Jul – Oct & Jan – Feb',
-        duration: '3–7 days',
-        overview:
-          "The Serengeti is Tanzania's crown jewel and the world's most celebrated safari destination. Spanning 14,763 km² of endless golden savannah, it is home to the world's greatest wildlife spectacle — the annual Great Migration. Over 1.5 million wildebeest, 750,000 gazelle, and 250,000 zebra move in a perpetual clockwise circuit driven by rainfall and fresh grazing. The park's three main regions each offer different experiences: the southern Seronera Valley for year-round big cat action, the western corridor for dramatic Grumeti River crossings, and the northern Lobo area for the famous Mara River crossings from July to October. Approximately 8,000 wildebeest are born daily during the calving season in January and February.",
-        priceFrom: '$280',
-        slug: 'serengeti',
-      },
-      {
-        id: 'ngorongoro',
-        name: 'Ngorongoro Conservation Area',
-        tagline: "The World's Largest Intact Volcanic Caldera",
-        size: '8,292 km²',
-        image: '/images/gallery/safari-135.jpg',
-        badge: 'UNESCO World Heritage',
-        badgeColor: 'bg-brand text-white',
-        highlights: [
-          '25,000+ large mammals in one caldera',
-          'Guaranteed Big Five in a single drive',
-          'Endangered black rhino — densest population',
-          'Flamingo-fringed soda lake on the crater floor',
-          'Maasai communities co-existing with wildlife',
-          'Olduvai Gorge — the Cradle of Mankind',
-        ],
-        wildlife: ['Lion', 'Black Rhino', 'Elephant', 'Buffalo', 'Leopard', 'Hippo', 'Flamingo', 'Wildebeest'],
-        bestTime: 'Jun – Oct & Jan – Mar',
-        duration: '1–2 days',
-        overview:
-          "Ngorongoro Conservation Area is a UNESCO World Heritage Site and one of Africa's most extraordinary natural wonders. The 260 km² crater — the world's largest intact volcanic caldera — forms a natural enclosure for an astonishing concentration of wildlife. Over 25,000 large animals live within the crater walls, representing the highest wildlife density in Africa. The area encompasses far more than the famous crater: the vast Ngorongoro highlands, the ancient human heritage site of Olduvai Gorge, Olmoti and Empakai craters, and the active Oldoinyo Lengai volcano. Uniquely, the Maasai people live and graze their cattle within the conservation area alongside the wildlife — one of Africa's finest examples of human-wildlife coexistence.",
-        priceFrom: '$240',
-        slug: 'ngorongoro',
-      },
-      {
-        id: 'tarangire',
-        name: 'Tarangire National Park',
-        tagline: "Tanzania's Elephant Capital",
-        size: '2,850 km²',
-        image: '/images/gallery/tarangire-1.jpg',
-        badge: 'Elephant Paradise',
-        badgeColor: 'bg-brand text-white',
-        highlights: [
-          "Tanzania's highest elephant density",
-          'Ancient baobab trees — some 1,000+ years old',
-          "Poacher's Hide — legendary 300-year-old baobab",
-          'Tarangire River — dry season wildlife magnet',
-          '550+ bird species · rare oryx and eland',
-          'Far fewer crowds than Serengeti',
-        ],
-        wildlife: ['Elephant', 'Lion', 'Leopard', 'Buffalo', 'Zebra', 'Oryx', 'Eland', 'Python', 'Wild Dog'],
-        bestTime: 'Jun – Oct',
-        duration: '2–3 days',
-        overview:
-          "Tarangire National Park is one of Tanzania's most rewarding safari destinations and a firm favourite among repeat visitors. Famous for its enormous elephant herds — numbering in the hundreds during the dry season — and the iconic ancient baobab trees that create an otherworldly landscape, Tarangire delivers an experience unlike any other park in East Africa. The Tarangire River is the only permanent water source in the region during the dry season, drawing massive concentrations of wildlife from across the ecosystem: elephant, zebra, wildebeest, oryx, and the rare fringe-eared oryx. Despite offering wildlife viewing comparable to the Serengeti, Tarangire receives a fraction of the visitors, making it one of Tanzania's best-value safari destinations.",
-        priceFrom: '$200',
-        slug: 'tarangire',
-      },
-      {
-        id: 'manyara',
-        name: 'Lake Manyara National Park',
-        tagline: "Hemingway's Most Beautiful Place in Africa",
-        size: '648 km²',
-        image: '/images/gallery/safari-126.jpg',
-        badge: 'Scenic Wonder',
-        badgeColor: 'bg-gold text-brand',
-        highlights: [
-          'Tree-climbing lions — a rare East Africa phenomenon',
-          'Flamingo-fringed alkaline soda lake',
-          'Dramatic Rift Valley escarpment backdrop',
-          '400+ bird species · huge elephant herds',
-          'Large baboon troops in mahogany forest',
-          'Hemingway called it "the most beautiful lake in Africa"',
-        ],
-        wildlife: ['Lion', 'Elephant', 'Hippo', 'Buffalo', 'Flamingo', 'Pelican', 'Baboon', 'Blue Monkey', 'Zebra'],
-        bestTime: 'Jun – Oct & Jan – Feb',
-        duration: '1–2 days',
-        overview:
-          "Lake Manyara National Park is one of Tanzania's most visually stunning parks, set dramatically against the towering escarpment of the East African Rift Valley. Ernest Hemingway famously described it as the most beautiful lake in Africa. The alkaline soda lake — which covers two-thirds of the park — turns a spectacular flamingo-pink during the dry season. Manyara is most famous for its tree-climbing lions, a rare phenomenon found in only a handful of places in East Africa. The forest along the escarpment base is exceptional for primates, while the groundwater forest and open floodplains support one of the most diverse ecosystems in the northern circuit.",
-        priceFrom: '$180',
-        slug: 'manyara',
-      },
-    ],
+    box1Color: 'bg-amber-400/20 border-amber-400/30',
   },
   {
     id: 'western',
-    label: 'Western Circuit',
-    tagline: 'Chimpanzees, Remote Wilderness & Lake Tanganyika',
+    regions: ['western'],
+    labelKey: 'circuitWesternLabel' as const,
+    taglineKey: 'circuitWesternTagline' as const,
+    box1DescKey: 'box1WesternDesc' as const,
     icon: '🐒',
     color: 'bg-green-50 border-green-200',
     labelColor: 'text-brand',
-    destinations: [
-      {
-        id: 'katavi',
-        name: 'Katavi National Park',
-        tagline: "Tanzania's Last True Wilderness",
-        size: '4,471 km²',
-        image: '/images/gallery/safari-130.jpg',
-        badge: 'Raw Wilderness',
-        badgeColor: 'bg-brand-secondary text-white',
-        highlights: [
-          'World record buffalo herds — up to 1,000 individuals',
-          'Thousands of hippos crowding dry-season pools',
-          'Barely 1,000 visitors per year vs 250,000 in Serengeti',
-          'Huge lion prides specialising in buffalo',
-          'No other vehicles — true wilderness solitude',
-          'Remote fly-in access adds to exclusivity',
-        ],
-        wildlife: ['Hippo', 'Crocodile', 'Lion', 'Buffalo', 'Elephant', 'Puku', 'Roan Antelope', 'Wild Dog'],
-        bestTime: 'Jul – Oct',
-        duration: '3–4 days',
-        overview:
-          "Katavi National Park is Tanzania's most remote and least-visited national park — a raw, unfiltered wilderness where you might spend an entire day on game drive without encountering another vehicle. During the dry season, the shrinking pools of the Katuma River host thousands of hippos in extraordinary congregation, creating scenes of primordial drama rarely witnessed anywhere else. Massive buffalo herds — among the largest in the world — attract equally impressive lion prides specialising in taking down these formidable prey. Katavi sees roughly 1,000 visitors per year compared to the Serengeti's 250,000: for travellers seeking absolute solitude and a genuine off-grid Africa experience, it has no equal.",
-        priceFrom: '$350',
-        slug: 'katavi',
-      },
-      {
-        id: 'gombe',
-        name: 'Gombe Stream National Park',
-        tagline: "Jane Goodall's Chimpanzee Kingdom",
-        size: '35 km²',
-        image: '/images/gallery/gombe-stream.jpg',
-        badge: 'Conservation Icon',
-        badgeColor: 'bg-gold text-brand',
-        highlights: [
-          "Dr Jane Goodall's legendary 1960 research site",
-          'Chimpanzees share 98% of human DNA',
-          "Tanzania's smallest national park",
-          'Lake Tanganyika — world\'s second deepest lake',
-          'Snorkelling & swimming in crystal fresh water',
-          'Red colobus, blue monkey & olive baboon',
-        ],
-        wildlife: ['Chimpanzee', 'Red Colobus', 'Blue Monkey', 'Olive Baboon', 'Leopard', 'Hippo', 'Crocodile'],
-        bestTime: 'Aug – Nov',
-        duration: '2–3 days',
-        overview:
-          "Gombe Stream National Park holds a unique place in the history of science and conservation. It was here in 1960 that Dr Jane Goodall began her revolutionary research into chimpanzee behaviour — research that overturned the prevailing understanding of the boundary between humans and other animals. The wild chimpanzees of Gombe have been studied continuously for over 60 years and are the most closely observed in the world. Tanzania's smallest national park at just 35 km², Gombe sits on the steep forested shores of Lake Tanganyika — the world's second deepest lake. After chimpanzee trekking, the crystal-clear lake offers rare swimming and snorkelling in freshwater, making Gombe a truly unique multi-experience destination.",
-        priceFrom: '$300',
-        slug: 'gombe',
-      },
-      {
-        id: 'lake-victoria',
-        name: 'Lake Victoria',
-        tagline: "Africa's Largest Lake — Off the Beaten Path",
-        size: '68,800 km²',
-        image: '/images/gallery/safari-123.jpg',
-        badge: 'Hidden Gem',
-        badgeColor: 'bg-brand text-white',
-        highlights: [
-          "World's third-largest lake by surface area",
-          'Rubondo Island National Park on the lake',
-          "Sukuma Museum — Tanzania's largest ethnic group",
-          'Mwanza — vibrant lakeside rock city',
-          'Island hopping on Ukerewe & Ukara',
-          'Spectacular sunset cruises over open water',
-        ],
-        wildlife: ['Nile Perch', 'Hippo', 'Crocodile', 'Pelican', 'Crowned Crane', 'African Fish Eagle', 'Otter'],
-        bestTime: 'Jun – Oct',
-        duration: '2–4 days',
-        overview:
-          "Lake Victoria is Africa's largest lake and the world's third largest by surface area, straddling Tanzania, Kenya, and Uganda. The Tanzanian shores around Mwanza offer a fascinating off-the-beaten-path experience that most safari travellers overlook. The city of Mwanza is built around extraordinary granite kopjes that tumble into the lake, while the Sukuma Museum provides deep insight into the culture of Tanzania's largest ethnic group. Rubondo Island National Park — one of few island national parks in the world — offers chimpanzees, sitatunga, and African fish eagles in an untouched ecosystem. The lake delivers spectacular sunsets, island-hopping adventures, and a window into the authentic pulse of lakeside Tanzanian life.",
-        priceFrom: '$180',
-        slug: 'lake-victoria',
-      },
-    ],
+    box1Color: 'bg-green-400/20 border-green-400/30',
   },
   {
     id: 'southern',
-    label: 'Southern Circuit',
-    tagline: 'Remote, Wild, Uncrowded — Africa Undisturbed',
+    regions: ['southern'],
+    labelKey: 'circuitSouthernLabel' as const,
+    taglineKey: 'circuitSouthernTagline' as const,
+    box1DescKey: 'box1SouthernDesc' as const,
     icon: '🐆',
     color: 'bg-sky-50 border-sky-200',
     labelColor: 'text-sky-800',
-    destinations: [
-      {
-        id: 'ruaha',
-        name: 'Ruaha National Park',
-        tagline: "Tanzania's Largest Park — Wild and Remote",
-        size: '20,226 km²',
-        image: '/images/gallery/safari-128.jpg',
-        badge: 'Big Cat Country',
-        badgeColor: 'bg-brand text-white',
-        highlights: [
-          "10% of the world's lion population",
-          'African wild dog — endangered & iconic',
-          'Large elephant herds with enormous tuskers',
-          'Rare roan and sable antelope',
-          '570 bird species including Ruaha red-billed hornbill',
-          'Walking safaris in genuine wilderness',
-        ],
-        wildlife: ['Lion', 'Leopard', 'Cheetah', 'Wild Dog', 'Elephant', 'Buffalo', 'Roan Antelope', 'Sable Antelope'],
-        bestTime: 'May – Nov',
-        duration: '3–5 days',
-        overview:
-          "Ruaha National Park is Tanzania's largest national park and one of Africa's finest — and most underrated — safari destinations. Remote, wild, and refreshingly uncrowded, it protects around 10% of the world's lion population, making it arguably the continent's top destination for lion encounters. Large herds of elephant with some of the largest tuskers remaining in East Africa are a daily sight, while the endangered African wild dog is seen more reliably here than almost anywhere else. The Great Ruaha River — the lifeblood of the park — attracts dense concentrations of wildlife and offers outstanding game viewing along its banks. Walking safaris here are genuinely thrilling, conducted with armed rangers in areas where lions and elephants are regularly encountered.",
-        priceFrom: '$260',
-        slug: 'ruaha',
-      },
-      {
-        id: 'nyerere',
-        name: 'Nyerere National Park',
-        tagline: "Africa's Largest Protected Area",
-        size: '54,600 km²',
-        image: '/images/gallery/selous.jpg',
-        badge: 'UNESCO Heritage',
-        badgeColor: 'bg-gold text-brand',
-        highlights: [
-          "Africa's largest game reserve — 54,600 km²",
-          'UNESCO World Heritage Site',
-          "World's highest hippo population",
-          'Boat safaris on the Rufiji River at sunset',
-          "Africa's largest wild dog population",
-          'Walking safaris & fly-camping in the wilderness',
-        ],
-        wildlife: ['Wild Dog', 'Lion', 'Leopard', 'Elephant', 'Hippo', 'Crocodile', 'Buffalo', 'Sable Antelope'],
-        bestTime: 'Jun – Oct',
-        duration: '3–5 days',
-        overview:
-          "Nyerere National Park — formerly known as Selous Game Reserve — is one of the most extraordinary protected areas on Earth. At 54,600 km², it is the largest game reserve in Africa and a UNESCO World Heritage Site of exceptional biodiversity. The park's permanent river system — the Rufiji and its tributaries — supports the world's highest density of hippos and large crocodiles, and the famous boat safaris at sunset are unlike any game drive experience. Nyerere holds Africa's largest population of endangered African wild dogs, reliably seen in this vast ecosystem. Beyond the standard game drive, Nyerere excels in activities: walking safaris in genuine wilderness, fly-camping under the stars, and the unparalleled experience of a Rufiji River boat safari at golden hour.",
-        priceFrom: '$240',
-        slug: 'nyerere',
-      },
-    ],
+    box1Color: 'bg-sky-400/20 border-sky-400/30',
   },
 ]
 
-const extras = [
-  {
-    id: 'zanzibar',
-    name: 'Zanzibar Island',
-    tagline: 'Spice Island Paradise — Indian Ocean',
-    image: '/images/gallery/zanzibar-1.jpg',
-    desc: "The perfect ending to any Tanzania safari. Powder-white beaches, Stone Town UNESCO heritage, spice tours, coral reefs, and Swahili culture on the Indian Ocean. Nungwi, Kendwa & Paje are among East Africa's finest beaches.",
-    badge: 'Beach & Culture',
-    slug: 'zanzibar',
-    priceFrom: '$160',
-  },
-  {
-    id: 'arusha',
-    name: 'Arusha & Mount Kilimanjaro',
-    tagline: "Tanzania's Safari Capital",
-    image: '/images/gallery/kilimanjaro%20(4).png',
-    desc: "All Tanzania safaris begin and end in Arusha. The city sits between Mount Meru (4,562 m) and within sight of Kilimanjaro (5,895 m). Arusha National Park, cultural Maasai boma visits, and Kilimanjaro treks all depart from here.",
-    badge: 'Gateway City',
-    slug: 'arusha',
-    priceFrom: '$80',
-  },
-]
+export default async function DestinationsPage() {
+  const t = await getTranslations('destinations')
+  const tc = await getTranslations('common')
+  const locale = await getLocale()
+  const allDestinations = getDestinations(locale)
+  const tanzaniaDestinations = allDestinations.filter(d => d.country === 'tanzania')
 
-const tanzaniaStats = [
-  { icon: '🦁', stat: '26', label: 'National Parks & Reserves' },
-  { icon: '🌍', stat: '28%', label: 'Land Under Conservation' },
-  { icon: '🐦', stat: '1,100+', label: 'Bird Species' },
-  { icon: '🦒', stat: '70+', label: 'Large Mammal Species' },
-  { icon: '🏔️', stat: '5,895 m', label: "Kilimanjaro's Summit" },
-  { icon: '🏆', stat: '#1', label: 'Safari Destination — Africa' },
-]
+  const circuits = CIRCUIT_META.map(meta => ({
+    ...meta,
+    label: t(meta.labelKey),
+    tagline: t(meta.taglineKey),
+    box1Desc: t(meta.box1DescKey),
+    destinations: tanzaniaDestinations
+      .filter(d => meta.regions.includes(d.region))
+      .map(d => ({
+        id: d.slug,
+        slug: d.slug,
+        name: d.name,
+        tagline: d.tagline,
+        size: d.parkSize,
+        image: d.heroImage,
+        overview: d.description,
+        highlights: d.highlights,
+        wildlife: d.wildlife,
+        ...(DEST_EXTRA[d.slug] ?? { badge: '', badgeColor: 'bg-brand text-white', bestTime: '', duration: '', priceFrom: '' }),
+      })),
+  }))
 
-const seasons = [
-  {
-    months: 'Jun – Oct',
-    label: 'Long Dry Season',
-    color: 'bg-amber-50 border-amber-200',
-    labelColor: 'text-amber-700',
-    tip: 'Peak safari season. Best wildlife across all parks. Migration in Serengeti/Mara (Jul–Oct). Book 6–12 months ahead.',
-  },
-  {
-    months: 'Nov – Dec',
-    label: 'Short Rains',
-    color: 'bg-sky-50 border-sky-200',
-    labelColor: 'text-sky-700',
-    tip: 'Short afternoon showers. Lush landscapes return. Good bird watching. Less crowded with better rates.',
-  },
-  {
-    months: 'Jan – Feb',
-    label: 'Short Dry Season',
-    color: 'bg-green-50 border-green-200',
-    labelColor: 'text-brand',
-    tip: 'Excellent game viewing. Wildebeest calving (Jan–Feb) in southern Serengeti. Zanzibar at its best.',
-  },
-  {
-    months: 'Mar – May',
-    label: 'Long Rains',
-    color: 'bg-blue-50 border-blue-200',
-    labelColor: 'text-blue-700',
-    tip: 'Heaviest rains. Some roads impassable. Very low visitor numbers and best lodge rates. Lush green scenery.',
-  },
-]
+  const extras = (['zanzibar', 'arusha'] as const).map(slug => {
+    const dest = allDestinations.find(d => d.slug === slug)
+    return {
+      id: slug,
+      slug,
+      name: dest?.name ?? slug,
+      tagline: dest?.tagline ?? '',
+      image: dest?.heroImage ?? '',
+      desc: dest?.description ?? '',
+      badge: EXTRA_META[slug].badge,
+      priceFrom: EXTRA_META[slug].priceFrom,
+    }
+  })
 
-export default function DestinationsPage() {
+  const seasons = [
+    { months: t('season1Months'), color: 'bg-amber-50 border-amber-200', labelColor: 'text-amber-700', tip: t('season1Tip') },
+    { months: t('season2Months'), color: 'bg-sky-50 border-sky-200',     labelColor: 'text-sky-700',   tip: t('season2Tip') },
+    { months: t('season3Months'), color: 'bg-green-50 border-green-200', labelColor: 'text-brand',     tip: t('season3Tip') },
+    { months: t('season4Months'), color: 'bg-blue-50 border-blue-200',   labelColor: 'text-blue-700',  tip: t('season4Tip') },
+  ]
+
+  const statLabels = [
+    t('statParks'), t('statLand'), t('statBirds'),
+    t('statMammals'), t('statSummit'), t('statRanking'),
+  ]
+  const seasonLabels = [
+    t('season1Label'), t('season2Label'), t('season3Label'), t('season4Label'),
+  ]
+
   return (
     <>
       {/* Hero */}
@@ -352,21 +161,19 @@ export default function DestinationsPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl">
-            <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-4">Tanzania Safari Destinations</p>
+            <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-              Wild Tanzania.<br />
-              <span className="text-gold">Three Epic Circuits.</span>
+              {t('heroTitle')}<br />
+              <span className="text-gold">{t('heroTitleGold')}</span>
             </h1>
             <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-xl">
-              From the Serengeti&apos;s endless plains to the southern wilderness of Ruaha and the
-              chimpanzee forests of the west &mdash; Tanzania offers three distinct safari circuits,
-              each extraordinary.
+              {t('heroSubtitle')}
             </p>
             <div className="flex flex-wrap gap-3">
               <BookNowButton
                 packageName="Tanzania Safari"
                 packageType="Tanzania Safari"
-                label="Plan My Tanzania Safari"
+                label={t('planMyTanzaniaSafari')}
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg"
                 arrow
               />
@@ -374,7 +181,7 @@ export default function DestinationsPage() {
                 href="#northern"
                 className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors"
               >
-                Explore Circuits <ArrowRight className="w-4 h-4" />
+                {t('exploreCircuits')} <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -385,10 +192,10 @@ export default function DestinationsPage() {
       <section className="bg-brand py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-            {tanzaniaStats.map((item) => (
-              <div key={item.label} className="flex flex-col items-center gap-1">
+            {tanzaniaStats.map((item, i) => (
+              <div key={item.stat} className="flex flex-col items-center gap-1">
                 <span className="text-gold font-bold text-xl">{item.stat}</span>
-                <span className="text-white/60 text-xs leading-tight">{item.label}</span>
+                <span className="text-white/60 text-xs leading-tight">{statLabels[i]}</span>
               </div>
             ))}
           </div>
@@ -396,51 +203,41 @@ export default function DestinationsPage() {
       </section>
 
       {/* Intro */}
-      <section className="py-16 bg-white">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-              Why Tanzania
+              {t('introEyebrow')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-5">
-              Africa&apos;s Ultimate Safari Nation
+              {t('introHeading')}
             </h2>
             <p className="text-text-muted leading-relaxed">
-              Tanzania protects more land under conservation than almost any other country on Earth &mdash; 28%
-              of its total land area. This extraordinary commitment produces an unrivalled density of wildlife
-              across three distinct safari circuits, each offering a completely different experience. The Northern
-              Circuit delivers the iconic Serengeti and Ngorongoro classics; the Southern Circuit rewards those
-              seeking true wilderness solitude; and the Western Circuit opens the door to chimpanzees, hippo
-              spectacles, and Africa&apos;s largest lake. At The Extreme Wilderness &mdash; born and based in
-              Arusha &mdash; these are our home parks.
+              {t('introBody')}
             </p>
           </div>
         </div>
       </section>
 
       {/* 2×2 Overview Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
             {/* Box 1 — Three Circuits */}
             <div className="bg-brand rounded-3xl p-8 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">Navigate the Parks</p>
-              <h3 className="text-2xl font-bold text-white mb-6">Tanzania&apos;s Three Safari Circuits</h3>
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box1Eyebrow')}</p>
+              <h3 className="text-2xl font-bold text-white mb-6">{t('box1Heading')}</h3>
               <div className="space-y-4 flex-1">
-                {[
-                  { icon: '🦁', label: 'Northern Circuit', desc: 'Serengeti · Ngorongoro · Tarangire · Manyara', id: 'northern', color: 'bg-amber-400/20 border-amber-400/30' },
-                  { icon: '🐒', label: 'Western Circuit', desc: 'Katavi · Gombe Stream · Lake Victoria', id: 'western', color: 'bg-green-400/20 border-green-400/30' },
-                  { icon: '🐆', label: 'Southern Circuit', desc: 'Ruaha · Nyerere (Selous)', id: 'southern', color: 'bg-sky-400/20 border-sky-400/30' },
-                ].map((c) => (
+                {circuits.map((c) => (
                   <a
                     key={c.id}
                     href={`#${c.id}`}
-                    className={`flex items-center gap-4 rounded-2xl border px-5 py-4 hover:opacity-90 transition-opacity group ${c.color}`}
+                    className={`flex items-center gap-4 rounded-2xl border px-5 py-4 hover:opacity-90 transition-opacity group ${c.box1Color}`}
                   >
                     <div className="flex-1 min-w-0">
                       <p className="text-white font-bold text-sm">{c.label}</p>
-                      <p className="text-white/60 text-xs mt-0.5 truncate">{c.desc}</p>
+                      <p className="text-white/60 text-xs mt-0.5 truncate">{c.box1Desc}</p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-gold transition-colors flex-shrink-0" />
                   </a>
@@ -453,16 +250,16 @@ export default function DestinationsPage() {
 
             {/* Box 2 — Why Book With Us */}
             <div className="bg-amber-50 rounded-3xl p-8 border border-amber-100 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">Our Promise</p>
-              <h3 className="text-2xl font-bold text-brand mb-6">Why Book With The Extreme Wilderness</h3>
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box2Eyebrow')}</p>
+              <h3 className="text-2xl font-bold text-brand mb-6">{t('box2Heading')}</h3>
               <div className="grid grid-cols-2 gap-4 flex-1">
                 {[
-                  { icon: Compass, title: 'Born in Arusha', desc: 'Our guides grew up next to these parks. Local knowledge, no middlemen.' },
-                  { icon: Car, title: 'Private 4×4 Vehicles', desc: 'Every safari is in a dedicated, custom-fitted 4×4 — never shared.' },
-                  { icon: Users, title: 'Small Groups Only', desc: 'Maximum 6 guests per vehicle. Closer wildlife, better photos.' },
-                  { icon: Shield, title: 'Fully Insured & Licensed', desc: 'TATO-registered, fully bonded, and government licensed.' },
-                  { icon: Headphones, title: '24/7 Support', desc: 'Your dedicated planner is reachable before, during, and after.' },
-                  { icon: Trophy, title: '20+ Years Experience', desc: 'Hundreds of safaris led. Every park, every season, mastered.' },
+                  { icon: Compass, title: tc('whyBorn'), desc: tc('whyBornDesc') },
+                  { icon: Car, title: tc('whyVehicles'), desc: tc('whyVehiclesDesc') },
+                  { icon: Users, title: tc('whyGroups'), desc: tc('whyGroupsDesc') },
+                  { icon: Shield, title: tc('whyLicensed'), desc: tc('whyLicensedDesc') },
+                  { icon: Headphones, title: tc('whySupport'), desc: tc('whySupportDesc') },
+                  { icon: Trophy, title: tc('whyYears'), desc: tc('whyYearsDesc') },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
                     <div className="w-8 h-8 bg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -479,8 +276,8 @@ export default function DestinationsPage() {
 
             {/* Box 3 — Tanzania in Numbers */}
             <div className="bg-light-green rounded-3xl p-8 border border-brand/10 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">The Records</p>
-              <h3 className="text-2xl font-bold text-brand mb-6">Tanzania in Numbers</h3>
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box3Eyebrow')}</p>
+              <h3 className="text-2xl font-bold text-brand mb-6">{t('box3Heading')}</h3>
               <div className="grid grid-cols-2 gap-5 flex-1">
                 {[
                   { stat: '1.5M', label: 'Wildebeest in the Great Migration', sub: 'Largest land migration on Earth' },
@@ -488,7 +285,7 @@ export default function DestinationsPage() {
                   { stat: '54,600', label: 'km² Nyerere NP', sub: "Africa's largest protected area" },
                   { stat: '25,000+', label: 'Animals in Ngorongoro Crater', sub: 'Highest density in Africa' },
                   { stat: '60 yrs', label: 'Of chimp research at Gombe', sub: "Jane Goodall's ongoing legacy" },
-                  { stat: '1,100+', label: 'Bird species recorded', sub: 'Africa\'s premier birding nation' },
+                  { stat: '1,100+', label: 'Bird species recorded', sub: "Africa's premier birding nation" },
                 ].map((item) => (
                   <div key={item.stat} className="bg-white rounded-2xl px-4 py-3 border border-brand/5">
                     <p className="text-gold font-bold text-xl leading-none">{item.stat}</p>
@@ -501,30 +298,14 @@ export default function DestinationsPage() {
 
             {/* Box 4 — How It Works */}
             <div className="bg-brand-dark rounded-3xl p-8 flex flex-col" style={{ backgroundColor: '#0a2e1a' }}>
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">The Process</p>
-              <h3 className="text-2xl font-bold text-white mb-6">How to Book Your Safari</h3>
+              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box4Eyebrow')}</p>
+              <h3 className="text-2xl font-bold text-white mb-6">{t('box4Heading')}</h3>
               <div className="space-y-5 flex-1">
                 {[
-                  {
-                    step: '01',
-                    title: 'Share Your Vision',
-                    desc: 'Tell us your travel dates, group size, budget, and dream wildlife. No rigid packages — every trip starts from scratch.',
-                  },
-                  {
-                    step: '02',
-                    title: 'We Design Your Itinerary',
-                    desc: 'Your dedicated Arusha-based planner crafts a tailor-made route. You review, adjust, and perfect it together.',
-                  },
-                  {
-                    step: '03',
-                    title: 'Confirm & Secure',
-                    desc: 'Lock in your safari with a deposit. We handle all park fees, lodge bookings, transfers, and permits.',
-                  },
-                  {
-                    step: '04',
-                    title: 'Arrive & Experience',
-                    desc: 'Your private guide meets you at Arusha airport. From here, Tanzania unfolds exactly as you imagined it.',
-                  },
+                  { step: '01', title: tc('step1Title'), desc: tc('step1Desc') },
+                  { step: '02', title: tc('step2Title'), desc: tc('step2Desc') },
+                  { step: '03', title: tc('step3Title'), desc: tc('step3Desc') },
+                  { step: '04', title: tc('step4Title'), desc: tc('step4DescTanzania') },
                 ].map((s) => (
                   <div key={s.step} className="flex items-start gap-4">
                     <div className="w-9 h-9 rounded-full bg-gold flex items-center justify-center flex-shrink-0">
@@ -541,7 +322,7 @@ export default function DestinationsPage() {
                 <BookNowButton
                   packageName="Tanzania Safari"
                   packageType="Tanzania Safari"
-                  label="Start Planning — It&apos;s Free"
+                  label={t('startPlanningFree')}
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                   arrow
                 />
@@ -600,10 +381,10 @@ export default function DestinationsPage() {
                           <Clock className="w-3 h-3" /> {dest.duration}
                         </span>
                         <span className="flex items-center gap-1">
-                          <Star className="w-3 h-3 text-gold fill-gold" /> Best: {dest.bestTime}
+                          <Star className="w-3 h-3 text-gold fill-gold" /> {t('bestTimePrefix')} {dest.bestTime}
                         </span>
                         <span className="flex items-center gap-1 font-semibold text-brand">
-                          From {dest.priceFrom} / person
+                          {t('fromPrice', { price: dest.priceFrom })}
                         </span>
                       </div>
                     </div>
@@ -620,7 +401,7 @@ export default function DestinationsPage() {
                     </div>
 
                     <div className="mb-6">
-                      <p className="text-xs font-semibold text-brand/50 uppercase tracking-wider mb-2">Wildlife</p>
+                      <p className="text-xs font-semibold text-brand/50 uppercase tracking-wider mb-2">{t('wildlifeLabel')}</p>
                       <div className="flex flex-wrap gap-1.5">
                         {dest.wildlife.map((w) => (
                           <span
@@ -639,7 +420,7 @@ export default function DestinationsPage() {
                         packageType="Tanzania Safari"
                         priceFrom={dest.priceFrom}
                         duration={dest.duration}
-                        label="Book This Safari"
+                        label={t('bookThisSafari')}
                         className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
                         arrow
                       />
@@ -647,7 +428,7 @@ export default function DestinationsPage() {
                         href={`/destinations/${dest.slug}`}
                         className="inline-flex items-center gap-1.5 text-sm text-brand font-semibold hover:text-gold transition-colors"
                       >
-                        <Binoculars className="w-3.5 h-3.5" /> Full Details
+                        <Binoculars className="w-3.5 h-3.5" /> {t('fullDetails')}
                       </Link>
                     </div>
                   </div>
@@ -659,15 +440,15 @@ export default function DestinationsPage() {
       ))}
 
       {/* Zanzibar + Arusha extras */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-              Complete Your Tanzania Experience
+              {t('extrasEyebrow')}
             </span>
-            <h2 className="text-3xl font-semibold text-brand mb-3">Zanzibar &amp; Arusha</h2>
+            <h2 className="text-3xl font-semibold text-brand mb-3">{t('extrasHeading')}</h2>
             <p className="text-text-muted max-w-lg mx-auto text-sm">
-              Every great Tanzania safari begins in Arusha and often ends on the white sands of Zanzibar.
+              {t('extrasSubtitle')}
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-6">
@@ -699,7 +480,7 @@ export default function DestinationsPage() {
                       packageName={extra.name}
                       packageType="Tanzania Safari"
                       priceFrom={extra.priceFrom}
-                      label="Enquire Now"
+                      label={t('enquireNow')}
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
                       arrow
                     />
@@ -707,7 +488,7 @@ export default function DestinationsPage() {
                       href={`/destinations/${extra.slug}`}
                       className="inline-flex items-center gap-1.5 text-sm text-brand font-semibold hover:text-gold transition-colors"
                     >
-                      <Binoculars className="w-3.5 h-3.5" /> Full Details
+                      <Binoculars className="w-3.5 h-3.5" /> {t('fullDetails')}
                     </Link>
                   </div>
                 </div>
@@ -722,20 +503,19 @@ export default function DestinationsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-              Plan Your Visit
+              {t('seasonEyebrow')}
             </span>
-            <h2 className="text-3xl font-semibold text-brand mb-3">Best Time to Safari in Tanzania</h2>
+            <h2 className="text-3xl font-semibold text-brand mb-3">{t('seasonHeading')}</h2>
             <p className="text-text-muted max-w-lg mx-auto text-sm">
-              Tanzania is a year-round destination. Each season brings different advantages &mdash; from peak
-              migration crossings to lush green landscapes and calving season drama.
+              {t('seasonSubtitle')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-            {seasons.map((s) => (
+            {seasons.map((s, i) => (
               <div key={s.months} className={`rounded-2xl border p-5 ${s.color}`}>
                 <p className="font-bold text-brand text-base mb-1">{s.months}</p>
-                <p className={`text-xs font-semibold uppercase tracking-wide mb-3 ${s.labelColor}`}>{s.label}</p>
+                <p className={`text-xs font-semibold uppercase tracking-wide mb-3 ${s.labelColor}`}>{seasonLabels[i]}</p>
                 <p className="text-xs text-text-muted leading-relaxed">{s.tip}</p>
               </div>
             ))}
@@ -745,19 +525,16 @@ export default function DestinationsPage() {
           <div className="bg-brand rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row items-start lg:items-center gap-6">
             <div className="flex-1">
               <h3 className="text-white font-bold text-lg mb-2">
-                The Great Wildebeest Migration &mdash; Follow It Year-Round
+                {t('migrationHeading')}
               </h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                The Migration never stops &mdash; it just moves. Calving in the Serengeti&apos;s south (Jan&ndash;Feb),
-                north through the Seronera (Mar&ndash;Jun), Grumeti River crossings in the west (Jun&ndash;Jul),
-                dramatic Mara River crossings in the north (Jul&ndash;Oct), then back south again. We design
-                itineraries around wherever the herds are.
+                {t('migrationDesc')}
               </p>
             </div>
             <BookNowButton
               packageName="Great Migration Safari"
               packageType="Tanzania Migration Safari"
-              label="Plan Migration Safari"
+              label={t('planMigrationSafari')}
               className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors whitespace-nowrap"
               arrow
             />
@@ -766,7 +543,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-brand rounded-3xl p-8 lg:p-14 text-center relative overflow-hidden">
             <div
@@ -779,10 +556,10 @@ export default function DestinationsPage() {
             />
             <div className="relative z-10">
               <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
-                Ready for Tanzania?
+                {t('ctaEyebrow')}
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                Let&apos;s Plan Your Perfect Tanzania Safari
+                {t('ctaHeading')}
               </h2>
               <p className="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
                 Our team is born and based in Arusha &mdash; these are our home parks. We know every road,
@@ -792,7 +569,7 @@ export default function DestinationsPage() {
                 <BookNowButton
                   packageName="Tanzania Safari"
                   packageType="Tanzania Safari"
-                  label="Start Planning — It&apos;s Free"
+                  label={t('startPlanningFree')}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-base shadow-lg"
                   arrow
                 />
@@ -800,7 +577,7 @@ export default function DestinationsPage() {
                   href="/kenya"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors text-base"
                 >
-                  Explore Kenya Too <ArrowRight className="w-4 h-4" />
+                  {t('exploreKenyaToo')} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>

@@ -27,21 +27,21 @@ export default async function Footer() {
   const t = await getTranslations('footer')
 
   const destinations = [
-    { label: 'Serengeti National Park', href: '/destinations/serengeti' },
-    { label: 'Ngorongoro Crater', href: '/destinations/ngorongoro' },
-    { label: 'Tarangire National Park', href: '/destinations/tarangire' },
-    { label: 'Zanzibar Island', href: '/destinations/zanzibar' },
-    { label: 'Masai Mara, Kenya', href: '/kenya' },
-    { label: 'Gorilla Trekking, Rwanda', href: '/rwanda' },
-  ] as const
+    { label: t('destSerengeti'),   href: '/destinations/serengeti' },
+    { label: t('destNgorongoro'),  href: '/destinations/ngorongoro' },
+    { label: t('destTarangire'),   href: '/destinations/tarangire' },
+    { label: t('destZanzibar'),    href: '/destinations/zanzibar' },
+    { label: t('destMasaiMara'),   href: '/kenya' },
+    { label: t('destGorilla'),     href: '/rwanda' },
+  ]
 
   const safaris = [
-    { label: '7 Days Serengeti & Ngorongoro', href: '/safaris/7-day-serengeti-ngorongoro' },
-    { label: '10 Days Northern Circuit', href: '/safaris/10-day-northern-circuit' },
-    { label: 'Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' },
-    { label: 'Kilimanjaro Machame Route', href: '/safaris/kilimanjaro-machame-7day' },
-    { label: 'Southern Circuit', href: '/safaris/7-day-southern-circuit' },
-  ] as const
+    { label: t('safariSerengetiNgorongoro'), href: '/safaris/7-day-serengeti-ngorongoro' },
+    { label: t('safariNorthernCircuit'),     href: '/safaris/10-day-northern-circuit' },
+    { label: t('safariZanzibar'),            href: '/safaris/10-day-safari-zanzibar' },
+    { label: t('safariMachame'),             href: '/safaris/kilimanjaro-machame-7day' },
+    { label: t('safariSouthern'),            href: '/safaris/7-day-southern-circuit' },
+  ]
 
   const company = [
     { label: t('companyAbout'), href: '/about' },
@@ -58,20 +58,20 @@ export default async function Footer() {
 
           {/* Brand column */}
           <div>
-            <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
-              <div className="w-9 h-9 bg-gold rounded-full flex items-center justify-center">
-                <span className="text-brand font-bold text-sm">EW</span>
-              </div>
-              <div>
-                <div className="font-semibold text-sm leading-tight">The Extreme</div>
-                <div className="text-gold text-xs tracking-widest uppercase">Wilderness</div>
-              </div>
+            <div className="flex mb-4 justify-center md:justify-start">
+              <Image
+                src="/EWA logo.png"
+                alt="EWA Safari Outfitters"
+                width={200}
+                height={100}
+                className="object-contain"
+              />
             </div>
             <p className="text-white/70 text-sm leading-relaxed mb-5">{t('tagline')}</p>
             <div className="space-y-2 text-sm text-white/70">
               <div className="flex items-center gap-2 justify-center md:justify-start">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0" />
-                <span>Arusha, Tanzania</span>
+                <span>{t('location')}</span>
               </div>
               <div className="flex items-center gap-2 justify-center md:justify-start">
                 <Phone className="w-4 h-4 text-gold flex-shrink-0" />
@@ -147,14 +147,18 @@ export default async function Footer() {
           {/* Membership / Affiliation */}
           <div>
             <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('memberships')}</h3>
-            <div className="relative w-full h-28">
-              <Image
-                src="/Route%20maps/membership.png"
-                alt="Our memberships and affiliations"
-                fill
-                className="object-contain object-center md:object-left-top"
-                sizes="180px"
-              />
+            <div className="flex flex-wrap gap-4 items-center">
+              {[
+                { src: '/Boards%20affiliated/Google%20reviews.png', alt: 'Google Reviews' },
+                { src: '/Boards%20affiliated/Tanapa.png', alt: 'TANAPA' },
+                { src: '/Boards%20affiliated/TripAdvisor.png', alt: 'TripAdvisor' },
+                { src: '/Boards%20affiliated/safari-bookings.png', alt: 'Safari Bookings' },
+                { src: '/Boards%20affiliated/tanzania-tourist-board.png', alt: 'Tanzania Tourist Board' },
+              ].map(({ src, alt }) => (
+                <div key={alt} className="relative h-14 w-14 flex-shrink-0">
+                  <Image src={src} alt={alt} fill className="object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
             </div>
           </div>
 
@@ -162,7 +166,7 @@ export default async function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/50">
-          <p>© {new Date().getFullYear()} The Extreme Wilderness. All rights reserved.</p>
+          <p>{t('copyright', { year: new Date().getFullYear() })}</p>
           <div className="flex gap-5">
             <Link href="/privacy" className="hover:text-white transition-colors">{t('privacy')}</Link>
             <Link href="/terms" className="hover:text-white transition-colors">{t('terms')}</Link>

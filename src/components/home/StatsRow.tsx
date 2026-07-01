@@ -51,14 +51,14 @@ export default function StatsRow() {
   const t = useTranslations('home')
 
   const stats = [
-    { value: 1200, suffix: '+', label: t('safarisDelivered') },
-    { value: 15, suffix: '+', label: t('yearsExperience') },
-    { value: 10, suffix: '', label: t('tanzaniaRegions') },
+    { value: 200, suffix: '+', label: t('safarisDelivered') },
+    { value: 5, suffix: '+', label: t('yearsExperience') },
+    { value: 20, suffix: '+', label: t('tanzaniaRegions') },
     { value: 98, suffix: '%', label: t('satisfactionRate') },
   ]
 
   return (
-    <section className="bg-white border-b border-gray-100">
+    <section className="border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-gray-100">
           {stats.map((s) => (

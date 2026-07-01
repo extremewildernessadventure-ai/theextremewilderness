@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { List } from 'lucide-react'
 
 interface Section {
@@ -13,6 +14,7 @@ interface Props {
 }
 
 export default function TableOfContents({ sections }: Props) {
+  const t = useTranslations('common')
   const [activeId, setActiveId] = useState<string>(sections[0]?.id ?? '')
   const observerRef = useRef<IntersectionObserver | null>(null)
 
@@ -44,7 +46,7 @@ export default function TableOfContents({ sections }: Props) {
       <div className="hidden lg:block bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
         <div className="flex items-center gap-2 px-5 py-4 bg-brand">
           <List className="w-4 h-4 text-gold flex-shrink-0" />
-          <span className="text-gold text-xs font-semibold uppercase tracking-widest">Contents</span>
+          <span className="text-gold text-xs font-semibold uppercase tracking-widest">{t('contents')}</span>
         </div>
         <nav className="py-2">
           {sections.map((s) => {
@@ -71,7 +73,7 @@ export default function TableOfContents({ sections }: Props) {
         <summary className="flex items-center justify-between px-5 py-4 bg-brand/5 cursor-pointer select-none list-none">
           <div className="flex items-center gap-2">
             <List className="w-4 h-4 text-brand" />
-            <span className="text-brand text-sm font-semibold">Jump to section</span>
+            <span className="text-brand text-sm font-semibold">{t('jumpToSection')}</span>
           </div>
           <svg
             className="w-4 h-4 text-brand transition-transform group-open:rotate-180"
@@ -95,12 +97,12 @@ export default function TableOfContents({ sections }: Props) {
 
       {/* Need help? nudge */}
       <div className="hidden lg:block bg-brand rounded-2xl p-5 text-center">
-        <p className="text-white/70 text-xs mb-3 leading-relaxed">Have a question about our policies?</p>
+        <p className="text-white/70 text-xs mb-3 leading-relaxed">{t('policyQuestion')}</p>
         <a
           href="/contact"
           className="inline-flex items-center gap-1.5 px-4 py-2 bg-gold hover:bg-gold-dark text-brand font-bold text-xs rounded-lg transition-colors"
         >
-          Contact Us
+          {t('contactUs')}
         </a>
       </div>
     </div>

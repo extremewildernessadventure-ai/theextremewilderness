@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { ArrowLeft, Clock, TrendingUp, Trophy, Check, MapPin } from 'lucide-react'
 import { routing } from '@/i18n/routing'
+import { getTranslations } from 'next-intl/server'
 import BookNowButton from '@/components/booking/BookNowButton'
 import KiliRouteMapSVG from '@/components/trekking/KiliRouteMapSVG'
 
@@ -899,6 +900,17 @@ export default async function RouteDetailPage({
   const data = routeData[route]
   if (!data) notFound()
 
+  const t = await getTranslations('trekking')
+
+  const tIncluded = [
+    t('included1'), t('included2'), t('included3'), t('included4'), t('included5'),
+    t('included6'), t('included7'), t('included8'), t('included9'),
+  ]
+  const tExcluded = [
+    t('excluded1'), t('excluded2'), t('excluded3'),
+    t('excluded4'), t('excluded5'), t('excluded6'),
+  ]
+
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────────── */}
@@ -931,7 +943,7 @@ export default async function RouteDetailPage({
                 packageType="Kilimanjaro Trek"
                 priceFrom={`$${data.pricing[0].priceFrom.toLocaleString()}`}
                 duration={data.days}
-                label="Book This Route"
+                label={t('bookThisRoute')}
               />
             </div>
 
@@ -940,7 +952,7 @@ export default async function RouteDetailPage({
               {[
                 { icon: Clock, label: data.days },
                 { icon: TrendingUp, label: data.difficulty },
-                { icon: Trophy, label: `${data.successRate} success rate` },
+                { icon: Trophy, label: t('successRateLabel', { rate: data.successRate }) },
                 { icon: MapPin, label: data.startGate },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-white/15">
@@ -959,8 +971,8 @@ export default async function RouteDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Overview */}
             <div className="lg:col-span-2">
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Route Overview</span>
-              <h2 className="text-2xl font-semibold text-brand mb-4">About the {data.name}</h2>
+              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">{t('routeOverview')}</span>
+              <h2 className="text-2xl font-semibold text-brand mb-4">{t('aboutRoute', { name: data.name })}</h2>
               <p className="text-text-muted leading-relaxed mb-6">{data.overview}</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {data.highlights.map((h) => (
@@ -974,15 +986,15 @@ export default async function RouteDetailPage({
 
             {/* Quick Facts sidebar */}
             <div className="bg-light-green rounded-2xl p-6 h-fit border border-brand/10">
-              <h3 className="font-semibold text-brand mb-4 text-sm uppercase tracking-wider">Quick Facts</h3>
+              <h3 className="font-semibold text-brand mb-4 text-sm uppercase tracking-wider">{t('quickFacts')}</h3>
               <div className="space-y-3">
                 {[
-                  { label: 'Duration', value: data.days },
-                  { label: 'Difficulty', value: data.difficulty },
-                  { label: 'Success Rate', value: data.successRate },
-                  { label: 'Max Altitude', value: data.maxAlt },
-                  { label: 'Start Gate', value: data.startGate },
-                  { label: 'Best Months', value: data.bestMonths },
+                  { label: t('duration'), value: data.days },
+                  { label: t('difficulty'), value: data.difficulty },
+                  { label: t('successRate'), value: data.successRate },
+                  { label: t('maxAltitude'), value: data.maxAlt },
+                  { label: t('startGate'), value: data.startGate },
+                  { label: t('bestMonths'), value: data.bestMonths },
                 ].map(({ label, value }) => (
                   <div key={label} className="flex justify-between items-start gap-3 border-b border-brand/10 pb-3 last:border-0 last:pb-0">
                     <span className="text-xs text-text-muted font-medium">{label}</span>
@@ -991,15 +1003,15 @@ export default async function RouteDetailPage({
                 ))}
               </div>
               <div className="mt-5 pt-4 border-t border-brand/10">
-                <div className="text-xs text-text-muted mb-1">Starting from</div>
+                <div className="text-xs text-text-muted mb-1">{t('startingFrom')}</div>
                 <div className="text-2xl font-bold text-brand">${data.pricing[0].priceFrom.toLocaleString()}</div>
-                <div className="text-xs text-text-muted mb-4">per person · {data.pricing[0].label}</div>
+                <div className="text-xs text-text-muted mb-4">{t('perPerson')} · {data.pricing[0].label}</div>
                 <BookNowButton
                   packageName={data.name}
                   packageType="Kilimanjaro Trek"
                   priceFrom={`$${data.pricing[0].priceFrom.toLocaleString()}`}
                   duration={data.days}
-                  label="Book This Route"
+                  label={t('bookThisRoute')}
                   className="flex w-full items-center justify-center gap-2 py-3 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
                 />
               </div>
@@ -1031,8 +1043,8 @@ export default async function RouteDetailPage({
       <section className="py-16 bg-light-green">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Day by Day</span>
-            <h2 className="text-3xl font-semibold text-brand">Itinerary</h2>
+            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">{t('dayByDay')}</span>
+            <h2 className="text-3xl font-semibold text-brand">{t('itinerary')}</h2>
           </div>
 
           <div className="space-y-4">
@@ -1076,12 +1088,12 @@ export default async function RouteDetailPage({
       {/* ── Route Map ───────────────────────────────────────────────── */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Trail Map</span>
-          <h2 className="text-3xl font-semibold text-brand mb-8">Route Overview Map</h2>
+          <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">{t('trailMap')}</span>
+          <h2 className="text-3xl font-semibold text-brand mb-8">{t('routeOverviewMap')}</h2>
           <div className="w-full rounded-2xl overflow-hidden border border-brand/10 shadow-lg">
             <KiliRouteMapSVG routeId={data.id} />
           </div>
-          <p className="text-xs text-text-muted mt-3">Custom topographic map · {data.name} · TANAPA approved trail</p>
+          <p className="text-xs text-text-muted mt-3">{t('mapNote', { name: data.name })}</p>
         </div>
       </section>
 
@@ -1089,9 +1101,9 @@ export default async function RouteDetailPage({
       <section className="py-16 bg-light-green">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Pricing</span>
-            <h2 className="text-3xl font-semibold text-brand">Choose Your Duration</h2>
-            <p className="text-text-muted text-sm mt-3 max-w-md mx-auto">All prices are per person and include everything listed below. Reduced rates for groups of 4+.</p>
+            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">{t('pricing')}</span>
+            <h2 className="text-3xl font-semibold text-brand">{t('chooseDuration')}</h2>
+            <p className="text-text-muted text-sm mt-3 max-w-md mx-auto">{t('pricingDesc')}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
@@ -1104,22 +1116,22 @@ export default async function RouteDetailPage({
               >
                 {i === 0 && (
                   <div className="inline-block px-2.5 py-0.5 bg-gold text-brand text-[10px] font-bold uppercase tracking-wider rounded-full mb-3">
-                    Standard
+                    {t('standard')}
                   </div>
                 )}
                 <div className="text-brand font-semibold mb-1">{tier.label}</div>
                 {tier.note && <div className="text-xs text-text-muted mb-4">{tier.note}</div>}
                 <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-xs text-text-muted">From</span>
+                  <span className="text-xs text-text-muted">{t('startingFrom')}</span>
                   <span className="text-3xl font-bold text-brand">${tier.priceFrom.toLocaleString()}</span>
-                  <span className="text-xs text-text-muted">/ person</span>
+                  <span className="text-xs text-text-muted">{t('perPerson')}</span>
                 </div>
                 <BookNowButton
                   packageName={data.name}
                   packageType="Kilimanjaro Trek"
                   priceFrom={`$${tier.priceFrom.toLocaleString()}`}
                   duration={`${tier.days} days`}
-                  label={`Book ${tier.label}`}
+                  label={t('bookLabel', { label: tier.label })}
                   className="block w-full text-center py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-xl transition-colors"
                   arrow={false}
                 />
@@ -1130,9 +1142,9 @@ export default async function RouteDetailPage({
           {/* Included / Excluded */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div className="bg-white rounded-2xl p-6 border border-gray-100">
-              <h3 className="font-semibold text-brand mb-4 text-sm">What&rsquo;s Included</h3>
+              <h3 className="font-semibold text-brand mb-4 text-sm">{t('whatsIncluded')}</h3>
               <ul className="space-y-2">
-                {data.included.map((item) => (
+                {tIncluded.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-xs text-text-muted">
                     <Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0 mt-0.5" />
                     {item}
@@ -1141,9 +1153,9 @@ export default async function RouteDetailPage({
               </ul>
             </div>
             <div className="bg-white rounded-2xl p-6 border border-gray-100">
-              <h3 className="font-semibold text-brand mb-4 text-sm">Not Included</h3>
+              <h3 className="font-semibold text-brand mb-4 text-sm">{t('notIncluded')}</h3>
               <ul className="space-y-2">
-                {data.excluded.map((item) => (
+                {tExcluded.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-xs text-text-muted">
                     <span className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-red-400 font-bold text-xs leading-none">✕</span>
                     {item}
@@ -1159,8 +1171,8 @@ export default async function RouteDetailPage({
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Questions</span>
-            <h2 className="text-3xl font-semibold text-brand">Frequently Asked</h2>
+            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">{t('questions')}</span>
+            <h2 className="text-3xl font-semibold text-brand">{t('frequentlyAsked')}</h2>
           </div>
 
           <div className="space-y-3">
@@ -1185,9 +1197,9 @@ export default async function RouteDetailPage({
       {/* ── CTA ─────────────────────────────────────────────────────── */}
       <section className="py-16 bg-brand text-center">
         <div className="max-w-xl mx-auto px-4">
-          <h2 className="text-3xl font-semibold text-white mb-3">Ready to Climb the {data.name}?</h2>
+          <h2 className="text-3xl font-semibold text-white mb-3">{t('readyToClimb', { name: data.name })}</h2>
           <p className="text-white/70 mb-8 text-sm">
-            Tell us your dates, fitness level and budget — we&rsquo;ll handle everything else. Average response: under 2 hours.
+            {t('readyDesc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <BookNowButton
@@ -1195,14 +1207,14 @@ export default async function RouteDetailPage({
               packageType="Kilimanjaro Trek"
               priceFrom={`$${data.pricing[0].priceFrom.toLocaleString()}`}
               duration={data.days}
-              label="Book This Route"
+              label={t('bookThisRoute')}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors"
             />
             <Link
               href="/trekking"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-colors border border-white/20"
             >
-              <ArrowLeft className="w-4 h-4" /> Compare All Routes
+              <ArrowLeft className="w-4 h-4" /> {t('compareAllRoutes')}
             </Link>
           </div>
         </div>
