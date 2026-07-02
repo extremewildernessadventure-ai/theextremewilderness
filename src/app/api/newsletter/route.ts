@@ -2,8 +2,6 @@ import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
-const FROM = process.env.RESEND_FROM ?? 'EWA Newsletter <noreply@theextremewilderness.com>'
-const TO   = process.env.RESEND_TO   ?? 'info@theextremewilderness.com'
 
 export async function POST(req: NextRequest) {
   try {
@@ -28,14 +26,6 @@ export async function POST(req: NextRequest) {
       console.error('Resend contact error:', error)
       return NextResponse.json({ error: 'Subscription failed' }, { status: 500 })
     }
-
-    // Send operator notification so the subscription appears in Resend → Emails
-    await resend.emails.send({
-      from: FROM,
-      to:   TO,
-      subject: `New newsletter subscriber: ${email}`,
-      html: `<p><strong>Name:</strong> ${name || '—'}</p><p><strong>Email:</strong> ${email}</p>`,
-    }).catch((e) => console.error('Newsletter notification error:', e))
 
     return NextResponse.json({ success: true })
   } catch (err) {
