@@ -313,7 +313,7 @@ export default function EnquiryModal() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="p-6 space-y-7">
+            <form id="booking-form" onSubmit={handleSubmit} className="p-6 space-y-7">
 
               {/* ── 1. Personal Details ──────────────────────────── */}
               <div>
@@ -592,7 +592,6 @@ export default function EnquiryModal() {
             <button
               type="submit"
               form="booking-form"
-              onClick={handleSubmit as never}
               disabled={submitting || !privacyAgreed || !firstName || !lastName || !email || !phone}
               className="w-full flex items-center justify-center gap-2.5 py-3.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all text-sm"
             >

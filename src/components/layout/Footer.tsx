@@ -57,7 +57,7 @@ export default async function Footer() {
         <div className="py-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.6fr_1fr_1fr_0.8fr_1fr] gap-6 lg:gap-8 text-center md:text-left">
 
           {/* Brand column */}
-          <div>
+          <div className="xl:row-span-2">
             <div className="flex mb-4 justify-center md:justify-start">
               <Image
                 src="/EWA logo.png"
@@ -162,12 +162,52 @@ export default async function Footer() {
             </div>
           </div>
 
+          {/* Trust strip — fills empty space below nav columns */}
+          <div className="xl:col-start-2 xl:col-span-4 xl:self-end flex flex-col sm:flex-row items-center sm:items-start gap-6 pt-4 xl:pt-0 xl:pb-2 text-center sm:text-left">
+
+            <div className="shrink-0">
+              <div className="flex gap-0.5 justify-center sm:justify-start mb-1">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-4 h-4 fill-gold" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+              <p className="text-white font-bold text-lg">4.9 / 5</p>
+              <p className="text-white/40 text-xs uppercase tracking-widest mt-0.5">{t('trustGuests')}</p>
+            </div>
+
+            <div className="hidden sm:block w-px h-10 bg-white/10 shrink-0 self-center" />
+
+            <div className="flex gap-6 shrink-0">
+              {([
+                { value: '97%',  label: t('trustFiveStar') },
+                { value: '40+',  label: t('trustCountries') },
+                { value: '100%', label: t('trustBigFive') },
+              ] as const).map(({ value, label }) => (
+                <div key={value}>
+                  <p className="text-gold font-bold text-lg">{value}</p>
+                  <p className="text-white/40 text-xs uppercase tracking-widest mt-0.5">{label}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="hidden sm:block w-px h-10 bg-white/10 shrink-0 self-center" />
+
+            <blockquote className="border-l-2 border-gold pl-3 text-left">
+              <p className="text-white/60 text-sm leading-relaxed italic">{t('trustQuote')}</p>
+              <footer className="mt-1.5 text-gold text-xs font-semibold not-italic">{t('trustQuoteAuthor')}</footer>
+            </blockquote>
+
+          </div>
+
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/50">
+        <div className="border-t border-white/10 py-6 flex flex-col items-center gap-3 text-sm text-white/50 sm:flex-row sm:justify-between">
           <p>{t('copyright', { year: new Date().getFullYear() })}</p>
-          <div className="flex gap-5">
+          <p className="text-xs">Developed by <a href="https://matowodev.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">MatowoDev</a></p>
+          <div className="flex items-center gap-5">
             <Link href="/privacy" className="hover:text-white transition-colors">{t('privacy')}</Link>
             <Link href="/terms" className="hover:text-white transition-colors">{t('terms')}</Link>
           </div>

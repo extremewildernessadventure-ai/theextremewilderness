@@ -26,7 +26,7 @@
     "safariPackages": "Safari-Pakete",
     "company": "Unternehmen",
     "memberships": "Mitgliedschaften & Partnerschaften",
-    "copyright": "© {year} The Extreme Wilderness. Alle Rechte vorbehalten.",
+    "copyright": "© {year} Extreme Wilderness Adventure. Alle Rechte vorbehalten.",
     "privacy": "Datenschutzerklärung",
     "terms": "Nutzungsbedingungen",
     "destSerengeti": "Serengeti-Nationalpark",
@@ -45,7 +45,13 @@
     "companyGuides": "Unsere Guides",
     "companyBlog": "Blog",
     "companyContact": "Kontakt",
-    "location": "Arusha, Tansania"
+    "location": "Arusha, Tansania",
+    "trustGuests": "200+ verifizierte Gäste",
+    "trustFiveStar": "5-Sterne-Bewertungen",
+    "trustCountries": "vertretene Länder",
+    "trustBigFive": "Big-Five-Sichtungen",
+    "trustQuote": "Nichts hätte uns auf das Ausmaß der Migration vorbereiten können. EWA hat alle Erwartungen übertroffen.",
+    "trustQuoteAuthor": "— Sarah & Michael T., Vereinigtes Königreich"
   },
   "common": {
     "bookNow": "Jetzt buchen",
@@ -638,6 +644,9 @@
     "yourEmailPlaceholder": "Ihre E-Mail-Adresse",
     "subscribeButton": "The Wilderness Edit abonnieren",
     "noSpam": "Jederzeit abmeldbar. Kein Spam.",
+    "subscribeSuccess": "Geschafft! Willkommen bei The Wilderness Edit.",
+    "subscribeError": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "subscribing": "Wird eingetragen…",
     "planYourTrip": "Planen Sie Ihr afrikanisches Abenteuer",
     "modalSubheading": "Unser Team antwortet innerhalb von 2 Stunden · Unverbindlich",
     "selected": "Ausgewählt",

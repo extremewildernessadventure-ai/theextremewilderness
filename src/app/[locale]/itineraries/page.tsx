@@ -163,20 +163,14 @@ export default async function ItinerariesPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white/70 text-xs font-semibold uppercase tracking-widest mb-7">
-            <span className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
-            {t('heroPill')}
-          </div>
+          <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-4">{t('heroPill')}</p>
 
-          <h1
-            className="font-semibold text-white leading-[1.05] mb-5"
-            style={{ fontSize: 'clamp(2.8rem, 6.5vw, 6rem)', fontStyle: 'italic' }}
-          >
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] mb-6 max-w-3xl">
             {t('heroTitle')}<br />
             <span className="text-gold">{t('heroTitleGold')}</span>
           </h1>
 
-          <p className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed mb-8" style={{ fontWeight: 300 }}>
+          <p className="text-white/70 text-lg max-w-xl leading-relaxed mb-8">
             {t('heroSubtitle')}
           </p>
 
