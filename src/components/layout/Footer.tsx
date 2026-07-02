@@ -163,10 +163,10 @@ export default async function Footer() {
           </div>
 
           {/* Trust strip — fills empty space below nav columns */}
-          <div className="xl:col-start-2 xl:col-span-4 xl:self-end flex flex-col sm:flex-row items-center sm:items-start gap-6 pt-4 xl:pt-0 xl:pb-2 text-center sm:text-left">
+          <div className="xl:col-start-2 xl:col-span-4 xl:self-end flex flex-col xl:flex-row items-center xl:items-start gap-5 xl:gap-6 pt-4 xl:pt-0 xl:pb-2 text-center xl:text-left">
 
             <div className="shrink-0">
-              <div className="flex gap-0.5 justify-center sm:justify-start mb-1">
+              <div className="flex gap-0.5 justify-center xl:justify-start mb-1">
                 {[...Array(5)].map((_, i) => (
                   <svg key={i} className="w-4 h-4 fill-gold" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
@@ -177,7 +177,7 @@ export default async function Footer() {
               <p className="text-white/75 text-xs uppercase tracking-widest mt-0.5">{t('trustGuests')}</p>
             </div>
 
-            <div className="hidden sm:block w-px h-10 bg-white/10 shrink-0 self-center" />
+            <div className="hidden xl:block w-px h-10 bg-white/10 shrink-0 self-center" />
 
             <div className="flex gap-6 shrink-0">
               {([
@@ -192,7 +192,7 @@ export default async function Footer() {
               ))}
             </div>
 
-            <div className="hidden sm:block w-px h-10 bg-white/10 shrink-0 self-center" />
+            <div className="hidden xl:block w-px h-10 bg-white/10 shrink-0 self-center" />
 
             <blockquote className="border-l-2 border-gold pl-3 text-left">
               <p className="text-white/75 text-sm leading-relaxed italic">{t('trustQuote')}</p>

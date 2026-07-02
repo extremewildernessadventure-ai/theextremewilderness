@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Link } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
-import { ChevronDown, ArrowRight } from 'lucide-react'
+import { ChevronDown, ArrowRight, Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import LanguageSwitcher from './LanguageSwitcher'
 
@@ -12,6 +12,10 @@ export default function Navbar() {
   const tc = useTranslations('common')
   const [scrolled, setScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  useEffect(() => { setMenuOpen(false) }, [pathname])
 
   const navLinks = [
     {
@@ -124,8 +128,8 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Language switcher + Social + CTA */}
-          <div className="flex items-center gap-3">
+          {/* Language switcher + Social + CTA + Hamburger */}
+          <div className="flex items-center gap-2 lg:gap-3">
             <LanguageSwitcher />
             <a
               href="https://www.instagram.com/extremewildernessadventure/"
@@ -153,13 +157,71 @@ export default function Navbar() {
             </a>
             <Link
               href="/contact"
-              className="hidden sm:inline-flex items-center px-5 py-2.5 bg-gold hover:bg-gold-dark text-brand font-semibold text-sm rounded-lg transition-colors"
+              className="hidden lg:inline-flex items-center px-5 py-2.5 bg-gold hover:bg-gold-dark text-brand font-semibold text-sm rounded-lg transition-colors"
             >
               {t('cta')}
             </Link>
+            {/* Hamburger — tablet & mobile (hidden on desktop) */}
+            <button
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              className="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg text-white hover:bg-white/10 transition-colors"
+            >
+              {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Slide-down menu for tablet / mobile */}
+      {menuOpen && (
+        <div className="lg:hidden bg-brand border-t border-white/10 shadow-2xl">
+          <nav className="px-6 sm:px-10 py-4 space-y-1">
+            {navLinks.map((link) => (
+              <div key={link.label}>
+                <Link
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center justify-between w-full px-3 py-3 text-white font-semibold text-sm rounded-xl hover:bg-white/10 transition-colors"
+                >
+                  {link.label}
+                  {link.children && <ChevronDown className="w-4 h-4 opacity-60" />}
+                </Link>
+                {link.children && (
+                  <div className="ml-4 pl-4 border-l border-white/10 space-y-1 mb-1">
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2.5 text-white/80 text-sm rounded-xl hover:bg-white/10 hover:text-white transition-colors"
+                      >
+                        <span className="text-lg flex-shrink-0">{child.flag}</span>
+                        <div>
+                          <div className="font-medium">{child.label}</div>
+                          {'desc' in child && (
+                            <div className="text-white/50 text-xs leading-tight">{(child as { desc: string }).desc}</div>
+                          )}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+            <div className="pt-3 border-t border-white/10">
+              <Link
+                href="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-center w-full py-3 bg-gold hover:bg-gold-dark text-brand font-bold text-sm rounded-xl transition-colors"
+              >
+                {t('cta')}
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   )
 }
