@@ -3,10 +3,8 @@ import { NextRequest, NextResponse } from 'next/server'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-// Update RESEND_FROM in .env.local to your verified Resend domain once set up.
-// Until then, onboarding@resend.dev only delivers to your Resend account email.
-const FROM = process.env.RESEND_FROM ?? 'EWA Enquiries <onboarding@resend.dev>'
-const TO   = process.env.RESEND_TO ?? 'extremewildernessadventure@gmail.com'
+const FROM = process.env.RESEND_FROM ?? 'EWA Enquiries <info@theextremewilderness.com>'
+const TO   = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
 
 function row(label: string, value: string | number | undefined | null) {
   if (!value) return ''
