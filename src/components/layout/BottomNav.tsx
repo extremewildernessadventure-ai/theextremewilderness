@@ -16,6 +16,7 @@ import {
   Info,
   BookOpen,
   X,
+  ArrowRight,
 } from 'lucide-react'
 
 const IgIcon = () => (
@@ -89,7 +90,7 @@ export default function BottomNav() {
       {moreOpen && (
         <div className="tew-sheet-enter fixed bottom-16 left-0 right-0 z-[60] lg:hidden bg-brand rounded-t-2xl border-t border-white/10 max-h-[75vh] overflow-y-auto">
           <div className="p-5 pb-6">
-            <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center justify-between mb-4">
               <span className="text-white/60 text-[11px] font-semibold uppercase tracking-widest">
                 {t('moreSections')}
               </span>
@@ -101,6 +102,17 @@ export default function BottomNav() {
                 <X className="w-4 h-4" />
               </button>
             </div>
+
+            {/* Plan My Safari CTA */}
+            <Link
+              href="/contact"
+              onClick={close}
+              className="flex items-center justify-center gap-2 w-full py-3.5 mb-5 bg-gold hover:bg-gold-dark text-brand font-bold text-sm rounded-xl transition-colors"
+            >
+              <CalendarDays className="w-4 h-4" />
+              Plan My Safari
+              <ArrowRight className="w-4 h-4" />
+            </Link>
 
             <p className="text-white/60 text-[10px] font-semibold uppercase tracking-widest mb-2">{t('destinations')}</p>
             <div className="grid grid-cols-2 gap-3 mb-4">
