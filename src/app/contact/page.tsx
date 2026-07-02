@@ -8,6 +8,21 @@ export const metadata: Metadata = {
   title: 'Contact & Plan Your Safari | The Extreme Wilderness',
   description:
     'Get in touch with our Tanzania-based safari experts. We respond within 2 hours with a custom itinerary tailored to your dates, budget, and bucket list.',
+  keywords: [
+    'book Tanzania safari',
+    'Tanzania safari enquiry',
+    'plan my safari',
+    'safari quote Tanzania',
+    'contact Tanzania tour operator',
+    'Tanzania safari booking',
+    'Africa safari booking',
+    'custom safari Tanzania',
+    'Tanzania safari consultation',
+    'East Africa travel agent',
+    'safari holiday booking',
+    'Africa tour package enquiry',
+    'Tanzania safari advisor',
+  ],
 }
 
 const contactCards = [

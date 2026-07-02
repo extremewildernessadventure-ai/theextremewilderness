@@ -10,6 +10,21 @@ import {
 export const metadata: Metadata = {
   title: 'About Us | The Extreme Wilderness',
   description: 'Tanzania-born and locally owned since 2022. Meet the guides and team behind The Extreme Wilderness — East Africa\'s premier custom safari operator.',
+  keywords: [
+    'best Tanzania safari operator',
+    'Tanzania safari company',
+    'local Tanzania tour operator',
+    'Tanzania safari guide',
+    'TATO registered safari',
+    'Arusha safari company',
+    'small group safari Tanzania',
+    'Tanzania safari reviews',
+    'certified Tanzania safari guides',
+    'TANAPA certified operator',
+    'Tanzania safari 2026',
+    'African safari company',
+    'best safari operator Africa',
+  ],
 }
 
 const stats = [

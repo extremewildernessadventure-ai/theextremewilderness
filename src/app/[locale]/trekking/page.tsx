@@ -6,9 +6,26 @@ import { ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 
 export const metadata: Metadata = {
-  title: 'Kilimanjaro Trekking & Mountain Climbing Tanzania',
+  title: 'Kilimanjaro Trekking & Mountain Climbing Tanzania 2026',
   description:
     "Climb Africa's highest peak with Tanzania's most experienced local guides. Machame, Lemosho, Marangu and Rongai routes. TANAPA certified, full safety backup.",
+  keywords: [
+    'Kilimanjaro climb 2026',
+    'Kilimanjaro routes',
+    'Kilimanjaro Machame route',
+    'Kilimanjaro Lemosho route',
+    'Kilimanjaro Marangu route',
+    'climb Kilimanjaro cost',
+    'Kilimanjaro trekking Tanzania',
+    'best Kilimanjaro route',
+    'Kilimanjaro success rate',
+    'Kilimanjaro tour operator',
+    'Africa highest mountain',
+    'Kilimanjaro summit',
+    'Kilimanjaro guided trek',
+    'Tanzania mountain climbing',
+    'Uhuru Peak Tanzania',
+  ],
 }
 
 const GEAR_CATEGORIES = [

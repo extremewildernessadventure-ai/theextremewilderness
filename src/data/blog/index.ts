@@ -26,7 +26,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/serengeti (1).png',
     heroImageAlt: 'Wildebeest herd crossing the open Serengeti plains during the Great Migration',
     author: 'The Extreme Wilderness Team',
-    keywords: ['Great Migration', 'wildebeest migration', 'Mara River crossing', 'Serengeti migration', 'Tanzania safari', 'when to see Great Migration'],
+    keywords: ['Great Migration', 'wildebeest migration', 'Mara River crossing', 'Serengeti migration', 'Tanzania safari', 'when to see Great Migration', 'East Africa migration', 'best migration safari', 'migration Tanzania Kenya', 'wildebeest crossing time', 'Great Migration months', 'Africa wildlife spectacle'],
   },
   {
     slug: 'tanzania-safari-cost',
@@ -40,7 +40,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-001.webp',
     heroImageAlt: 'Safari vehicle with tourists watching elephants in Tanzania',
     author: 'The Extreme Wilderness Team',
-    keywords: ['Tanzania safari cost', 'how much does a safari cost', 'Tanzania safari budget', 'Africa safari price', 'safari cost breakdown'],
+    keywords: ['Tanzania safari cost', 'how much does a safari cost', 'Tanzania safari budget', 'Africa safari price', 'safari cost breakdown', 'Africa safari all inclusive cost', 'Tanzania safari per day', 'how much safari Africa', 'Tanzania safari 2026 prices', 'Tanzania safari value for money'],
   },
   {
     slug: 'best-time-to-visit-serengeti',
@@ -54,7 +54,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/serengeti.webp',
     heroImageAlt: 'Golden Serengeti plains at sunset with acacia trees',
     author: 'The Extreme Wilderness Team',
-    keywords: ['best time to visit Serengeti', 'Serengeti seasons', 'when to go Serengeti', 'Serengeti month by month', 'Tanzania dry season'],
+    keywords: ['best time to visit Serengeti', 'Serengeti seasons', 'when to go Serengeti', 'Serengeti month by month', 'Tanzania dry season', 'Serengeti rainy season', 'Serengeti green season', 'Serengeti best months', 'Serengeti peak season', 'Tanzania safari calendar'],
   },
   {
     slug: 'gorilla-trekking-rwanda',
@@ -68,7 +68,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/gorilla.webp',
     heroImageAlt: 'Mountain gorilla in the misty Virunga Mountains of Rwanda',
     author: 'The Extreme Wilderness Team',
-    keywords: ['gorilla trekking Rwanda', 'Rwanda gorilla permit', 'mountain gorilla trekking', 'Volcanoes National Park', 'gorilla safari Africa'],
+    keywords: ['gorilla trekking Rwanda', 'Rwanda gorilla permit', 'mountain gorilla trekking', 'Volcanoes National Park', 'gorilla safari Africa', 'Rwanda gorilla permit price', 'gorilla trekking permit cost', 'book gorilla trek Rwanda', 'gorilla trekking experience', 'Rwanda gorilla safety'],
   },
   {
     slug: 'kilimanjaro-climbing-guide',
@@ -82,7 +82,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/kilimanjaro (1).png',
     heroImageAlt: 'Mount Kilimanjaro summit above the clouds at sunrise',
     author: 'The Extreme Wilderness Team',
-    keywords: ['how to climb Kilimanjaro', 'Kilimanjaro routes', 'Kilimanjaro cost', 'Kilimanjaro training', 'Kilimanjaro guide'],
+    keywords: ['how to climb Kilimanjaro', 'Kilimanjaro routes', 'Kilimanjaro cost', 'Kilimanjaro training', 'Kilimanjaro guide', 'Kilimanjaro route comparison', 'Kilimanjaro difficulty', 'Kilimanjaro weather', 'Kilimanjaro gear list', 'Kilimanjaro summit night'],
   },
   {
     slug: 'tanzania-vs-kenya-safari',
@@ -96,7 +96,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-118.webp',
     heroImageAlt: 'Lion pride on the open savannah — the ultimate Tanzania and Kenya safari scene',
     author: 'The Extreme Wilderness Team',
-    keywords: ['Tanzania vs Kenya safari', 'Tanzania or Kenya', 'Tanzania Kenya comparison', 'best East Africa safari country', 'Serengeti or Masai Mara'],
+    keywords: ['Tanzania vs Kenya safari', 'Tanzania or Kenya', 'Tanzania Kenya comparison', 'best East Africa safari country', 'Serengeti or Masai Mara', 'Tanzania Kenya wildlife', 'Serengeti Masai Mara difference', 'East Africa safari choice', 'Kenya vs Tanzania cost', 'Tanzania Kenya animals'],
   },
   {
     slug: 'safari-packing-list',
@@ -110,7 +110,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-050.webp',
     heroImageAlt: 'Safari vehicle packed for a game drive at golden hour in Tanzania',
     author: 'The Extreme Wilderness Team',
-    keywords: ['safari packing list', 'what to pack for safari', 'what to wear on safari', 'safari gear', 'safari clothing guide'],
+    keywords: ['safari packing list', 'what to pack for safari', 'what to wear on safari', 'safari gear', 'safari clothing guide', 'safari clothes list', 'what shoes for safari', 'safari bag weight', 'packing for Africa', 'safari essentials list'],
   },
   {
     slug: 'big-five-africa-tanzania',
@@ -124,7 +124,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/elephants.webp',
     heroImageAlt: 'African elephant herd near a waterhole in Tanzania',
     author: 'The Extreme Wilderness Team',
-    keywords: ["Big Five Africa", 'Big Five Tanzania', 'where to see Big Five', 'lion leopard elephant buffalo rhino', 'Africa wildlife guide'],
+    keywords: ["Big Five Africa", 'Big Five Tanzania', 'where to see Big Five', 'lion leopard elephant buffalo rhino', 'Africa wildlife guide', 'big five Tanzania parks', 'where to see rhino Tanzania', 'big five wildlife', 'Tanzania lion safari', 'big five Africa locations'],
   },
   {
     slug: 'zanzibar-travel-guide',
@@ -138,7 +138,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/zanzibar.webp',
     heroImageAlt: 'Crystal clear turquoise water and white sand beach in Zanzibar',
     author: 'The Extreme Wilderness Team',
-    keywords: ['Zanzibar travel guide', 'Zanzibar beaches', 'Stone Town Zanzibar', 'Zanzibar safari combo', 'best beaches Zanzibar', 'Zanzibar island guide'],
+    keywords: ['Zanzibar travel guide', 'Zanzibar beaches', 'Stone Town Zanzibar', 'Zanzibar safari combo', 'best beaches Zanzibar', 'Zanzibar island guide', 'Zanzibar visa', 'Zanzibar weather best time', 'Zanzibar budget', 'Zanzibar from UK', 'Zanzibar snorkeling diving'],
   },
   {
     slug: 'safari-honeymoon-tanzania',
@@ -152,7 +152,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-123.webp',
     heroImageAlt: 'Romantic safari sunset with vehicle silhouette in Tanzania',
     author: 'The Extreme Wilderness Team',
-    keywords: ['safari honeymoon Tanzania', 'romantic Africa safari', 'honeymoon safari Africa', 'Tanzania honeymoon', 'luxury honeymoon Tanzania'],
+    keywords: ['safari honeymoon Tanzania', 'romantic Africa safari', 'honeymoon safari Africa', 'Tanzania honeymoon', 'luxury honeymoon Tanzania', 'honeymoon safari Africa cost', 'best honeymoon safari', 'Tanzania honeymoon packages', 'romantic African safari', 'Africa honeymoon holiday'],
   },
   {
     slug: 'family-safari-africa',
@@ -166,7 +166,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-070.webp',
     heroImageAlt: 'Family watching elephants from a safari vehicle in Tanzania',
     author: 'The Extreme Wilderness Team',
-    keywords: ['family safari Africa', 'safari with kids', 'Africa safari for families', 'best family safari Tanzania', 'children on safari'],
+    keywords: ['family safari Africa', 'safari with kids', 'Africa safari for families', 'best family safari Tanzania', 'children on safari', 'family safari packing list', 'best age for safari kids', 'family safari cost Africa', 'kid friendly safari parks', 'Africa school holiday safari'],
   },
   {
     slug: 'ngorongoro-crater-guide',
@@ -180,7 +180,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-135.webp',
     heroImageAlt: 'Lion on rocky terrain in the Ngorongoro Conservation Area',
     author: 'The Extreme Wilderness Team',
-    keywords: ['Ngorongoro Crater guide', 'visiting Ngorongoro', 'Ngorongoro safari', 'Ngorongoro Conservation Area', 'world largest volcanic caldera'],
+    keywords: ['Ngorongoro Crater guide', 'visiting Ngorongoro', 'Ngorongoro safari', 'Ngorongoro Conservation Area', 'world largest volcanic caldera', 'Ngorongoro day trip', 'Ngorongoro stay overnight', 'Ngorongoro rhino', 'Ngorongoro highlands', 'Ngorongoro lodge'],
   },
   {
     slug: 'serengeti-vs-masai-mara',
@@ -194,7 +194,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/serengeti (2).png',
     heroImageAlt: 'Wide open Serengeti plains with dramatic sky',
     author: 'The Extreme Wilderness Team',
-    keywords: ['Serengeti vs Masai Mara', 'Masai Mara vs Serengeti', 'which is better Serengeti or Masai Mara', 'Tanzania or Kenya safari park'],
+    keywords: ['Serengeti vs Masai Mara', 'Masai Mara vs Serengeti', 'which is better Serengeti or Masai Mara', 'Tanzania or Kenya safari park', 'Serengeti big cats', 'Masai Mara big five', 'Mara River vs Serengeti', 'Kenya migration vs Tanzania', 'best migration park Africa'],
   },
   {
     slug: '7-day-tanzania-safari-itinerary',
@@ -208,7 +208,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-113.webp',
     heroImageAlt: 'Safari vehicle on a red-dirt road through Tanzania wilderness',
     author: 'The Extreme Wilderness Team',
-    keywords: ['7 day Tanzania safari itinerary', 'Tanzania itinerary', 'one week Tanzania', 'Northern Circuit Tanzania', 'Tanzania safari planning'],
+    keywords: ['7 day Tanzania safari itinerary', 'Tanzania itinerary', 'one week Tanzania', 'Northern Circuit Tanzania', 'Tanzania safari planning', 'Tanzania 7 day cost', 'one week East Africa', '7 day safari budget', 'Tanzania week safari', 'Tanzania first safari'],
   },
   {
     slug: 'budget-safari-tanzania',
@@ -222,7 +222,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-040.webp',
     heroImageAlt: 'Safari vehicle at sunrise in Tanzania on a budget safari',
     author: 'The Extreme Wilderness Team',
-    keywords: ['budget safari Tanzania', 'cheap Tanzania safari', 'affordable Africa safari', 'Tanzania safari budget tips', 'low cost safari Africa'],
+    keywords: ['budget safari Tanzania', 'cheap Tanzania safari', 'affordable Africa safari', 'Tanzania safari budget tips', 'low cost safari Africa', 'cheapest Africa safari', 'Tanzania safari under $1000', 'low budget Tanzania', 'Tanzania affordable tour', 'Africa safari on a budget'],
   },
   {
     slug: 'chimpanzee-trekking-tanzania',
@@ -236,7 +236,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/gombe-stream.webp',
     heroImageAlt: 'Chimpanzees in the forest at Gombe Stream National Park Tanzania',
     author: 'The Extreme Wilderness Team',
-    keywords: ['chimpanzee trekking Tanzania', 'Gombe Stream chimpanzees', 'Mahale Mountains chimps', 'chimp trekking Africa', 'Jane Goodall Tanzania'],
+    keywords: ['chimpanzee trekking Tanzania', 'Gombe Stream chimpanzees', 'Mahale Mountains chimps', 'chimp trekking Africa', 'Jane Goodall Tanzania', 'Gombe Stream Tanzania', 'Mahale Mountains Tanzania', 'Tanzania chimps', 'chimpanzee tracking Africa', 'Jane Goodall Gombe'],
   },
   {
     slug: 'luxury-safari-tanzania',
@@ -250,7 +250,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-081.webp',
     heroImageAlt: 'Luxury tented camp in the Serengeti at golden hour',
     author: 'The Extreme Wilderness Team',
-    keywords: ['luxury safari Tanzania', 'Tanzania luxury camps', 'best luxury safari Africa', 'Tanzania high-end safari', 'private safari Tanzania'],
+    keywords: ['luxury safari Tanzania', 'Tanzania luxury camps', 'best luxury safari Africa', 'Tanzania high-end safari', 'private safari Tanzania', 'Tanzania luxury lodge', 'Tanzania five star safari', 'private game reserve Tanzania', 'Tanzania bespoke safari', 'ultra luxury Tanzania'],
   },
   {
     slug: 'safari-photography-tips',
@@ -264,7 +264,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-090.webp',
     heroImageAlt: 'Lion photographed at close range during a Tanzania game drive',
     author: 'The Extreme Wilderness Team',
-    keywords: ['safari photography tips', 'wildlife photography Africa', 'camera settings for safari', 'best camera for safari', 'wildlife photo guide'],
+    keywords: ['safari photography tips', 'wildlife photography Africa', 'camera settings for safari', 'best camera for safari', 'wildlife photo guide', 'Africa wildlife camera', 'safari camera gear', 'wildlife lens recommendations', 'golden hour safari', 'Africa photo tour'],
   },
   {
     slug: 'ruaha-national-park-guide',
@@ -278,7 +278,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-128.webp',
     heroImageAlt: 'Two lions in golden light at Ruaha National Park Tanzania',
     author: 'The Extreme Wilderness Team',
-    keywords: ['Ruaha National Park', 'Ruaha safari guide', 'Tanzania southern circuit', 'Tanzania hidden parks', 'best Tanzania safari parks'],
+    keywords: ['Ruaha National Park', 'Ruaha safari guide', 'Tanzania southern circuit', 'Tanzania hidden parks', 'best Tanzania safari parks', 'Ruaha lions Tanzania', 'Ruaha elephants', 'Ruaha safari cost', 'Tanzania southern parks', 'Ruaha dry season'],
   },
   {
     slug: 'tanzania-vs-south-africa-safari',
@@ -292,7 +292,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/safari-119.webp',
     heroImageAlt: 'Lions at golden sunset on the open Serengeti plains',
     author: 'The Extreme Wilderness Team',
-    keywords: ['Tanzania vs South Africa safari', 'Tanzania or South Africa', 'Serengeti vs Kruger', 'Africa safari comparison', 'best Africa safari country'],
+    keywords: ['Tanzania vs South Africa safari', 'Tanzania or South Africa', 'Serengeti vs Kruger', 'Africa safari comparison', 'best Africa safari country', 'Kruger vs Serengeti', 'South Africa Tanzania price', 'Big Five Africa options', 'South Africa Tanzania comparison', 'best Africa first safari'],
   },
   {
     slug: 'mountain-biking-arusha',
@@ -306,7 +306,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/IMG-20260610-WA0069.webp',
     heroImageAlt: 'Mountain biker on trail through Arusha National Park with Mount Meru in background',
     author: 'The Extreme Wilderness Team',
-    keywords: ['mountain biking Arusha', 'Arusha National Park biking', 'Tanzania adventure safari', 'cycling safari Tanzania', 'Arusha activities'],
+    keywords: ['mountain biking Arusha', 'Arusha National Park biking', 'Tanzania adventure safari', 'cycling safari Tanzania', 'Arusha activities', 'Arusha activities', 'Arusha adventure', 'Tanzania adventure tourism', 'cycling Arusha', 'Arusha day trip'],
   },
   {
     slug: 'zanzibar-experience',
@@ -320,7 +320,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/stone-town.webp',
     heroImageAlt: 'Narrow alleyway in Stone Town Zanzibar with carved wooden doors',
     author: 'The Extreme Wilderness Team',
-    keywords: ['Zanzibar experience', 'Stone Town Zanzibar', 'Zanzibar spice farm', 'Prison Island Zanzibar', 'what to do Zanzibar'],
+    keywords: ['Zanzibar experience', 'Stone Town Zanzibar', 'Zanzibar spice farm', 'Prison Island Zanzibar', 'what to do Zanzibar', 'Zanzibar culture', 'Zanzibar history', 'Zanzibar dhow sailing', 'Zanzibar sunset cruise', 'Zanzibar food tour'],
   },
   {
     slug: 'the-maasai-tribe',
@@ -334,7 +334,7 @@ export const blogPosts: PostMeta[] = [
     heroImage: '/images/gallery/maa1.webp',
     heroImageAlt: 'Maasai warrior in traditional red shuka with beaded jewellery in Tanzania',
     author: 'The Extreme Wilderness Team',
-    keywords: ['Maasai tribe Tanzania', 'Maasai culture', 'Maasai boma visit', 'Maasai warriors', 'Tanzania culture'],
+    keywords: ['Maasai tribe Tanzania', 'Maasai culture', 'Maasai boma visit', 'Maasai warriors', 'Tanzania culture', 'Maasai cultural visit', 'Maasai boma', 'traditional Maasai Africa', 'Maasai jumping ceremony', 'Kenya Tanzania Maasai'],
   },
 ]
 

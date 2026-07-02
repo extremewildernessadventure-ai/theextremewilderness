@@ -8,6 +8,21 @@ export const metadata: Metadata = {
   title: 'Safari Experiences | The Extreme Wilderness',
   description:
     'From Great Migration game drives to gorilla trekking in Rwanda and Kilimanjaro summit bids — discover every way to explore East Africa with The Extreme Wilderness.',
+  keywords: [
+    'walking safari Tanzania',
+    'hot air balloon safari Serengeti',
+    'photography safari Africa',
+    'night game drive Tanzania',
+    'gorilla trekking experience',
+    'Kilimanjaro trek experience',
+    'cultural safari Tanzania',
+    'East Africa safari experiences',
+    'Tanzania adventure safari',
+    'bush dinner Tanzania',
+    'sunset game drive Africa',
+    'Tanzania safari experiences 2026',
+    'unique Africa experiences',
+  ],
 }
 
 const experiences = [

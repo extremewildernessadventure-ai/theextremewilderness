@@ -5,10 +5,71 @@ import { ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
   Droplets, Pill, HeartPulse, Zap, Package, ShieldCheck } from 'lucide-react'
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 
-export const metadata: Metadata = {
-  title: 'Kilimanjaro Trekking & Mountain Climbing Tanzania',
-  description:
-    "Climb Africa's highest peak with Tanzania's most experienced local guides. Machame, Lemosho, Marangu and Rongai routes. TANAPA certified, full safety backup.",
+
+interface RouteProps {
+  params: Promise<{ locale?: string; route: string }>
+}
+
+const ROUTE_META: Record<string, import('next').Metadata> = {
+  machame: {
+    title: 'Kilimanjaro Machame Route 2026 | 7 Days | Extreme Wilderness Adventure',
+    description: "Climb Kilimanjaro via the scenic Machame 'Whiskey Route' — 7 days, 85% success rate. Led by TANAPA-certified guides from Tanzania.",
+    keywords: [
+      'Kilimanjaro Machame route', 'Machame route 7 days', 'Kilimanjaro whiskey route',
+      'climb Kilimanjaro Machame', 'Machame route success rate', 'Kilimanjaro Machame guide',
+      'best Kilimanjaro route', 'Kilimanjaro 7 day trek', 'Tanzania mountain climbing', 'Kilimanjaro trekking 2026',
+    ],
+  },
+  lemosho: {
+    title: 'Kilimanjaro Lemosho Route 2026 | 8 Days | Extreme Wilderness Adventure',
+    description: "The Lemosho Route — 8 days, 90% summit success rate. The most scenic and spacious Kilimanjaro route, perfect for acclimatisation.",
+    keywords: [
+      'Kilimanjaro Lemosho route', 'Lemosho route 8 days', 'best Kilimanjaro route USA',
+      'Lemosho route success rate', 'Kilimanjaro Lemosho guide', 'scenic Kilimanjaro route',
+      'Kilimanjaro 8 day trek', 'Lemosho western breach', 'Tanzania Kilimanjaro climb', 'Kilimanjaro longest route',
+    ],
+  },
+  marangu: {
+    title: 'Kilimanjaro Marangu Route 2026 | 5–6 Days | Extreme Wilderness Adventure',
+    description: "The Marangu 'Coca-Cola' Route — the classic Kilimanjaro hut route. 5–6 days, hut accommodation, ideal for a first climb.",
+    keywords: [
+      'Kilimanjaro Marangu route', 'Marangu Coca-Cola route', 'Kilimanjaro 5 day route',
+      'Marangu hut route', 'cheapest Kilimanjaro route', 'Kilimanjaro beginner route',
+      'Marangu route guide', 'Kilimanjaro budget trek', 'Tanzania Marangu climb', 'Kilimanjaro easiest route',
+    ],
+  },
+  rongai: {
+    title: 'Kilimanjaro Rongai Route 2026 | 6–7 Days | Extreme Wilderness Adventure',
+    description: "The Rongai Route approaches Kilimanjaro from the north — quieter, drier, ideal in the rainy season. 6–7 days, 80% success rate.",
+    keywords: [
+      'Kilimanjaro Rongai route', 'Rongai route 6 days', 'north side Kilimanjaro',
+      'Rongai dry route', 'Kilimanjaro Kenya side', 'Rongai route guide',
+      'quiet Kilimanjaro route', 'Kilimanjaro northern approach', 'Tanzania Rongai climb', 'Kilimanjaro least crowded route',
+    ],
+  },
+  umbwe: {
+    title: 'Kilimanjaro Umbwe Route 2026 | Most Direct | Extreme Wilderness Adventure',
+    description: "The Umbwe Route — the steepest and most direct Kilimanjaro route. For experienced trekkers only. 6–7 days of dramatic terrain.",
+    keywords: [
+      'Kilimanjaro Umbwe route', 'hardest Kilimanjaro route', 'Umbwe route guide',
+      'direct Kilimanjaro route', 'Kilimanjaro advanced route', 'Umbwe route 6 days',
+      'challenging Kilimanjaro climb', 'Kilimanjaro expert route', 'Tanzania Umbwe climb', 'Kilimanjaro steep route',
+    ],
+  },
+  'northern-circuit': {
+    title: 'Kilimanjaro Northern Circuit 2026 | 9–10 Days | Extreme Wilderness Adventure',
+    description: "The Northern Circuit — Kilimanjaro's longest route with a 95% summit success rate. 9–10 days circumnavigating the entire mountain.",
+    keywords: [
+      'Kilimanjaro Northern Circuit', 'longest Kilimanjaro route', 'Kilimanjaro 95% success rate',
+      'best success rate Kilimanjaro', 'Kilimanjaro 10 day route', 'Northern Circuit guide',
+      'Kilimanjaro acclimatisation route', 'highest Kilimanjaro success', 'Tanzania Northern Circuit trek', 'Kilimanjaro full circumnavigation',
+    ],
+  },
+}
+
+export async function generateMetadata({ params }: RouteProps): Promise<import('next').Metadata> {
+  const { route } = await params
+  return ROUTE_META[route] ?? ROUTE_META.machame
 }
 
 const GEAR_CATEGORIES = [

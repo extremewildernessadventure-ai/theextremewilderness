@@ -8,6 +8,22 @@ export const metadata: Metadata = {
   title: 'Safari Blog | Tanzania & East Africa Travel Guides | The Extreme Wilderness',
   description:
     'Expert Tanzania safari guides, Kilimanjaro tips, Zanzibar travel guides, gorilla trekking advice and wildlife articles from our local team in Arusha.',
+  keywords: [
+    'Tanzania safari blog',
+    'Africa safari travel guide',
+    'Kilimanjaro trekking guide',
+    'East Africa wildlife blog',
+    'Tanzania travel tips',
+    'safari planning advice',
+    'gorilla trekking guide Rwanda',
+    'Africa wildlife articles',
+    'Serengeti travel guide',
+    'Tanzania tourism blog',
+    'Africa travel blog',
+    'safari photography tips',
+    'best time Africa safari',
+    'Tanzania travel information',
+  ],
 }
 
 export default function BlogPage() {

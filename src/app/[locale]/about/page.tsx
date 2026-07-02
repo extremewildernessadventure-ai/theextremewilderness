@@ -21,6 +21,11 @@ export async function generateMetadata(): Promise<Metadata> {
       'Arusha safari company',
       'small group safari Tanzania',
       'Tanzania safari reviews',
+      'certified Tanzania safari guides',
+      'TANAPA certified operator',
+      'Tanzania safari 2026',
+      'African safari company',
+      'best safari operator Africa',
     ],
   }
 }

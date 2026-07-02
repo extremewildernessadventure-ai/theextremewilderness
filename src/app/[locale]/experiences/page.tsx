@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     'Kilimanjaro trek experience',
     'cultural safari Tanzania',
     'East Africa safari experiences',
+    'Tanzania adventure safari',
+    'bush dinner Tanzania',
+    'sunset game drive Africa',
+    'Tanzania safari experiences 2026',
+    'unique Africa experiences',
   ],
 }
 

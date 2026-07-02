@@ -10,6 +10,23 @@ export const metadata: Metadata = {
   title: 'Safari Itineraries | The Extreme Wilderness',
   description:
     'Browse curated safari itineraries across Tanzania, Kenya and Rwanda. From classic Serengeti circuits to gorilla trekking and Kilimanjaro summit bids. Every journey custom-built.',
+  keywords: [
+    'Tanzania safari itinerary',
+    'East Africa safari itinerary',
+    '7 day Tanzania safari',
+    '10 day Tanzania safari',
+    'Serengeti itinerary',
+    'Ngorongoro itinerary',
+    'safari trip planner Tanzania',
+    'Tanzania travel itinerary',
+    'Africa safari planner',
+    'gorilla trekking itinerary Rwanda',
+    'Kilimanjaro itinerary',
+    'combined safari Tanzania',
+    'custom Tanzania itinerary',
+    'Tanzania safari package deals',
+    'Africa travel plan',
+  ],
 }
 
 const editions = [

@@ -9,6 +9,23 @@ export const metadata: Metadata = {
   title: 'Tanzania Travel Information | Visas, Health, Currency & Packing | The Extreme Wilderness',
   description:
     'Essential Tanzania travel information — best time to visit, visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari or Kilimanjaro trek.',
+  keywords: [
+    'Tanzania visa requirements',
+    'Tanzania travel tips',
+    'Tanzania health vaccinations',
+    'Tanzania safari packing list',
+    'best time to visit Tanzania',
+    'Tanzania weather safari',
+    'Tanzania currency',
+    'Tanzania malaria prevention',
+    'Tanzania entry requirements',
+    'Tanzania travel guide USA',
+    'Tanzania holiday guide UK',
+    'what to pack for safari',
+    'Tanzania travel insurance',
+    'Tanzania yellow fever certificate',
+    'Tanzania travel advice',
+  ],
 }
 
 const sections = [

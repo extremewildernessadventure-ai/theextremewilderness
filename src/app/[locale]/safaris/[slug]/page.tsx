@@ -10,6 +10,136 @@ import { packages } from '@/data/packages'
 import { getPackage } from '@/data/packages.i18n'
 import { routing } from '@/i18n/routing'
 
+
+const SAFARI_KEYWORDS: Record<string, string[]> = {
+  '7-day-serengeti-ngorongoro': [
+    'Serengeti Ngorongoro safari', '7 day Tanzania safari', 'Tanzania safari 2026',
+    'Great Migration safari', 'Ngorongoro Crater big five', 'Tanzania northern circuit',
+    'Serengeti safari package', 'Africa wildlife safari', 'Tanzania safari holiday', 'book Tanzania safari',
+  ],
+  '10-day-northern-circuit': [
+    '10 day Tanzania safari', 'northern circuit Tanzania', 'ultimate Tanzania safari',
+    'Serengeti Ngorongoro Tarangire safari', 'Tanzania 10 days', 'Tanzania luxury safari',
+    'East Africa safari itinerary', 'Tanzania safari holiday 2026', 'Africa safari 10 days', 'Tanzania wildlife tour',
+  ],
+  '10-day-safari-zanzibar': [
+    'Tanzania safari and beach', 'Zanzibar safari combo', 'Tanzania and Zanzibar holiday',
+    'safari beach package Tanzania', 'Zanzibar holiday 2026', 'Africa beach safari',
+    'Tanzania Indian Ocean', '10 day Africa holiday', 'best Tanzania beach safari', 'safari Zanzibar combination',
+  ],
+  '5-day-serengeti-fly-in': [
+    'Serengeti fly-in safari', 'flying safari Tanzania', 'Serengeti 5 days',
+    'luxury flying safari Africa', 'Tanzania bush plane safari', 'Serengeti private safari',
+    'short Tanzania safari', 'Tanzania safari 5 days', 'Africa flying safari', 'Serengeti air safari',
+  ],
+  'kilimanjaro-machame-7day': [
+    'Kilimanjaro Machame route', 'Machame route 7 days', 'climb Kilimanjaro Machame',
+    'Kilimanjaro trekking cost', 'Kilimanjaro guided trek', 'Africa mountain climbing',
+    'Tanzania mountain trek', 'Kilimanjaro summit package', 'Machame whiskey route', 'Kilimanjaro 7 day trek',
+  ],
+  '7-day-southern-circuit': [
+    'southern Tanzania safari', 'Ruaha National Park safari', 'Nyerere National Park',
+    'Tanzania southern circuit', '7 day southern safari', 'off the beaten path Tanzania',
+    'Tanzania hidden safari', 'Selous safari Tanzania', 'Tanzania remote safari', 'Ruaha safari package',
+  ],
+  '5-days-highlights-safari': [
+    '5 day Tanzania safari', 'Tanzania safari highlights', 'short Africa safari',
+    'Tanzania quick safari', 'Serengeti Ngorongoro 5 days', 'mini Tanzania safari',
+    'Tanzania safari 5 nights', 'budget Tanzania safari', 'Africa safari 5 days', 'Tanzania safari short trip',
+  ],
+  '8-days-honeymoon-safari': [
+    'honeymoon safari Tanzania', 'Tanzania romantic safari', 'Africa honeymoon package',
+    'luxury honeymoon Tanzania', 'Tanzania bush honeymoon', 'romantic safari Africa',
+    'Tanzania couples safari', 'honeymoon safari Africa 2026', 'Africa wedding anniversary safari', 'luxury safari honeymoon',
+  ],
+  '7-days-crown-jewels': [
+    'crown jewels Tanzania safari', 'best Tanzania safari', 'Tanzania top safari',
+    'Serengeti Zanzibar safari', 'Tanzania crown jewels', 'Africa bucket list safari',
+    'Tanzania premium safari', 'best of Tanzania safari', 'luxury Tanzania 7 days', 'Africa best wildlife safari',
+  ],
+  '7-days-migration-southern': [
+    'Great Migration southern Tanzania', 'wildebeest migration safari', 'Ndutu calving season safari',
+    'Serengeti migration southern', 'Tanzania migration safari 2026', 'wildlife migration Tanzania',
+    'best migration safari Africa', 'Serengeti wildebeest safari', 'calving season Ndutu', 'Africa migration safari',
+  ],
+  '10-days-luxury-family': [
+    'family safari Tanzania', 'Tanzania luxury family safari', 'Africa safari with kids',
+    'Tanzania family holiday', 'kids on safari Tanzania', '10 day family safari',
+    'Africa family vacation', 'Tanzania family tour operator', 'child-friendly safari Africa', 'Tanzania school holiday safari',
+  ],
+  '12-days-wild-wilderness': [
+    '12 day Tanzania safari', 'ultimate Africa wilderness', 'Tanzania extended safari',
+    'Tanzania remote wilderness', 'Africa 12 days safari', 'Tanzania off-road safari',
+    'wild Tanzania safari', 'Tanzania full safari', 'long haul Africa safari', 'Tanzania wilderness experience',
+  ],
+  '8-days-great-northern-migration': [
+    'northern Serengeti migration', 'Great Migration northern', 'Mara River crossing safari',
+    'Tanzania migration northern', 'Serengeti crossing wildebeest', '8 day Great Migration safari',
+    'best Great Migration safari', 'Serengeti river crossing', 'Africa migration tourism', 'northern Serengeti safari',
+  ],
+  'ultimate-tanzania-safari': [
+    'ultimate Tanzania safari', 'Tanzania grand safari', 'best of East Africa safari',
+    'Tanzania complete safari', 'Africa dream safari', 'Tanzania top safari package',
+    'East Africa ultimate tour', 'Tanzania luxury ultimate', 'African safari bucket list', 'Tanzania premium 12 days',
+  ],
+  '7-days-gems-of-north': [
+    'Tanzania north gems safari', 'Tarangire Serengeti safari', 'Lake Manyara safari',
+    'northern Tanzania gems', 'Tanzania 7 day gems', 'Africa hidden gems safari',
+    'Tanzania safari 7 nights', 'Manyara Tarangire Serengeti', 'Tanzania northern highlights', 'Africa wildlife north',
+  ],
+  '7-days-flight-ndutu': [
+    'Ndutu migration safari', 'fly-in Ndutu Tanzania', 'calving season Serengeti',
+    'Serengeti south safari', 'Tanzania migration calving', 'Ndutu wildebeest calving',
+    'Africa calving safari', 'Tanzania fly-in Ndutu', 'Serengeti Ndutu February', 'migration calving Tanzania',
+  ],
+  '8-days-flight-migration': [
+    'fly-in migration safari Tanzania', 'Tanzania flying safari migration', '8 days Great Migration',
+    'Serengeti migration flying', 'Africa luxury migration safari', 'Tanzania air safari 8 days',
+    'migration safari bucket list', 'Tanzania fly-in wildlife', 'best Africa migration', 'Serengeti fly-in 8 days',
+  ],
+  '11-days-rwanda-tanzania': [
+    'Rwanda Tanzania combined safari', 'Tanzania Rwanda gorilla trekking', 'gorilla trekking Tanzania safari',
+    'East Africa combined tour', '11 day East Africa', 'Rwanda Tanzania 2026',
+    'gorilla safari and Tanzania', 'Africa gorilla and wildlife', 'Rwanda Tanzania tour operator', 'East Africa safari combination',
+  ],
+  '12-days-rwanda-primates': [
+    'Rwanda primate safari', 'gorilla chimpanzee trekking Rwanda', 'Rwanda 12 days',
+    'mountain gorilla Rwanda', 'golden monkey Rwanda', 'chimpanzee Rwanda',
+    'Rwanda primate experience', 'Africa gorilla holiday', 'Rwanda wildlife primates', 'Rwanda gorilla 12 days',
+  ],
+  '11-days-kenya-undisputed': [
+    'Kenya safari 11 days', 'Masai Mara Amboseli safari', 'Kenya Tanzania safari',
+    'Kenya undisputed safari', 'best Kenya safari', 'Kenya 11 day tour',
+    'Masai Mara Great Migration 2026', 'Kenya wildlife safari', 'luxury Kenya safari package', 'Africa Kenya holiday',
+  ],
+  '10-days-southern-secrets': [
+    'southern Tanzania secrets', 'Tanzania hidden south', 'Ruaha Nyerere safari',
+    'Tanzania 10 days south', 'Tanzania remote south', 'off beaten path Tanzania',
+    'Tanzania southern wildlife', 'southern Tanzania tour', 'Africa hidden safari', 'Tanzania south 10 days',
+  ],
+  '11-days-southern-spice': [
+    'southern Tanzania Zanzibar safari', 'Tanzania safari and beach 11 days', 'Ruaha beach combo',
+    'Tanzania south and Zanzibar', 'Africa wildlife and beach', 'Tanzania southern spice',
+    'Tanzania Zanzibar 11 days', 'Africa beach wilderness', 'southern Tanzania holiday', 'Tanzania south spice islands',
+  ],
+  '12-days-tanzania-kenya': [
+    'Tanzania Kenya safari 12 days', 'East Africa grand safari', 'Kenya Tanzania 12 days',
+    'Serengeti Masai Mara safari', 'Kenya Tanzania tour 2026', 'Africa two countries safari',
+    'East Africa 12 day tour', 'Tanzania Kenya comparison safari', 'best of Africa safari', 'dual country Africa safari',
+  ],
+  '12-days-grand-safari': [
+    'Tanzania grand safari 12 days', 'ultimate Tanzania grand tour', 'Africa grand safari',
+    'Tanzania best wildlife 12 days', 'Tanzania everything safari', 'Africa bucket list grand',
+    'Tanzania grandest safari', '12 night Tanzania safari', 'Tanzania comprehensive safari', 'best Africa 12 day safari',
+  ],
+}
+
+const DEFAULT_SAFARI_KEYWORDS = [
+  'Tanzania safari', 'East Africa safari', 'Africa wildlife safari', 'book Tanzania safari',
+  'Tanzania safari package', 'Tanzania tour operator', 'Africa safari holiday',
+  'Tanzania wildlife tour', 'safari Tanzania 2026', 'Africa safari vacation',
+]
+
 interface Props {
   params: Promise<{ locale: string; slug: string }>
 }
@@ -27,6 +157,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${pkg.name} | Tanzania Safari`,
     description: `${pkg.name} — ${pkg.duration} nights starting from $${pkg.priceFrom.toLocaleString()}/person. ${pkg.highlights[0]}.`,
+    keywords: SAFARI_KEYWORDS[slug] ?? DEFAULT_SAFARI_KEYWORDS,
   }
 }
 
