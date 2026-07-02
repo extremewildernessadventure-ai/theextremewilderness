@@ -147,7 +147,7 @@ export default async function Footer() {
           {/* Membership / Affiliation */}
           <div>
             <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('memberships')}</h3>
-            <div className="flex flex-wrap gap-4 items-center">
+            <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
               {[
                 { src: '/Boards%20affiliated/Google%20reviews.png', alt: 'Google Reviews' },
                 { src: '/Boards%20affiliated/Tanapa.png', alt: 'TANAPA' },
