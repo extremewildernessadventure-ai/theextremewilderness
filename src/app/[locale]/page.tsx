@@ -1,16 +1,17 @@
 import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import dynamic from 'next/dynamic'
 import HeroSection from '@/components/home/HeroSection'
 import TrustBar from '@/components/home/TrustBar'
 import StatsRow from '@/components/home/StatsRow'
-import MapSection from '@/components/home/MapSection'
-import DestinationCards from '@/components/home/DestinationCards'
-import FeaturedPackages from '@/components/home/FeaturedPackages'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
-import Testimonials from '@/components/home/Testimonials'
-import TravelByMonth from '@/components/home/TravelByMonth'
 import BlogPreview from '@/components/home/BlogPreview'
 import CtaBanner from '@/components/home/CtaBanner'
+
+const DestinationCards = dynamic(() => import('@/components/home/DestinationCards'))
+const FeaturedPackages = dynamic(() => import('@/components/home/FeaturedPackages'))
+const MapSection       = dynamic(() => import('@/components/home/MapSection'))
+const Testimonials     = dynamic(() => import('@/components/home/Testimonials'))
+const TravelByMonth    = dynamic(() => import('@/components/home/TravelByMonth'))
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

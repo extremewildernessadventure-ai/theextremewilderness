@@ -1,5 +1,3 @@
-'use client'
-
 import { useTranslations } from 'next-intl'
 
 function ratingLabel(r: number, t: (key: string) => string) {

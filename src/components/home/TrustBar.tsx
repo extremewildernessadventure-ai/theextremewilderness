@@ -1,5 +1,3 @@
-'use client'
-
 import { useTranslations } from 'next-intl'
 import { Star, Shield, MapPin, Headphones } from 'lucide-react'
 

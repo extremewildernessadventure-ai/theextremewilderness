@@ -1,5 +1,3 @@
-'use client'
-
 import { useTranslations } from 'next-intl'
 import { MapPin, Users, Star, Shield } from 'lucide-react'
 
