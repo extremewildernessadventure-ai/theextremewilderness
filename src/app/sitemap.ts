@@ -37,7 +37,33 @@ const DESTINATION_SLUGS = [
   'ol-pejeta', 'samburu', 'tsavo', 'akagera', 'kigali', 'lake-kivu', 'nyungwe',
 ]
 
-const TREKKING_ROUTES = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe']
+const TREKKING_ROUTES = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit']
+
+const BLOG_SLUGS = [
+  'great-migration-guide',
+  'tanzania-safari-cost',
+  'best-time-to-visit-serengeti',
+  'gorilla-trekking-rwanda',
+  'kilimanjaro-climbing-guide',
+  'tanzania-vs-kenya-safari',
+  'safari-packing-list',
+  'big-five-africa-tanzania',
+  'zanzibar-travel-guide',
+  'safari-honeymoon-tanzania',
+  'family-safari-africa',
+  'ngorongoro-crater-guide',
+  'serengeti-vs-masai-mara',
+  '7-day-tanzania-safari-itinerary',
+  'budget-safari-tanzania',
+  'chimpanzee-trekking-tanzania',
+  'luxury-safari-tanzania',
+  'safari-photography-tips',
+  'ruaha-national-park-guide',
+  'tanzania-vs-south-africa-safari',
+  'mountain-biking-arusha',
+  'zanzibar-experience',
+  'the-maasai-tribe',
+]
 
 function localeUrl(locale: string, path: string): string {
   return `${BASE_URL}/${locale}${path}`
@@ -126,6 +152,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: {
           languages: Object.fromEntries(
             LOCALES.map((l) => [l, localeUrl(l, `/trekking/${route}`)])
+          ),
+        },
+      })
+    }
+  }
+
+  // Blog posts × locales
+  for (const slug of BLOG_SLUGS) {
+    for (const locale of LOCALES) {
+      entries.push({
+        url: localeUrl(locale, `/blog/${slug}`),
+        lastModified: now,
+        changeFrequency: 'monthly',
+        priority: 0.6,
+        alternates: {
+          languages: Object.fromEntries(
+            LOCALES.map((l) => [l, localeUrl(l, `/blog/${slug}`)])
           ),
         },
       })
