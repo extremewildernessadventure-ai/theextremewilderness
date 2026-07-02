@@ -106,10 +106,10 @@ export default async function ExperiencesPage() {
               </p>
               <div className="flex flex-wrap gap-8">
                 {[
-                  { n: '15+', l: t('stat1Label') },
-                  { n: '3', l: t('stat2Label') },
-                  { n: '98%', l: t('stat3Label') },
-                  { n: '100%', l: t('stat4Label') },
+                  { n: '200+', l: t('stat1Label') },
+                  { n: '5+', l: t('stat2Label') },
+                  { n: '20+', l: t('stat3Label') },
+                  { n: '98%', l: t('stat4Label') },
                 ].map(({ n, l }) => (
                   <div key={l}>
                     <div className="text-2xl font-bold text-brand">{n}</div>
