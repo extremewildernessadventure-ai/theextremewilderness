@@ -66,6 +66,7 @@ const BLOG_SLUGS = [
 ]
 
 function localeUrl(locale: string, path: string): string {
+  if (locale === 'en') return `${BASE_URL}${path || '/'}`
   return `${BASE_URL}/${locale}${path}`
 }
 
