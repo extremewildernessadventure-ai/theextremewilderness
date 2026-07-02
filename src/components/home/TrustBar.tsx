@@ -16,7 +16,7 @@ export default function TrustBar() {
   return (
     <div className="bg-brand-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-white/10">
           {items.map(({ Icon, text, sub }) => (
             <div key={text} className="flex items-center gap-3 px-4 py-4 lg:py-5">
               <Icon className="w-5 h-5 text-gold flex-shrink-0" />

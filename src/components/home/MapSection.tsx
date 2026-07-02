@@ -102,7 +102,7 @@ export default function MapSection() {
           ))}
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 items-start">
+        <div className="flex flex-col md:flex-row gap-6 items-start">
 
           <div className="flex-1 min-w-0">
             <div className="relative w-full rounded-2xl p-[4px] overflow-hidden shadow-xl">
@@ -132,7 +132,7 @@ export default function MapSection() {
             </p>
           </div>
 
-          <div className="w-full lg:w-64 flex-shrink-0">
+          <div className="w-full md:w-64 flex-shrink-0">
             <div className="bg-light-green rounded-2xl p-4 mb-4 border border-brand/10">
               <div className="flex items-center gap-2 mb-2">
                 <span className="font-bold text-brand text-sm">{countryLabel}</span>

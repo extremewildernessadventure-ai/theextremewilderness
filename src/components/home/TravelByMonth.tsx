@@ -119,7 +119,7 @@ export default function TravelByMonth() {
         </div>
 
         {/* Trackers — side by side on larger screens */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
           {/* Great Migration tracker */}
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">

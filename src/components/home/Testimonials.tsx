@@ -112,16 +112,11 @@ export default function Testimonials() {
 
         {/* Aggregate stat strip */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 mb-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-gray-100">
             {stats.map((s, i) => (
               <div
                 key={i}
-                className={[
-                  'flex flex-col items-center justify-center py-6 px-4 text-center',
-                  i < 3    ? 'lg:border-r border-gray-100' : '',
-                  i < 2    ? 'border-b lg:border-b-0 border-gray-100' : '',
-                  i % 2 === 0 ? 'border-r border-gray-100 lg:border-r-0' : '',
-                ].join(' ')}
+                className="flex flex-col items-center justify-center py-6 px-4 text-center"
               >
                 <s.Icon className={`w-6 h-6 mb-2 ${s.iconClass}`} />
                 <span className="text-2xl font-bold text-brand leading-none">{s.value}</span>
