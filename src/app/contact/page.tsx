@@ -128,7 +128,7 @@ export default function ContactPage() {
               <div className="space-y-3">
                 {contactCards.map(({ icon: Icon, label, value, sub, href }) => {
                   const inner = (
-                    <div className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-md hover:border-brand/20 transition-all">
+                    <div className="flex items-center gap-3 bg-white rounded-xl p-4 border border-gray-100 shadow-sm hover:shadow-md hover:border-brand/20 transition-all">
                       <div className="w-10 h-10 bg-light-green rounded-xl flex items-center justify-center flex-shrink-0">
                         <Icon className="w-4 h-4 text-brand" />
                       </div>
@@ -140,7 +140,7 @@ export default function ContactPage() {
                     </div>
                   )
                   return href ? (
-                    <a key={label} href={href}>{inner}</a>
+                    <a key={label} href={href} className="block">{inner}</a>
                   ) : (
                     <div key={label}>{inner}</div>
                   )
