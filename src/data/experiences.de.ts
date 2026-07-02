@@ -8,7 +8,7 @@ export const experiences: Experience[] = [
     tagline: 'Erleben Sie die größten Wildtierschauspiele der Welt',
     description:
       'Nichts ist vergleichbar damit, vor der Morgendämmerung aufzustehen, während sich die Serengeti in alle Richtungen endlos erstreckt und ein Rudel Löwen im Morgengold erwacht. Unsere klassischen Pirschfahrt-Safaris führen Sie tief in Tansanias ikonische Parks — Serengeti, Ngorongoro-Krater, Tarangire — in maßgefertigten 4×4-Fahrzeugen mit erfahrenen einheimischen Guides, die den Busch wie eine Sprache lesen.',
-    image: '/images/gallery/safari-001.jpg',
+    image: '/images/gallery/safari-001.webp',
     durationLabel: '5 – 14 Tage',
     highlights: ['Big Five im Ngorongoro-Krater', 'Kalben & Überquerungen der Großen Migration', 'Nachtfahrten in ausgewählten Parks', 'Erfahrene Suaheli-sprechende Guides'],
     priceFrom: '$2.450',
@@ -23,7 +23,7 @@ export const experiences: Experience[] = [
     tagline: 'Das größte Wildtierschauspiel der Erde — zum perfekten Zeitpunkt',
     description:
       'Über 1,5 Millionen Gnus und 200.000 Zebras bewegen sich in einem ewigen Kreis durch das Ökosystem Serengeti-Mara. Wir planen Ihre Reise rund um die genaue Saison — die Kalbszeit in Ndutu (Jan.–März), die dramatischen Flussüberquerungen im Mara (Juli–Okt.) — damit Sie den Moment erleben, nicht nur seine Nachwirkungen.',
-    image: '/images/gallery/Wildebeest-Migration.jpeg',
+    image: '/images/gallery/Wildebeest-Migration.webp',
     durationLabel: '6 – 10 Tage',
     highlights: ['Mara-Flussüberquerungen auf dem Höhepunkt', 'Ndutu-Kalbsgründe', 'Private mobile Camp-Optionen', 'Monatlicher Migrationsführer'],
     priceFrom: '$3.200',
@@ -38,7 +38,7 @@ export const experiences: Experience[] = [
     tagline: 'Durch den Dschungel trekken, unsere engsten Verwandten treffen',
     description:
       'Tief in den Wäldern über dem Tanganjikasee sind die Mahale-Schimpansen seit über 40 Jahren an die Anwesenheit von Menschen gewöhnt. Sie nähern sich zu Fuß durch dichten Dschungel, geleitet von Fährtenlesern, die frische Spuren und Rufe verfolgen. Wenn Sie sie finden — beim Pflegen, Spielen, Nestbauen — bleibt die Zeit stehen. Es gibt nichts Ähnliches auf der Erde.',
-    image: '/images/gallery/Jozani-forest.jpg',
+    image: '/images/gallery/Jozani-forest.webp',
     durationLabel: '3 – 5 Tage',
     highlights: ['Habituierte Mahale-Schimpansen-Gemeinschaft', 'Schnorcheln im Tanganjikasee', 'Einflug-Zugang von Arusha', 'Kleine exklusive Camps'],
     priceFrom: '$4.100',
@@ -53,7 +53,7 @@ export const experiences: Experience[] = [
     tagline: 'Eine Begegnung von Angesicht zu Angesicht, die alles verändert',
     description:
       'Die Virunga-Vulkane erheben sich steil durch Bambus und Hagenia-Wald. Irgendwo in diesem Nebel leben Berggorillas — vom Aussterben bedroht, dem Blick in einen Spiegel am nächsten — ihr Familienleben. Jede Genehmigung gewährt Ihnen eine stille Stunde. Fährtenleser zeigen den Weg. Unsere erfahrenen Guides informieren Sie. Es lässt Sie nie wieder los.',
-    image: '/images/gallery/gorilla.png',
+    image: '/images/gallery/gorilla.webp',
     durationLabel: '2 – 4 Tage',
     highlights: ['Gorilla-Trekking-Genehmigungen arrangiert', 'Goldaffen-Verfolgung verfügbar', 'Luxus-Lodges im Virunga-NP', 'Besuch des Dian Fossey Forschungszentrums'],
     priceFrom: '$2.800',
@@ -68,7 +68,7 @@ export const experiences: Experience[] = [
     tagline: 'Vom tropischen Dschungel zum arktischen Gipfel',
     description:
       'Mit 5.895 m ist der Kilimandscharo der höchste freistehende Berg der Erde — und der einzige Ort, an dem man in fünf Tagen vom Regenwald über Moorland, Wüste und Gletschereis wandern kann. Unser akklimatisierungsorientierter Ansatz und handverlesene Hochgebirgsführer geben Ihnen die beste Chance, den Uhuru Peak zu erreichen, und die unvergesslichste Reise auf dem Weg dorthin.',
-    image: '/images/gallery/safari-005.jpg',
+    image: '/images/gallery/safari-005.webp',
     durationLabel: '6 – 9 Tage',
     highlights: ['Machame-, Lemosho- & Rongai-Routen', 'Private Gruppen- & Einzelbesteigungen', 'Träger, Koch & Gipfelmannschaft', 'KINAPA-zertifizierte Guides'],
     priceFrom: '$1.850',
@@ -83,7 +83,7 @@ export const experiences: Experience[] = [
     tagline: 'Vom Busch an den Strand — die ultimative Flucht in Ostafrika',
     description:
       'Beenden Sie eine Safari auf ihrem Höhepunkt mit türkisfarbenem Indischem Ozean und zuckerweißem Sand. Sansibars Stone Town ist ein UNESCO-Labyrinth der Geschichte; Nungwi und Paje sind Weltklasse-Strände. Wir kombinieren nahtlos 4–6 Tage Tansania-Safari mit 3–4 Nächten auf der Insel. Ein Urlaub, zwei völlig verschiedene Welten.',
-    image: '/images/gallery/zanzibar-1.jpg',
+    image: '/images/gallery/zanzibar-1.webp',
     durationLabel: '7 – 12 Tage',
     highlights: ['Serengeti-Safari + Sansibar-Strand', 'Gewürzmarkt-Tour in Stone Town', 'Schnorcheln & Tauchen am Mnemba-Atoll', 'Boutique-Strandlodge-Optionen'],
     priceFrom: '$3.600',
@@ -98,7 +98,7 @@ export const experiences: Experience[] = [
     tagline: 'Mit Absicht fotografieren. Mit außergewöhnlichen Bildern zurückkehren.',
     description:
       'Diese spezialisierten Reiserouten sind für Fotografen konzipiert — länger an jedem Sichtung, frühe Abfahrten aus dem Camp, perfekte Lichtjagd-Zeitpläne in der Dämmerung und Abenddämmerung. Wir positionieren Fahrzeuge für saubere Hintergründe und ungehinderte Aufnahmen. Maßgefertigte Dachluken-Fahrzeuge verfügbar. Geeignet für Enthusiasten bis Profis.',
-    image: '/images/gallery/safari-007.jpg',
+    image: '/images/gallery/safari-007.webp',
     durationLabel: '7 – 12 Tage',
     highlights: ['Verlängerte Zeit bei wichtigen Sichtungen', 'Goldene-Stunde-Fokusplanung', 'Spezialisierter Wildtier-Fotografie-Guide', 'Dachluken-Fahrzeuge verfügbar'],
     priceFrom: '$3.900',
@@ -113,7 +113,7 @@ export const experiences: Experience[] = [
     tagline: 'Betreten Sie afrikanischen Boden. Spüren Sie, wie sich alles verändert.',
     description:
       'Der Nyerere-Nationalpark (ehemals Selous) — Afrikas größtes Schutzgebiet — ist einer der wenigen Orte in Tansania, wo Fuß-Safaris in echter Wildnis erlaubt sind. Bewaffnete Ranger führen Sie durch Akazien-Dickicht, entlang nilpferd-gefüllter Flüsse und über offene Überschwemmungsebenen. Alle Sinne sind geschärft. Der Busch offenbart sich zu Fuß anders.',
-    image: '/images/gallery/nyerere.jpg',
+    image: '/images/gallery/nyerere.webp',
     durationLabel: '4 – 7 Tage',
     highlights: ['Geführte Wanderungen mit bewaffneten Rangern', 'Bootsafari auf dem Rufiji-Fluss', 'Wildhunde & riesige Elefantenherden', 'Abgelegene Fly-Camp-Optionen'],
     priceFrom: '$2.900',
@@ -128,7 +128,7 @@ export const experiences: Experience[] = [
     tagline: 'Ihr Reiseplan. Ihr Tempo. Keine Kompromisse.',
     description:
       'Privatsnutzung eines Luxus-Mobilcamps oder Alleinnutzungs-Lodges. Ihr eigenes Fahrzeug, Guide und Fährtenleser. Essen unter den Sternen, Sundowner auf einem Kopje mit dem Serengeti-Horizont zu Ihren Füßen. Konzipiert für Paare, Flitterwöchler und kleine Familien, die totale Immersion wollen, ohne einen Sundowner mit Fremden zu teilen.',
-    image: '/images/gallery/honey.jpg',
+    image: '/images/gallery/honey.webp',
     durationLabel: '5 – 14 Tage',
     highlights: ['Alleinnutzungs-Camps & Lodges', 'Privates Fahrzeug & Guide den ganzen Tag', 'Maßgeschneiderter Reiseplan für Sie', 'Vom Sommelier kuratierte Mahlzeiten im Busch'],
     priceFrom: '$5.500',
@@ -143,7 +143,7 @@ export const experiences: Experience[] = [
     tagline: 'Das Abenteuer, das zur Familienlegende wird',
     description:
       'Die erste Giraffe eines Kindes. Das Foto eines Teenagers von einer Gepardenjagd. Diese Momente prägen Leben. Unsere Familiensafaris sind auf Kinder abgestimmt, mit Junior-Ranger-Programmen, kinderfreundlichen Lodges mit Pools, kürzeren Fahrten und altersgerechten Guides, die wissen, wie man junge Köpfe mit Staunen erfüllt. Sicher, nahtlos, unvergesslich.',
-    image: '/images/gallery/family1.jpg',
+    image: '/images/gallery/family1.webp',
     durationLabel: '6 – 10 Tage',
     highlights: ['Junior-Ranger-Buschspaziergänge', 'Familienlodges mit Pools', 'Kürzere kinderfreundliche Fahrten', 'Kulturbesuche in Massai-Dörfern'],
     priceFrom: '$2.600',
@@ -158,7 +158,7 @@ export const experiences: Experience[] = [
     tagline: 'Wo sich die Erde seit tausend Jahren nicht verändert hat',
     description:
       'Die meisten Besucher verlassen nie den Nördlichen Rundkurs. Ruaha und Katavi sind Tansanias bestgehütete Geheimnisse — riesige Löwenrudel, große Büffel- und Elefantenherden, Wildhundterritorien und kein weiteres Fahrzeug in Sicht. Rau, echt und völlig ungehetzt. Für diejenigen, die Afrika so wollen, wie es vor den Massen war.',
-    image: '/images/gallery/safari-013.jpg',
+    image: '/images/gallery/safari-013.webp',
     durationLabel: '5 – 8 Tage',
     highlights: ['Tansanias größte Löwenpopulation', 'Wildhund-Bau (saisonal)', 'Nilpferd-gefüllte Flüsse in Katavi', 'Exklusiver Einflug-Zugang nur'],
     priceFrom: '$4.200',

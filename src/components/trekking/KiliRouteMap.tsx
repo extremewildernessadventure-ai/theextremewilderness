@@ -118,7 +118,7 @@ export default function KiliRouteMap() {
       {/* Kilimanjaro summit background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/gallery/safari-110.jpg)' }}
+        style={{ backgroundImage: 'url(/images/gallery/safari-110.webp)' }}
       />
       {/* Gradient overlay — dark at top/bottom, lighter in centre so photo reads */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/50 to-black/75" />
@@ -126,7 +126,7 @@ export default function KiliRouteMap() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section heading */}
         <div className="text-center mb-12">
-          <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+          <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
             {t('chooseYourPath')}
           </span>
           <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-3">
@@ -175,11 +175,11 @@ export default function KiliRouteMap() {
             {/* Map caption */}
             <div className="flex justify-center">
               <div className="inline-flex items-center gap-2 bg-black/35 backdrop-blur-sm border border-gold/60 rounded-full px-4 py-1.5">
-                <span className="text-white/45 text-[11px] tracking-wide">{t('topoMapLabel')}</span>
+                <span className="text-white/70 text-[11px] tracking-wide">{t('topoMapLabel')}</span>
                 <span className="text-white/25 text-[11px]">·</span>
                 <span className="text-gold text-[11px] font-semibold tracking-wide">{active.name}</span>
                 <span className="text-white/25 text-[11px]">·</span>
-                <span className="text-white/45 text-[11px] tracking-wide">{t('tanapaApproved')}</span>
+                <span className="text-white/70 text-[11px] tracking-wide">{t('tanapaApproved')}</span>
               </div>
             </div>
 

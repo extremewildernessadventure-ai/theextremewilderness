@@ -71,10 +71,10 @@ export default async function ContactPage() {
         </div>
         <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2">
           <div className="absolute inset-y-0 left-0 w-28 z-10 bg-gradient-to-r from-brand to-transparent" />
-          <Image src="/images/gallery/safari-014.jpg" alt="Safari in the Serengeti" fill className="object-cover" priority sizes="50vw" />
+          <Image src="/images/gallery/safari-014.webp" alt="Safari in the Serengeti" fill className="object-cover" priority sizes="50vw" />
         </div>
         <div className="lg:hidden absolute inset-0 z-0">
-          <Image src="/images/gallery/safari-014.jpg" alt="Safari" fill className="object-cover opacity-15" priority sizes="100vw" />
+          <Image src="/images/gallery/safari-014.webp" alt="Safari" fill className="object-cover opacity-15" priority sizes="100vw" />
         </div>
       </section>
 

@@ -57,7 +57,7 @@ export default function BlogPage() {
                 />
               </div>
               <div className="p-8 flex flex-col justify-center">
-                <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">{featured.category} &middot; Featured</span>
+                <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{featured.category} &middot; Featured</span>
                 <h2 className="text-2xl font-semibold text-brand mb-3 group-hover:text-brand-secondary transition-colors">{featured.title}</h2>
                 <p className="text-text-muted text-sm leading-relaxed mb-5">{featured.excerpt}</p>
                 <div className="flex items-center justify-between text-xs text-text-muted">

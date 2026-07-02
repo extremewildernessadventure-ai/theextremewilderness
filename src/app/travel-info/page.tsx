@@ -138,7 +138,7 @@ export default function TravelInfoPage() {
 
       {/* Hero */}
       <section className="relative bg-brand py-32 lg:py-40 overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/safari-118.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/safari-118.webp')] bg-cover bg-center" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">Before You Go</p>
@@ -202,7 +202,7 @@ export default function TravelInfoPage() {
                   <Icon className="w-6 h-6 text-brand" />
                 </div>
                 <div>
-                  <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">Travel Info</p>
+                  <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">Travel Info</p>
                   <h2 className="text-3xl font-bold text-brand">{title}</h2>
                 </div>
               </div>

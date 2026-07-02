@@ -104,7 +104,7 @@ const ARTICLES = [
     desc: "Our guides have led thousands on both routes. Here's an honest side-by-side — terrain, success rates, crowd levels and which suits your fitness level.",
     readTime: '8 min read',
     href: '/blog',
-    image: '/images/gallery/kilimanjaro.png',
+    image: '/images/gallery/kilimanjaro.webp',
   },
   {
     category: 'Training',
@@ -112,7 +112,7 @@ const ARTICLES = [
     desc: "You don't need to be an athlete to summit Kilimanjaro. But preparation is everything. Here's exactly what to do in the 12 weeks before your climb.",
     readTime: '10 min read',
     href: '/blog',
-    image: '/images/gallery/kilimanjaro%20(4).png',
+    image: '/images/gallery/kilimanjaro%20(4).webp',
   },
   {
     category: 'Health & Safety',
@@ -120,7 +120,7 @@ const ARTICLES = [
     desc: 'AMS affects up to 75% of climbers. Understanding the symptoms, prevention steps, and when to descend could be the difference between summit and safety.',
     readTime: '7 min read',
     href: '/blog',
-    image: '/images/gallery/kilimanjaro%20(2).png',
+    image: '/images/gallery/kilimanjaro%20(2).webp',
   },
   {
     category: 'Planning',
@@ -128,7 +128,7 @@ const ARTICLES = [
     desc: 'The real numbers — park fees, tips, gear, flights. We break down every cost so you can budget accurately and avoid hidden surprises.',
     readTime: '6 min read',
     href: '/blog',
-    image: '/images/gallery/kilimanjaro%20(3).png',
+    image: '/images/gallery/kilimanjaro%20(3).webp',
   },
 ]
 
@@ -142,7 +142,7 @@ const routes = [
     priceFrom: 1658,
     desc: 'The most scenic and popular route, nicknamed the "Whiskey Route" for its challenging terrain. Excellent acclimatisation profile with a high-camp, low-sleep approach.',
     href: '/trekking/machame',
-    image: '/images/gallery/kilimanjaro.png',
+    image: '/images/gallery/kilimanjaro.webp',
     badge: 'Most Popular',
   },
   {
@@ -154,7 +154,7 @@ const routes = [
     priceFrom: 1931,
     desc: 'Widely considered the best overall route. Starts remote on the western slope, crosses the Shira Plateau and delivers the highest summit success rate of all standard routes.',
     href: '/trekking/lemosho',
-    image: '/images/gallery/kilimanjaro%20(4).png',
+    image: '/images/gallery/kilimanjaro%20(4).webp',
     badge: 'Recommended',
   },
   {
@@ -166,7 +166,7 @@ const routes = [
     priceFrom: 1523,
     desc: 'The classic route and the only one with hut dormitory accommodation throughout. The most affordable option, though its rapid ascent reduces summit success rates.',
     href: '/trekking/marangu',
-    image: '/images/gallery/kilimanjaro%20(1).png',
+    image: '/images/gallery/kilimanjaro%20(1).webp',
     badge: null,
   },
   {
@@ -178,7 +178,7 @@ const routes = [
     priceFrom: 1960,
     desc: 'The only route approaching from the north near the Kenyan border. Quieter, drier, and ideal during the rainy season. A true wilderness feel with gentle gradients.',
     href: '/trekking/rongai',
-    image: '/images/gallery/kilimanjaro%20(2).png',
+    image: '/images/gallery/kilimanjaro%20(2).webp',
     badge: null,
   },
   {
@@ -190,7 +190,7 @@ const routes = [
     priceFrom: 1880,
     desc: 'The steepest and most direct route — for experienced trekkers only. Gains elevation rapidly through dense forest and dramatic ridgelines before joining the Southern Circuit.',
     href: '/trekking/umbwe',
-    image: '/images/gallery/kilimanjaro%20(3).png',
+    image: '/images/gallery/kilimanjaro%20(3).webp',
     badge: 'Advanced',
   },
   {
@@ -202,7 +202,7 @@ const routes = [
     priceFrom: 2237,
     desc: 'The newest and longest route, circumnavigating the entire mountain for a four-sided view. The extra days deliver the best acclimatisation and the highest summit success rate of any route.',
     href: '/trekking/northern-circuit',
-    image: '/images/gallery/kilimanjaro%20(5).png',
+    image: '/images/gallery/kilimanjaro%20(5).webp',
     badge: 'Best Success Rate',
   },
 ]
@@ -213,7 +213,7 @@ export default function TrekkingPage() {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden bg-brand">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/kilimanjaro%20(5).png"
+            src="/images/gallery/kilimanjaro%20(5).webp"
             alt="Kilimanjaro summit at dawn"
             fill
             className="object-cover object-center"
@@ -224,7 +224,7 @@ export default function TrekkingPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-4">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
               Summit Africa
             </span>
             <h1 className="text-5xl lg:text-6xl font-semibold text-white mb-5">
@@ -274,7 +274,7 @@ export default function TrekkingPage() {
                 <div className="p-5 flex flex-col flex-1">
                   <div className="mb-3">
                     <h3 className="font-semibold text-brand text-lg leading-tight">{route.name}</h3>
-                    <p className="text-gold text-xs font-medium mt-0.5">{route.nickname}</p>
+                    <p className="text-white/75 text-xs font-medium mt-0.5">{route.nickname}</p>
                   </div>
                   <p className="text-text-muted text-sm mb-4 leading-relaxed flex-1">{route.desc}</p>
                   <div className="flex flex-wrap gap-3 text-xs text-text-muted mb-4">
@@ -306,9 +306,9 @@ export default function TrekkingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="mb-12">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Your Summit Kit</span>
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Your Summit Kit</span>
             <h2 className="text-3xl font-semibold text-white">What to Pack</h2>
-            <p className="text-white/50 text-sm mt-2">
+            <p className="text-white/70 text-sm mt-2">
               12 essentials your porters won&rsquo;t carry for you — everything else is handled.
             </p>
           </div>
@@ -331,7 +331,7 @@ export default function TrekkingPage() {
                       <Icon className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-white text-sm font-semibold leading-tight">{name}</p>
-                        <p className="text-white/45 text-xs mt-0.5 leading-snug max-w-[180px]">{desc}</p>
+                        <p className="text-white/70 text-xs mt-0.5 leading-snug max-w-[180px]">{desc}</p>
                       </div>
                     </div>
                   ))}
@@ -345,7 +345,7 @@ export default function TrekkingPage() {
             <span className="text-xl flex-shrink-0">💡</span>
             <div>
               <p className="text-white font-semibold text-sm mb-1">Pro tip from our guides</p>
-              <p className="text-white/55 text-sm leading-relaxed">
+              <p className="text-white/75 text-sm leading-relaxed">
                 The single biggest mistake climbers make is packing too heavy. Every extra kilogram will slow your summit attempt.
                 Our porters carry your main bag (max 15 kg) — keep your day pack to 5–7 kg with just the essentials.
               </p>
@@ -359,7 +359,7 @@ export default function TrekkingPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Summit Intelligence</span>
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Summit Intelligence</span>
             <h2 className="text-3xl font-semibold text-brand">When to Summit</h2>
             <p className="text-text-muted text-sm mt-3 max-w-lg mx-auto">
               Kilimanjaro never closes — but the mountain rewards those who choose their window wisely.
@@ -407,10 +407,10 @@ export default function TrekkingPage() {
                   {chips.map((c) => (
                     <span key={c} className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
                       style === 'prime'
-                        ? 'bg-gold/20 text-gold border border-gold/30'
+                        ? 'bg-gold/20 text-amber-200 border border-gold/30'
                         : style === 'good'
                         ? 'bg-brand/10 text-brand border border-brand/15'
-                        : 'bg-gray-100 text-text-muted border border-gray-300'
+                        : 'bg-gray-100 text-gray-600 border border-gray-300'
                     }`}>{c}</span>
                   ))}
                 </div>
@@ -433,7 +433,7 @@ export default function TrekkingPage() {
                   ? 'bg-gold/15 text-brand border-gold/40'
                   : type === 'good'
                   ? 'bg-brand/10 text-brand border-brand/20'
-                  : 'bg-gray-100 text-text-muted border-gray-200'
+                  : 'bg-gray-100 text-gray-600 border-gray-200'
               }`}>{name}</span>
             ))}
           </div>
@@ -445,7 +445,7 @@ export default function TrekkingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Expedition Notes</span>
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Expedition Notes</span>
               <h2 className="text-3xl font-semibold text-brand">Before You Climb</h2>
               <p className="text-text-muted text-sm mt-2 max-w-md">
                 Field-tested knowledge from our guides, written for climbers who want to be genuinely prepared.
@@ -503,7 +503,7 @@ export default function TrekkingPage() {
                   />
                 </div>
                 <div className="p-5 flex flex-col flex-1">
-                  <span className="inline-block px-2.5 py-0.5 bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-wider rounded-full mb-3 self-start">
+                  <span className="inline-block px-2.5 py-0.5 bg-gold/10 text-gold-label text-[10px] font-bold uppercase tracking-wider rounded-full mb-3 self-start">
                     {category}
                   </span>
                   <h3 className="font-bold text-brand text-sm leading-snug mb-auto">{title}</h3>

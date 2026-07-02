@@ -15,12 +15,12 @@ interface DestItem {
 }
 
 const featuredMeta = [
-  { nameKey: 'dc0Name', wildlifeKey: 'dc0Wildlife', href: '/destinations/masai-mara', image: '/images/gallery/maasai-mara.jpg', packages: 2 },
-  { nameKey: 'dc1Name', wildlifeKey: 'dc1Wildlife', href: '/destinations/serengeti', image: '/images/gallery/Serengeti-National-park.jpg', packages: 18 },
-  { nameKey: 'dc2Name', wildlifeKey: 'dc2Wildlife', href: '/destinations/volcanoes', image: '/images/gallery/Volcanoes%20NP.png', packages: 2 },
-  { nameKey: 'dc3Name', wildlifeKey: 'dc3Wildlife', href: '/trekking', image: '/images/gallery/kilimanjaro.png', packages: 6 },
-  { nameKey: 'dc4Name', wildlifeKey: 'dc4Wildlife', href: '/destinations/zanzibar', image: '/images/gallery/zanzibar-1.jpg', packages: 4 },
-  { nameKey: 'dc5Name', wildlifeKey: 'dc5Wildlife', href: '/destinations/kenyan-coast', image: '/images/gallery/mombasa.png', packages: 2 },
+  { nameKey: 'dc0Name', wildlifeKey: 'dc0Wildlife', href: '/destinations/masai-mara', image: '/images/gallery/maasai-mara.webp', packages: 2 },
+  { nameKey: 'dc1Name', wildlifeKey: 'dc1Wildlife', href: '/destinations/serengeti', image: '/images/gallery/Serengeti-National-park.webp', packages: 18 },
+  { nameKey: 'dc2Name', wildlifeKey: 'dc2Wildlife', href: '/destinations/volcanoes', image: '/images/gallery/Volcanoes%20NP.webp', packages: 2 },
+  { nameKey: 'dc3Name', wildlifeKey: 'dc3Wildlife', href: '/trekking', image: '/images/gallery/kilimanjaro.webp', packages: 6 },
+  { nameKey: 'dc4Name', wildlifeKey: 'dc4Wildlife', href: '/destinations/zanzibar', image: '/images/gallery/zanzibar-1.webp', packages: 4 },
+  { nameKey: 'dc5Name', wildlifeKey: 'dc5Wildlife', href: '/destinations/kenyan-coast', image: '/images/gallery/mombasa.webp', packages: 2 },
 ] as const
 
 function DestCard({ dest, exploreLabel, priority = false }: { dest: DestItem; exploreLabel: string; priority?: boolean }) {
@@ -115,7 +115,7 @@ export default function DestinationCards() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('topDestinations')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand">
@@ -149,18 +149,21 @@ export default function DestinationCards() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-2 mt-4">
+          <div className="flex justify-center items-center gap-0 mt-2" role="group" aria-label="Destination slides">
             {featured.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
                 aria-label={`Go to destination ${i + 1}`}
-                className={`rounded-full transition-all duration-300 ${
+                aria-current={i === active ? 'true' : undefined}
+                className="p-3 flex items-center justify-center group"
+              >
+                <span className={`block rounded-full transition-all duration-300 pointer-events-none ${
                   i === active
                     ? 'w-5 h-2 bg-brand'
-                    : 'w-2 h-2 bg-brand/30 hover:bg-brand/50'
-                }`}
-              />
+                    : 'w-2 h-2 bg-brand/30 group-hover:bg-brand/50'
+                }`} />
+              </button>
             ))}
           </div>
         </div>

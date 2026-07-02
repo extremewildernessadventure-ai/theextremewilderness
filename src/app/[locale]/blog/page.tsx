@@ -69,7 +69,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
                     <Image src={featured.heroImage} alt={featured.heroImageAlt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 1024px) 100vw, 50vw" />
                   </div>
                   <div className="p-8 flex flex-col justify-center">
-                    <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">{featured.category} &middot; {t('featuredBadge')}</span>
+                    <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{featured.category} &middot; {t('featuredBadge')}</span>
                     <h2 className="text-2xl font-semibold text-brand mb-3 group-hover:text-brand-secondary transition-colors">{featured.title}</h2>
                     <p className="text-text-muted text-sm leading-relaxed mb-5">{featured.excerpt}</p>
                     <div className="flex items-center justify-between text-xs text-text-muted">

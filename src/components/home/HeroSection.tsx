@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import BookingModal from './BookingModal'
 
@@ -8,15 +9,27 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-brand">
+      {/* Priority poster image — LCP candidate, preloaded by Next.js */}
+      <Image
+        src="/Video/hero-poster.webp"
+        alt=""
+        fill
+        priority
+        fetchPriority="high"
+        className="object-cover"
+        aria-hidden
+      />
       <video
         autoPlay
         muted
         loop
         playsInline
+        preload="none"
         className="absolute inset-0 w-full h-full object-cover"
         aria-hidden
       >
-        <source src="/Video/hero sec.mp4" type="video/mp4" />
+        <source src="/Video/hero.webm" type="video/webm" />
+        <source src="/Video/hero.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-brand/55" />

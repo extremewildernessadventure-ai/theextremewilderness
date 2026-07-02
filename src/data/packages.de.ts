@@ -18,11 +18,11 @@ export const packages: SafariPackage[] = [
       "Luxuszeltlager in der Wildnis",
       "Erfahrene TANAPA-zertifizierte Guides",
     ],
-    heroImage: '/images/gallery/safari-001.jpg',
+    heroImage: '/images/gallery/safari-001.webp',
     gallery: [
-      '/images/gallery/safari-002.jpg',
-      '/images/gallery/safari-003.jpg',
-      '/images/gallery/safari-004.jpg',
+      '/images/gallery/safari-002.webp',
+      '/images/gallery/safari-003.webp',
+      '/images/gallery/safari-004.webp',
     ],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -110,10 +110,10 @@ export const packages: SafariPackage[] = [
       "Flamingos am Manyara-See und baumsitzende Löwen",
       "Olduvai-Schlucht — Wiege der Menschheit",
     ],
-    heroImage: '/images/gallery/Central-Serengeti-1.jpg',
+    heroImage: '/images/gallery/Central-Serengeti-1.webp',
     gallery: [
-      '/images/gallery/safari-006.jpg',
-      '/images/gallery/safari-007.jpg',
+      '/images/gallery/safari-006.webp',
+      '/images/gallery/safari-007.webp',
     ],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -143,10 +143,10 @@ export const packages: SafariPackage[] = [
       "Schnorcheln am Mnemba-Atoll",
       "Besuch einer Gewürzfarm",
     ],
-    heroImage: '/images/gallery/zanzibar-1.jpg',
+    heroImage: '/images/gallery/zanzibar-1.webp',
     gallery: [
-      '/images/gallery/safari-009.jpg',
-      '/images/gallery/safari-011.jpg',
+      '/images/gallery/safari-009.webp',
+      '/images/gallery/safari-011.webp',
     ],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -176,8 +176,8 @@ export const packages: SafariPackage[] = [
       "Heißluftballonfahrt inklusive",
       "Premium-Erlebnis für einen Kurzaufenthalt",
     ],
-    heroImage: '/images/gallery/safari-013.jpg',
-    gallery: ['/images/gallery/safari-014.jpg'],
+    heroImage: '/images/gallery/safari-013.webp',
+    gallery: ['/images/gallery/safari-014.webp'],
     included: ["Charterflüge in Tansania", "Alle Parkgebühren", "Alle Mahlzeiten", "Ballonsafari", "Alle Game Drives"],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
     itinerary: [],
@@ -198,8 +198,8 @@ export const packages: SafariPackage[] = [
       "Erfahrene Bergführer und Träger",
       "Komplette Ausrüstung und Sicherheit garantiert",
     ],
-    heroImage: '/images/gallery/kilimanjaro.png',
-    gallery: ['/images/gallery/safari-016.jpg'],
+    heroImage: '/images/gallery/kilimanjaro.webp',
+    gallery: ['/images/gallery/safari-016.webp'],
     included: [
       "Park- und Campinggebühren",
       "Erfahrener Bergführer",
@@ -228,8 +228,8 @@ export const packages: SafariPackage[] = [
       "Keine Menschenmassen — echte Wildnis",
       "Tansanias Raubtier-Hauptstadt",
     ],
-    heroImage: '/images/gallery/safari-018.jpg',
-    gallery: ['/images/gallery/safari-122.jpg'],
+    heroImage: '/images/gallery/safari-018.webp',
+    gallery: ['/images/gallery/safari-122.webp'],
     included: ["Parkgebühren", "Alle Game Drives", "Bootsafari", "Fußsafari", "Alle Mahlzeiten", "Inlandsflüge in Tansania"],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
     itinerary: [],
@@ -251,7 +251,7 @@ export const packages: SafariPackage[] = [
       "Große Raubkatzen und Akazien-Savanne",
       "Besuch eines Maasai-Kulturdorfes",
     ],
-    heroImage: '/images/gallery/l1.jpg',
+    heroImage: '/images/gallery/l1.webp',
     gallery: [],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -317,7 +317,7 @@ export const packages: SafariPackage[] = [
       "Baumsitzende Löwen am Manyara-See",
       "Sonnenuntergänge im Serengeti von Ihrem Zeltcamp",
     ],
-    heroImage: '/images/gallery/honey.jpg',
+    heroImage: '/images/gallery/honey.webp',
     gallery: [],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -404,7 +404,7 @@ export const packages: SafariPackage[] = [
       "Stone Town — UNESCO-Weltkulturerbe",
       "Tierwelt und Strand in einer unvergesslichen Reise",
     ],
-    heroImage: '/images/gallery/Crown-Jewels-safari.jpg',
+    heroImage: '/images/gallery/Crown-Jewels-safari.webp',
     gallery: [],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -483,7 +483,7 @@ export const packages: SafariPackage[] = [
       "Tarangire-Elefanten und Affenbrotbaumwälder",
       "Big Five im Ngorongoro-Krater",
     ],
-    heroImage: '/images/gallery/Migration-southern-serengeti1.jpg',
+    heroImage: '/images/gallery/Migration-southern-serengeti1.webp',
     gallery: [],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -563,7 +563,7 @@ export const packages: SafariPackage[] = [
       "Tarangire-Elefantenherden und Affenbrotbaum-Landschaften",
       "Serengeti-Tierwelt für alle Altersgruppen",
     ],
-    heroImage: '/images/gallery/family1.jpg',
+    heroImage: '/images/gallery/family1.webp',
     gallery: [],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -663,7 +663,7 @@ export const packages: SafariPackage[] = [
       "Vollständiger Serengeti-Rundkurs vom Zentrum bis Ngorongoro",
       "Tansania abseits der ausgetretenen Pfade ohne Touristen-Massen",
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/safari.webp',
     gallery: [],
     included: [
       "Alle Park- und Conservancy-Gebühren",
@@ -779,7 +779,7 @@ export const packages: SafariPackage[] = [
       "Big Five im Ngorongoro-Krater",
       "Nord-Serengeti — die dramatischsten Migrationsszenen der Erde",
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpeg',
+    heroImage: '/images/gallery/Wildebeest-Migration.webp',
     gallery: [],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -866,7 +866,7 @@ export const packages: SafariPackage[] = [
       "Fünf Tage im Serengeti",
       "Drei Tage auf Sansibar — Strände, Kultur, Stone Town",
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/safari.webp',
     gallery: [],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -981,7 +981,7 @@ export const packages: SafariPackage[] = [
       "Big Five im Ngorongoro-Krater",
       "Das gesamte Nordtansania in sieben Tagen",
     ],
-    heroImage: '/images/gallery/germs.jpg',
+    heroImage: '/images/gallery/germs.webp',
     gallery: [],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -1060,7 +1060,7 @@ export const packages: SafariPackage[] = [
       "Großkatzen im zentralen Serengeti ganzjährig",
       "Vollständiger Kratereinstieg in den Ngorongoro mit Big Five",
     ],
-    heroImage: '/images/gallery/ngutu.jpg',
+    heroImage: '/images/gallery/ngutu.webp',
     gallery: [],
     included: [
       "Alle Parkgebühren",
@@ -1140,7 +1140,7 @@ export const packages: SafariPackage[] = [
       "Raubtiere im zentralen Serengeti ganzjährig",
       "Vollständiger Abstieg in den Ngorongoro-Krater",
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/mara1.webp',
     gallery: [],
     included: [
       "Alle Parkgebühren",
@@ -1227,7 +1227,7 @@ export const packages: SafariPackage[] = [
       "Großkatzen im Serengeti und Gnus",
       "Big Five im Ngorongoro",
     ],
-    heroImage: '/images/gallery/rwanda.jpg',
+    heroImage: '/images/gallery/rwanda.webp',
     gallery: [],
     included: [
       "Alle Parkgebühren und Gorilla-Genehmigungen",
@@ -1335,7 +1335,7 @@ export const packages: SafariPackage[] = [
       "Akagera-Nationalpark — Savanne und See-Ökosysteme",
       "Kajakfahren auf dem Kivu-See und Sonnenuntergänge am Ufer",
     ],
-    heroImage: '/images/gallery/golden-monkey.jpg',
+    heroImage: '/images/gallery/golden-monkey.webp',
     gallery: [],
     included: [
       "Alle Parkgebühren und Primaten-Genehmigungen",
@@ -1450,7 +1450,7 @@ export const packages: SafariPackage[] = [
       "Ol-Pejeta-Conservancy — Schimpansen und Schwarznashörner",
       "Karen-Blixen-Museum und Giraffenzentrum in Nairobi",
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/kenya-destinations.webp',
     gallery: [],
     included: [
       "Alle Park- und Conservancy-Gebühren",
@@ -1557,7 +1557,7 @@ export const packages: SafariPackage[] = [
       "Udzungwa-Berge und Schwimmen unter dem Sanje-Wasserfall",
       "Keine Massen — echtes Wildnis-Erlebnis",
     ],
-    heroImage: '/images/gallery/dest.jpeg',
+    heroImage: '/images/gallery/dest.webp',
     gallery: [],
     included: [
       "Alle Parkeintrittsgebühren",
@@ -1766,7 +1766,7 @@ export const packages: SafariPackage[] = [
       "Manyara-See — 'der schönste Ort Afrikas' laut Hemingway",
       "Grenzüberschreitende Tierexpedition durch zwei Länder",
     ],
-    heroImage: '/images/gallery/africa-lion.jpg',
+    heroImage: '/images/gallery/africa-lion.webp',
     gallery: [],
     included: [
       "Alle Parkgebühren",
@@ -1882,7 +1882,7 @@ export const packages: SafariPackage[] = [
       "Ruaha — Tansanias spektakulärste Wildnis",
       "Nord-Serengeti und Ngorongoro zum Abschluss",
     ],
-    heroImage: '/images/gallery/Grand-Tanzania-Safari-lion.jpg',
+    heroImage: '/images/gallery/Grand-Tanzania-Safari-lion.webp',
     gallery: [],
     included: [
       "Alle Parkeintrittsgebühren",

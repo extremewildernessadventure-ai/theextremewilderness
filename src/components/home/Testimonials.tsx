@@ -99,7 +99,7 @@ export default function Testimonials() {
 
         {/* Header */}
         <div className="text-center mb-10">
-          <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+          <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
             {t('verifiedGuestReviews')}
           </span>
           <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-2">
@@ -184,29 +184,35 @@ export default function Testimonials() {
           <button
             onClick={goPrev}
             disabled={page === 0}
+            aria-label="Previous reviews"
             className="w-10 h-10 rounded-full border border-gray-200 hover:border-brand hover:text-brand flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-4 h-4" aria-hidden="true" />
           </button>
 
-          <div className="flex gap-2">
+          <div className="flex gap-0" role="group" aria-label="Review pages">
             {Array.from({ length: totalPages }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
-                className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                  i === page ? 'bg-brand' : 'bg-gray-300 hover:bg-brand/50'
-                }`}
-              />
+                aria-label={`Go to review page ${i + 1}`}
+                aria-current={i === page ? 'true' : undefined}
+                className="p-3 flex items-center justify-center group"
+              >
+                <span className={`block w-2.5 h-2.5 rounded-full transition-colors pointer-events-none ${
+                  i === page ? 'bg-brand' : 'bg-gray-300 group-hover:bg-brand/50'
+                }`} />
+              </button>
             ))}
           </div>
 
           <button
             onClick={goNext}
             disabled={page === totalPages - 1}
+            aria-label="Next reviews"
             className="w-10 h-10 rounded-full border border-gray-200 hover:border-brand hover:text-brand flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-4 h-4" aria-hidden="true" />
           </button>
         </div>
 

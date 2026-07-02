@@ -6,9 +6,12 @@
   --color-brand-secondary: #2D5A3D;
   --color-gold: #D4A853;
   --color-gold-dark: #b8903d;
+  /* Accessible dark amber — 5:1+ on white/cream/light-green, for small text labels */
+  --color-gold-label: #7A5B00;
   --color-light-green: #E8EDEA;
   --color-text-dark: #1a1a1a;
-  --color-text-muted: #6B7280;
+  /* gray-600 — 5.7:1 on #EDE7D7 body bg, 5.8:1 on #E8EDEA */
+  --color-text-muted: #4B5563;
   --font-sans: var(--font-geist-sans);
 }
 
@@ -40,6 +43,13 @@ body {
 button, a {
   transition-duration: 200ms;
   transition-timing-function: ease;
+}
+
+/* On dark brand backgrounds, gold-label reverts to bright gold for legibility */
+.bg-brand .text-gold-label,
+.bg-brand-secondary .text-gold-label,
+.bg-brand-dark .text-gold-label {
+  color: var(--color-gold);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -18,7 +18,7 @@ const editions = [
     label: 'The Classic Edition',
     subtitle: 'Small Group Safaris',
     slug: '/safaris/7-day-serengeti-ngorongoro',
-    image: '/images/gallery/Serengeti-National-park.jpg',
+    image: '/images/gallery/Serengeti-National-park.webp',
     duration: '7 days',
     priceFrom: 3200,
     destinations: 'Tanzania — Serengeti, Ngorongoro, Tarangire',
@@ -28,7 +28,7 @@ const editions = [
     label: 'The Primate Edition',
     subtitle: 'Small Group Safaris',
     slug: '/safaris/12-days-rwanda-primates',
-    image: '/images/gallery/gorilla.png',
+    image: '/images/gallery/gorilla.webp',
     duration: '8 days',
     priceFrom: 4800,
     destinations: 'Rwanda — Volcanoes NP · Tanzania — Mahale',
@@ -38,7 +38,7 @@ const editions = [
     label: 'The Wild South Edition',
     subtitle: 'Small Group Safaris',
     slug: '/safaris/7-day-southern-circuit',
-    image: '/images/gallery/Ruaha-National-Park.jpg',
+    image: '/images/gallery/Ruaha-National-Park.webp',
     duration: '7 days',
     priceFrom: 3500,
     destinations: 'Tanzania — Ruaha NP, Nyerere NP',
@@ -48,7 +48,7 @@ const editions = [
     label: 'The Signature Edition',
     subtitle: 'Small Group Safaris',
     slug: '/safaris/10-day-safari-zanzibar',
-    image: '/images/gallery/zanzibar-1.jpg',
+    image: '/images/gallery/zanzibar-1.webp',
     duration: '10 days',
     priceFrom: 4200,
     destinations: 'Tanzania — Serengeti, Ngorongoro, Zanzibar',
@@ -62,7 +62,7 @@ const extra = [
     name: 'Serengeti Fly-In Circuit',
     duration: 5,
     priceFrom: 3800,
-    image: '/images/gallery/safari-025.jpg',
+    image: '/images/gallery/safari-025.webp',
     destinations: ['Tanzania — Serengeti NP (fly-in)'],
     badge: 'Luxury' as string | null,
   },
@@ -71,7 +71,7 @@ const extra = [
     name: 'Tanzania & Kenya Circuit',
     duration: 12,
     priceFrom: 5200,
-    image: '/images/gallery/safari-026.jpg',
+    image: '/images/gallery/safari-026.webp',
     destinations: ['Tanzania — Serengeti', 'Kenya — Masai Mara, Amboseli'],
     badge: null,
   },
@@ -80,7 +80,7 @@ const extra = [
     name: 'Northern Tanzania Circuit',
     duration: 9,
     priceFrom: 3900,
-    image: '/images/gallery/safari-027.jpg',
+    image: '/images/gallery/safari-027.webp',
     destinations: ['Tanzania — Serengeti, Ngorongoro, Tarangire, Manyara'],
     badge: null,
   },
@@ -89,7 +89,7 @@ const extra = [
     name: 'Southern Tanzania Circuit',
     duration: 8,
     priceFrom: 3600,
-    image: '/images/gallery/safari-028.jpg',
+    image: '/images/gallery/safari-028.webp',
     destinations: ['Tanzania — Nyerere NP, Ruaha NP'],
     badge: null,
   },
@@ -98,7 +98,7 @@ const extra = [
     name: 'Kenya Wildlife Circuit',
     duration: 9,
     priceFrom: 4100,
-    image: '/images/gallery/safari-029.jpg',
+    image: '/images/gallery/safari-029.webp',
     destinations: ['Kenya — Masai Mara, Laikipia, Ol Pejeta'],
     badge: null,
   },
@@ -107,7 +107,7 @@ const extra = [
     name: 'Kilimanjaro Machame Route',
     duration: 7,
     priceFrom: 2100,
-    image: '/images/gallery/kilimanjaro.png',
+    image: '/images/gallery/kilimanjaro.webp',
     destinations: ['Tanzania — Kilimanjaro NP (Machame → Uhuru Peak)'],
     badge: null,
   },
@@ -151,7 +151,7 @@ export default async function ItinerariesPage() {
       {/* ── 1. HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <Image
-          src="/images/gallery/safari-009.jpg"
+          src="/images/gallery/safari-009.webp"
           alt="East Africa safari landscape at golden hour"
           fill
           priority
@@ -163,7 +163,7 @@ export default async function ItinerariesPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-4">{t('heroPill')}</p>
+          <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroPill')}</p>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] mb-6 max-w-3xl">
             {t('heroTitle')}<br />
@@ -189,7 +189,7 @@ export default async function ItinerariesPage() {
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-x-8 gap-y-3 text-white/55 text-sm">
+          <div className="flex flex-wrap gap-x-8 gap-y-3 text-white/75 text-sm">
             {tBullets.map((text) => (
               <span key={text} className="flex items-center gap-2">
                 <span className="text-gold text-[10px]">✦</span>
@@ -221,7 +221,7 @@ export default async function ItinerariesPage() {
           {/* Section header */}
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
-              <span className="text-gold font-semibold text-xs uppercase tracking-widest">{t('signatureEditionsEyebrow')}</span>
+              <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('signatureEditionsEyebrow')}</span>
               <h2 className="font-semibold text-brand mt-2" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
                 {t('signatureEditionsHeading')}
               </h2>
@@ -261,7 +261,7 @@ export default async function ItinerariesPage() {
                 <p className="text-white/65 text-sm">{editions[0].destinations}</p>
               </div>
               <div className="flex-shrink-0 sm:text-right">
-                <p className="text-white/50 text-xs mb-1">{editions[0].duration} {t('durationSuffix')}</p>
+                <p className="text-white/70 text-xs mb-1">{editions[0].duration} {t('durationSuffix')}</p>
                 <p className="text-gold text-2xl font-bold">${editions[0].priceFrom.toLocaleString()}</p>
                 <span className="mt-3 inline-flex items-center gap-1.5 text-white/80 text-sm font-semibold group-hover:text-gold transition-colors">
                   {t('exploreJourney')} <ArrowRight className="w-4 h-4" />
@@ -295,7 +295,7 @@ export default async function ItinerariesPage() {
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p className="text-white/50 text-[10px] font-semibold uppercase tracking-widest mb-1">{ed.duration}</p>
+                  <p className="text-white/70 text-[10px] font-semibold uppercase tracking-widest mb-1">{ed.duration}</p>
                   <h3 className="text-white text-lg font-semibold mb-1">{ed.label}</h3>
                   <p className="text-white/60 text-xs mb-3">{ed.destinations}</p>
                   <span className="inline-flex items-center gap-1 text-gold text-sm font-semibold group-hover:gap-2 transition-all">
@@ -313,7 +313,7 @@ export default async function ItinerariesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-14">
-            <span className="text-gold font-semibold text-xs uppercase tracking-widest">{t('completeCollectionEyebrow')}</span>
+            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('completeCollectionEyebrow')}</span>
             <h2 className="text-brand font-semibold text-3xl lg:text-4xl mt-2">{t('completeCollectionHeading')}</h2>
             <p className="text-text-muted mt-3 max-w-lg mx-auto text-sm leading-relaxed">
               {t('completeCollectionSubtitle')}
@@ -363,12 +363,12 @@ export default async function ItinerariesPage() {
       {/* ── 5. HOW WE CRAFT YOUR JOURNEY ─────────────────────────────────────── */}
       <section className="bg-brand py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.07]">
-          <Image src="/images/gallery/safari-120.jpg" alt="" fill className="object-cover" />
+          <Image src="/images/gallery/safari-120.webp" alt="" fill className="object-cover" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-gold font-semibold text-xs uppercase tracking-widest">{t('processEyebrow')}</span>
+            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('processEyebrow')}</span>
             <h2 className="text-white font-semibold text-3xl lg:text-4xl mt-2">{t('processHeading')}</h2>
             <p className="text-white/60 mt-3 max-w-md mx-auto text-sm leading-relaxed">
               {t('processSubtitle')}
@@ -386,7 +386,7 @@ export default async function ItinerariesPage() {
                   {step.num}
                 </div>
                 <h3 className="text-white font-semibold text-lg mb-3">{step.title}</h3>
-                <p className="text-white/55 text-sm leading-relaxed">{step.desc}</p>
+                <p className="text-white/75 text-sm leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -407,7 +407,7 @@ export default async function ItinerariesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-14">
-            <span className="text-gold font-semibold text-xs uppercase tracking-widest">{t('planningGuideEyebrow')}</span>
+            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('planningGuideEyebrow')}</span>
             <h2 className="text-brand font-semibold text-3xl lg:text-4xl mt-2">{t('planningGuideHeading')}</h2>
           </div>
 
@@ -512,7 +512,7 @@ export default async function ItinerariesPage() {
 
             {/* Left — CTA */}
             <div>
-              <span className="text-gold font-semibold text-xs uppercase tracking-widest">{t('ctaEyebrow')}</span>
+              <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('ctaEyebrow')}</span>
               <h2 className="text-white font-semibold mt-2 mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
                 {t('ctaHeading')}<br />
                 <span className="text-gold">{t('ctaHeadingGold')}</span>
@@ -532,7 +532,7 @@ export default async function ItinerariesPage() {
             {/* Right — Newsletter */}
             <div className="bg-white/[0.07] backdrop-blur-sm rounded-2xl border border-white/15 p-8">
               <h3 className="text-white text-xl font-semibold mb-1">{t('newsletterHeading')}</h3>
-              <p className="text-white/55 text-sm mb-6 leading-relaxed">
+              <p className="text-white/75 text-sm mb-6 leading-relaxed">
                 {t('newsletterText')}
               </p>
               <NewsletterForm dark={true} />

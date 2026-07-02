@@ -36,7 +36,7 @@ const circuits = [
         name: 'Serengeti National Park',
         tagline: 'The Greatest Wildlife Show on Earth',
         size: '14,763 km²',
-        image: '/images/gallery/safari-118.jpg',
+        image: '/images/gallery/safari-118.webp',
         badge: 'Must-Visit',
         badgeColor: 'bg-gold text-brand',
         highlights: [
@@ -60,7 +60,7 @@ const circuits = [
         name: 'Ngorongoro Conservation Area',
         tagline: "The World's Largest Intact Volcanic Caldera",
         size: '8,292 km²',
-        image: '/images/gallery/safari-135.jpg',
+        image: '/images/gallery/safari-135.webp',
         badge: 'UNESCO World Heritage',
         badgeColor: 'bg-brand text-white',
         highlights: [
@@ -84,7 +84,7 @@ const circuits = [
         name: 'Tarangire National Park',
         tagline: "Tanzania's Elephant Capital",
         size: '2,850 km²',
-        image: '/images/gallery/tarangire-1.jpg',
+        image: '/images/gallery/tarangire-1.webp',
         badge: 'Elephant Paradise',
         badgeColor: 'bg-brand text-white',
         highlights: [
@@ -108,7 +108,7 @@ const circuits = [
         name: 'Lake Manyara National Park',
         tagline: "Hemingway's Most Beautiful Place in Africa",
         size: '648 km²',
-        image: '/images/gallery/safari-126.jpg',
+        image: '/images/gallery/safari-126.webp',
         badge: 'Scenic Wonder',
         badgeColor: 'bg-gold text-brand',
         highlights: [
@@ -142,7 +142,7 @@ const circuits = [
         name: 'Katavi National Park',
         tagline: "Tanzania's Last True Wilderness",
         size: '4,471 km²',
-        image: '/images/gallery/safari-130.jpg',
+        image: '/images/gallery/safari-130.webp',
         badge: 'Raw Wilderness',
         badgeColor: 'bg-brand-secondary text-white',
         highlights: [
@@ -166,7 +166,7 @@ const circuits = [
         name: 'Gombe Stream National Park',
         tagline: "Jane Goodall's Chimpanzee Kingdom",
         size: '35 km²',
-        image: '/images/gallery/gombe-stream.jpg',
+        image: '/images/gallery/gombe-stream.webp',
         badge: 'Conservation Icon',
         badgeColor: 'bg-gold text-brand',
         highlights: [
@@ -190,7 +190,7 @@ const circuits = [
         name: 'Lake Victoria',
         tagline: "Africa's Largest Lake — Off the Beaten Path",
         size: '68,800 km²',
-        image: '/images/gallery/safari-123.jpg',
+        image: '/images/gallery/safari-123.webp',
         badge: 'Hidden Gem',
         badgeColor: 'bg-brand text-white',
         highlights: [
@@ -224,7 +224,7 @@ const circuits = [
         name: 'Ruaha National Park',
         tagline: "Tanzania's Largest Park — Wild and Remote",
         size: '20,226 km²',
-        image: '/images/gallery/safari-128.jpg',
+        image: '/images/gallery/safari-128.webp',
         badge: 'Big Cat Country',
         badgeColor: 'bg-brand text-white',
         highlights: [
@@ -248,7 +248,7 @@ const circuits = [
         name: 'Nyerere National Park',
         tagline: "Africa's Largest Protected Area",
         size: '54,600 km²',
-        image: '/images/gallery/selous.jpg',
+        image: '/images/gallery/selous.webp',
         badge: 'UNESCO Heritage',
         badgeColor: 'bg-gold text-brand',
         highlights: [
@@ -276,7 +276,7 @@ const extras = [
     id: 'zanzibar',
     name: 'Zanzibar Island',
     tagline: 'Spice Island Paradise — Indian Ocean',
-    image: '/images/gallery/zanzibar-1.jpg',
+    image: '/images/gallery/zanzibar-1.webp',
     desc: "The perfect ending to any Tanzania safari. Powder-white beaches, Stone Town UNESCO heritage, spice tours, coral reefs, and Swahili culture on the Indian Ocean. Nungwi, Kendwa & Paje are among East Africa's finest beaches.",
     badge: 'Beach & Culture',
     slug: 'zanzibar',
@@ -286,7 +286,7 @@ const extras = [
     id: 'arusha',
     name: 'Arusha & Mount Kilimanjaro',
     tagline: "Tanzania's Safari Capital",
-    image: '/images/gallery/kilimanjaro%20(4).png',
+    image: '/images/gallery/kilimanjaro%20(4).webp',
     desc: "All Tanzania safaris begin and end in Arusha. The city sits between Mount Meru (4,562 m) and within sight of Kilimanjaro (5,895 m). Arusha National Park, cultural Maasai boma visits, and Kilimanjaro treks all depart from here.",
     badge: 'Gateway City',
     slug: 'arusha',
@@ -341,7 +341,7 @@ export default function DestinationsPage() {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/safari-119.jpg"
+            src="/images/gallery/safari-119.webp"
             alt="Lions at golden sunset on the Tanzania Serengeti plains"
             fill
             className="object-cover object-center"
@@ -352,7 +352,7 @@ export default function DestinationsPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl">
-            <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-4">Tanzania Safari Destinations</p>
+            <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">Tanzania Safari Destinations</p>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
               Wild Tanzania.<br />
               <span className="text-gold">Three Epic Circuits.</span>
@@ -399,7 +399,7 @@ export default function DestinationsPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               Why Tanzania
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-5">
@@ -425,7 +425,7 @@ export default function DestinationsPage() {
 
             {/* Box 1 — Three Circuits */}
             <div className="bg-brand rounded-3xl p-8 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">Navigate the Parks</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">Navigate the Parks</p>
               <h3 className="text-2xl font-bold text-white mb-6">Tanzania&apos;s Three Safari Circuits</h3>
               <div className="space-y-4 flex-1">
                 {[
@@ -440,20 +440,20 @@ export default function DestinationsPage() {
                   >
                     <div className="flex-1 min-w-0">
                       <p className="text-white font-bold text-sm">{c.label}</p>
-                      <p className="text-white/60 text-xs mt-0.5 truncate">{c.desc}</p>
+                      <p className="text-white/75 text-xs mt-0.5 truncate">{c.desc}</p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors flex-shrink-0" />
                   </a>
                 ))}
               </div>
               <div className="mt-6 pt-5 border-t border-white/10">
-                <p className="text-white/50 text-xs">Also: <span className="text-white/70 font-medium">Zanzibar Beach</span> &amp; <span className="text-white/70 font-medium">Arusha Gateway</span></p>
+                <p className="text-white/70 text-xs">Also: <span className="text-white/70 font-medium">Zanzibar Beach</span> &amp; <span className="text-white/70 font-medium">Arusha Gateway</span></p>
               </div>
             </div>
 
             {/* Box 2 — Why Book With Us */}
             <div className="bg-amber-50 rounded-3xl p-8 border border-amber-100 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">Our Promise</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">Our Promise</p>
               <h3 className="text-2xl font-bold text-brand mb-6">Why Book With The Extreme Wilderness</h3>
               <div className="grid grid-cols-2 gap-4 flex-1">
                 {[
@@ -479,7 +479,7 @@ export default function DestinationsPage() {
 
             {/* Box 3 — Tanzania in Numbers */}
             <div className="bg-light-green rounded-3xl p-8 border border-brand/10 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">The Records</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">The Records</p>
               <h3 className="text-2xl font-bold text-brand mb-6">Tanzania in Numbers</h3>
               <div className="grid grid-cols-2 gap-5 flex-1">
                 {[
@@ -491,7 +491,7 @@ export default function DestinationsPage() {
                   { stat: '1,100+', label: 'Bird species recorded', sub: 'Africa\'s premier birding nation' },
                 ].map((item) => (
                   <div key={item.stat} className="bg-white rounded-2xl px-4 py-3 border border-brand/5">
-                    <p className="text-gold font-bold text-xl leading-none">{item.stat}</p>
+                    <p className="text-gold-label font-bold text-xl leading-none">{item.stat}</p>
                     <p className="text-brand font-semibold text-xs mt-1 leading-snug">{item.label}</p>
                     <p className="text-text-muted text-[11px] mt-0.5 leading-snug">{item.sub}</p>
                   </div>
@@ -501,7 +501,7 @@ export default function DestinationsPage() {
 
             {/* Box 4 — How It Works */}
             <div className="bg-brand-dark rounded-3xl p-8 flex flex-col" style={{ backgroundColor: '#0a2e1a' }}>
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">The Process</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">The Process</p>
               <h3 className="text-2xl font-bold text-white mb-6">How to Book Your Safari</h3>
               <div className="space-y-5 flex-1">
                 {[
@@ -532,7 +532,7 @@ export default function DestinationsPage() {
                     </div>
                     <div>
                       <p className="text-white font-bold text-sm">{s.title}</p>
-                      <p className="text-white/50 text-xs leading-snug mt-1">{s.desc}</p>
+                      <p className="text-white/70 text-xs leading-snug mt-1">{s.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -593,7 +593,7 @@ export default function DestinationsPage() {
                   {/* Content panel */}
                   <div className="flex-1 p-6 lg:p-8 flex flex-col">
                     <div className="mb-4">
-                      <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">{dest.tagline}</p>
+                      <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{dest.tagline}</p>
                       <h3 className="text-xl lg:text-2xl font-bold text-brand mb-2">{dest.name}</h3>
                       <div className="flex flex-wrap gap-3 text-xs text-text-muted">
                         <span className="flex items-center gap-1">
@@ -620,7 +620,7 @@ export default function DestinationsPage() {
                     </div>
 
                     <div className="mb-6">
-                      <p className="text-xs font-semibold text-brand/50 uppercase tracking-wider mb-2">Wildlife</p>
+                      <p className="text-xs font-semibold text-text-muted uppercase tracking-wider mb-2">Wildlife</p>
                       <div className="flex flex-wrap gap-1.5">
                         {dest.wildlife.map((w) => (
                           <span
@@ -662,7 +662,7 @@ export default function DestinationsPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               Complete Your Tanzania Experience
             </span>
             <h2 className="text-3xl font-semibold text-brand mb-3">Zanzibar &amp; Arusha</h2>
@@ -691,7 +691,7 @@ export default function DestinationsPage() {
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                  <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">{extra.tagline}</p>
+                  <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{extra.tagline}</p>
                   <h3 className="text-xl font-bold text-brand mb-3">{extra.name}</h3>
                   <p className="text-text-muted text-sm leading-relaxed mb-5 flex-1">{extra.desc}</p>
                   <div className="flex items-center gap-3 pt-4 border-t border-gray-100 flex-wrap">
@@ -721,7 +721,7 @@ export default function DestinationsPage() {
       <section className="py-20 bg-light-green">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               Plan Your Visit
             </span>
             <h2 className="text-3xl font-semibold text-brand mb-3">Best Time to Safari in Tanzania</h2>
@@ -772,13 +772,13 @@ export default function DestinationsPage() {
             <div
               className="absolute inset-0 opacity-10"
               style={{
-                backgroundImage: "url('/images/gallery/safari-119.jpg')",
+                backgroundImage: "url('/images/gallery/safari-119.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
             />
             <div className="relative z-10">
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
                 Ready for Tanzania?
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">

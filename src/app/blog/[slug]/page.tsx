@@ -232,7 +232,7 @@ export default async function BlogArticlePage({ params }: Props) {
                       >
                         <div>
                           <p className="text-white text-sm font-semibold leading-snug">{pkg.name}</p>
-                          <p className="text-white/50 text-xs mt-0.5">{pkg.duration} days &middot; from ${pkg.priceFrom?.toLocaleString()}</p>
+                          <p className="text-white/70 text-xs mt-0.5">{pkg.duration} days &middot; from ${pkg.priceFrom?.toLocaleString()}</p>
                         </div>
                         <ArrowRight size={14} className="text-gold flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
                       </Link>

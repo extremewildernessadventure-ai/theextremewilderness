@@ -55,7 +55,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/EWA logo.png"
+              src="/EWA logo.webp"
               alt="EWA Safari Outfitters"
               width={160}
               height={80}

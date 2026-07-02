@@ -124,7 +124,7 @@ export default function FeaturedPackages() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('safariPackages')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand">
@@ -158,16 +158,19 @@ export default function FeaturedPackages() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-2 mt-4">
+          <div className="flex justify-center items-center gap-0 mt-2" role="group" aria-label="Package slides">
             {featured.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
                 aria-label={tc('goToSlide', { n: i + 1 })}
-                className={`rounded-full transition-all duration-300 ${
-                  i === active ? 'w-5 h-2 bg-brand' : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
+                aria-current={i === active ? 'true' : undefined}
+                className="p-3 flex items-center justify-center group"
+              >
+                <span className={`block rounded-full transition-all duration-300 pointer-events-none ${
+                  i === active ? 'w-5 h-2 bg-brand' : 'w-2 h-2 bg-gray-300 group-hover:bg-gray-400'
+                }`} />
+              </button>
             ))}
           </div>
         </div>

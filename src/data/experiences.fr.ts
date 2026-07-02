@@ -8,7 +8,7 @@ export const experiences: Experience[] = [
     tagline: 'Témoin des plus grands spectacles de faune sauvage au monde',
     description:
       "Rien ne vaut se lever avant l'aube, le Serengeti s'étendant à l'infini dans toutes les directions, et une fierté de lions s'éveillant dans l'or du matin. Nos safaris classiques vous emmènent au cœur des parcs emblématiques de Tanzanie — Serengeti, Cratère du Ngorongoro, Tarangire — à bord de 4×4 sur mesure avec des guides locaux experts qui lisent la brousse comme une langue.",
-    image: '/images/gallery/safari-001.jpg',
+    image: '/images/gallery/safari-001.webp',
     durationLabel: '5 – 14 jours',
     highlights: ['Big Five dans le Cratère du Ngorongoro', 'Mise bas & traversées de la Grande Migration', 'Drives nocturnes dans certains parcs', 'Guides experts parlant swahili'],
     priceFrom: '$2 450',
@@ -23,7 +23,7 @@ export const experiences: Experience[] = [
     tagline: "Le plus grand spectacle animalier de la Terre — au bon moment",
     description:
       'Plus d\'1,5 million de gnous et 200 000 zèbres se déplacent en cercle éternel à travers l\'écosystème Serengeti-Mara. Nous planifions votre voyage autour de la saison exacte — la mise bas à Ndutu (jan.–mar.), les dramatiques traversées de rivières dans le Mara (juil.–oct.) — pour que vous viviez le moment, pas seulement ses lendemains.',
-    image: '/images/gallery/Wildebeest-Migration.jpeg',
+    image: '/images/gallery/Wildebeest-Migration.webp',
     durationLabel: '6 – 10 jours',
     highlights: ['Traversées de la rivière Mara au pic', 'Plaines de mise bas de Ndutu', 'Options camp mobile privé', 'Guide mensuel de la migration'],
     priceFrom: '$3 200',
@@ -38,7 +38,7 @@ export const experiences: Experience[] = [
     tagline: 'Partez dans la jungle, rencontrez nos plus proches cousins',
     description:
       'Dans les forêts au-dessus du lac Tanganyika, les chimpanzés de Mahale ont été habitués à la présence humaine depuis plus de 40 ans. Vous vous approchez à pied à travers une jungle dense, guidé par des pisteurs suivant des empreintes fraîches et des appels. Quand vous les trouvez — se toilettant, jouant, construisant des nids — le temps s\'arrête. Il n\'y a rien de semblable sur Terre.',
-    image: '/images/gallery/Jozani-forest.jpg',
+    image: '/images/gallery/Jozani-forest.webp',
     durationLabel: '3 – 5 jours',
     highlights: ['Communauté de chimpanzés habituée de Mahale', 'Plongée dans le lac Tanganyika', 'Accès en avion depuis Arusha', 'Petits camps exclusifs'],
     priceFrom: '$4 100',
@@ -53,7 +53,7 @@ export const experiences: Experience[] = [
     tagline: 'Une rencontre face à face qui change tout',
     description:
       'Les Volcans Virunga s\'élèvent à travers les bambous et la forêt de Hagenia. Quelque part dans ce brouillard, des gorilles de montagne — en danger critique d\'extinction, ce qui ressemble le plus à regarder dans un miroir — vivent leur vie de famille. Chaque permis vous accorde une heure de silence. Les pisteurs montrent le chemin. Nos guides experts vous font le point. Ça ne vous quitte jamais.',
-    image: '/images/gallery/gorilla.png',
+    image: '/images/gallery/gorilla.webp',
     durationLabel: '2 – 4 jours',
     highlights: ['Permis de trekking gorilles arrangés', 'Suivi des singes dorés disponible', 'Lodges de luxe au Parc des Volcans', 'Visite du Centre de Recherche Dian Fossey'],
     priceFrom: '$2 800',
@@ -68,7 +68,7 @@ export const experiences: Experience[] = [
     tagline: 'De la jungle équatoriale au sommet arctique',
     description:
       'À 5 895 m, le Kilimandjaro est la plus haute montagne autoportante de la Terre — et le seul endroit où l\'on peut marcher de la forêt tropicale à travers la lande, le désert et la glace glaciaire en cinq jours. Notre approche axée sur l\'acclimatation et nos guides d\'altitude triés sur le volet vous donnent les meilleures chances d\'atteindre le pic Uhuru, et le voyage le plus mémorable chemin faisant.',
-    image: '/images/gallery/safari-005.jpg',
+    image: '/images/gallery/safari-005.webp',
     durationLabel: '6 – 9 jours',
     highlights: ['Routes Machame, Lemosho & Rongai', 'Ascensions en groupe privé & solo', 'Porteurs, cuisinier & équipe de sommet', 'Guides certifiés KINAPA'],
     priceFrom: '$1 850',
@@ -83,7 +83,7 @@ export const experiences: Experience[] = [
     tagline: 'De la brousse à la plage — l\'évasion ultime en Afrique de l\'Est',
     description:
       "Terminez un safari au sommet de son art avec les eaux turquoise de l'océan Indien et le sable blanc immaculé. Stone Town de Zanzibar est un labyrinthe UNESCO d'histoire ; Nungwi et Paje sont des plages de classe mondiale. Nous combinons de manière transparente 4 à 6 jours de safari en Tanzanie avec 3 à 4 nuits sur l'île. Une seule escapade, deux mondes complètement différents.",
-    image: '/images/gallery/zanzibar-1.jpg',
+    image: '/images/gallery/zanzibar-1.webp',
     durationLabel: '7 – 12 jours',
     highlights: ['Safari au Serengeti + plage de Zanzibar', 'Visite des épices à Stone Town', 'Plongée à l\'Atoll de Mnemba', 'Options boutique-lodge sur la plage'],
     priceFrom: '$3 600',
@@ -98,7 +98,7 @@ export const experiences: Experience[] = [
     tagline: 'Photographiez avec intention. Revenez avec des images extraordinaires.',
     description:
       'Ces itinéraires spécialisés sont conçus pour les photographes — plus de temps à chaque observation, sorties matinales du camp, horaires parfaits de chasse à la lumière à l\'aube et au crépuscule. Nous positionnons les véhicules pour des arrière-plans nets et des prises de vue dégagées. Véhicules convertis avec trappe de toit disponibles. Convient de l\'amateur au professionnel.',
-    image: '/images/gallery/safari-007.jpg',
+    image: '/images/gallery/safari-007.webp',
     durationLabel: '7 – 12 jours',
     highlights: ['Temps prolongé aux observations clés', 'Planning orienté heure dorée', 'Guide photo faune sauvage dédié', 'Véhicules avec trappe de toit disponibles'],
     priceFrom: '$3 900',
@@ -113,7 +113,7 @@ export const experiences: Experience[] = [
     tagline: 'Posez vos pieds sur le sol africain. Sentez tout changer.',
     description:
       "Le Parc National de Nyerere (anciennement Selous) — la plus grande zone protégée d'Afrique — est l'un des rares endroits en Tanzanie où les safaris pédestres sont autorisés en véritable nature sauvage. Des rangers armés vous guident à travers les fourrés d'acacias, le long des rivières remplies d'hippopotames et à travers les plaines inondables. Chaque sens est en éveil. La brousse se révèle différemment à pied.",
-    image: '/images/gallery/nyerere.jpg',
+    image: '/images/gallery/nyerere.webp',
     durationLabel: '4 – 7 jours',
     highlights: ['Marches guidées avec rangers armés', 'Safari en bateau sur la rivière Rufiji', 'Lycaons & grands troupeaux d\'éléphants', 'Options camp volant distant'],
     priceFrom: '$2 900',
@@ -128,7 +128,7 @@ export const experiences: Experience[] = [
     tagline: 'Votre itinéraire. Votre rythme. Sans compromis.',
     description:
       'Usage privé d\'un camp mobile de luxe ou d\'un lodge en usage exclusif. Votre propre véhicule, guide et pisteur. Dîner sous les étoiles, sundowners sur un kopje avec l\'horizon du Serengeti à vos pieds. Conçu pour les couples, les voyageurs de lune de miel et les petites familles qui veulent une immersion totale sans partager un sundowner avec des étrangers.',
-    image: '/images/gallery/honey.jpg',
+    image: '/images/gallery/honey.webp',
     durationLabel: '5 – 14 jours',
     highlights: ['Camps & lodges en usage exclusif', 'Véhicule & guide privés toute la journée', 'Itinéraire sur mesure conçu pour vous', 'Repas en brousse élaborés par un sommelier'],
     priceFrom: '$5 500',
@@ -143,7 +143,7 @@ export const experiences: Experience[] = [
     tagline: 'L\'aventure qui devient une légende familiale',
     description:
       "La première girafe d'un enfant. La photo d'un adolescent capturant une chasse au guépard. Ces moments façonnent des vies. Nos safaris familiaux sont rythmés pour les enfants, avec des programmes de jeunes rangers, des lodges adaptés aux familles avec piscines, des excursions plus courtes et des guides adaptés à l'âge qui savent comment maintenir l'émerveillement dans les jeunes esprits. Sûr, fluide, inoubliable.",
-    image: '/images/gallery/family1.jpg',
+    image: '/images/gallery/family1.webp',
     durationLabel: '6 – 10 jours',
     highlights: ['Promenades junior ranger en brousse', 'Lodges familiaux avec piscines', 'Excursions plus courtes adaptées aux enfants', 'Visites culturelles dans des villages Maasaï'],
     priceFrom: '$2 600',
@@ -158,7 +158,7 @@ export const experiences: Experience[] = [
     tagline: "Là où la terre n'a pas changé depuis mille ans",
     description:
       "La plupart des visiteurs ne quittent jamais le Circuit Nord. Ruaha et Katavi sont les secrets les mieux gardés de Tanzanie — d'énormes fiertés de lions, de grands troupeaux de buffles et d'éléphants, des territoires de lycaons, et pas un autre véhicule en vue. Rugueux, brut et complètement sans hâte. Pour ceux qui veulent l'Afrique telle qu'elle était avant les foules.",
-    image: '/images/gallery/safari-013.jpg',
+    image: '/images/gallery/safari-013.webp',
     durationLabel: '5 – 8 jours',
     highlights: ['La plus grande population de lions de Tanzanie', 'Tanière des lycaons (saisonnier)', 'Rivières bondées d\'hippos à Katavi', 'Accès exclusif en avion uniquement'],
     priceFrom: '$4 200',

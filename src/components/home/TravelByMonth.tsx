@@ -63,7 +63,7 @@ export default function TravelByMonth() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-12">
-          <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+          <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
             {t('planTiming')}
           </span>
           <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-4">
@@ -88,10 +88,10 @@ export default function TravelByMonth() {
                 <span
                   className={`text-xs font-semibold px-1.5 py-0.5 rounded-full ${
                     month.rating >= 5
-                      ? 'bg-gold/15 text-gold'
+                      ? 'bg-amber-100 text-amber-800'
                       : month.rating === 4
                       ? 'bg-brand/10 text-brand'
-                      : 'bg-gray-100 text-text-muted'
+                      : 'bg-gray-100 text-gray-600'
                   }`}
                 >
                   {ratingLabel(month.rating, t)}
@@ -124,7 +124,7 @@ export default function TravelByMonth() {
           {/* Great Migration tracker */}
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
             <div className="mb-4">
-              <span className="text-gold font-semibold text-xs uppercase tracking-widest">
+              <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">
                 {t('migrationTracker')}
               </span>
               <p className="text-xs text-text-muted mt-0.5">{t('migrationTrackerSub')}</p>
@@ -172,7 +172,7 @@ export default function TravelByMonth() {
           {/* Kilimanjaro trekking tracker */}
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
             <div className="mb-4">
-              <span className="text-gold font-semibold text-xs uppercase tracking-widest">
+              <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">
                 {t('kiliTracker')}
               </span>
               <p className="text-xs text-text-muted mt-0.5">{t('kiliTrackerSub')}</p>

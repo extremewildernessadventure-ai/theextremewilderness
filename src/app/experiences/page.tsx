@@ -18,7 +18,7 @@ const experiences = [
     tagline: "Witness the world's greatest wildlife spectacles",
     description:
       "Nothing compares to rising before dawn, the Serengeti stretching endless in every direction, and a pride of lions stirring in the morning gold. Our classic game-drive safaris take you deep into Tanzania's iconic parks — Serengeti, Ngorongoro Crater, Tarangire — in custom 4×4 vehicles with expert local guides who read the bush like a language.",
-    image: '/images/gallery/safari-001.jpg',
+    image: '/images/gallery/safari-001.webp',
     durationLabel: '5 – 14 days',
     highlights: ['Big Five in Ngorongoro Crater', 'Great Migration calving & crossing', 'Night drives in select parks', 'Expert Swahili-speaking guides'],
     priceFrom: '$2,450',
@@ -33,7 +33,7 @@ const experiences = [
     tagline: "Earth's greatest wildlife show — timed perfectly",
     description:
       'Over 1.5 million wildebeest and 200,000 zebra move in an eternal circle across the Serengeti-Mara ecosystem. We plan your journey around the exact season — calving in Ndutu (Jan–Mar), the dramatic river crossings in the Mara (Jul–Oct) — so you witness the moment, not just the aftermath.',
-    image: '/images/gallery/Wildebeest-Migration.jpeg',
+    image: '/images/gallery/Wildebeest-Migration.webp',
     durationLabel: '6 – 10 days',
     highlights: ['Mara River crossings at peak', 'Ndutu calving grounds', 'Private mobile camp options', 'Month-by-month migration guide'],
     priceFrom: '$3,200',
@@ -48,7 +48,7 @@ const experiences = [
     tagline: 'Trek into the jungle, meet our closest relatives',
     description:
       'Deep in the forests above Lake Tanganyika, the Mahale chimps have been habituated to human presence for over 40 years. You approach on foot through dense jungle, guided by trackers following fresh prints and calls. When you find them — grooming, playing, building nests — time stops. There is nothing like it on Earth.',
-    image: '/images/gallery/Jozani-forest.jpg',
+    image: '/images/gallery/Jozani-forest.webp',
     durationLabel: '3 – 5 days',
     highlights: ['Habituated Mahale chimp community', 'Lake Tanganyika snorkelling', 'Fly-in access from Arusha', 'Small exclusive camps'],
     priceFrom: '$4,100',
@@ -63,7 +63,7 @@ const experiences = [
     tagline: 'A face-to-face encounter that changes everything',
     description:
       'The Virunga Volcanoes rise steeply through bamboo and Hagenia forest. Somewhere in that mist, mountain gorillas — critically endangered, the closest thing to looking into a mirror — live their family lives. Each permit grants you one silent hour. Trackers lead the way. Our expert guides debrief you. It never leaves you.',
-    image: '/images/gallery/gorilla.png',
+    image: '/images/gallery/gorilla.webp',
     durationLabel: '2 – 4 days',
     highlights: ['Gorilla trekking permits arranged', 'Golden monkey tracking available', 'Volcanoes NP luxury lodges', 'Dian Fossey Research Centre visit'],
     priceFrom: '$2,800',
@@ -78,7 +78,7 @@ const experiences = [
     tagline: 'From equatorial jungle to arctic summit',
     description:
       'At 5,895 m, Kilimanjaro is the highest free-standing mountain on Earth — and the only place you can walk from rainforest through moorland, desert and glacial ice in five days. Our acclimatisation-first approach and hand-picked high-altitude guides give you the best chance of reaching Uhuru Peak, and the most memorable journey along the way.',
-    image: '/images/gallery/safari-005.jpg',
+    image: '/images/gallery/safari-005.webp',
     durationLabel: '6 – 9 days',
     highlights: ['Machame, Lemosho & Rongai routes', 'Private group & solo climbs', 'Porters, cook & summit crew', 'KINAPA certified guides'],
     priceFrom: '$1,850',
@@ -93,7 +93,7 @@ const experiences = [
     tagline: 'Bush to beach — the ultimate East Africa escape',
     description:
       "End a safari high with turquoise Indian Ocean water and sugar-white sand. Zanzibar's Stone Town is a UNESCO labyrinth of history; Nungwi and Paje are world-class beaches. We seamlessly combine 4–6 days of Tanzania safari with 3–4 nights on the island. One holiday, two completely different worlds.",
-    image: '/images/gallery/zanzibar-1.jpg',
+    image: '/images/gallery/zanzibar-1.webp',
     durationLabel: '7 – 12 days',
     highlights: ['Serengeti safari + Zanzibar beach', 'Stone Town spice tour', 'Snorkelling & diving at Mnemba Atoll', 'Boutique beach lodge options'],
     priceFrom: '$3,600',
@@ -108,7 +108,7 @@ const experiences = [
     tagline: 'Shoot with intention. Return with extraordinary images.',
     description:
       'These specialised itineraries are designed for photographers — longer at each sighting, early exits from camp, perfect light-chasing schedules at dawn and dusk. We position vehicles for clean backgrounds and unobstructed shots. Custom roof-hatch converted vehicles available. Suitable for enthusiast to professional.',
-    image: '/images/gallery/safari-007.jpg',
+    image: '/images/gallery/safari-007.webp',
     durationLabel: '7 – 12 days',
     highlights: ['Extended time at key sightings', 'Golden-hour focus scheduling', 'Dedicated wildlife photography guide', 'Rooftop hatch vehicles available'],
     priceFrom: '$3,900',
@@ -123,7 +123,7 @@ const experiences = [
     tagline: 'Put your feet on African soil. Feel everything change.',
     description:
       "Nyerere National Park (formerly Selous) — Africa's largest protected area — is one of the few places in Tanzania where walking safaris are permitted in genuine wilderness. Armed rangers lead you through acacia thickets, along hippo-filled rivers and across open floodplains. Every sense is heightened. The bush reveals itself differently on foot.",
-    image: '/images/gallery/nyerere.jpg',
+    image: '/images/gallery/nyerere.webp',
     durationLabel: '4 – 7 days',
     highlights: ['Guided walks with armed rangers', 'Boat safari on Rufiji River', 'Wild dogs & huge elephant herds', 'Remote fly-camp options'],
     priceFrom: '$2,900',
@@ -138,7 +138,7 @@ const experiences = [
     tagline: 'Your itinerary. Your pace. No compromises.',
     description:
       'Private use of a luxury mobile camp or exclusive-use lodge. Your own vehicle, guide and tracker. Dining under the stars, sundowners on a kopje with the Serengeti horizon at your feet. Designed for couples, honeymooners and small families who want total immersion without sharing a sundowner with strangers.',
-    image: '/images/gallery/honey.jpg',
+    image: '/images/gallery/honey.webp',
     durationLabel: '5 – 14 days',
     highlights: ['Exclusive-use camps & lodges', 'Private vehicle & guide all day', 'Bespoke itinerary designed for you', 'Sommelier-curated meals in the bush'],
     priceFrom: '$5,500',
@@ -153,7 +153,7 @@ const experiences = [
     tagline: 'The adventure that becomes a family legend',
     description:
       "A child's first giraffe. A teenager's photo of a cheetah hunt. These moments shape lives. Our family safaris are paced for children, with junior ranger programmes, kid-friendly lodges with pools, shorter drives and age-appropriate guides who know how to keep young minds lit with wonder. Safe, seamless, unforgettable.",
-    image: '/images/gallery/family1.jpg',
+    image: '/images/gallery/family1.webp',
     durationLabel: '6 – 10 days',
     highlights: ['Junior ranger bush walks', 'Family lodges with pools', 'Shorter child-friendly drives', 'Cultural visits to Maasai villages'],
     priceFrom: '$2,600',
@@ -168,7 +168,7 @@ const experiences = [
     tagline: "Where the land hasn't changed in a thousand years",
     description:
       "Most visitors never leave the Northern Circuit. Ruaha and Katavi are Tanzania's best-kept secrets — enormous lion prides, huge herds of buffalo and elephant, wild dog territories, and not another vehicle in sight. Rugged, raw and completely unhurried. For those who want Africa as it was before crowds.",
-    image: '/images/gallery/safari-013.jpg',
+    image: '/images/gallery/safari-013.webp',
     durationLabel: '5 – 8 days',
     highlights: ["Tanzania's largest lion population", 'Wild dog denning (seasonal)', 'Hippo-crammed rivers at Katavi', 'Exclusive fly-in access only'],
     priceFrom: '$4,200',
@@ -210,7 +210,7 @@ export default function ExperiencesPage() {
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <Image
-          src="/images/gallery/safari-118.jpg"
+          src="/images/gallery/safari-118.webp"
           alt="East Africa safari landscape"
           fill
           className="object-cover object-center"
@@ -247,7 +247,7 @@ export default function ExperiencesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-4">
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
                 Our Philosophy
               </span>
               <h2 className="text-3xl lg:text-4xl font-semibold text-brand leading-tight mb-6">
@@ -278,14 +278,14 @@ export default function ExperiencesPage() {
             {/* Mosaic photos */}
             <div className="grid grid-cols-2 gap-3">
               <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
-                <Image src="/images/gallery/safari-021.jpg" alt="Safari landscape" fill className="object-cover" sizes="30vw" />
+                <Image src="/images/gallery/safari-021.webp" alt="Safari landscape" fill className="object-cover" sizes="30vw" />
               </div>
               <div className="flex flex-col gap-3">
                 <div className="relative rounded-2xl overflow-hidden aspect-video">
-                  <Image src="/images/gallery/safari-022.jpg" alt="Wildlife" fill className="object-cover" sizes="20vw" />
+                  <Image src="/images/gallery/safari-022.webp" alt="Wildlife" fill className="object-cover" sizes="20vw" />
                 </div>
                 <div className="relative rounded-2xl overflow-hidden flex-1">
-                  <Image src="/images/gallery/safari-023.jpg" alt="Bush camp" fill className="object-cover" sizes="20vw" />
+                  <Image src="/images/gallery/safari-023.webp" alt="Bush camp" fill className="object-cover" sizes="20vw" />
                 </div>
               </div>
             </div>
@@ -297,7 +297,7 @@ export default function ExperiencesPage() {
       <section className="bg-light-green py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center py-12">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               Browse All Experiences
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand">
@@ -317,7 +317,7 @@ export default function ExperiencesPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Simple process</span>
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Simple process</span>
             <h2 className="text-3xl font-semibold text-brand">How We Build Your Safari</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -340,11 +340,11 @@ export default function ExperiencesPage() {
       {/* ── PHOTO STRIP ──────────────────────────────────────────────────── */}
       <div className="flex h-64 overflow-hidden">
         {[
-          '/images/gallery/safari-025.jpg',
-          '/images/gallery/safari-026.jpg',
-          '/images/gallery/safari-027.jpg',
-          '/images/gallery/safari-028.jpg',
-          '/images/gallery/safari-029.jpg',
+          '/images/gallery/safari-025.webp',
+          '/images/gallery/safari-026.webp',
+          '/images/gallery/safari-027.webp',
+          '/images/gallery/safari-028.webp',
+          '/images/gallery/safari-029.webp',
         ].map((src, i) => (
           <div key={i} className="relative flex-1">
             <Image src={src} alt="" fill className="object-cover" sizes="20vw" />
@@ -371,7 +371,7 @@ export default function ExperiencesPage() {
       {/* ── CTA / NEWSLETTER ─────────────────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/gallery/safari-128.jpg"
+          src="/images/gallery/safari-128.webp"
           alt="Sunset safari"
           fill
           className="object-cover"
@@ -382,7 +382,7 @@ export default function ExperiencesPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left — CTA */}
             <div>
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-4">Ready to go?</span>
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">Ready to go?</span>
               <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
                 Start planning your<br />East Africa journey
               </h2>
@@ -407,7 +407,7 @@ export default function ExperiencesPage() {
 
             {/* Right — Newsletter */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-2">The Wilderness Edit</p>
+              <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-2">The Wilderness Edit</p>
               <h3 className="text-2xl font-semibold text-white mb-3">Stay inspired</h3>
               <p className="text-white/65 text-sm leading-relaxed mb-6">
                 Migration updates, seasonal guides, new camp openings and field notes from our guides — delivered monthly. No noise, only the good stuff.

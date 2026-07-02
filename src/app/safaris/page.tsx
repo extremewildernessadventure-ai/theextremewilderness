@@ -17,7 +17,7 @@ export default function SafarisPage() {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/safari-114.jpg"
+            src="/images/gallery/safari-114.webp"
             alt="Safari vehicles on the Serengeti plains"
             fill
             className="object-cover object-center"

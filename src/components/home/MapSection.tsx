@@ -75,7 +75,7 @@ export default function MapSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-10">
-          <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+          <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
             {t('destinationMaps')}
           </span>
           <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-3">

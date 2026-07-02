@@ -22,7 +22,7 @@ export default function TrustBar() {
               <Icon className="w-5 h-5 text-gold flex-shrink-0" />
               <div>
                 <p className="text-white font-semibold text-sm leading-tight">{text}</p>
-                <p className="text-white/60 text-xs mt-0.5">{sub}</p>
+                <p className="text-white/75 text-xs mt-0.5">{sub}</p>
               </div>
             </div>
           ))}

@@ -62,7 +62,7 @@ export default function BottomNav() {
 
   const tabCls = (active: boolean) =>
     `flex-1 flex flex-col items-center justify-center gap-1 text-[10px] font-medium transition-colors ${
-      active ? 'text-gold' : 'text-white/55'
+      active ? 'text-gold' : 'text-white/75'
     }`
 
   const close = () => setMoreOpen(false)
@@ -193,7 +193,7 @@ export default function BottomNav() {
         <Link
           href="/contact"
           className={`flex-1 flex flex-col items-center justify-center gap-1 text-[10px] font-medium transition-colors ${
-            isActive('/contact') ? 'text-gold' : 'text-white/55'
+            isActive('/contact') ? 'text-gold' : 'text-white/75'
           }`}
         >
           <div className="bg-gold rounded-full p-1.5">

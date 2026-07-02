@@ -33,7 +33,7 @@ export default function BlogPreview() {
       date: t('blog2Date'),
       readTime: t('blog2ReadTime'),
       category: t('blog2Category'),
-      image: '/images/gallery/zanzibar.png',
+      image: '/images/gallery/zanzibar.webp',
     },
   ]
 
@@ -42,7 +42,7 @@ export default function BlogPreview() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('fromTheBush')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand">
@@ -95,7 +95,7 @@ export default function BlogPreview() {
                       {post.readTime}
                     </span>
                   </div>
-                  <span className="text-xs font-semibold text-gold group-hover:underline">
+                  <span className="text-xs font-semibold text-gold-label group-hover:underline">
                     {tc('readMore')} &rarr;
                   </span>
                 </div>

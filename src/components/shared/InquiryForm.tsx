@@ -185,7 +185,7 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
       <div className="bg-brand px-7 py-5">
         <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">{t('freeNoCommitment')}</p>
         <h3 className="text-white font-bold text-lg">{t('sendYourEnquiry')}</h3>
-        <p className="text-white/60 text-xs mt-0.5">{t('formSubheading')}</p>
+        <p className="text-white/75 text-xs mt-0.5">{t('formSubheading')}</p>
       </div>
 
       <div className="p-6 sm:p-8 space-y-8">

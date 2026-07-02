@@ -150,7 +150,7 @@ export default async function DestinationsPage() {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/safari-119.jpg"
+            src="/images/gallery/safari-119.webp"
             alt="Lions at golden sunset on the Tanzania Serengeti plains"
             fill
             className="object-cover object-center"
@@ -161,7 +161,7 @@ export default async function DestinationsPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl">
-            <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
+            <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
               {t('heroTitle')}<br />
               <span className="text-gold">{t('heroTitleGold')}</span>
@@ -206,7 +206,7 @@ export default async function DestinationsPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('introEyebrow')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-5">
@@ -226,7 +226,7 @@ export default async function DestinationsPage() {
 
             {/* Box 1 — Three Circuits */}
             <div className="bg-brand rounded-3xl p-8 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box1Eyebrow')}</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">{t('box1Eyebrow')}</p>
               <h3 className="text-2xl font-bold text-white mb-6">{t('box1Heading')}</h3>
               <div className="space-y-4 flex-1">
                 {circuits.map((c) => (
@@ -237,20 +237,20 @@ export default async function DestinationsPage() {
                   >
                     <div className="flex-1 min-w-0">
                       <p className="text-white font-bold text-sm">{c.label}</p>
-                      <p className="text-white/60 text-xs mt-0.5 truncate">{c.box1Desc}</p>
+                      <p className="text-white/75 text-xs mt-0.5 truncate">{c.box1Desc}</p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors flex-shrink-0" />
                   </a>
                 ))}
               </div>
               <div className="mt-6 pt-5 border-t border-white/10">
-                <p className="text-white/50 text-xs">Also: <span className="text-white/70 font-medium">Zanzibar Beach</span> &amp; <span className="text-white/70 font-medium">Arusha Gateway</span></p>
+                <p className="text-white/70 text-xs">Also: <span className="text-white/70 font-medium">Zanzibar Beach</span> &amp; <span className="text-white/70 font-medium">Arusha Gateway</span></p>
               </div>
             </div>
 
             {/* Box 2 — Why Book With Us */}
             <div className="bg-amber-50 rounded-3xl p-8 border border-amber-100 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box2Eyebrow')}</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">{t('box2Eyebrow')}</p>
               <h3 className="text-2xl font-bold text-brand mb-6">{t('box2Heading')}</h3>
               <div className="grid grid-cols-2 gap-4 flex-1">
                 {[
@@ -276,7 +276,7 @@ export default async function DestinationsPage() {
 
             {/* Box 3 — Tanzania in Numbers */}
             <div className="bg-light-green rounded-3xl p-8 border border-brand/10 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box3Eyebrow')}</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">{t('box3Eyebrow')}</p>
               <h3 className="text-2xl font-bold text-brand mb-6">{t('box3Heading')}</h3>
               <div className="grid grid-cols-2 gap-5 flex-1">
                 {[
@@ -288,7 +288,7 @@ export default async function DestinationsPage() {
                   { stat: '1,100+', label: 'Bird species recorded', sub: "Africa's premier birding nation" },
                 ].map((item) => (
                   <div key={item.stat} className="bg-white rounded-2xl px-4 py-3 border border-brand/5">
-                    <p className="text-gold font-bold text-xl leading-none">{item.stat}</p>
+                    <p className="text-gold-label font-bold text-xl leading-none">{item.stat}</p>
                     <p className="text-brand font-semibold text-xs mt-1 leading-snug">{item.label}</p>
                     <p className="text-text-muted text-[11px] mt-0.5 leading-snug">{item.sub}</p>
                   </div>
@@ -298,7 +298,7 @@ export default async function DestinationsPage() {
 
             {/* Box 4 — How It Works */}
             <div className="bg-brand-dark rounded-3xl p-8 flex flex-col" style={{ backgroundColor: '#0a2e1a' }}>
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">{t('box4Eyebrow')}</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">{t('box4Eyebrow')}</p>
               <h3 className="text-2xl font-bold text-white mb-6">{t('box4Heading')}</h3>
               <div className="space-y-5 flex-1">
                 {[
@@ -313,7 +313,7 @@ export default async function DestinationsPage() {
                     </div>
                     <div>
                       <p className="text-white font-bold text-sm">{s.title}</p>
-                      <p className="text-white/50 text-xs leading-snug mt-1">{s.desc}</p>
+                      <p className="text-white/70 text-xs leading-snug mt-1">{s.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -374,7 +374,7 @@ export default async function DestinationsPage() {
                   {/* Content panel */}
                   <div className="flex-1 p-6 lg:p-8 flex flex-col">
                     <div className="mb-4">
-                      <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">{dest.tagline}</p>
+                      <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{dest.tagline}</p>
                       <h3 className="text-xl lg:text-2xl font-bold text-brand mb-2">{dest.name}</h3>
                       <div className="flex flex-wrap gap-3 text-xs text-text-muted">
                         <span className="flex items-center gap-1">
@@ -401,7 +401,7 @@ export default async function DestinationsPage() {
                     </div>
 
                     <div className="mb-6">
-                      <p className="text-xs font-semibold text-brand/50 uppercase tracking-wider mb-2">{t('wildlifeLabel')}</p>
+                      <p className="text-xs font-semibold text-text-muted uppercase tracking-wider mb-2">{t('wildlifeLabel')}</p>
                       <div className="flex flex-wrap gap-1.5">
                         {dest.wildlife.map((w) => (
                           <span
@@ -443,7 +443,7 @@ export default async function DestinationsPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('extrasEyebrow')}
             </span>
             <h2 className="text-3xl font-semibold text-brand mb-3">{t('extrasHeading')}</h2>
@@ -472,7 +472,7 @@ export default async function DestinationsPage() {
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                  <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">{extra.tagline}</p>
+                  <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{extra.tagline}</p>
                   <h3 className="text-xl font-bold text-brand mb-3">{extra.name}</h3>
                   <p className="text-text-muted text-sm leading-relaxed mb-5 flex-1">{extra.desc}</p>
                   <div className="flex items-center gap-3 pt-4 border-t border-gray-100 flex-wrap">
@@ -502,7 +502,7 @@ export default async function DestinationsPage() {
       <section className="py-20 bg-light-green">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('seasonEyebrow')}
             </span>
             <h2 className="text-3xl font-semibold text-brand mb-3">{t('seasonHeading')}</h2>
@@ -549,13 +549,13 @@ export default async function DestinationsPage() {
             <div
               className="absolute inset-0 opacity-10"
               style={{
-                backgroundImage: "url('/images/gallery/safari-119.jpg')",
+                backgroundImage: "url('/images/gallery/safari-119.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
             />
             <div className="relative z-10">
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
                 {t('ctaEyebrow')}
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">

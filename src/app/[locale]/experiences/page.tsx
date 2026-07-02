@@ -49,7 +49,7 @@ export default async function ExperiencesPage() {
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <Image
-          src="/images/gallery/safari-118.jpg"
+          src="/images/gallery/safari-118.webp"
           alt="East Africa safari landscape"
           fill
           className="object-cover object-center"
@@ -86,7 +86,7 @@ export default async function ExperiencesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-4">
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
                 {t('ourPhilosophyEyebrow')}
               </span>
               <h2 className="text-3xl lg:text-4xl font-semibold text-brand leading-tight mb-6">
@@ -117,14 +117,14 @@ export default async function ExperiencesPage() {
             {/* Mosaic photos */}
             <div className="grid grid-cols-2 gap-3">
               <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
-                <Image src="/images/gallery/safari-021.jpg" alt="Safari landscape" fill className="object-cover" sizes="30vw" />
+                <Image src="/images/gallery/safari-021.webp" alt="Safari landscape" fill className="object-cover" sizes="30vw" />
               </div>
               <div className="flex flex-col gap-3">
                 <div className="relative rounded-2xl overflow-hidden aspect-video">
-                  <Image src="/images/gallery/safari-022.jpg" alt="Wildlife" fill className="object-cover" sizes="20vw" />
+                  <Image src="/images/gallery/safari-022.webp" alt="Wildlife" fill className="object-cover" sizes="20vw" />
                 </div>
                 <div className="relative rounded-2xl overflow-hidden flex-1">
-                  <Image src="/images/gallery/safari-023.jpg" alt="Bush camp" fill className="object-cover" sizes="20vw" />
+                  <Image src="/images/gallery/safari-023.webp" alt="Bush camp" fill className="object-cover" sizes="20vw" />
                 </div>
               </div>
             </div>
@@ -136,7 +136,7 @@ export default async function ExperiencesPage() {
       <section className="bg-light-green py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center py-12">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('browseEyebrow')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand">
@@ -156,7 +156,7 @@ export default async function ExperiencesPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">{t('howItWorksEyebrow')}</span>
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{t('howItWorksEyebrow')}</span>
             <h2 className="text-3xl font-semibold text-brand">{t('howItWorksHeading')}</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -174,11 +174,11 @@ export default async function ExperiencesPage() {
       {/* ── PHOTO STRIP ──────────────────────────────────────────────────── */}
       <div className="flex h-64 overflow-hidden">
         {[
-          '/images/gallery/safari-025.jpg',
-          '/images/gallery/safari-026.jpg',
-          '/images/gallery/safari-027.jpg',
-          '/images/gallery/safari-028.jpg',
-          '/images/gallery/safari-029.jpg',
+          '/images/gallery/safari-025.webp',
+          '/images/gallery/safari-026.webp',
+          '/images/gallery/safari-027.webp',
+          '/images/gallery/safari-028.webp',
+          '/images/gallery/safari-029.webp',
         ].map((src, i) => (
           <div key={i} className="relative flex-1">
             <Image src={src} alt="" fill className="object-cover" sizes="20vw" />
@@ -205,7 +205,7 @@ export default async function ExperiencesPage() {
       {/* ── CTA / NEWSLETTER ─────────────────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/gallery/safari-128.jpg"
+          src="/images/gallery/safari-128.webp"
           alt="Sunset safari"
           fill
           className="object-cover"
@@ -216,7 +216,7 @@ export default async function ExperiencesPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left — CTA */}
             <div>
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-4">{t('ctaEyebrow')}</span>
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('ctaEyebrow')}</span>
               <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
                 {t('ctaHeading')}
               </h2>
@@ -241,7 +241,7 @@ export default async function ExperiencesPage() {
 
             {/* Right — Newsletter */}
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-2">{t('newsletterEyebrow')}</p>
+              <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-2">{t('newsletterEyebrow')}</p>
               <h3 className="text-2xl font-semibold text-white mb-3">{t('newsletterHeading')}</h3>
               <p className="text-white/65 text-sm leading-relaxed mb-6">
                 {t('newsletterText')}

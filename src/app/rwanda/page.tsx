@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, MapPin, Clock, Users, Star, Mountain, CheckCircle2, Car, Headphones, Shield, Compass, Trophy } from 'lucide-react'
@@ -27,7 +27,7 @@ const destinations = [
     name: 'Volcanoes National Park',
     tagline: 'Home of the Mountain Gorilla',
     size: '160 km2 · 4,507 m elevation',
-    image: '/images/gallery/volcanoes.jpg',
+    image: '/images/gallery/volcanoes.webp',
     badge: 'Top Experience',
     badgeColor: 'bg-gold text-brand',
     highlights: [
@@ -51,7 +51,7 @@ const destinations = [
     name: 'Nyungwe National Park',
     tagline: "Africa's Most Diverse Primate Destination",
     size: '1,020 km2 · Ancient Rainforest',
-    image: '/images/gallery/nyungwe.jpg',
+    image: '/images/gallery/nyungwe.webp',
     badge: 'Primate Paradise',
     badgeColor: 'bg-brand text-white',
     highlights: [
@@ -75,7 +75,7 @@ const destinations = [
     name: 'Akagera National Park',
     tagline: "Rwanda's Big Five Savannah Safari",
     size: '1,122 km2 · Savannah & Wetlands',
-    image: '/images/gallery/akagera.jpg',
+    image: '/images/gallery/akagera.webp',
     badge: 'Big Five',
     badgeColor: 'bg-brand-secondary text-white',
     highlights: [
@@ -99,7 +99,7 @@ const destinations = [
     name: 'Lake Kivu',
     tagline: "Rwanda's Serene Inland Sea",
     size: '2,700 km2 · 485 m deep',
-    image: '/images/gallery/safari-123.jpg',
+    image: '/images/gallery/safari-123.webp',
     badge: 'Scenic Escape',
     badgeColor: 'bg-gold text-brand',
     highlights: [
@@ -123,7 +123,7 @@ const destinations = [
     name: 'Kigali',
     tagline: "Africa's Cleanest, Greenest Capital City",
     size: "Rwanda's Capital · Pop. 1.5 million",
-    image: '/images/gallery/kigali-city.jpg',
+    image: '/images/gallery/kigali-city.webp',
     badge: 'Cultural Hub',
     badgeColor: 'bg-brand text-white',
     highlights: [
@@ -199,7 +199,7 @@ export default function RwandaPage() {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/gorilla.png"
+            src="/images/gallery/gorilla.webp"
             alt="Volcanic mountain peaks with lush green heathland — Rwanda Virunga massif"
             fill
             className="object-cover object-bottom"
@@ -210,7 +210,7 @@ export default function RwandaPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl">
-            <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-4">Rwanda Safaris</p>
+            <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">Rwanda Safaris</p>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
               Land of a<br />
               <span className="text-gold">Thousand Hills.</span>
@@ -255,7 +255,7 @@ export default function RwandaPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               Why Choose Rwanda
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-5">
@@ -280,7 +280,7 @@ export default function RwandaPage() {
 
             {/* Box 1 — Rwanda Destinations */}
             <div className="bg-brand rounded-3xl p-8 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">5 Unmissable Destinations</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">5 Unmissable Destinations</p>
               <h3 className="text-2xl font-bold text-white mb-6">Rwanda&apos;s Wild Places at a Glance</h3>
               <div className="space-y-3 flex-1">
                 {[
@@ -297,20 +297,20 @@ export default function RwandaPage() {
                   >
                     <div className="flex-1 min-w-0">
                       <p className="text-white font-bold text-sm">{d.label}</p>
-                      <p className="text-white/50 text-xs mt-0.5 truncate">{d.desc}</p>
+                      <p className="text-white/70 text-xs mt-0.5 truncate">{d.desc}</p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors flex-shrink-0" />
                   </a>
                 ))}
               </div>
               <div className="mt-6 pt-5 border-t border-white/10">
-                <p className="text-white/50 text-xs">Only 96 gorilla permits issued per day &mdash; <span className="text-white/70 font-medium">book well in advance</span></p>
+                <p className="text-white/70 text-xs">Only 96 gorilla permits issued per day &mdash; <span className="text-white/70 font-medium">book well in advance</span></p>
               </div>
             </div>
 
             {/* Box 2 — Why Book With Us */}
             <div className="bg-amber-50 rounded-3xl p-8 border border-amber-100 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">Our Promise</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">Our Promise</p>
               <h3 className="text-2xl font-bold text-brand mb-6">Why Book With The Extreme Wilderness</h3>
               <div className="grid grid-cols-2 gap-4 flex-1">
                 {[
@@ -336,7 +336,7 @@ export default function RwandaPage() {
 
             {/* Box 3 — Rwanda in Numbers */}
             <div className="bg-light-green rounded-3xl p-8 border border-brand/10 flex flex-col">
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">The Records</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">The Records</p>
               <h3 className="text-2xl font-bold text-brand mb-6">Rwanda in Numbers</h3>
               <div className="grid grid-cols-2 gap-5 flex-1">
                 {[
@@ -348,7 +348,7 @@ export default function RwandaPage() {
                   { stat: '1 hour', label: 'With a gorilla family', sub: 'Most intimate wildlife encounter on Earth' },
                 ].map((item) => (
                   <div key={item.stat} className="bg-white rounded-2xl px-4 py-3 border border-brand/5">
-                    <p className="text-gold font-bold text-xl leading-none">{item.stat}</p>
+                    <p className="text-gold-label font-bold text-xl leading-none">{item.stat}</p>
                     <p className="text-brand font-semibold text-xs mt-1 leading-snug">{item.label}</p>
                     <p className="text-text-muted text-[11px] mt-0.5 leading-snug">{item.sub}</p>
                   </div>
@@ -358,7 +358,7 @@ export default function RwandaPage() {
 
             {/* Box 4 — How It Works */}
             <div className="rounded-3xl p-8 flex flex-col" style={{ backgroundColor: '#0a2e1a' }}>
-              <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2">The Process</p>
+              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">The Process</p>
               <h3 className="text-2xl font-bold text-white mb-6">How to Book Your Safari</h3>
               <div className="space-y-5 flex-1">
                 {[
@@ -373,7 +373,7 @@ export default function RwandaPage() {
                     </div>
                     <div>
                       <p className="text-white font-bold text-sm">{s.title}</p>
-                      <p className="text-white/50 text-xs leading-snug mt-1">{s.desc}</p>
+                      <p className="text-white/70 text-xs leading-snug mt-1">{s.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -431,7 +431,7 @@ export default function RwandaPage() {
       <section id="destinations" className="py-20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               5 Unmissable Destinations
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-4">
@@ -470,7 +470,7 @@ export default function RwandaPage() {
 
                 <div className="flex-1 p-6 lg:p-8 flex flex-col">
                   <div className="mb-4">
-                    <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">{dest.tagline}</p>
+                    <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{dest.tagline}</p>
                     <h3 className="text-xl lg:text-2xl font-bold text-brand mb-2">{dest.name}</h3>
                     <div className="flex flex-wrap gap-3 text-xs text-text-muted">
                       <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {dest.duration}</span>
@@ -493,7 +493,7 @@ export default function RwandaPage() {
                   </div>
 
                   <div className="mb-5">
-                    <p className="text-xs font-semibold text-brand/50 uppercase tracking-wider mb-2">Wildlife</p>
+                    <p className="text-xs font-semibold text-text-muted uppercase tracking-wider mb-2">Wildlife</p>
                     <div className="flex flex-wrap gap-1.5">
                       {dest.wildlife.map((w) => (
                         <span key={w} className="text-xs bg-light-green text-brand px-2.5 py-1 rounded-full border border-brand/10 font-medium">
@@ -504,7 +504,7 @@ export default function RwandaPage() {
                   </div>
 
                   <div className="mb-6">
-                    <p className="text-xs font-semibold text-brand/50 uppercase tracking-wider mb-2">Activities</p>
+                    <p className="text-xs font-semibold text-text-muted uppercase tracking-wider mb-2">Activities</p>
                     <div className="flex flex-wrap gap-1.5">
                       {dest.activities.map((a) => (
                         <span key={a} className="text-xs bg-brand/5 text-brand/70 px-2.5 py-1 rounded-full border border-brand/10">
@@ -536,7 +536,7 @@ export default function RwandaPage() {
       <section className="py-20 bg-light-green">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               Plan Your Visit
             </span>
             <h2 className="text-3xl font-semibold text-brand mb-3">Best Time to Visit Rwanda</h2>
@@ -561,7 +561,7 @@ export default function RwandaPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
                 The Ultimate Combination
               </span>
               <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-5">
@@ -660,10 +660,10 @@ export default function RwandaPage() {
           <div className="bg-brand rounded-3xl p-8 lg:p-14 text-center relative overflow-hidden">
             <div
               className="absolute inset-0 opacity-10"
-              style={{ backgroundImage: "url('/images/gallery/rwanda.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+              style={{ backgroundImage: "url('/images/gallery/rwanda.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
             />
             <div className="relative z-10">
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
                 Ready for Rwanda?
               </span>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">

@@ -6,7 +6,7 @@ export const destinations: Destination[] = [
     name: 'Serengeti National Park',
     region: 'northern',
     country: 'tanzania',
-    heroImage: '/images/gallery/safari-118.jpg',
+    heroImage: '/images/gallery/safari-118.webp',
     tagline: 'Das Größte Wildtierspektakel der Erde',
     description:
       'Der Serengeti ist Tansanias ikonischstes Safariziel und erstreckt sich über 14.763 km² endloser goldener Ebenen. Als Heimat der berühmten Großen Migration der Gnus — mehr als 1,5 Millionen Gnus und 500.000 Zebras, die sich in einem ewigen Kreislauf bewegen — ist er eines der spektakulärsten Naturphänomene Afrikas. Jenseits der Migration wimmelt der Serengeti von Löwen, Leoparden, Geparden, Elefanten und Hunderten von Vogelarten, die das ganze Jahr über ansässig sind.',
@@ -31,7 +31,7 @@ export const destinations: Destination[] = [
     name: 'Ngorongoro Crater',
     region: 'northern',
     country: 'tanzania',
-    heroImage: '/images/gallery/safari-135.jpg',
+    heroImage: '/images/gallery/safari-135.webp',
     tagline: 'Die Größte Intakte Vulkanische Caldera der Welt',
     description:
       'Der Ngorongoro-Krater ist UNESCO-Weltnaturerbe und eines der größten Naturwunder Afrikas. Die 260 km² große Caldera — die größte intakte Vulkancaldera der Welt — bildet ein natürliches Gehege für eine außerordentliche Wildtierkonzentration. Mehr als 25.000 Großtiere leben innerhalb ihrer Wände, darunter eine der dichtesten Löwenpopulationen Afrikas und das stark bedrohte Schwarznashorn.',
@@ -56,7 +56,7 @@ export const destinations: Destination[] = [
     name: 'Tarangire National Park',
     region: 'tarangire',
     country: 'tanzania',
-    heroImage: '/images/gallery/tarangire-1.jpg',
+    heroImage: '/images/gallery/tarangire-1.webp',
     tagline: 'Das Land der Riesen und Uralten Affenbrotbäume',
     description:
       'Tarangire ist berühmt für seine riesigen Elefantenherden — die größte Elefantenkonzentration in Nordtansania. Die uralten Affenbrotbäume, die die Landschaft prägen, schaffen eine andere Welt, während der Tarangire-Fluss in der Trockenzeit eine erstaunliche Vielfalt an Wildtieren anzieht. Oft im Schatten des Serengeti, bietet Tarangire ein ebenso aufregendes Safarierlebnis mit deutlich weniger Besuchern.',
@@ -81,7 +81,7 @@ export const destinations: Destination[] = [
     name: 'Lake Manyara National Park',
     region: 'tarangire',
     country: 'tanzania',
-    heroImage: '/images/gallery/safari-126.jpg',
+    heroImage: '/images/gallery/safari-126.webp',
     tagline: 'Die Baumkletternden Löwen des Rift Valleys',
     description:
       'Der Manyara-Nationalpark ist einer der malerischsten Parks Tansanias, angelegt am dramatischen Steilhang des Ostafrikanischen Rift Valleys. Der alkalische Sodasee — der zwei Drittel des Parks bedeckt — färbt sich in der Trockenzeit durch Flamingos rosa. Manyara ist berühmt für seine baumkletternden Löwen, ein Phänomen, das anderswo in Afrika selten beobachtet wird.',
@@ -106,7 +106,7 @@ export const destinations: Destination[] = [
     name: 'Zanzibar Island',
     region: 'zanzibar',
     country: 'tanzania',
-    heroImage: '/images/gallery/zanzibar-1.jpg',
+    heroImage: '/images/gallery/zanzibar-1.webp',
     tagline: 'Paradies der Gewürzinsel',
     description:
       'Sansibar ist das Juwel des Indischen Ozeans — ein tropisches Paradies mit weißen Sandstränden, türkisfarbenem Wasser und korallenreichen Riffen voller Meeresleben. Stone Town, UNESCO-Welterbe, bietet verwinkelte Gassen, verzierte arabische Türen und eine reiche Geschichte als ehemaliges Handelszentrum für Gewürze. Der perfekte Abschluss für jede Tansania-Safari.',
@@ -130,7 +130,7 @@ export const destinations: Destination[] = [
     name: 'Arusha & Kilimanjaro',
     region: 'arusha',
     country: 'tanzania',
-    heroImage: '/images/gallery/kilimanjaro%20(4).png',
+    heroImage: '/images/gallery/kilimanjaro%20(4).webp',
     tagline: 'Tor zum Nördlichen Stromkreis',
     description:
       'Arusha ist Tansanias Safari-Hauptstadt und Tor zum Nördlichen Stromkreis. Eingebettet zwischen dem Mount Meru (4.562 m) und mit Blick auf den Kilimandscharo (5.895 m), hat Arusha seinen eigenen Nationalpark mit flamingogesäumten Seen, Stummelaffen und Giraffen. Es ist auch Ihre Ausgangsbasis für Kilimandscharo-Trekkingtouren und Nordsafaris.',
@@ -155,7 +155,7 @@ export const destinations: Destination[] = [
     name: 'Ruaha National Park',
     region: 'southern',
     country: 'tanzania',
-    heroImage: '/images/gallery/safari-128.jpg',
+    heroImage: '/images/gallery/safari-128.webp',
     tagline: 'Tansanias Größter Park — Wild und Abgelegen',
     description:
       'Ruaha ist Tansanias größter Nationalpark und eines der besten Geheimnisse Afrikas. Abgelegen, wild und ohne Menschenmassen bietet er ein authentisches Wildniserlebnis mit hervorragenden Raubtierbeobachtungen — darunter große Löwenrudel, zahlreiche Leoparden, Geparde und die stark bedrohten Wildhunde. Der Große Ruaha-Fluss ist die Lebensader des Parks.',
@@ -180,7 +180,7 @@ export const destinations: Destination[] = [
     name: 'Nyerere (Selous) National Park',
     region: 'southern',
     country: 'tanzania',
-    heroImage: '/images/gallery/selous.jpg',
+    heroImage: '/images/gallery/selous.webp',
     tagline: 'Afrikas Größtes Naturreservat',
     description:
       'Der Nyerere-Nationalpark — ehemals Selous — ist das größte Schutzgebiet Afrikas mit 54.600 km². Als UNESCO-Weltnaturerbe bietet er vielfältige Safarierlebnisse über die klassische Game Drive hinaus: Bootsafaris auf dem Rufiji-Fluss, Fußsafaris und Fly-Camping. Es ist das ultimative Abenteuer abseits der ausgetretenen Pfade in Tansania.',
@@ -205,7 +205,7 @@ export const destinations: Destination[] = [
     name: 'Mahale Mountains',
     region: 'western',
     country: 'tanzania',
-    heroImage: '/images/gallery/safari-113.jpg',
+    heroImage: '/images/gallery/safari-113.webp',
     tagline: 'Schimpansen-Trekking in Unberührter Wildnis',
     description:
       'Die Mahale-Berge sind eines der abgelegensten und zauberhaftesten Ziele Tansanias — nur mit dem Boot oder Charterflugzeug erreichbar. Der Park schützt eine der letzten Wildschimpansenpopulationen, und das Trekking durch den Regenwald, um diese bemerkenswerten Primaten zu begegnen, ist ein lebensveränderndes Erlebnis. Nach dem Trekking entspannen Sie am unberührten Strand des Tanganjikasees.',
@@ -230,7 +230,7 @@ export const destinations: Destination[] = [
     name: 'Katavi National Park',
     region: 'western',
     country: 'tanzania',
-    heroImage: '/images/gallery/safari-130.jpg',
+    heroImage: '/images/gallery/safari-130.webp',
     tagline: 'Tansanias Letzte Wahre Wildnis',
     description:
       'Katavi ist Tansanias abgelegenster und am wenigsten besuchter Nationalpark — eine echte Wildnis, in der Sie einen ganzen Tag verbringen könnten, ohne ein anderes Fahrzeug zu sehen. In der Trockenzeit drängen sich Tausende von Nilpferden in die schrumpfenden Tümpel des Katuma-Flusses zu beeindruckenden Ansammlungen, während riesige Büffelherden und große Löwenrudel Szenen des rohen, ungefilterten Afrikas schaffen.',
@@ -255,7 +255,7 @@ export const destinations: Destination[] = [
     name: 'Gombe Stream National Park',
     region: 'western',
     country: 'tanzania',
-    heroImage: '/images/gallery/gombe-stream.jpg',
+    heroImage: '/images/gallery/gombe-stream.webp',
     heroImagePosition: 'top',
     tagline: 'Jane Goodalls Schimpansenreich',
     description:
@@ -281,7 +281,7 @@ export const destinations: Destination[] = [
     name: 'Lake Victoria',
     region: 'western',
     country: 'tanzania',
-    heroImage: '/images/gallery/safari-123.jpg',
+    heroImage: '/images/gallery/safari-123.webp',
     tagline: 'Afrikas Größter See',
     description:
       'Der Viktoriasee ist der drittgrößte See der Welt und der größte Afrikas, der sich über Tansania, Kenia und Uganda erstreckt. Die tansanischen Ufer bieten ein faszinierendes Erlebnis abseits der ausgetretenen Pfade: der Rubondo-Insel-Nationalpark, kulturelles Eintauchen in die Sukuma-Kultur in Mwanza, Inselhopping und spektakuläre Sonnenuntergänge über der weiten Wasserfläche.',
@@ -306,7 +306,7 @@ export const destinations: Destination[] = [
     name: 'Masai Mara',
     region: 'northern',
     country: 'kenya',
-    heroImage: '/images/gallery/safari-119.jpg',
+    heroImage: '/images/gallery/safari-119.webp',
     tagline: 'Die Flussüberquerungen der Großen Migration',
     description:
       'Das Masai Mara ist Kenias bekanntestes Reservat und die nördliche Verlängerung des Serengeti-Ökosystems. Von Juli bis Oktober erleben Sie dramatische Flussüberquerungen, wenn Gnus in den Mara-Fluss stürzen — eines der spektakulärsten Wildtierschauspiele der Erde. Das ganze Jahr über bietet das Mara bemerkenswerte Raubtieraktionen mit großen Löwenrudeln, Leoparden und Geparden.',
@@ -331,7 +331,7 @@ export const destinations: Destination[] = [
     name: 'Volcanoes National Park',
     region: 'northern',
     country: 'rwanda',
-    heroImage: '/images/gallery/safari-113.jpg',
+    heroImage: '/images/gallery/safari-113.webp',
     tagline: 'Berggorilla-Trekking',
     description:
       'Der Volcans-Nationalpark in Ruanda beherbergt etwa die Hälfte der verbliebenen Berggorillas weltweit. Durch neblige Bambuswälder zu trekken, um eine Stunde mit einer Gorillafamilie zu verbringen, ist eines der tiefgreifendsten Wildtiererlebnisse des Planeten. Kombinieren Sie es mit Tansania für eine klassische afrikanische Bucket-List-Reise.',
@@ -356,7 +356,7 @@ export const destinations: Destination[] = [
     name: 'Amboseli National Park',
     region: 'northern',
     country: 'kenya',
-    heroImage: '/images/gallery/amboseli.jpg',
+    heroImage: '/images/gallery/amboseli.webp',
     tagline: 'Elefanten unter dem Kilimandscharo',
     description:
       'Der Amboseli-Nationalpark ist eines der ikonischsten Reiseziele Afrikas — ein Park, in dem riesige Elefantenherden vor dem schneebedeckten Kilimandscharo ziehen, dem höchsten Berg Afrikas. An klaren Morgen erhebt sich der Berg mit außerordentlichem Detailreichtum über der Savanne, seine Gletscher von den offenen Ebenen aus sichtbar. Der Park beherbergt über 600 Vogelarten sowie zuverlässige Löwen- und Leopardenpopulationen durch seine Sümpfe, offenen Grasländer und Akazienwälder.',
@@ -381,7 +381,7 @@ export const destinations: Destination[] = [
     name: 'Kenyan Coast',
     region: 'northern',
     country: 'kenya',
-    heroImage: '/images/gallery/zanzibar.jpg',
+    heroImage: '/images/gallery/zanzibar.webp',
     tagline: 'Weißer Korallensand und Suaheli-Kultur',
     description:
       'Die kenianische Küste erstreckt sich über mehr als 500 Kilometer entlang des Indischen Ozeans und bietet weiße Korallensandstrände, türkisfarbenes Wasser und eine lebendige suahelische Küstenkultur. Mombasa — der älteste Hafen Ostafrikas — ankert eine Küstenlinie, die mit Korallenriff-Meeresparks, alten arabischen Handelsposten und einigen der besten Strandresorts Afrikas durchsetzt ist. Malindi, Watamu und Lamu-Insel bieten jeweils entlang einer einzigen spektakulären Küstenlinie unterschiedlichen Charakter.',
@@ -405,7 +405,7 @@ export const destinations: Destination[] = [
     name: 'Lake Nakuru National Park',
     region: 'northern',
     country: 'kenya',
-    heroImage: '/images/gallery/nakuru.jpg',
+    heroImage: '/images/gallery/nakuru.webp',
     tagline: 'Der Flamingosee und Nashorn-Schutzgebiet',
     description:
       'Der Nakuru-Nationalpark schützt einen alkalischen See, der für seine außergewöhnlichen Flamingoschwärme bekannt ist — in der Hochsaison färben bis zu zwei Millionen Zwergflamingos das gesamte Seeufer rosa. Der Park ist auch eines der wichtigsten Nashorn-Schutzgebiete Kenias und beherbergt Schwarz- und Weißnashörner innerhalb eines elektrisch eingezäunten Perimeters. Rothschild-Giraffen, Löwen, Leoparden und große Büffelherden vervollständigen das Wildtierbild.',
@@ -430,7 +430,7 @@ export const destinations: Destination[] = [
     name: 'Ol Pejeta Conservancy',
     region: 'northern',
     country: 'kenya',
-    heroImage: '/images/gallery/pejeta.jpg',
+    heroImage: '/images/gallery/pejeta.webp',
     tagline: 'Die Letzten Nördlichen Weißnashörner',
     description:
       'Das Ol-Pejeta-Reservat beherbergt die beiden letzten nördlichen Weißnashörner der Welt — Najin und Fatu — unter ständigem bewaffnetem Schutz, was es zu einem der wichtigsten Naturschutzstandorte des Planeten macht. Das Reservat beherbergt auch die größte Schwarznashornpopulation Ostafrikas und das einzige Schimpansen-Schutzgebiet Ostafrikas, wo gerettete Schimpansen in einem großen Waldgehege leben. Game Drives führen über weite offene Grasländer mit Blick auf den Kilimandscharo an klaren Tagen.',
@@ -455,7 +455,7 @@ export const destinations: Destination[] = [
     name: 'Samburu National Reserve',
     region: 'northern',
     country: 'kenya',
-    heroImage: '/images/gallery/samburu.jpg',
+    heroImage: '/images/gallery/samburu.webp',
     tagline: 'Seltene Nördliche Arten in Karger Wildnis',
     description:
       "Das Samburu National Reserve ist eines der unverwechselbarsten Wildtierziele Kenias — eine raue, halbtrockene Landschaft entlang des Ewaso-Ng'iro-Flusses, die eine außergewöhnliche Gemeinschaft nördlicher Endemiten beherbergt, die anderswo in Kenia nirgendwo zu finden sind. Die 'Fünf Besonderen von Samburu' — das Grévy-Zebra, die Netzgiraffe, der somalische Strauß, der Gerenuk und der Beisa-Oryx — sind die Hauptattraktionen, neben bemerkenswerten Leopardensichtungen und der lebhaften Kultur des Samburu-Volkes.",
@@ -480,7 +480,7 @@ export const destinations: Destination[] = [
     name: 'Tsavo East and West National Parks',
     region: 'northern',
     country: 'kenya',
-    heroImage: '/images/gallery/tsavo.jpg',
+    heroImage: '/images/gallery/tsavo.webp',
     tagline: 'Kenias Größte Wildnis',
     description:
       'Tsavo Ost und West bilden zusammen Kenias größtes Nationalparksystem und bedecken mehr als 20.000 km² vielfältiger Lebensräume, von halbtrockenen Ebenen bis zu felsigen Lavaströmen, Vulkanhügeln und palmengesäumten Flüssen. Tsavo Ost ist berühmt für seine roten Elefanten — Elefanten, die durch Wälzen im eisenreichen Staub rotoran ge färbt werden — während Tsavo West die Mzima-Quellen bietet, wo kristallklares Wasser aus Vulkangestein sprudelt und Nilpferde durch ein Unterwasserfenster beobachtet werden können.',
@@ -505,7 +505,7 @@ export const destinations: Destination[] = [
     name: 'Akagera National Park',
     region: 'northern',
     country: 'rwanda',
-    heroImage: '/images/gallery/akagera.jpg',
+    heroImage: '/images/gallery/akagera.webp',
     tagline: 'Ruandas Einziger Savannenpark',
     description:
       'Der Akagera-Nationalpark ist Ruandas einziger Savannenpark — ein Mosaik aus offenen Grasländern, dichten Wäldern und einer Seenkette entlang des Akagera-Flusses an der Grenze zu Tansania. Nach Jahren postgenozidaler Instabilität wurde der Park durch eine historische Gemeinschaftspartnerschaft transformiert, die Löwen und Schwarznashörner zurückbrachte, die jahrzehntelang verschwunden waren. Heute bietet Akagera ein vollständiges Big-Five-Erlebnis in einem Park, der sich von Jahr zu Jahr verbessert.',
@@ -530,7 +530,7 @@ export const destinations: Destination[] = [
     name: 'Kigali',
     region: 'northern',
     country: 'rwanda',
-    heroImage: '/images/gallery/kigali-city.jpg',
+    heroImage: '/images/gallery/kigali-city.webp',
     tagline: 'Afrikas Sauberste und Fortschrittlichste Hauptstadt',
     description:
       'Kigali ist eine der bemerkenswertesten Städte Afrikas — sauber, sicher, geordnet und lebendig — ein Zeugnis der außergewöhnlichen Wiedergeburt Ruandas nach dem Völkermord von 1994. Das Kigali-Genozid-Gedenkstätte, gelegen in gepflegten Gärten, wo 250.000 Opfer begraben sind, ist sowohl ein feierlicher Gedenkort als auch eine tiefgründige Lektion in Resilienz und Versöhnung. Jenseits der Gedenkstätte machen die Kunstszene, die Küche und die Hügelviertel von Kigali es zu einer der angenehmsten Hauptstädte des Kontinents.',
@@ -554,7 +554,7 @@ export const destinations: Destination[] = [
     name: 'Lake Kivu',
     region: 'northern',
     country: 'rwanda',
-    heroImage: '/images/gallery/lake-kivu.jpg',
+    heroImage: '/images/gallery/lake-kivu.webp',
     tagline: 'Der Smaragdgrüne See an der Kongogrenze',
     description:
       'Der Kivusee ist einer der Großen Seen Afrikas — eine tiefe, smaragdgrüne Wasserfläche, eingebettet in die Hügel zwischen Ruanda und der Demokratischen Republik Kongo. Die Uferstadt Rubavu (früher Gisenyi) bewahrt kolonialen Charme mit großen Seeufer-Anwesen und einer entspannten Atmosphäre, die im Kontrast zu den intensiveren Naturattraktionen des Landes steht. Der See eignet sich hervorragend zum Kajakfahren, für Sonnenuntergangsbootsfahrten und Schwimmen, während die umliegenden Hügel einige der besten Kaffees Ruandas produzieren.',
@@ -578,7 +578,7 @@ export const destinations: Destination[] = [
     name: 'Nyungwe Forest National Park',
     region: 'northern',
     country: 'rwanda',
-    heroImage: '/images/gallery/nyungwe.jpg',
+    heroImage: '/images/gallery/nyungwe.webp',
     tagline: 'Uralter Regenwald und 13 Primatenarten',
     description:
       'Der Nyungwe-Wald-Nationalpark schützt einen der ältesten und artenreichsten tropischen Bergwälder Afrikas mit 1.019 km² entlang der Kongo-Nil-Wasserscheide. Der Wald beherbergt 13 Primatenarten — darunter Schimpansen und Angola-Stummelaffen in Gruppen von bis zu 400 Individuen, der größten Primaten-Konzentration Afrikas. Über 300 Vogelarten wurden verzeichnet, viele davon im Albertinen-Rift endemisch. Der Baumkronenpfad, 50 Meter über dem Waldboden aufgehängt, bietet eine seltene Vogelperspektive auf dieses uralte Ökosystem.',

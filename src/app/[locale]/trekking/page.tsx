@@ -1,28 +1,93 @@
 import type { Metadata } from 'next'
-import { Link } from '@/i18n/navigation'
+import Link from 'next/link'
 import Image from 'next/image'
-import { getTranslations } from 'next-intl/server'
 import { ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
   Droplets, Pill, HeartPulse, Zap, Package, ShieldCheck } from 'lucide-react'
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 
 export const metadata: Metadata = {
-  title: 'Kilimanjaro Trekking Routes 2026 | Machame, Lemosho & Rongai | EWA',
+  title: 'Kilimanjaro Trekking & Mountain Climbing Tanzania',
   description:
-    "Climb Africa's highest peak with certified local guides. Kilimanjaro Machame, Lemosho, Marangu, Rongai and Umbwe routes. TANAPA certified, 90%+ summit success rate.",
-  keywords: [
-    'Kilimanjaro trekking',
-    'climb Kilimanjaro',
-    'Machame route Kilimanjaro',
-    'Lemosho route Kilimanjaro',
-    'Kilimanjaro summit',
-    'Tanzania mountain climbing',
-    'Kilimanjaro guide',
-    'best route to climb Kilimanjaro',
-    'Kilimanjaro packages 2026',
-    'TANAPA certified Kilimanjaro',
-  ],
+    "Climb Africa's highest peak with Tanzania's most experienced local guides. Machame, Lemosho, Marangu and Rongai routes. TANAPA certified, full safety backup.",
 }
+
+const GEAR_CATEGORIES = [
+  {
+    label: 'Clothing & Warmth',
+    items: [
+      { icon: Layers,      name: 'Layering System',     desc: 'Thermal base layers, fleece mid-layer, waterproof shell jacket & trousers' },
+      { icon: Moon,        name: 'Sleeping Bag',         desc: 'Rated to -10°C / 14°F. Warmth is critical above 4,000m at night' },
+      { icon: Mountain,    name: 'Trekking Boots',       desc: 'Waterproof, ankle-supporting, well broken-in before the climb' },
+      { icon: ShieldCheck, name: 'Gaiters',              desc: 'Keep debris and water out of boots on volcanic scree sections' },
+    ],
+  },
+  {
+    label: 'Essential Gear',
+    items: [
+      { icon: Navigation2, name: 'Trekking Poles',       desc: 'Collapsible poles reduce knee strain significantly on descent' },
+      { icon: Flashlight,  name: 'Headlamp + Batteries', desc: 'Essential for summit night (3am start). Bring spare batteries' },
+      { icon: Package,     name: 'Waterproof Bag',       desc: 'Keep electronics and sleeping bag dry — rain is unpredictable' },
+    ],
+  },
+  {
+    label: 'Health & Safety',
+    items: [
+      { icon: Pill,        name: 'Altitude Medicine',    desc: 'Diamox (acetazolamide) — consult your doctor before the climb' },
+      { icon: HeartPulse,  name: 'First Aid Kit',        desc: 'Blister treatment, ibuprofen, anti-nausea tablets, bandages' },
+      { icon: Sun,         name: 'Sun Protection',        desc: 'SPF 50+ sunscreen, UV-blocking sunglasses, wide-brim hat' },
+    ],
+  },
+  {
+    label: 'Fuel & Hydration',
+    items: [
+      { icon: Droplets,    name: 'Hydration System',     desc: '2–3 litre water bladder or bottles. Water freezes at summit' },
+      { icon: Zap,         name: 'Snacks & Energy',      desc: 'High-calorie snacks: nuts, chocolate, energy gels for summit push' },
+    ],
+  },
+]
+
+const SEASONS = [
+  {
+    label: 'Prime Season',
+    months: 'June → October',
+    desc: 'Cold, dry and clear. Every route fully open. Your best chance of standing on Uhuru Peak.',
+    bullets: [
+      'Clear summit skies on most days',
+      'All 6 routes fully operational',
+      'Dry underfoot — trails at their best',
+      'Peak porter & guide availability',
+    ],
+    chips: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    style: 'prime' as const,
+    warning: null,
+  },
+  {
+    label: 'Shoulder Season',
+    months: 'Dec · Jan · Feb',
+    desc: 'Warm and generally dry. Wildlife-rich around the mountain. Fewer crowds, still great summit odds.',
+    bullets: [
+      'Good visibility & milder temperatures',
+      'Calving season — exceptional wildlife',
+      'Quieter trails than peak months',
+    ],
+    chips: ['Dec', 'Jan', 'Feb'],
+    style: 'good' as const,
+    warning: null,
+  },
+  {
+    label: 'Rain Season',
+    months: 'Mar · Apr · May · Nov',
+    desc: 'Long and short rains bring muddy trails, reduced summit visibility, and lower success rates.',
+    bullets: [
+      'Heavy rainfall — trails become difficult',
+      'Poor summit-day visibility common',
+      'Some high camps partially inaccessible',
+    ],
+    chips: ['Mar', 'Apr', 'May', 'Nov'],
+    style: 'avoid' as const,
+    warning: 'We still run climbs on request — conditions vary significantly year to year.',
+  },
+]
 
 const MONTH_CHIPS = [
   { name: 'Jan', type: 'good' }, { name: 'Feb', type: 'good' },
@@ -30,6 +95,41 @@ const MONTH_CHIPS = [
   { name: 'Jun', type: 'prime' }, { name: 'Jul', type: 'prime' }, { name: 'Aug', type: 'prime' },
   { name: 'Sep', type: 'prime' }, { name: 'Oct', type: 'prime' },
   { name: 'Nov', type: 'avoid' }, { name: 'Dec', type: 'good' },
+]
+
+const ARTICLES = [
+  {
+    category: 'Route Guide',
+    title: 'Machame vs Lemosho: Which Route Is Actually Better?',
+    desc: "Our guides have led thousands on both routes. Here's an honest side-by-side — terrain, success rates, crowd levels and which suits your fitness level.",
+    readTime: '8 min read',
+    href: '/blog',
+    image: '/images/gallery/kilimanjaro.webp',
+  },
+  {
+    category: 'Training',
+    title: 'How to Train for Kilimanjaro: A 12-Week Fitness Plan',
+    desc: "You don't need to be an athlete to summit Kilimanjaro. But preparation is everything. Here's exactly what to do in the 12 weeks before your climb.",
+    readTime: '10 min read',
+    href: '/blog',
+    image: '/images/gallery/kilimanjaro%20(4).webp',
+  },
+  {
+    category: 'Health & Safety',
+    title: 'Altitude Sickness on Kilimanjaro: Prevention & Treatment',
+    desc: 'AMS affects up to 75% of climbers. Understanding the symptoms, prevention steps, and when to descend could be the difference between summit and safety.',
+    readTime: '7 min read',
+    href: '/blog',
+    image: '/images/gallery/kilimanjaro%20(2).webp',
+  },
+  {
+    category: 'Planning',
+    title: 'What Does a Kilimanjaro Climb Actually Cost in 2026?',
+    desc: 'The real numbers — park fees, tips, gear, flights. We break down every cost so you can budget accurately and avoid hidden surprises.',
+    readTime: '6 min read',
+    href: '/blog',
+    image: '/images/gallery/kilimanjaro%20(3).webp',
+  },
 ]
 
 const routes = [
@@ -42,7 +142,7 @@ const routes = [
     priceFrom: 1658,
     desc: 'The most scenic and popular route, nicknamed the "Whiskey Route" for its challenging terrain. Excellent acclimatisation profile with a high-camp, low-sleep approach.',
     href: '/trekking/machame',
-    image: '/images/gallery/kilimanjaro.png',
+    image: '/images/gallery/kilimanjaro.webp',
     badge: 'Most Popular',
   },
   {
@@ -54,7 +154,7 @@ const routes = [
     priceFrom: 1931,
     desc: 'Widely considered the best overall route. Starts remote on the western slope, crosses the Shira Plateau and delivers the highest summit success rate of all standard routes.',
     href: '/trekking/lemosho',
-    image: '/images/gallery/kilimanjaro%20(4).png',
+    image: '/images/gallery/kilimanjaro%20(4).webp',
     badge: 'Recommended',
   },
   {
@@ -66,7 +166,7 @@ const routes = [
     priceFrom: 1523,
     desc: 'The classic route and the only one with hut dormitory accommodation throughout. The most affordable option, though its rapid ascent reduces summit success rates.',
     href: '/trekking/marangu',
-    image: '/images/gallery/kilimanjaro%20(1).png',
+    image: '/images/gallery/kilimanjaro%20(1).webp',
     badge: null,
   },
   {
@@ -78,7 +178,7 @@ const routes = [
     priceFrom: 1960,
     desc: 'The only route approaching from the north near the Kenyan border. Quieter, drier, and ideal during the rainy season. A true wilderness feel with gentle gradients.',
     href: '/trekking/rongai',
-    image: '/images/gallery/kilimanjaro%20(2).png',
+    image: '/images/gallery/kilimanjaro%20(2).webp',
     badge: null,
   },
   {
@@ -90,7 +190,7 @@ const routes = [
     priceFrom: 1880,
     desc: 'The steepest and most direct route — for experienced trekkers only. Gains elevation rapidly through dense forest and dramatic ridgelines before joining the Southern Circuit.',
     href: '/trekking/umbwe',
-    image: '/images/gallery/kilimanjaro%20(3).png',
+    image: '/images/gallery/kilimanjaro%20(3).webp',
     badge: 'Advanced',
   },
   {
@@ -102,87 +202,18 @@ const routes = [
     priceFrom: 2237,
     desc: 'The newest and longest route, circumnavigating the entire mountain for a four-sided view. The extra days deliver the best acclimatisation and the highest summit success rate of any route.',
     href: '/trekking/northern-circuit',
-    image: '/images/gallery/kilimanjaro%20(5).png',
+    image: '/images/gallery/kilimanjaro%20(5).webp',
     badge: 'Best Success Rate',
   },
 ]
 
-export default async function TrekkingPage() {
-  const t = await getTranslations('trekking')
-
-  const gearCategories = [
-    { label: t('gear1Cat'), items: [
-      { icon: Layers,      name: t('gear1item1Name'), desc: t('gear1item1Desc') },
-      { icon: Moon,        name: t('gear1item2Name'), desc: t('gear1item2Desc') },
-      { icon: Mountain,    name: t('gear1item3Name'), desc: t('gear1item3Desc') },
-      { icon: ShieldCheck, name: t('gear1item4Name'), desc: t('gear1item4Desc') },
-    ]},
-    { label: t('gear2Cat'), items: [
-      { icon: Navigation2, name: t('gear2item1Name'), desc: t('gear2item1Desc') },
-      { icon: Flashlight,  name: t('gear2item2Name'), desc: t('gear2item2Desc') },
-      { icon: Package,     name: t('gear2item3Name'), desc: t('gear2item3Desc') },
-    ]},
-    { label: t('gear3Cat'), items: [
-      { icon: Pill,        name: t('gear3item1Name'), desc: t('gear3item1Desc') },
-      { icon: HeartPulse,  name: t('gear3item2Name'), desc: t('gear3item2Desc') },
-      { icon: Sun,         name: t('gear3item3Name'), desc: t('gear3item3Desc') },
-    ]},
-    { label: t('gear4Cat'), items: [
-      { icon: Droplets,    name: t('gear4item1Name'), desc: t('gear4item1Desc') },
-      { icon: Zap,         name: t('gear4item2Name'), desc: t('gear4item2Desc') },
-    ]},
-  ]
-
-  const seasons = [
-    {
-      label: t('season1Label'),
-      months: t('season1Months'),
-      desc: t('season1Desc'),
-      bullets: [t('season1b1'), t('season1b2'), t('season1b3'), t('season1b4')],
-      chips: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-      style: 'prime' as const,
-      warning: null as string | null,
-    },
-    {
-      label: t('season2Label'),
-      months: t('season2Months'),
-      desc: t('season2Desc'),
-      bullets: [t('season2b1'), t('season2b2'), t('season2b3')],
-      chips: ['Dec', 'Jan', 'Feb'],
-      style: 'good' as const,
-      warning: null as string | null,
-    },
-    {
-      label: t('season3Label'),
-      months: t('season3Months'),
-      desc: t('season3Desc'),
-      bullets: [t('season3b1'), t('season3b2'), t('season3b3')],
-      chips: ['Mar', 'Apr', 'May', 'Nov'],
-      style: 'avoid' as const,
-      warning: t('season3Warning') as string | null,
-    },
-  ]
-
-  const articles = [
-    { category: t('article1Cat'), title: t('article1Title'), desc: t('article1Desc'), readTime: t('article1Time'), href: '/blog', image: '/images/gallery/kilimanjaro.png' },
-    { category: t('article2Cat'), title: t('article2Title'), desc: t('article2Desc'), readTime: t('article2Time'), href: '/blog', image: '/images/gallery/kilimanjaro%20(4).png' },
-    { category: t('article3Cat'), title: t('article3Title'), desc: t('article3Desc'), readTime: t('article3Time'), href: '/blog', image: '/images/gallery/kilimanjaro%20(2).png' },
-    { category: t('article4Cat'), title: t('article4Title'), desc: t('article4Desc'), readTime: t('article4Time'), href: '/blog', image: '/images/gallery/kilimanjaro%20(3).png' },
-  ]
-
-  const badgeMap: Record<string, string> = {
-    'Most Popular': t('badgeMostPopular'),
-    'Recommended': t('badgeRecommended'),
-    'Advanced': t('badgeAdvanced'),
-    'Best Success Rate': t('badgeBestRate'),
-  }
-
+export default function TrekkingPage() {
   return (
     <>
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden bg-brand">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/kilimanjaro%20(5).png"
+            src="/images/gallery/kilimanjaro%20(5).webp"
             alt="Kilimanjaro summit at dawn"
             fill
             className="object-cover object-center"
@@ -193,15 +224,15 @@ export default async function TrekkingPage() {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-4">
-              {t('heroEyebrow')}
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
+              Summit Africa
             </span>
             <h1 className="text-5xl lg:text-6xl font-semibold text-white mb-5">
-              {t('heroTitle')}<br />
-              <span className="text-gold">{t('stat1Value')}</span>
+              Kilimanjaro<br />
+              <span className="text-gold">5,895m</span>
             </h1>
             <p className="text-white/70 text-lg">
-              {t('heroTagline')}
+              Africa's highest peak. The world's tallest free-standing mountain. Guided by Tanzania-born experts who have stood on the summit hundreds of times.
             </p>
           </div>
         </div>
@@ -212,9 +243,9 @@ export default async function TrekkingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-12">
             {[
-              { value: t('stat1Value'), label: t('stat1Label'), sub: t('stat1Sub') },
-              { value: t('stat2Value'), label: t('stat2Label'), sub: t('stat2Sub') },
-              { value: t('stat3Value'), label: t('stat3Label'), sub: t('stat3Sub') },
+              { value: '5,895m', label: 'Summit altitude', sub: 'Uhuru Peak' },
+              { value: '7–9 days', label: 'Trek duration', sub: 'Depending on route' },
+              { value: '90%+', label: 'Our success rate', sub: 'With proper acclimatization' },
             ].map(({ value, label, sub }) => (
               <div key={label} className="p-6 bg-light-green rounded-2xl">
                 <div className="text-3xl font-bold text-brand mb-1">{value}</div>
@@ -224,7 +255,7 @@ export default async function TrekkingPage() {
             ))}
           </div>
 
-          <h2 className="text-2xl font-semibold text-brand mb-8">{t('chooseRouteHeading')}</h2>
+          <h2 className="text-2xl font-semibold text-brand mb-8">Choose Your Route</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {routes.map((route) => (
               <Link
@@ -236,29 +267,29 @@ export default async function TrekkingPage() {
                   <Image src={route.image} alt={route.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   {route.badge && (
                     <div className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-brand text-[10px] font-bold uppercase tracking-wider rounded-full">
-                      {badgeMap[route.badge] ?? route.badge}
+                      {route.badge}
                     </div>
                   )}
                 </div>
                 <div className="p-5 flex flex-col flex-1">
                   <div className="mb-3">
                     <h3 className="font-semibold text-brand text-lg leading-tight">{route.name}</h3>
-                    <p className="text-gold text-xs font-medium mt-0.5">{route.nickname}</p>
+                    <p className="text-white/75 text-xs font-medium mt-0.5">{route.nickname}</p>
                   </div>
                   <p className="text-text-muted text-sm mb-4 leading-relaxed flex-1">{route.desc}</p>
                   <div className="flex flex-wrap gap-3 text-xs text-text-muted mb-4">
                     <span>{route.days}</span>
                     <span>{route.difficulty}</span>
-                    <span>{route.successRate}{t('successSuffix')}</span>
+                    <span>{route.successRate} success</span>
                   </div>
                   <div className="flex items-center justify-between pt-3 border-t border-gray-100">
                     <div>
-                      <span className="text-xs text-text-muted">{t('fromLabel')}</span>
+                      <span className="text-xs text-text-muted">From </span>
                       <span className="font-bold text-brand">${route.priceFrom.toLocaleString()}</span>
-                      <span className="text-xs text-text-muted">{t('personLabel')}</span>
+                      <span className="text-xs text-text-muted">/person</span>
                     </div>
                     <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">
-                      {t('viewRoute')} <ArrowRight className="w-3.5 h-3.5" />
+                      View route <ArrowRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </div>
@@ -275,16 +306,16 @@ export default async function TrekkingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="mb-12">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">{t('summitKitEyebrow')}</span>
-            <h2 className="text-3xl font-semibold text-white">{t('packHeading')}</h2>
-            <p className="text-white/50 text-sm mt-2">
-              {t('packSubtitle')}
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Your Summit Kit</span>
+            <h2 className="text-3xl font-semibold text-white">What to Pack</h2>
+            <p className="text-white/70 text-sm mt-2">
+              12 essentials your porters won&rsquo;t carry for you — everything else is handled.
             </p>
           </div>
 
           {/* Category rows */}
           <div className="space-y-8">
-            {gearCategories.map(({ label, items }) => (
+            {GEAR_CATEGORIES.map(({ label, items }) => (
               <div key={label} className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8">
                 {/* Category label */}
                 <div className="sm:w-44 flex-shrink-0 border-l-2 border-gold pl-3">
@@ -300,7 +331,7 @@ export default async function TrekkingPage() {
                       <Icon className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-white text-sm font-semibold leading-tight">{name}</p>
-                        <p className="text-white/45 text-xs mt-0.5 leading-snug max-w-[180px]">{desc}</p>
+                        <p className="text-white/70 text-xs mt-0.5 leading-snug max-w-[180px]">{desc}</p>
                       </div>
                     </div>
                   ))}
@@ -313,9 +344,10 @@ export default async function TrekkingPage() {
           <div className="mt-12 bg-white/8 border border-white/15 rounded-2xl p-6 flex items-start gap-4">
             <span className="text-xl flex-shrink-0">💡</span>
             <div>
-              <p className="text-white font-semibold text-sm mb-1">{t('proTipLabel')}</p>
-              <p className="text-white/55 text-sm leading-relaxed">
-                {t('proTipText')}
+              <p className="text-white font-semibold text-sm mb-1">Pro tip from our guides</p>
+              <p className="text-white/75 text-sm leading-relaxed">
+                The single biggest mistake climbers make is packing too heavy. Every extra kilogram will slow your summit attempt.
+                Our porters carry your main bag (max 15 kg) — keep your day pack to 5–7 kg with just the essentials.
               </p>
             </div>
           </div>
@@ -327,16 +359,16 @@ export default async function TrekkingPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">{t('sumIntelEyebrow')}</span>
-            <h2 className="text-3xl font-semibold text-brand">{t('whenToSummitHeading')}</h2>
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Summit Intelligence</span>
+            <h2 className="text-3xl font-semibold text-brand">When to Summit</h2>
             <p className="text-text-muted text-sm mt-3 max-w-lg mx-auto">
-              {t('whenToSummitSubtitle')}
+              Kilimanjaro never closes — but the mountain rewards those who choose their window wisely.
             </p>
           </div>
 
           {/* Three season cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {seasons.map(({ label, months, desc, bullets, chips, style, warning }) => (
+            {SEASONS.map(({ label, months, desc, bullets, chips, style, warning }) => (
               <div
                 key={label}
                 className={`rounded-3xl p-8 flex flex-col ${
@@ -375,10 +407,10 @@ export default async function TrekkingPage() {
                   {chips.map((c) => (
                     <span key={c} className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
                       style === 'prime'
-                        ? 'bg-gold/20 text-gold border border-gold/30'
+                        ? 'bg-gold/20 text-amber-200 border border-gold/30'
                         : style === 'good'
                         ? 'bg-brand/10 text-brand border border-brand/15'
-                        : 'bg-gray-100 text-text-muted border border-gray-300'
+                        : 'bg-gray-100 text-gray-600 border border-gray-300'
                     }`}>{c}</span>
                   ))}
                 </div>
@@ -401,7 +433,7 @@ export default async function TrekkingPage() {
                   ? 'bg-gold/15 text-brand border-gold/40'
                   : type === 'good'
                   ? 'bg-brand/10 text-brand border-brand/20'
-                  : 'bg-gray-100 text-text-muted border-gray-200'
+                  : 'bg-gray-100 text-gray-600 border-gray-200'
               }`}>{name}</span>
             ))}
           </div>
@@ -413,26 +445,26 @@ export default async function TrekkingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">{t('expeditionEyebrow')}</span>
-              <h2 className="text-3xl font-semibold text-brand">{t('beforeClimbHeading')}</h2>
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Expedition Notes</span>
+              <h2 className="text-3xl font-semibold text-brand">Before You Climb</h2>
               <p className="text-text-muted text-sm mt-2 max-w-md">
-                {t('beforeClimbSubtitle')}
+                Field-tested knowledge from our guides, written for climbers who want to be genuinely prepared.
               </p>
             </div>
             <Link href="/blog" className="flex-shrink-0 flex items-center gap-1.5 text-brand font-semibold text-sm hover:text-gold transition-colors">
-              {t('browseAllArticles')} <ArrowRight className="w-4 h-4" />
+              Browse all articles <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
           {/* Featured article — full-width hero card */}
           <Link
-            href={articles[0].href}
+            href={ARTICLES[0].href}
             className="group relative rounded-3xl overflow-hidden flex items-end mb-6 block"
             style={{ minHeight: 360 }}
           >
             <Image
-              src={articles[0].image}
-              alt={articles[0].title}
+              src={ARTICLES[0].image}
+              alt={ARTICLES[0].title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
               sizes="100vw"
@@ -441,21 +473,21 @@ export default async function TrekkingPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/40 to-transparent" />
             <div className="relative z-10 p-8 md:p-10">
               <span className="inline-block px-3 py-1 bg-gold text-brand text-[10px] font-bold uppercase tracking-widest rounded-full mb-4">
-                {articles[0].category}
+                {ARTICLES[0].category}
               </span>
               <h3 className="text-white font-bold text-2xl md:text-3xl leading-tight mb-3 max-w-2xl">
-                {articles[0].title}
+                {ARTICLES[0].title}
               </h3>
-              <p className="text-white/65 text-sm mb-5 max-w-xl hidden sm:block">{articles[0].desc}</p>
+              <p className="text-white/65 text-sm mb-5 max-w-xl hidden sm:block">{ARTICLES[0].desc}</p>
               <span className="inline-flex items-center gap-2 text-gold font-semibold text-sm group-hover:gap-3 transition-all">
-                {t('readTheGuide')} <ArrowRight className="w-4 h-4" />
+                Read the guide <ArrowRight className="w-4 h-4" />
               </span>
             </div>
           </Link>
 
           {/* Three supporting cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {articles.slice(1).map(({ category, title, readTime, href, image }) => (
+            {ARTICLES.slice(1).map(({ category, title, readTime, href, image }) => (
               <Link
                 key={title}
                 href={href}
@@ -471,14 +503,14 @@ export default async function TrekkingPage() {
                   />
                 </div>
                 <div className="p-5 flex flex-col flex-1">
-                  <span className="inline-block px-2.5 py-0.5 bg-gold/10 text-gold text-[10px] font-bold uppercase tracking-wider rounded-full mb-3 self-start">
+                  <span className="inline-block px-2.5 py-0.5 bg-gold/10 text-gold-label text-[10px] font-bold uppercase tracking-wider rounded-full mb-3 self-start">
                     {category}
                   </span>
                   <h3 className="font-bold text-brand text-sm leading-snug mb-auto">{title}</h3>
                   <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
                     <span className="text-xs text-text-muted">{readTime}</span>
                     <span className="flex items-center gap-1 text-brand text-xs font-semibold group-hover:text-gold transition-colors">
-                      {t('readLabel')} <ArrowRight className="w-3 h-3" />
+                      Read <ArrowRight className="w-3 h-3" />
                     </span>
                   </div>
                 </div>
@@ -491,10 +523,10 @@ export default async function TrekkingPage() {
       {/* CTA */}
       <section className="py-16 bg-brand text-center">
         <div className="max-w-xl mx-auto px-4">
-          <h2 className="text-3xl font-semibold text-white mb-4">{t('ctaHeading')}</h2>
-          <p className="text-white/70 mb-8">{t('ctaSubtitle')}</p>
+          <h2 className="text-3xl font-semibold text-white mb-4">Ready for the Summit?</h2>
+          <p className="text-white/70 mb-8">Tell us your fitness level, dates, and budget — we'll match you with the perfect Kilimanjaro route.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors">
-            {t('ctaButton')} <ArrowRight className="w-4 h-4" />
+            Plan My Kilimanjaro Trek <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

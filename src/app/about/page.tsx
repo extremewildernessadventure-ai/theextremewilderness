@@ -65,10 +65,10 @@ const team = [
 
 const galleryImages = [
   '/images/gallery/serengeti (1).png',
-  '/images/gallery/safari-007.jpg',
+  '/images/gallery/safari-007.webp',
   '/images/gallery/kilimanjaro (1).png',
-  '/images/gallery/elephants.png',
-  '/images/gallery/safari-014.jpg',
+  '/images/gallery/elephants.webp',
+  '/images/gallery/safari-014.webp',
   '/images/gallery/zanzibar (1).png',
 ]
 
@@ -113,7 +113,7 @@ export default function AboutPage() {
         <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2">
           <div className="absolute inset-y-0 left-0 w-32 z-10 bg-gradient-to-r from-brand to-transparent" />
           <Image
-            src="/images/gallery/elephants.png"
+            src="/images/gallery/elephants.webp"
             alt="Serengeti at sunrise"
             fill
             className="object-cover"
@@ -125,7 +125,7 @@ export default function AboutPage() {
         {/* Mobile: faint image overlay */}
         <div className="lg:hidden absolute inset-0 z-0">
           <Image
-            src="/images/gallery/elephants.png"
+            src="/images/gallery/elephants.webp"
             alt="Serengeti at sunrise"
             fill
             className="object-cover opacity-20"
@@ -144,7 +144,7 @@ export default function AboutPage() {
                 <Icon className="w-5 h-5 text-gold mb-3" />
                 <span className="text-4xl font-black text-gold leading-none mb-1">{value}</span>
                 <span className="text-white text-sm font-semibold">{label}</span>
-                <span className="text-white/50 text-xs mt-0.5">{sub}</span>
+                <span className="text-white/70 text-xs mt-0.5">{sub}</span>
               </div>
             ))}
           </div>
@@ -374,7 +374,7 @@ export default function AboutPage() {
                     <Mail className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <p className="text-xs text-white/50 mb-0.5">Email</p>
+                    <p className="text-xs text-white/70 mb-0.5">Email</p>
                     <p className="text-sm font-medium">info@theextremewilderness.com</p>
                   </div>
                 </a>
@@ -386,7 +386,7 @@ export default function AboutPage() {
                     <Phone className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <p className="text-xs text-white/50 mb-0.5">Phone / WhatsApp</p>
+                    <p className="text-xs text-white/70 mb-0.5">Phone / WhatsApp</p>
                     <p className="text-sm font-medium">+255 (0) 767 000 000</p>
                   </div>
                 </a>
@@ -395,7 +395,7 @@ export default function AboutPage() {
                     <MapPin className="w-5 h-5 text-gold" />
                   </div>
                   <div>
-                    <p className="text-xs text-white/50 mb-0.5">Office</p>
+                    <p className="text-xs text-white/70 mb-0.5">Office</p>
                     <p className="text-sm font-medium">Arusha, Tanzania</p>
                   </div>
                 </div>

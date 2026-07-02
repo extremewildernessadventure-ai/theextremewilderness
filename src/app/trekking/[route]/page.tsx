@@ -84,11 +84,11 @@ const routeData: Record<string, RouteInfo> = {
     id: 'machame',
     name: 'Machame Route',
     nickname: 'The Whiskey Route',
-    heroImage: '/images/gallery/kilimanjaro.png',
+    heroImage: '/images/gallery/kilimanjaro.webp',
     galleryImages: [
-      '/images/gallery/machame1.jpg',
-      '/images/gallery/Barafu-Camp.jpg',
-      '/images/gallery/Uhuru-Peak.jpg',
+      '/images/gallery/machame1.webp',
+      '/images/gallery/Barafu-Camp.webp',
+      '/images/gallery/Uhuru-Peak.webp',
     ],
     mapFile: 'machame.webp',
     difficulty: 'Hard',
@@ -206,11 +206,11 @@ const routeData: Record<string, RouteInfo> = {
     id: 'lemosho',
     name: 'Lemosho Route',
     nickname: 'The Scenic Route',
-    heroImage: '/images/gallery/kilimanjaro%20(4).png',
+    heroImage: '/images/gallery/kilimanjaro%20(4).webp',
     galleryImages: [
-      '/images/gallery/Lemosho.jpg',
-      '/images/gallery/Shira-1-Camp.jpeg',
-      '/images/gallery/Uhuru-Peak-1.jpg',
+      '/images/gallery/Lemosho.webp',
+      '/images/gallery/Shira-1-Camp.webp',
+      '/images/gallery/Uhuru-Peak-1.webp',
     ],
     mapFile: 'lemosho.webp',
     difficulty: 'Moderate',
@@ -348,11 +348,11 @@ const routeData: Record<string, RouteInfo> = {
     id: 'marangu',
     name: 'Marangu Route',
     nickname: 'The Coca-Cola Route',
-    heroImage: '/images/gallery/kilimanjaro%20(1).png',
+    heroImage: '/images/gallery/kilimanjaro%20(1).webp',
     galleryImages: [
-      '/images/gallery/marangu.jpg',
-      '/images/gallery/Horombo-Hut.png',
-      '/images/gallery/Uhuru-Peak-7.jpg',
+      '/images/gallery/marangu.webp',
+      '/images/gallery/Horombo-Hut.webp',
+      '/images/gallery/Uhuru-Peak-7.webp',
     ],
     mapFile: 'marangu.webp',
     difficulty: 'Moderate',
@@ -460,11 +460,11 @@ const routeData: Record<string, RouteInfo> = {
     id: 'rongai',
     name: 'Rongai Route',
     nickname: 'The Northern Approach',
-    heroImage: '/images/gallery/kilimanjaro%20(2).png',
+    heroImage: '/images/gallery/kilimanjaro%20(2).webp',
     galleryImages: [
-      '/images/gallery/rongai-1.jpg',
-      '/images/gallery/Moir-Hut.jpg',
-      '/images/gallery/Uhuru-Peak.jpg',
+      '/images/gallery/rongai-1.webp',
+      '/images/gallery/Moir-Hut.webp',
+      '/images/gallery/Uhuru-Peak.webp',
     ],
     mapFile: 'rongai.webp',
     difficulty: 'Easy–Moderate',
@@ -582,11 +582,11 @@ const routeData: Record<string, RouteInfo> = {
     id: 'umbwe',
     name: 'Umbwe Route',
     nickname: 'The Direct Route',
-    heroImage: '/images/gallery/kilimanjaro%20(3).png',
+    heroImage: '/images/gallery/kilimanjaro%20(3).webp',
     galleryImages: [
-      '/images/gallery/Umbwe-Route.jpg',
-      '/images/gallery/Barranco-Camp.jpg',
-      '/images/gallery/Uhuru-Peak-1.jpg',
+      '/images/gallery/Umbwe-Route.webp',
+      '/images/gallery/Barranco-Camp.webp',
+      '/images/gallery/Uhuru-Peak-1.webp',
     ],
     mapFile: 'umbwe.webp',
     difficulty: 'Very Hard',
@@ -704,11 +704,11 @@ const routeData: Record<string, RouteInfo> = {
     id: 'northern-circuit',
     name: 'Northern Circuit',
     nickname: 'The Longest Route',
-    heroImage: '/images/gallery/kilimanjaro%20(5).png',
+    heroImage: '/images/gallery/kilimanjaro%20(5).webp',
     galleryImages: [
-      '/images/gallery/kilimanjaro%20(2).png',
-      '/images/gallery/Moir-Hut-2.jpg',
-      '/images/gallery/kilimanjaro%20(1).png',
+      '/images/gallery/kilimanjaro%20(2).webp',
+      '/images/gallery/Moir-Hut-2.webp',
+      '/images/gallery/kilimanjaro%20(1).webp',
     ],
     mapFile: 'northern-circuit.webp',
     difficulty: 'Moderate',
@@ -916,7 +916,7 @@ export default async function RouteDetailPage({
 
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
               <div>
-                <p className="text-gold font-semibold text-xs uppercase tracking-widest mb-2">
+                <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-2">
                   {data.nickname}
                 </p>
                 <h1 className="text-4xl lg:text-6xl font-semibold text-white mb-2 leading-tight">
@@ -956,7 +956,7 @@ export default async function RouteDetailPage({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Overview */}
             <div className="lg:col-span-2">
-              <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Route Overview</span>
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Route Overview</span>
               <h2 className="text-2xl font-semibold text-brand mb-4">About the {data.name}</h2>
               <p className="text-text-muted leading-relaxed mb-6">{data.overview}</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -1028,7 +1028,7 @@ export default async function RouteDetailPage({
       <section className="py-16 bg-light-green">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Day by Day</span>
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Day by Day</span>
             <h2 className="text-3xl font-semibold text-brand">Itinerary</h2>
           </div>
 
@@ -1073,7 +1073,7 @@ export default async function RouteDetailPage({
       {/* ── Route Map ───────────────────────────────────────────────── */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Trail Map</span>
+          <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Trail Map</span>
           <h2 className="text-3xl font-semibold text-brand mb-8">Route Overview Map</h2>
           <div className="w-full rounded-2xl overflow-hidden border border-brand/10 shadow-lg">
             <KiliRouteMapSVG routeId={data.id} />
@@ -1086,7 +1086,7 @@ export default async function RouteDetailPage({
       <section className="py-16 bg-light-green">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Pricing</span>
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Pricing</span>
             <h2 className="text-3xl font-semibold text-brand">Choose Your Duration</h2>
             <p className="text-text-muted text-sm mt-3 max-w-md mx-auto">All prices are per person and include everything listed below. Reduced rates for groups of 4+.</p>
           </div>
@@ -1156,7 +1156,7 @@ export default async function RouteDetailPage({
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-3">Questions</span>
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Questions</span>
             <h2 className="text-3xl font-semibold text-brand">Frequently Asked</h2>
           </div>
 

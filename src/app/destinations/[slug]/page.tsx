@@ -216,7 +216,7 @@ export default async function DestinationPage({ params }: Props) {
             packageType="Wildlife Safari"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
           />
-          <p className="text-white/50 text-xs mt-4">No payment required · Response within 2 hours</p>
+          <p className="text-white/70 text-xs mt-4">No payment required · Response within 2 hours</p>
         </div>
       </section>
     </>

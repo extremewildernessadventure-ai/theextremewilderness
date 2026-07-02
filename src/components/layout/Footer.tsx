@@ -60,7 +60,7 @@ export default async function Footer() {
           <div className="xl:row-span-2">
             <div className="flex mb-4 justify-center md:justify-start">
               <Image
-                src="/EWA logo.png"
+                src="/EWA logo.webp"
                 alt="EWA Safari Outfitters"
                 width={200}
                 height={100}
@@ -174,7 +174,7 @@ export default async function Footer() {
                 ))}
               </div>
               <p className="text-white font-bold text-lg">4.9 / 5</p>
-              <p className="text-white/60 text-xs uppercase tracking-widest mt-0.5">{t('trustGuests')}</p>
+              <p className="text-white/75 text-xs uppercase tracking-widest mt-0.5">{t('trustGuests')}</p>
             </div>
 
             <div className="hidden sm:block w-px h-10 bg-white/10 shrink-0 self-center" />
@@ -187,7 +187,7 @@ export default async function Footer() {
               ] as const).map(({ value, label }) => (
                 <div key={value}>
                   <p className="text-gold font-bold text-lg">{value}</p>
-                  <p className="text-white/60 text-xs uppercase tracking-widest mt-0.5">{label}</p>
+                  <p className="text-white/75 text-xs uppercase tracking-widest mt-0.5">{label}</p>
                 </div>
               ))}
             </div>
@@ -195,7 +195,7 @@ export default async function Footer() {
             <div className="hidden sm:block w-px h-10 bg-white/10 shrink-0 self-center" />
 
             <blockquote className="border-l-2 border-gold pl-3 text-left">
-              <p className="text-white/60 text-sm leading-relaxed italic">{t('trustQuote')}</p>
+              <p className="text-white/75 text-sm leading-relaxed italic">{t('trustQuote')}</p>
               <footer className="mt-1.5 text-gold text-xs font-semibold not-italic">{t('trustQuoteAuthor')}</footer>
             </blockquote>
 
@@ -204,7 +204,7 @@ export default async function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 py-6 flex flex-col items-center gap-3 text-sm text-white/50 sm:flex-row sm:justify-between">
+        <div className="border-t border-white/10 py-6 flex flex-col items-center gap-3 text-sm text-white/70 sm:flex-row sm:justify-between">
           <p>{t('copyright', { year: new Date().getFullYear() })}</p>
           <p className="text-xs">Developed by <a href="https://matowodev.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">MatowoDev</a></p>
           <div className="flex items-center gap-5">
