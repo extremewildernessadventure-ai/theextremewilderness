@@ -17,7 +17,7 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
   const btnCls = dark
     ? 'w-full py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed'
     : 'w-full py-3 bg-brand hover:bg-brand-secondary text-white font-bold rounded-xl transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed'
-  const noteCls = dark ? 'text-white/30 text-xs text-center' : 'text-gray-400 text-xs text-center'
+  const noteCls = dark ? 'text-white/60 text-xs text-center' : 'text-gray-400 text-xs text-center'
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -45,16 +45,21 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
 
   return (
     <form className="space-y-3" onSubmit={handleSubmit}>
+      <label htmlFor="nl-name" className="sr-only">{tf('yourNamePlaceholder')}</label>
       <input
+        id="nl-name"
         type="text"
         placeholder={tf('yourNamePlaceholder')}
         value={name}
         onChange={(e) => setName(e.target.value)}
         className={inputCls}
       />
+      <label htmlFor="nl-email" className="sr-only">{tf('yourEmailPlaceholder')}</label>
       <input
+        id="nl-email"
         type="email"
         required
+        aria-required="true"
         placeholder={tf('yourEmailPlaceholder')}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
@@ -64,7 +69,7 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
         {status === 'loading' ? tf('subscribing') : tf('subscribeButton')}
       </button>
       {status === 'error' && (
-        <p className="text-red-400 text-xs text-center">{tf('subscribeError')}</p>
+        <p role="alert" className="text-red-400 text-xs text-center">{tf('subscribeError')}</p>
       )}
       <p className={noteCls}>{tf('noSpam')}</p>
     </form>

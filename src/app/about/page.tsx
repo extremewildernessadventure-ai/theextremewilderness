@@ -400,7 +400,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              <p className="text-white/40 text-xs">We typically respond within 2–4 hours during business hours (EAT, UTC+3).</p>
+              <p className="text-white/60 text-xs">We typically respond within 2–4 hours during business hours (EAT, UTC+3).</p>
             </div>
 
           </div>

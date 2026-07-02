@@ -319,7 +319,7 @@ export default function TrekkingPage() {
               <div key={label} className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8">
                 {/* Category label */}
                 <div className="sm:w-44 flex-shrink-0 border-l-2 border-gold pl-3">
-                  <p className="text-white/40 text-xs font-bold uppercase tracking-widest leading-tight">{label}</p>
+                  <p className="text-white/60 text-xs font-bold uppercase tracking-widest leading-tight">{label}</p>
                 </div>
                 {/* Items */}
                 <div className="flex flex-wrap gap-3">

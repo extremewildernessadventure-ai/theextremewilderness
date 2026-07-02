@@ -6,19 +6,20 @@ import BookNowButton from '@/components/booking/BookNowButton'
 import { getTranslations } from 'next-intl/server'
 
 export const metadata: Metadata = {
-  title: 'Rwanda Safari & Gorilla Trekking | Volcanoes, Nyungwe & Akagera',
+  title: 'Rwanda Gorilla Trekking 2026 | Volcanoes National Park Permits & Safaris',
   description:
-    "Discover Rwanda — the Land of a Thousand Hills. Track endangered mountain gorillas in Volcanoes National Park, trek with chimpanzees in Nyungwe's ancient rainforest, and safari the Big Five in Akagera.",
+    "Book gorilla trekking in Rwanda with certified guides. Volcanoes National Park gorilla permits, mountain gorilla tracking, chimpanzee trekking Nyungwe, Big Five Akagera. 2026 packages.",
   keywords: [
-    'Rwanda gorilla trekking',
-    'Volcanoes National Park gorillas',
-    'Nyungwe chimpanzee trekking',
-    'Akagera National Park',
-    'Lake Kivu Rwanda',
-    'Kigali city tour',
-    'Rwanda safari',
-    'mountain gorilla Rwanda',
-    'East Africa gorilla permit',
+    'gorilla trekking Rwanda',
+    'Rwanda gorilla permit',
+    'Volcanoes National Park gorilla trekking',
+    'mountain gorilla Rwanda 2026',
+    'book gorilla permit Rwanda',
+    'Rwanda safari packages',
+    'chimpanzee trekking Nyungwe',
+    'Rwanda gorilla tour operator',
+    'gorilla trekking cost Rwanda',
+    'East Africa gorilla safari',
   ],
 }
 
@@ -304,7 +305,7 @@ export default async function RwandaPage() {
                       <p className="text-white font-bold text-sm">{d.label}</p>
                       <p className="text-white/50 text-xs mt-0.5 truncate">{d.desc}</p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-gold transition-colors flex-shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors flex-shrink-0" />
                   </a>
                 ))}
               </div>
@@ -692,7 +693,7 @@ export default async function RwandaPage() {
                   {t('exploreTanzaniaToo')} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-              <p className="text-white/40 text-xs mt-6">
+              <p className="text-white/60 text-xs mt-6">
                 <Users className="inline w-3 h-3 mr-1" />
                 Solo travellers &middot; Couples &middot; Families &middot; Private groups &mdash; all welcome
               </p>

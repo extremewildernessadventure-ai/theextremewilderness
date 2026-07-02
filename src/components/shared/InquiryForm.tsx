@@ -197,21 +197,21 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <Label>{t('firstName')}</Label>
-                <input name="firstName" required value={form.firstName} onChange={handleChange} placeholder="Jane" className={inputCls} />
+                <input name="firstName" required aria-required="true" value={form.firstName} onChange={handleChange} placeholder="Jane" className={inputCls} />
               </div>
               <div>
                 <Label>{t('lastName')}</Label>
-                <input name="lastName" required value={form.lastName} onChange={handleChange} placeholder="Smith" className={inputCls} />
+                <input name="lastName" required aria-required="true" value={form.lastName} onChange={handleChange} placeholder="Smith" className={inputCls} />
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <Label>{t('emailAddress')}</Label>
-                <input name="email" type="email" required value={form.email} onChange={handleChange} placeholder="jane@email.com" className={inputCls} />
+                <input name="email" type="email" required aria-required="true" value={form.email} onChange={handleChange} placeholder="jane@email.com" className={inputCls} />
               </div>
               <div>
                 <Label>{t('phoneWhatsapp')}</Label>
-                <input name="phone" type="tel" required value={form.phone} onChange={handleChange} placeholder="+1 555 000 0000" className={inputCls} />
+                <input name="phone" type="tel" required aria-required="true" value={form.phone} onChange={handleChange} placeholder="+1 555 000 0000" className={inputCls} />
               </div>
             </div>
             <div>

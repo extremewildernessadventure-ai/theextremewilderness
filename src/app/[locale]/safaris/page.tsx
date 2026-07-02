@@ -8,8 +8,20 @@ import { getPackages } from '@/data/packages.i18n'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Safari Packages | Tanzania & East Africa',
-    description: 'Browse our curated safari packages — custom-built for you by Tanzania-based experts.',
+    title: 'Tanzania Safari Packages 2026 | Serengeti, Ngorongoro & More | EWA',
+    description: 'Book Tanzania safari packages with a certified local operator. Serengeti, Ngorongoro, Zanzibar combos, and luxury family safaris from $1,000/person. Best Tanzania safari 2026.',
+    keywords: [
+      'Tanzania safari packages',
+      'book Tanzania safari',
+      'Serengeti safari 2026',
+      'Ngorongoro safari package',
+      'Tanzania safari tour operator',
+      'luxury safari Tanzania',
+      'family safari Tanzania',
+      'Zanzibar safari combo',
+      'East Africa safari',
+      'Tanzania wildlife safari',
+    ],
   }
 }
 

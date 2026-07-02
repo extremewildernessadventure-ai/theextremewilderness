@@ -92,6 +92,7 @@ export default function EnquiryModal() {
   const t = useTranslations('forms')
   const { isOpen, bookingInfo, closeBooking } = useBooking()
   const scrollRef = useRef<HTMLDivElement>(null)
+  const modalRef = useRef<HTMLDivElement>(null)
 
   // Translated option arrays
   const TRIP_TYPES = [
@@ -204,6 +205,26 @@ export default function EnquiryModal() {
     return () => window.removeEventListener('keydown', onKey)
   }, [isOpen, closeBooking])
 
+  useEffect(() => {
+    if (!isOpen || !modalRef.current) return
+    const focusable = modalRef.current.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    first?.focus()
+    const trap = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last?.focus() }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first?.focus() }
+      }
+    }
+    document.addEventListener('keydown', trap)
+    return () => document.removeEventListener('keydown', trap)
+  }, [isOpen])
+
   const toggleSpecialReq = (req: string) => {
     setSpecialReqs((prev) =>
       prev.includes(req) ? prev.filter((r) => r !== req) : [...prev, req]
@@ -257,7 +278,13 @@ export default function EnquiryModal() {
       <div className="absolute inset-0 bg-brand/75 backdrop-blur-sm" />
 
       {/* Modal card */}
-      <div className="relative z-10 w-full max-w-2xl max-h-[92vh] flex flex-col bg-white rounded-3xl shadow-2xl overflow-hidden">
+      <div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        className="relative z-10 w-full max-w-2xl max-h-[92vh] flex flex-col bg-white rounded-3xl shadow-2xl overflow-hidden"
+      >
 
         {/* ── Header ─────────────────────────────────────────────── */}
         <div className="flex-shrink-0 bg-brand px-6 pt-6 pb-5">
@@ -274,7 +301,7 @@ export default function EnquiryModal() {
               <Tent className="w-5 h-5 text-brand" />
             </div>
             <div>
-              <h2 className="text-white font-bold text-xl leading-tight">{t('planYourTrip')}</h2>
+              <h2 id="modal-title" className="text-white font-bold text-xl leading-tight">{t('planYourTrip')}</h2>
               <p className="text-white/70 text-sm mt-0.5">{t('modalSubheading')}</p>
             </div>
           </div>
@@ -322,7 +349,7 @@ export default function EnquiryModal() {
                   <div>
                     <Label>{t('firstNameLabel')}</Label>
                     <input
-                      type="text" required value={firstName}
+                      type="text" required aria-required="true" value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       placeholder="Jane" className={inputCls}
                     />
@@ -330,7 +357,7 @@ export default function EnquiryModal() {
                   <div>
                     <Label>{t('lastNameLabel')}</Label>
                     <input
-                      type="text" required value={lastName}
+                      type="text" required aria-required="true" value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       placeholder="Smith" className={inputCls}
                     />
@@ -342,7 +369,7 @@ export default function EnquiryModal() {
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
-                        type="email" required value={email}
+                        type="email" required aria-required="true" value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="jane@email.com"
                         className={inputCls + ' pl-10'}
@@ -354,7 +381,7 @@ export default function EnquiryModal() {
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
-                        type="tel" required value={phone}
+                        type="tel" required aria-required="true" value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="+1 555 000 0000"
                         className={inputCls + ' pl-10'}

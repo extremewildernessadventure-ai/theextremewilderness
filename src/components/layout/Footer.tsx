@@ -174,7 +174,7 @@ export default async function Footer() {
                 ))}
               </div>
               <p className="text-white font-bold text-lg">4.9 / 5</p>
-              <p className="text-white/40 text-xs uppercase tracking-widest mt-0.5">{t('trustGuests')}</p>
+              <p className="text-white/60 text-xs uppercase tracking-widest mt-0.5">{t('trustGuests')}</p>
             </div>
 
             <div className="hidden sm:block w-px h-10 bg-white/10 shrink-0 self-center" />
@@ -187,7 +187,7 @@ export default async function Footer() {
               ] as const).map(({ value, label }) => (
                 <div key={value}>
                   <p className="text-gold font-bold text-lg">{value}</p>
-                  <p className="text-white/40 text-xs uppercase tracking-widest mt-0.5">{label}</p>
+                  <p className="text-white/60 text-xs uppercase tracking-widest mt-0.5">{label}</p>
                 </div>
               ))}
             </div>

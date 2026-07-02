@@ -120,7 +120,7 @@ export default async function TravelInfoPage() {
               <div key={label} className="flex gap-3 items-start">
                 <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0" />
                 <div>
-                  <p className="text-white/40 text-xs uppercase tracking-wider mb-0.5">{label}</p>
+                  <p className="text-white/60 text-xs uppercase tracking-wider mb-0.5">{label}</p>
                   <p className="text-white text-sm font-medium">{value}</p>
                 </div>
               </div>

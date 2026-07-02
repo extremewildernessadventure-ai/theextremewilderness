@@ -8,20 +8,20 @@ import { getLocale } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
 
 export const metadata: Metadata = {
-  title: 'Kenya Safari Destinations | Masai Mara, Amboseli & More',
+  title: 'Kenya Safari Packages 2026 | Masai Mara, Amboseli & Great Migration',
   description:
-    "Discover Kenya's finest safari destinations — Masai Mara's Great Migration, Amboseli's elephant herds beneath Kilimanjaro, rare northern species in Samburu, and the pristine Kenyan Coast. Expert-guided packages from Arusha.",
+    "Book Kenya safari packages — Masai Mara Great Migration, Amboseli elephant herds, Samburu rare species. Combined Kenya-Tanzania safaris from $1,200/person. TATO certified.",
   keywords: [
-    'Kenya safari',
-    'Masai Mara safari',
-    'Amboseli National Park',
+    'Kenya safari packages',
+    'Masai Mara safari 2026',
+    'Great Migration Masai Mara',
+    'Kenya safari tour operator',
+    'Amboseli National Park safari',
     'Samburu National Park',
-    'Tsavo National Park',
-    'Ol Pejeta Conservancy',
-    'Lake Nakuru',
-    'Kenyan Coast Diani',
-    'Great Migration Kenya',
-    'Kenya Tanzania safari',
+    'Kenya Tanzania safari combo',
+    'best time Masai Mara',
+    'Kenyan safari holidays',
+    'luxury Kenya safari',
   ],
 }
 
@@ -275,7 +275,7 @@ export default async function KenyaPage() {
                       <p className="text-white font-bold text-sm">{d.label}</p>
                       <p className="text-white/50 text-xs truncate">{d.desc}</p>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-white/30 group-hover:text-gold transition-colors flex-shrink-0" />
+                    <ArrowRight className="w-3.5 h-3.5 text-white/60 group-hover:text-gold transition-colors flex-shrink-0" />
                   </a>
                 ))}
               </div>
@@ -655,7 +655,7 @@ export default async function KenyaPage() {
                   {t('exploreTanzaniaToo')} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-              <p className="text-white/40 text-xs mt-6">
+              <p className="text-white/60 text-xs mt-6">
                 <Users className="inline w-3 h-3 mr-1" />
                 Private groups &middot; Solo travellers &middot; Honeymoons &middot; Family safaris &mdash; all welcome
               </p>

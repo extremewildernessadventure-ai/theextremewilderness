@@ -911,8 +911,27 @@ export default async function RouteDetailPage({
     t('excluded4'), t('excluded5'), t('excluded6'),
   ]
 
+  const faqSchema = data.faqs?.length ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: data.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  } : null
+
   return (
     <>
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative h-[70vh] min-h-[520px] flex items-end overflow-hidden">
         <Image

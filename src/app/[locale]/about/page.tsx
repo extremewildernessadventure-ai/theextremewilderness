@@ -10,8 +10,18 @@ import {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'About Us | The Extreme Wilderness',
-    description: "Tanzania-born and locally owned since 2022. Meet the guides and team behind The Extreme Wilderness.",
+    title: 'About Extreme Wilderness Adventure | Best Tanzania Safari Operator 2026',
+    description: 'Tanzania-born, locally owned, TATO-registered safari operator. Expert guides, small group safaris, and 100% personalised itineraries. Rated 4.9/5 by 200+ guests.',
+    keywords: [
+      'best Tanzania safari operator',
+      'Tanzania safari company',
+      'local Tanzania tour operator',
+      'Tanzania safari guide',
+      'TATO registered safari',
+      'Arusha safari company',
+      'small group safari Tanzania',
+      'Tanzania safari reviews',
+    ],
   }
 }
 
@@ -308,7 +318,7 @@ export default async function AboutPage() {
                   </div>
                 </div>
               </div>
-              <p className="text-white/40 text-xs">{t('responseNote')}</p>
+              <p className="text-white/60 text-xs">{t('responseNote')}</p>
             </div>
           </div>
         </div>

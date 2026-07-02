@@ -38,8 +38,36 @@ export default async function SafariPackagePage({ params }: Props) {
   const t = await getTranslations('safari')
   const tc = await getTranslations('common')
 
+  const touristTripSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Trip',
+    name: pkg.name,
+    description: `${pkg.name} — ${pkg.duration} nights, starting from $${pkg.priceFrom.toLocaleString()} per person. ${pkg.highlights[0]}.`,
+    image: `https://theextremewilderness.com${pkg.heroImage}`,
+    provider: {
+      '@type': 'Organization',
+      name: 'Extreme Wilderness Adventure',
+      url: 'https://theextremewilderness.com',
+    },
+    offers: {
+      '@type': 'Offer',
+      price: pkg.priceFrom,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      url: `https://theextremewilderness.com/${locale}/safaris/${pkg.slug}`,
+    },
+    itinerary: {
+      '@type': 'ItemList',
+      numberOfItems: pkg.duration,
+    },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(touristTripSchema) }}
+      />
       {/* Hero */}
       <section className="relative h-[55vh] min-h-80 bg-brand flex items-end">
         <Image src={pkg.heroImage} alt={pkg.name} fill className="object-cover" priority sizes="100vw" />
@@ -173,7 +201,7 @@ export default async function SafariPackagePage({ params }: Props) {
                   duration={`${pkg.duration} ${tc('nights')}`}
                   className="w-full flex items-center justify-center gap-2 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                 />
-                <p className="text-white/40 text-xs">{t('noPayment')}</p>
+                <p className="text-white/60 text-xs">{t('noPayment')}</p>
               </div>
             </div>
           </div>

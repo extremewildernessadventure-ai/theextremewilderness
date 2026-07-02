@@ -55,7 +55,7 @@ export default function CtaBanner() {
                 {t('browsePackages')}
               </Link>
             </div>
-            <p className="text-white/40 text-xs mt-6">{t('responseTimeNote')}</p>
+            <p className="text-white/60 text-xs mt-6">{t('responseTimeNote')}</p>
           </div>
 
           <div className="lg:border-l lg:border-white/10 lg:pl-16">
@@ -76,7 +76,7 @@ export default function CtaBanner() {
             <NewsletterForm dark={true} />
 
             <div className="mt-5 pt-4 border-t border-white/10 flex items-center gap-3">
-              <span className="text-white/40 text-xs uppercase tracking-wider shrink-0">{t('followUs')}</span>
+              <span className="text-white/60 text-xs uppercase tracking-wider shrink-0">{t('followUs')}</span>
               <a
                 href="https://www.instagram.com/extremewildernessadventure/"
                 target="_blank"

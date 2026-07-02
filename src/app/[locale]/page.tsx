@@ -13,10 +13,21 @@ import BlogPreview from '@/components/home/BlogPreview'
 import CtaBanner from '@/components/home/CtaBanner'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('home')
   return {
-    title: 'The Extreme Wilderness | Tanzania Safari & Kilimanjaro Trekking',
-    description: t('heroSub'),
+    title: 'Extreme Wilderness Adventure | Tanzania Safari & Kilimanjaro Trekking 2026',
+    description: 'Book Tanzania safaris, Kilimanjaro treks, gorilla trekking Rwanda and Kenya safaris with a certified local operator. Serengeti, Ngorongoro, Great Migration. 4.9/5 rated.',
+    keywords: [
+      'Tanzania safari',
+      'Tanzania safari 2026',
+      'Serengeti safari',
+      'Kilimanjaro trekking',
+      'gorilla trekking Rwanda',
+      'Masai Mara Kenya safari',
+      'Tanzania tour operator',
+      'East Africa safari',
+      'Great Migration safari',
+      'Ngorongoro Crater safari',
+    ],
   }
 }
 

@@ -358,7 +358,7 @@ export default function KenyaPage() {
                       <p className="text-white font-bold text-sm">{d.label}</p>
                       <p className="text-white/50 text-xs truncate">{d.desc}</p>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-white/30 group-hover:text-gold transition-colors flex-shrink-0" />
+                    <ArrowRight className="w-3.5 h-3.5 text-white/60 group-hover:text-gold transition-colors flex-shrink-0" />
                   </a>
                 ))}
               </div>
@@ -739,7 +739,7 @@ export default function KenyaPage() {
                   Explore Tanzania Too <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-              <p className="text-white/40 text-xs mt-6">
+              <p className="text-white/60 text-xs mt-6">
                 <Users className="inline w-3 h-3 mr-1" />
                 Private groups &middot; Solo travellers &middot; Honeymoons &middot; Family safaris &mdash; all welcome
               </p>

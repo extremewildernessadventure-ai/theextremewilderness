@@ -299,7 +299,7 @@ export default function RwandaPage() {
                       <p className="text-white font-bold text-sm">{d.label}</p>
                       <p className="text-white/50 text-xs mt-0.5 truncate">{d.desc}</p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-white/30 group-hover:text-gold transition-colors flex-shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors flex-shrink-0" />
                   </a>
                 ))}
               </div>
@@ -688,7 +688,7 @@ export default function RwandaPage() {
                   Explore Tanzania Too <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-              <p className="text-white/40 text-xs mt-6">
+              <p className="text-white/60 text-xs mt-6">
                 <Users className="inline w-3 h-3 mr-1" />
                 Solo travellers &middot; Couples &middot; Families &middot; Private groups &mdash; all welcome
               </p>

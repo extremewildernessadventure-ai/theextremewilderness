@@ -442,7 +442,7 @@ export default function DestinationsPage() {
                       <p className="text-white font-bold text-sm">{c.label}</p>
                       <p className="text-white/60 text-xs mt-0.5 truncate">{c.desc}</p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-gold transition-colors flex-shrink-0" />
+                    <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors flex-shrink-0" />
                   </a>
                 ))}
               </div>

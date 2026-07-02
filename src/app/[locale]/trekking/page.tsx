@@ -7,9 +7,21 @@ import { ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 
 export const metadata: Metadata = {
-  title: 'Kilimanjaro Trekking & Mountain Climbing Tanzania',
+  title: 'Kilimanjaro Trekking Routes 2026 | Machame, Lemosho & Rongai | EWA',
   description:
-    "Climb Africa's highest peak with Tanzania's most experienced local guides. Machame, Lemosho, Marangu and Rongai routes. TANAPA certified, full safety backup.",
+    "Climb Africa's highest peak with certified local guides. Kilimanjaro Machame, Lemosho, Marangu, Rongai and Umbwe routes. TANAPA certified, 90%+ summit success rate.",
+  keywords: [
+    'Kilimanjaro trekking',
+    'climb Kilimanjaro',
+    'Machame route Kilimanjaro',
+    'Lemosho route Kilimanjaro',
+    'Kilimanjaro summit',
+    'Tanzania mountain climbing',
+    'Kilimanjaro guide',
+    'best route to climb Kilimanjaro',
+    'Kilimanjaro packages 2026',
+    'TANAPA certified Kilimanjaro',
+  ],
 }
 
 const MONTH_CHIPS = [
@@ -276,7 +288,7 @@ export default async function TrekkingPage() {
               <div key={label} className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8">
                 {/* Category label */}
                 <div className="sm:w-44 flex-shrink-0 border-l-2 border-gold pl-3">
-                  <p className="text-white/40 text-xs font-bold uppercase tracking-widest leading-tight">{label}</p>
+                  <p className="text-white/60 text-xs font-bold uppercase tracking-widest leading-tight">{label}</p>
                 </div>
                 {/* Items */}
                 <div className="flex flex-wrap gap-3">

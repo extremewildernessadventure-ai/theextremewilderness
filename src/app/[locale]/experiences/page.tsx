@@ -9,9 +9,18 @@ import { getExperiences } from '@/data/experiences.i18n'
 import type { Experience } from '@/data/experiences'
 
 export const metadata: Metadata = {
-  title: 'Safari Experiences | The Extreme Wilderness',
-  description:
-    'From Great Migration game drives to gorilla trekking in Rwanda and Kilimanjaro summit bids — discover every way to explore East Africa with The Extreme Wilderness.',
+  title: 'Safari Experiences East Africa | Walking Safaris, Hot Air Balloon, Photography',
+  description: 'From Great Migration game drives to gorilla trekking, hot air balloon safaris, photography safaris, and walking safaris. Discover every way to explore East Africa.',
+  keywords: [
+    'walking safari Tanzania',
+    'hot air balloon safari Serengeti',
+    'photography safari Africa',
+    'night game drive Tanzania',
+    'gorilla trekking experience',
+    'Kilimanjaro trek experience',
+    'cultural safari Tanzania',
+    'East Africa safari experiences',
+  ],
 }
 
 export default async function ExperiencesPage() {

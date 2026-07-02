@@ -48,8 +48,27 @@ export default async function DestinationPage({ params }: Props) {
     .filter((d) => d.country === dest.country && d.slug !== dest.slug)
     .slice(0, 3)
 
+  const attractionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: dest.name,
+    description: dest.tagline,
+    image: `https://theextremewilderness.com${dest.heroImage}`,
+    url: `https://theextremewilderness.com/${locale}/destinations/${dest.slug}`,
+    touristType: ['Wildlife Enthusiasts', 'Nature Lovers', 'Adventure Travelers'],
+    isAccessibleForFree: false,
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: dest.country === 'tanzania' ? 'TZ' : dest.country === 'kenya' ? 'KE' : 'RW',
+    },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(attractionSchema) }}
+      />
       {/* Hero */}
       <section className="relative h-[60vh] min-h-80 bg-brand flex items-end">
         <Image

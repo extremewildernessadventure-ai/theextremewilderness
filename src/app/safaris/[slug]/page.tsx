@@ -166,7 +166,7 @@ export default async function SafariPackagePage({ params }: Props) {
                   duration={`${pkg.duration} nights`}
                   className="w-full flex items-center justify-center gap-2 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                 />
-                <p className="text-white/40 text-xs">No payment required · Cancel anytime</p>
+                <p className="text-white/60 text-xs">No payment required · Cancel anytime</p>
               </div>
             </div>
           </div>

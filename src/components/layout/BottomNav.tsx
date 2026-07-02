@@ -102,7 +102,7 @@ export default function BottomNav() {
               </button>
             </div>
 
-            <p className="text-white/40 text-[10px] font-semibold uppercase tracking-widest mb-2">{t('destinations')}</p>
+            <p className="text-white/60 text-[10px] font-semibold uppercase tracking-widest mb-2">{t('destinations')}</p>
             <div className="grid grid-cols-2 gap-3 mb-4">
               {destItems.map(({ label, href, Icon }) => (
                 <Link
@@ -118,7 +118,7 @@ export default function BottomNav() {
 
             <div className="border-t border-white/10 mb-4" />
 
-            <p className="text-white/40 text-[10px] font-semibold uppercase tracking-widest mb-2">{t('safarisSection')}</p>
+            <p className="text-white/60 text-[10px] font-semibold uppercase tracking-widest mb-2">{t('safarisSection')}</p>
             <div className="grid grid-cols-2 gap-3 mb-4">
               {safariItems.map(({ label, href, Icon }) => (
                 <Link
@@ -148,7 +148,7 @@ export default function BottomNav() {
             </div>
 
             <div className="mt-4 pt-4 border-t border-white/10 flex items-center gap-3">
-              <span className="text-white/40 text-xs uppercase tracking-wider">{t('followUs')}</span>
+              <span className="text-white/60 text-xs uppercase tracking-wider">{t('followUs')}</span>
               <a
                 href="https://www.instagram.com/extremewildernessadventure/"
                 target="_blank"
