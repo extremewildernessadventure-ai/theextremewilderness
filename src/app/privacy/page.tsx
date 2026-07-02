@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const EFFECTIVE_DATE = '1 July 2026'
 const EMAIL = 'info@theextremewilderness.com'
-const PHONE = '+255 (0) 767 000 000'
+const PHONE = '+255 (0) 747 999 070'
 
 const sections = [
   { id: 'overview',      title: '1. Overview',                icon: ShieldCheck },

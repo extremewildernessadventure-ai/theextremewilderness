@@ -48,7 +48,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     url: 'https://theextremewilderness.com',
     logo: 'https://theextremewilderness.com/EWA%20logo.png',
     description: 'Premier East Africa safari operator specialising in Tanzania, Kenya and Rwanda wildlife safaris, Kilimanjaro treks, and gorilla trekking experiences.',
-    telephone: '+255767000000',
+    telephone: '+255747999070',
     email: 'info@theextremewilderness.com',
     address: {
       '@type': 'PostalAddress',

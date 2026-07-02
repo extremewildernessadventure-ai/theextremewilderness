@@ -26,7 +26,7 @@ export default async function ContactPage() {
       label: t('phoneWhatsapp'),
       value: t('phoneNumber'),
       sub: t('phoneAvailable'),
-      href: 'tel:+255767000000',
+      href: 'tel:+255747999070',
     },
     {
       icon: Mail,
@@ -114,7 +114,7 @@ export default async function ContactPage() {
                   <h3 className="font-bold text-white">{t('preferWhatsapp')}</h3>
                 </div>
                 <p className="text-white/65 text-sm mb-4 leading-relaxed">{t('whatsappDesc')}</p>
-                <a href="https://wa.me/255767000000" className="flex items-center justify-center gap-2 w-full py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl text-sm transition-colors">
+                <a href="https://wa.me/255747999070" className="flex items-center justify-center gap-2 w-full py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl text-sm transition-colors">
                   {t('openWhatsapp')}
                 </a>
               </div>

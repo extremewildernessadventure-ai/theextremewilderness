@@ -53,7 +53,7 @@ export default async function Footer() {
 
   return (
     <footer className="bg-brand text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-6 sm:px-10 lg:px-16">
         <div className="py-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.6fr_1fr_1fr_0.8fr_1fr] gap-6 lg:gap-8 text-center md:text-left">
 
           {/* Brand column */}
@@ -75,7 +75,7 @@ export default async function Footer() {
               </div>
               <div className="flex items-center gap-2 justify-center md:justify-start">
                 <Phone className="w-4 h-4 text-gold flex-shrink-0" />
-                <span>+255 (0) 767 000 000</span>
+                <span>+255 (0) 747 999 070</span>
               </div>
               <div className="flex items-center gap-2 justify-center md:justify-start">
                 <Mail className="w-4 h-4 text-gold flex-shrink-0" />

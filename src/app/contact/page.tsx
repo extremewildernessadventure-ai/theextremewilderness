@@ -20,9 +20,9 @@ const contactCards = [
   {
     icon: Phone,
     label: 'Phone / WhatsApp',
-    value: '+255 (0) 767 000 000',
+    value: '+255 (0) 747 999 070',
     sub: 'Available 7 days a week',
-    href: 'tel:+255767000000',
+    href: 'tel:+255747999070',
   },
   {
     icon: Mail,
@@ -144,7 +144,7 @@ export default function ContactPage() {
                 </div>
                 <p className="text-white/65 text-sm mb-4 leading-relaxed">Chat directly with our safari team for an instant response.</p>
                 <a
-                  href="https://wa.me/255767000000"
+                  href="https://wa.me/255747999070"
                   className="flex items-center justify-center gap-2 w-full py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl text-sm transition-colors"
                 >
                   Open WhatsApp Chat
