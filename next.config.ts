@@ -74,6 +74,81 @@ const nextConfig: NextConfig = {
       { source: '/inquire-now-tanzania-safari/', destination: '/contact', permanent: true },
       { source: '/luxury-safari-in-tanzania-about-us', destination: '/about', permanent: true },
       { source: '/luxury-safari-in-tanzania-about-us/', destination: '/about', permanent: true },
+
+      // WordPress system pages — wildcard rules (single rule covers all slugs)
+      { source: '/category/:path*', destination: '/destinations', permanent: true },
+      { source: '/tag/:path*', destination: '/', permanent: true },
+      { source: '/author/:path*', destination: '/about', permanent: true },
+
+      // Kilimanjaro / trekking
+      { source: '/climbing-kilimanjaro', destination: '/trekking', permanent: true },
+      { source: '/climbing-kilimanjaro/', destination: '/trekking', permanent: true },
+      { source: '/northern-circuit', destination: '/trekking/northern-circuit', permanent: true },
+      { source: '/northern-circuit/', destination: '/trekking/northern-circuit', permanent: true },
+      { source: '/mountain-kilimanjaro-climbing-6-days-umbwe-route', destination: '/trekking/umbwe', permanent: true },
+      { source: '/mountain-kilimanjaro-climbing-6-days-umbwe-route/', destination: '/trekking/umbwe', permanent: true },
+
+      // Tanzania destination pages
+      { source: '/serengeti-national-park', destination: '/destinations/serengeti', permanent: true },
+      { source: '/serengeti-national-park/', destination: '/destinations/serengeti', permanent: true },
+      { source: '/ngorongoro-conservation-area', destination: '/destinations/ngorongoro', permanent: true },
+      { source: '/ngorongoro-conservation-area/', destination: '/destinations/ngorongoro', permanent: true },
+      { source: '/tarangire-national-park', destination: '/destinations/tarangire', permanent: true },
+      { source: '/tarangire-national-park/', destination: '/destinations/tarangire', permanent: true },
+      { source: '/lake-manyara-national-park', destination: '/destinations/manyara', permanent: true },
+      { source: '/lake-manyara-national-park/', destination: '/destinations/manyara', permanent: true },
+      { source: '/nyerere-national-park', destination: '/destinations/nyerere', permanent: true },
+      { source: '/nyerere-national-park/', destination: '/destinations/nyerere', permanent: true },
+      { source: '/katavi-national-park', destination: '/destinations/katavi', permanent: true },
+      { source: '/katavi-national-park/', destination: '/destinations/katavi', permanent: true },
+      { source: '/gombe-stream-national-park', destination: '/destinations/gombe', permanent: true },
+      { source: '/gombe-stream-national-park/', destination: '/destinations/gombe', permanent: true },
+
+      // Kenya destination pages
+      { source: '/amboseli-national-park', destination: '/destinations/amboseli', permanent: true },
+      { source: '/amboseli-national-park/', destination: '/destinations/amboseli', permanent: true },
+      { source: '/lake-nakuru-national-park', destination: '/destinations/lake-nakuru', permanent: true },
+      { source: '/lake-nakuru-national-park/', destination: '/destinations/lake-nakuru', permanent: true },
+      { source: '/ol-pejeta-conservancy', destination: '/destinations/ol-pejeta', permanent: true },
+      { source: '/ol-pejeta-conservancy/', destination: '/destinations/ol-pejeta', permanent: true },
+      { source: '/luxury-kenya-safari', destination: '/kenya', permanent: true },
+      { source: '/luxury-kenya-safari/', destination: '/kenya', permanent: true },
+
+      // Rwanda destination pages
+      { source: '/volcanoes-national-park', destination: '/destinations/volcanoes', permanent: true },
+      { source: '/volcanoes-national-park/', destination: '/destinations/volcanoes', permanent: true },
+      { source: '/lake-kivu', destination: '/destinations/lake-kivu', permanent: true },
+      { source: '/lake-kivu/', destination: '/destinations/lake-kivu', permanent: true },
+
+      // Safari package pages
+      { source: '/ultimate-tanzania-safari', destination: '/safaris/ultimate-tanzania-safari', permanent: true },
+      { source: '/ultimate-tanzania-safari/', destination: '/safaris/ultimate-tanzania-safari', permanent: true },
+      { source: '/tanzania-safari-12-days-the-grand-safari', destination: '/safaris/12-days-grand-safari', permanent: true },
+      { source: '/tanzania-safari-12-days-the-grand-safari/', destination: '/safaris/12-days-grand-safari', permanent: true },
+      { source: '/luxury-safari-holidays-in-tanzania-7-days-crown-jewels-safari', destination: '/safaris/7-days-crown-jewels', permanent: true },
+      { source: '/luxury-safari-holidays-in-tanzania-7-days-crown-jewels-safari/', destination: '/safaris/7-days-crown-jewels', permanent: true },
+      { source: '/luxury-rwanda-tanzania-safari', destination: '/safaris/11-days-rwanda-tanzania', permanent: true },
+      { source: '/luxury-rwanda-tanzania-safari/', destination: '/safaris/11-days-rwanda-tanzania', permanent: true },
+      { source: '/tanzania-and-zanzibar-luxury-safari', destination: '/safaris/10-day-safari-zanzibar', permanent: true },
+      { source: '/tanzania-and-zanzibar-luxury-safari/', destination: '/safaris/10-day-safari-zanzibar', permanent: true },
+      { source: '/tanzania-kenya-expedition', destination: '/safaris/12-days-tanzania-kenya', permanent: true },
+      { source: '/tanzania-kenya-expedition/', destination: '/safaris/12-days-tanzania-kenya', permanent: true },
+      { source: '/tanzania-luxury-family-safari', destination: '/safaris/10-days-luxury-family', permanent: true },
+      { source: '/tanzania-luxury-family-safari/', destination: '/safaris/10-days-luxury-family', permanent: true },
+      { source: '/honeymoon-safari-in-tanzania-8-days-honeymoon-safari-bush-lovers', destination: '/safaris/8-days-honeymoon-safari', permanent: true },
+      { source: '/honeymoon-safari-in-tanzania-8-days-honeymoon-safari-bush-lovers/', destination: '/safaris/8-days-honeymoon-safari', permanent: true },
+      { source: '/5-days-tanzania-safari', destination: '/safaris/5-days-highlights-safari', permanent: true },
+      { source: '/5-days-tanzania-safari/', destination: '/safaris/5-days-highlights-safari', permanent: true },
+      { source: '/great-wildebeest-migration-8-days-the-great-northern-migration', destination: '/safaris/8-days-great-northern-migration', permanent: true },
+      { source: '/great-wildebeest-migration-8-days-the-great-northern-migration/', destination: '/safaris/8-days-great-northern-migration', permanent: true },
+
+      // Other WordPress pages
+      { source: '/tanzania-travel-info', destination: '/travel-info', permanent: true },
+      { source: '/tanzania-travel-info/', destination: '/travel-info', permanent: true },
+      { source: '/extreme-form-1', destination: '/contact', permanent: true },
+      { source: '/extreme-form-1/', destination: '/contact', permanent: true },
+      { source: '/pixfooter-item', destination: '/', permanent: true },
+      { source: '/pixfooter-item/', destination: '/', permanent: true },
     ]
   },
   async headers() {
