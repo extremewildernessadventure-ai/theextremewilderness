@@ -2,12 +2,35 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
-  Droplets, Pill, HeartPulse, Zap, Package, ShieldCheck } from 'lucide-react'
+  Droplets, Pill, HeartPulse, Zap, Package, ShieldCheck, Check, X, ChevronDown } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 
 
 interface RouteProps {
   params: Promise<{ locale?: string; route: string }>
+}
+
+// Only these 4 routes have full detail content (quick facts, day-by-day
+// itinerary, pricing) — sourced from EWA_Kilimanjaro_All_Route_Pages.md.
+const ROUTES_WITH_DETAIL_CONTENT = ['machame', 'lemosho', 'rongai', 'marangu', 'umbwe', 'northern-circuit'] as const
+type RouteWithDetailContent = (typeof ROUTES_WITH_DETAIL_CONTENT)[number]
+
+const QUICK_FACT_KEYS = [
+  'routeName', 'duration', 'distance', 'startGate', 'finishGate', 'summit',
+  'difficulty', 'trailTraffic', 'successRate', 'bestSeason', 'accommodation', 'priceFrom',
+] as const
+
+interface RouteDetailContent {
+  nickname: string
+  intro: string[]
+  quickFacts: Record<(typeof QUICK_FACT_KEYS)[number], string>
+  whyChoose: { title: string; body: string }[]
+  arrivalDay: string
+  itinerary: { day: number; title: string; meta: string; body: string; expect: string }[]
+  included: string[]
+  excluded: string[]
+  pricing: { solo: number; small: number; group: number }
 }
 
 const ROUTE_META: Record<string, import('next').Metadata> = {
@@ -268,7 +291,30 @@ const routes = [
   },
 ]
 
-export default function TrekkingPage() {
+function isRouteWithDetailContent(route: string): route is RouteWithDetailContent {
+  return (ROUTES_WITH_DETAIL_CONTENT as readonly string[]).includes(route)
+}
+
+export default async function TrekkingPage({ params }: RouteProps) {
+  const { route } = await params
+  let routeContent: RouteDetailContent | null = null
+  let tDetail: Awaited<ReturnType<typeof getTranslations>> | null = null
+
+  if (isRouteWithDetailContent(route)) {
+    tDetail = await getTranslations('trekkingRouteDetail')
+    routeContent = {
+      nickname: tDetail(`${route}.nickname`),
+      intro: tDetail.raw(`${route}.intro`),
+      quickFacts: tDetail.raw(`${route}.quickFacts`),
+      whyChoose: tDetail.raw(`${route}.whyChoose`),
+      arrivalDay: tDetail(`${route}.arrivalDay`),
+      itinerary: tDetail.raw(`${route}.itinerary`),
+      included: tDetail.raw(`${route}.included`),
+      excluded: tDetail.raw(`${route}.excluded`),
+      pricing: tDetail.raw(`${route}.pricing`),
+    }
+  }
+
   return (
     <>
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden bg-brand">
@@ -298,6 +344,137 @@ export default function TrekkingPage() {
           </div>
         </div>
       </section>
+
+      {/* Route-specific detail content — only for the 4 covered routes */}
+      {routeContent && tDetail && (
+        <section className="py-16">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-10">
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
+                {routeContent.nickname}
+              </span>
+              {routeContent.intro.map((paragraph, i) => (
+                <p key={i} className="text-text-muted text-base leading-relaxed mb-4 last:mb-0">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            {/* Quick Facts */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-semibold text-brand mb-5">{tDetail('labels.quickFacts')}</h2>
+              <div className="bg-light-green rounded-2xl p-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
+                {QUICK_FACT_KEYS.map((key) => (
+                  <div key={key} className="flex justify-between gap-3 text-sm">
+                    <span className="text-text-muted font-medium">{tDetail!(`labels.${key}`)}</span>
+                    <span className="text-brand font-semibold text-right">{routeContent!.quickFacts[key]}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Why Choose */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-semibold text-brand mb-5">{tDetail('labels.whyChoose')}</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {routeContent.whyChoose.map((item, i) => (
+                  <div key={i} className="bg-white border border-gray-100 rounded-xl p-5">
+                    <p className="font-semibold text-brand text-sm mb-1.5">{item.title}</p>
+                    <p className="text-text-muted text-sm leading-relaxed">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Day-by-Day Itinerary */}
+            <div className="mb-12">
+              <h2 className="text-2xl font-semibold text-brand mb-5">{tDetail('labels.itinerary')}</h2>
+              <div className="space-y-3">
+                <details className="group border border-gray-100 rounded-xl overflow-hidden">
+                  <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
+                    <div className="flex items-center gap-3">
+                      <span className="w-8 h-8 rounded-full bg-brand/60 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
+                        0
+                      </span>
+                      <span className="font-medium text-brand text-sm">{tDetail('labels.arrivalDay')}</span>
+                    </div>
+                    <ChevronDown className="w-4 h-4 text-text-muted group-open:rotate-180 transition-transform" />
+                  </summary>
+                  <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
+                    <p className="text-sm text-text-muted leading-relaxed">{routeContent.arrivalDay}</p>
+                  </div>
+                </details>
+                {routeContent.itinerary.map((day) => (
+                  <details key={day.day} className="group border border-gray-100 rounded-xl overflow-hidden">
+                    <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
+                      <div className="flex items-center gap-3">
+                        <span className="w-8 h-8 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
+                          {day.day}
+                        </span>
+                        <span className="font-medium text-brand text-sm">{day.title}</span>
+                      </div>
+                      <ChevronDown className="w-4 h-4 text-text-muted group-open:rotate-180 transition-transform" />
+                    </summary>
+                    <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
+                      <p className="text-xs text-gold-label font-semibold uppercase tracking-wide mb-2">{day.meta}</p>
+                      <p className="text-sm text-text-muted leading-relaxed mb-3">{day.body}</p>
+                      <p className="text-xs text-text-muted italic">{tDetail('labels.whatToExpect')} {day.expect}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+
+            {/* Included / Not Included */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+              <div>
+                <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-500" /> {tDetail('labels.included')}
+                </h3>
+                <ul className="space-y-1.5">
+                  {routeContent.included.map((item) => (
+                    <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                      <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
+                  <X className="w-4 h-4 text-red-400" /> {tDetail('labels.notIncluded')}
+                </h3>
+                <ul className="space-y-1.5">
+                  {routeContent.excluded.map((item) => (
+                    <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                      <X className="w-3.5 h-3.5 text-red-400 mt-0.5 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Pricing */}
+            <div>
+              <h2 className="text-2xl font-semibold text-brand mb-5">{tDetail('labels.pricing')}</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {[
+                  { label: tDetail('labels.solo'), price: routeContent.pricing.solo },
+                  { label: tDetail('labels.small'), price: routeContent.pricing.small },
+                  { label: tDetail('labels.group'), price: routeContent.pricing.group },
+                ].map((tier) => (
+                  <div key={tier.label} className="bg-brand rounded-2xl p-6 text-center">
+                    <p className="text-white/70 text-xs uppercase tracking-wide mb-2">{tier.label}</p>
+                    <p className="text-gold text-2xl font-bold">${tier.price.toLocaleString()}</p>
+                    <p className="text-white/50 text-xs mt-1">{tDetail('labels.perPerson')}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Why Kilimanjaro */}
       <section className="py-16">
@@ -360,7 +537,7 @@ export default function TrekkingPage() {
         </div>
       </section>
 
-      <KiliRouteMap />
+      <KiliRouteMap route={route} />
 
       {/* Your Summit Kit */}
       <section className="py-20 bg-brand">

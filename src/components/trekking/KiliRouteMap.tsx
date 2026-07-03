@@ -17,7 +17,7 @@ const routes = [
     difficultyColor: 'text-orange-500',
     days: '6–7 days',
     successRate: '85%',
-    priceFrom: 1658,
+    priceFrom: 2350,
     description:
       'The most scenic and popular route on Kilimanjaro, nicknamed the "Whiskey Route" for its challenging terrain. Beginning at Machame Gate on the southern slope, the trail winds through magnificent rainforest before ascending to the Shira Plateau. The route offers an excellent acclimatization profile with its high-camp, low-sleep approach. Descent is via the Mweka trail.',
     highlights: ['Barranco Wall scramble', 'Lava Tower acclimatisation', 'Diverse ecosystems', 'Mweka descent'],
@@ -26,13 +26,13 @@ const routes = [
   {
     id: 'lemosho',
     name: 'Lemosho Route',
-    nickname: 'The Scenic Route',
+    nickname: "The Connoisseur's Choice",
     mapFile: 'lemosho.webp',
     difficulty: 'Moderate',
     difficultyColor: 'text-yellow-500',
     days: '7–8 days',
     successRate: '90%',
-    priceFrom: 1931,
+    priceFrom: 2595,
     description:
       'Widely considered the best overall route on Kilimanjaro. Starting from Londorossi Gate in the west, Lemosho traverses the remote Shira Plateau and joins the Southern Circuit. Its longer duration gives superior acclimatisation and the highest summit success rate of the standard routes. The route is less crowded on the lower slopes and armed rangers accompany groups on the first day.',
     highlights: ['Remote Shira Plateau', 'Best acclimatisation profile', 'Forest & moorland diversity', 'Highest success rate'],
@@ -41,15 +41,15 @@ const routes = [
   {
     id: 'marangu',
     name: 'Marangu Route',
-    nickname: 'The Coca-Cola Route',
+    nickname: 'The Classic Route',
     mapFile: 'marangu.webp',
     difficulty: 'Moderate',
     difficultyColor: 'text-yellow-500',
     days: '5–6 days',
     successRate: '65%',
-    priceFrom: 1523,
+    priceFrom: 1950,
     description:
-      'The classic Kilimanjaro route and the only one offering dormitory hut accommodation at every campsite, making it the most comfortable option. Known as the "Coca-Cola Route," it is the most direct path to the summit and the most affordable. However, its shorter duration and rapid ascent means lower acclimatisation time and a reduced summit success rate.',
+      'The classic Kilimanjaro route and the only one offering dormitory hut accommodation at every campsite, making it the most comfortable option. It is the most direct path to the summit and one of the more affordable routes. However, its shorter duration and rapid ascent means lower acclimatisation time and a reduced summit success rate.',
     highlights: ['Hut accommodation throughout', 'Most affordable route', 'Gradual ascent on rainforest trail', 'Same ascent & descent path'],
     href: '/trekking/marangu',
   },
@@ -62,7 +62,7 @@ const routes = [
     difficultyColor: 'text-green-500',
     days: '6–7 days',
     successRate: '80%',
-    priceFrom: 1960,
+    priceFrom: 2250,
     description:
       'The only route approaching Kilimanjaro from the north, starting near the Kenyan border. Rongai is one of the quieter and least-trafficked routes, offering a true wilderness feel. The northern slopes receive less rainfall, making this a good option during the rainy season. The route is considered one of the easiest with a gentle gradient throughout.',
     highlights: ['North side approach', 'Less crowded trails', 'Good in rainy season', 'Wilderness atmosphere'],
@@ -71,7 +71,7 @@ const routes = [
   {
     id: 'umbwe',
     name: 'Umbwe Route',
-    nickname: 'The Direct Route',
+    nickname: 'The Most Direct Route',
     mapFile: 'umbwe.webp',
     difficulty: 'Very Hard',
     difficultyColor: 'text-red-500',
@@ -86,7 +86,7 @@ const routes = [
   {
     id: 'northern-circuit',
     name: 'Northern Circuit',
-    nickname: 'The Longest Route',
+    nickname: 'The Grand Traverse',
     mapFile: 'northern-circuit.webp',
     difficulty: 'Moderate',
     difficultyColor: 'text-yellow-500',
@@ -100,9 +100,14 @@ const routes = [
   },
 ]
 
-export default function KiliRouteMap() {
-  const [activeId, setActiveId] = useState('machame')
-  const active = routes.find((r) => r.id === activeId)!
+export default function KiliRouteMap({ route }: { route?: string } = {}) {
+  const isLocked = route !== undefined
+  // When locked to a single route, activeId always tracks the route prop
+  // directly (not state) so client-side navigation between route pages
+  // (e.g. clicking a route card link) can't leave a stale map on screen.
+  const [selectedId, setSelectedId] = useState('machame')
+  const activeId = isLocked ? route! : selectedId
+  const active = routes.find((r) => r.id === activeId) ?? routes.find((r) => r.id === 'machame')!
   const { openBooking } = useBooking()
   const t = useTranslations('trekking')
 
@@ -127,41 +132,43 @@ export default function KiliRouteMap() {
         {/* Section heading */}
         <div className="text-center mb-12">
           <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
-            {t('chooseYourPath')}
+            {isLocked ? t('routeMapEyebrowLocked') : t('chooseYourPath')}
           </span>
           <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-3">
-            {t('routeMapHeading')}
+            {isLocked ? t('routeMapHeadingLocked', { routeName: active.name }) : t('routeMapHeading')}
           </h2>
           <p className="text-white/60 text-sm max-w-lg mx-auto">
-            {t('routeMapSubtitle')}
+            {isLocked ? t('routeMapSubtitleLocked') : t('routeMapSubtitle')}
           </p>
         </div>
 
         {/* Main layout */}
-        <div className="flex flex-col lg:flex-row gap-5">
+        <div className={isLocked ? 'flex flex-col gap-5' : 'flex flex-col lg:flex-row gap-5'}>
 
-          {/* Left — route selector list */}
-          <div className="lg:w-56 flex-shrink-0">
-            <div className="bg-black/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/15">
-              {routes.map((route) => (
-                <button
-                  key={route.id}
-                  onClick={() => setActiveId(route.id)}
-                  className={`w-full flex items-center gap-2.5 px-4 py-3.5 text-left transition-all duration-200 border-b border-white/10 last:border-0 ${
-                    activeId === route.id
-                      ? 'bg-gold text-brand font-bold'
-                      : 'text-white/80 hover:bg-white/15 hover:text-white'
-                  }`}
-                >
-                  <MapPin className={`w-3.5 h-3.5 flex-shrink-0 ${activeId === route.id ? 'text-brand' : 'text-gold'}`} />
-                  <span className="text-sm leading-tight">{route.name}</span>
-                  {activeId === route.id && (
-                    <ChevronRight className="w-3.5 h-3.5 ml-auto flex-shrink-0" />
-                  )}
-                </button>
-              ))}
+          {/* Left — route selector list (only when not locked to a single route) */}
+          {!isLocked && (
+            <div className="lg:w-56 flex-shrink-0">
+              <div className="bg-black/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/15">
+                {routes.map((r) => (
+                  <button
+                    key={r.id}
+                    onClick={() => setSelectedId(r.id)}
+                    className={`w-full flex items-center gap-2.5 px-4 py-3.5 text-left transition-all duration-200 border-b border-white/10 last:border-0 ${
+                      activeId === r.id
+                        ? 'bg-gold text-brand font-bold'
+                        : 'text-white/80 hover:bg-white/15 hover:text-white'
+                    }`}
+                  >
+                    <MapPin className={`w-3.5 h-3.5 flex-shrink-0 ${activeId === r.id ? 'text-brand' : 'text-gold'}`} />
+                    <span className="text-sm leading-tight">{r.name}</span>
+                    {activeId === r.id && (
+                      <ChevronRight className="w-3.5 h-3.5 ml-auto flex-shrink-0" />
+                    )}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Right — map + info */}
           <div className="flex-1 flex flex-col gap-4">

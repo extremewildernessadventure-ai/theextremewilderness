@@ -6,8 +6,13 @@ import { getTranslations } from 'next-intl/server'
 import { Clock, Users, Check, X, ChevronDown } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import BookNowButton from '@/components/booking/BookNowButton'
+import TrustBar from '@/components/home/TrustBar'
+import PriceTierSwitcher from '@/components/safaris/PriceTierSwitcher'
+import FamilyPriceSwitcher from '@/components/safaris/FamilyPriceSwitcher'
+import AmenityStay from '@/components/safaris/AmenityStay'
+import RelatedSafaris from '@/components/safaris/RelatedSafaris'
 import { packages } from '@/data/packages'
-import { getPackage } from '@/data/packages.i18n'
+import { getPackage, getPackages } from '@/data/packages.i18n'
 import { routing } from '@/i18n/routing'
 
 
@@ -269,6 +274,41 @@ export default async function SafariPackagePage({ params }: Props) {
                       </summary>
                       <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
                         <p className="text-sm text-text-muted leading-relaxed mb-3">{day.description}</p>
+
+                        {day.insiderFact && (
+                          <div className="border-l-2 border-gold pl-3 mb-3">
+                            <p className="text-[10px] font-bold uppercase tracking-wide text-gold-label mb-0.5">
+                              {t('insiderFact')}
+                            </p>
+                            <p className="text-xs text-text-muted leading-relaxed">{day.insiderFact}</p>
+                          </div>
+                        )}
+
+                        {day.accommodationByTier ? (
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">
+                            {day.accommodationByTier.trail && (
+                              <AmenityStay label={t('tierTrail')} stay={day.accommodationByTier.trail} />
+                            )}
+                            {day.accommodationByTier.reserve && (
+                              <AmenityStay label={t('tierReserve')} stay={day.accommodationByTier.reserve} />
+                            )}
+                            {day.accommodationByTier.sovereign && (
+                              <AmenityStay label={t('tierSovereign')} stay={day.accommodationByTier.sovereign} />
+                            )}
+                          </div>
+                        ) : null}
+
+                        {day.accommodationByFamilyTier ? (
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+                            {day.accommodationByFamilyTier.luxury && (
+                              <AmenityStay label={t('familyTierLuxury')} stay={day.accommodationByFamilyTier.luxury} />
+                            )}
+                            {day.accommodationByFamilyTier.ultraLuxury && (
+                              <AmenityStay label={t('familyTierUltraLuxury')} stay={day.accommodationByFamilyTier.ultraLuxury} />
+                            )}
+                          </div>
+                        ) : null}
+
                         <div className="flex flex-wrap gap-4 text-xs text-text-muted">
                           <span>{day.accommodation}</span>
                           <span>{day.meals}</span>
@@ -286,21 +326,65 @@ export default async function SafariPackagePage({ params }: Props) {
                 <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
                   <Check className="w-4 h-4 text-green-500" /> {t('included')}
                 </h3>
-                <ul className="space-y-1.5">
-                  {pkg.included.map((item) => (
-                    <li key={item} className="text-sm text-text-muted flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                {pkg.includedCategorized ? (
+                  <div className="space-y-4">
+                    {pkg.includedCategorized.transfers && pkg.includedCategorized.transfers.length > 0 && (
+                      <div>
+                        <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('transfers')}</p>
+                        <ul className="space-y-1.5">
+                          {pkg.includedCategorized.transfers.map((item) => (
+                            <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                              <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {pkg.includedCategorized.accommodationMeals && pkg.includedCategorized.accommodationMeals.length > 0 && (
+                      <div>
+                        <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('accommodationMeals')}</p>
+                        <ul className="space-y-1.5">
+                          {pkg.includedCategorized.accommodationMeals.map((item) => (
+                            <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                              <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {pkg.includedCategorized.guidingGameDrives && pkg.includedCategorized.guidingGameDrives.length > 0 && (
+                      <div>
+                        <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('guidingGameDrives')}</p>
+                        <ul className="space-y-1.5">
+                          {pkg.includedCategorized.guidingGameDrives.map((item) => (
+                            <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                              <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <ul className="space-y-1.5">
+                    {pkg.included.map((item) => (
+                      <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                        <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
               <div>
                 <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
                   <X className="w-4 h-4 text-red-400" /> {t('notIncluded')}
                 </h3>
                 <ul className="space-y-1.5">
-                  {pkg.excluded.map((item) => (
+                  {(pkg.excludedCategorized ?? pkg.excluded).map((item) => (
                     <li key={item} className="text-sm text-text-muted flex items-start gap-2">
                       <X className="w-3.5 h-3.5 text-red-400 mt-0.5 flex-shrink-0" />
                       {item}
@@ -309,15 +393,34 @@ export default async function SafariPackagePage({ params }: Props) {
                 </ul>
               </div>
             </div>
+
+            {pkg.notes && pkg.notes.length > 0 && (
+              <div className="bg-light-green rounded-xl p-5">
+                <h3 className="font-semibold text-brand text-sm mb-2">{t('pleaseNote')}</h3>
+                <ul className="space-y-1">
+                  {pkg.notes.map((note) => (
+                    <li key={note} className="text-xs text-text-muted leading-relaxed">
+                      {note}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
           {/* Sidebar */}
           <div>
             <div className="sticky top-24 space-y-4">
-              <div className="bg-light-green rounded-2xl p-6 text-center">
-                <div className="text-3xl font-bold text-brand">${pkg.priceFrom.toLocaleString()}</div>
-                <div className="text-text-muted text-xs mt-1">{tc('perPerson')} · {pkg.duration} {tc('nights')}</div>
-              </div>
+              {pkg.familyPricing && pkg.familyPricing.length > 0 ? (
+                <FamilyPriceSwitcher rows={pkg.familyPricing} />
+              ) : pkg.pricingTiers && pkg.pricingTiers.length > 0 ? (
+                <PriceTierSwitcher rows={pkg.pricingTiers} provisional={pkg.pricingTiersProvisional} />
+              ) : (
+                <div className="bg-light-green rounded-2xl p-6 text-center">
+                  <div className="text-3xl font-bold text-brand">${pkg.priceFrom.toLocaleString()}</div>
+                  <div className="text-text-muted text-xs mt-1">{tc('perPerson')} · {pkg.duration} {tc('nights')}</div>
+                </div>
+              )}
               <div className="bg-brand rounded-2xl p-6 text-center space-y-4">
                 <div>
                   <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">{t('freeNoCommitment')}</p>
@@ -338,6 +441,9 @@ export default async function SafariPackagePage({ params }: Props) {
           </div>
         </div>
       </div>
+
+      <RelatedSafaris current={pkg} all={getPackages(locale)} />
+      <TrustBar />
     </>
   )
 }

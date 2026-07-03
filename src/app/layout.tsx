@@ -60,6 +60,23 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="min-h-screen w-full flex flex-col antialiased overflow-x-hidden">
         {children}
         <Script
+          id="ga4-loader"
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-3NQPMQE36Q"
+        />
+        <Script
+          id="ga4-config"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-3NQPMQE36Q');
+            `,
+          }}
+        />
+        <Script
           id="tawk-to"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -72,6 +89,68 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                 s1.charset='UTF-8';
                 s1.setAttribute('crossorigin','*');
                 s0.parentNode.insertBefore(s1,s0);
+              })();
+            `,
+          }}
+        />
+        <Script
+          id="tawk-reposition"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(){
+                // Confirmed via live inspection: Tawk's minimized launcher is a
+                // same-origin (about:blank) iframe with a dynamically-generated
+                // id, containing .tawk-min-container. The iframe ITSELF is the
+                // fixed/positioned element (bottom: 20px !important, right:
+                // 20px !important, tightly sized ~67x64px); .tawk-min-container
+                // is only position:relative inside it and must NOT be touched —
+                // shifting it moves the button outside the iframe's own small
+                // clipped bounds and makes it disappear entirely.
+                function ensurePulseRing(frame) {
+                  var ring = document.getElementById('tawk-pulse-ring');
+                  if (!ring) {
+                    ring = document.createElement('div');
+                    ring.id = 'tawk-pulse-ring';
+                    // Reuses Tailwind's built-in animate-ping utility, matching
+                    // WhatsAppButton's own pulse-ring recipe exactly.
+                    ring.className = 'fixed rounded-full bg-green-500 opacity-30 animate-ping pointer-events-none';
+                    document.body.appendChild(ring);
+                  }
+                  var frameStyle = window.getComputedStyle(frame);
+                  var rect = frame.getBoundingClientRect();
+                  if (rect.width === 0 || rect.height === 0) return; // avoid collapsing the ring during a transient Tawk re-render
+                  ring.style.bottom = frameStyle.bottom;
+                  ring.style.right = frameStyle.right;
+                  ring.style.width = rect.width + 'px';
+                  ring.style.height = rect.height + 'px';
+                  ring.style.zIndex = '1000002'; // just below the widget iframe's z-index (1000003)
+                }
+                function reposition() {
+                  // Matches WhatsAppButton's own breakpoint exactly: bottom-20
+                  // (80px) below lg, bottom-6 (24px) at lg and above — so the
+                  // two bubbles stay level at every screen size, not just mobile.
+                  var targetBottom = window.innerWidth >= 1024 ? '24px' : '80px';
+                  var iframes = document.querySelectorAll('iframe');
+                  for (var i = 0; i < iframes.length; i++) {
+                    var frame = iframes[i];
+                    var doc;
+                    try { doc = frame.contentDocument; } catch (e) { continue; }
+                    if (!doc || !doc.querySelector('.tawk-min-container')) continue;
+                    if (window.getComputedStyle(frame).position === 'fixed') {
+                      frame.style.setProperty('bottom', targetBottom, 'important');
+                      ensurePulseRing(frame);
+                    }
+                  }
+                }
+                var observer = new MutationObserver(reposition);
+                observer.observe(document.body, { childList: true, subtree: true });
+                window.addEventListener('resize', reposition);
+                var tries = 0;
+                var interval = setInterval(function () {
+                  reposition();
+                  if (++tries > 60) clearInterval(interval);
+                }, 1000);
               })();
             `,
           }}

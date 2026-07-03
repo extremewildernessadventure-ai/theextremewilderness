@@ -1,9 +1,43 @@
+export interface TierStay {
+  name: string
+  image: string
+  amenities: string[]
+}
+
 export interface ItineraryDay {
   day: number
   title: string
   description: string
   accommodation: string
   meals: string
+  insiderFact?: string
+  accommodationByTier?: {
+    trail?: TierStay
+    reserve?: TierStay
+    sovereign?: TierStay
+  }
+  // Separate two-tier variant for packages using Luxury/Ultra-Luxury naming
+  // (e.g. the family safari line) instead of the Wilderness Trail/Reserve/
+  // Sovereign vocabulary — kept independent rather than overloading
+  // accommodationByTier with mismatched tier labels.
+  accommodationByFamilyTier?: {
+    luxury?: TierStay
+    ultraLuxury?: TierStay
+  }
+}
+
+export interface PricingTierRow {
+  pax: number
+  trail: number
+  reserve: number
+  sovereign: number
+}
+
+export interface FamilyPricingRow {
+  season: 'high' | 'low'
+  familySize: number
+  luxury: number
+  ultraLuxury: number
 }
 
 export interface SafariPackage {
@@ -22,6 +56,23 @@ export interface SafariPackage {
   gallery: string[]
   badge?: 'bestseller' | 'new' | 'popular'
   bestFor: string[]
+  // Optional per-pax x tier pricing grid. Absent on most packages — the page
+  // falls back to the flat `priceFrom` display when this isn't populated.
+  pricingTiers?: PricingTierRow[]
+  // Set when pricingTiers was derived from priceFrom via a markup formula
+  // rather than confirmed real rates — the page shows a "confirm with our
+  // team" note when true.
+  pricingTiersProvisional?: boolean
+  includedCategorized?: {
+    transfers?: string[]
+    accommodationMeals?: string[]
+    guidingGameDrives?: string[]
+  }
+  excludedCategorized?: string[]
+  notes?: string[]
+  // Two-tier (Luxury / Ultra-Luxury) x season pricing grid, priced by family
+  // size rather than raw pax count — used by the family safari package only.
+  familyPricing?: FamilyPricingRow[]
 }
 
 export const packages: SafariPackage[] = [
@@ -35,6 +86,17 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 8 },
     badge: 'bestseller',
     bestFor: ['couples', 'honeymoon', 'families', 'solo'],
+    // Provisional: derived from priceFrom via a flat +15%/+35% markup pending
+    // real confirmed tier rates — pricingTiersProvisional drives the "confirm
+    // with our team" note on the page.
+    pricingTiersProvisional: true,
+    pricingTiers: [
+      { pax: 2, trail: 3200, reserve: 3680, sovereign: 4320 },
+      { pax: 3, trail: 3200, reserve: 3680, sovereign: 4320 },
+      { pax: 4, trail: 3200, reserve: 3680, sovereign: 4320 },
+      { pax: 5, trail: 3200, reserve: 3680, sovereign: 4320 },
+      { pax: 6, trail: 3200, reserve: 3680, sovereign: 4320 },
+    ],
     highlights: [
       'Great Migration in the Serengeti',
       'Big Five in Ngorongoro Crater',
@@ -497,6 +559,24 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park entrance fees', 'All game drives in 4x4 Land Cruiser', 'Professional guide', 'All meals', 'Accommodation as per itinerary', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    includedCategorized: {
+      transfers: ['Airport transfers'],
+      accommodationMeals: ['All meals', 'Accommodation as per itinerary'],
+      guidingGameDrives: ['All park entrance fees', 'All game drives in 4x4 Land Cruiser', 'Professional guide'],
+    },
+    excludedCategorized: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
+    pricingTiers: [
+      { pax: 2, trail: 3184, reserve: 4423, sovereign: 5381 },
+      { pax: 3, trail: 2980, reserve: 4431, sovereign: 5389 },
+      { pax: 4, trail: 2639, reserve: 3878, sovereign: 4836 },
+      { pax: 5, trail: 2589, reserve: 4141, sovereign: 5098 },
+      { pax: 6, trail: 2458, reserve: 3696, sovereign: 4654 },
+    ],
     itinerary: [
       {
         day: 1,
@@ -504,6 +584,13 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Kilimanjaro International Airport and transfer to your Arusha hotel for an overnight rest and safari briefing.',
         accommodation: 'Arusha Hotel',
         meals: 'Dinner',
+        insiderFact: 'Arusha sits at roughly 1,400m — a comfortable buffer night before the parks, and where most operators service and restock their vehicles between trips.',
+        accommodationByTier: {
+          // TEMP: hotlinked placeholder photos from each property's own site pending real EWA/licensed images.
+          trail: { name: 'Kahawa House', image: 'https://twctanzania.com/wp-content/uploads/2023/10/AMP_7196.jpg', amenities: ['wifi', 'restaurant', 'garden'] },
+          reserve: { name: 'Gran Melia, Arusha', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/b9/13/a9/gran-melia-arusha.jpg', amenities: ['wifi', 'pool', 'spa'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['wifi', 'pool', 'view'] },
+        },
       },
       {
         day: 2,
@@ -511,6 +598,12 @@ export const packages: SafariPackage[] = [
         description: 'Drive south to Tarangire National Park, where the Tarangire River draws one of Africa\'s largest concentrations of elephants in the dry season. Enormous baobab trees dot the landscape, and the riverine woodland hides leopards, impala, and hundreds of bird species.',
         accommodation: 'Tarangire Tented Camp',
         meals: 'All meals',
+        insiderFact: 'Tarangire holds one of the highest elephant densities in Africa outside the wet season, when herds concentrate along the river.',
+        accommodationByTier: {
+          trail: { name: 'Tloma Lodge, Karatu', image: 'https://twctanzania.com/wp-content/uploads/2023/10/Tloma-Lodge-Karatu-scaled.jpg', amenities: ['wifi', 'restaurant', 'garden'] },
+          reserve: { name: 'Kitela Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/10/kitela-lodge-facilities-02.jpg', amenities: ['pool', 'view', 'restaurant'] },
+          sovereign: { name: "Gibb's Farm", image: 'https://www.gibbsfarm.com/wp-content/uploads/Gibbs-Farm-a-sense-of-safari-1024x683.jpg', amenities: ['spa', 'view', 'organic-farm'] },
+        },
       },
       {
         day: 3,
@@ -518,6 +611,12 @@ export const packages: SafariPackage[] = [
         description: 'Descend into Ngorongoro Crater for a morning game drive with the Big Five. In the afternoon, continue to the Ndutu area on the southern edge of the Serengeti — prime calving territory between January and March, when roughly eight thousand wildebeest calves are born every single day.',
         accommodation: 'Ndutu Safari Lodge',
         meals: 'All meals',
+        insiderFact: 'Ngorongoro Crater is a closed ecosystem roughly 260 km² wide — most resident animals never leave it.',
+        accommodationByTier: {
+          trail: { name: 'Serengeti Queens Camp', image: 'https://serengetiqueenscamp.com/wp-content/uploads/2025/04/VIST-PLACE-400x550-2.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Kubukubu Tented Lodge (All-Inclusive)', image: 'https://twctanzania.com/wp-content/uploads/2023/10/TWC2018-724-scaled.jpg', amenities: ['all-inclusive', 'pool', 'view'] },
+          sovereign: { name: 'Explorer Serengeti, by Elewana (All-Inclusive)', image: 'https://d3dxr2unqqadn0.cloudfront.net/media/Plains-Majesty.jpg', amenities: ['all-inclusive', 'spa', 'view'] },
+        },
       },
       {
         day: 4,
@@ -525,6 +624,12 @@ export const packages: SafariPackage[] = [
         description: 'Full day in the Ndutu area during the calving season. The plains become a nursery and a hunting ground simultaneously. Lions, cheetahs, and hyenas move through the newborn herds with brutal efficiency. The scale of life and death playing out across the short-grass plains is overwhelming.',
         accommodation: 'Ndutu Safari Lodge',
         meals: 'All meals',
+        insiderFact: 'January–March is the only window when newborn wildebeest calves outnumber every other age class on the plains.',
+        accommodationByTier: {
+          trail: { name: 'Serengeti Queens Camp', image: 'https://serengetiqueenscamp.com/wp-content/uploads/2025/04/VIST-PLACE-400x550-2.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Kubukubu Tented Lodge (All-Inclusive)', image: 'https://twctanzania.com/wp-content/uploads/2023/10/TWC2018-724-scaled.jpg', amenities: ['all-inclusive', 'pool', 'view'] },
+          sovereign: { name: 'Explorer Serengeti, by Elewana (All-Inclusive)', image: 'https://d3dxr2unqqadn0.cloudfront.net/media/Plains-Majesty.jpg', amenities: ['all-inclusive', 'spa', 'view'] },
+        },
       },
       {
         day: 5,
@@ -532,6 +637,12 @@ export const packages: SafariPackage[] = [
         description: 'Another full day tracking predator activity around the wildebeest calving grounds. Cheetahs with their own cubs, lion coalitions coordinating hunts, and wild dogs racing across the open ground. The Ndutu woodland provides contrast — birdsong and shade between the intensity.',
         accommodation: 'Ndutu Safari Lodge',
         meals: 'All meals',
+        insiderFact: 'Ndutu sits just outside the Serengeti\'s official park boundary, inside the Ngorongoro Conservation Area — a different permit, but the same migration.',
+        accommodationByTier: {
+          trail: { name: 'Pure Ndutu Migration Camp', image: 'https://purecamps.co.tz/wp-content/uploads/2025/06/Pure-Migration-Camp-19.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Masek Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/10/Masek-Tented-Lodge-scaled.jpg', amenities: ['pool', 'view', 'restaurant'] },
+          sovereign: { name: 'Taasa Ndutu Migration Camp', image: 'https://www.go2africa.com/wp-content/uploads/2025/11/Taasa-Migration-Camp-Tent-Exteriors.jpg', amenities: ['view', 'spa', 'restaurant'] },
+        },
       },
       {
         day: 6,
@@ -539,6 +650,12 @@ export const packages: SafariPackage[] = [
         description: 'Morning game drive in Ndutu, then drive north through the central Serengeti. The landscape opens into the iconic rolling plains of Seronera, where year-round water supports resident big cat populations and the famous tree-climbing lions of the kopjes.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        insiderFact: 'Predator density around the calving grounds peaks for roughly six weeks before the herds move north with the rains.',
+        accommodationByTier: {
+          trail: { name: 'Pure Ndutu Migration Camp', image: 'https://purecamps.co.tz/wp-content/uploads/2025/06/Pure-Migration-Camp-19.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Masek Tented Lodge (All-Inclusive)', image: 'https://twctanzania.com/wp-content/uploads/2023/10/Masek-Tented-Lodge-scaled.jpg', amenities: ['all-inclusive', 'pool', 'view'] },
+          sovereign: { name: 'Taasa Migration Camp (All-Inclusive)', image: 'https://www.go2africa.com/wp-content/uploads/2025/11/Taasa-Migration-Camp-Tent-Exteriors.jpg', amenities: ['all-inclusive', 'spa', 'view'] },
+        },
       },
       {
         day: 7,
@@ -546,6 +663,7 @@ export const packages: SafariPackage[] = [
         description: 'Final morning game drive in the Serengeti, then transfer to Kilimanjaro International Airport for your flight home.',
         accommodation: 'N/A',
         meals: 'Breakfast',
+        insiderFact: 'Kilimanjaro International Airport is roughly 45–60 minutes from the central Serengeti gate by light aircraft, or a full day by road.',
       },
     ],
   },
@@ -570,6 +688,23 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park entrance fees', 'All game drives in spacious 4x4', 'Professional family-friendly guide', 'All meals', 'Accommodation as per itinerary', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Optional activities'],
+    includedCategorized: {
+      transfers: ['Airport transfers'],
+      accommodationMeals: ['All meals', 'Accommodation as per itinerary'],
+      guidingGameDrives: ['All park entrance fees', 'All game drives in spacious 4x4', 'Professional family-friendly guide'],
+    },
+    excludedCategorized: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Optional activities'],
+    notes: [
+      'Rates shown are per person sharing; family configurations and connecting rooms vary by lodge and are confirmed at booking.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
+    familyPricing: [
+      { season: 'high', familySize: 4, luxury: 6655, ultraLuxury: 12582 },
+      { season: 'high', familySize: 5, luxury: 6537, ultraLuxury: 11534 },
+      { season: 'low', familySize: 4, luxury: 5448, ultraLuxury: 6972 },
+      { season: 'low', familySize: 5, luxury: 5293, ultraLuxury: 6860 },
+    ],
     itinerary: [
       {
         day: 1,
@@ -577,6 +712,12 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Kilimanjaro International Airport and transfer to your Arusha hotel. Your guide welcomes the family and briefs everyone on what to expect over the next ten days.',
         accommodation: 'Arusha Coffee Lodge',
         meals: 'Dinner',
+        insiderFact: 'Arusha sits at roughly 1,400m, giving new arrivals a gentle altitude buffer before the parks.',
+        accommodationByFamilyTier: {
+          // TEMP: hotlinked placeholder photos from each property's own site pending real EWA/licensed images.
+          luxury: { name: 'Gran Melia, Arusha', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/b9/13/a9/gran-melia-arusha.jpg', amenities: ['wifi', 'pool', 'spa'] },
+          ultraLuxury: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['wifi', 'pool', 'view'] },
+        },
       },
       {
         day: 2,
@@ -584,6 +725,11 @@ export const packages: SafariPackage[] = [
         description: 'A short drive from town leads to Arusha National Park — an ideal introduction to African wildlife for families. Giraffe, zebra, and colobus monkeys are reliably spotted, and the park\'s varied habitats include montane forest, crater lakes, and open savannah. Leopards patrol the forest edges, while Lake Momela mirrors the outline of Mount Meru on calm mornings.',
         accommodation: 'Arusha Coffee Lodge',
         meals: 'All meals',
+        insiderFact: 'Arusha National Park is one of the only parks in Tanzania where a guided walking safari is permitted year-round.',
+        accommodationByFamilyTier: {
+          luxury: { name: 'Gran Melia, Arusha', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/b9/13/a9/gran-melia-arusha.jpg', amenities: ['wifi', 'pool', 'spa'] },
+          ultraLuxury: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['wifi', 'pool', 'view'] },
+        },
       },
       {
         day: 3,
@@ -591,6 +737,11 @@ export const packages: SafariPackage[] = [
         description: 'Head south to Tarangire National Park, where the largest elephant herds in Tanzania gather around the seasonal river. The enormous baobab trees are particularly impressive for younger travellers — some have been growing for over a thousand years.',
         accommodation: 'Tarangire Safari Lodge',
         meals: 'All meals',
+        insiderFact: 'Tarangire holds Tanzania\'s largest elephant population outside the wet season, drawn by the last permanent water for miles.',
+        accommodationByFamilyTier: {
+          luxury: { name: 'Elephant Springs', image: 'https://karibu2024.b-cdn.net/wp-content/uploads/2025/06/Tarangire-Elephant-Springs_General_1-scaled.jpg', amenities: ['pool', 'view', 'restaurant'] },
+          ultraLuxury: { name: 'Lemala Mpingo Ridge', image: 'https://www.lemalacamps.com/app/uploads/2021/09/Lemala-Mpingo-Ridge-35-scaled.jpg', amenities: ['pool', 'spa', 'view'] },
+        },
       },
       {
         day: 4,
@@ -598,6 +749,11 @@ export const packages: SafariPackage[] = [
         description: 'A complete day exploring Tarangire\'s varied habitats. Morning drives focus on the river corridor where elephants wade and splash. Afternoon drives push into the open woodland where lion prides rest and leopards drape themselves across branches.',
         accommodation: 'Tarangire Safari Lodge',
         meals: 'All meals',
+        insiderFact: 'Tarangire\'s baobabs can live over a thousand years and store up to 4,500 litres of water in their trunks.',
+        accommodationByFamilyTier: {
+          luxury: { name: 'Elephant Springs', image: 'https://karibu2024.b-cdn.net/wp-content/uploads/2025/06/Tarangire-Elephant-Springs_General_1-scaled.jpg', amenities: ['pool', 'view', 'restaurant'] },
+          ultraLuxury: { name: 'Lemala Mpingo Ridge', image: 'https://www.lemalacamps.com/app/uploads/2021/09/Lemala-Mpingo-Ridge-35-scaled.jpg', amenities: ['pool', 'spa', 'view'] },
+        },
       },
       {
         day: 5,
@@ -605,6 +761,11 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Lake Manyara National Park for a game drive featuring tree-climbing lions, dense flamingo flocks, and the lush groundwater forest. Afterwards, explore Mto wa Mbu — a remarkable trading town of 18,000 people representing 120 different ethnic groups. Optional activities include bicycle tours through rice paddies and tuk-tuk rides through the market.',
         accommodation: 'Lake Manyara Hotel',
         meals: 'All meals',
+        insiderFact: "Mto wa Mbu means 'river of mosquitoes' in Swahili — the same wetlands that support 120 distinct ethnic groups in one small town.",
+        accommodationByFamilyTier: {
+          luxury: { name: "Ngorongoro Lion's Paw", image: 'https://karibu2024.b-cdn.net/wp-content/uploads/2026/03/GGM08384-scaled.jpg', amenities: ['view', 'restaurant', 'ensuite'] },
+          ultraLuxury: { name: 'Lemala Osonjoi', image: 'https://www.lemalacamps.com/app/uploads/2024/03/Lemala-Osonjoi-Lodge-2-scaled.jpg', amenities: ['spa', 'view', 'restaurant'] },
+        },
       },
       {
         day: 6,
@@ -612,6 +773,11 @@ export const packages: SafariPackage[] = [
         description: 'Descend into Ngorongoro Crater — the world\'s largest intact volcanic caldera and home to around 30,000 animals. The Big Five all reside here. En route, stop at Olduvai Gorge, where the Leakey family\'s excavations uncovered 1.8-million-year-old human ancestors. The on-site museum brings the story to life for curious minds of every age.',
         accommodation: 'Ngorongoro Serena Lodge',
         meals: 'All meals',
+        insiderFact: "Ngorongoro Crater is home to one of Africa's densest populations of predators per square kilometre.",
+        accommodationByFamilyTier: {
+          luxury: { name: "Ngorongoro Lion's Paw", image: 'https://karibu2024.b-cdn.net/wp-content/uploads/2026/03/GGM08384-scaled.jpg', amenities: ['view', 'restaurant', 'ensuite'] },
+          ultraLuxury: { name: 'Lemala Osonjoi', image: 'https://www.lemalacamps.com/app/uploads/2024/03/Lemala-Osonjoi-Lodge-2-scaled.jpg', amenities: ['spa', 'view', 'restaurant'] },
+        },
       },
       {
         day: 7,
@@ -619,6 +785,11 @@ export const packages: SafariPackage[] = [
         description: 'Drive across the Ngorongoro highlands and onto the sweeping Serengeti plains. An afternoon arrival allows for a game drive through Seronera valley, one of the best areas in Tanzania for year-round big cat sightings.',
         accommodation: 'Serengeti Serena Safari Lodge',
         meals: 'All meals',
+        insiderFact: 'Seronera valley sits at the intersection of three habitats, which is why it holds resident big cats year-round rather than only during migration season.',
+        accommodationByFamilyTier: {
+          luxury: { name: 'Kubukubu Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/10/TWC2018-724-scaled.jpg', amenities: ['all-inclusive', 'pool', 'view'] },
+          ultraLuxury: { name: 'Lemala Nanyukie', image: 'https://www.lemalacamps.com/app/uploads/2021/09/Lemala-Nanyukie-22-scaled-e1633857681308.jpg', amenities: ['all-inclusive', 'spa', 'view'] },
+        },
       },
       {
         day: 8,
@@ -626,6 +797,11 @@ export const packages: SafariPackage[] = [
         description: 'A full day in the Serengeti with morning and afternoon game drives. The guide tailors the experience for younger family members — explaining animal behaviour, tracking signs, and identifying birds. Lion cubs, baby elephants, and playful warthog families are crowd favourites.',
         accommodation: 'Serengeti Serena Safari Lodge',
         meals: 'All meals',
+        insiderFact: 'Guides read fresh tracks and radio updates from other vehicles to reposition through the day, rather than following a fixed route.',
+        accommodationByFamilyTier: {
+          luxury: { name: 'Kubukubu Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/10/TWC2018-724-scaled.jpg', amenities: ['all-inclusive', 'pool', 'view'] },
+          ultraLuxury: { name: 'Lemala Nanyukie', image: 'https://www.lemalacamps.com/app/uploads/2021/09/Lemala-Nanyukie-22-scaled-e1633857681308.jpg', amenities: ['all-inclusive', 'spa', 'view'] },
+        },
       },
       {
         day: 9,
@@ -633,6 +809,11 @@ export const packages: SafariPackage[] = [
         description: 'One last day on the Serengeti plains. Optional sunrise game drive for early risers catches predators returning from night hunts. Afternoon at leisure or optional hot air balloon safari (additional cost). Sundowner and campfire stories close the safari.',
         accommodation: 'Serengeti Serena Safari Lodge',
         meals: 'All meals',
+        insiderFact: 'A hot air balloon safari drifts roughly 15–20km depending on wind, passing silently over wildlife that rarely notices the shadow above.',
+        accommodationByFamilyTier: {
+          luxury: { name: 'Kubukubu Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/10/TWC2018-724-scaled.jpg', amenities: ['all-inclusive', 'pool', 'view'] },
+          ultraLuxury: { name: 'Lemala Nanyukie', image: 'https://www.lemalacamps.com/app/uploads/2021/09/Lemala-Nanyukie-22-scaled-e1633857681308.jpg', amenities: ['all-inclusive', 'spa', 'view'] },
+        },
       },
       {
         day: 10,
@@ -640,6 +821,7 @@ export const packages: SafariPackage[] = [
         description: 'Board the light aircraft from the Serengeti airstrip back to Arusha, then connect to Kilimanjaro International Airport for your international flight home. The family carries ten days of extraordinary memories.',
         accommodation: 'N/A',
         meals: 'Breakfast',
+        insiderFact: 'The bush flight from the Serengeti to Arusha takes under an hour, compared to a 6+ hour drive on the same route.',
       },
     ],
   },

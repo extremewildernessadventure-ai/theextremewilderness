@@ -1,4 +1,471 @@
 {
+  "trekkingRouteDetail": {
+    "labels": {
+      "quickFacts": "Kurzübersicht",
+      "whyChoose": "Warum diese Route wählen?",
+      "itinerary": "Tag-für-Tag-Reiseroute",
+      "included": "Was ist inbegriffen",
+      "notIncluded": "Nicht inbegriffen",
+      "pricing": "Preise",
+      "perPerson": "pro Person",
+      "whatToExpect": "Was dich erwartet:",
+      "arrivalDay": "Ankunftstag",
+      "endOfExpedition": "Ende der Expedition",
+      "solo": "Alleine (1 Person)",
+      "small": "Kleine Gruppe (2–4 Personen)",
+      "group": "Gruppe (5+ Personen)",
+      "routeName": "Routenname",
+      "duration": "Dauer",
+      "distance": "Distanz",
+      "startGate": "Starttor",
+      "finishGate": "Zieltor",
+      "summit": "Gipfel",
+      "difficulty": "Schwierigkeit",
+      "trailTraffic": "Wegverkehr",
+      "successRate": "Gipfelerfolgsquote",
+      "bestSeason": "Beste Reisezeit",
+      "accommodation": "Unterkunft",
+      "priceFrom": "Preis ab"
+    },
+    "machame": {
+      "nickname": "Die Whiskey-Route",
+      "intro": [
+        "Es gibt einen Grund, warum über die Machame-Route mehr Kilimandscharo-Gipfelbesteigungen gelingen als über jeden anderen Weg des Berges.",
+        "Es ist nicht die einfachste Route. Es ist nicht die kürzeste. Aber sie ist ohne Zweifel die lohnendste — eine siebentägige Wildnisexpedition durch fünf der eindrucksvollsten ökologischen Zonen des Kilimandscharo, aufgebaut auf einer bewährten Akklimatisierungsstrategie, die Generationen von Bergsteigern zum Gipfel verholfen hat.",
+        "Die Machame verdient ihren Spitznamen — die Whiskey-Route — nicht weil sie berauschend ist (obwohl sie das ist), sondern weil sie etwas von dir verlangt. Wenn du am Uhuru-Gipfel auf 5.895 Metern stehst, hast du dir jeden Meter dieser Höhe verdient."
+      ],
+      "quickFacts": {
+        "routeName": "Machame-Route (Die Whiskey-Route)",
+        "duration": "7 Tage / 6 Nächte",
+        "distance": "~62 km insgesamt",
+        "startGate": "Machame-Tor (1.800 m)",
+        "finishGate": "Mweka-Tor (1.640 m)",
+        "summit": "Uhuru-Gipfel — 5.895 m / 19.341 ft",
+        "difficulty": "Anspruchsvoll",
+        "trailTraffic": "Mäßig bis hoch",
+        "successRate": "~85–90%",
+        "bestSeason": "Juni–Oktober · Januar–Februar",
+        "accommodation": "4-Jahreszeiten-Zelte",
+        "priceFrom": "2.350 USD pro Person (Gruppe 5+)"
+      },
+      "whyChoose": [
+        { "title": "Das Akklimatisierungsprofil funktioniert.", "body": "Die 'hoch steigen, tief schlafen'-Strategie der Machame — Aufstieg auf 4.630 m am Lava Tower an Tag 3, dann Abstieg zum Barranco Camp auf 3.900 m — ist eine der effektivsten Höhenanpassungstechniken auf einer 7-tägigen Route." },
+        { "title": "Die Landschaft ist außergewöhnlich.", "body": "Keine andere Kilimandscharo-Route durchquert an einem einzigen Tag so dramatisch unterschiedliche Landschaften — äquatorialer Regenwald, offenes Heidemoor, das weite Shira-Plateau, alpine Wüste und Gletschergelände." },
+        { "title": "Die Barranco-Wand ist einzigartig.", "body": "Eine fast senkrechte 300-Meter-Kletterpartie im Morgengrauen, die erschreckend aussieht und sich als großartig erweist — Hände und Füße, exponierte Abschnitte und ein Grinsen, das man den Rest des Tages nicht loswird." },
+        { "title": "Die Route bereitet dich richtig auf die Gipfelnacht vor.", "body": "Wenn du an Tag 5 das Barafu-Basislager erreichst, hat dein Körper vier Tage in zunehmender Höhe verbracht. Die Gipfelnacht fühlt sich, wenn auch nie leicht, eher machbar als brutal an." }
+      ],
+      "arrivalDay": "Du kommst in Tansania an und wirst zu deinem Hotel in Arusha oder Moshi gebracht. Dein Bergführer trifft dich zu einer gründlichen Vorbesprechung — Ausrüstungscheck, Routenüberblick, Höhensicherheitsprotokoll und Fragen. Ruh dich gut aus. Trinke ausreichend. Schlaf früh. Deine Expedition beginnt morgen.",
+      "itinerary": [
+        { "day": 1, "title": "Machame-Tor → Machame-Camp", "meta": "Camp: Machame Camp · Höhe: 3.026 m · Distanz: 11 km · Gehzeit: 5–7 Stunden", "body": "Der längste Tag 1 jeder Standard-Kilimandscharo-Route. Vom Machame-Tor auf 1.800 m führt der Weg sofort in den Regenwald. Guerezas bewegen sich in den Bäumen. Das Camp liegt auf einem Moorkamm über der Baumgrenze, wo die Sterne in einer klaren Nacht außergewöhnlich sind.", "expect": "Dein erster voller Wandertag. Die Beine werden es spüren. Iss gut, trinke mehr Wasser als du denkst zu brauchen, und schlaf so früh wie möglich." },
+        { "day": 2, "title": "Machame-Camp → Shira-Camp", "meta": "Camp: Shira Camp · Höhe: 3.766 m · Distanz: 5 km · Gehzeit: 4–6 Stunden", "body": "Der Wald lichtet sich und die Welt öffnet sich. Die Vegetation verwandelt sich in offenes Heidemoor, und das Shira-Plateau öffnet sich vor dir: weit, windgepeitscht, uralt. Der vergletscherte Gipfel des Kibo ragt am Horizont auf.", "expect": "Ein kürzerer Tag nach der Anstrengung von Tag 1. Nachmittagsmüdigkeit ist normal. Leichte Kopfschmerzen sind bei dieser Höhe häufig — sie klingen meist über Nacht ab." },
+        { "day": 3, "title": "Shira-Camp → Lava Tower → Barranco-Camp", "meta": "Camp: Barranco Camp · Höhe: 3.983 m · Distanz: 10 km · Gehzeit: 6–8 Stunden", "body": "Der wichtigste Tag der Machame-Route. Der Morgen steigt zum Lava Tower auf 4.630 m — die 'hoch steigen, tief schlafen'-Strategie in Aktion. Dann sinkt der Weg fast 700 Meter zum Barranco Camp, mit dramatischen Ausblicken auf die aufragende Barranco-Wand.", "expect": "Dies ist der Tag, an dem sich die Höhe bemerkbar macht. Der Appetit kann nachlassen. Kopfschmerzen sind häufig. Informiere deinen Bergführer sofort, wenn Symptome ernst erscheinen." },
+        { "day": 4, "title": "Barranco-Camp → Barranco-Wand → Karanga-Camp", "meta": "Camp: Karanga Camp · Höhe: 3.995 m · Distanz: 5 km · Gehzeit: 4–5 Stunden", "body": "Die Barranco-Wand wartet — eine 300 Meter lange Felskletterei, die zu einem der bekanntesten Abschnitte des Kilimandscharo geworden ist. Der Nachmittag durchquert das Karanga-Tal, die letzte verlässliche Wasserquelle am Berg.", "expect": "Ein aufregender Morgen gefolgt von einem befriedigenden Nachmittag. Die Energie kehrt nach der Höhenanpassung von Tag 3 meist zurück." },
+        { "day": 5, "title": "Karanga-Camp → Barafu-Basislager", "meta": "Camp: Barafu Camp · Höhe: 4.673 m · Distanz: 4 km · Gehzeit: 3–4 Stunden", "body": "Der kürzeste Wandertag der Expedition. Der Weg steigt durch alpine Wüste zum Barafu — dem Hauptlager des Kilimandscharo auf 4.673 m. Dein Bergführer hält die vollständige Gipfelbesprechung ab. Um Mitternacht ertönt der Alarm.", "expect": "Vorfreude, Nervosität und höhenbedingte Unruhe sind völlig normal. Ruh dich aus, auch wenn du nicht schlafen kannst. Iss das volle Abendessen, auch bei geringem Appetit." },
+        { "day": 6, "title": "Gipfelnacht → Uhuru-Gipfel → Mweka-Camp", "meta": "Camp: Mweka Camp · Höhe: 3.110 m · Aufstieg: 5 km · Abstieg: 12 km · Gesamtzeit: 10–14 Stunden", "body": "Mitternacht. Dein Bergführer gibt das Tempo vor — pole pole. Am Stella Point (5.739 m) bricht das erste Morgenlicht über dem Indischen Ozean an. Fünfundvierzig Minuten später — der Uhuru-Gipfel. Afrika, 5.895 Meter unter deinen Füßen. Der Abstieg führt weiter bis zum Mweka-Camp.", "expect": "Die Gipfelnacht ist die härteste körperliche und mentale Herausforderung der Expedition. Sie ist auch, ausnahmslos, die lohnendste." },
+        { "day": 7, "title": "Mweka-Camp → Mweka-Tor → Hotel", "meta": "Ende der Expedition · Höhe: 1.640 m · Distanz: 10 km · Gehzeit: 3–4 Stunden", "body": "Der letzte Morgen durch den Regenwald. Am Mweka-Tor überreicht dir dein Bergführer das Gipfelzertifikat. Dein Fahrer holt dich zum Transfer zurück ins Hotel ab.", "expect": "Ruh dich aus. Feiere. Der Berg liegt hinter dir. Die Erinnerung bleibt für immer." }
+      ],
+      "included": [
+        "Alle Gebühren des Kilimandscharo-Nationalparks, Naturschutzabgabe und TANAPA-Rettungsgebühr",
+        "Professioneller KINAPA-zertifizierter Bergführer — englischsprachig",
+        "Assistenzguides (1 pro 3 Bergsteiger)",
+        "Persönlicher Träger (1 pro Bergsteiger, max. 15 kg Gepäck)",
+        "Bergkoch — warme Vollverpflegung in jedem Camp",
+        "4-Jahreszeiten-Zelte, Isomatten, Speisezelt, Küchenzelt, privates Toilettenzelt",
+        "Notfall-Sauerstoffflasche",
+        "Pulsoximeter — zweimal tägliche Gesundheitskontrolle in jedem Camp",
+        "In Wildnis-Erster-Hilfe geschulter Bergführer",
+        "Hotel-/Flughafentransfers — Kilimandscharo- oder Arusha-Flughafen zu Hotel und Tor",
+        "Kilimandscharo-Gipfelzertifikat",
+        "18% MwSt. und alle anfallenden tansanischen Steuern"
+      ],
+      "excluded": ["Internationale Flüge", "Tansania-Visum", "Persönliche Reiseversicherung (Pflicht)", "Persönliche Ausrüstung", "Trinkgelder"],
+      "pricing": { "solo": 2695, "small": 2495, "group": 2350 }
+    },
+    "lemosho": {
+      "nickname": "Die Wahl der Kenner",
+      "intro": [
+        "Fragt man einen erfahrenen Kilimandscharo-Bergführer, welche Route er selbst wählen würde, lautet die Antwort meist: die Lemosho.",
+        "Die Lemosho ist das umfassendste Wildniserlebnis des Kilimandscharo — sie beginnt in einem der unberührtesten und am seltensten begangenen Waldabschnitte des gesamten Berges und durchquert den kompletten südlichen Rundweg vor dem Mitternachtsanstieg zum Uhuru-Gipfel. Eine bewusste, gemessene Akklimatisierungsstrategie führt direkt zur höchsten Gipfelerfolgsquote aller Standardrouten des Kilimandscharo.",
+        "Ein zusätzlicher Tag am Berg. Eine dedizierte Akklimatisierungspause. Eine Erfolgsquote von 90–95%. Für die meisten Bergsteiger ist das die beste Investition der gesamten Expedition."
+      ],
+      "quickFacts": {
+        "routeName": "Lemosho-Route",
+        "duration": "8 Tage / 7 Nächte",
+        "distance": "~70 km insgesamt",
+        "startGate": "Londerossi-Tor (2.100 m)",
+        "finishGate": "Mweka-Tor (1.640 m)",
+        "summit": "Uhuru-Gipfel — 5.895 m / 19.341 ft",
+        "difficulty": "Anspruchsvoll",
+        "trailTraffic": "Niedrig bis mäßig",
+        "successRate": "~90–95%",
+        "bestSeason": "Juni–Oktober · Januar–Februar",
+        "accommodation": "4-Jahreszeiten-Zelte",
+        "priceFrom": "2.595 USD pro Person (Gruppe 5+)"
+      },
+      "whyChoose": [
+        { "title": "Die Akklimatisierung ist außergewöhnlich.", "body": "Tag 3 ist ein Rast- und Kurzwandertag auf dem Shira-Plateau auf 3.810 m — mehr als 24 zusätzliche Stunden in der Höhe vor dem weiteren Aufstieg. Dieser Unterschied zeigt sich am Gipfelmorgen am deutlichsten." },
+        { "title": "Der Weg ist ruhiger.", "body": "Der Zugang durch das Londorossi-Waldreservat ist einer der am wenigsten begangenen Abschnitte des Kilimandscharo. Von Tag 1 bis Tag 3 wirst du wahrscheinlich keiner anderen Gruppe begegnen." },
+        { "title": "Der Einstieg über Londorossi ist außergewöhnlich.", "body": "Büffel werden auf dem unteren Zugangsweg regelmäßig gesichtet. Der Wald ist uralt, dicht und wirklich wild." },
+        { "title": "Sie trifft an Tag 4 auf die Machame-Route.", "body": "Nach dem ruhigen Wildniszugang schließt du dich dem ikonischen südlichen Rundweg an und erlebst die Barranco-Wand, das Karanga-Tal und die vollständige Gipfelroute." }
+      ],
+      "arrivalDay": "Transfer vom Kilimandscharo International Airport zu deinem Hotel. Dein Bergführer trifft dich zu einer gründlichen Vorbesprechung — Ausrüstungscheck, Routenüberblick, Höhensicherheitsprotokoll und Gipfelstrategie. Komm mit Fragen.",
+      "itinerary": [
+        { "day": 1, "title": "Londorossi-Tor → Big-Tree-Camp (Mti Mkubwa)", "meta": "Camp: Mti Mkubwa · Höhe: 2.650 m · Distanz: 6 km · Gehzeit: 2–3 Stunden", "body": "Ein sanfter, bewusster Auftakttag. Vom Londorossi-Tor auf 2.100 m führt der Weg in das markanteste Merkmal der Lemosho — einen Waldabschnitt, der so unberührt ist, dass er sich wirklich intakt anfühlt. Büffelspuren kreuzen den Pfad.", "expect": "Der kürzeste Wandertag der Route. Nutze den Nachmittag zum Ausruhen, zur Erkundung des Waldrands und zur Anpassung an die Höhenveränderung." },
+        { "day": 2, "title": "Mti Mkubwa → Shira-Kamm → Shira-1-Camp", "meta": "Camp: Shira 1 Camp · Höhe: 3.500 m · Distanz: 8 km · Gehzeit: 4–6 Stunden", "body": "Der Wald weicht zurück und der Berg zeigt sich. Der Weg steigt auf das offene Heidemoor des Shira-Kamms. Oben angekommen öffnet sich das Shira-Plateau vor dir — weit, uralt, wie aus einer anderen Welt.", "expect": "Ein anhaltender Aufstieg mit deutlichem Höhengewinn. Kopfschmerzen sind heute Nacht häufig — die normale Reaktion des Körpers auf einen Aufstieg von 1.400 m an einem einzigen Tag." },
+        { "day": 3, "title": "Shira 1 → Shira-2-Camp (Akklimatisierungstag)", "meta": "Camp: Shira 2 Camp · Höhe: 3.810 m · Distanz: 8 km · Gehzeit: 4–5 Stunden", "body": "Dies ist der Tag, der die Lemosho von jeder anderen Route am Berg unterscheidet. Eine kürzere Morgenwanderung bringt dich am frühen Nachmittag zum Camp — der Rest des Tages gehört dir, und es ist die produktivste Akklimatisierung, die auf jeder Standardroute verfügbar ist.", "expect": "Der wichtigste Ruhetag der Expedition. Nutze ihn voll aus. Iss gut. Trinke 4 Liter Wasser." },
+        { "day": 4, "title": "Shira 2 → Lava Tower → Barranco-Camp", "meta": "Camp: Barranco Camp · Höhe: 3.983 m · Distanz: 10 km · Gehzeit: 6–8 Stunden", "body": "Die Lemosho trifft heute auf den Machame-Rundweg. Die Route steigt zum Lava Tower auf 4.630 m, sinkt dann 700 Meter zum Barranco Camp. Dein durch die Lemosho akklimatisierter Körper bewältigt diese Höhe merklich leichter.", "expect": "Ein langer und anspruchsvoller Tag, an dem sich dein Akklimatisierungsvorteil jedoch zu zeigen beginnt. Energie und Appetit bleiben meist stark." },
+        { "day": 5, "title": "Barranco-Wand → Karanga-Camp", "meta": "Camp: Karanga Camp · Höhe: 3.995 m · Distanz: 5 km · Gehzeit: 4–5 Stunden", "body": "Die Barranco-Wand — 300 Meter fast senkrechte Kletterei, bei der durchgehend Hände und Füße gebraucht werden. Der Nachmittag durchquert das Karanga-Tal, die letzte Wasserquelle am Berg.", "expect": "Ein aufregender Morgen, der nach den Höhenanpassungstagen meist die Energie zurückbringt." },
+        { "day": 6, "title": "Karanga-Camp → Barafu-Basislager", "meta": "Camp: Barafu Camp · Höhe: 4.673 m · Distanz: 4 km · Gehzeit: 3–4 Stunden", "body": "Der letzte Zugang zum Basislager, das auf einem Felskamm auf 4.673 m thront. Dein Bergführer hält die vollständige Gipfelnacht-Besprechung ab. Um Mitternacht ertönt der Alarm.", "expect": "Eine kurze Wanderung gefolgt von einer langen Wartezeit. Vertrau deiner Vorbereitung — sechs Tage stetiger Akklimatisierung haben ihre Wirkung gezeigt." },
+        { "day": 7, "title": "Gipfelnacht → Uhuru-Gipfel → Mweka-Camp", "meta": "Camp: Mweka Camp · Höhe: 3.110 m · Aufstieg: 5 km · Abstieg: 12 km · Gesamtzeit: 10–14 Stunden", "body": "Mitternächtlicher Aufbruch zum Kraterrand. Der Stella Point wird auf 5.739 m erreicht, während die Sonne über dem Indischen Ozean aufgeht. Fünfundvierzig Minuten später — der Uhuru-Gipfel. Du stehst auf dem Dach Afrikas.", "expect": "Der schwierigste und außergewöhnlichste Tag der Expedition. Alles zuvor war Vorbereitung darauf." },
+        { "day": 8, "title": "Mweka-Camp → Mweka-Tor → Hotel", "meta": "Ende der Expedition · Höhe: 1.640 m · Distanz: 10 km · Gehzeit: 3–4 Stunden", "body": "Ein letzter Morgen im Wald. Am Mweka-Tor wird dir dein Gipfelzertifikat überreicht. Dein Fahrer wartet.", "expect": "Ruh dich aus. Feiere. Du hast den Kilimandscharo bestiegen." }
+      ],
+      "included": [
+        "Alle Gebühren des Kilimandscharo-Nationalparks, Naturschutzabgabe und TANAPA-Rettungsgebühr",
+        "Professioneller KINAPA-zertifizierter Bergführer — englischsprachig",
+        "Assistenzguides (1 pro 3 Bergsteiger)",
+        "Persönlicher Träger (1 pro Bergsteiger, max. 15 kg Gepäck)",
+        "Bergkoch — warme Vollverpflegung in jedem Camp",
+        "4-Jahreszeiten-Zelte, Isomatten, Speisezelt, Küchenzelt, privates Toilettenzelt",
+        "Notfall-Sauerstoffflasche",
+        "Pulsoximeter — zweimal tägliche Gesundheitskontrolle in jedem Camp",
+        "In Wildnis-Erster-Hilfe geschulter Bergführer",
+        "Hotel-/Flughafentransfers — Kilimandscharo- oder Arusha-Flughafen zu Hotel und Tor",
+        "Kilimandscharo-Gipfelzertifikat",
+        "18% MwSt. und alle anfallenden tansanischen Steuern"
+      ],
+      "excluded": ["Internationale Flüge", "Tansania-Visum", "Persönliche Reiseversicherung (Pflicht)", "Persönliche Ausrüstung", "Trinkgelder"],
+      "pricing": { "solo": 2950, "small": 2750, "group": 2595 }
+    },
+    "rongai": {
+      "nickname": "Der nördliche Zugang",
+      "intro": [
+        "Die meisten Menschen besteigen den Kilimandscharo von Süden. Die Rongai geht den anderen Weg.",
+        "Von Norden kommend — von der kenianischen Grenze — bietet die Rongai ein Kilimandscharo-Erlebnis, das sich grundlegend von jeder anderen Route am Berg unterscheidet. Das Ökosystem ist trockener und offener. Der Weg ist deutlich ruhiger. Die Tierwelt an den unteren Hängen — Elefanten, Büffel, Elenantilopen — lässt die ersten Tage eher wie eine Wildbeobachtungswanderung als einen Bergzugang wirken.",
+        "Für Bergsteiger, die den Kilimandscharo während der tansanischen Regenzeitmonate (März–Mai) angehen, wenn die Südflanke durchnässt und rutschig ist, bleibt der nördliche Zugang der Rongai durchgehend trocken und fest."
+      ],
+      "quickFacts": {
+        "routeName": "Rongai-Route (Nördlicher Rundweg)",
+        "duration": "7 Tage / 6 Nächte",
+        "distance": "~65 km insgesamt",
+        "startGate": "Rongai-Tor (1.950 m)",
+        "finishGate": "Marangu-Tor (1.860 m)",
+        "summit": "Uhuru-Gipfel — 5.895 m / 19.341 ft",
+        "difficulty": "Mäßig bis anspruchsvoll",
+        "trailTraffic": "Sehr niedrig",
+        "successRate": "~80–85%",
+        "bestSeason": "Ganzjährig · Besonders März–Mai",
+        "accommodation": "4-Jahreszeiten-Zelte",
+        "priceFrom": "2.250 USD pro Person (Gruppe 5+)"
+      },
+      "whyChoose": [
+        { "title": "Die Einsamkeit ist echt.", "body": "An manchen Tagen auf der Rongai wirst du keiner anderen Bergsteigergruppe begegnen. Für Solo-Bergsteiger und kleine Gruppen, die echte Wildnis schätzen, zählt das." },
+        { "title": "Die Tierwelt ist außergewöhnlich.", "body": "Elefanten, Büffel, Zebras und Elenantilopen werden auf den unteren nördlichen Hängen regelmäßig gesichtet — ein Tiererlebnis, das keine südliche Route bietet." },
+        { "title": "Sie ist die einzig praktikable Route während der langen Regenzeit.", "body": "April und Mai sind Regenzeitmonate an den Südhängen — schlammig und anstrengend. Die nördliche Lage der Rongai bleibt trocken. Kein Kompromiss — die richtige Wahl." },
+        { "title": "Der Anstieg ist gleichmäßiger.", "body": "Die Rongai steigt mit einem sanfteren, linearen Profil als die Machame oder Lemosho. Keine Kletterabschnitte, keine exponierten Gratüberquerungen." }
+      ],
+      "arrivalDay": "Du kommst in Tansania an und wirst zu deinem Hotel gebracht. Dein Bergführer hält eine vollständige Vorbesprechung ab — Ausrüstungscheck, Routenüberblick, Höhensicherheitsprotokolle und Fragen. Die Rongai beginnt weiter von Arusha entfernt als andere Routen, daher informieren wir dich ausführlich während der Fahrt zum Tor am nächsten Morgen.",
+      "itinerary": [
+        { "day": 1, "title": "Rongai-Tor → Simba-Camp", "meta": "Camp: Simba Camp · Höhe: 2.625 m · Distanz: 7 km · Gehzeit: 3–4 Stunden", "body": "Die Fahrt von Moshi zum Rongai-Tor führt durch die kenianische Grenzzone — offene Savanne, Massai-Siedlungen und die ersten fernen Ausblicke auf die nördlichen Hänge des Kilimandscharo. Vom Tor aus führt der Weg in trockenen, offenen Wald.", "expect": "Ein sanfter, tierreicher Auftakttag. Der geringere Höhengewinn an Tag 1 der Rongai ermöglicht einen angenehmeren Start." },
+        { "day": 2, "title": "Simba-Camp → Second-Cave-Camp", "meta": "Camp: Second Cave Camp · Höhe: 3.450 m · Distanz: 9 km · Gehzeit: 4–6 Stunden", "body": "Der Weg steigt durch sich stetig verändernde Vegetation — offener Wald weicht dem Moorland, und die ersten Riesenlobelien erscheinen. Die Aussicht reicht nördlich über die kenianischen Ebenen und südlich zum Mawenzi.", "expect": "Ein längerer Tag mit stetigem Höhengewinn. Die Höhe macht sich heute Nacht bemerkbar — trinke 4 Liter Wasser und iss ein volles Abendessen." },
+        { "day": 3, "title": "Second-Cave-Camp → Kikelewa-Cave-Camp", "meta": "Camp: Kikelewa Cave Camp · Höhe: 3.600 m · Distanz: 5 km · Gehzeit: 3–4 Stunden", "body": "Ein kürzerer, für die Akklimatisierung ausgelegter Tag. Der Weg führt weiter durch offenes Moorland, karg und schön, mit dem Mawenzi-Gipfel, der den östlichen Horizont beherrscht. Dein Bergführer empfiehlt eine Akklimatisierungswanderung am Nachmittag.", "expect": "Ein ruhiger Tag mit deutlicher Höhenexposition. Nutze den Nachmittag zum Erkunden und Akklimatisieren, statt passiv auszuruhen." },
+        { "day": 4, "title": "Kikelewa Cave → Mawenzi-Tarn-Camp", "meta": "Camp: Mawenzi Tarn Camp · Höhe: 4.330 m · Distanz: 4 km · Gehzeit: 3–5 Stunden", "body": "Der Weg steigt steil zum Mawenzi Tarn — einem Gletschersee unterhalb der dramatischen Zacken des Mawenzi-Gipfels. Dies entspricht bei der Rongai dem Lava-Tower-Stopp — ein bedeutender Höhenkontakt vor dem Abstieg zum Schlafen.", "expect": "Die Höhe macht sich auf 4.330 m deutlich bemerkbar. Kopfschmerzen sind häufig und normal." },
+        { "day": 5, "title": "Mawenzi Tarn → Kibo Hut (Basislager)", "meta": "Camp: Kibo Hut · Höhe: 4.703 m · Distanz: 9 km · Gehzeit: 4–6 Stunden", "body": "Die lange Sattelüberquerung zwischen Mawenzi und Kibo — eine mondähnliche Landschaft aus vulkanischem Staub und Bimsstein. Kibo Hut auf 4.703 m ist ein Steinbau statt eines Zeltes, einzigartig für die Rongai in diesem Abschnitt.", "expect": "Die Sattelüberquerung ist mental anspruchsvoll — lang, exponiert und auf beträchtlicher Höhe. Geh es langsam an." },
+        { "day": 6, "title": "Gipfelnacht → Uhuru-Gipfel → Horombo-Camp", "meta": "Camp: Horombo Camp · Höhe: 3.720 m · Aufstieg: 5 km · Abstieg: 12 km · Gesamtzeit: 10–14 Stunden", "body": "Die Gipfelroute der Rongai nähert sich von Norden und Osten und erreicht den Kraterrand am Gilman's Point (5.681 m) vor der Kraterrandwanderung zum Uhuru-Gipfel. Der Abstieg erfolgt über die südliche Route zum Horombo-Camp.", "expect": "Die Gipfelnacht der Rongai gilt aufgrund des steileren nördlichen Hangs als technisch etwas anspruchsvoller." },
+        { "day": 7, "title": "Horombo-Camp → Marangu-Tor → Hotel", "meta": "Ende der Expedition · Höhe: 1.860 m · Distanz: 19 km · Gehzeit: 5–7 Stunden", "body": "Ein langer letzter Tag durch Moorland und Regenwald zum Tor, der am Marangu-Tor endet, wo dein Zertifikat wartet. Transfer zurück zu deinem Hotel.", "expect": "Die Rongai liegt hinter dir. Die Geschichte nicht." }
+      ],
+      "included": [
+        "Alle Gebühren des Kilimandscharo-Nationalparks, Naturschutzabgabe und TANAPA-Rettungsgebühr",
+        "Professioneller KINAPA-zertifizierter Bergführer — englischsprachig",
+        "Assistenzguides (1 pro 3 Bergsteiger)",
+        "Persönlicher Träger (1 pro Bergsteiger, max. 15 kg Gepäck)",
+        "Bergkoch — warme Vollverpflegung in jedem Camp",
+        "4-Jahreszeiten-Zelte, Isomatten, Speisezelt, Küchenzelt, privates Toilettenzelt",
+        "Notfall-Sauerstoffflasche",
+        "Pulsoximeter — zweimal tägliche Gesundheitskontrolle in jedem Camp",
+        "In Wildnis-Erster-Hilfe geschulter Bergführer",
+        "Hotel-/Flughafentransfers — Kilimandscharo- oder Arusha-Flughafen zu Hotel und Tor",
+        "Kilimandscharo-Gipfelzertifikat",
+        "18% MwSt. und alle anfallenden tansanischen Steuern"
+      ],
+      "excluded": ["Internationale Flüge", "Tansania-Visum", "Persönliche Reiseversicherung (Pflicht)", "Persönliche Ausrüstung", "Trinkgelder"],
+      "pricing": { "solo": 2595, "small": 2395, "group": 2250 }
+    },
+    "marangu": {
+      "nickname": "Die klassische Route",
+      "intro": [
+        "Jeder Berg hat seinen Klassiker. Für den Kilimandscharo ist es die Marangu.",
+        "Die älteste etablierte Route am Berg, die Marangu, führt Bergsteiger seit den frühesten Tagen organisierter Kilimandscharo-Expeditionen zum Uhuru-Gipfel. Die drei festen Hütten — Mandara, Horombo und Kibo — stehen seit Jahrzehnten. Die Marangu ist auch die einzige Route, auf der Bergsteiger in festen Berghütten statt in Zelten schlafen.",
+        "Wir möchten ehrlich zu dir sein: Die Gipfelerfolgsquote der Marangu von etwa 65–70% ist die niedrigste unserer vier Routen — ein strukturelles Merkmal des schnelleren Aufstiegsprofils der Route. Für erfahrene Wanderer, die diesen Kompromiss verstehen, ist die Marangu eine würdige und historische Wahl. Für Höhenbergsteiger, die zum ersten Mal den Gipfelerfolg priorisieren, empfehlen wir die Lemosho oder Machame. Wähle die Marangu, weil du das Klassische willst. Wähle sie mit offenen Augen."
+      ],
+      "quickFacts": {
+        "routeName": "Marangu-Route (Die Coca-Cola-Route)",
+        "duration": "6 Tage / 5 Nächte",
+        "distance": "~64 km insgesamt",
+        "startGate": "Marangu-Tor (1.860 m)",
+        "finishGate": "Marangu-Tor (1.860 m)",
+        "summit": "Uhuru-Gipfel — 5.895 m / 19.341 ft",
+        "difficulty": "Mäßig",
+        "trailTraffic": "Mäßig bis hoch",
+        "successRate": "~65–70%",
+        "bestSeason": "Juni–Oktober · Januar–Februar",
+        "accommodation": "Feste Berghütten (Gemeinschaftsschlafsaal)",
+        "priceFrom": "1.950 USD pro Person (Gruppe 5+)"
+      },
+      "whyChoose": [
+        { "title": "Die Hüttenunterkunft ist einzigartig.", "body": "Mandara Hut auf 2.720 m, Horombo Hut auf 3.720 m und Kibo Hut auf 4.703 m sind die einzigen festen Strukturen auf jeder Kilimandscharo-Route." },
+        { "title": "Sie ist die historisch bedeutendste Route des Kilimandscharo.", "body": "Die Marangu war die erste Route, die für organisierte Kletterexpeditionen eröffnet wurde. Die frühesten dokumentierten Gipfelbesteigungen des Berges erfolgten über diesen Weg." },
+        { "title": "Auf- und Abstieg über denselben Weg.", "body": "Anders als andere Routen steigt und sinkt die Marangu über denselben Pfad — eine logistische Einfachheit, die manche Bergsteiger schätzen." },
+        { "title": "Der zugänglichste Preis.", "body": "Die Hüttenunterkunft, geteilt zwischen mehreren Gruppen, reduziert den Ausrüstungsbedarf — sie macht sie zur günstigsten Option, ohne bei Führungsqualität oder Sicherheit Abstriche zu machen." }
+      ],
+      "arrivalDay": "Transfer vom Kilimandscharo-Flughafen zu deinem Hotel. Vollständige Vorbesprechung mit deinem Bergführer — Ausrüstungscheck, Routenüberblick, Details zur Hüttenunterkunft, Höhensicherheitsprotokoll und Fragen. Das Marangu-Tor liegt von allen Routen am nächsten an Moshi.",
+      "itinerary": [
+        { "day": 1, "title": "Marangu-Tor → Mandara Hut", "meta": "Camp: Mandara Hut · Höhe: 2.720 m · Distanz: 8 km · Gehzeit: 3–4 Stunden", "body": "Vom Marangu-Tor auf 1.860 m führt der Weg in den Regenwald und steigt stetig durch einen der schönsten Waldabschnitte des Kilimandscharo. Mandara Hut ist eine Gruppe von A-Rahmen-Hütten in einer Waldlichtung. Ein kurzer Nachmittagsspaziergang zum Maundi-Krater wird empfohlen.", "expect": "Ein angenehmer erster Tag mit mäßigem Höhengewinn. Die Hütten werden oft mit anderen Bergsteigergruppen geteilt — genieße die Kameradschaft." },
+        { "day": 2, "title": "Mandara Hut → Horombo Hut", "meta": "Camp: Horombo Hut · Höhe: 3.720 m · Distanz: 12 km · Gehzeit: 5–7 Stunden", "body": "Der Wald weicht dem Moorland, während der Weg stetig zur Horombo aufsteigt — ein langer Tag mit deutlichem Höhengewinn, dem anspruchsvollsten Abschnitt der Marangu. Der Mawenzi-Gipfel erscheint im Osten.", "expect": "Der längste und anspruchsvollste Tag. Höhenkopfschmerzen sind in Horombo häufig. Iss ein volles Abendessen, trinke 4 Liter Wasser und schlaf so früh wie möglich." },
+        { "day": 3, "title": "Horombo Hut → Kibo Hut (Basislager)", "meta": "Camp: Kibo Hut · Höhe: 4.703 m · Distanz: 10 km · Gehzeit: 5–6 Stunden", "body": "Das Moorland weicht dem Sattel — einer weiten, flachen vulkanischen Landschaft zwischen Mawenzi und Kibo. Kibo Hut auf 4.703 m ist ein Steinbau, karg und windgepeitscht, direkt unterhalb des Gipfelkegels gelegen.", "expect": "Ein anspruchsvoller Tag mit deutlicher Höhenwirkung. Höre aufmerksam auf deinen Körper und melde deinem Bergführer alle besorgniserregenden Symptome." },
+        { "day": 4, "title": "Gipfelnacht → Uhuru-Gipfel → Horombo Hut", "meta": "Rückkehr zu Horombo Hut · Höhe: 3.720 m · Aufstieg: 5 km · Abstieg: 15 km · Gesamtzeit: 10–14 Stunden", "body": "Mitternächtlicher Aufbruch von Kibo Hut. Der Gipfelweg steigt steil durch vulkanisches Geröll zum Gilman's Point (5.681 m). Die Kraterrandwanderung nach Westen zum Uhuru-Gipfel bringt die ultimative Belohnung des Berges. Der Abstieg erfolgt auf demselben Weg zurück zur Horombo Hut.", "expect": "Der schwierigste Tag der Expedition. Das schnellere Aufstiegsprofil der Marangu bedeutet, dass die Gipfelnacht besondere mentale Widerstandskraft und körperliche Entschlossenheit erfordert." },
+        { "day": 5, "title": "Horombo Hut → Marangu-Tor → Hotel", "meta": "Ende der Expedition · Höhe: 1.860 m · Distanz: 20 km · Gehzeit: 5–7 Stunden", "body": "Der letzte Abstieg durch Moorland und Regenwald — ein langer, befriedigender Rückweg zum Tor, an dem die Expedition begann. Am Marangu-Tor wird dir dein Gipfelzertifikat überreicht.", "expect": "Du endest, wo du begonnen hast — der Berg schließt einen vollen Kreis." }
+      ],
+      "included": [
+        "Alle Gebühren des Kilimandscharo-Nationalparks, Naturschutzabgabe und TANAPA-Rettungsgebühr",
+        "Professioneller KINAPA-zertifizierter Bergführer — englischsprachig",
+        "Assistenzguides (1 pro 3 Bergsteiger)",
+        "Persönlicher Träger (1 pro Bergsteiger, max. 15 kg Gepäck)",
+        "Bergkoch — warme Vollverpflegung in jedem Camp",
+        "Schlafsaal-Unterkunft in den Hütten Mandara, Horombo und Kibo",
+        "Notfall-Sauerstoffflasche",
+        "Pulsoximeter — zweimal tägliche Gesundheitskontrolle in jedem Camp",
+        "In Wildnis-Erster-Hilfe geschulter Bergführer",
+        "Hotel-/Flughafentransfers — Kilimandscharo- oder Arusha-Flughafen zu Hotel und Tor",
+        "Kilimandscharo-Gipfelzertifikat",
+        "18% MwSt. und alle anfallenden tansanischen Steuern"
+      ],
+      "excluded": ["Internationale Flüge", "Tansania-Visum", "Persönliche Reiseversicherung (Pflicht)", "Persönliche Ausrüstung", "Trinkgelder"],
+      "pricing": { "solo": 2295, "small": 2095, "group": 1950 }
+    },
+    "umbwe": {
+      "nickname": "Die direkteste Route",
+      "intro": [
+        "Die meisten Bergsteiger nähern sich dem Kilimandscharo auf der Suche nach der besten Gipfelchance. Umbwe-Bergsteiger suchen etwas völlig anderes — die roheste, direkteste Prüfung des Berges.",
+        "Dies ist die steilste und anspruchsvollste Standardroute des Kilimandscharo, die direkt durch dichten Regenwald aufsteigt, bevor sie sich am Barranco Camp dem südlichen Rundweg anschließt. Hier gibt es kein sanftes Eingewöhnen.",
+        "Wir empfehlen die Umbwe nur erfahrenen Wanderern, die bereits verstehen, was Höhe mit dem Körper macht, und die die ruhigste, körperlich ehrlichste Route zum Uhuru-Gipfel wollen — nicht die einfachste."
+      ],
+      "quickFacts": {
+        "routeName": "Umbwe-Route (Die direkteste Route)",
+        "duration": "7 Tage / 6 Nächte",
+        "distance": "~54 km insgesamt",
+        "startGate": "Umbwe-Tor",
+        "finishGate": "Mweka-Tor (1.640 m)",
+        "summit": "Uhuru-Gipfel — 5.895 m / 19.341 ft",
+        "difficulty": "Sehr anspruchsvoll",
+        "trailTraffic": "Niedrig (steigt nach dem Zusammentreffen mit der Machame-Route)",
+        "successRate": "~70%",
+        "bestSeason": "Juni–Oktober · Januar–Februar",
+        "accommodation": "4-Jahreszeiten-Zelte",
+        "priceFrom": "1.880 USD pro Person (Gruppe 5+)"
+      },
+      "whyChoose": [
+        { "title": "Sie ist die direkteste Linie zum Berg.", "body": "Kein langer Zugang, kein sanftes Aufwärmen — die Umbwe steigt direkt in den Regenwald und steigt weiter. Wenn du die kürzeste Distanz zwischen Tor und Gletschern willst, ist das die Route." },
+        { "title": "Die Einsamkeit ist echt, zumindest anfangs.", "body": "Die Umbwe sieht auf ihren unteren Hängen deutlich weniger Bergsteiger als die Machame oder Lemosho. Du hast den Wald weitgehend für dich, bis die Route am Barranco Camp auf den südlichen Rundweg trifft." },
+        { "title": "Die 7-Tage-Version fügt den Akklimatisierungstag hinzu, der der Umbwe fehlt.", "body": "Der steile, schnelle Aufstieg, der die Umbwe berühmt macht, ist auch ihr größtes Risiko — diese Route fügt einen dedizierten Ruhetag am Barranco Camp vor der Wand ein und gibt deinem Körper echte Zeit zur Anpassung vor dem Gipfelvorstoß." },
+        { "title": "Sie belohnt Bergsteiger, die bereits wissen, was sie tun.", "body": "Dies ist keine erste Kilimandscharo-Besteigung. Wir empfehlen die Umbwe Wanderern mit vorheriger Höhenerfahrung, die die anspruchsvollste Standardroute des Berges wollen, mit offenen Augen." }
+      ],
+      "arrivalDay": "Du kommst in Tansania an und wirst zu deinem Hotel in Moshi gebracht. Dein Bergführer trifft dich zu einer gründlichen Vorbesprechung — Ausrüstungscheck, Routenüberblick, Höhensicherheitsprotokoll und Fragen. Die steilen Anfangstage der Umbwe verdienen hier besondere Aufmerksamkeit. Ruh dich gut aus und schlaf früh — deine Expedition beginnt morgen.",
+      "itinerary": [
+        { "day": 1, "title": "Umbwe-Tor → Umbwe-Cave-Camp", "meta": "Camp: Umbwe Cave Camp · Höhe: 2.850 m · Distanz: 11 km · Gehzeit: 5–6 Stunden", "body": "Der steilste Tag 1 jeder Standard-Kilimandscharo-Route. Vom Umbwe-Tor aus steigt der Weg sofort und unaufhörlich durch dichten Regenwald — ein steiler Waldpfad mit wenig ebenem Gelände. Achte beim Aufstieg auf Guerezas in den Baumkronen.", "expect": "Dies ist ein anspruchsvoller erster Tag ohne sanften Einstieg. Geh dein Tempo an, trinke reichlich Wasser, und erwarte, dass du den Aufstieg im Camp in den Beinen spürst." },
+        { "day": 2, "title": "Umbwe-Cave-Camp → Barranco-Camp", "meta": "Camp: Barranco Camp · Höhe: 3.900 m · Distanz: 6 km · Gehzeit: 4–5 Stunden", "body": "Der Wald weicht dem Moorland, während der Weg dem Umbwe-Kamm in einem stetigen Aufstieg folgt. Am Nachmittag erreichst du das Barranco Camp, wo die Umbwe auf den südlichen Rundweg der Machame-Route trifft — die Einsamkeit der ersten beiden Tage weicht einem belebteren, geselligeren Camp.", "expect": "Der Höhengewinn ist über zwei schnelle Tage beträchtlich — leichte Kopfschmerzen sind häufig. Melde deinem Bergführer sofort alles, was ernster erscheint." },
+        { "day": 3, "title": "Akklimatisierungstag am Barranco-Camp", "meta": "Camp: Barranco Camp · Höhe: 3.900 m · Distanz: Kurze Akklimatisierungswanderung · Gehzeit: Flexibel", "body": "Ein dedizierter Ruhetag — die einzige Ergänzung, die die 7-Tage-Umbwe gegenüber der schnelleren 6-Tage-Version macht, und der Grund, warum wir sie empfehlen. Nutze den Tag, um das Tal in gemächlichem Tempo zu erkunden, dich auszuruhen und deinem Körper zu erlauben, sich an die Höhe anzupassen, bevor die Wand kommt.", "expect": "Dies ist der wichtigste Tag der Besteigung für deine Gipfelchancen. Ruh dich aktiv statt passiv aus — ein kurzer Spaziergang hilft mehr als stilles Liegen." },
+        { "day": 4, "title": "Barranco-Wand → Karanga-Camp", "meta": "Camp: Karanga Camp · Höhe: 3.995 m · Distanz: 5 km · Gehzeit: 3–4 Stunden", "body": "Die Barranco-Wand — eine steile Kletterpartie an einer 250 Meter hohen Felswand — erwartet dich gleich am Morgen. Sie sieht schwieriger aus, als sie mit Händen und Füßen tatsächlich ist. Jenseits der Wand führt der Weg weiter ins Karanga-Tal für einen letzten steilen Abschnitt zum Camp.", "expect": "Ein kurzer, aber intensiver Morgen gefolgt von einem leichteren Nachmittag. Die Energie ist heute nach dem Ruhetag oft besser." },
+        { "day": 5, "title": "Karanga-Camp → Barafu-Basislager", "meta": "Camp: Barafu Camp · Höhe: 4.673 m · Distanz: 4 km · Gehzeit: 3–4 Stunden", "body": "Der Weg vollendet den Südlichen Rundweg mit Ausblicken auf den Gipfel aus fast jedem Winkel, bevor er durch alpine Wüste zum Barafu aufsteigt — dem Hauptlager des Kilimandscharo. Dein Bergführer hält die vollständige Gipfelbesprechung ab, gefolgt von einem frühen Abendessen und einem Schlafversuch.", "expect": "Ein kurzer Wandertag, aber mental bedeutsam. Ruh dich aus, auch wenn du nicht schlafen kannst — Mitternacht kommt schnell." },
+        { "day": 6, "title": "Gipfelnacht → Uhuru-Gipfel → Mweka-Camp", "meta": "Camp: Mweka Camp · Höhe: 3.110 m · Aufstieg: 5 km · Abstieg: 13 km · Gesamtzeit: 10–13 Stunden", "body": "Mitternacht. Die Route steigt einen steilen, losen Pfad an den Rebmann- und Ratzel-Gletschern vorbei zum Stella Point auf, belohnt mit einem Sonnenaufgang über dem Kraterrand. Von dort geht es mit einem weiteren Vorstoß durch Schnee zum Uhuru-Gipfel. Der Abstieg ist lang und führt weiter bis zum Mweka-Camp.", "expect": "Der schwierigste Tag der Expedition und der lohnendste. Der anschließende Abstieg ist lang — geh dein Tempo mit müden Beinen an." },
+        { "day": 7, "title": "Mweka-Camp → Mweka-Tor → Hotel", "meta": "Ende der Expedition · Höhe: 1.640 m · Distanz: 10 km · Gehzeit: 3–4 Stunden", "body": "Der letzte Abstieg führt weiter durch den Regenwald zum Mweka-Tor, wo dir dein Zertifikat überreicht wird. Dein Fahrer bringt dich zurück zu deinem Hotel in Moshi.", "expect": "Ruh dich aus. Feiere. Der Berg liegt hinter dir." }
+      ],
+      "included": [
+        "Alle Gebühren des Kilimandscharo-Nationalparks, Naturschutzabgabe und TANAPA-Rettungsgebühr",
+        "Professioneller KINAPA-zertifizierter Bergführer — englischsprachig",
+        "Assistenzguides (1 pro 3 Bergsteiger)",
+        "Persönlicher Träger (1 pro Bergsteiger, max. 15 kg Gepäck)",
+        "Bergkoch — warme Vollverpflegung in jedem Camp",
+        "4-Jahreszeiten-Zelte, Isomatten, Speisezelt, Küchenzelt, privates Toilettenzelt",
+        "Notfall-Sauerstoffflasche",
+        "Pulsoximeter — zweimal tägliche Gesundheitskontrolle in jedem Camp",
+        "In Wildnis-Erster-Hilfe geschulter Bergführer",
+        "Hotel-/Flughafentransfers — Kilimandscharo- oder Arusha-Flughafen zu Hotel und Tor",
+        "Kilimandscharo-Gipfelzertifikat",
+        "18% MwSt. und alle anfallenden tansanischen Steuern"
+      ],
+      "excluded": ["Internationale Flüge", "Tansania-Visum", "Persönliche Reiseversicherung (Pflicht)", "Persönliche Ausrüstung", "Trinkgelder"],
+      "pricing": { "solo": 1880, "small": 1880, "group": 1880 }
+    },
+    "northern-circuit": {
+      "nickname": "Die große Umrundung",
+      "intro": [
+        "Die meisten Kilimandscharo-Routen nehmen die direkteste Linie zum Gipfel. Die Northern Circuit macht den Umweg — bewusst.",
+        "Dies ist die längste Standardroute am Berg, die vom westlichen Lemosho-Zugang um die selten besuchten nördlichen Hänge des Kibo herumführt, bevor sie südlich zum Gipfel abbiegt. Die zusätzlichen Tage kaufen etwas, das nur wenige andere Routen bieten können: Zeit. Zeit, sich richtig zu akklimatisieren, Zeit, Gelände zu sehen, das fast kein anderer Bergsteiger sieht, und Zeit, einfach am Berg zu sein, statt über ihn zu hetzen.",
+        "Derzeit bleibt die Northern Circuit eine der ruhigsten Routen des Kilimandscharo — eine echte Wildnis-Umrundung für Bergsteiger, die die bestmögliche Vorbereitung auf die Gipfelnacht und den vollständigsten Blick auf den Berg unterwegs wollen."
+      ],
+      "quickFacts": {
+        "routeName": "Northern Circuit (Die große Umrundung)",
+        "duration": "9 Tage / 8 Nächte",
+        "distance": "~98 km insgesamt",
+        "startGate": "Londorossi-Tor (2.100 m)",
+        "finishGate": "Mweka-Tor (1.640 m)",
+        "summit": "Uhuru-Gipfel — 5.895 m / 19.341 ft",
+        "difficulty": "Mäßig",
+        "trailTraffic": "Sehr niedrig",
+        "successRate": "~95%",
+        "bestSeason": "Juni–Oktober · Januar–Februar",
+        "accommodation": "4-Jahreszeiten-Zelte",
+        "priceFrom": "2.237 USD pro Person (Gruppe 5+)"
+      },
+      "whyChoose": [
+        { "title": "Sie ist die längste — und vollständigste — Route des Kilimandscharo.", "body": "Neun Tage am Berg bedeuten mehr Zeit in der Höhe als jede andere Standardroute, was sich direkt in einer der höchsten verfügbaren Gipfelerfolgsquoten niederschlägt." },
+        { "title": "Du siehst Seiten des Kilimandscharo, die fast niemand sonst sieht.", "body": "Die Route umrundet die selten besuchten nördlichen Hänge zwischen Lemosho und dem Kibo-Mawenzi-Sattel — Gelände, das andere Routen einfach nicht berühren." },
+        { "title": "Sie ist wirklich ruhig.", "body": "Die Northern Circuit bleibt einer der am wenigsten überlaufenen Wege zum Gipfel. Erwarte lange Wegstrecken ohne andere Bergsteigergruppen in Sicht." },
+        { "title": "Das Akklimatisierungsprofil ist außergewöhnlich.", "body": "Eine lange, allmähliche Umrundung mit stetigem Höhengewinn gibt deinem Körper mehr Zeit zur Anpassung als jede schnellere Route — genau das, was die zusätzlichen Tage in der Gipfelnacht lohnenswert macht." }
+      ],
+      "arrivalDay": "Du kommst in Tansania an und wirst zu deinem Hotel in Moshi gebracht. Dein Bergführer trifft dich zu einer gründlichen Vorbesprechung — Ausrüstungscheck, Routenüberblick, Höhensicherheitsprotokoll und Fragen. Die Northern Circuit ist die längste Route, die wir anbieten, also nimm dir die Zeit, alle deine Fragen zu stellen. Ruh dich gut aus — deine Expedition beginnt morgen.",
+      "itinerary": [
+        { "day": 1, "title": "Londorossi-Tor → Mti-Mkubwa-Camp", "meta": "Camp: Mti Mkubwa · Höhe: 2.780 m · Distanz: 6 km · Gehzeit: 2–3 Stunden", "body": "Eine 4x4-Fahrt die Waldstraße hinauf zu den Lemosho Glades beginnt den Tag, bevor der Weg zu Fuß beginnt. Dies ist der vegetations- und tierreichste Abschnitt der Route — achte beim Aufstieg durch den Regenwald auf Affen in den Baumkronen.", "expect": "Ein sanfter Auftakttag. Nutze ihn, um dich in den Rhythmus des Weges einzufinden." },
+        { "day": 2, "title": "Mti Mkubwa → Shira-Kamm → Shira-1-Camp", "meta": "Camp: Shira 1 Camp · Höhe: 3.600 m · Distanz: 8 km · Gehzeit: 4–5 Stunden", "body": "Die Bäume lichten sich heute schnell, während der Weg den dramatischen Shira-Kamm hinaufsteigt. Es ist ein steiler Tag, belohnt mit herrlichen Panoramablicken über das westliche Shira-Plateau.", "expect": "Ein anhaltender Aufstieg mit echtem Höhengewinn. Leichte Kopfschmerzen heute Nacht sind normal." },
+        { "day": 3, "title": "Shira-Plateau → Shira-2-Camp", "meta": "Camp: Shira 2 Camp · Höhe: 3.850 m · Distanz: 8 km · Gehzeit: 4–5 Stunden", "body": "Ein sanfterer Tag, der die offenen Wiesen des Shira-Plateaus durchquert — gut für die Akklimatisierung. Kurze Erkundungswege um das Camp lassen dich das umliegende Moorland kennenlernen.", "expect": "Ein im Vergleich angenehmer Tag. Nutze die kürzere Distanz, um dich gut auszuruhen." },
+        { "day": 4, "title": "Shira 2 → Lava Tower → Moir-Camp", "meta": "Camp: Moir Camp · Höhe: 4.200 m · Distanz: 14 km · Gehzeit: 5–7 Stunden", "body": "Der Weg führt durch den Garten der Senecien — die letzte größere Vegetation — vor dem Mittagessen an der dramatischen Felsformation des Lava Tower. Hier trennt sich die Northern Circuit von den südlichen Rundwegrouten und tritt in die alpine Wüste und die ruhigere nördliche Berghälfte ein.", "expect": "Ein langer Tag mit deutlichem Höhenkontakt am Lava Tower. Hier beginnt sich die Northern Circuit wirklich abgelegen anzufühlen." },
+        { "day": 5, "title": "Moir-Tal → Buffalo-Camp", "meta": "Camp: Buffalo Camp · Höhe: 4.020 m · Distanz: 12 km · Gehzeit: 5–6 Stunden", "body": "Ein mäßig steiler Pfad umrundet die nördlichen Hänge des Kibo, mit allmählichen Auf- und Abstiegen und der Option, den Little Lent Hill für erweiterte Ausblicke zu erklimmen. Das Buffalo Camp selbst ist ein Höhepunkt der Northern Circuit — ein wirklich abgeschiedenes Camp, das nur wenige Bergsteiger auf anderen Routen je zu Gesicht bekommen.", "expect": "Wellenförmiges Gelände statt eines einzigen harten Aufstiegs. Die Abgeschiedenheit hier ist der ganze Sinn — genieße sie." },
+        { "day": 6, "title": "Buffalo-Kamm → Third-Cave-Camp", "meta": "Camp: Third Cave Camp · Höhe: 3.875 m · Distanz: 8 km · Gehzeit: 5–7 Stunden", "body": "Der Weg steigt den Buffalo-Kamm hinauf, bevor er die abgelegenen nördlichen Hänge zum Third Cave Camp entlangführt, nahe der Stelle, wo die Rongai-Route vorbeiführt. Inzwischen ist dein Körper gut an die große Höhe angepasst.", "expect": "Ein langer Tag, aber dein Akklimatisierungsvorteil sollte sich an dieser Stelle der Wanderung zeigen." },
+        { "day": 7, "title": "Kibo-Mawenzi-Sattel → School-Hut-Camp", "meta": "Camp: School Hut Camp · Höhe: 4.800 m · Distanz: 15 km · Gehzeit: 4–5 Stunden", "body": "Ein steilerer Aufstieg heute, der den Sattel zwischen Kibo- und Mawenzi-Gipfel mit einzigartigen Ausblicken auf beide überquert. Ein frühes Abendessen und ein früher Schlaf folgen — der Weckruf ist um Mitternacht.", "expect": "Nervosität und höhenbedingte Unruhe sind heute Nacht normal. Ruh dich aus, auch wenn du nicht schlafen kannst." },
+        { "day": 8, "title": "Gipfelnacht → Uhuru-Gipfel → Millennium-Camp", "meta": "Camp: Millennium Camp · Höhe: 3.950 m · Aufstieg: 5 km · Abstieg: 12 km · Gesamtzeit: 10–15 Stunden", "body": "Mitternächtlicher Aufbruch zum steilen Aufstieg zum Gilman's Point, wo du dich Bergsteigern anderer Routen für den letzten Vorstoß anschließt. Die Kraterrandwanderung bietet eindrucksvolle Ausblicke auf den Mawenzi-Gipfel vor der letzten Kletterpartie durch den Schnee zum Uhuru-Gipfel. Der lange Abstieg führt weiter bis zum Millennium Camp.", "expect": "Der schwierigste und außergewöhnlichste Tag der Expedition. Der anschließende Abstieg ist lang — geh dein Tempo an." },
+        { "day": 9, "title": "Millennium-Camp → Mweka-Tor → Hotel", "meta": "Ende der Expedition · Höhe: 1.640 m · Distanz: 10 km · Gehzeit: 3–4 Stunden", "body": "Das Atmen fällt mit jedem Schritt leichter, während der Weg zurück in den Regenwald führt. Am Mweka-Tor wird dir dein Gipfelzertifikat überreicht, bevor es zurück zu deinem Hotel in Moshi geht.", "expect": "Ruh dich aus. Feiere. Du hast die längste Route des Kilimandscharo geschafft." }
+      ],
+      "included": [
+        "Alle Gebühren des Kilimandscharo-Nationalparks, Naturschutzabgabe und TANAPA-Rettungsgebühr",
+        "Professioneller KINAPA-zertifizierter Bergführer — englischsprachig",
+        "Assistenzguides (1 pro 3 Bergsteiger)",
+        "Persönlicher Träger (1 pro Bergsteiger, max. 15 kg Gepäck)",
+        "Bergkoch — warme Vollverpflegung in jedem Camp",
+        "4-Jahreszeiten-Zelte, Isomatten, Speisezelt, Küchenzelt, privates Toilettenzelt",
+        "Notfall-Sauerstoffflasche",
+        "Pulsoximeter — zweimal tägliche Gesundheitskontrolle in jedem Camp",
+        "In Wildnis-Erster-Hilfe geschulter Bergführer",
+        "Hotel-/Flughafentransfers — Kilimandscharo- oder Arusha-Flughafen zu Hotel und Tor",
+        "Kilimandscharo-Gipfelzertifikat",
+        "18% MwSt. und alle anfallenden tansanischen Steuern"
+      ],
+      "excluded": ["Internationale Flüge", "Tansania-Visum", "Persönliche Reiseversicherung (Pflicht)", "Persönliche Ausrüstung", "Trinkgelder"],
+      "pricing": { "solo": 2237, "small": 2237, "group": 2237 }
+    }
+  },
+  "planBuilder": {
+    "heroCta": "Gestalte deine eigene Safari",
+    "entryCard": {
+      "title": "Nicht sicher, wo du anfangen sollst?",
+      "subtitle": "Gestalte deine eigene Safari in 90 Sekunden — nenne uns deine Reisedaten, Interessen und deinen Stil und entdecke echte passende Reiserouten mit transparenten Preisen.",
+      "cta": "Meine Safari gestalten"
+    },
+    "progress": {
+      "ariaLabel": "Schritte des Safari-Planers",
+      "step1": "Reisegrundlagen",
+      "step2": "Interessen",
+      "step3": "Stil & Tempo",
+      "step4": "Deine Treffer"
+    },
+    "step1": {
+      "title": "Erzähl uns die Grundlagen deiner Reise",
+      "subtitle": "Keine Frage ist zu vage — wir richten alles nach deinen Antworten aus.",
+      "travelersLabel": "Wer reist mit?",
+      "travelers": {
+        "solo": "Alleine",
+        "couple": "Zu zweit",
+        "family": "Familie oder Freunde",
+        "group": "Kleine Gruppe"
+      },
+      "customGroupLabel": "Größere Gruppe? Anzahl eingeben",
+      "monthLabel": "Reisemonat",
+      "yearLabel": "Jahr",
+      "seasonPrime": "Hauptsaison — die beste Tierbeobachtung und Flussüberquerungen.",
+      "seasonGood": "Ein guter Nebensaisonmonat — tolle Tierwelt mit weniger Andrang.",
+      "seasonRain": "Regenzeit — üppige Landschaften, Zugvögel und ruhigere Camps.",
+      "durationLabel": "Dauer — {days} Tage",
+      "durationMin": "{days} Tage",
+      "customDurationLabel": "oder genaue Zahl eingeben",
+      "nextButton": "Weiter"
+    },
+    "step2": {
+      "title": "Was zieht dich nach Ostafrika?",
+      "subtitle": "Wähle so viele wie du möchtest — so gewichten wir deine Treffer.",
+      "tags": {
+        "migration": "Große Migration",
+        "bigfive": "Big Five",
+        "gorilla": "Gorilla-Trekking",
+        "beach": "Strand von Sansibar",
+        "trekking": "Kilimandscharo / Trekking",
+        "honeymoon": "Flitterwochen",
+        "family": "Familienfreundlich",
+        "photography": "Fotografie",
+        "remote": "Abseits ausgetretener Pfade"
+      },
+      "backButton": "Zurück",
+      "nextButton": "Weiter"
+    },
+    "step3": {
+      "title": "Stil und Tempo",
+      "subtitle": "Jede Reiseroute ist ein Ausgangspunkt — wir passen sie vollständig an dich an.",
+      "comfortLabel": "Komfortniveau",
+      "styles": {
+        "comfort": "Komfort",
+        "luxury": "Luxus",
+        "ultra": "Ultra-Luxus"
+      },
+      "perDayRange": "ca. ${min}–${max} pro Tag",
+      "paceLabel": "Tempo",
+      "paces": {
+        "relaxed": {
+          "label": "Entspannt",
+          "desc": "Weniger Parks, längere Aufenthalte"
+        },
+        "classic": {
+          "label": "Klassische Rundreise",
+          "desc": "Wechsel alle 2–3 Nächte"
+        }
+      },
+      "backButton": "Zurück",
+      "nextButton": "Meine Treffer ansehen"
+    },
+    "results": {
+      "title": "Deine passenden Reiserouten",
+      "closestMatch": "Beste Übereinstimmung",
+      "daysLabel": "Tage",
+      "whyLine": "Da du im {month} {year} reist und {interests} gewählt hast, haben wir dies als eine unserer stärksten Übereinstimmungen für deine Reisedaten gewichtet.",
+      "generalFit": "deine Reisedaten und Gruppengröße",
+      "paxWarning": "Dieses Paket ist für bis zu {max} Reisende ausgelegt — wir passen es an deine Gruppengröße an.",
+      "fromLabel": "Ab",
+      "approxNote": "ca., endgültiges Angebot in USD",
+      "viewLabel": "Reiseroute ansehen",
+      "priceDetailsLabel": "Was ist inbegriffen / nicht inbegriffen",
+      "includedLabel": "Inbegriffen",
+      "notIncludedLabel": "Nicht inbegriffen",
+      "noMatchTitle": "Nichts in unserer aktuellen Auswahl passt perfekt — genau dafür gibt es eine individuelle Reiseplanung.",
+      "noMatchMessage": "Hier ist unsere beste verfügbare Option. Erzähl uns mehr, und unser Team in Arusha gestaltet etwas von Grund auf für dich.",
+      "currencyLabel": "Währung:",
+      "trust1": "4,9/5 auf TripAdvisor",
+      "trust2": "200+ verifizierte Gäste",
+      "trust3": "TATO-zertifiziert · TANAPA-zertifizierte Guides",
+      "backButton": "Meine Antworten bearbeiten"
+    },
+    "handoff": {
+      "title": "Bereit, mit einem Menschen zu sprechen?",
+      "subtitle": "Lokal geführt in Arusha seit 2022. Nur private Guides — keine Gruppenreisen.",
+      "whatsappButton": "Auf WhatsApp fortfahren",
+      "whatsappMessage": "Hallo! Ich habe den Safari-Planer genutzt. Dauer: {days} Tage · Monat: {month} {year} · Reisende: {pax} · Interessen: {interests} · Stil: {style} · Tempo: {pace} · Beste Übereinstimmung: {topMatch}. Könnt ihr mir helfen, das weiterzuverfolgen?",
+      "noMatchLabel": "noch keine starke Übereinstimmung",
+      "emailSuccess": "Gesendet — wir antworten innerhalb von 24 Stunden.",
+      "namePlaceholder": "Dein Name",
+      "emailPlaceholder": "Deine E-Mail",
+      "sending": "Wird gesendet…",
+      "emailButton": "Diese Zusammenfassung per E-Mail senden",
+      "emailError": "Etwas ist schiefgelaufen — bitte versuche es über WhatsApp.",
+      "orTalk": "Möchtest du es lieber direkt besprechen?",
+      "talkButton": "Mit unserem Team sprechen"
+    }
+  },
   "nav": {
     "destinations": "Reiseziele",
     "safaris": "Safaris",
@@ -346,7 +813,25 @@
     "responseNote": "Unser Team antwortet innerhalb von 2 Stunden mit einer personalisierten Reiseroute",
     "noPayment": "Keine Zahlung · Stornierung möglich",
     "parks": "Parks",
-    "pax": "Pers."
+    "pax": "Pers.",
+    "insiderFact": "Insider-Tipp",
+    "tierTrail": "Wilderness Trail",
+    "tierReserve": "Wilderness Reserve",
+    "tierSovereign": "Wilderness Sovereign",
+    "choosePax": "Reisende",
+    "provisionalPricing": "Vorläufige Preise — genaue Tarife bitte mit unserem Team bestätigen.",
+    "transfers": "Transfers",
+    "accommodationMeals": "Unterkunft & Verpflegung",
+    "guidingGameDrives": "Guide & Pirschfahrten",
+    "pleaseNote": "Bitte Beachten",
+    "otherSafaris": "Weitere Safaris, die Ihnen gefallen könnten",
+    "season": "Saison",
+    "highSeason": "Hochsaison",
+    "lowSeason": "Nebensaison",
+    "familySize": "Familiengröße",
+    "familyOf": "Familie von {count}",
+    "familyTierLuxury": "Luxus",
+    "familyTierUltraLuxury": "Ultra-Luxus"
   },
   "destination": {
     "about": "Über {name}",
@@ -505,6 +990,9 @@
     "chooseYourPath": "Wählen Sie Ihren Weg",
     "routeMapHeading": "Kilimanjaro-Routenkarten",
     "routeMapSubtitle": "Wählen Sie eine Route, um ihre Karte, Schwierigkeit und ihr Besonderes zu erkunden.",
+    "routeMapEyebrowLocked": "Routenkarte",
+    "routeMapHeadingLocked": "Karte — {routeName}",
+    "routeMapSubtitleLocked": "Entdecke das Gelände, die Camps und das Höhenprofil dieser Route.",
     "topoMapLabel": "Individuelle topographische Karte",
     "tanapaApproved": "TANAPA-genehmigter Trail",
     "included1": "Alle TANAPA-Park- und Naturschutzgebühren",

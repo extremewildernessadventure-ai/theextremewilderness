@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import BookingModal from './BookingModal'
 
 export default function HeroSection() {
   const t = useTranslations('home')
+  const tPlan = useTranslations('planBuilder')
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-brand">
@@ -53,8 +55,14 @@ export default function HeroSection() {
           ))}
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <BookingModal />
+          <Link
+            href="/plan"
+            className="inline-flex items-center gap-2 px-8 py-4 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors text-base"
+          >
+            {tPlan('heroCta')}
+          </Link>
         </div>
       </div>
     </section>

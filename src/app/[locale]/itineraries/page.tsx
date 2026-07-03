@@ -6,6 +6,8 @@ import { getPackages } from '@/data/packages.i18n'
 import NewsletterForm from '@/components/home/NewsletterForm'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { getTranslations, getLocale } from 'next-intl/server'
+import { MONTHS } from '@/lib/seasonData'
+import PlanBuilderEntryCard from '@/components/plan/PlanBuilderEntryCard'
 
 export const metadata: Metadata = {
   title: 'Safari Itineraries | The Extreme Wilderness',
@@ -130,15 +132,6 @@ const extra = [
   },
 ]
 
-
-
-const MONTHS = [
-  { m: 'Jan', type: 'good' },  { m: 'Feb', type: 'good' },  { m: 'Mar', type: 'rain' },
-  { m: 'Apr', type: 'rain' },  { m: 'May', type: 'rain' },  { m: 'Jun', type: 'prime' },
-  { m: 'Jul', type: 'prime' }, { m: 'Aug', type: 'prime' }, { m: 'Sep', type: 'prime' },
-  { m: 'Oct', type: 'prime' }, { m: 'Nov', type: 'rain' },  { m: 'Dec', type: 'good' },
-]
-
 export default async function ItinerariesPage() {
   const locale = await getLocale()
   const packages = getPackages(locale)
@@ -228,6 +221,13 @@ export default async function ItinerariesPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── 2b. PLAN BUILDER ENTRY POINT ─────────────────────────────────────── */}
+      <section className="py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PlanBuilderEntryCard />
         </div>
       </section>
 

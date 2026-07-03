@@ -1,15 +1,22 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Link } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { ChevronDown, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import LanguageSwitcher from './LanguageSwitcher'
 
+// Pages with no dark hero section behind the fixed nav — the transparent
+// white-text state has poor contrast there, so these start opaque immediately
+// instead of waiting for the user to scroll.
+const NO_HERO_ROUTES = ['/plan']
+
 export default function Navbar() {
   const t = useTranslations('nav')
   const tc = useTranslations('common')
+  const pathname = usePathname()
+  const forceOpaque = NO_HERO_ROUTES.includes(pathname)
   const [scrolled, setScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
@@ -47,7 +54,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-brand shadow-lg' : 'bg-transparent'
+        scrolled || forceOpaque ? 'bg-brand shadow-lg' : 'bg-transparent'
       }`}
     >
       <div className="w-full px-6 sm:px-10 lg:px-16">

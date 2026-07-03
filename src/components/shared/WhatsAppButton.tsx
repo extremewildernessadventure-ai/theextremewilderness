@@ -1,7 +1,16 @@
+'use client'
+
 import { useTranslations } from 'next-intl'
+import { usePathname } from '@/i18n/navigation'
 
 export default function WhatsAppButton() {
   const t = useTranslations('common')
+  const pathname = usePathname()
+
+  // The /plan wizard has its own dedicated, contextual WhatsApp handoff on
+  // the results step — suppress this generic floating button there so it
+  // doesn't compete for tap space with the wizard's own step-navigation CTAs.
+  if (pathname === '/plan') return null
 
   return (
     <a
