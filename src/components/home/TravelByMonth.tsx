@@ -25,6 +25,10 @@ function kiliBarColor(r: number) {
 
 export default function TravelByMonth() {
   const t = useTranslations('home')
+  // Server-rendered per request, so this reflects "now" at render time — an
+  // accepted approximation using the server's clock rather than each
+  // visitor's local timezone (at most a day off at a month boundary).
+  const currentMonthIndex = new Date().getMonth()
 
   const months = [
     { name: t('jan'), rating: 4, bestFor: [t('janBf0'), t('janBf1')] },
@@ -74,46 +78,63 @@ export default function TravelByMonth() {
 
         {/* Month grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-12">
-          {months.map((month) => (
-            <div
-              key={month.name}
-              className={`bg-white rounded-xl p-4 border transition-all duration-200 hover:border-gold hover:shadow-md cursor-default ${
-                month.rating >= 5 ? 'border-gold/40' : 'border-gray-100'
-              }`}
-            >
-              <div className="flex items-center justify-between mb-2">
-                <span className="font-semibold text-brand text-sm">{month.name}</span>
-                <span
-                  className={`text-xs font-semibold px-1.5 py-0.5 rounded-full ${
-                    month.rating >= 5
-                      ? 'bg-amber-100 text-amber-800'
-                      : month.rating === 4
-                      ? 'bg-brand/10 text-brand'
-                      : 'bg-gray-100 text-gray-600'
-                  }`}
-                >
-                  {ratingLabel(month.rating, t)}
-                </span>
-              </div>
-
-              {/* Rating dots */}
-              <div className="flex gap-0.5 mb-3">
-                {Array.from({ length: 5 }).map((_, j) => (
+          {months.map((month, i) => {
+            const isCurrentMonth = i === currentMonthIndex
+            return (
+              <div key={month.name}>
+                <div className="relative">
+                  {isCurrentMonth && (
+                    <div className="absolute -inset-0.5 rounded-xl ring-2 ring-gold animate-pulse motion-reduce:animate-none pointer-events-none" />
+                  )}
                   <div
-                    key={j}
-                    className={`w-2.5 h-2.5 rounded-full ${j < month.rating ? 'bg-gold' : 'bg-gray-200'}`}
-                  />
-                ))}
-              </div>
+                    className={`relative bg-white rounded-xl p-4 border transition-all duration-200 hover:border-gold hover:shadow-md cursor-default ${
+                      isCurrentMonth ? 'border-gold/60' : month.rating >= 5 ? 'border-gold/40' : 'border-gray-100'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-semibold text-brand text-sm">{month.name}</span>
+                      <span
+                        className={`text-xs font-semibold px-1.5 py-0.5 rounded-full ${
+                          month.rating >= 5
+                            ? 'bg-amber-100 text-amber-800'
+                            : month.rating === 4
+                            ? 'bg-brand/10 text-brand'
+                            : 'bg-gray-100 text-gray-600'
+                        }`}
+                      >
+                        {ratingLabel(month.rating, t)}
+                      </span>
+                    </div>
 
-              {/* Best-for tags */}
-              <div className="flex flex-col gap-0.5">
-                {month.bestFor.map((tag) => (
-                  <span key={tag} className="text-xs text-text-muted leading-tight">{tag}</span>
-                ))}
+                    {/* Rating dots */}
+                    <div className="flex gap-0.5 mb-3">
+                      {Array.from({ length: 5 }).map((_, j) => (
+                        <div
+                          key={j}
+                          className={`w-2.5 h-2.5 rounded-full ${j < month.rating ? 'bg-gold' : 'bg-gray-200'}`}
+                        />
+                      ))}
+                    </div>
+
+                    {/* Best-for tags */}
+                    <div className="flex flex-col gap-0.5">
+                      {month.bestFor.map((tag) => (
+                        <span key={tag} className="text-xs text-text-muted leading-tight">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {isCurrentMonth && (
+                  <div className="text-center mt-1">
+                    <span className="text-[9px] font-bold text-gold-label uppercase tracking-wide">
+                      {t('thisMonth')}
+                    </span>
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         {/* Trackers — side by side on larger screens */}
@@ -129,15 +150,30 @@ export default function TravelByMonth() {
             </div>
 
             <div className="flex gap-1">
-              {months.map((month) => (
-                <div key={month.name} className="flex-1 flex flex-col items-center gap-1.5">
-                  <div
-                    className={`w-full rounded h-8 transition-colors ${safariBarColor(month.rating)}`}
-                    title={`${month.name}: ${ratingLabel(month.rating, t)} season`}
-                  />
-                  <span className="text-xs text-text-muted">{month.name}</span>
-                </div>
-              ))}
+              {months.map((month, i) => {
+                const isCurrentMonth = i === currentMonthIndex
+                return (
+                  <div key={month.name} className="flex-1 flex flex-col items-center gap-1.5">
+                    <div className="relative w-full">
+                      {isCurrentMonth && (
+                        <div className="absolute -inset-0.5 rounded ring-2 ring-gold animate-pulse motion-reduce:animate-none pointer-events-none" />
+                      )}
+                      <div
+                        className={`relative w-full rounded h-8 transition-colors ${safariBarColor(month.rating)}`}
+                        title={`${month.name}: ${ratingLabel(month.rating, t)} season`}
+                      />
+                    </div>
+                    <span className={`text-xs ${isCurrentMonth ? 'text-gold-label font-bold' : 'text-text-muted'}`}>
+                      {month.name}
+                    </span>
+                    {isCurrentMonth && (
+                      <span className="text-[9px] font-bold text-gold-label uppercase tracking-wide -mt-1">
+                        {t('nowLabel')}
+                      </span>
+                    )}
+                  </div>
+                )
+              })}
             </div>
 
             <div className="flex flex-wrap items-center gap-3 mt-4 text-xs text-text-muted">
@@ -177,15 +213,30 @@ export default function TravelByMonth() {
             </div>
 
             <div className="flex gap-1">
-              {kiliData.map((month) => (
-                <div key={month.name} className="flex-1 flex flex-col items-center gap-1.5">
-                  <div
-                    className={`w-full rounded h-8 transition-colors ${kiliBarColor(month.rating)}`}
-                    title={`${month.name}: ${ratingLabel(month.rating, t)}`}
-                  />
-                  <span className="text-xs text-text-muted">{month.name}</span>
-                </div>
-              ))}
+              {kiliData.map((month, i) => {
+                const isCurrentMonth = i === currentMonthIndex
+                return (
+                  <div key={month.name} className="flex-1 flex flex-col items-center gap-1.5">
+                    <div className="relative w-full">
+                      {isCurrentMonth && (
+                        <div className="absolute -inset-0.5 rounded ring-2 ring-gold animate-pulse motion-reduce:animate-none pointer-events-none" />
+                      )}
+                      <div
+                        className={`relative w-full rounded h-8 transition-colors ${kiliBarColor(month.rating)}`}
+                        title={`${month.name}: ${ratingLabel(month.rating, t)}`}
+                      />
+                    </div>
+                    <span className={`text-xs ${isCurrentMonth ? 'text-gold-label font-bold' : 'text-text-muted'}`}>
+                      {month.name}
+                    </span>
+                    {isCurrentMonth && (
+                      <span className="text-[9px] font-bold text-gold-label uppercase tracking-wide -mt-1">
+                        {t('nowLabel')}
+                      </span>
+                    )}
+                  </div>
+                )
+              })}
             </div>
 
             <div className="flex flex-wrap items-center gap-3 mt-4 text-xs text-text-muted">
