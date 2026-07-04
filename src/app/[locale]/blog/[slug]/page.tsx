@@ -12,6 +12,7 @@ import { getPackages, getPackage } from '@/data/packages.i18n'
 import { getDestinations, getDestination } from '@/data/destinations.i18n'
 import { routing } from '@/i18n/routing'
 import { getTranslations } from 'next-intl/server'
+import { SITE_URL } from '@/lib/site'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
@@ -166,9 +167,9 @@ export default async function BlogArticlePage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.metaDescription,
-    image: `https://theextremewilderness.com${post.heroImage}`,
+    image: `${SITE_URL}${post.heroImage}`,
     author: { '@type': 'Organization', name: 'The Extreme Wilderness' },
-    publisher: { '@type': 'Organization', name: 'The Extreme Wilderness', logo: { '@type': 'ImageObject', url: 'https://theextremewilderness.com/logo.png' } },
+    publisher: { '@type': 'Organization', name: 'The Extreme Wilderness', logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` } },
     datePublished: post.date,
     dateModified: post.date,
   }

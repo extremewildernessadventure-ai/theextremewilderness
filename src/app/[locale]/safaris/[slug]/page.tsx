@@ -14,6 +14,7 @@ import RelatedSafaris from '@/components/safaris/RelatedSafaris'
 import { packages } from '@/data/packages'
 import { getPackage, getPackages } from '@/data/packages.i18n'
 import { routing } from '@/i18n/routing'
+import { SITE_URL, localeUrl } from '@/lib/site'
 
 
 const SAFARI_KEYWORDS: Record<string, string[]> = {
@@ -179,18 +180,18 @@ export default async function SafariPackagePage({ params }: Props) {
     '@type': 'Trip',
     name: pkg.name,
     description: `${pkg.name} — ${pkg.duration} nights, starting from $${pkg.priceFrom.toLocaleString()} per person. ${pkg.highlights[0]}.`,
-    image: `https://theextremewilderness.com${pkg.heroImage}`,
+    image: `${SITE_URL}${pkg.heroImage}`,
     provider: {
       '@type': 'Organization',
       name: 'Extreme Wilderness Adventure',
-      url: 'https://theextremewilderness.com',
+      url: SITE_URL,
     },
     offers: {
       '@type': 'Offer',
       price: pkg.priceFrom,
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
-      url: `https://theextremewilderness.com/${locale}/safaris/${pkg.slug}`,
+      url: localeUrl(locale, `/safaris/${pkg.slug}`),
     },
     itinerary: {
       '@type': 'ItemList',

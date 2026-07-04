@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
+import { localeUrl } from '@/lib/site'
 
-const BASE_URL = 'https://theextremewilderness.com'
 const LOCALES = ['en', 'fr', 'es', 'de'] as const
 
 export const SAFARI_SLUGS = [
@@ -64,11 +64,6 @@ export const BLOG_SLUGS = [
   'zanzibar-experience',
   'the-maasai-tribe',
 ]
-
-function localeUrl(locale: string, path: string): string {
-  if (locale === 'en') return `${BASE_URL}${path || '/'}`
-  return `${BASE_URL}/${locale}${path}`
-}
 
 export const STATIC_PAGES = [
   '', '/safaris', '/destinations', '/trekking', '/itineraries', '/experiences',

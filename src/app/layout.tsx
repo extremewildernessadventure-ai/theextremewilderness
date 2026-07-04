@@ -3,6 +3,7 @@ import { Geist } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import { getLocale } from 'next-intl/server'
+import { SITE_URL } from '@/lib/site'
 
 const geist = Geist({
   variable: '--font-geist-sans',
@@ -10,6 +11,7 @@ const geist = Geist({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'The Extreme Wilderness | Tanzania Safari & Kilimanjaro',
     template: '%s | The Extreme Wilderness',
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     description:
       'Custom Tanzania safaris, Kilimanjaro treks & Zanzibar beach holidays. Born and based in Arusha, Tanzania.',
     type: 'website',
-    url: 'https://theextremewilderness.com',
+    url: SITE_URL,
     siteName: 'The Extreme Wilderness',
   },
   twitter: {

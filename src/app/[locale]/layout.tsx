@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+import { headers } from 'next/headers'
 import { routing } from '@/i18n/routing'
+import { localeUrl, SITE_URL } from '@/lib/site'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import BottomNav from '@/components/layout/BottomNav'
@@ -14,16 +16,22 @@ type Props = {
   params: Promise<{ locale: string }>
 }
 
+const NON_DEFAULT_LOCALES = routing.locales.filter((l) => l !== routing.defaultLocale)
+const LOCALE_PREFIX_RE = new RegExp(`^/(${NON_DEFAULT_LOCALES.join('|')})(?=/|$)`)
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
-  const locales = routing.locales
-  const baseUrl = 'https://theextremewilderness.com'
+  const headersList = await headers()
+  const rawPathname = headersList.get('x-pathname') ?? '/'
+  const unprefixedPath = rawPathname.replace(LOCALE_PREFIX_RE, '') || '/'
 
   return {
     alternates: {
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `${baseUrl}/${l}`])
-      ),
+      canonical: localeUrl(locale, unprefixedPath),
+      languages: {
+        ...Object.fromEntries(routing.locales.map((l) => [l, localeUrl(l, unprefixedPath)])),
+        'x-default': localeUrl(routing.defaultLocale, unprefixedPath),
+      },
     },
   }
 }
@@ -45,8 +53,8 @@ export default async function LocaleLayout({ children, params }: Props) {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'LocalBusiness'],
     name: 'Extreme Wilderness Adventure',
-    url: 'https://theextremewilderness.com',
-    logo: 'https://theextremewilderness.com/EWA%20logo.png',
+    url: SITE_URL,
+    logo: `${SITE_URL}/EWA%20logo.png`,
     description: 'Premier East Africa safari operator specialising in Tanzania, Kenya and Rwanda wildlife safaris, Kilimanjaro treks, and gorilla trekking experiences.',
     telephone: '+255747999070',
     email: 'info@theextremewilderness.com',

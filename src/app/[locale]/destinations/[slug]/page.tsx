@@ -9,6 +9,7 @@ import { getDestination, getDestinations } from '@/data/destinations.i18n'
 import { getPackages } from '@/data/packages.i18n'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { routing } from '@/i18n/routing'
+import { SITE_URL, localeUrl } from '@/lib/site'
 
 
 const DEST_KEYWORDS: Record<string, string[]> = {
@@ -168,8 +169,8 @@ export default async function DestinationPage({ params }: Props) {
     '@type': 'TouristAttraction',
     name: dest.name,
     description: dest.tagline,
-    image: `https://theextremewilderness.com${dest.heroImage}`,
-    url: `https://theextremewilderness.com/${locale}/destinations/${dest.slug}`,
+    image: `${SITE_URL}${dest.heroImage}`,
+    url: localeUrl(locale, `/destinations/${dest.slug}`),
     touristType: ['Wildlife Enthusiasts', 'Nature Lovers', 'Adventure Travelers'],
     isAccessibleForFree: false,
     address: {
