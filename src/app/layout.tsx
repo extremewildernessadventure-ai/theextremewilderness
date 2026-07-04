@@ -42,6 +42,11 @@ export const metadata: Metadata = {
     description: 'Custom Tanzania safaris born in the wilderness.',
   },
   robots: { index: true, follow: true },
+  verification: {
+    other: {
+      'msvalidate.01': '8D55710550A379BDC592BC0FEDD6808B',
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
