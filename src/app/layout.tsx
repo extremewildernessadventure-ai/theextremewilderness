@@ -67,11 +67,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="min-h-screen w-full flex flex-col antialiased overflow-x-hidden">
         {children}
         <Script
-          id="ga4-loader"
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-3NQPMQE36Q"
-        />
-        <Script
           id="ga4-config"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -83,9 +78,18 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             `,
           }}
         />
+        {/* The dataLayer/gtag shim above queues events immediately at no
+            network cost; the actual gtag.js payload (~170 KiB) is deferred
+            to idle time since nothing needs it before then — events queued
+            in the meantime are flushed once it loads. */}
+        <Script
+          id="ga4-loader"
+          strategy="lazyOnload"
+          src="https://www.googletagmanager.com/gtag/js?id=G-3NQPMQE36Q"
+        />
         <Script
           id="tawk-to"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -143,7 +147,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                     var frame = iframes[i];
                     var doc;
                     try { doc = frame.contentDocument; } catch (e) { continue; }
-                    if (!doc || !doc.querySelector('.tawk-min-container')) continue;
+                    if (!doc) continue;
+                    // Tawk's iframes are same-origin (about:blank) with no
+                    // title attribute, which fails the Lighthouse/axe
+                    // frame-title check. Only Tawk creates same-origin
+                    // frames on this site, so any frame we can reach here
+                    // is safe to title directly (we can't edit the embed).
+                    if (!frame.title) frame.title = 'Chat with us';
+                    if (!doc.querySelector('.tawk-min-container')) continue;
                     if (window.getComputedStyle(frame).position === 'fixed') {
                       frame.style.setProperty('bottom', targetBottom, 'important');
                       ensurePulseRing(frame);

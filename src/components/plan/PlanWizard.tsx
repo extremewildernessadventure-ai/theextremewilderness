@@ -1,16 +1,20 @@
 'use client'
 
 import { useReducer, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import type { SafariPackage } from '@/data/packages'
 import type { MatchInput } from '@/lib/matchPackages'
 import type { Currency } from '@/lib/fxRates'
 import { trackEvent } from '@/lib/analytics'
 import ProgressIndicator from './ProgressIndicator'
 import StepBasics from './StepBasics'
-import StepInterests from './StepInterests'
-import StepStyle from './StepStyle'
-import StepResults from './StepResults'
 import type { WizardState, SetField } from './types'
+
+// Only step 1 is visible on first paint — the rest are code-split out of the
+// initial bundle so their JS isn't parsed/executed before it's needed.
+const StepInterests = dynamic(() => import('./StepInterests'))
+const StepStyle = dynamic(() => import('./StepStyle'))
+const StepResults = dynamic(() => import('./StepResults'))
 
 type Action =
   | { type: 'SET_FIELD'; field: keyof WizardState; value: WizardState[keyof WizardState] }

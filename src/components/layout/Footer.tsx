@@ -104,7 +104,7 @@ export default async function Footer() {
 
           {/* Destinations */}
           <div>
-            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('destinations')}</h3>
+            <h2 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('destinations')}</h2>
             <ul className="space-y-2">
               {destinations.map((d) => (
                 <li key={d.href}>
@@ -118,7 +118,7 @@ export default async function Footer() {
 
           {/* Safaris */}
           <div>
-            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('safariPackages')}</h3>
+            <h2 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('safariPackages')}</h2>
             <ul className="space-y-2">
               {safaris.map((s) => (
                 <li key={s.href}>
@@ -132,7 +132,7 @@ export default async function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('company')}</h3>
+            <h2 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('company')}</h2>
             <ul className="space-y-2">
               {company.map((c) => (
                 <li key={c.href}>
@@ -146,7 +146,7 @@ export default async function Footer() {
 
           {/* Membership / Affiliation */}
           <div>
-            <h3 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('memberships')}</h3>
+            <h2 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('memberships')}</h2>
             <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
               {[
                 { src: '/Boards%20affiliated/Google%20reviews.png', alt: 'Google Reviews' },
