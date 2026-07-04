@@ -60,503 +60,2390 @@ const articles: Record<string, SectionType[]> = {
 ],
 
 'tanzania-safari-cost': [
-  { type: 'p', text: 'Die Preisspanne für eine Safari in Tansania ist erstaunlich. Sie können 150 US-Dollar pro Person und Tag in einem Campingcamp in Tarangire ausgeben oder 1.500 US-Dollar pro Person und Tag in einem exklusiven Privatgelände in der Serengeti – und beides sind echte Safarierlebnisse in Tansania. Zu verstehen, was die Kosten antreibt und was Sie in jedem Preisbereich erhalten, ist der wichtigste Schritt bei der Planung einer Reise, die Ihren Erwartungen und Ihrem Budget entspricht.' },
-  { type: 'h2', text: 'Die großen Kostenfaktoren' },
-  { type: 'p', text: 'Tansanias Nationalparkgebühren sind nicht verhandelbar und werden von der tansanischen Regierung festgelegt. Für die Serengeti zahlt man derzeit 82 US-Dollar pro Person und Tag allein für die Parkeintrittsgebühr, plus eine separate Fahrzeuggebühr. Im Ngorongoro Conservation Area fällt zusätzlich zur Schutzgebietsgebühr eine Kraterservicegebühr an. Diese staatlichen Gebühren gelten für alle Besucher, unabhängig von der Unterkunft oder dem Betreiber, und machen einen erheblichen Teil Ihrer täglichen Kosten pro Person aus.' },
-  { type: 'p', text: 'Die Unterkunft ist die größte Variable in Ihrem Budget. Der Unterschied zwischen einer Budget-Campingsafari und einer Luxusunterkunft liegt nicht hauptsächlich im Wildtierbestand, sondern im Bett, dem Badezimmer, dem Essen und dem Fahrzeug. Eine Budget-Campingsafari bedeutet, ein Speisezelt mit anderen Reisenden zu teilen und in einem einfachen Zelt zu schlafen. Eine mittelpreisige Unterkunft bietet ein Zimmer mit privatem Bad, warmem Wasser und Pool. Ein Luxus-Camp bietet eine Privatsuite, einen persönlichen Butler, ein Privatfahrzeug und exklusive Ausflüge.' },
-  { type: 'h2', text: 'Safarikosten in Tansania nach Budgetklasse' },
-  { type: 'table', headers: ['Budgetklasse', 'Kosten pro Person/Tag', 'Was ist inbegriffen'], rows: [
-    ['Budget', '150-250 $', 'Campingsafari, gemeinsames Fahrzeug (6-8 Personen), einfache Mahlzeiten, Standardparks'],
-    ['Mittelklasse', '250-450 $', 'Zelt- oder mittelpreisige Hotelunterkunft, gemeinsames Fahrzeug (4-6 Personen), gutes Essen'],
-    ['Gehobene Mittelklasse', '450-700 $', 'Hochwertige Camps, kleinere Fahrzeuge, Privatführer möglich'],
-    ['Luxus', '700-1.200 $', 'Premium-Unterkünfte, Privatfahrzeug, Expertenführer, exklusive Gebiete'],
-    ['Ultra-Luxus', '1.200 $ +', 'Private Konzessionen, vollprivates Camp, maßgeschneiderte Reiseroute, Flugtransfers'],
-  ]},
-  { type: 'p', text: 'Diese Zahlen gelten pro Person und Tag und beinhalten Unterkunft, Mahlzeiten, Parkgebühren und Ausflüge. Nicht inbegriffen sind internationale Flüge nach Tansania, Visagebühren (50 US-Dollar für die meisten Nationalitäten), Trinkgelder für Führer und Camp-Personal (rechnen Sie mit 10-20 US-Dollar pro Person und Tag für Führer und 5-10 US-Dollar für Camp-Personal) sowie persönliche Einkäufe.' },
-  { type: 'h2', text: 'Aufschlüsselung der staatlichen Parkgebühren' },
-  { type: 'p', text: 'Tansanias Parkgebühren gehören zu den höchsten in Afrika und fließen direkt an die Tanzania National Parks Authority (TANAPA) für die Naturschutzarbeit. Für die beliebtesten Parks gilt folgende Gebührenstruktur: Der Serengeti-Nationalpark erhebt 82 US-Dollar pro Erwachsenem und Tag. Das Ngorongoro Conservation Area erhebt 80 US-Dollar pro Erwachsenem und Tag plus eine Kraterservicegebühr von 300 US-Dollar pro Fahrzeug für den Kraterabstieg. Der Tarangire-Nationalpark erhebt 55 US-Dollar pro Erwachsenem und Tag. Der Manyara-See erhebt 45 US-Dollar pro Erwachsenem und Tag.' },
-  { type: 'p', text: 'Fahrzeuggebühren kommen mit weiteren 40-60 US-Dollar pro Fahrzeug, Park und Tag hinzu. Ein Standard-4x4-Safarifahrzeug, das von vier Reisenden geteilt wird, bedeutet, dass die Fahrzeuggebühr Ihren Kosten 10-15 US-Dollar pro Person und Tag hinzufügt. Privatfahrzeuge, auf denen Sie bei gehobener Mittelklasse und aufwärts bestehen sollten, haben dieselbe Gebühr, aber diese wird von Ihrer Gruppe vollständig bezahlt, was die Kosten pro Person höher macht, aber das Erlebnis deutlich besser.' },
-  { type: 'tip', title: 'Grüne Saison spart Geld', text: 'Ein Besuch während der langen Regenzeit (April-Mai) und der kurzen Regenzeit (November) kann die Unterkunftspreise um 20-40 % senken. Wildtiere sind weiterhin hervorragend, die Landschaft ist üppig und fotogen, und Sie teilen die Parks mit deutlich weniger Fahrzeugen. Die grüne Saison ist eines der bestgehüteten Geheimnisse bei Safaripreisen in Tansania.' },
-  { type: 'h2', text: 'Was kostet eine 7-tägige Safari in Tansania wirklich?' },
-  { type: 'p', text: 'Eine 7-Nächte-Safari auf der Nordschleife (Tarangire, Manyara, Serengeti, Ngorongoro) für zwei Personen im Doppelzimmer, auf mittelpreisigem Niveau mit Privatfahrzeug und Privatführer, kostet typischerweise 4.500-6.500 US-Dollar pro Person alles inklusive vor Ort. Darin enthalten sind alle Parkgebühren, Unterkunft, Mahlzeiten, Ausflüge und Flughafentransfers. Internationale Flüge aus Europa oder den USA kommen mit 800-1.800 US-Dollar pro Person je nach Abflugort und Buchungszeitpunkt hinzu.' },
-  { type: 'p', text: 'Im Budget-Bereich kostet dieselbe 7-Nächte-Reiseroute als Campingsafari mit gemeinsamen Fahrzeugen typischerweise 1.800-2.800 US-Dollar pro Person vor Ort. Die besuchten Parks sind identisch und das Wildtiererlebnis ist vergleichbar, aber das Komfortniveau zwischen den Ausflügen ist deutlich unterschiedlich. Budget-Reisende stellen oft fest, dass das Ausflugserlebnis selbst genauso gut ist wie bei der Luxusvariante, und sie nutzen die Ersparnisse, um mehr Nächte draußen zu verbringen.' },
-  { type: 'h2', text: 'Versteckte Kosten, die Sie kennen sollten' },
-  { type: 'ul', items: [
-    'Trinkgelder für Führer (10-20 $ pro Person und Tag) und Camp-Personal (5-10 $ pro Person und Tag) sind Standard und werden erwartet',
-    'Visa kosten 50 $ für die meisten Nationalitäten: Online beantragen unter evisa.immigration.go.tz vor der Reise',
-    'Gelbfieber-Impfnachweis erforderlich bei Einreise aus gelbfieberendemischen Gebieten',
-    'Malariaprophylaxe (30-80 $ je nach Medikament): Konsultieren Sie Ihren Arzt oder eine Reiseklinik',
-    'Reiseversicherung mit Notfallevakuierungsschutz ist unerlässlich: Rechnen Sie mit 150-300 $ pro Person',
-    'Optionale Gorilla- oder Schimpansen-Trekking-Genehmigungen (700 $ bzw. 100 $) bei Erweiterungen nach Ruanda oder Mahale',
-    'Unterkunft und Aktivitäten bei einem Zanzibar-Strandaufenthalt sind in der Regel nicht im Safaripreis enthalten',
-  ]},
-  { type: 'h2', text: 'Wie man den besten Gegenwert bekommt' },
-  { type: 'p', text: 'Der größte Wertfaktor bei Safaripreisen in Tansania ist die Reise mit einem lokalen, in Tansania ansässigen Betreiber statt über einen ausländischen Reisevermittler. Lokale Betreiber eliminieren den 15-30%-Aufschlag, den ausländische Vermittler hinzufügen, um ihre eigenen Margen zu decken. Sie erhalten auch eine direktere Beziehung zu den Menschen, die Ihre Reiseroute verwalten, schnellere Antworten bei Planänderungen und Führer, die in der Region leben und die Parks in- und auswendig kennen.' },
-  { type: 'p', text: 'Ein Fahrzeug mit anderen Reisenden zu teilen reduziert die Kosten pro Person erheblich, ohne das Wildtiererlebnis wesentlich zu beeinträchtigen. Eine Gruppe von vier Personen, die sich einen 4×4 teilt, kostet etwa halb so viel pro Person wie ein Privatfahrzeug. Für Budget- und Mittelklasse-Reisende ist die Teilnahme an einer Kleingruppsafari (4-6 Personen) eine ausgezeichnete Möglichkeit, qualitativ hochwertige Reiserouten zu niedrigeren Preisen zu erleben.' },
-  { type: 'callout', text: 'Eine Safari in Tansania ist nicht billig, und das sollte sie auch nicht sein. Parkgebühren finanzieren den Naturschutz, Löhne bezahlen gemeinschaftsbasierte Führer, und die Kosten für das Erreichen abgelegener Wildnis in einem gut gewarteten 4×4 sind ehrlich gesagt hoch. Was Sie kaufen, ist einer der letzten wirklich wilden Orte der Erde.' },
+  {
+    "type": "p",
+    "text": "Die Preisspanne einer Tansania-Safari ist erstaunlich. Sie können 150 US-Dollar pro Person und Tag beim Camping in Tarangire ausgeben oder 1.500 US-Dollar pro Person und Tag in einem exklusiven privaten Concession-Gebiet der Serengeti – und beides sind waschechte Tansania-Safari-Erlebnisse. Zu verstehen, was die Kosten antreibt und was man für welchen Preis bekommt, ist der wichtigste Schritt bei der Planung einer Reise, die zu Ihren Erwartungen und Ihrem Budget passt."
+  },
+  {
+    "type": "h2",
+    "text": "Die größten Kostentreiber"
+  },
+  {
+    "type": "p",
+    "text": "Die Nationalparkgebühren Tansanias sind nicht verhandelbar und werden von der tansanischen Regierung festgelegt. Für die Serengeti zahlen Sie derzeit 82 US-Dollar pro Person und Tag allein für die Parkeintrittsgebühr – zuzüglich einer separaten Fahrzeuggebühr. Für den Ngorongoro-Krater kommt zusätzlich zur Schutzgebietsgebühr eine Kraterservicegebühr hinzu. Diese staatlichen Gebühren gelten für jeden Besucher, unabhängig davon, welche Unterkunft oder welchen Veranstalter er nutzt, und machen einen erheblichen Teil Ihrer täglichen Kosten pro Person aus."
+  },
+  {
+    "type": "p",
+    "text": "Die Unterkunft ist die größte Einzelvariable in Ihrem Budget. Der Unterschied zwischen einer Budget-Campingsafari und einer luxuriösen Zeltlodge liegt nicht in erster Linie bei den Tieren – er liegt in Ihrem Bett, Ihrem Badezimmer, Ihrem Essen und Ihrem Fahrzeug. Eine Budget-Campingsafari bedeutet, sich ein gemeinsames Speisezelt mit anderen Reisenden zu teilen und in einem einfachen Zelt zu schlafen. Eine Lodge der Mittelklasse bietet Ihnen ein Zimmer mit eigenem Bad, warmem Wasser und einem Swimmingpool. Ein Luxuscamp bietet Ihnen eine private Suite, einen persönlichen Butler, ein privates Fahrzeug und exklusive Pirschfahrten zu Zeiten, zu denen andere Camps nicht unterwegs sein dürfen."
+  },
+  {
+    "type": "h2",
+    "text": "Tansania-Safarikosten nach Budgetklasse"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Budgetklasse",
+      "Kosten pro Person/Tag",
+      "Was Sie bekommen"
+    ],
+    "rows": [
+      [
+        "Budget",
+        "150-250 $",
+        "Campingsafari, gemeinsames Fahrzeug (6-8 Personen), einfache Mahlzeiten, Standardparks"
+      ],
+      [
+        "Mittelklasse",
+        "250-450 $",
+        "Zeltlodge oder Mittelklassehotel, gemeinsames Fahrzeug (4-6 Personen), gutes Essen"
+      ],
+      [
+        "Gehobene Mittelklasse",
+        "450-700 $",
+        "Hochwertige Zeltcamps, kleinere Fahrzeuge, privater Guide möglich"
+      ],
+      [
+        "Luxus",
+        "700-1.200 $",
+        "Premium-Lodges, privates Fahrzeug, erfahrene Guides, exklusive Gebiete"
+      ],
+      [
+        "Ultra-Luxus",
+        "ab 1.200 $",
+        "Private Concessions, vollständig privates Camp, maßgeschneiderte Reiseroute, Flugtransfers"
+      ]
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Diese Zahlen gelten pro Person und Tag und beinhalten Unterkunft, Mahlzeiten, Parkgebühren und Pirschfahrten. Nicht enthalten sind internationale Flüge nach Tansania, Visagebühren (50 US-Dollar für die meisten Nationalitäten), Trinkgelder für Guides und Camp-Personal (kalkulieren Sie 10-20 US-Dollar pro Person und Tag für Guides, 5-10 US-Dollar für das Camp-Personal) sowie persönliche Einkäufe."
+  },
+  {
+    "type": "h2",
+    "text": "Aufschlüsselung der staatlichen Parkgebühren"
+  },
+  {
+    "type": "p",
+    "text": "Tansanias Parkgebühren gehören zu den höchsten in Afrika – und sie fließen direkt an die Tanzania National Parks Authority (TANAPA) für den Naturschutz. Für die beliebtesten Parks sieht die aktuelle Gebührenstruktur folgendermaßen aus: Der Serengeti-Nationalpark verlangt 82 US-Dollar pro Erwachsenem und Tag. Das Ngorongoro Conservation Area verlangt 80 US-Dollar pro Erwachsenem und Tag zuzüglich einer Kraterservicegebühr von 300 US-Dollar pro Fahrzeug für eine Kraterabfahrt. Der Tarangire-Nationalpark verlangt 55 US-Dollar pro Erwachsenem und Tag. Der Lake Manyara verlangt 45 US-Dollar pro Erwachsenem und Tag."
+  },
+  {
+    "type": "p",
+    "text": "Fahrzeuggebühren kommen mit weiteren 40-60 US-Dollar pro Fahrzeug, Park und Tag hinzu. Bei einem Standard-4x4-Safarifahrzeug für vier Personen, das sich vier Reisende teilen, bedeutet die Fahrzeuggebühr einen Aufschlag von 10-15 US-Dollar pro Person und Tag. Private Fahrzeuge – auf die Sie ab der gehobenen Mittelklasse bestehen sollten – kosten dieselbe Gebühr, die jedoch vollständig von Ihrer Gruppe getragen wird, was die Kosten pro Person erhöht, das Erlebnis jedoch weit überlegen macht."
+  },
+  {
+    "type": "tip",
+    "title": "Ersparnisse in der Grünen Saison",
+    "text": "Ein Besuch während der langen Regenzeit (April-Mai) und der kurzen Regenzeit (November) kann die Lodgepreise um 20-40 % senken. Die Tierwelt ist weiterhin hervorragend, die Landschaft ist üppig und fotogen, und Sie teilen sich die Parks mit deutlich weniger Fahrzeugen. Die Grüne Saison ist eines der bestgehüteten Geheimnisse bei den Safaripreisen in Tansania."
+  },
+  {
+    "type": "h2",
+    "text": "Was eine 7-tägige Tansania-Safari tatsächlich kostet"
+  },
+  {
+    "type": "p",
+    "text": "Eine 7-nächtige Safari auf dem Northern Circuit (Tarangire, Manyara, Serengeti, Ngorongoro) für zwei Personen im Doppelzimmer, gereist im mittleren Standard mit privatem Fahrzeug und Guide, kostet vor Ort in der Regel 4.500-6.500 US-Dollar pro Person, alles inklusive. Darin enthalten sind alle Parkgebühren, Unterkunft, Mahlzeiten, Pirschfahrten und Flughafentransfers. Internationale Flüge aus Europa oder den USA kommen mit 800-1.800 US-Dollar pro Person hinzu, je nach Abflugort und Buchungszeitpunkt."
+  },
+  {
+    "type": "p",
+    "text": "In der Budgetklasse kostet dieselbe 7-nächtige Reiseroute als Campingsafari mit gemeinsamem Fahrzeug vor Ort in der Regel 1.800-2.800 US-Dollar pro Person. Die besuchten Parks sind identisch – das Wildtiererlebnis ist vergleichbar –, aber der Komfort zwischen den Fahrten unterscheidet sich deutlich. Budgetreisende stellen oft fest, dass die Pirschfahrt selbst genauso gut ist wie im Luxussegment, und nutzen die Ersparnis, um mehr Nächte im Feld zu verbringen."
+  },
+  {
+    "type": "p",
+    "text": "Am oberen Ende kostet eine 7-nächtige Reiseroute in exklusiven Camps mit privaten Fahrzeugen, erfahrenen Guides und Flugverbindungen zwischen den Parks 8.000-15.000+ US-Dollar pro Person. Der Aufpreis kauft Ihnen Privatsphäre, Exklusivität und eine reibungslose Logistik, die es Ihnen erlaubt, sich vollständig auf die Tierwelt zu konzentrieren. Für viele Reisende ist das Luxuserlebnis ein einmaliges Verwöhnprogramm; für andere wird es die einzige Art, wie sie reisen möchten."
+  },
+  {
+    "type": "h2",
+    "text": "Versteckte Kosten, die Sie kennen sollten"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Trinkgelder für Guides (10-20 US-Dollar pro Person und Tag) und Camp-Personal (5-10 US-Dollar pro Person und Tag) sind üblich und werden erwartet",
+      "Visa kosten für die meisten Nationalitäten 50 US-Dollar – beantragen Sie es vor der Reise online unter evisa.immigration.go.tz",
+      "Ein Gelbfieber-Impfzertifikat ist erforderlich, wenn Sie aus einem Gelbfieber-Risikogebiet einreisen",
+      "Malariaprophylaxe (30-80 US-Dollar für eine Kur) – sprechen Sie mit Ihrem Hausarzt oder einer Reiseklinik",
+      "Eine Reiseversicherung mit medizinischer Evakuierungsdeckung ist unerlässlich – kalkulieren Sie 150-300 US-Dollar pro Person",
+      "Optionale Genehmigungen für Gorilla- oder Schimpansen-Trekking (700 bzw. 100 US-Dollar), falls Sie Ruanda oder Mahale hinzufügen",
+      "Unterkunft und Aktivitäten für eine Strandverlängerung auf Sansibar sind in der Regel nicht im Safaripreis enthalten"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Wie Sie das beste Preis-Leistungs-Verhältnis bekommen"
+  },
+  {
+    "type": "p",
+    "text": "Der mit Abstand größte Werttreiber bei den Preisen für Tansania-Safaris ist die Reise mit einem vor Ort ansässigen Veranstalter in Tansania statt der Buchung über eine ausländische Reiseagentur. Lokale Veranstalter eliminieren den Aufschlag von 15-30 %, den Agenturen im Ausland erheben, um ihre eigenen Margen zu decken. Außerdem erhalten Sie eine direktere Beziehung zu den Menschen, die Ihre Reiseroute organisieren, schnellere Reaktionen, wenn sich Pläne ändern müssen, und Guides, die in der Region leben und die Parks bestens kennen."
+  },
+  {
+    "type": "p",
+    "text": "Sich ein Fahrzeug mit anderen Reisenden zu teilen, senkt die Kosten pro Person erheblich, ohne das Wildtiererlebnis nennenswert zu beeinträchtigen. Eine Vierergruppe, die sich einen 4x4 teilt, zahlt etwa die Hälfte dessen, was ein privates Fahrzeug pro Person kostet. Für Budget- und Mittelklassereisende ist der Anschluss an eine Kleingruppensafari (vier bis sechs Personen) ein hervorragender Weg, um zu niedrigeren Preisen hochwertige Reiserouten zu erleben."
+  },
+  {
+    "type": "p",
+    "text": "Eine Reise in den Nebensaisons – insbesondere Juni, November und Anfang Dezember – bietet Ihnen eine Tierbeobachtung, die der Hauptsaison in nichts nachsteht, zu Preisen, die 15-25 % unter den Spitzenpreisen liegen. Der Juni ist besonders gut: Die Trockenzeit hat gerade begonnen, die Grumeti-Fluss-Überquerungen laufen bereits, und die Parks sind spürbar weniger überlaufen als im Juli und August."
+  },
+  {
+    "type": "callout",
+    "text": "Eine Tansania-Safari ist nicht billig – und das sollte sie auch nicht sein. Die Parkgebühren finanzieren den Naturschutz, die Löhne bezahlen gemeindenahe Guides, und die Kosten, um in einem gepflegten 4x4 in die entlegene Wildnis zu gelangen, sind tatsächlich hoch. Was Sie hier kaufen, ist einer der letzten wirklich wilden Orte der Erde. Das Preis-Leistungs-Verhältnis wird hier in einer völlig anderen Währung gemessen als bei einem Strandurlaub."
+  },
+  {
+    "type": "h2",
+    "text": "Ist Tansania die Kosten wert?"
+  },
+  {
+    "type": "p",
+    "text": "Jeder Safariguide und jeder erfahrene Afrikareisende, den wir kennen, beantwortet diese Frage auf dieselbe Weise: Tansania bietet das konsistenteste, spektakulärste und authentischste Safarierlebnis Afrikas. Die Serengeti allein rechtfertigt die Kosten. Die Kalbsaison in Ndutu, die Mara-Fluss-Überquerungen, die stille Weite von Ruaha, die vulkanische Andersartigkeit von Ngorongoro – das sind Erlebnisse, die Sie nirgendwo sonst auf der Welt nachbilden können."
+  },
+  {
+    "type": "p",
+    "text": "Wenn Sie sich fragen, ob sich die Investition in Tansania lohnt, lautet die sinnvollere Frage: Welches Komfortniveau brauchen Sie, um es voll und ganz zu genießen? In jeder Budgetklasse ist die Tierwelt außergewöhnlich. Das Geld, das Sie über das Budgetniveau hinaus ausgeben, kauft Komfort, Privatsphäre und Expertise – kein grundlegend anderes Wildtiererlebnis. Entscheiden Sie, was Ihnen am wichtigsten ist, passen Sie Ihr Budget an diese Priorität an, und buchen Sie bei einem seriösen lokalen Veranstalter. Um den Rest kümmert sich Tansania."
+  }
 ],
 
 'best-time-to-visit-serengeti': [
-  { type: 'p', text: 'Die kurze Antwort lautet: Jeder Monat. Die Serengeti ist einer jener seltenen Orte, an denen die Tierwelt zu jeder Jahreszeit außergewöhnlich ist. Die längere Antwort lautet, dass jeder Monat völlig andere Erlebnisse bietet, und das Wissen um das Angebot jedes einzelnen ermöglicht Ihnen, den Besuch zu wählen, der Ihren spezifischen Interessen entspricht – sei es Raubtieraktivität, Flussüberquerungen, Kalbsebenen oder einfach die Menschenmassen zu vermeiden.' },
-  { type: 'h2', text: 'Die Jahreszeiten der Serengeti verstehen' },
-  { type: 'p', text: 'Tansania hat zwei Regenzeiten: die langen Regen von März bis Mai und die kurzen Regen im November. Dazwischen liegen zwei Trockenzeiten: die Haupttrockenzeit von Juni bis Oktober und eine kürzere Trockenzeit im Januar und Februar. Diese Regenmuster bestimmen, wo Gras wächst, was bestimmt, wo sich Gnu-Herden konzentrieren, was wiederum die Raubtierverteilung antreibt. Das Verstehen dieses Zyklus ist der Schlüssel zur Planung Ihres Besuchs.' },
-  { type: 'h2', text: 'Monatsweise Aufschlüsselung' },
-  { type: 'h3', text: 'Januar und Februar: Kalbsaison' },
-  { type: 'p', text: 'Januar und Februar sind zwei der besten Monate für einen Besuch in der Serengeti. Die kurzen Regen sind vorbei, und die südlichen Ebenen in der Nähe von Ndutu sind mit frischem grünem Gras überzogen, das Gnu-Herden in Hunderttausenden anzieht. Dies ist die Kalbsaison: die höchste Konzentration von Raubtier-Beute-Interaktionen in Afrika. Bis zu 8.000 Kälber werden täglich auf dem Höhepunkt geboren, und Raubtiere – Löwen, Geparden, Hyänen, Leoparden, Wildhunde – strömen herbei, um das Festmahl zu nutzen. Die Preise sind relativ günstig, die Regen sind vorbei, und die Vogelbeobachtung erreicht ihren Höhepunkt dank Zugvögeln aus Europa und Asien.' },
-  { type: 'h3', text: 'März bis Mai: Grüne Saison' },
-  { type: 'p', text: 'Die langen Regen kommen im März und bringen eine erstaunliche Verwandlung der Serengeti. Das Gras wird intensiv grün, Wildblumen blühen, der Himmel füllt sich mit dramatischen Gewitterwolken, und die Landschaft sieht völlig anders aus als auf den Trockenzeit-Fotos, die Sie wahrscheinlich gesehen haben. Die Gnu-Herden beginnen mit dem Nachlassen der südlichen Regen nordwärts zu ziehen, und die zentrale Serengeti füllt sich mit Tieren. Unterkunftspreise fallen um 20-40 %, viele Camps schließen zur Wartung, und die Parks sind deutlich weniger überfüllt. Wildtierbeobachtungen bleiben hervorragend – einige erfahrene Safarireisende bevorzugen sogar März bis Mai wegen der Fotomöglichkeiten und der Einsamkeit.' },
-  { type: 'h3', text: 'Juni: Übergang und Grumeti-Überquerungen' },
-  { type: 'p', text: 'Juni markiert den Beginn der Haupttrockenzeit und das Eintreffen der Herden im westlichen Korridor. Der Grumeti-Fluss, Heimat einer Population riesiger alter Nilkrokodile, erlebt im Juni seine eigenen dramatischen Überquerungen, die oft zugunsten des berühmteren Mara-Flusses übersehen werden. Das Gras trocknet aus und Tiere beginnen sich um Wasserquellen zu konzentrieren, was Wildtierbeobachtungen zunehmend zuverlässiger macht. Die Preise sind niedriger als im Juli und August, und die Parks sind deutlich weniger überfüllt.' },
-  { type: 'h3', text: 'Juli und August: Hochsaison, Mara-Flussüberquerungen' },
-  { type: 'p', text: 'Juli und August sind die beliebtesten Monate für einen Besuch in der Serengeti, und das aus gutem Grund. Die Herden sind in den Norden der Serengeti gezogen und überqueren den Mara-Fluss in einem der dramatischsten Wildtiereignisse der Welt. Zehntausende von Gnus stürzen sich in krokodilverseuchte Gewässer bei Überquerungen, die täglich mehrmals stattfinden können. Die Trockenzeit-Landschaft erleichtert Wildtierbeobachtungen, der Himmel ist klar, und Sichtungen sind äußerst zuverlässig. Die Nachteile sind höhere Preise, mehr Fahrzeuge an überfüllten Plätzen und vollständig ausgebuchte Qualitätscamps.' },
-  { type: 'h3', text: 'September und Oktober: Rückkehr nach Süden' },
-  { type: 'p', text: 'Die Herden kehren im Oktober durch den Norden der Serengeti nach Süden zurück und lösen umgekehrte Mara-Überquerungen aus, die oft ruhiger, aber genauso dramatisch sind. September ist hervorragend für Wildtierbeobachtungen im Norden der Serengeti, und viele erfahrene Reisende bevorzugen ihn gegenüber August, weil die Menschenmassen leicht abnehmen, während die Wildtiere konzentriert bleiben. Im Oktober verteilen sich die Herden wieder nach Süden, und die kurzen Regen beginnen typischerweise Ende Oktober oder November.' },
-  { type: 'h3', text: 'November und Dezember: Kurze Regen und neue Anfänge' },
-  { type: 'p', text: 'November bringt die kurzen Regen, die typischerweise drei bis vier Wochen dauern. Wildtierbeobachtungen bleiben gut, und niedrigere Preise machen diesen Zeitraum zu einem guten Preis-Leistungs-Angebot. Im Dezember lassen die Regen nach, die südlichen Ebenen beginnen sich zu begrünen, und die ersten hochträchtigen Gnus kommen vor der Kalbsaison an. Die Serengeti im Dezember hat ein Gefühl der Vorfreude: Der Zyklus schließt sich, und die Ebenen füllen sich erneut.' },
-  { type: 'tip', title: 'Der insgesamt beste Monat', text: 'Wenn ich einen einzigen Monat wählen müsste, würden die meisten erfahrenen Führer Februar empfehlen. Die Kalbsaison ist auf dem Höhepunkt, die Raubtieraktivität ist außergewöhnlich, die Preise sind vernünftig, und die Landschaft ist grün und fotogen. Juni ist das beste Preis-Leistungs-Verhältnis für diejenigen, die Trockenzeit-Wildtierbeobachtungen ohne die Menschenmassen von Juli und August wünschen.' },
-  { type: 'h2', text: 'Welchen Teil der Serengeti besuchen' },
-  { type: 'ul', items: [
-    'Süd-Serengeti (Ndutu-Gebiet): am besten von Dezember bis März für Kälber und Raubtieraktivität',
-    'Zentral-Serengeti (Seronera): das ganze Jahr zuverlässig, besonders gut für ansässige Löwen und Leoparden',
-    'Westlicher Korridor (Grumeti): am besten im Juni für Grumeti-Flussüberquerungen',
-    'Nord-Serengeti (Kogatende/Lamai): am besten von Juli bis Oktober für Mara-Flussüberquerungen',
-  ]},
-  { type: 'callout', text: 'Der beste Monat für einen Besuch in der Serengeti ist derjenige, der mit dem übereinstimmt, was Ihnen am wichtigsten ist, und das erfordert ein ehrliches Gespräch über Ihre Prioritäten. Teilen Sie Ihrem Betreiber mit, ob Sie die Kalbsaison, Flussüberquerungen, niedrigere Preise, üppigere Landschaften oder maximale Einsamkeit wünschen. Die Serengeti antwortet auf alle – nur zu verschiedenen Zeiten des Jahres.' },
+  {
+    "type": "p",
+    "text": "Die kurze Antwort lautet: jeder Monat. Die Serengeti ist einer jener seltenen Orte, an denen die Tierwelt in jeder Jahreszeit außergewöhnlich ist. Die längere Antwort ist, dass unterschiedliche Monate völlig unterschiedliche Erlebnisse bieten – und zu wissen, was jeder einzelne bietet, ermöglicht es Ihnen, den Besuch zu wählen, der zu Ihren spezifischen Interessen passt, egal ob das Raubtieraktion, Flussüberquerungen, Kalbsebenen oder einfach das Vermeiden von Menschenmassen ist."
+  },
+  {
+    "type": "h2",
+    "text": "Die Jahreszeiten der Serengeti verstehen"
+  },
+  {
+    "type": "p",
+    "text": "Tansania hat zwei Regenzeiten – die lange Regenzeit von März bis Mai und die kurze Regenzeit im November. Dazwischen liegen zwei Trockenzeiten: die Haupttrockenzeit von Juni bis Oktober und eine kürzere Trockenperiode im Januar und Februar. Diese Regenmuster bestimmen, wo das Gras wächst, was wiederum bestimmt, wo sich die Gnuherden konzentrieren, was wiederum die Verteilung der Raubtiere steuert. Diesen Zyklus zu verstehen, ist der Schlüssel zur Planung Ihres Besuchs."
+  },
+  {
+    "type": "p",
+    "text": "Die Serengeti erstreckt sich über 14.763 Quadratkilometer – eine Fläche, die größer ist als Nordirland –, und die verschiedenen Zonen innerhalb des Parks beherbergen zu unterschiedlichen Zeiten des Jahres unterschiedliche Phasen der Migration. Die südlichen Ebenen rund um Ndutu erleben die Kalbsherden von Dezember bis März. Die zentrale Serengeti beherbergt die Herden, während sie von April bis Juni nordwärts ziehen. Der westliche Korridor erlebt im Juni die Grumeti-Fluss-Überquerungen. Die nördliche Serengeti in der Nähe des Mara-Flusses ist von Juli bis Oktober Schauplatz der berühmten Überquerungen."
+  },
+  {
+    "type": "h2",
+    "text": "Monat für Monat im Überblick"
+  },
+  {
+    "type": "h3",
+    "text": "Januar und Februar — Kalbsaison"
+  },
+  {
+    "type": "p",
+    "text": "Januar und Februar gehören zu den schönsten Monaten für einen Besuch der Serengeti. Die kurze Regenzeit ist vorbei, und die südlichen Ebenen rund um Ndutu sind mit frischem grünem Gras bedeckt, das die Gnuherden zu Hunderttausenden anzieht. Dies ist die Kalbsaison – die dramatischste Konzentration von Raubtier-Beute-Interaktionen in ganz Afrika. Bis zu 8.000 Kälber werden täglich auf dem Höhepunkt geboren, und die Raubtiere – Löwe, Gepard, Hyäne, Leopard, Wildhund – kommen, um sich satt zu fressen. Die Preise sind relativ niedrig, die Regenzeit ist vorbei, und dank der Anwesenheit von Zugvögeln aus Europa und Asien ist die Vogelwelt auf ihrem Höhepunkt."
+  },
+  {
+    "type": "h3",
+    "text": "März bis Mai — Grüne Saison"
+  },
+  {
+    "type": "p",
+    "text": "Die lange Regenzeit setzt im März ein und bringt eine erstaunliche Verwandlung der Serengeti mit sich. Das Gras wird tiefgrün, Wildblumen blühen, der Himmel füllt sich mit dramatischen Gewitterwolken, und die Landschaft sieht völlig anders aus als auf den Trockenzeit-Fotos, die Sie wahrscheinlich schon gesehen haben. Die Gnuherden beginnen nordwärts zu ziehen, sobald die Regenfälle im Süden nachlassen, und die zentrale Serengeti füllt sich mit Tieren. Die Lodgepreise fallen um 20-40 %, viele Camps schließen für Wartungsarbeiten, und die Parks sind deutlich weniger überlaufen. Die Tierbeobachtung ist weiterhin ausgezeichnet – tatsächlich bevorzugen manche erfahrene Safarireisende März bis Mai wegen der Fotomöglichkeiten und der Ruhe."
+  },
+  {
+    "type": "h3",
+    "text": "Juni — Übergang und Grumeti-Überquerungen"
+  },
+  {
+    "type": "p",
+    "text": "Der Juni markiert den Beginn der Haupttrockenzeit und die Ankunft der Herden im westlichen Korridor. Der Grumeti-Fluss – Heimat einer Population riesiger, uralter Nilkrokodile – erlebt im Juni seine eigenen dramatischen Überquerungen, die zugunsten des bekannteren Mara-Flusses oft übersehen werden. Das Gras trocknet aus, und die Tiere beginnen sich um Wasserstellen zu konzentrieren, wodurch die Tierbeobachtung zunehmend zuverlässiger wird. Die Preise sind niedriger als im Juli und August, und die Parks sind spürbar ruhiger."
+  },
+  {
+    "type": "h3",
+    "text": "Juli und August — Hochsaison, Mara-Fluss-Überquerungen"
+  },
+  {
+    "type": "p",
+    "text": "Juli und August sind die beliebtesten Monate für einen Besuch der Serengeti – und das aus gutem Grund. Die Herden sind in die nördliche Serengeti gezogen und überqueren den Mara-Fluss in einem der dramatischsten Wildtierereignisse des Planeten. Zehntausende von Gnus stürzen sich in krokodilverseuchte Gewässer, in Überquerungen, die mehrmals täglich stattfinden können. Die Trockenzeit-Landschaft macht es leicht, Tiere zu entdecken, der Himmel ist klar, und die Tierbeobachtung ist auf ihrem zuverlässigsten Niveau. Der Nachteil sind höhere Preise, mehr Fahrzeuge an den besten Stellen und ausgebuchte Camps an den guten Standorten."
+  },
+  {
+    "type": "h3",
+    "text": "September und Oktober — Übergang zurück nach Süden"
+  },
+  {
+    "type": "p",
+    "text": "Die Herden ziehen im Oktober durch die nördliche Serengeti zurück nach Süden und lösen umgekehrte Mara-Fluss-Überquerungen aus, die oft ruhiger, aber ebenso dramatisch sind. Der September eignet sich hervorragend für die Tierbeobachtung in der nördlichen Serengeti, und viele erfahrene Reisende bevorzugen ihn gegenüber dem August, weil die Menschenmassen etwas abnehmen, während die Tierwelt weiterhin konzentriert bleibt. Im Oktober verteilen sich die Herden wieder nach Süden, und die kurze Regenzeit beginnt in der Regel Ende Oktober oder im November und lässt die Landschaft wieder aufleben."
+  },
+  {
+    "type": "h3",
+    "text": "November und Dezember — Kurze Regenzeit und Neuanfang"
+  },
+  {
+    "type": "p",
+    "text": "Der November bringt die kurze Regenzeit, die meist drei bis vier Wochen andauert. Die Tierbeobachtung bleibt gut, und die niedrigeren Preise machen diesen Monat zu einem starken Preis-Leistungs-Angebot. Im Dezember lassen die Regenfälle nach, die südlichen Ebenen beginnen zu ergrünen, und die ersten hochschwangeren Gnus treffen vor der Kalbsaison ein. Die Serengeti im Dezember hat etwas von Vorfreude an sich – der Kreislauf schließt sich, und die Ebenen füllen sich erneut."
+  },
+  {
+    "type": "tip",
+    "title": "Bester Monat insgesamt",
+    "text": "Wenn man sich auf einen einzigen Monat festlegen müsste, empfehlen die meisten erfahrenen Guides den Februar. Die Kalbsaison ist auf ihrem Höhepunkt, die Raubtieraktivität ist außergewöhnlich, die Preise sind angemessen, und die Landschaft ist grün und fotogen. Der Juni ist der beste Wertmonat für alle, die eine Trockenzeit-Tierbeobachtung ohne die Menschenmassen von Juli und August erleben möchten."
+  },
+  {
+    "type": "h2",
+    "text": "Wann sind die Preise am niedrigsten?"
+  },
+  {
+    "type": "p",
+    "text": "Die lange Regenzeit – April und Mai – bietet die niedrigsten Preise des Jahres, manchmal 30-40 % unter den Spitzenpreisen. Auch der November liegt unter dem Spitzenniveau. Diese Monate eignen sich hervorragend für budgetbewusste Reisende, die bereit sind zu akzeptieren, dass manche Camps schließen und die Straßen matschig sein können. Die Wildtier-Belohnung für einen Besuch in der Grünen Saison wird oft unterschätzt – die Landschaft ist wunderschön, die Vögel sind spektakulär, und die Raubtieraktivität besteht das ganze Jahr über."
+  },
+  {
+    "type": "h2",
+    "text": "Wann sind die Parks am meisten überlaufen?"
+  },
+  {
+    "type": "p",
+    "text": "Juli und August verzeichnen die höchsten Besucherzahlen in der Serengeti, besonders in der nördlichen Zone in der Nähe des Mara-Flusses. An den beliebtesten Flussüberquerungspunkten können sich ein Dutzend oder mehr Fahrzeuge versammeln – weit entfernt von der einsamen Erfahrung, die sich viele Besucher vorstellen. Ein privates Fahrzeug und ein Camp abseits der wichtigsten Überquerungs-Hotspots zu wählen, hilft erheblich. Das Wissen Ihres Guides über weniger besuchte Aussichtspunkte kann den Unterschied zwischen einem überfüllten Spektakel und einer privaten Begegnung ausmachen."
+  },
+  {
+    "type": "callout",
+    "text": "Der beste Monat für einen Besuch der Serengeti ist der, der zu dem passt, was Ihnen am wichtigsten ist – und das erfordert ein ehrliches Gespräch über Ihre Prioritäten. Teilen Sie Ihrem Veranstalter mit, ob Sie die Kalbsaison, Flussüberquerungen, niedrigere Preise, grünere Landschaften oder maximale Einsamkeit wünschen. Die Serengeti bietet all das – nur zu unterschiedlichen Zeiten des Jahres."
+  },
+  {
+    "type": "h2",
+    "text": "Welchen Teil der Serengeti besuchen"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Südliche Serengeti (Ndutu-Gebiet): am besten von Dezember bis März für Kalbsaison und Raubtieraktion",
+      "Zentrale Serengeti (Seronera): das ganze Jahr über zuverlässig, besonders gut für ansässige Löwen und Leoparden",
+      "Westlicher Korridor (Grumeti): am besten im Juni für die Grumeti-Fluss-Überquerungen",
+      "Nördliche Serengeti (Kogatende/Lamai): am besten von Juli bis Oktober für die Mara-Fluss-Überquerungen"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Serengeti im Vergleich zu anderen Parks in Tansania"
+  },
+  {
+    "type": "p",
+    "text": "Die Serengeti ist Tansanias berühmtester Park, aber nicht der einzige außergewöhnliche. Der Tarangire-Nationalpark südlich der Serengeti hat die höchste Elefantendichte Ostafrikas und eine außergewöhnliche Vogelwelt. Der Ngorongoro-Krater, direkt östlich der Serengeti, ist die größte intakte Vulkancaldera der Welt und beherbergt 25.000 Tiere in einem in sich geschlossenen Ökosystem, einschließlich des gefährdeten Spitzmaulnashorns. Die meisten Tansania-Reiserouten kombinieren zwei bis drei Parks – und die Serengeti ist fast immer das Herzstück."
+  },
+  {
+    "type": "p",
+    "text": "Die Anreise zur Serengeti ist unkompliziert. Die meisten Besucher fliegen zum Internationalen Flughafen Kilimanjaro (JRO) in der Nähe von Arusha, fahren oder fliegen zum Park und beziehen für drei bis sechs Nächte ein Camp als Basis. Inlandsflüge zwischen Arusha und den Landebahnen der Serengeti dauern 45 Minuten und bieten atemberaubende Ausblicke. Straßentransfers durch das Ngorongoro Conservation Area sind spektakulär, dauern jedoch vier bis fünf Stunden. Die meisten Reiserouten kombinieren beides – hinfliegen, herausfahren (oder umgekehrt) –, um die Landschaft zweimal zu erleben."
+  }
 ],
 
 'gorilla-trekking-rwanda': [
-  { type: 'p', text: 'Es gibt etwa 1.000 Berggorillas auf der Erde. Alle leben in einem einzigen Bergwaldökosystem, das Ruanda, Uganda und die Demokratische Republik Kongo umspannt. Mit einer Gorillagruppe im nebligen Bambuswald der Virunga-Berge zu sitzen, ist etwas, das sehr wenige Menschen je erleben werden – und der Vulkane-Nationalpark in Ruanda ist der Ort, an dem dieses Erlebnis am zugänglichsten, am besten organisiert und am außergewöhnlichsten ist.' },
-  { type: 'h2', text: 'Warum Ruanda für Gorilla-Trekking?' },
-  { type: 'p', text: 'Ruanda und Uganda bieten Gorilla-Trekking an, und Uganda ist etwas günstiger. Aber Ruanda bietet durchgehend ein überlegenes Gesamterlebnis. Der Vulkane-Nationalpark ist gut verwaltet, die Trekkingrouten sind moderat (die meisten Gorillafamilien sind 2-4 Stunden Fußmarsch entfernt), und die Infrastruktur rund um den Park – einschließlich einiger der besten Unterkünfte in Afrika – ist außergewöhnlich. Ruanda ist auch sicherer, kompakter und einfacher zu erreichen als Ugandas Bwindi Impenetrable Forest, der eine lange Reise von Entebbe oder Kampala erfordert.' },
-  { type: 'p', text: 'Die ruandische Gorilla-Genehmigung kostet 1.500 US-Dollar pro Person – die teuerste der Welt. Dieser Preis ist bewusst gewählt: Die Einnahmen finanzieren den Parkschutz, Anti-Wilderei-Patrouillen, Rangerlöhne und kommunale Entwicklungsprojekte. Im Kontext ist das auch nicht unvernünftig für ein einstündiges Erlebnis mit einem der am stärksten bedrohten Großaffen der Welt. Das Geld, das Sie für eine Gorilla-Genehmigung ausgeben, fließt direkt in das Ökosystem, das diese Tiere am Leben erhält.' },
-  { type: 'h2', text: 'Wie man eine Gorilla-Genehmigung bekommt' },
-  { type: 'p', text: 'Das Rwanda Development Board (RDB) stellt Gorilla-Genehmigungen aus und kontrolliert die Genehmigungszuteilung. Genehmigungen müssen im Voraus über das RDB direkt oder zuverlässiger über einen lizenzierten Reiseveranstalter gebucht werden. Für Spitzenmonate (Juni, Juli, August, Dezember und Januar) sind Genehmigungen 6-12 Monate im Voraus ausverkauft. Planen Sie keine Gorilla-Reise nach Ruanda ohne vorherige Bestätigung der Genehmigungsverfügbarkeit. Dies ist der kritische Engpass in der gesamten Reiseroute.' },
-  { type: 'p', text: 'Pro Gorillafamilie und Tag sind nur acht Besucher erlaubt, und der Vulkane-Nationalpark hat zwölf für den Tourismus habituierte Gorillafamilien. Das bedeutet maximal 96 Gorilla-Trekking-Genehmigungen pro Tag für das ganze Land. Die Knappheit ist beabsichtigt und wesentlich: Die Minimierung des menschlichen Kontakts schützt Gorillas vor Krankheiten und Stress. Dieses Limit ist einer der Gründe, warum sich das Gorilla-Erlebnis in Ruanda so intim und ungehetzt anfühlt.' },
-  { type: 'tip', title: 'Tipp zur Genehmigungsbuchung', text: 'Buchen Sie Ihre Genehmigungen mindestens 9-12 Monate im Voraus für Reisen von Juni bis August. Die Buchung über einen seriösen, in Kigali ansässigen Reiseveranstalter gibt Ihnen besseren Zugang als der Versuch, direkt zu buchen: Betreiber haben oft Genehmigungskontingente und können Sie bei der Familienauswahl beraten.' },
-  { type: 'h2', text: 'Was am Trekking-Tag passiert' },
-  { type: 'p', text: 'Trekker versammeln sich um 7:00 Uhr morgens am Parkhunquartier für ein Briefing. Gruppen werden ihrer Gorillafamilie und ihrem leitenden Ranger zugeteilt. Das Trekking beginnt am Parkrand und folgt den Rangern durch Bambuswälder, dichtes Unterholz und manchmal steile Vulkanhänge. Vorab-Tracker gehen der Hauptgruppe voraus und lokalisieren die Gorillafamilie, indem sie ihrer Spur vom Nistplatz des Vorabends folgen.' },
-  { type: 'p', text: 'Wenn die Tracker signalisieren, dass sie die Familie gefunden haben, nähert sich die Gruppe leise bis auf eine sichere Entfernung – der Mindestabstand beträgt sieben Meter. Dann beginnt die Stunde. Die Gorillafamilie macht mit ihrem Morgen weiter: Jungtiere spielen und ringen, Junggorillas jagen sich durch das Unterholz, der Silberrücken sitzt riesig und ruhig in der Vegetation. Manchmal kommt ein Jungtier näher und studiert Sie mit intelligenten Augen, die sich unheimlich vertraut anfühlen.' },
-  { type: 'h2', text: 'Körperliche Anforderungen des Trekkings' },
-  { type: 'p', text: 'Das Gorilla-Trekking wird als moderat bis anspruchsvoll eingestuft. Die Höhe des Vulkane-Nationalparks reicht von 2.400 bis 4.507 Metern, und die meisten Trekkings umfassen je nach Standort der Familie an diesem Tag einen bis sechs Stunden Bergaufwandern durch dichtes Unterholz. Sie müssen kein Sportler sein, aber Sie sollten in der Lage sein, zwei bis drei Stunden in mäßigem Tempo bergauf zu gehen, ohne Pausen einzulegen. Das Mindestalter beträgt 15 Jahre. Träger stehen am Trailhead gegen Bezahlung zur Verfügung.' },
-  { type: 'h2', text: 'Was zu tragen und anzuziehen ist' },
-  { type: 'ul', items: [
-    'Langarm-Shirt und lange Hose: Der Wald hat Brennnesseln und beißende Insekten',
-    'Wasserdichte Wanderstiefel mit Knöchelunterstützung: Wesentlich für schlammiges, unebenes Gelände',
-    'Regenponcho: Die Virunga-Berge erhalten das ganze Jahr über Regen, besonders nachmittags',
-    'Gartenhandschuhe: Nützlich zum Festhalten an Vegetation auf steilen Abschnitten',
-    'Kamera mit einem schnellen Objektiv: Der Wald ist dunkel; f/2,8 oder besser ist ideal',
-    'Kleiner Rucksack mit Wasser (mindestens 1,5 Liter), Snacks und Sonnenschutz',
-    'Wanderstock: Wird am Trailhead zur Verfügung gestellt; es lohnt sich, ihn zu benutzen',
-  ]},
-  { type: 'h2', text: 'Ruanda-Gorillas mit einer Tansania-Safari kombinieren' },
-  { type: 'p', text: 'Ruanda und Tansania sind natürliche Partner auf einer ostafrikanischen Reiseroute. Kigali hat Direktverbindungen zum Internationalen Flughafen Kilimanjaro (JRO) in der Nähe von Arusha, und viele Reisende kombinieren zwei bis drei Tage Gorilla-Trekking in Ruanda mit einer fünf- bis achttägigen Safari in Tansania. Der Kontrast ist bemerkenswert: das intime Waldtreffen mit einer Gorillafamilie, gefolgt von den weiten, offenen Ebenen der Serengeti und dem Spektakel der Großen Migration.' },
-  { type: 'callout', text: 'Gorilla-Trekking in Ruanda ist eines der wenigen Wildtiererlebnisse der Welt, bei dem alle, die es machen – unabhängig von Persönlichkeit, Interessen oder früherem Reiseerfahrung – verändert zurückkehren. Die 1.500 Dollar für die Genehmigung erscheinen teuer, bis man drei Meter von einem Berggorilla entfernt sitzt und erkennt, dass man etwas betrachtet, das in fünfzig Jahren möglicherweise nicht mehr existiert ohne die Einnahmen, die man gerade bereitgestellt hat.' },
+  {
+    "type": "p",
+    "text": "Es gibt weltweit noch etwa 1.000 Berggorillas. Sie alle leben in einem einzigen Bergwald-Ökosystem, das sich über Ruanda, Uganda und die Demokratische Republik Kongo erstreckt. Mit einer Gorillafamilie im nebligen Bambuswald der Virunga-Berge zusammenzusitzen bedeutet, etwas zu erleben, das nur sehr wenige Menschen je erleben werden – und Ruandas Volcanoes-Nationalpark ist der Ort, an dem dieses Erlebnis am zugänglichsten, am besten organisiert und am außergewöhnlichsten ist."
+  },
+  {
+    "type": "h2",
+    "text": "Warum Ruanda für Gorilla-Trekking?"
+  },
+  {
+    "type": "p",
+    "text": "Sowohl Ruanda als auch Uganda bieten Gorilla-Trekking an, und Uganda ist etwas günstiger. Doch Ruanda bietet durchweg das insgesamt bessere Erlebnis. Der Volcanoes-Nationalpark ist gut verwaltet, die Trekkinglängen sind moderat (die meisten Gorillafamilien sind innerhalb von zwei bis vier Gehstunden zu finden), und die Infrastruktur rund um den Park – einschließlich einiger der besten Lodges Afrikas – ist außergewöhnlich. Ruanda ist zudem sicherer, kompakter und leichter zu erreichen als der Bwindi-Impenetrable-Nationalpark in Uganda, für den eine lange Anfahrt von Entebbe oder Kampala erforderlich ist."
+  },
+  {
+    "type": "p",
+    "text": "Die ruandische Gorilla-Genehmigung kostet 1.500 US-Dollar pro Person – die höchste der Welt. Dieser Preis ist bewusst gewählt: Die Einnahmen finanzieren den Parkschutz, Anti-Wilderei-Patrouillen, Rangergehälter und Gemeindeentwicklungsprojekte. Er ist im Kontext auch nicht unangemessen für ein einstündiges Erlebnis mit einem der am stärksten gefährdeten Menschenaffen der Erde. Das Geld, das Sie für eine Gorilla-Genehmigung ausgeben, fließt direkt in das Ökosystem, das diese Tiere am Leben erhält."
+  },
+  {
+    "type": "h2",
+    "text": "Wie man eine Gorilla-Genehmigung bekommt"
+  },
+  {
+    "type": "p",
+    "text": "Das Rwanda Development Board (RDB) stellt Gorilla-Genehmigungen aus und kontrolliert deren Vergabe. Genehmigungen müssen im Voraus direkt beim RDB oder – zuverlässiger – über einen lizenzierten Reiseveranstalter gebucht werden. In den Hochsaisonmonaten (Juni, Juli, August, Dezember und Januar) sind die Genehmigungen sechs bis zwölf Monate im Voraus ausgebucht. Planen Sie keine Ruanda-Gorilla-Reise, ohne zuvor die Verfügbarkeit der Genehmigung zu bestätigen. Dies ist der entscheidende Engpass der gesamten Reiseroute."
+  },
+  {
+    "type": "p",
+    "text": "Nur acht Besucher pro Gorillafamilie und Tag sind erlaubt, und der Volcanoes-Nationalpark verfügt über zwölf habituierte Gorillafamilien, die für den Tourismus zur Verfügung stehen. Das bedeutet maximal 96 Gorilla-Trekking-Genehmigungen pro Tag – für das gesamte Land. Diese Knappheit ist beabsichtigt und wesentlich: Die Minimierung des menschlichen Kontakts schützt die Gorillas vor Krankheiten und Stress. Diese Begrenzung ist einer der Gründe, warum sich das Ruanda-Gorilla-Erlebnis so intim und ungehetzt anfühlt."
+  },
+  {
+    "type": "tip",
+    "title": "Tipp zur Genehmigungsbuchung",
+    "text": "Buchen Sie Ihre Genehmigungen mindestens 9-12 Monate im Voraus für Reisen zwischen Juni und August. Eine Buchung über einen seriösen, in Kigali ansässigen Reiseveranstalter verschafft Ihnen besseren Zugang als der Versuch einer Direktbuchung – Veranstalter halten oft Genehmigungskontingente zurück und können Sie bei der Auswahl der Familie beraten."
+  },
+  {
+    "type": "h2",
+    "text": "Welche Gorillafamilie Sie anfragen sollten"
+  },
+  {
+    "type": "p",
+    "text": "Jede der zwölf habituierten Gorillafamilien hat einen eigenen Charakter, ein eigenes Streifgebiet und einen eigenen Trekking-Schwierigkeitsgrad. Manche Familien bewegen sich in großer Höhe – über 3.000 Metern –, was eine anstrengende Bergwanderung in dünner Luft erfordert. Andere halten sich in niedrigeren Höhenlagen mit leichterem Zugang auf. Die Susa-Gruppe, eine der größten Familien mit über 40 Individuen, ist berühmt, erfordert aber einen der längsten und anspruchsvollsten Treks. Die Amahoro-Familie wird Erstbesuchern oft empfohlen, da ihre Mitglieder sanftmütig sind und ihr Streifgebiet leichter zugänglich ist."
+  },
+  {
+    "type": "p",
+    "text": "Ihr Reiseveranstalter sollte Sie basierend auf Ihrem Fitnesslevel, Ihrem Interesse an Familiengröße und -dynamik sowie besonderen Merkmalen, die Sie sehen möchten – dominante Silberrücken, Jungtiere, Dynamik zwischen den Familien – einer Familie zuordnen. Dies ist eine Frage, die es sich lohnt, bei der Buchung ausdrücklich zu stellen. Die Gorillafamilie, mit der Sie Ihre Stunde verbringen, wird Ihre Erinnerung an das Erlebnis prägen."
+  },
+  {
+    "type": "h2",
+    "text": "Was am Trekkingtag passiert"
+  },
+  {
+    "type": "p",
+    "text": "Die Trekker versammeln sich um 7:00 Uhr morgens am Parkhauptsitz zu einer Einweisung. Den Gruppen werden ihre Gorillafamilie und ihr leitender Ranger zugewiesen. Der Trek beginnt an der Parkgrenze und führt durch Bambuswald, dichtes Unterholz und manchmal steile Vulkanhänge. Fährtenleser gehen der Hauptgruppe voraus und lokalisieren die Gorillafamilie, indem sie deren Spur von der Stelle aus verfolgen, an der sie in der vorangegangenen Nacht genächtigt hat."
+  },
+  {
+    "type": "p",
+    "text": "Wenn die Fährtenleser signalisieren, dass die Familie gefunden wurde, nähert sich die Gruppe leise bis auf einen sicheren Abstand – sieben Meter ist der vorgeschriebene Mindestabstand. Dann beginnt die Stunde. Die Gorillafamilie geht ihrem Morgen nach: Jungtiere spielen und raufen miteinander, Halbwüchsige jagen sich durch das Unterholz, der Silberrücken sitzt massig und ungerührt in der Vegetation. Manchmal nähert sich ein Jungtier und mustert Sie mit intelligenten Augen, die unangenehm vertraut wirken. Manchmal erhebt sich der Silberrücken auf seine Beine – eine Dominanzgeste –, und Ihr Ranger hält ruhig seine Position."
+  },
+  {
+    "type": "p",
+    "text": "Die Stunde vergeht sehr schnell. Fotografieren ist ohne Blitz erlaubt. Videoaufnahmen sind erlaubt. Sie werden gebeten, während dieser Zeit nicht zu essen, zu trinken oder zu telefonieren. Wenn die Stunde endet, gehen Sie zurück zum Ausgangspunkt und erhalten ein Zertifikat, das Ihren Gorilla-Trek bestätigt. Die meisten Trekker beschreiben das Erlebnis als eines der bewegendsten ihres Lebens – nicht nur als Tierbeobachtung, sondern als Erinnerung an die dünne Linie zwischen Mensch und Tier."
+  },
+  {
+    "type": "h2",
+    "text": "Fitnessanforderungen für den Trek"
+  },
+  {
+    "type": "p",
+    "text": "Gorilla-Trekking wird als mittelschwer bis anstrengend eingestuft. Die Höhenlage des Volcanoes-Nationalparks reicht von 2.400 bis 4.507 Metern, und die meisten Treks beinhalten ein bis sechs Stunden bergauf durch dichten Wald, je nachdem, wo sich die Familie an diesem Tag befindet. Sie müssen kein Spitzensportler sein, sollten aber in der Lage sein, zwei bis drei Stunden lang in moderatem Tempo bergauf zu gehen, ohne anzuhalten. Das Mindestalter beträgt 15 Jahre. Träger können am Ausgangspunkt angeheuert werden – die Nutzung eines Trägers wird dringend empfohlen und sichert der lokalen Gemeinschaft ein Einkommen."
+  },
+  {
+    "type": "h2",
+    "text": "Was Sie tragen und mitbringen sollten"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Langärmliges Hemd und lange Hose – der Wald hat Brennnesseln und stechende Insekten",
+      "Wasserdichte Wanderstiefel mit Knöchelstütze – unerlässlich für den schlammigen, unebenen Untergrund",
+      "Regenjacke – in den Virunga-Bergen regnet es das ganze Jahr über, besonders nachmittags",
+      "Gartenhandschuhe – nützlich, um sich an Pflanzen festzuhalten bei steilen Abschnitten",
+      "Kamera mit lichtstarkem Objektiv – im Wald ist es dunkel; f/2.8 oder offener ist ideal",
+      "Kleiner Tagesrucksack mit Wasser (mindestens 1,5 Liter), Snacks und Sonnencreme",
+      "Wanderstock – wird am Ausgangspunkt zur Verfügung gestellt und lohnt sich"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Beste Reisezeit für Gorilla-Trekking"
+  },
+  {
+    "type": "p",
+    "text": "Gorilla-Trekking ist das ganze Jahr über möglich, und die Gorillas folgen keinem Migrationsmuster. Die beiden Trockenzeiten – Juni bis September und Dezember bis Februar – bieten die zuverlässigsten Trekkingbedingungen: trockenere Pfade, klarere Himmel und leichteres Wandern. Die Regenzeiten (März bis Mai und Oktober bis November) bringen weniger Touristen, niedrigere Lodgepreise und einen üppig grünen Wald mit sich. Die Gorillas sind weiterhin leicht zu finden – Ranger-Fährtenleser verfolgen sie täglich –, aber die Pfade sind matschiger."
+  },
+  {
+    "type": "h2",
+    "text": "Ruandas Gorillas mit einer Tansania-Safari kombinieren"
+  },
+  {
+    "type": "p",
+    "text": "Ruanda und Tansania sind natürliche Partner in einer Ostafrika-Reiseroute. Kigali ist direkt mit dem Internationalen Flughafen Kilimanjaro (JRO) in der Nähe von Arusha verbunden, und viele Reisende kombinieren zwei bis drei Tage Gorilla-Trekking in Ruanda mit einer fünf- bis achttägigen Tansania-Safari. Der Kontrast ist bemerkenswert – die intime Begegnung mit einer Gorillafamilie im Wald, gefolgt von den weiten offenen Ebenen der Serengeti und dem Spektakel der Großen Migration."
+  },
+  {
+    "type": "callout",
+    "text": "Gorilla-Trekking in Ruanda ist eines der wenigen Wildtiererlebnisse der Welt, bei dem jeder, der es macht – unabhängig von Persönlichkeit, Interessen oder bisheriger Reiseerfahrung – verändert zurückkehrt. Die Genehmigung für 1.500 US-Dollar erscheint teuer, bis man drei Meter von einem Berggorilla entfernt sitzt und erkennt, dass man etwas betrachtet, das es in fünfzig Jahren ohne die soeben geleisteten Einnahmen vielleicht nicht mehr geben wird."
+  }
 ],
 
 'kilimanjaro-climbing-guide': [
-  { type: 'p', text: 'Der Kilimanjaro erhebt sich 5.895 Meter über den Meeresspiegel: der höchste Punkt Afrikas und der höchste freistehende Berg der Welt. Anders als technische Gipfel in den Alpen oder im Himalaya erfordert der Kilimanjaro keine Klettererfahrung, keine Seile und keine spezialisierten Ausrüstungen. Was er erfordert, ist Zeit, Vorbereitung, die richtige Route und ernsthaften Respekt vor der Höhe. Zwischen 35.000 und 50.000 Bergsteiger versuchen jährlich den Gipfel. Die Erfolgsquoten auf beliebten Routen liegen zwischen 45 und 85 %, und der Unterschied ist fast immer Vorbereitung und Routenwahl.' },
-  { type: 'h2', text: 'Vergleich der sieben Routen' },
-  { type: 'table', headers: ['Route', 'Dauer', 'Verkehr', 'Erfolgsquote', 'Landschaft'], rows: [
-    ['Marangu', '5-6 Tage', 'Hoch', '~50%', 'Gut'],
-    ['Machame', '6-7 Tage', 'Hoch', '~85%', 'Hervorragend'],
-    ['Lemosho', '7-9 Tage', 'Mittel', '~90%', 'Ausgezeichnet'],
-    ['Rongai', '6-7 Tage', 'Niedrig', '~80%', 'Gut'],
-    ['Northern Circuit', '9-10 Tage', 'Sehr niedrig', '~90%', 'Ausgezeichnet'],
-    ['Shira', '7-8 Tage', 'Niedrig', '~85%', 'Sehr gut'],
-    ['Umbwe', '5-6 Tage', 'Sehr niedrig', '~60%', 'Sehr gut'],
-  ]},
-  { type: 'p', text: 'Der wichtigste Faktor bei der Routenwahl ist die Anzahl der in die Reiseroute eingebauten Akklimatisierungstage. Routen mit mehr Tagen – Lemosho, Northern Circuit – geben Ihrem Körper mehr Zeit, sich an die dünnere Luft anzupassen, was der Hauptgrund für das Scheitern beim Gipfelsturm ist. Die zusätzlichen Kosten einer längeren Route sind es fast immer wert.' },
-  { type: 'h2', text: 'Die Machame-Route: Aus gutem Grund am beliebtesten' },
-  { type: 'p', text: "Die Machame-Route, manchmal auch Whisky-Route genannt, ist die beliebteste der Berge und eine der besten für die Akklimatisierung. Die siebentägige Version ermöglicht Ihnen, am vierten Tag dem Prinzip 'hoch steigen, tief schlafen' zu folgen, wenn Sie zum Lava Tower auf 4.630 Meter aufsteigen, bevor Sie zum Camp auf 3.950 Meter hinabsteigen. Dieser einzelne Tag tut mehr für Ihre Akklimatisierung als fast alles andere, was Sie tun können. Machame nähert sich von Süden und wechselt vor der Gipfelnacht nach Osten und bietet echte Vielfalt und dramatische Aussichten." },
-  { type: 'h2', text: 'Die Lemosho-Route: Insgesamt am besten' },
-  { type: 'p', text: 'Für Bergsteiger mit Zeit- und Budgetflexibilität ist die Lemosho-Route in einem 8-9-tägigen Programm der Goldstandard. Sie nähert sich von Westen durch das abgelegene Shira-Plateau – eine der spektakulärsten Landschaften des Berges – bevor sie sich über dem Lava Tower der Machame-Route anschließt. Das breite Akklimatisierungsprofil in Kombination mit dem geringen Verkehr auf dem westlichen Annäherungsweg und der außergewöhnlichen Shira-Landschaft macht Lemosho zur Route, die erfahrene Führer ernsthaften Bergsteigern empfehlen.' },
-  { type: 'h2', text: 'Höhenkrankheit: Die eigentliche Herausforderung' },
-  { type: 'p', text: 'Akute Bergkrankheit (AMS) ist der Hauptgrund, warum Bergsteiger den Kilimanjaro-Gipfel nicht erreichen. AMS wird durch zu schnellen Aufstieg verursacht, ohne dem Körper genug Zeit zur Anpassung an den niedrigeren Sauerstoffgehalt zu geben. Symptome umfassen Kopfschmerzen, Übelkeit, Erschöpfung, Schwindel und Appetitlosigkeit. Leichte AMS ist oberhalb von 3.000 Metern extrem häufig und handhabbar. Schwere AMS – die zu Höhenhirnödem (HACE) oder Höhenlungenödem (HAPE) fortschreiten kann – ist selten, aber potenziell lebensbedrohlich und erfordert sofortigen Abstieg.' },
-  { type: 'tip', title: 'Diamox (Acetazolamid)', text: 'Viele Bergsteiger nehmen Diamox (Acetazolamid) zur Unterstützung der Akklimatisierung ein. Die Standarddosis beträgt 125-250 mg zweimal täglich, beginnend 24 Stunden vor dem Aufstieg. Nebenwirkungen umfassen Kribbeln in den Extremitäten und erhöhten Harndrang. Konsultieren Sie vor der Reise Ihren Arzt oder eine Reiseklinik: Es ist in den meisten Ländern rezeptpflichtig.' },
-  { type: 'h2', text: 'Kilimanjaro-Kostenschlüssel' },
-  { type: 'p', text: 'Das Besteigen des Kilimanjaro ist teurer als die meisten Menschen erwarten. Für einen 7-tägigen Aufstieg über Machame oder Lemosho liegt der typische seriöse Betreiberpreis zwischen 2.000 und 3.500 US-Dollar pro Person inklusive aller Parkgebühren und Teamgehälter. Betreiber, die weniger als 1.500 US-Dollar für einen 7-Tage-Aufstieg verlangen, sparen irgendwo an Kosten – das bedeutet fast immer geringere Bezahlung für Führer und Träger.' },
-  { type: 'h2', text: 'Training für den Kilimanjaro' },
-  { type: 'p', text: 'Der Kilimanjaro erfordert keine technische Fitness, belohnt aber kardiovaskuläre Ausdauer und Unterkörperkraft. Die beste Vorbereitung ist Wandern – insbesondere mehrtägige Wanderungen mit Höhengewinn und Tagesgepäck. Versuchen Sie, mindestens sechs bis acht Wochen spezifisches Training vor Ihrem Aufstieg durchzuführen.' },
-  { type: 'h2', text: 'Die Gipfelnacht: Was zu erwarten ist' },
-  { type: 'p', text: 'Die Gipfelnacht beginnt um Mitternacht vom Hohen Camp auf 4.700-4.900 Metern. Das Ziel ist es, den Uhuru Peak vor Sonnenaufgang gegen 6:30 Uhr morgens zu erreichen. Die letzten 1.000 Meter des Aufstiegs erfordern fünf bis sieben Stunden im Dunkeln, auf einem steilen Schotterhang in einer Höhe, in der jeder Schritt bewusste Anstrengung erfordert. Die Temperaturen am Gipfelkrater liegen zwischen -15 und -25 Grad Celsius, starker Wind ist üblich.' },
-  { type: 'callout', text: 'Der Kilimanjaro ist ein ernster Berg, der ernsthafte Vorbereitung verdient. Die Bergsteiger, die den Uhuru Peak erreichen, sind nicht unbedingt die Fitesten: Sie sind diejenigen, die die richtige Route gewählt, ihrem Führer zugehört, ausreichend getrunken und sich nicht beeilt haben. Geben Sie sich die beste Chance, indem Sie eine längere Route und einen Betreiber wählen, dessen Führer zertifiziert und erfahren sind.' },
+  {
+    "type": "p",
+    "text": "Der Kilimandscharo erhebt sich auf 5.895 Meter über dem Meeresspiegel – der höchste Punkt Afrikas und der höchste freistehende Berg der Welt. Anders als die technischen Gipfel der Alpen oder des Himalaya erfordert der Kilimandscharo keine vorherige Klettererfahrung und keine Seile oder Spezialausrüstung. Was er erfordert, sind Zeit, Vorbereitung, die richtige Route und ein ernsthafter Respekt vor der Höhe. Zwischen 35.000 und 50.000 Bergsteiger versuchen jedes Jahr den Gipfel zu erreichen. Die Erfolgsquoten auf den beliebten Routen liegen zwischen 45 % und 85 % – und der Unterschied liegt fast immer in der Vorbereitung und der Routenwahl."
+  },
+  {
+    "type": "h2",
+    "text": "Die sieben Routen im Vergleich"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Route",
+      "Dauer",
+      "Verkehr",
+      "Erfolgsquote",
+      "Landschaft"
+    ],
+    "rows": [
+      [
+        "Marangu",
+        "5-6 Tage",
+        "Hoch",
+        "~50 %",
+        "Gut"
+      ],
+      [
+        "Machame",
+        "6-7 Tage",
+        "Hoch",
+        "~85 %",
+        "Ausgezeichnet"
+      ],
+      [
+        "Lemosho",
+        "7-9 Tage",
+        "Mittel",
+        "~90 %",
+        "Herausragend"
+      ],
+      [
+        "Rongai",
+        "6-7 Tage",
+        "Niedrig",
+        "~80 %",
+        "Gut"
+      ],
+      [
+        "Northern Circuit",
+        "9-10 Tage",
+        "Sehr niedrig",
+        "~90 %",
+        "Herausragend"
+      ],
+      [
+        "Shira",
+        "7-8 Tage",
+        "Niedrig",
+        "~85 %",
+        "Sehr gut"
+      ],
+      [
+        "Umbwe",
+        "5-6 Tage",
+        "Sehr niedrig",
+        "~60 %",
+        "Sehr gut"
+      ]
+    ]
+  },
+  {
+    "type": "p",
+    "text": "Der wichtigste Faktor bei der Routenwahl ist die Anzahl der in die Reiseroute eingebauten Akklimatisierungstage. Routen mit mehr Tagen – Lemosho, Northern Circuit – geben Ihrem Körper mehr Zeit, sich an die dünner werdende Luft zu gewöhnen, was der Hauptgrund für ein Scheitern am Gipfel ist. Die höheren Kosten einer längeren Route sind fast immer die Investition wert."
+  },
+  {
+    "type": "h2",
+    "text": "Die Machame-Route — aus gutem Grund am beliebtesten"
+  },
+  {
+    "type": "p",
+    "text": "Die Machame-Route – manchmal auch Whiskey-Route genannt – ist die beliebteste am Berg und eine der besten für die Akklimatisierung. Die siebentägige Version erlaubt es Ihnen, am vierten Tag dem Prinzip 'hoch klettern, tief schlafen' zu folgen: Sie steigen zum Lava Tower auf 4.630 Meter auf, bevor Sie zum Camp auf 3.950 Metern absteigen, um dort zu übernachten. Dieser eine Tag tut mehr für Ihre Akklimatisierung als fast alles andere, was Sie tun können. Die Machame-Route nähert sich von Süden und quert vor der Gipfelnacht nach Osten – sie bietet damit eine wirklich abwechslungsreiche und dramatische Landschaft."
+  },
+  {
+    "type": "h2",
+    "text": "Die Lemosho-Route — die insgesamt beste"
+  },
+  {
+    "type": "p",
+    "text": "Für Bergsteiger mit Flexibilität bei Zeit und Budget ist die Lemosho-Route in der acht- oder neuntägigen Variante der Goldstandard. Sie nähert sich von Westen über das abgelegene Shira-Plateau – eine der spektakulärsten Landschaften am Berg –, bevor sie sich oberhalb des Lava Tower mit der Machame-Route vereint. Das erweiterte Akklimatisierungsprofil, kombiniert mit dem geringen Verkehr auf der westlichen Route und der außergewöhnlichen Shira-Landschaft, macht Lemosho zu der Route, die erfahrene Guides ernsthaften Bergsteigern am häufigsten empfehlen."
+  },
+  {
+    "type": "p",
+    "text": "Die siebentägige Lemosho-Variante ist ein Kompromiss – sie ist ausgezeichnet, erfasst aber nicht den vollen Nutzen des erweiterten acht- oder neuntägigen Profils. Wenn Sie sich schon zum Kilimandscharo-Aufstieg entschließen, ist der Unterschied in Zeit und Kosten zwischen sieben und neun Tagen gering im Vergleich zur Verbesserung der Gipfelerfolgswahrscheinlichkeit und der Qualität des Erlebnisses."
+  },
+  {
+    "type": "h2",
+    "text": "Höhenkrankheit: die eigentliche Herausforderung"
+  },
+  {
+    "type": "p",
+    "text": "Akute Höhenkrankheit (AMS) ist der Hauptgrund, warum Bergsteiger den Gipfel des Kilimandscharo nicht erreichen. AMS entsteht durch zu schnellen Aufstieg, ohne dem Körper genug Zeit zu geben, sich an den niedrigeren Sauerstoffgehalt zu gewöhnen. Zu den Symptomen zählen Kopfschmerzen, Übelkeit, Erschöpfung, Schwindel und Appetitlosigkeit. Leichte AMS ist oberhalb von 3.000 Metern äußerst häufig und gut zu bewältigen. Schwere AMS – die sich zu einem Höhenhirnödem (HACE) oder einem Höhenlungenödem (HAPE) weiterentwickeln kann – ist selten, aber lebensbedrohlich und erfordert einen sofortigen Abstieg."
+  },
+  {
+    "type": "p",
+    "text": "Die goldene Regel lautet: Niemals weiter aufsteigen, wenn sich die Symptome verschlimmern. Ein guter Guide führt regelmäßige Gesundheitschecks durch, einschließlich Messungen der Sauerstoffsättigung. Fällt Ihr SpO2-Wert unter 80 % und verbessert sich auch durch Ruhe nicht, ist der Abstieg die einzige Behandlung. Die meisten Bergsteiger, die am Gipfel scheitern, tun dies, weil sie eine zu schnelle Route gewählt haben – nicht, weil sie nicht fit genug waren. Fitness hilft, aber Akklimatisierungszeit ist es, was Sie auf den Gipfel bringt."
+  },
+  {
+    "type": "tip",
+    "title": "Diamox (Acetazolamid)",
+    "text": "Viele Bergsteiger nehmen Diamox (Acetazolamid) ein, um die Akklimatisierung zu unterstützen. Die Standarddosis beträgt 125-250 mg zweimal täglich, beginnend 24 Stunden vor dem Aufstieg. Nebenwirkungen umfassen Kribbeln in den Extremitäten und vermehrten Harndrang. Sprechen Sie vor der Reise mit Ihrem Hausarzt oder einer Reiseklinik – in den meisten Ländern ist ein Rezept erforderlich."
+  },
+  {
+    "type": "h2",
+    "text": "Aufschlüsselung der Kilimandscharo-Kosten"
+  },
+  {
+    "type": "p",
+    "text": "Der Kilimandscharo-Aufstieg ist teurer, als die meisten Menschen erwarten. Die Kosten setzen sich zusammen aus staatlichen Parkgebühren, Löhnen für Guides und Träger sowie Veranstaltergebühren. Die Parkgebühren für einen siebentägigen Aufstieg betragen etwa 900 US-Dollar pro Person (Eintritt, Camping, Rettungsgebühren). Die Löhne für Guide und Team variieren je nach Veranstalter, aber ein seriöser Veranstalter, der angemessene Löhne für ein Team aus Guide, Hilfsguide, Koch und drei bis vier Trägern zahlt, kostet für einen siebentägigen Aufstieg weitere 600-900 US-Dollar pro Person. Die Gesamtpreise seriöser Veranstalter für einen siebentägigen Machame- oder Lemosho-Aufstieg liegen typischerweise zwischen 2.000 und 3.500 US-Dollar pro Person."
+  },
+  {
+    "type": "p",
+    "text": "Veranstalter, die unter 1.500 US-Dollar für einen siebentägigen Aufstieg verlangen, sparen irgendwo Kosten ein – und das bedeutet fast immer, dass Guides und Träger unterbezahlt werden oder das Team verkleinert wird. Kilimandscharo-Träger gehören am unteren Ende zu den am schlechtesten behandelten Arbeitskräften in der Tourismusbranche und tragen Lasten von über 20 kg für minimale Löhne. Bei einem Veranstalter zu buchen, der Mitglied des Kilimanjaro Porters Assistance Project (KPAP) ist und faire Lohnsätze zahlt, ist sowohl eine ethische Verpflichtung als auch ein Qualitätsmerkmal."
+  },
+  {
+    "type": "h2",
+    "text": "Training für den Kilimandscharo"
+  },
+  {
+    "type": "p",
+    "text": "Der Kilimandscharo erfordert keine technische Fitness, belohnt aber kardiovaskuläre Ausdauer und Kraft in den Beinen. Die beste Vorbereitung ist Wandern – insbesondere mehrtägiges Wandern mit Höhenmetern und einem Tagesrucksack. Streben Sie mindestens sechs bis acht Wochen gezieltes Training vor Ihrem Aufstieg an. Wenn Sie in niedriger Höhenlage leben, bedeutet das, die kardiovaskuläre Fitness durch Laufen, Radfahren oder Treppensteigen aufzubauen und idealerweise ein bis zwei mehrtägige Wandertouren in den Bergen zu unternehmen, falls Sie Zugang dazu haben."
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Vier bis sechs Monate vorher: eine Basis von 3-4 Cardio-Einheiten pro Woche aufbauen (Laufen, Radfahren, Schwimmen)",
+      "Zwei bis drei Monate vorher: Wandern mit einem beschwerten Tagesrucksack (8-12 kg) in hügeligem Gelände hinzufügen",
+      "Einen Monat vorher: wenn möglich mindestens eine mehrtägige Wanderung mit Übernachtung unternehmen; die Intensität in der Woche vor der Reise reduzieren",
+      "Höhentraining ist nicht erforderlich, und Höhentrainingsstudios sind nicht notwendig – entscheidend ist eine konstante aerobe Fitness"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Die Gipfelnacht: was Sie erwartet"
+  },
+  {
+    "type": "p",
+    "text": "Die Gipfelnacht beginnt um Mitternacht im Hochlager auf 4.700-4.900 Metern. Ziel ist es, den Uhuru Peak bei Sonnenaufgang zu erreichen – gegen 6:30 Uhr. Die letzten 1.000 Höhenmeter des Aufstiegs dauern fünf bis sieben Stunden im Dunkeln, über einen steilen Geröllhang in großer Höhe, wo jeder Schritt bewusste Anstrengung erfordert. Die Temperaturen am Gipfelkrater liegen zwischen -15 °C und -25 °C, und heftiger Wind ist keine Seltenheit. Ihr Guide führt heiße Getränke und Snacks mit sich."
+  },
+  {
+    "type": "p",
+    "text": "Das Erlebnis am Gipfel ist für jemanden, der nicht dort war, kaum zu beschreiben. Das Gletscherfeld des südlichen Eisfeldes leuchtet im ersten Licht des Tages. Afrika breitet sich 5.000 Meter unter Ihnen in alle Richtungen aus. Die Luft am Uhuru Peak enthält etwa die Hälfte des Sauerstoffs auf Meereshöhe. Viele Bergsteiger sind zutiefst bewegt – manche zu Tränen – von der Kombination aus körperlicher Leistung, surrealer Landschaft und der reinen Erhabenheit, auf dem Dach Afrikas zu stehen."
+  },
+  {
+    "type": "callout",
+    "text": "Der Kilimandscharo ist ein ernstzunehmender Berg, der eine ernsthafte Vorbereitung verdient. Die Bergsteiger, die den Uhuru Peak erreichen, sind nicht unbedingt die fittesten – sie sind diejenigen, die die richtige Route gewählt, auf ihren Guide gehört, ausreichend getrunken und sich nicht gehetzt haben. Geben Sie sich die bestmögliche Chance, indem Sie eine längere Route und einen Veranstalter mit zertifizierten und erfahrenen Guides wählen."
+  },
+  {
+    "type": "h2",
+    "text": "Kilimandscharo mit einer Safari kombinieren"
+  },
+  {
+    "type": "p",
+    "text": "Ein Kilimandscharo-Aufstieg in Kombination mit einer Tansania-Safari ist eine der überzeugendsten Reiserouten-Kombinationen Ostafrikas. Die meisten Bergsteiger fügen drei bis fünf Nächte Safari nach dem Aufstieg hinzu – vom Berg direkt weiter nach Tarangire, in die Serengeti oder nach Ngorongoro. Der körperliche Kontrast ist außergewöhnlich: die schneebedeckte Stille des Gipfels, gefolgt von der warmen, pulsierenden Savanne. Planen Sie mindestens einen Ruhetag zwischen dem Abstieg und Ihrer ersten Pirschfahrt ein, um sich vor dem nächsten Abenteuer richtig zu erholen."
+  }
 ],
 
 'tanzania-vs-kenya-safari': [
-  { type: 'p', text: 'Tansania und Kenia teilen dasselbe außergewöhnliche Savannen-Ökosystem, dieselbe Große Migration und viele derselben Tierarten. Sie bieten jedoch grundlegend unterschiedliche Safarierlebnisse – unterschiedlich genug, dass Ihre Wahl zwischen ihnen wichtig ist. Die richtige Antwort hängt von Ihren Prioritäten ab: Menschenmassen, Kosten, Parkqualität, Begleitaktivitäten und die Art von Safariatmosphäre, die Sie wünschen.' },
-  { type: 'h2', text: 'Der Fall für Tansania' },
-  { type: 'p', text: 'Tansanias Argument für Wildtiere ruht auf drei Dingen: der Großen Migration, dem Maßstab und der Ökosystemintegrität. Das Serengeti-Mara-Ökosystem ist das größte verbleibende intakte Wildtierwanderungssystem der Erde, und kein anderes afrikanisches Land hat etwas Vergleichbares. Die anderen Parks Tansanias – Ruaha, Selous/Nyerere, Tarangire, Ngorongoro, Mahale, Gombe – bieten eine außergewöhnliche Vielfalt, die Kenia an schierem Maßstab und Diversität nicht ebenbürtig ist.' },
-  { type: 'h2', text: 'Der Fall für Kenia' },
-  { type: 'p', text: "Kenias Masai Mara Reserve ist eines der besten Wildreservate Afrikas. Kenia bietet auch eine starke Kultur der privaten Naturschutzgebiete: Die Laikipia-Hochebene, Samburu, Amboseli und die Mara-Conservancies bieten exklusive Offroad-Safarisausflüge in Gebieten, wo die Nationalparks Tansanias Fahrzeuge auf ausgewiesene Tracks beschränken. Die Mara-Conservancies – Naboisho, Olare Motorogi, Mara North – sind wohl das beste private Ausflugserlebnis in Ostafrika." },
-  { type: 'h2', text: 'Wichtige Unterschiede auf einen Blick' },
-  { type: 'table', headers: ['Faktor', 'Tansania', 'Kenia'], rows: [
-    ['Parkgröße', 'Viel größer (Serengeti 14.763 km²)', 'Kleiner (Masai Mara 1.510 km²)'],
-    ['Geländefahrten', 'In Nationalparks nicht erlaubt', 'In privaten Conservancies erlaubt'],
-    ['Überfüllung', 'Geringer (besonders außerhalb der Spitzenzeit)', 'Höher rund um die Mara'],
-    ['Parkvielfalt', 'Vielfältiger (6+ Hauptparks)', 'Weniger Optionen auf gleichem Niveau'],
-    ['Nachtausflüge', 'Nur in privaten Gebieten', 'In Mara-Conservancies erlaubt'],
-    ['Safaris zu Fuß', 'In ausgewählten Gebieten verfügbar', 'In Conservancies verfügbar'],
-    ['Stranderweiterung', 'Sansibar (ausgezeichnet)', 'Lamu, Diani (gut)'],
-    ['Große Migration', 'Beide Länder; mehr Zeit in Tansania', 'Spitzenüberquerungen Juli-Sept. in der Mara'],
-    ['Spitzhornnashorn', 'Ngorongoro-Krater', 'Ol Pejeta Conservancy, Lewa'],
-    ['Durchschnittskosten', 'Etwas höher (staatliche Parkgebühren)', 'Etwas niedriger in der Mittelklasse'],
-  ]},
-  { type: 'tip', title: 'Die beste Antwort: Beide', text: 'Viele erfahrene Safarireisende kombinieren Tansania und Kenia auf einer einzigen Reise und fliegen zwischen Kilimanjaro und Nairobi oder nehmen eine geplante Buschflugverbindung. Eine 10-14-tägige Reiseroute kann vier bis fünf Nächte in der Serengeti, eine Nacht im Ngorongoro und vier Nächte in einem Mara-Conservancy beinhalten. Diese Kombination ist unübertroffen.' },
-  { type: 'callout', text: 'Sowohl Tansania als auch Kenia sind außergewöhnlich. Die Frage ist nicht, welches besser ist, sondern welches für Sie, in dieser Phase Ihres Safarilebens, besser ist. Wenn Sie nur einmal gehen und das ikonischste, vollständigste und beeindruckendste ostafrikanische Safari-Erlebnis wünschen: Gehen Sie nach Tansania. Wenn Sie zurückkehren und Offroad-Exklusivität, Nachtausflüge und eine andere Perspektive auf dasselbe Ökosystem wünschen: Fügen Sie Kenia hinzu.' },
+  {
+    "type": "p",
+    "text": "Tansania und Kenia teilen sich dasselbe außergewöhnliche Savannen-Ökosystem, dieselbe Große Migration und viele derselben Tierarten. Dennoch bieten sie tatsächlich unterschiedliche Safarierlebnisse – unterschiedlich genug, dass Ihre Wahl zwischen ihnen von Bedeutung ist. Die richtige Antwort hängt von Ihren Prioritäten ab: Menschenmassen, Kosten, Parkqualität, ergänzende Aktivitäten und die Art von Safari-Atmosphäre, die Sie sich wünschen."
+  },
+  {
+    "type": "h2",
+    "text": "Die Argumente für Tansania"
+  },
+  {
+    "type": "p",
+    "text": "Tansania ist das größte und artenreichste Safariland Ostafrikas. Es beherbergt etwa 30 % der verbliebenen Tierwelt Afrikas und einige der bedeutendsten Schutzgebiete des Kontinents. Die Serengeti allein erstreckt sich über 14.763 Quadratkilometer – fast dreimal so groß wie die Masai Mara. Tansanias andere Parks – Ruaha, Selous/Nyerere, Tarangire, Ngorongoro, Mahale, Gombe – bieten eine außergewöhnliche Vielfalt, die Kenia in Umfang und Diversität nicht erreicht."
+  },
+  {
+    "type": "p",
+    "text": "Das Safarierlebnis in Tansania fühlt sich in der Regel abgelegener und weniger überlaufen an als in Kenia, besonders außerhalb der Hauptsaison der Mara-Fluss-Überquerungen im Juli und August. In den Parks des südlichen Circuits – Ruaha, Nyerere – können Sie ganze Tage verbringen, ohne ein anderes Fahrzeug zu sehen. Selbst in der Serengeti beseitigt die Wahl des richtigen Camps und der richtigen Zone einen Großteil des Fahrzeugstaus, der Besucher an belebten Orten frustriert."
+  },
+  {
+    "type": "h2",
+    "text": "Die Argumente für Kenia"
+  },
+  {
+    "type": "p",
+    "text": "Kenias Masai Mara ist eines der besten Wildreservate Afrikas – kleiner als die Serengeti, aber mit außergewöhnlicher Tierdichte und einem hervorragenden Netzwerk an Camps. Kenia bietet auch eine starke Kultur privater Conservancies: das Laikipia-Plateau, Samburu, Amboseli und die Mara-Conservancies bieten exklusives Offroad-Fahren in Gebieten, in denen die Regeln der tansanischen Nationalparks Fahrzeuge auf ausgewiesene Pisten beschränken. Die an das Reservat angrenzenden Mara-Conservancies – Naboisho, Olare Motorogi, Mara North – bieten wohl das beste private Pirschfahrt-Erlebnis Ostafrikas."
+  },
+  {
+    "type": "p",
+    "text": "Kenia verfügt allgemein über eine etabliertere Tourismusinfrastruktur – besonders bei internationalen Verbindungen – und kann in der Mittelklasse etwas günstiger sein. Nairobi ist mit einem breiteren Spektrum internationaler Verbindungen verbunden als Kilimandscharo oder Daressalam, was Kenia von manchen Abflugorten aus leichter erreichbar macht. Kenia profitiert zudem von der Suaheli-Küste – Lamu und der Diani Beach sind hervorragende Strandziele für eine Verlängerung nach der Safari."
+  },
+  {
+    "type": "h2",
+    "text": "Wichtige Unterschiede im direkten Vergleich"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Faktor",
+      "Tansania",
+      "Kenia"
+    ],
+    "rows": [
+      [
+        "Parkgröße",
+        "Deutlich größer (Serengeti 14.763 km²)",
+        "Kleiner (Masai Mara 1.510 km²)"
+      ],
+      [
+        "Offroad-Fahren",
+        "In Nationalparks nicht erlaubt",
+        "In privaten Conservancies erlaubt"
+      ],
+      [
+        "Besucheraufkommen",
+        "Niedriger (besonders außerhalb der Hauptsaison)",
+        "Höher rund um die Mara"
+      ],
+      [
+        "Parkvielfalt",
+        "Vielfältiger (6+ bedeutende Parks)",
+        "Weniger Optionen auf gleichem Qualitätsniveau"
+      ],
+      [
+        "Nachtfahrten",
+        "Nur in privaten Gebieten erlaubt",
+        "In Mara-Conservancies erlaubt"
+      ],
+      [
+        "Wandersafaris",
+        "In ausgewählten Gebieten verfügbar",
+        "In Conservancies verfügbar"
+      ],
+      [
+        "Strandverlängerung",
+        "Sansibar (herausragend)",
+        "Lamu, Diani (gut)"
+      ],
+      [
+        "Große Migration",
+        "Beide Länder; mehr Zeit in Tansania",
+        "Höhepunkt der Überquerungen Juli-Sept in der Mara"
+      ],
+      [
+        "Spitzmaulnashorn",
+        "Ngorongoro-Krater",
+        "Ol Pejeta Conservancy, Lewa"
+      ],
+      [
+        "Durchschnittskosten",
+        "Etwas höher (staatliche Parkgebühren)",
+        "Etwas niedriger in der Mittelklasse"
+      ]
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Die Migration: Welches Land gewinnt?"
+  },
+  {
+    "type": "p",
+    "text": "Die Große Migration verbringt etwa neun bis zehn Monate des Jahres in Tansania und zwei bis drei Monate in Kenia. Wenn das Miterleben der Mara-Fluss-Überquerungen Ihre Priorität ist und Sie im Juli, August oder September reisen, ist Kenia eine legitime Option – die Überquerungen finden auf beiden Seiten der Grenze statt, und Kenias nördliche Mara ist in diesen Monaten ebenso dramatisch wie Tansanias nördliche Serengeti."
+  },
+  {
+    "type": "p",
+    "text": "Für jede andere Phase der Migration – Kalbsaison (Januar-Februar), die Grumeti-Überquerungen (Juni), die südlichen Serengeti-Herden (Dezember) – ist Tansania die einzige Option. Und für den gesamten Migrationszyklus über das ganze Jahr hinweg bietet Ihnen der schiere Umfang und die Vielfalt der tansanischen Serengeti mehr Optionen, mehr Raum und mehr Flexibilität in Ihrer Reiseroute."
+  },
+  {
+    "type": "h2",
+    "text": "Erste Safari: Welches Land wählen?"
+  },
+  {
+    "type": "p",
+    "text": "Für einen Erstbesucher, der zwischen den beiden Ländern wählt, ist Tansania insgesamt die stärkere Wahl. Die Kombination aus Serengeti und Ngorongoro ist der maßgebliche Ostafrika-Safari-Circuit: weite offene Ebenen, die Große Migration, die Big Five, vulkanische Landschaften und der weltberühmte Krater. Mit der Ergänzung Sansibars erhalten Sie eine Strandverlängerung, die es tatsächlich mit den besten der Welt aufnehmen kann. Tansania ist in jeder Hinsicht das vollständigere Ziel für die erste Safari."
+  },
+  {
+    "type": "p",
+    "text": "Kenia glänzt, wenn Sie für eine zweite oder dritte Afrikareise zurückkehren und das exklusive Conservancy-Erlebnis, das Laikipia-Plateau oder den Zugang zu den abgelegenen Parks Nordkenias wie Samburu und Marsabit suchen. Die Mara-Conservancies – besonders für Nachtfahrten und Offroad-Tierbeobachtung – sind ebenfalls ein Argument für Kenia, wenn diese spezifischen Erlebnisse hohe Priorität haben."
+  },
+  {
+    "type": "tip",
+    "title": "Die beste Antwort: beides",
+    "text": "Viele erfahrene Safarireisende kombinieren Tansania und Kenia in einer einzigen Reise – sie fliegen zwischen Kilimandscharo und Nairobi über Mombasa oder nehmen eine geplante Kleinflugzeugverbindung. Eine 10- bis 14-tägige Reiseroute kann vier bis fünf Nächte in der Serengeti, eine Nacht in Ngorongoro und vier Nächte in einer Mara-Conservancy umfassen. Diese Kombination ist unschlagbar."
+  },
+  {
+    "type": "h2",
+    "text": "Kostenvergleich"
+  },
+  {
+    "type": "p",
+    "text": "Tansania ist in der Budget- und Mittelklasse etwas teurer als Kenia, hauptsächlich weil die staatlichen Parkgebühren höher sind. Die Parkgebühr für die Serengeti beträgt 82 US-Dollar pro Erwachsenem und Tag; die Gebühren der Masai-Mara-Conservancies liegen bei 80-150 US-Dollar pro Person und Nacht, beinhalten aber bei manchen Camps Gutschriften für die Unterkunft. Im Luxussegment sind beide Länder ähnlich bepreist – Spitzencamps in den Mara-Conservancies und der nördlichen Serengeti verlangen vergleichbare Preise."
+  },
+  {
+    "type": "callout",
+    "text": "Sowohl Tansania als auch Kenia sind außergewöhnlich. Die Frage ist nicht, welches Land besser ist – sondern welches für Sie, in diesem Abschnitt Ihres Safari-Lebens, besser passt. Wenn Sie nur einmal reisen und das ikonischste, vollständigste und atemberaubendste Ostafrika-Erlebnis wollen: Reisen Sie nach Tansania. Wenn Sie zurückkehren und Offroad-Exklusivität, Nachtfahrten und eine andere Perspektive auf dasselbe Ökosystem wollen: Ergänzen Sie Kenia."
+  }
 ],
 
 'safari-packing-list': [
-  { type: 'p', text: 'Was Sie auf eine Safari mitnehmen, ist wichtiger als die meisten Menschen denken. Zu viel Gepäck und Sie passen nicht komfortabel in ein kleines Flugzeug zu Ihrem Camp. Falsche Kleidung und Sie frieren bei Ausflügen vor dem Morgengrauen oder schwitzen in Baumwollhemden in der Hitze. Ohne Sonnencreme verbrennen Sie in fünfzehn Minuten durch die offene Dachluke. Unsere Führer haben alle Fehler bei Gepäck gesehen: Hier ist die ultimative Liste, was man mitnehmen und was man zuhause lassen sollte.' },
-  { type: 'h2', text: 'Gepäckregeln: Der kritische Ausgangspunkt' },
-  { type: 'p', text: 'Buschflug-Transfers zwischen Landebahnen in Tansania und Kenia haben ein strenges Gepäcklimit von 15 kg insgesamt, einschließlich Handgepäck, und die Tasche muss ein weiches Duffle-Bag sein (keine Hartschalenkoffer). Das ist keine Empfehlung; es ist eine strenge Regel. Wenn Sie eine Kombination aus Camps, die durch Buschflüge verbunden sind, machen werden, bringen Sie einen weichen Duffle-Bag mit.' },
-  { type: 'h2', text: 'Kleidung: Was zu packen ist' },
-  { type: 'ul', items: [
-    'Drei bis vier langärmlige Hemden in neutralen Farben (Khaki, Olivgrün, Braun, Beige, Hellgrau)',
-    'Zwei bis drei lange Hosen oder Safarihosen mit abnehmbaren Beinen',
-    'Ein Paar Shorts für das Camp und den Freizeitgebrauch',
-    'Ein leichtes Fleece oder eine Daunenjacke: frühe Morgenausflüge unter 2.000 m können kalt sein',
-    'Ein dickeres Fleece oder eine leichte Daunenjacke für Hochland-Ziele (Ngorongoro, Kilimanjaro-Basis)',
-    'Wasserdichter Regenponcho: auch in der Trockenzeit für nachmittägliche Regenfälle und Wind in der Höhe unerlässlich',
-    'Vier bis fünf Paar atmungsaktive Unterwäsche: Merinowolle oder synthetisch',
-    'Zwei bis drei Paar leichte Merinowolle-Socken für Ausflüge; ein separates Paar zum Wandern',
-    'Bequeme Wanderschuhe oder Trail-Sneaker für das Camp und kurze Spaziergänge',
-    'Knöchelhohe, wasserdichte Wanderstiefel für Gorilla-Trekking oder Buschspaziergänge',
-    'Sandalen oder Flip-Flops für das Camp und die Unterkunftsnutzung',
-    'Breiter Krempen-Hut für Ausflüge: Die senkrechte Sonne ist durch die offene Dachluke intensiv',
-    'Wollmütze für kalte frühe Morgenausflüge: nützlicher als die meisten erwarten',
-    'Buff oder leichter Schal: nützlich für Staub und Kälte bei offenen Fahrzeugausflügen',
-  ]},
-  { type: 'tip', title: 'Vermeiden Sie Weiß und helle Farben', text: 'Weiße Kleidung zieht Insekten an (besonders Tsetsefliegen in einigen Gebieten), fleckt sofort durch Staub und stört Wildtiere, die sonst ruhig in der Nähe Ihres Fahrzeugs bleiben würden. Halten Sie sich strikt an Erdtöne. Lassen Sie trendige Safari-Kleidung zuhause: Sie ist nicht notwendig.' },
-  { type: 'h2', text: 'Medizinische und Gesundheitsversorgung' },
-  { type: 'ul', items: [
-    'Malariaprophylaxe (Doxycyclin, Malarone oder Mefloquin): Konsultieren Sie Ihren Arzt; beginnen Sie vor der Reise',
-    'Insektenschutzmittel mit DEET (30-50 % DEET): Bei Morgendämmerung und Abenddämmerung unerlässlich',
-    'Sonnenschutz LSF 50+: Die äquatoriale Sonne durch eine offene Dachluke ist stark; alle zwei Stunden auftragen',
-    'Sonnenbrille mit UV-Schutz: Polarisierte Gläser reduzieren Blendung erheblich',
-    'Antihistaminika-Creme für Insektenstiche',
-    'Imodium und orale Rehydrationssalze für Reisedurchfall',
-    'Einfaches Erste-Hilfe-Set: Pflaster, antiseptische Tücher, Blasenpflaster, Ibuprofen, Paracetamol',
-    'Persönliche Medikamente mit ausreichend Vorrat plus Reserve für Verzögerungen',
-  ]},
-  { type: 'h2', text: 'Safari-Essentials' },
-  { type: 'ul', items: [
-    'Fernglas (8×42 ist die ideale Spezifikation für Safari): Wesentlich zum Beobachten entfernter Tiere',
-    'Stirnlampe: Nützlich für die nächtliche Navigation im Camp; es kann Wildtiere in der Nähe nach Einbruch der Dunkelheit geben',
-    'Powerbank: Lädt Geräte zwischen Ausflügen auf, wenn Ihr Zimmer nicht 24 Stunden Strom hat',
-    'Universeller Reiseadapter: Tansania verwendet Typ-G-Steckdosen (UK); Kenia ebenfalls Typ G',
-    'Wasserdichte Tasche oder Zip-Lock-Beutel für Elektronik bei Staub oder Regen',
-  ]},
-  { type: 'callout', text: 'Die am besten gepackte Safaributtertasche ist die, die Sie mit einer Hand heben können. Jedes zusätzliche Kilo ist eines, das Sie durch Flughäfen, in Gepäckfächern kleiner Flugzeuge und zu Camps tragen, wo Träger nicht immer verfügbar sind. Packen Sie die obige Liste ein, widerstehen Sie dem Hinzufügen von Extras, und verbringen Sie Ihre Reise damit, sich auf Wildtiere zu konzentrieren, nicht auf das Verwalten Ihres Gepäcks.' },
+  {
+    "type": "p",
+    "text": "Was Sie für eine Safari einpacken, ist wichtiger, als die meisten Menschen denken. Zu viel Gepäck, und Sie passen nicht bequem in das kleine Flugzeug zu Ihrem Camp. Falsche Kleidung, und Sie frieren bei Ausflügen vor Sonnenaufgang oder schwitzen in Baumwollhemden in der Hitze. Keine Sonnencreme, und Sie verbrennen sich innerhalb von fünfzehn Minuten durch das offene Dachluk. Unsere Guides haben jeden erdenklichen Packfehler gesehen – hier ist die endgültige Liste dessen, was Sie mitbringen und was Sie zu Hause lassen sollten."
+  },
+  {
+    "type": "h2",
+    "text": "Gepäckregeln: der entscheidende Ausgangspunkt"
+  },
+  {
+    "type": "p",
+    "text": "Kleinflugzeugtransfers zwischen Landebahnen in Tansania und Kenia unterliegen einer strikten Gepäckgrenze von insgesamt 15 kg – einschließlich Handgepäck –, und die Tasche muss weich sein (keine Hartschalenkoffer). Das ist keine Empfehlung, sondern eine feste Regel, die beim Check-in und im Flugzeug durchgesetzt wird. Wenn Sie eine Kombination von Camps machen, die per Buschflug verbunden sind, bringen Sie eine weiche Reisetasche mit, die diese Grenzen einhält."
+  },
+  {
+    "type": "p",
+    "text": "Wenn Sie ausschließlich eine Straßensafari machen – zwischen allen Camps mit dem Auto –, haben Sie mehr Flexibilität bei der Taschengröße, aber eine weiche Tasche ist immer noch vorzuziehen, um in die Dachablage des Fahrzeugs zu passen. Hartschalenkoffer sind auf Safari unpraktisch und lästig im Umgang. Packen Sie leicht, packen Sie in neutralen Farben, und lassen Sie den Rollkoffer zu Hause oder in Ihrem Hotel in Arusha zurück."
+  },
+  {
+    "type": "h2",
+    "text": "Kleidung: was Sie einpacken sollten"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Drei bis vier langärmlige Hemden in neutralen Farben (Khaki, Olivgrün, Sandbraun, Beige, Hellgrau)",
+      "Zwei bis drei lange Hosen oder Safarihosen mit abzippbaren Hosenbeinen",
+      "Eine Shorts für das Camp und die lässige Freizeit",
+      "Eine leichte Fleece- oder Daunenjacke – morgendliche Pirschfahrten unterhalb von 2.000 m können kalt sein",
+      "Eine dickere Fleece- oder leichte Daunenjacke für Ziele in großer Höhe (Ngorongoro, Kilimandscharo-Basis)",
+      "Wasserdichte Hardshell-Jacke – selbst in der Trockenzeit unerlässlich für Nachmittagsregen und Wind in der Höhe",
+      "Vier bis fünf feuchtigkeitsableitende Unterwäsche – Merinowolle oder Synthetik",
+      "Zwei bis drei Paar leichte Merinowollsocken für Pirschfahrten; ein separates Paar zum Wandern",
+      "Bequeme Wanderschuhe oder Trailrunner für das Camp und kurze Spaziergänge",
+      "Wasserdichte, knöchelhohe Wanderstiefel bei Gorilla-Trekking oder Buschwanderungen",
+      "Sandalen oder Flip-Flops für Camp und Lodge",
+      "Breitkrempiger Sonnenhut für Pirschfahrten – die Sonne von oben ist durch das offene Dach intensiv",
+      "Warme Mütze für kalte Morgenfahrten – nützlicher, als die meisten Menschen erwarten",
+      "Buff oder leichter Schal – nützlich gegen Staub und Kälte bei Fahrten im offenen Fahrzeug"
+    ]
+  },
+  {
+    "type": "tip",
+    "title": "Weiß und leuchtende Farben vermeiden",
+    "text": "Weiße Kleidung zieht Insekten an (besonders Tsetsefliegen in manchen Gebieten), zeigt Staub sofort und stört Wildtiere, die sich sonst in der Nähe Ihres Fahrzeugs ruhig verhalten würden. Bleiben Sie strikt bei Erdtönen. Lassen Sie safari-gebrandete Kleidung zu Hause – sie ist nicht nötig und sieht oft genau danach aus, was sie ist: Touristenausrüstung."
+  },
+  {
+    "type": "h2",
+    "text": "Kameraausrüstung"
+  },
+  {
+    "type": "p",
+    "text": "Fotografie ist einer der Hauptgründe, warum Menschen auf Safari gehen. Ihre Kameraausrüstung bestimmt, wie viel vom Erlebnis Sie festhalten, statt es nur zu beobachten. Für die meisten Menschen ist eine spiegellose Kamera mit einem 100-400mm-Telezoom das ideale Allround-System. Die Canon RF 100-500mm, die Nikon Z 100-400mm oder die Sony 100-400mm GM sind ausgezeichnete Optionen. Für budgetbewusste Fotografen liefert eine Superzoom-Bridgekamera im Bereich 400-600mm solide Ergebnisse ohne die Kosten eines eigenen Teleobjektivs."
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Kameragehäuse: spiegellos oder DSLR bevorzugt; moderne Smartphone-Kameras sind als Backup überraschend leistungsfähig",
+      "Objektiv: mindestens 300 mm; 400-500 mm ideal; 600 mm nützlich für sehr scheue oder weit entfernte Tiere",
+      "Zusatzakkus: jede Nacht aufladen; kalte Morgen entladen Akkus schneller",
+      "Speicherkarten: mindestens 128 GB insgesamt mitbringen; SD-Karten können ausfallen",
+      "Bohnensack: liegt auf dem Fensterrahmen des Fahrzeugs auf und bietet eine stabile Ablage – besser als jedes Einbeinstativ in einem fahrenden Fahrzeug",
+      "Objektivtuch: Staub ist allgegenwärtig; reinigen Sie das Frontelement täglich",
+      "Trockensack oder Kamera-Regenschutz: für unerwartete Regenschauer in offenen Fahrzeugen"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Gesundheit und medizinische Ausstattung"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Malariaprophylaxe (Doxycyclin, Malarone oder Mefloquin) – sprechen Sie mit Ihrem Hausarzt oder einer Reiseklinik; vor der Reise beginnen",
+      "DEET-basiertes Insektenschutzmittel (30-50 % DEET) – unerlässlich in der Dämmerung",
+      "Sonnencreme LSF 50+ – die äquatoriale Sonne durch ein offenes Dachluk ist intensiv; alle zwei Stunden erneut auftragen",
+      "Sonnenbrille mit UV-Schutz – polarisierte Gläser reduzieren Blendung deutlich",
+      "Antihistamin-Creme für Insektenstiche",
+      "Imodium und orale Rehydrationssalze bei Reisedurchfall",
+      "Grundausstattung Erste Hilfe: Pflaster, Antiseptiktücher, Blasenpflaster, Ibuprofen, Paracetamol",
+      "Persönliche verschreibungspflichtige Medikamente mit ausreichendem Vorrat plus Reserve für Verzögerungen",
+      "Medikamente gegen Höhenkrankheit (Diamox) bei Aufstiegen über 3.000 m – rezeptpflichtig"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Safari-Essentials"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Fernglas (8×42 ist die ideale Safari-Spezifikation) – unerlässlich, um entfernte Tiere zu entdecken",
+      "Stirnlampe – nützlich, um sich nachts im Camp zurechtzufinden; nach Einbruch der Dunkelheit können Wildtiere in der Nähe sein",
+      "Powerbank – zum Laden von Geräten zwischen den Fahrten, falls Ihr Zimmer keinen durchgehenden Strom hat",
+      "Universeller Reiseadapter – Tansania verwendet Typ-G-Stecker (UK); Kenia ebenfalls Typ G",
+      "Trockensack oder Gefrierbeutel für Elektronik bei Staub oder Regen",
+      "Feldführer – der Kingdon Field Guide to African Mammals oder Birds of East Africa bereichert jede Pirschfahrt"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Was Sie zu Hause lassen sollten"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Tarnkleidung – in manchen ostafrikanischen Ländern illegal und auf Safari überall unangebracht",
+      "Parfüm und starkes Aftershave – zieht Insekten an und stört die Tierwelt",
+      "Hartschalenkoffer – unpraktisch bei Buschflügen und in der Fahrzeugablage",
+      "Übermäßiger Schmuck – Diebstahlrisiko und unangemessen für die Umgebung",
+      "Zu viele Schuhe – Sie werden höchstens zwei Paar tragen; ein Paar Stiefel, ein Paar Sandalen",
+      "Föhn – die meisten guten Camps stellen einen zur Verfügung; in Ihrer Tasche ist er totes Gewicht"
+    ]
+  },
+  {
+    "type": "callout",
+    "text": "Die am besten gepackte Safaritasche ist eine, die Sie mit einer Hand anheben können. Jedes zusätzliche Kilo ist eines, das Sie durch Flughäfen, in Gepäckfächern von Flugzeugen und in Zeltcamps tragen, wo nicht immer Träger verfügbar sind. Packen Sie die obige Liste, widerstehen Sie der Versuchung, Extras hinzuzufügen, und Sie werden Ihre Reise ganz auf die Tierwelt konzentrieren können – nicht auf die Verwaltung Ihres Gepäcks."
+  }
 ],
 
 'big-five-africa-tanzania': [
-  { type: 'p', text: "Der Begriff 'Big Five' entstand bei Kolonialjägern, die die fünf schwierigsten – und gefährlichsten – zu Fuß zu jagenden Tiere bezeichneten: Löwe, Leopard, afrikanischer Elefant, afrikanischer Büffel und Nashorn. Heute sind die Big Five das Zentrum jeder Safari-Wunschliste in Ostafrika, nicht weil sie die fünf größten Tiere sind, sondern weil sie fünf der beeindruckendsten, begehrtesten und aufregendsten sind, die man in freier Wildbahn begegnen kann. Tansania ist einer der besten Orte der Erde, um alle fünf zu sehen." },
-  { type: 'h2', text: 'Löwe: Tansanias Stolz' },
-  { type: 'p', text: 'Tansania beherbergt die größte Löwenpopulation jedes Landes in Afrika: etwa 8.000-10.000 Individuen, was etwa 40% der verbleibenden Wildlöwen auf dem Kontinent entspricht. Das Serengeti-Ngorongoro-Ökosystem ist der wichtigste Löwenlebensraum der Welt. Hier leben Löwen in großen Rudeln und sind so an Fahrzeuge gewöhnt, dass Sie natürliches Verhalten aus nächster Nähe beobachten können: Jagden im Morgengrauen, Familientreffen in der Mittagshitze unter Akazien, dramatische Interaktionen zwischen rivalisierenden Männchen.' },
-  { type: 'h2', text: 'Leopard: Der Scheue' },
-  { type: 'p', text: 'Leoparden sind in ganz Tansania präsent, aber sie sind einzelgängerisch, nachtaktiv und Meister der Tarnung. In der Serengeti finden die besten Leoparden-Sichtungen in den Felsaufschlüssen und Uferwald des Seronera-Tals statt, wo einzelne Leoparden seit Jahrzehnten studiert werden. In Tarangire schafft die Kombination aus Uferwald, felsigen Hügeln und dichter Vegetation entlang des Tarangire-Flusses einen idealen Leoparden-Lebensraum.' },
-  { type: 'h2', text: 'Afrikanischer Elefant: Tansanias Riesen' },
-  { type: 'p', text: 'Tansania beherbergt eine der größten Elefantenpopulationen Afrikas – etwa 60.000 Individuen – und die Elefanten von Tarangire sind für ihre Größe und ihre Stoßzähne bekannt. Der Tarangire-Nationalpark hat die höchste Elefantendichte aller Parks in Ostafrika, und während der Trockenzeit (Juni-Oktober) versammeln sich Hunderte von Elefanten entlang des Tarangire-Flusses in Konzentrationen, die man gesehen haben muss, um sie zu glauben.' },
-  { type: 'h2', text: 'Afrikanischer Büffel: Unterschätzt und großartig' },
-  { type: 'p', text: 'Der afrikanische Büffel ist wohl das unterschätzteste der Big Five. Büffel sind in ganz Tansania in großen Mengen vorhanden. Die Serengeti hat riesige Herden, manchmal von Tausenden von Tieren, besonders im Norden und Westen. Der Ngorongoro-Krater hat eine bedeutende ansässige Population. Büffel-Sichtungen sind in jeder Tansania-Safari praktisch garantiert.' },
-  { type: 'h2', text: 'Nashorn: Die Naturschutzpriorität' },
-  { type: 'p', text: 'Nashörner sind die schwierigsten der Big Five in Tansania zu sehen. Der Ngorongoro-Krater ist der beste Ort in Tansania für das Spitzmaulnashorn, mit etwa 25 Individuen auf dem Kraterboden. Die Sichtungen sind nicht garantiert, aber dies ist einer der zuverlässigsten Orte in Afrika, um das Spitzmaulnashorn in freier Wildbahn zu sehen.' },
-  { type: 'tip', title: 'Tipp zur Nashorn-Beobachtung', text: 'Um Nashörner im Ngorongoro zu sehen, kommen Sie bei Öffnungszeit auf den Kraterboden und fahren Sie direkt zu den Ngoitokitok-Quellen im östlichen Kraterboden: Dies ist das zuverlässigste Nashorn-Territorium. Ihr Führer sollte die üblichen Bewegungsbereiche einzelner Tiere kennen.' },
-  { type: 'h2', text: 'Beste Parks für alle fünf' },
-  { type: 'table', headers: ['Tier', 'Bester Park', 'Zweitbester', 'Hinweise'], rows: [
-    ['Löwe', 'Serengeti', 'Ngorongoro-Krater', 'Im Seronera-Tal sehr zuverlässig'],
-    ['Leopard', 'Serengeti (Seronera)', 'Tarangire', 'Nachtaktiv: am besten bei Morgen- und Abenddämmerung'],
-    ['Elefant', 'Tarangire', 'Serengeti', 'Trockenzeit-Konzentration ist außergewöhnlich'],
-    ['Büffel', 'Serengeti', 'Ngorongoro-Krater', 'Riesige Herden in der Nord-Serengeti'],
-    ['Nashorn', 'Ngorongoro-Krater', 'Serengeti (Moru Kopjes)', 'Nur ~25 auf dem Kraterboden; Geduld erforderlich'],
-  ]},
-  { type: 'callout', text: 'Alle fünf Big Five auf einer einzigen Tansania-Safari zu sehen ist machbarer als die meisten Menschen denken. Eine 7-tägige Safari auf der Nordschleife mit Tarangire, Serengeti und dem Ngorongoro-Krater deckt die Hauptlebensräume aller fünf Arten ab. Mit einem erfahrenen Führer und etwas Glück beim Nashorn – dem Wildcard – ist eine Big-Five-Safari in Tansania absolut erreichbar.' },
+  {
+    "type": "p",
+    "text": "Der Begriff 'Big Five' stammt von Kolonialjägern, die die fünf am schwierigsten – und gefährlichsten – zu Fuß zu bejagenden Tiere bezeichneten: Löwe, Leopard, Afrikanischer Elefant, Afrikanischer Büffel und Nashorn. Heute bilden die Big Five das Herzstück jeder Ostafrika-Safari-Wunschliste – nicht, weil sie die fünf größten Tiere sind, sondern weil sie zu den beeindruckendsten, begehrtesten und aufregendsten Begegnungen in freier Wildbahn gehören. Tansania ist einer der besten Orte der Welt, um alle fünf zu sehen."
+  },
+  {
+    "type": "h2",
+    "text": "Löwe — Tansanias Stolz"
+  },
+  {
+    "type": "p",
+    "text": "Tansania beherbergt die größte Löwenpopulation aller afrikanischen Länder – schätzungsweise 8.000-10.000 Individuen, was etwa 40 % der weltweit verbliebenen wilden Löwen entspricht. Das Ökosystem Serengeti-Ngorongoro ist der wichtigste Löwenlebensraum der Welt. Hier leben Löwen in großen Rudeln und sind so an Fahrzeuge gewöhnt, dass man natürliches Verhalten aus nächster Nähe beobachten kann: morgendliche Jagden im Morgengrauen, mittägliche Familientreffen unter Akazien, die dramatischen Auseinandersetzungen zwischen rivalisierenden Männchen."
+  },
+  {
+    "type": "p",
+    "text": "Der zentrale Korridor der Serengeti rund um Seronera ist berühmt für Löwensichtungen – die dort ansässigen Rudel sind so an Fahrzeuge gewöhnt, dass sie ohne Beunruhigung bis auf wenige Meter an Ihren 4x4 herangehen. Doch die Löwendichte ist in der gesamten Serengeti hoch, im Ngorongoro-Krater, in Tarangire und in Ruaha, das eine der stärksten Löwenpopulationen Tansanias außerhalb des nördlichen Circuits beherbergt."
+  },
+  {
+    "type": "h2",
+    "text": "Leopard — der Unfassbare"
+  },
+  {
+    "type": "p",
+    "text": "Leoparden kommen in ganz Tansania vor, sind jedoch Einzelgänger, nachtaktiv und Meister der Tarnung. In der Serengeti ist die beste Leopardenbeobachtung in den Felsformationen und Uferwäldern des Seronera-Tals möglich, wo einzelne Leoparden seit Jahrzehnten erforscht und relativ an Fahrzeuge gewöhnt sind. Leoparden ruhen tagsüber in Bäumen – achten Sie auf den charakteristischen Schwanz, der über einem horizontalen Ast hängt. Das Wissen Ihres Guides über die Reviere einzelner Tiere macht den Unterschied zwischen dem Finden eines Leoparden und dem Nichtfinden aus."
+  },
+  {
+    "type": "p",
+    "text": "Der Tarangire-Nationalpark wird für Leoparden unterschätzt. Die Kombination aus Uferwald, felsigen Hügeln und dichtem Buschland entlang des Tarangire-Flusses schafft ein ideales Leopardenhabitat, und Sichtungen sind zuverlässig, wenn man genug Zeit in den richtigen Gebieten verbringt. Auch der Lake Manyara beherbergt eine kleine Population baumkletternder Löwen – ein berühmtes lokales Phänomen, bei dem Löwen auf Ästen ruhen –, und Leoparden kommen in den Waldabschnitten vor."
+  },
+  {
+    "type": "h2",
+    "text": "Afrikanischer Elefant — Tansanias Giganten"
+  },
+  {
+    "type": "p",
+    "text": "Tansania beherbergt eine der größten Elefantenpopulationen Afrikas – etwa 60.000 Individuen –, und die Elefanten von Tarangire sind für ihre Größe und ihre Stoßzähne berühmt. Der Tarangire-Nationalpark hat die höchste Elefantendichte aller Parks Ostafrikas, und während der Trockenzeit (Juni-Oktober) versammeln sich Hunderte von Elefanten entlang des Tarangire-Flusses in Konzentrationen, die man gesehen haben muss, um sie zu glauben."
+  },
+  {
+    "type": "p",
+    "text": "Die Elefanten des Amboseli in Kenia und des Ruaha in Tansania sind ebenfalls für ihre großen Stoßzähne tragenden Bullen bekannt. In der Serengeti sind Elefantensichtungen in den Flussgebieten und im nördlichen Abschnitt in der Nähe des Mara-Flusses zuverlässig. Der Ngorongoro-Krater beherbergt eine ansässige Elefantenpopulation, zu der einige der ältesten und beeindruckendsten Bullen Afrikas gehören. Der Nyerere-Nationalpark (früher Selous) im Süden Tansanias hat die größte Elefantenpopulation aller Schutzgebiete Afrikas."
+  },
+  {
+    "type": "h2",
+    "text": "Afrikanischer Büffel — unterschätzt und großartig"
+  },
+  {
+    "type": "p",
+    "text": "Der Afrikanische Büffel ist wohl das am meisten unterschätzte Mitglied der Big Five. Oft zugunsten der glamouröseren Löwen und Leoparden übergangen, sind Büffel tatsächlich faszinierend: extrem sozial (Herden von Tausenden Tieren sind in der Serengeti keine Seltenheit), physisch beeindruckend (ein ausgewachsener Bulle wiegt bis zu 900 kg) und verhaltensmäßig komplex. Alte Bullen, die die Herde verlassen – bekannt als 'Dagga Boys' – sind notorisch reizbar und gelten als die gefährlichsten aller Big Five, wenn man ihnen zu Fuß begegnet."
+  },
+  {
+    "type": "p",
+    "text": "Büffel kommen in hoher Zahl in ganz Tansania vor. Die Serengeti hat riesige Herden – manchmal Tausende Tiere stark – besonders in den nördlichen und westlichen Abschnitten. Der Ngorongoro-Krater beherbergt eine bedeutende ansässige Population. Tarangire, Lake Manyara und Ruaha bieten allesamt eine ausgezeichnete Büffelbeobachtung. Anders als bei einigen der schwerer zu findenden Big Five sind Büffelsichtungen bei fast jeder Tansania-Safari so gut wie garantiert."
+  },
+  {
+    "type": "h2",
+    "text": "Nashorn — die Naturschutzpriorität"
+  },
+  {
+    "type": "p",
+    "text": "Nashörner sind von den Big Five in Tansania – und in ganz Afrika – am schwierigsten zu sehen. Das Spitzmaulnashorn wurde in den 1970er- und 1980er-Jahren durch Wilderei dezimiert, und obwohl sich die Bestände erholen, gelten sie weiterhin als vom Aussterben bedroht: Weniger als 6.000 Individuen überleben kontinentweit in freier Wildbahn."
+  },
+  {
+    "type": "p",
+    "text": "Der Ngorongoro-Krater ist der beste Ort in Tansania, um Spitzmaulnashörner zu sehen, mit etwa 25 Individuen, die auf dem Kraterboden leben. Das klingt nach einer kleinen Zahl – und das ist es auch –, aber die geschlossene Geografie des Kraters und der ausgezeichnete Rangerschutz machen ihn zu einem der zuverlässigsten Orte Afrikas für Nashornbeobachtungen. Sichtungen sind nicht garantiert, aber ein voller Tag im Krater gibt Ihnen eine gute Chance. Auch die Serengeti hat im Gebiet der Moru Kopjes eine kleine Nashornpopulation, obwohl Sichtungen dort weniger vorhersehbar sind."
+  },
+  {
+    "type": "tip",
+    "title": "Tipp zur Nashornbeobachtung",
+    "text": "Für die Nashornbeobachtung in Ngorongoro fahren Sie zur Öffnungszeit zum Kraterboden und begeben sich direkt in das Gebiet der Ngoitokitok-Quellen im östlichen Kraterboden – dies ist das zuverlässigste Nashorngebiet. Ihr Guide sollte die üblichen Streifgebiete der einzelnen Tiere kennen."
+  },
+  {
+    "type": "h2",
+    "text": "Die besten Parks für alle fünf"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Tier",
+      "Bester Park",
+      "Zweitbester",
+      "Anmerkungen"
+    ],
+    "rows": [
+      [
+        "Löwe",
+        "Serengeti",
+        "Ngorongoro-Krater",
+        "Sehr zuverlässig im Seronera-Tal"
+      ],
+      [
+        "Leopard",
+        "Serengeti (Seronera)",
+        "Tarangire",
+        "Nachtaktiv – am besten in der Dämmerung"
+      ],
+      [
+        "Elefant",
+        "Tarangire",
+        "Serengeti",
+        "Konzentration in der Trockenzeit ist außergewöhnlich"
+      ],
+      [
+        "Büffel",
+        "Serengeti",
+        "Ngorongoro-Krater",
+        "Riesige Herden in der nördlichen Serengeti"
+      ],
+      [
+        "Nashorn",
+        "Ngorongoro-Krater",
+        "Serengeti (Moru Kopjes)",
+        "Nur ~25 auf dem Kraterboden; Geduld erforderlich"
+      ]
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Jenseits der Big Five"
+  },
+  {
+    "type": "p",
+    "text": "Tansanias Tierwelt reicht weit über die Big Five hinaus. Das Land hat die höchste Gepardenpopulation Ostafrikas, Wildhunde (einer der am stärksten gefährdeten Fleischfresser Afrikas, am besten in Ruaha und Nyerere zu sehen), gewaltige Krokodile und Flusspferde in jedem Fluss sowie eine Vogelwelt mit über 1.100 Arten. Das Konzept der Big Five ist nützlich für die Planung, birgt aber das Risiko, den Blick einzuengen – einige der aufregendsten Wildtierbegegnungen in Tansania betreffen Tiere, die nicht auf der ursprünglichen Jagdliste standen."
+  },
+  {
+    "type": "callout",
+    "text": "Alle Big Five auf einer einzigen Tansania-Safari zu sehen, ist erreichbarer, als man denkt. Ein siebentägiger Northern Circuit, der Tarangire, die Serengeti und den Ngorongoro-Krater kombiniert, deckt die wichtigsten Lebensräume aller fünf Arten ab. Mit einem kundigen Guide und etwas Glück beim Nashorn – dem Unsicherheitsfaktor – ist eine Big-Five-Safari in Tansania absolut erreichbar."
+  }
 ],
 
 'zanzibar-travel-guide': [
-  { type: 'p', text: 'Sansibar ist einer jener Orte, die allein durch die Ankunft belohnen. Die Luft riecht nach Nelken, Kardamom und dem Indischen Ozean. Die alten Korallensteinhäuser von Stone Town und die geschnitzten Holztüren säumen enge Gassen, die seit sechs Jahrhunderten Händler, Sultane und Entdecker aufgenommen haben. Und dann die Strände: weißer Korallensand, warmes türkisfarbenes Wasser und ein Gefühl von Indischem Ozean-Trägheit, das das Ende einer Tansania-Safari wie den Beginn eines völlig anderen zweiten Abenteuers erscheinen lässt.' },
-  { type: 'h2', text: 'Stone Town: Das historische Herz' },
-  { type: 'p', text: 'Stone Town ist UNESCO-Weltkulturerbe und eines der vollständigsten Beispiele der ostafrikanischen Suaheli-Küstenhandelskultur. Seine Architektur ist außergewöhnlich: arabische Kaufmannshäuser mit aufwendig geschnitzten Holztüren, persische Bäder, indische Händlerviertel, eine portugiesische Kapelle und das Haus der Wunder – das erste Gebäude in Ostafrika mit Strom und Aufzug.' },
-  { type: 'h2', text: 'Die besten Strände' },
-  { type: 'table', headers: ['Strandgebiet', 'Ideal für', 'Wasserbedingungen', 'Atmosphäre'], rows: [
-    ['Nungwi', 'Allgemeiner Strandurlaub, Schnorcheln', 'Ruhig, bei jedem Wasserstand schwimmbar', 'Am belebtesten; mehr Hotels und Restaurants'],
-    ['Kendwa', 'Schwimmen, Sonnenuntergangspartys', 'Ruhig, bei jedem Wasserstand schwimmbar', 'Lebhaft; berühmte Vollmondpartys'],
-    ['Paje', 'Kitesurfen, Budget-Reisende', 'Bei Ebbe flach', 'Jung und gesellig; tolle Kite-Szene'],
-    ['Bwejuu', 'Ruhige Erholung', 'Bei Ebbe flach', 'Ruhig; weniger erschlossen'],
-    ['Matemwe', 'Rifftauchen, Abgeschiedenheit', 'Bei Ebbe flach', 'Ruhig; gut für Paare'],
-    ['Jambiani', 'Meeresalgenkultur, günstig', 'Bei Ebbe flach', 'Authentisches Dorferlebnis'],
-  ]},
-  { type: 'h2', text: 'Sansibar mit einer Tansania-Safari kombinieren' },
-  { type: 'p', text: 'Die meisten Tansania-Safari-Betreiber schließen Sansibar als natürliche Erweiterung ein: Flug von der Serengeti oder dem Kilimanjaro zum Sansibar-Flughafen (ZNZ) und drei bis fünf Nächte auf der Insel verbringen, bevor der Heimflug geht. Diese Kombination – die wilden, staubigen offenen Ebenen gefolgt von dem weichen Türkis des Indischen Ozeans – ist einer der besten Urlaubskontraste, die irgendwo auf der Welt verfügbar sind.' },
-  { type: 'tip', title: 'Wie viel Zeit auf Sansibar?', text: 'Drei Nächte sind das Minimum, um Stone Town und ein Strandgebiet zu sehen. Fünf Nächte sind ideal: zwei in Stone Town und drei am Nungwi- oder Paje-Strand. Sieben Nächte ermöglichen Ihnen, mehrere Strandgebiete zu erkunden und Tauchen, Walhaischnorcheln oder das Gefängnisinselschildkröten-Heiligtum hinzuzufügen.' },
-  { type: 'callout', text: 'Sansibar existiert nicht dazu, gehetzt erkundet zu werden. Die Insel hat einen Rhythmus – langsam, würzig, ozeanisch – der vollständig im Widerspruch zur Intensität der Safari steht. Geben Sie sich genug Zeit, damit dieser Rhythmus Sie findet. Die Strände sind außergewöhnlich, aber sie sind nur ein Teil dessen, was Sansibar außergewöhnlich macht.' },
+  {
+    "type": "p",
+    "text": "Zanzibar gehört zu jenen Orten, die einen bereits dafür belohnen, dass man einfach ankommt. Die Luft duftet nach Gewürznelken, Kardamom und dem Indischen Ozean. Die uralten Korallenstein-Gebäude und geschnitzten Holztüren von Stone Town säumen enge Gassen, die seit sechshundert Jahren Händler, Sultane und Entdecker beherbergt haben. Und dann sind da die Strände – weißer Korallensand, warmes türkisfarbenes Wasser und ein Gefühl von Indischer-Ozean-Trägheit, das das Ende einer Tansania-Safari wie den Beginn eines zweiten, völlig anderen Abenteuers erscheinen lässt."
+  },
+  {
+    "type": "h2",
+    "text": "Stone Town: Das historische Herz"
+  },
+  {
+    "type": "p",
+    "text": "Stone Town ist UNESCO-Weltkulturerbe und eines der am besten erhaltenen Beispiele Suaheli-geprägter Handelskultur an der ostafrikanischen Küste. Seine Architektur ist außergewöhnlich: arabische Kaufmannshäuser mit kunstvoll geschnitzten Holztüren, persische Bäder, indische Handelsviertel, eine portugiesische Kapelle und das House of Wonders – das erste Gebäude Ostafrikas mit elektrischem Licht und einem Aufzug. Ohne Stadtplan durch die Altstadt zu schlendern und sich in den Gassen zu verlieren, gehört zu den großen simplen Freuden des Reisens in Ostafrika."
+  },
+  {
+    "type": "p",
+    "text": "Der Nachtmarkt in den Forodhani Gardens direkt am Wasser serviert Sansibars berühmtes Streetfood – frische Meeresfrüchte vom offenen Feuer, Sansibar-Pizza (eine gefaltete Teigtasche gefüllt mit Fleisch, Käse und Ei), Zuckerrohrsaft und Süßspeisen auf Kokosbasis. Hier zu essen ist die beste Einführung in die sansibarische Küche. Tagsüber verkauft der Darajani-Markt die Gewürze, die Sansibar berühmt gemacht haben: Gewürznelken, Muskatnuss, Zimt, schwarzer Pfeffer, Vanille und Kardamom."
+  },
+  {
+    "type": "h2",
+    "text": "Die schönsten Strände"
+  },
+  {
+    "type": "p",
+    "text": "Sansibars Strände unterscheiden sich stark in ihrem Charakter, und welcher für Ihren Besuch der richtige ist, hängt davon ab, was Sie suchen. Die Strände der Ostküste – Paje, Bwejuu, Kiwengwa – liegen zum Indischen Ozean hin und sind für ihren feinen weißen Sand und die ausgezeichneten Kitesurfbedingungen bekannt (die Südost-Passatwinde wehen von Juni bis Oktober beständig). Die Nordküste – Nungwi und Kendwa – hat ruhigeres, tieferes Wasser, das bei jedem Gezeitenstand schwimmbar ist, was sie zum beliebtesten Ziel für allgemeine Strandentspannung macht."
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Strandgebiet",
+      "Am besten für",
+      "Wasserbedingungen",
+      "Atmosphäre"
+    ],
+    "rows": [
+      [
+        "Nungwi",
+        "Klassischer Strandurlaub, Schnorcheln",
+        "Ruhig, bei jeder Gezeit schwimmbar",
+        "Belebtester Ort; die meisten Hotels und Restaurants"
+      ],
+      [
+        "Kendwa",
+        "Schwimmen, Sunset-Partys",
+        "Ruhig, bei jeder Gezeit schwimmbar",
+        "Lebhaft; berühmt für Vollmondpartys"
+      ],
+      [
+        "Paje",
+        "Kitesurfen, Budgetreisen",
+        "Bei Ebbe flach",
+        "Jung, gesellig; großartige Kitesurf-Szene"
+      ],
+      [
+        "Bwejuu",
+        "Ruhige Entspannung",
+        "Bei Ebbe flach",
+        "Ruhig; weniger erschlossen"
+      ],
+      [
+        "Matemwe",
+        "Riff-Schnorcheln, Abgeschiedenheit",
+        "Bei Ebbe flach",
+        "Friedlich; gut für Paare"
+      ],
+      [
+        "Jambiani",
+        "Algenfarm-Kultur, Budget",
+        "Bei Ebbe flach",
+        "Authentisches Dorferlebnis"
+      ]
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Meereswelt und Wassersport"
+  },
+  {
+    "type": "p",
+    "text": "Sansibar liegt innerhalb des Korallenriffsystems des westlichen Indischen Ozeans – einem der artenreichsten Meeresökosysteme der Welt. Das Riff um das Mnemba-Atoll, eine kurze Bootsfahrt von der Nordostküste bei Matemwe entfernt, zählt zu den besten Schnorchel- und Tauchplätzen im Indischen Ozean. Spinnerdelfine, Grüne Meeresschildkröten, Echte Karettschildkröten, Mantarochen und Walhaie sind alle zu verschiedenen Jahreszeiten in sansibarischen Gewässern anzutreffen."
+  },
+  {
+    "type": "p",
+    "text": "Begegnungen mit Walhaien werden von Nungwi und anderen Orten an der Nordküste von Oktober bis Februar angeboten, wenn sich die Tiere in den warmen Gewässern rund um die Insel versammeln. Mit Walhaien zu schwimmen – dem größten Fisch der Welt, einem völlig harmlosen Filtrierer – ist ein wirklich außergewöhnliches Erlebnis. Seriöse Anbieter halten sich an verantwortungsvolle Begegnungsrichtlinien: kein Berühren, Abstand halten, Gruppengröße begrenzen. Buchen Sie ausschließlich bei zertifizierten Anbietern."
+  },
+  {
+    "type": "h2",
+    "text": "Gewürztouren"
+  },
+  {
+    "type": "p",
+    "text": "Sansibar war im 19. und frühen 20. Jahrhundert über weite Strecken der weltweit führende Gewürznelkenproduzent, und der Gewürzanbau bleibt zentral für die Identität der Insel. Eine halbtägige Gewürztour ab Stone Town führt Sie zu aktiven Gewürzfarmen, wo Führer Sie durch Haine mit Gewürznelken-, Muskatnuss-, Zimt-, Vanille-, Pfeffer- und Ylang-Ylang-Bäumen führen – zum Kosten, Riechen und Verstehen der Gewürze, die diese Insel berühmt gemacht haben. Es ist ein entspanntes, sinnliches Erlebnis, das Sie mit der Geschichte der Insel verbindet, wie es kein Museum ganz erreichen kann."
+  },
+  {
+    "type": "h2",
+    "text": "Sansibar mit einer Tansania-Safari kombinieren"
+  },
+  {
+    "type": "p",
+    "text": "Die meisten Tansania-Safarianbieter integrieren Sansibar als natürliche Erweiterung – Sie fliegen von der Serengeti oder Kilimandscharo nach Sansibar (ZNZ) und verbringen drei bis fünf Nächte auf der Insel, bevor Sie nach Hause fliegen. Diese Kombination – die wilden, staubigen offenen Ebenen gefolgt vom sanften türkisfarbenen Indischen Ozean – ist einer der besten Urlaubskontraste, die es weltweit gibt."
+  },
+  {
+    "type": "p",
+    "text": "Die Logistik ist unkompliziert: Linienflüge von Arusha (JRO) nach Sansibar dauern etwa 45 Minuten. Daressalam nach Sansibar ist ein 20-minütiger Flug oder eine 70-minütige Schnellfähre. Die meisten Anbieter können nahtlose Transfers zwischen Ihrer Safari und Ihrer Unterkunft auf Sansibar organisieren, ganz ohne zusätzlichen Stress für Sie."
+  },
+  {
+    "type": "tip",
+    "title": "Wie lange auf Sansibar bleiben?",
+    "text": "Drei Nächte sind das Minimum, um Stone Town und ein Strandgebiet zu sehen. Fünf Nächte sind ideal: zwei in Stone Town zur Erkundung der Altstadt und der Uferpromenade, drei am Strand in Nungwi oder Paje. Sieben Nächte ermöglichen es, mehrere Strandgebiete zu erleben und Tauchen, Walhai-Schnorcheln oder das Schildkrötenschutzgebiet auf Prison Island hinzuzufügen."
+  },
+  {
+    "type": "h2",
+    "text": "Beste Reisezeit"
+  },
+  {
+    "type": "p",
+    "text": "Sansibar hat zwei Regenzeiten, die grob denen Tansanias entsprechen: die lange Regenzeit von März bis Mai und die kurze Regenzeit im November. Die Trockenzeit von Juni bis Oktober ist die beliebteste Reisezeit, mit warmen Temperaturen, beständigem Sonnenschein und ausgezeichneten Tauchbedingungen. Januar und Februar sind ebenfalls hervorragend – warm, überwiegend trocken, und die Zeit, in der Walhaie am zuverlässigsten anzutreffen sind. Von März bis Mai gibt es die niedrigsten Preise, aber auch den stärksten Regen."
+  },
+  {
+    "type": "callout",
+    "text": "Sansibar ist nicht dafür gemacht, gehetzt zu werden. Die Insel hat ein Tempo – langsam, gewürzt, vom Ozean gekühlt –, das im völligen Gegensatz zur Intensität der Safari steht. Geben Sie sich genug Zeit, damit dieses Tempo Sie einholt. Die Strände sind außergewöhnlich, aber sie sind nur ein Teil dessen, was Sansibar so besonders macht. Die Gassen von Stone Town in der Dämmerung, der Ruf zum Gebet, der von den Korallensteinmauern widerhallt, der Duft von Gewürznelken auf dem Morgenmarkt – das sind die Dinge, an die Sie sich noch Jahre später erinnern werden."
+  }
 ],
 
 'safari-honeymoon-tanzania': [
-  { type: 'p', text: 'Eine Honeymoon-Safari in Tansania ist nicht einfach ein romantischer Urlaub: Es ist ein Eintauchen in eine Welt, die so verschieden vom gewöhnlichen Leben ist, dass sie alle Annahmen darüber, was wichtig ist, auf den Kopf stellt. Sie beobachten eine Löwin bei der Jagd im Morgengrauen von einem Fahrzeug dreißig Meter entfernt. Sie sitzen in einem Infinity-Pool auf dem Dach, während die Serengeti golden bis zum Horizont reicht. Sie essen unter einem Sternenhimmel, der so voll ist, dass er künstlich erscheint.' },
-  { type: 'h2', text: 'Warum Tansania für eine Flitterwochen?' },
-  { type: 'p', text: 'Tansania funktioniert als Flitterwochenziel, weil es zwei Erlebnisse kombiniert, die nirgendwo sonst auf der Welt ihresgleichen haben: die Wildtiere der Serengeti und des Ngorongoro sowie die Strände von Sansibar. Der Kontrast – die wilde, staubige Wildnis gefolgt von weichem Indischem Ozean-Sand – ist der perfekte Flitterwochen-Bogen.' },
-  { type: 'h2', text: 'Das ideale Flitterwochen-Itinerar' },
-  { type: 'table', headers: ['Tage', 'Standort', 'Erlebnis'], rows: [
-    ['Tage 1-2', 'Tarangire oder Manyara-See', 'Ankommen, akklimatisieren, erste Ausflüge; Elefantenherden'],
-    ['Tage 3-5', 'Zentral-/Nord-Serengeti', 'Ganztägige Ausflüge; Große Migration (saisonal)'],
-    ['Tag 6', 'Ngorongoro-Krater', 'Ganztägiger Kraterabstieg; Big Five'],
-    ['Tag 7', 'Transfer nach Sansibar', 'Flug Kilimanjaro-Sansibar; späte Ankunft in Stone Town'],
-    ['Tage 8-9', 'Stone Town', 'Altstadtrundgang, Meeresfrüchtemarkt, Gewürzführung, Dhow-Sonnenuntergangskreuzfahrt'],
-    ['Tage 10-13', 'Nungwi- oder Matemwe-Strand', 'Strand, Schnorcheln, Tauchen, Entspannen'],
-    ['Tag 14', 'Abreise', 'Verbindung Sansibar-Heimat'],
-  ]},
-  { type: 'h2', text: 'Sansibar für Flitterwochen' },
-  { type: 'p', text: 'Die Stranderweiterung in Sansibar ist kein nachträglicher Gedanke: Es ist der Gegenpol, der die gesamte Reiseroute zum Klingen bringt. Nach der Intensität und dem Adrenalin der Safari verlangt der Indische Ozean nichts weiter als Präsenz. Schnorcheln am Mnemba-Atoll-Riff, eine Dhow-Sonnenuntergangskreuzfahrt mit kaltem Champagner, eine Spa-Behandlung für Paare in einem Outdoor-Pavillon mit Meeresblick: Dies sind die Momente, die das wilde Drama der Serengeti ausgleichen.' },
-  { type: 'tip', title: 'Teilen Sie mit, dass es Ihre Flitterwochen sind', text: 'Teilen Sie Ihrem Betreiber bei der Buchung mit, dass es Ihre Flitterwochen sind. Die meisten hochwertigen Camps bieten kostenlose Flitterwochen-Details: Blumen und Champagner bei der Ankunft, ein privates Busch-Abendessen für zwei, einen speziellen Picknickservice. Diese Details kosten das Camp nicht viel, machen aber einen erheblichen Unterschied in Ihrer ersten Nacht in der Wildnis.' },
-  { type: 'callout', text: 'Die Flitterwochen-Formel in Tansania funktioniert, weil sie zwei deutliche Gemütszustände bietet: wild und lebendig in der Wildnis, dann friedlich und entspannt am Strand. Der Übergang zwischen diesen beiden Zuständen – der Moment, wenn Sie in Sansibar landen, die Meeresluft riechen und spüren, wie sich der Rhythmus vollständig verändert – ist an sich einer der denkwürdigsten Momente der gesamten Reise.' },
+  {
+    "type": "p",
+    "text": "Eine Flitterwochen-Safari in Tansania ist nicht einfach nur ein romantischer Urlaub – sie ist ein Eintauchen in eine Welt, die sich so sehr vom gewöhnlichen Leben unterscheidet, dass sie jede Annahme darüber, was wirklich zählt, ins Wanken bringt. Sie beobachten bei Sonnenaufgang eine jagende Löwin aus dreißig Metern Entfernung vom Fahrzeug aus. Sie sitzen in einem Infinity-Pool auf dem Dach, während sich die Serengeti golden bis zum Horizont erstreckt. Sie speisen unter einem Himmel, der so dicht mit Sternen übersät ist, dass er künstlich wirkt. Wenn Sie Flitterwochen wollen, über die Sie beide nie aufhören werden zu sprechen, liefert Tansania genau das."
+  },
+  {
+    "type": "h2",
+    "text": "Warum Tansania für die Flitterwochen?"
+  },
+  {
+    "type": "p",
+    "text": "Tansania funktioniert als Flitterwochenziel, weil es zwei Erlebnisse vereint, die weltweit ihresgleichen suchen: die Tierwelt der Serengeti und des Ngorongoro sowie die Strände Sansibars. Der Kontrast – wilder, staubiger Busch gefolgt von weichem Sand am Indischen Ozean – ergibt den perfekten Flitterwochen-Bogen. Sie kommen im Camp an, noch elektrisiert von der Pirschfahrt; Sie verlassen Sansibar erholt, gebräunt und planen bereits Ihre Rückkehr."
+  },
+  {
+    "type": "p",
+    "text": "Auch das Luxus-Safaricamp-Erlebnis ist von Natur aus romantisch. Kleine Camps mit acht bis sechzehn Zelten, private Außenduschen unter den Sternen, Lagerfeuer mit Sundowner-Cocktails und Pirschfahrten, die vollständig in einem privaten Fahrzeug mit Ihrem persönlichen Guide stattfinden, schaffen ein Maß an Privatsphäre und Intimität, das ein gewöhnliches Resorthotel schlicht nicht bieten kann. Der Busch bei Nacht – das Rufen der Hyänen, das Flackern der Glühwürmchen, die absolute Stille zwischen den Geräuschen – ist ein Erlebnis, das in die Flitterwochen gehört."
+  },
+  {
+    "type": "h2",
+    "text": "Die ideale Flitterwochen-Reiseroute"
+  },
+  {
+    "type": "p",
+    "text": "Zehn bis vierzehn Tage sind die ideale Dauer für Flitterwochen in Tansania. Die klassische Kombination besteht aus vier bis fünf Safarinächten im nördlichen Circuit – Serengeti und Ngorongoro als Kern, mit optionaler Erweiterung nach Tarangire –, gefolgt von fünf bis sieben Nächten auf Sansibar. Fliegen Sie zwischen Safari und Strand (45 Minuten vom Kilimandscharo nach Sansibar), und der Übergang verläuft nahtlos."
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Tage",
+      "Ort",
+      "Erlebnis"
+    ],
+    "rows": [
+      [
+        "Tag 1–2",
+        "Tarangire oder Lake Manyara",
+        "Ankunft, Eingewöhnung, erste Pirschfahrten; Elefantenherden"
+      ],
+      [
+        "Tag 3–5",
+        "Zentral-/Nord-Serengeti",
+        "Ganztägige Pirschfahrten; Große Migration (saisonabhängig)"
+      ],
+      [
+        "Tag 6",
+        "Ngorongoro-Krater",
+        "Ganzer Tag auf dem Kraterboden; Big Five"
+      ],
+      [
+        "Tag 7",
+        "Reise nach Sansibar",
+        "Flug Kilimandscharo–Sansibar; Ankunft in Stone Town am Nachmittag"
+      ],
+      [
+        "Tag 8–9",
+        "Stone Town",
+        "Altstadtspaziergänge, Fischmarkt, Gewürztour, Sunset-Dhau-Fahrt"
+      ],
+      [
+        "Tag 10–13",
+        "Nungwi oder Matemwe Beach",
+        "Strand, Schnorcheln, Tauchen, Entspannung"
+      ],
+      [
+        "Tag 14",
+        "Abreise",
+        "Verbindung Sansibar–Heimat"
+      ]
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Das richtige Flitterwochen-Camp wählen"
+  },
+  {
+    "type": "p",
+    "text": "Für Flitterwochen zählt die Wahl der Unterkunft mehr als zu jeder anderen Zeit. Sie wollen ein Camp mit echter Romantik – nicht nur Komfort. Achten Sie auf Camps mit privaten Außenbädern, privaten Terrassen mit Buschblick und der Möglichkeit, private Erlebnisse zu arrangieren: Buschdinner im Feld, private Pirschfahrten bei Sonnenaufgang, bevor andere Fahrzeuge unterwegs sind, Sundowner an einem Aussichtspunkt, der ausschließlich Ihrem Fahrzeug vorbehalten ist."
+  },
+  {
+    "type": "p",
+    "text": "Die nördliche Serengeti beherbergt einige der romantischsten Camps Afrikas, insbesondere jene direkt am Mara-Fluss oder im Lamai-Dreieck mit Blick auf die Überquerungsstellen. Die Camps zur Migrationssaison bieten hier die außergewöhnliche Kombination aus dramatischen Flussüberquerungen tagsüber und absoluter Wildnisstille bei Nacht. Sansibars beste Flitterwochen-Unterkünfte konzentrieren sich rund um Matemwe, Nungwi und die privaten Inseln vor der Nordostküste."
+  },
+  {
+    "type": "tip",
+    "title": "Sagen Sie, dass es Ihre Flitterwochen sind",
+    "text": "Teilen Sie Ihrem Reiseveranstalter bei der Buchung mit, dass es sich um Ihre Flitterwochen handelt. Die meisten hochwertigen Camps bieten kostenlose Flitterwochen-Aufmerksamkeiten – Blumen und Champagner bei der Ankunft, ein Buschdinner für zwei, ein besonderer Turndown-Service. Diese Gesten kosten das Camp wenig, machen aber einen großen Unterschied für Ihre erste Nacht im Busch."
+  },
+  {
+    "type": "h2",
+    "text": "Sansibar für Flitterwöchner"
+  },
+  {
+    "type": "p",
+    "text": "Die Strandverlängerung auf Sansibar ist kein nachträglicher Einfall – sie ist der Gegenpol, der die gesamte Reiseroute erst richtig zum Klingen bringt. Nach der Intensität und dem Adrenalin der Safari verlangt der Indische Ozean nichts von Ihnen, außer präsent zu sein. Schnorcheln am Riff des Mnemba-Atolls, eine Sunset-Dhau-Fahrt mit gekühltem Champagner, eine Paarmassage in einem offenen Pavillon mit Blick auf den Ozean – das sind die Momente, die das wilde Drama der Serengeti ausbalancieren."
+  },
+  {
+    "type": "p",
+    "text": "Die privaten Inseln nördlich von Sansibar – Mnemba, Chumbe und andere – bieten das abgeschiedenste Erlebnis. Diese kleinen privaten Inselanlagen nehmen jeweils nur eine Handvoll Gäste auf, schließen alle Mahlzeiten und Aktivitäten ein und bieten ein Maß an Zweisamkeit, das auf der Hauptinsel unmöglich ist. Wenn Ihr Budget es zulässt, ist ein zweinächtiger Aufenthalt in einem dieser Inselresorts das ultimative romantische Finale einer Tansania-Flitterwochenreise."
+  },
+  {
+    "type": "h2",
+    "text": "Budgeterwartungen"
+  },
+  {
+    "type": "p",
+    "text": "Hochwertige Flitterwochen in Tansania – Luxuscamps in der Serengeti und im Ngorongoro, komfortable, aber nicht ultra-luxuriöse Strandunterkunft auf Sansibar, durchgehend private Fahrzeuge – kosten in der Regel 8.000–15.000 US-Dollar pro Paar vor Ort (ohne internationale Flüge). Ultra-Luxus-Optionen mit mobilen Camps, Aufenthalten auf Privatinseln und Fly-in-Buschdinnern können 20.000–30.000 US-Dollar pro Paar erreichen. Budgetbewusste Flitterwöchner können ein wunderschönes Erlebnis im gehobenen Mittelklassesegment für 5.000–8.000 US-Dollar pro Paar haben."
+  },
+  {
+    "type": "callout",
+    "text": "Die Tansania-Flitterwochenformel funktioniert, weil sie zwei ganz unterschiedliche emotionale Zustände liefert: wild und lebendig im Busch, dann friedlich und entspannt am Strand. Der Übergang zwischen diesen beiden Zuständen – der Moment, in dem Sie auf Sansibar landen, die Meeresluft riechen und spüren, wie sich das Tempo völlig verändert – ist selbst einer der unvergesslichsten Momente der gesamten Reise."
+  }
 ],
 
 'family-safari-africa': [
-  { type: 'p', text: 'Eine Familiensafari in Afrika ist eines der transformativsten Erlebnisse, die Sie Kindern bieten können, und eines der lohnendsten, die Sie als Elternteil mit ihnen teilen können. Das Gesicht Ihres Kindes zu sehen, wenn ein wilder Elefant sich auf zehn Meter an das Fahrzeug heranwagt, oder wenn ein Gepard vor Ihnen die Straße überquert, ist etwas, das in der Geschichte einer Familie über Generationen weiterlebt.' },
-  { type: 'h2', text: 'Mindestalteranforderungen' },
-  { type: 'p', text: 'Die meisten Safari-Betreiber in Tansania und Kenia erlauben Kinder ab sechs Jahren bei Standardausflügen. Einige exklusive Camps setzen das Minimum für bestimmte Aktivitäten auf zwölf Jahre, insbesondere für Wandersafaris und Nachtausflüge. Für Gorilla-Trekking in Ruanda beträgt das Mindestalter 15 Jahre, streng durchgesetzt.' },
-  { type: 'h2', text: 'Beste Parks für Familien' },
-  { type: 'p', text: 'Der Tarangire-Nationalpark ist ein ausgezeichnetes Familienziel: Die Elefantenpopulation ist außergewöhnlich, die Landschaften sind vielfältig und dramatisch, und die kürzeren Entfernungen von Arusha reduzieren die Reisezeit. Der Ngorongoro-Krater ist auch ausgezeichnet: Die geschlossene Geographie bedeutet eine hohe Wildtierdichte und zuverlässige Sichtungen.' },
-  { type: 'h2', text: 'Praktische Tipps für Safari mit Kindern' },
-  { type: 'ul', items: [
-    'Buchen Sie Camps mit Familienzimmern oder benachbarten Zelten: Viele Luxus-Camps haben speziell gestaltete Familieneinheiten',
-    'Wählen Sie Camps mit Pool: Wesentlich für Nachmittagspausen zwischen Ausflügen',
-    'Bringen Sie einen altersgerechten Wildtierführer für Ihr Kind mit',
-    'Bringen Sie für jedes Kind ein Fernglas: Eigenes zu haben verwandelt passives Zuschauen in aktive Teilnahme',
-    'Bauen Sie Ruhezeiten ein: Versuchen Sie nicht, vier Ausflüge pro Tag mit Kindern unter zehn Jahren zu machen',
-    'Lassen Sie Kinder ein kleines Notizbuch führen, um Tiersichtungen zu dokumentieren: Ein Wildtiertagebuch schafft eine bleibende Erinnerung',
-  ]},
-  { type: 'callout', text: 'Kinder, die mit einer Safarierinnerung aufwachsen, sind Kinder, die verstehen, dass wilde Tiere existieren und wichtig sind – nicht als Abstraktionen in einer Dokumentation, sondern als echte Lebewesen, die sie gesehen, gerochen und deren Präsenz sie gespürt haben. Dieses Verständnis ist ein Geschenk, das eine Reise wert ist.' },
+  {
+    "type": "p",
+    "text": "Eine Familiensafari in Afrika ist eines der prägendsten Erlebnisse, das Sie Kindern schenken können – und eines der lohnendsten, das Sie als Elternteil mit ihnen teilen können. Der Gesichtsausdruck Ihres Kindes zu sehen, wenn ein wilder Elefant bis auf zehn Meter an das Fahrzeug herankommt, oder wenn ein Gepard direkt vor Ihnen die Straße überquert, ist etwas, das über Generationen in der Geschichte einer Familie weiterlebt. Die Frage ist nicht, ob man Kinder auf Safari mitnehmen sollte, sondern wie man es plant, damit das Erlebnis sicher, altersgerecht und für alle unvergesslich wird."
+  },
+  {
+    "type": "h2",
+    "text": "Mindestalter-Anforderungen"
+  },
+  {
+    "type": "p",
+    "text": "Die meisten Tansania-Safarianbieter und Nationalparks erlauben Kindern ab sechs Jahren die Teilnahme an regulären Pirschfahrten. Manche exklusiven Camps setzen das Mindestalter für bestimmte Aktivitäten, insbesondere Walking-Safaris und Nachtfahrten, auf zwölf Jahre. Budget-Campingsafaris mit gemeinsam genutzten Fahrzeugen setzen oft ein höheres Mindestalter – acht bis zehn Jahre –, weil die langen Fahrten und frühen Startzeiten für kleine Kinder schwerer zu bewältigen sind."
+  },
+  {
+    "type": "p",
+    "text": "Für Gorilla-Trekking in Ruanda liegt das Mindestalter bei fünfzehn Jahren – festgelegt vom Rwanda Development Board und strikt durchgesetzt. Kinder unter fünfzehn Jahren können unabhängig vom Betreiber oder der elterlichen Zustimmung nicht am Gorilla-Trekking teilnehmen. Steht Gorilla-Trekking auf der Wunschliste Ihrer Familie, planen Sie entsprechend, bis Ihr jüngstes Kind alt genug ist."
+  },
+  {
+    "type": "h2",
+    "text": "Die besten Parks für Familien"
+  },
+  {
+    "type": "p",
+    "text": "Nicht alle tansanischen Parks sind gleichermaßen familienfreundlich. Die beste Wahl hängt vom Alter und den Interessen Ihrer Kinder ab. Der Tarangire-Nationalpark ist ein außergewöhnliches Familienziel: Die Elefantenpopulation ist beeindruckend (Hunderte von Elefanten an Wasserstellen in der Trockenzeit), die Landschaften sind abwechslungsreich und dramatisch, und die kürzeren Entfernungen von Arusha verringern die Reisezeit. Auch der Ngorongoro-Krater ist ausgezeichnet – die geschlossene Geografie bedeutet hohe Wildtierdichte und zuverlässige Sichtungen, die Kinder bei der Stange halten."
+  },
+  {
+    "type": "p",
+    "text": "Für Familien mit älteren Kindern und Teenagern bietet die Serengeti das dramatischste Erlebnis – besonders während der Kalbsaison (Januar–Februar), wenn die schiere Fülle an Raubtier-Beute-Interaktionen selbst handysüchtige Teenager völlig in ihren Bann zieht. Jüngere Kinder (sechs bis zehn Jahre) reagieren oft besser auf die visuelle Dramatik von Ngorongoro und Tarangire als auf die weitläufigere Serengeti-Landschaft, wo die Entfernungen zwischen Sichtungen größer sein können."
+  },
+  {
+    "type": "h2",
+    "text": "Privatfahrzeug oder gemeinsames Fahrzeug?"
+  },
+  {
+    "type": "p",
+    "text": "Für Familien ist ein Privatfahrzeug kein Luxus – es ist eine praktische Notwendigkeit. Ein Privatfahrzeug ermöglicht es Ihnen, das Tempo selbst zu bestimmen, anzuhalten, wenn Kinder sich die Beine vertreten oder zur Toilette müssen, zusätzliche Zeit an Sichtungen zu verbringen, die sie faszinieren, und weiterzufahren, wenn kleine Kinder an ihre Grenzen stoßen. Gemeinsam genutzte Fahrzeuge bei Gruppensafaris folgen einem Zeitplan, der dem durchschnittlichen Erwachsenen dient – nicht einem siebenjährigen Kind, das seit drei Stunden stillsitzt."
+  },
+  {
+    "type": "p",
+    "text": "Private Fahrzeuge geben Ihrem Guide zudem die Freiheit, ein wirklich lehrreiches Erlebnis zu gestalten – anzuhalten, um Spuren, Pflanzen, Vogelrufe und das Ökosystem so zu erklären, dass es auf die Interessen Ihrer Kinder zugeschnitten ist. Die besten Guides für Familiensafaris verstehen es meisterhaft, Kinder einzubinden: Fragen stellen, sie beim Entdecken einbeziehen, ihnen beibringen, Tiere zu bestimmen. Diese pädagogische Dimension verwandelt eine Besichtigungsreise in ein Erlebnis, das prägt, wie Kinder die Natur verstehen."
+  },
+  {
+    "type": "h2",
+    "text": "Praktische Tipps für die Safari mit Kindern"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Buchen Sie Camps mit Familienzimmern oder verbundenen Zelten – viele Luxuscamps verfügen über speziell konzipierte Familieneinheiten",
+      "Wählen Sie Camps mit Swimmingpool – unerlässlich für Nachmittagspausen zwischen den Pirschfahrten",
+      "Packen Sie einen Tierbestimmungsführer im richtigen Niveau für das Alter Ihres Kindes ein – DK Eyewitness Safari eignet sich hervorragend für 8- bis 14-Jährige",
+      "Bringen Sie für jedes Kind ein eigenes Fernglas mit – ein eigenes Paar verwandelt passives Beobachten in aktive Teilnahme",
+      "Planen Sie Ruhezeiten ein – der Versuch, mit Kindern unter zehn Jahren vier Pirschfahrten pro Tag zu absolvieren, führt zu Erschöpfung und Tränen",
+      "Frühmorgendliche Pirschfahrten sind am ergiebigsten – lassen Sie Kinder aber an einem Morgen pro Reise ausschlafen",
+      "Bringen Sie ein kleines Notizbuch mit, damit Kinder Tiersichtungen festhalten können – ein Wildtiertagebuch wird zu einem bleibenden Andenken"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Gesundheitliche Überlegungen für Kinder"
+  },
+  {
+    "type": "p",
+    "text": "Eine Malariaprophylaxe ist für Kinder, die nach Tansania, Kenia und Ruanda reisen, unerlässlich. Konsultieren Sie Ihren Hausarzt oder eine Reiseklinik rechtzeitig im Voraus – Kinder haben spezifische, vom Gewicht abhängige Dosierungsanforderungen, und manche Prophylaxemedikamente für Erwachsene eignen sich nicht für kleine Kinder. DEET-haltiges Insektenschutzmittel sollte bei Morgen- und Abenddämmerung aufgetragen werden, wenn Mücken am aktivsten sind. Die sichersten Produkte für Kinder enthalten 20–30 % DEET – eine niedrigere Konzentration als Erwachsenenprodukte, aber dennoch wirksam."
+  },
+  {
+    "type": "p",
+    "text": "Sonnenschutz ist entscheidend. Die äquatoriale Sonne durch eine offene Dachluke des Fahrzeugs ist intensiv, und Kinder bekommen schnell einen Sonnenbrand. Tragen Sie während der Pirschfahrten alle zwei Stunden Sonnencreme mit LSF 50+ auf, und achten Sie darauf, dass Kinder in den Hauptsonnenstunden zwischen 10 und 15 Uhr lange Ärmel und breitkrempige Hüte tragen. Auch ausreichende Flüssigkeitszufuhr ist wichtig – Kinder sollten in der Hitze mindestens 1,5 Liter Wasser pro Tag trinken, was schwierig sein kann, wenn sie ganz auf die Tierwelt konzentriert sind."
+  },
+  {
+    "type": "h2",
+    "text": "Sansibar für Familien hinzufügen"
+  },
+  {
+    "type": "p",
+    "text": "Sansibar ist eine hervorragende Familienverlängerung, insbesondere die ruhigen Strände der Nordküste bei Nungwi und Kendwa, wo das Wasser bei jedem Gezeitenstand schwimmbar ist. Das Schildkrötenschutzgebiet auf Prison Island – eine 15-minütige Bootsfahrt von Stone Town entfernt – ist bei Kindern äußerst beliebt: Man kann zwischen riesigen Aldabra-Riesenschildkröten, manche über 100 Jahre alt und enorm groß, umherlaufen und sie mit der Hand füttern. Delfintouren vor der Südküste sind ein weiterer Familienfavorit, wählen Sie jedoch verantwortungsvolle Anbieter, die die Tiere nicht verfolgen oder belästigen."
+  },
+  {
+    "type": "callout",
+    "text": "Kinder, die mit einer Safari-Erinnerung aufwachsen, sind Kinder, die verstehen, dass wilde Tiere existieren und zählen – nicht als Abstraktion aus einer Dokumentation, sondern als reale Geschöpfe, die sie gesehen, gerochen und deren Anwesenheit sie gespürt haben. Dieses Verständnis ist ein Geschenk, das eine Reiseplanung wert ist."
+  }
 ],
 
 'ngorongoro-crater-guide': [
-  { type: 'p', text: 'Der Ngorongoro-Krater ist die größte intakte Vulkankaldera der Welt, eine 260 km² große Schüssel, die 600 Meter unterhalb des umliegenden Kraterrands liegt. In ihrem Inneren leben 25.000 Tiere – Löwen, Elefanten, Flusspferde, Hyänen, Zebras, Gnus, Büffel, Flamingos und das kritisch gefährdete Spitzmaulnashorn – in einem eigenständigen Ökosystem, das so vollständig ist, dass fast keines der Tiere es je verlässt.' },
-  { type: 'h2', text: 'Geographie und Entstehung' },
-  { type: 'p', text: 'Der Ngorongoro entstand vor etwa 2,5 Millionen Jahren, als ein großer Vulkan – von dem geschätzt wird, dass er so hoch wie der Kilimanjaro war – nach einer Reihe von Ausbrüchen in sich zusammenbrach. Die resultierende Kaldera ist an ihrer breitesten Stelle etwa 18 km breit, umgeben von bewaldeten Wänden, die 400-600 Meter über den Kraterboden aufragen.' },
-  { type: 'h2', text: 'Das Spitzmaulnashorn' },
-  { type: 'p', text: 'Die etwa 25 Spitzmaulnashörner im Ngorongoro stellen eine der bedeutendsten und am sorgfältigsten geschützten Populationen in Ostafrika dar. Das Spitzmaulnashorn ist kritisch gefährdet: Weniger als 6.000 überleben weltweit in freier Wildbahn, und die Ngorongoro-Population wird als genetisch bedeutsame Teilpopulation verwaltet.' },
-  { type: 'tip', title: 'Ganztags vs. Halbtags', text: 'Ein halber Tag auf dem Kraterboden reicht nicht aus. Der Ngorongoro verdient einen ganzen Tag: Kommen Sie zur Öffnungszeit an, verbringen Sie den ganzen Morgen in den wichtigsten Wildtiergebieten, picknicken Sie zum Mittagessen am Flusspferd-Teich und erkunden Sie am Nachmittag den Flamingo-See und die nachmittägliche Raubtieraktivität, bevor Sie um 16:00 Uhr die Kraterwand hinauffahren.' },
-  { type: 'h2', text: 'Besuch des Kraters: Logistik' },
-  { type: 'p', text: 'Der Zugang zum Ngorongoro-Kraterboden wird streng von der NCAA kontrolliert. Fahrzeuge fahren auf der Seneto-Abstiegsstraße ein und verlassen ihn auf der Lerai-Aufstiegsstraße in einer Richtung. Ein Maximum von etwa 500 Fahrzeugen täglich ist auf dem Kraterboden erlaubt, und der Krater ist von Einbruch der Dunkelheit bis Sonnenaufgang für Fahrzeuge gesperrt.' },
-  { type: 'callout', text: 'Kein Foto, keine Dokumentation, keine Beschreibung bereitet Sie vollständig auf den Moment vor, wenn Ihr Fahrzeug die Kraterwand hinuntersteigt und sich der weite Boden unter Ihnen entfaltet. Der Ngorongoro ist kein Zoo: Die Tiere sind wild, der Raum ist real, und die Dichte des Lebens in dieser 260 km²-Schüssel ist etwas, das der menschliche Verstand erst zu verarbeiten beginnt, wenn man darin ist. Planen Sie mindestens einen ganzen Tag; zwei Tage ist besser.' },
+  {
+    "type": "p",
+    "text": "Der Ngorongoro-Krater ist die größte intakte Vulkancaldera der Welt, ein 260 km² großer Kessel, der 600 Meter unterhalb des umgebenden Kraterrandes liegt. In seinem Inneren leben 25.000 Tiere – Löwen, Elefanten, Flusspferde, Hyänen, Zebras, Gnus, Büffel, Flamingos und das vom Aussterben bedrohte Spitzmaulnashorn – in einem in sich geschlossenen Ökosystem, das so vollständig ist, dass fast keines der Tiere es je verlässt. Der Besuch des Ngorongoro ist nicht wie der Besuch anderer Parks. Es ist, als würde man ein natürliches Amphitheater betreten, dessen Wände bewaldete Berge sind und dessen Bühne eine der außergewöhnlichsten Wildtierbühnen der Erde ist."
+  },
+  {
+    "type": "h2",
+    "text": "Geografie und Entstehung"
+  },
+  {
+    "type": "p",
+    "text": "Der Ngorongoro entstand vor etwa 2,5 Millionen Jahren, als ein großer Vulkan – schätzungsweise so hoch wie der Kilimandscharo – nach einer Serie von Ausbrüchen in sich zusammenstürzte. Die entstandene Caldera misst an ihrer breitesten Stelle etwa 18 km und wird von bewaldeten Wänden umringt, die 400–600 Meter über den Kraterboden aufragen. Der Boden selbst umfasst einen Komplex aus Lebensräumen: offenes Grasland, Akazienwald, den Lerai-Wald, den Gorigor-Sumpf und den Magadi-See – einen flachen Sodasee in der südwestlichen Ecke, der Tausende von Flamingos anzieht."
+  },
+  {
+    "type": "h2",
+    "text": "Tierwelt auf dem Kraterboden"
+  },
+  {
+    "type": "p",
+    "text": "Die Wildtierdichte im Ngorongoro ist außergewöhnlich – nicht weil der Krater ungewöhnliche Arten beherbergt, sondern weil die geschlossene Geografie sie konzentriert. Löwen sind in großer Zahl vertreten, und die Löwenrudel des Ngorongoro sind berühmt: Einige der größten Rudel Ostafrikas leben hier, und die Löwen sind so an Fahrzeuge gewöhnt, dass man sie aus zwei bis fünf Metern Entfernung beobachten kann. Der Genpool der Löwen im Krater ist weitgehend von Rudeln außerhalb isoliert, was zu sichtbaren körperlichen Merkmalen bei den örtlichen Löwen geführt hat, darunter ungewöhnlich volle Mähnen bei den Männchen."
+  },
+  {
+    "type": "p",
+    "text": "Die Elefanten im Krater sind überwiegend große, alte Bullen – die von Matriarchinnen geführten Familiengruppen bewegen sich eher am Kraterrand entlang und hinunter in die Wälder oberhalb des Bodens. Die Bullen, die das ganze Jahr über auf dem Kraterboden bleiben, gehören zu den beeindruckendsten Ostafrikas: uralt, massig, mit gewaltigen Stoßzähnen, die Jahrzehnte geschützten Lebens innerhalb des Schutzgebiets widerspiegeln. Die Ngorongoro Conservation Area Authority (NCAA) unterhält strenge Anti-Wilderei-Patrouillen, und die Ergebnisse sind am Zustand der Tiere sichtbar."
+  },
+  {
+    "type": "h2",
+    "text": "Das Spitzmaulnashorn"
+  },
+  {
+    "type": "p",
+    "text": "Die etwa 25 Spitzmaulnashörner des Ngorongoro gehören zu den wichtigsten und am sorgfältigsten geschützten Populationen Ostafrikas. Das Spitzmaulnashorn ist vom Aussterben bedroht – weltweit überleben weniger als 6.000 Tiere in freier Wildbahn, und die Ngorongoro-Population wird als genetisch bedeutsame Teilpopulation verwaltet. Sichtungen sind nicht garantiert, aber dies ist einer der zuverlässigsten Orte Afrikas, um Spitzmaulnashörner in freier Wildbahn zu sehen."
+  },
+  {
+    "type": "p",
+    "text": "Die beste Strategie für Nashornsichtungen ist, bei Öffnung (7:00 Uhr) auf dem Kraterboden anzukommen und direkt zu den Gebieten Ngoitokitok Springs und Mandusi-Sumpf im östlichen Kraterboden zu fahren – das zuverlässigste Nashorn-Territorium. Bleiben Sie geduldig: Die Nashörner im Ngorongoro sind nicht stark an Fahrzeuge gewöhnt und können sich schnell entfernen. Ein Fernglas macht einen erheblichen Unterschied – Ihr Guide kann das Nashorn möglicherweise schon aus der Ferne entdecken, bevor er Sie für einen besseren Blick näher heranbringt."
+  },
+  {
+    "type": "h2",
+    "text": "Besuch des Kraters: Logistik"
+  },
+  {
+    "type": "p",
+    "text": "Der Zugang zum Boden des Ngorongoro-Kraters wird von der NCAA streng kontrolliert. Fahrzeuge fahren über die Seneto-Abfahrtsstraße hinein und über die Lerai-Aufstiegsstraße wieder heraus – nur in eine Richtung. Es sind maximal etwa 500 Fahrzeuge pro Tag auf dem Kraterboden zugelassen, und der Krater ist von der Abend- bis zur Morgendämmerung für Fahrzeuge gesperrt. Pirschfahrten auf dem Kraterboden dauern in der Regel fünf bis sechs Stunden, und die meisten Reiserouten sehen einen vollen Tag für den Ngorongoro vor."
+  },
+  {
+    "type": "p",
+    "text": "Alle Fahrzeuge müssen geschlossene 4x4-Fahrzeuge sein – Fahrzeuge mit offenem Dach sind auf dem Kraterboden nicht erlaubt (die Seiten dürfen hochgeklappt werden, aber das Dach muss geschlossen werden können). Dies ist eine Sicherheitsregel im Umgang mit der Tierwelt: Die Löwen auf dem Ngorongoro-Boden kommen den Fahrzeugen so nahe, dass ein seitlich offener 4x4 ein inakzeptables Risiko darstellen würde. Die Fahrzeuge Ihres Anbieters halten sich automatisch daran, wenn sie ordnungsgemäß lizenziert sind."
+  },
+  {
+    "type": "tip",
+    "title": "Ganzer Tag oder halber Tag?",
+    "text": "Ein halber Tag auf dem Kraterboden reicht nicht aus. Der Ngorongoro verdient einen ganzen Tag: Kommen Sie bei Öffnung an, verbringen Sie den gesamten Vormittag in den besten Wildtiergebieten, picknicken Sie am Ngoitokitok-Flusspferdteich, und erkunden Sie am Nachmittag den Flamingosee im Südwesten. Wer vor 15 Uhr abreist, verpasst die nachmittägliche Raubtieraktivität."
+  },
+  {
+    "type": "h2",
+    "text": "Der Kraterrand"
+  },
+  {
+    "type": "p",
+    "text": "Das Ngorongoro Conservation Area reicht weit über den Kraterboden hinaus. Der Kraterrand selbst liegt auf etwa 2.300 Metern Höhe und ist kalt, neblig und bewaldet – ein dramatischer Kontrast zum warmen Boden darunter. Lodges am Rand bieten das außergewöhnliche Erlebnis, im Wald aufzuwachen, auf die Veranda zu treten und über 600 Höhenmeter hinweg in den Krater hinabzublicken. An klaren Morgen ist der Blick vom Rand einer der außergewöhnlichsten in Afrika – das gesamte natürliche Amphitheater breitet sich unter Ihnen aus, mit dem Fernglas sind Tiere auf dem Kraterboden sichtbar."
+  },
+  {
+    "type": "h2",
+    "text": "Ngorongoro mit der Serengeti kombinieren"
+  },
+  {
+    "type": "p",
+    "text": "Fast jede Reiseroute des tansanischen Nordschleifen-Circuits kombiniert den Ngorongoro mit der Serengeti – die beiden liegen weniger als 100 km auseinander und ergänzen sich perfekt. Die Serengeti bietet weite offene Ebenen und die Große Migration; der Ngorongoro bietet konzentrierte Dichte und das Nashorn. Planen Sie einen vollen Tag für den Krater und mindestens drei Nächte in der Serengeti für die ideale Kombination ein. Manche Reiserouten beziehen den Manyara-See oder Tarangire mit ein, bevor es weiter zu den Hauptparks geht – drei bis vier Park-Etappen in sieben Tagen sind das Standardformat der Nordschleife."
+  },
+  {
+    "type": "callout",
+    "text": "Kein Foto, keine Dokumentation, keine Beschreibung bereitet Sie vollständig auf den Moment vor, in dem Ihr Fahrzeug die Kraterwand hinabfährt und sich der weite Boden unter Ihnen ausbreitet. Der Ngorongoro ist kein Zoo – die Tiere sind wild, der Raum ist echt, und die Dichte des Lebens in diesem 260 km² großen Kessel ist etwas, das der menschliche Verstand erst begreift, wenn man selbst dort ist. Planen Sie mindestens einen ganzen Tag ein; zwei Tage sind besser."
+  }
 ],
 
 'serengeti-vs-masai-mara': [
-  { type: 'p', text: 'Die Serengeti und die Masai Mara sind dasselbe Ökosystem: dieselben Savannen, dieselbe Migration, dieselben Löwen, dieselben Gnus. Sie werden durch die Grenze zwischen Kenia und Tansania getrennt, eine Linie, die von Kolonialverwaltern gezogen wurde und die Wildtiere vollständig ignorieren. Aber sie fühlen sich wie verschiedene Orte an, ziehen verschiedene Camps an und belohnen Besucher auf unterschiedliche Weise.' },
-  { type: 'h2', text: 'Größe und Maßstab' },
-  { type: 'p', text: 'Die Serengeti umfasst 14.763 Quadratkilometer; die Masai Mara umfasst 1.510 Quadratkilometer. Die Serengeti ist fast zehnmal größer. In der Serengeti kann man stundenlang fahren, ohne ein anderes Fahrzeug zu sehen. In der Masai Mara kann man das nicht.' },
-  { type: 'h2', text: 'Private Conservancies: Kenias Vorteil' },
-  { type: 'p', text: 'Das stärkste Argument für Kenia sind die privaten Conservancies, die an die Masai Mara grenzen. Im Naboisho Conservancy, Olare Motorogi Conservancy, Mara North Conservancy und anderen können Sie abseits der Straße fahren (in keinem tansanischen Nationalpark erlaubt), Nachtausflüge machen und Wandersafaris mit bewaffneten Rangern durchführen.' },
-  { type: 'table', headers: ['Faktor', 'Serengeti', 'Masai Mara'], rows: [
-    ['Größe', '14.763 km²', '1.510 km² (+ private Conservancies)'],
-    ['Geländefahrten', 'Nicht erlaubt', 'In privaten Conservancies erlaubt'],
-    ['Nachtausflüge', 'Im Nationalpark nicht erlaubt', 'In Conservancies verfügbar'],
-    ['Wandersafaris', 'In Privatkonzessionen verfügbar', 'In Conservancies verfügbar'],
-    ['Fahrzeugdichte', 'Geringer (bei richtiger Gebietswahl)', 'Höher in der Reserve; geringer in Conservancies'],
-    ['Migrationszeit', 'Oktober-Juni (den größten Teil des Jahres)', 'Juli-September (nur im Höhepunkt)'],
-    ['Kosten', 'Vergleichbar auf gleichem Niveau', 'Vergleichbar auf gleichem Niveau'],
-  ]},
-  { type: 'tip', title: 'Das Beste aus beiden Welten', text: 'Eine kombinierte Tansania-Kenia-Route – Serengeti und Ngorongoro gefolgt von einem Mara-Conservancy – ist das attraktivste Ostafrika-Angebot. Die Serengeti gibt Ihnen Maßstab, Vielfalt und die wandernden Herden; das Mara-Conservancy gibt Ihnen Nachtausflüge abseits der Straße und ein intimes privates Jagdgebiet. Budgetieren Sie 10-14 Tage insgesamt.' },
-  { type: 'callout', text: 'Beide sind außergewöhnlich. Die Serengeti ist das vollständigere, vielfältigere und weiträumigere Ziel. Die Masai Mara Conservancies bieten Erlebnisse – Nachtausflüge, Geländefahrten, Wandersafaris – die der Serengeti-Nationalpark rechtlich nicht bieten kann. Wählen Sie basierend auf dem, was Ihnen am wichtigsten ist, oder kombinieren Sie beides.' },
+  {
+    "type": "p",
+    "text": "Die Serengeti und die Masai Mara sind dasselbe Ökosystem – dasselbe Grasland, dieselbe Migration, dieselben Löwen, dieselben Gnus. Sie werden durch die Grenze zwischen Kenia und Tansania getrennt, eine Linie, die von Kolonialverwaltern gezogen wurde und die die Tierwelt vollständig ignoriert. Doch sie fühlen sich wie unterschiedliche Orte an, sie ziehen unterschiedliche Camps an, und sie belohnen Besucher auf unterschiedliche Weise. Die Wahl zwischen ihnen – oder ihre Kombination – ist eine der meistdiskutierten Entscheidungen bei der Planung einer Ostafrika-Safari."
+  },
+  {
+    "type": "h2",
+    "text": "Größe und Ausdehnung"
+  },
+  {
+    "type": "p",
+    "text": "Die Serengeti erstreckt sich über 14.763 Quadratkilometer – die Masai Mara über 1.510 Quadratkilometer. Die Serengeti ist fast zehnmal so groß. Dieser Größenunterschied hat erhebliche praktische Auswirkungen. In der Serengeti können Sie stundenlang fahren, ohne ein anderes Fahrzeug zu sehen. In der Masai Mara ist das nicht möglich. Die Mara ist so klein, dass die Fahrzeugdichte während der Hochsaison der Migration – Juli bis September – ein Niveau erreichen kann, das erfahrene Safarireisende als wirklich frustrierend beschreiben."
+  },
+  {
+    "type": "p",
+    "text": "Die Größe der Serengeti bedeutet, dass sie unterschiedliche Zonen mit jeweils eigenem Charakter und optimalen Besuchszeiten hat. Die nördliche Serengeti während der Mara-Überquerungssaison ist hinsichtlich Wildtierdichte und Spannung eher mit der Masai Mara vergleichbar. Die zentrale Serengeti bietet das ganze Jahr über verlässliches Standwild. Die südliche Serengeti während der Kalbsaison ist anderswo unerreicht. Der westliche Korridor während der Grumeti-Überquerungen im Juni ist weitgehend menschenleer und außergewöhnlich."
+  },
+  {
+    "type": "h2",
+    "text": "Fahrzeugdichte und Menschenmassen"
+  },
+  {
+    "type": "p",
+    "text": "Dies ist die größte Schwäche der Masai Mara und die unterschätzte Stärke der Serengeti. An beliebten Überquerungsstellen des Mara-Flusses im Juli und August ist es keine Seltenheit, zwanzig, dreißig oder vierzig Fahrzeuge um eine einzige Überquerungsstelle versammelt zu sehen – eine Wand aus Blech und Touristengesichtern, die einen erhabenen Wildtiermoment in ein beunruhigendes Schauspiel verwandeln kann."
+  },
+  {
+    "type": "p",
+    "text": "Die Serengeti hat an beliebten Überquerungsstellen strengere Vorschriften zur Fahrzeugdichte, aber mehr Raum, sich dazwischen zu verteilen. Noch wichtiger ist, dass die nördliche Serengeti – insbesondere das Lamai-Dreieck – tendenziell weniger Fahrzeuge aufweist als vergleichbare Gebiete der Masai Mara, weil die Anreise entweder eine lange Fahrt oder einen Charterflug erfordert. Dieser natürliche Filter sorgt für ein exklusiveres Erlebnis auf der tansanischen Seite für jene, die danach suchen."
+  },
+  {
+    "type": "h2",
+    "text": "Die privaten Conservancies: Kenias Vorteil"
+  },
+  {
+    "type": "p",
+    "text": "Das mit Abstand stärkste Argument für Kenia sind die privaten Conservancies neben der Masai Mara. Naboisho Conservancy, Olare Motorogi Conservancy, Mara North Conservancy und andere erstrecken sich über Hunderte von Quadratkilometern erstklassigen Wildlandes entlang des Nationalreservats. In diesen Conservancies können Sie abseits der Straße fahren (in keinem tansanischen Nationalpark erlaubt), Nachtfahrten unternehmen und mit bewaffneten Rangern Walking-Safaris machen. Die geringe Camp-Dichte bedeutet deutlich weniger Fahrzeuge pro Quadratkilometer als im Nationalreservat."
+  },
+  {
+    "type": "p",
+    "text": "Für Wildtierfotografie und intime Begegnungen bieten die Mara-Conservancies Erlebnisse, die Tansanias Nationalparks rechtlich nicht nachbilden können. Eine Nachtfahrt in der Naboisho Conservancy – auf der Suche nach Leoparden mit dem Scheinwerfer, während man Erdferkel, Servale und Zibetkatzen im Dunkeln beobachtet – gehört zu den aufregendsten Erlebnissen Ostafrikas und ist im Serengeti-Nationalpark schlicht nicht verfügbar."
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Faktor",
+      "Serengeti",
+      "Masai Mara"
+    ],
+    "rows": [
+      [
+        "Größe",
+        "14.763 km²",
+        "1.510 km² (+ private Conservancies)"
+      ],
+      [
+        "Offroad-Fahren",
+        "Nicht erlaubt",
+        "In privaten Conservancies erlaubt"
+      ],
+      [
+        "Nachtfahrten",
+        "Im Nationalpark nicht erlaubt",
+        "In Conservancies verfügbar"
+      ],
+      [
+        "Walking-Safaris",
+        "In privaten Konzessionen verfügbar",
+        "In Conservancies verfügbar"
+      ],
+      [
+        "Fahrzeugdichte",
+        "Geringer (bei richtiger Zonenwahl)",
+        "Höher im Reservat; geringer in Conservancies"
+      ],
+      [
+        "Migrationszeit",
+        "Oktober–Juni (meiste Zeit des Jahres)",
+        "Juli–September (nur Hochsaison)"
+      ],
+      [
+        "Kosten",
+        "Vergleichbar auf gleichem Niveau",
+        "Vergleichbar auf gleichem Niveau"
+      ]
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Die Migration: Spielt es eine Rolle, welche Seite Sie wählen?"
+  },
+  {
+    "type": "p",
+    "text": "Für Mara-Fluss-Überquerungen (Juli–Oktober) bietet die tansanische Seite (nördliche Serengeti) dieselben Überquerungen wie die kenianische Seite (Masai Mara), jedoch mit geringfügig weniger Fahrzeugen an den Überquerungsstellen. Die Herden bewegen sich in diesem Zeitraum ständig über die Grenze hin und her – ein Camp auf beiden Seiten gibt Ihnen Zugang zu den Überquerungen. Der Unterschied liegt im Camp und im Fahrgebiet, nicht in der Tierwelt."
+  },
+  {
+    "type": "p",
+    "text": "Für jede andere Phase der Migration – Kalbsaison (Januar–Februar), Grumeti (Juni), die Herden der südlichen Ebenen (Dezember) – ist Tansania die einzige Option. Diese Phasen finden nicht in Kenia statt, und Besucher, die nur die Mara-Überquerungssaison im August gesehen haben, haben nur ein einziges außergewöhnliches Kapitel einer zwölfmonatigen Geschichte erlebt."
+  },
+  {
+    "type": "tip",
+    "title": "Das Beste aus beiden Welten",
+    "text": "Eine kombinierte Tansania-Kenia-Reiseroute – Serengeti und Ngorongoro gefolgt von einer Mara-Conservancy – ist die überzeugendste Option für Ostafrika. Die Serengeti bietet Ihnen Größe, Vielfalt und die wandernden Herden; die Mara-Conservancy bietet Ihnen Offroad-Nachtfahrten und ein intimes privates Wildgebiet. Planen Sie insgesamt 10–14 Tage ein."
+  },
+  {
+    "type": "callout",
+    "text": "Beide sind außergewöhnlich. Die Serengeti ist das vollständigere, vielfältigere und weitläufigere Ziel. Die Conservancies der Masai Mara bieten Erlebnisse – Nachtfahrten, Offroad-Fahren, Walking-Safaris –, die der Serengeti-Nationalpark rechtlich nicht bieten kann. Wählen Sie basierend darauf, was Ihnen am wichtigsten ist, oder kombinieren Sie beide. Das Ökosystem kennt die Grenze nicht, und den Gnus ist sie mit Sicherheit egal."
+  }
 ],
 
 '7-day-tanzania-safari-itinerary': [
-  { type: 'p', text: 'Sieben Nächte in Tansania sind genug, um die gesamte Nordschleife zu erleben und wirklich verändert zurückzukehren. Die Nordschleife verbindet vier der besten Parks Tansanias in einer logischen geografischen Schleife: Tarangire, Manyara-See, Serengeti und den Ngorongoro-Krater. Jeder Park fügt etwas hinzu, was die anderen nicht haben.' },
-  { type: 'h2', text: 'Die Route: Überblick über die Nordschleife' },
-  { type: 'p', text: 'Alle Nordschleifen-Reiserouten beginnen und enden in Arusha, der Safari-Hauptstadt Tansanias und dem Tor zu den nördlichen Parks. Der Internationale Flughafen Kilimanjaro (JRO) erhält Direktflüge aus Nairobi, Addis Abeba, Amsterdam, Dubai und London, unter anderem.' },
-  { type: 'h2', text: 'Tagesweises Itinerar' },
-  { type: 'table', headers: ['Tag', 'Standort', 'Aktivität', 'Unterkunft'], rows: [
-    ['Tag 1', 'Arusha / Tarangire', 'Ankunft am JRO; Transfer nach Tarangire (2,5 Std.); Nachmittagsausflug', 'Camp/Lodge in Tarangire'],
-    ['Tag 2', 'Tarangire', 'Ganztägige Ausflüge; Elefanten, Baobabs, Tarangire-Fluss-Wildtiere', 'Camp/Lodge in Tarangire'],
-    ['Tag 3', 'Manyara-See', 'Morgenausflug Tarangire; Nachmittag am Manyara-See (Flamingos, baumkletternde Löwen)', 'Lodge in Manyara'],
-    ['Tag 4', 'Auf dem Weg zur Serengeti', 'Morgenausflug; Picknick am Ngorongoro-Rand; am Nachmittag in der Serengeti ankommen', 'Camp in der zentralen Serengeti'],
-    ['Tag 5', 'Serengeti', 'Ganztägige Ausflüge; ansässige Löwen, Leoparden, Geparden; migrationssaisonale Aktivität', 'Camp in der zentralen Serengeti'],
-    ['Tag 6', 'Serengeti / Ngorongoro', 'Morgenausflug in der Serengeti; Transfer zum Ngorongoro-Rand (3 Std.)', 'Lodge am Ngorongoro-Rand'],
-    ['Tag 7', 'Ngorongoro-Krater', 'Ganztägiger Kraterabstieg; Big Five; Spitzmaulnashorn; Picknick am Flusspferd-Lagune', 'Lodge am Ngorongoro-Rand'],
-    ['Tag 8', 'Abreise', 'Morgenausflug/-spaziergang in Randnähe; Transfer Arusha; Abflug vom JRO', '–'],
-  ]},
-  { type: 'tip', title: 'Fliegen vs. Fahren', text: 'Das Fliegen von Arusha direkt zu einer Serengeti-Landebahn (45 Minuten) und das Zurückfahren über den Ngorongoro spart einen ganzen Fahrtag und bietet eine außergewöhnliche Luftansicht des Ökosystems. Dieser Einfliegen-Rausfahren-Ansatz ist die effizienteste Art, die Wildtier-Beobachtungszeit in einem 7-tägigen Itinerar zu maximieren.' },
-  { type: 'callout', text: 'Sieben Tage in Tansania reichen aus, um Sie zu verwandeln. Sie reichen nicht aus, um alles zu sehen – das ist in einem ganzen Leben des Rückkehrens nicht möglich –, aber sie reichen aus, um zu verstehen, warum Menschen, die Tansania zum ersten Mal besuchen, fast immer damit beginnen, ihre zweite Reise zu planen, bevor sie wieder gelandet sind.' },
+  {
+    "type": "p",
+    "text": "Sieben Nächte in Tansania reichen aus, um die gesamte Nordschleife zu erleben – und wirklich verändert von dem, was Sie gesehen haben, nach Hause zurückzukehren. Die Nordschleife verbindet vier der großartigsten Parks Tansanias in einer logischen geografischen Schleife: Tarangire, den Manyara-See, die Serengeti und den Ngorongoro-Krater. Jeder Park fügt etwas hinzu, das die anderen nicht bieten. Zusammen bilden sie die vollständigste Wildtier-Reiseroute Ostafrikas."
+  },
+  {
+    "type": "h2",
+    "text": "Die Route: Überblick über die Nordschleife"
+  },
+  {
+    "type": "p",
+    "text": "Alle Reiserouten der Nordschleife beginnen und enden in Arusha – Tansanias Safari-Hauptstadt und Tor zu den nördlichen Parks. Der Internationale Flughafen Kilimandscharo (JRO), 45 km von Arusha entfernt, empfängt unter anderem Direktflüge aus Nairobi, Addis Abeba, Amsterdam, Dubai und London. Von Arusha aus verläuft die Schleife westwärts nach Tarangire, dann nordwärts zum Manyara-See, dann weiter westwärts in die Serengeti und schließlich südöstlich zum Ngorongoro, bevor sie nach Arusha zurückkehrt."
+  },
+  {
+    "type": "h2",
+    "text": "Reiseroute Tag für Tag"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Tag",
+      "Ort",
+      "Aktivität",
+      "Unterkunft"
+    ],
+    "rows": [
+      [
+        "Tag 1",
+        "Arusha / Tarangire",
+        "Ankunft JRO; Transfer nach Tarangire (2,5 Std.); Pirschfahrt am Nachmittag",
+        "Tarangire Camp/Lodge"
+      ],
+      [
+        "Tag 2",
+        "Tarangire",
+        "Ganztägige Pirschfahrten; Elefanten, Baobabs, Wildtiere am Tarangire-Fluss",
+        "Tarangire Camp/Lodge"
+      ],
+      [
+        "Tag 3",
+        "Manyara-See",
+        "Morgenfahrt in Tarangire; Nachmittag am Manyara-See (Flamingos, Baumlöwen)",
+        "Manyara Lodge"
+      ],
+      [
+        "Tag 4",
+        "Unterwegs zur Serengeti",
+        "Morgenfahrt; Picknick-Mittagessen am Ngorongoro-Rand; Ankunft Serengeti am Nachmittag",
+        "Camp in der Zentral-Serengeti"
+      ],
+      [
+        "Tag 5",
+        "Serengeti",
+        "Ganztägige Pirschfahrten; ansässige Löwen, Leoparden, Geparden; migrationsabhängige Aktivität",
+        "Camp in der Zentral-Serengeti"
+      ],
+      [
+        "Tag 6",
+        "Serengeti / Ngorongoro",
+        "Morgenfahrt in der Serengeti; Transfer zum Ngorongoro-Rand (3 Std.)",
+        "Lodge am Ngorongoro-Rand"
+      ],
+      [
+        "Tag 7",
+        "Ngorongoro-Krater",
+        "Ganztägiger Kraterabstieg; Big Five; Spitzmaulnashorn; Picknick am Flusspferdteich",
+        "Lodge am Ngorongoro-Rand"
+      ],
+      [
+        "Tag 8",
+        "Abreise",
+        "Morgenfahrt/-spaziergang nahe dem Rand; Transfer nach Arusha; Abflug JRO",
+        "–"
+      ]
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Tag 1–2: Nationalpark Tarangire"
+  },
+  {
+    "type": "p",
+    "text": "Tarangire ist das unterschätzte Juwel der Nordschleife. Die meisten Besucher kürzen ihn zugunsten von mehr Zeit in der Serengeti – ein Fehler. Die Trockenzeit (Juni–Oktober) bringt eine der spektakulärsten Elefantenkonzentrationen Afrikas: Hunderte von Elefanten versammeln sich entlang des Tarangire-Flusses, darunter riesige Bullen mit gewaltigen Stoßzähnen, von Matriarchinnen geführte Familiengruppen und im Flussschlamm spielende Jungtiere. Auch die Landschaft von Tarangire ist unverwechselbar – uralte Baobab-Bäume, dichtes Buschland und weite Ausblicke über den Tarangire-Sumpf."
+  },
+  {
+    "type": "p",
+    "text": "Tarangire beherbergt zudem hervorragende Raubtierpopulationen: Löwen, Leoparden und Geparden sind alle vertreten, und der Park zählt zu den besten Tansanias für Vogelbeobachtung – über 550 Arten, darunter der Gelbbrust-Unzertrennliche, ein endemischer Vogel Tarangires, sowie große Kolonien von Rotgelb-Bartvögeln, die in den Baobab-Bäumen nisten. Planen Sie zwei volle Tage hier ein."
+  },
+  {
+    "type": "h2",
+    "text": "Tag 3: Manyara-See-Nationalpark"
+  },
+  {
+    "type": "p",
+    "text": "Der Manyara-See-Nationalpark ist ein kompakter Park mit unverhältnismäßig großer Wirkung. Der See selbst – ein flacher alkalischer Sodasee am Fuß der Grabenbruchwand – zieht riesige Schwärme von Flamingos, Pelikanen und anderen Wasservögeln an. Der Park ist zudem berühmt für seine baumkletternden Löwen: Rudel, die sich in den Astgabeln von Fieberbäumen ausruhen, ein Verhalten, das nicht gut erforscht, aber zuverlässig zu beobachten ist. Der Park lässt sich in einem halben Tag erkunden, was ihn ideal als Zwischenstopp zwischen Tarangire und der Serengeti macht."
+  },
+  {
+    "type": "h2",
+    "text": "Tag 4–5: Die Serengeti"
+  },
+  {
+    "type": "p",
+    "text": "Die Serengeti ist das Herzstück der Reiseroute und verdient so viel Zeit, wie Sie ihr geben können. Bei einer siebentägigen Rundreise bedeuten zwei bis drei Nächte in der Serengeti zwei bis drei Tage Pirschfahrten – genug, um Löwen, Leoparden, Geparden, Elefanten, Büffel, Giraffen, Zebras und Dutzende weiterer Arten zu sehen. Wo sich die Migration innerhalb der Serengeti befindet, hängt vollständig von der Jahreszeit ab: kalbende Herden im Süden (Januar–Februar), zentrale Herden auf dem Weg nach Norden (März–Mai), Überquerungen im westlichen Korridor (Juni) oder nördliche Mara-Überquerungen (Juli–Oktober)."
+  },
+  {
+    "type": "tip",
+    "title": "Fliegen oder fahren?",
+    "text": "Von Arusha direkt zu einer Landebahn in der Serengeti zu fliegen (45 Minuten) und über den Ngorongoro zurückzufahren, spart einen ganzen Fahrtag und bietet einen außergewöhnlichen Blick aus der Luft auf das darunterliegende Ökosystem. Dieser Ansatz – hinfliegen, herausfahren – ist die effizienteste Methode, um die Zeit für die Tierbeobachtung bei einer siebentägigen Reiseroute zu maximieren."
+  },
+  {
+    "type": "h2",
+    "text": "Tag 6–7: Ngorongoro-Krater"
+  },
+  {
+    "type": "p",
+    "text": "Der Ngorongoro-Krater ist das perfekte Schlusskapitel. Nach der offenen Weite der Serengeti bietet die geschlossene Dramatik des Kraters – 25.000 Tiere in jeder Blickrichtung sichtbar, Löwen, die aus nächster Nähe jagen, das Spitzmaulnashorn in der Ferne – ein völlig anderes emotionales Register. Verbringen Sie einen vollen Tag auf dem Kraterboden: Kommen Sie bei Öffnung an, arbeiten Sie sich vormittags durch die besten Wildtiergebiete, picknicken Sie zum Mittagessen am Flusspferdteich und verbringen Sie den Nachmittag beim Flamingosee und der nachmittäglichen Raubtieraktivität, bevor Sie um 16:00 Uhr die Kraterwand hinauffahren."
+  },
+  {
+    "type": "callout",
+    "text": "Sieben Tage in Tansania reichen aus, um verändert zu werden. Sie reichen nicht aus, um alles zu sehen – das ist in einem ganzen Leben voller Rückkehrreisen nicht möglich –, aber sie reichen aus, um zu verstehen, warum Menschen, die Tansania zum ersten Mal besuchen, fast immer schon mit der Planung ihrer zweiten Reise beginnen, bevor sie überhaupt zu Hause gelandet sind."
+  }
 ],
 
 'budget-safari-tanzania': [
-  { type: 'p', text: 'Tansania hat den Ruf teurer Safaris, und das ist teilweise berechtigt. Staatliche Parkgebühren allein gehören zu den höchsten in Afrika. Aber eine echte Budgetsafari in Tansania ist möglich, wenn Sie verstehen, was die Kosten antreibt und welche Entscheidungen Ihnen das beste Wildtiererlebnis pro ausgegebenem Dollar geben.' },
-  { type: 'h2', text: 'Warum sind Safaris in Tansania teuer?' },
-  { type: 'p', text: 'Die Tanzania National Parks Authority (TANAPA) erhebt 82 US-Dollar pro Erwachsenem und Tag in der Serengeti. Fügen Sie die Ngorongoro Conservation Area-Gebühr (80 US-Dollar), die Kraterservicegebühr (300 US-Dollar pro Fahrzeug und Kraterabstieg) und Fahrzeuggebühren (40-60 US-Dollar pro Fahrzeug, Park und Tag) hinzu, und der staatliche Teil Ihrer Safarikosten erreicht schnell 200-250 US-Dollar pro Person und Tag.' },
-  { type: 'h2', text: 'Budget-Safaris nach Niveau' },
-  { type: 'table', headers: ['Niveau', 'Kosten pro Person/Tag', 'Unterkunft', 'Fahrzeug'], rows: [
-    ['Budget-Camping', '150-200 $', 'Öffentlicher Campingplatz, einfaches Zelt, gemeinsame Einrichtungen', '4×4 geteilt (4-6 Personen)'],
-    ['Mittleres Budget', '200-300 $', 'Preisgünstige Lodge oder Semi-permanentes Zeltcamp', '4×4 geteilt (4-6 Personen)'],
-    ['Mittelklasse', '300-450 $', 'Gute Mittelklasse-Lodge mit privatem Bad', 'Geteilt oder Kleingruppe privat'],
-    ['Gehobene Mittelklasse', '450-700 $', 'Hochwertiges Camp, bessere Mahlzeiten, kleinere Gruppe', 'Privatfahrzeug möglich'],
-  ]},
-  { type: 'tip', title: 'Direkt bei tansanischen Betreibern buchen', text: 'Die Direktbuchung bei einem tansanischen Betreiber anstelle eines ausländischen Reisevermittlers eliminiert den 15-25%-Aufschlag des ausländischen Vermittlers. Ein in Arusha ansässiger Betreiber, der 2.000 US-Dollar für eine 7-tägige Safari anbietet, bietet in der Regel dieselbe oder bessere Qualität als ein britischer Vermittler, der 2.500 US-Dollar für dasselbe Produkt berechnet.' },
-  { type: 'callout', text: 'Eine Budget-Safari in Tansania ist keine minderwertige Safari. Dem Löwen in der Serengeti ist es egal, in welchem Fahrzeug Sie ankamen. Das Morgenlicht über dem Ngorongoro-Krater ist gleich außergewöhnlich, ob Sie in einem 50-Dollar-Zelt oder einem 500-Dollar-Zimmer geschlafen haben. Worauf Sie verzichten, ist Komfort und Flexibilität: Was Sie gewinnen, ist Zugang zu einem der größten Wildtier-Spektakel der Erde.' },
+  {
+    "type": "p",
+    "text": "Tansania hat den Ruf, teure Safaris anzubieten – und das ist teilweise berechtigt. Allein die staatlichen Parkgebühren gehören zu den höchsten in Afrika. Aber eine wirklich erschwingliche Safari in Tansania ist möglich, wenn man versteht, was die Kosten antreibt und welche Entscheidungen das beste Wildtiererlebnis pro ausgegebenem Dollar bringen. In einem Luxus-Zeltcamp werden Sie mit knappem Budget nicht übernachten. Aber Sie werden trotzdem die Serengeti, den Ngorongoro-Krater und eine Tierwelt sehen, die genauso außergewöhnlich ist wie alles, was man von einem Camp für 1.000 US-Dollar pro Nacht aus sieht."
+  },
+  {
+    "type": "h2",
+    "text": "Warum Safaris in Tansania teuer sind"
+  },
+  {
+    "type": "p",
+    "text": "Die Tanzania National Parks Authority (TANAPA) berechnet 82 US-Dollar pro Erwachsenem und Tag in der Serengeti. Rechnet man die Gebühr für das Ngorongoro Conservation Area (80 US-Dollar), die Kraterservicegebühr (300 US-Dollar pro Fahrzeug und Kraterabstieg) und die Fahrzeuggebühren (40–60 US-Dollar pro Fahrzeug, Park und Tag) hinzu, erreicht der staatliche Anteil Ihrer Safarikosten schnell 200–250 US-Dollar pro Person und Tag, bevor Guide, Fahrzeug und Unterkunft überhaupt einberechnet sind. Diese Gebühren sind nicht verhandelbar und fließen in den Naturschutz – sie gelten gleichermaßen für Budget- und Luxusreisende."
+  },
+  {
+    "type": "p",
+    "text": "Bei der Unterkunft haben Budgetstrategien die größte Wirkung. Der Unterschied zwischen einer Campingsafari (ein Speisezelt mit anderen Reisenden teilen) und einer Luxuslodge liegt bei 100 bis über 1.000 US-Dollar pro Nacht und Person. Eine Budgetsafari nutzt öffentliche Campingplätze innerhalb der Nationalparks, einen Koch, der einfache, aber nahrhafte Mahlzeiten zubereitet, und ein gemeinsam genutztes 4x4-Fahrzeug, das sich vier bis sechs Reisende teilen. Die Tierwelt, die man von diesem Fahrzeug aus sieht, ist identisch mit der, die man von der privaten Pirschfahrt eines Luxuscamps aus sieht."
+  },
+  {
+    "type": "h2",
+    "text": "Budget-Safari-Stufen"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Stufe",
+      "Kosten pro Person und Tag",
+      "Unterkunft",
+      "Fahrzeug"
+    ],
+    "rows": [
+      [
+        "Budget-Camping",
+        "150–200 $",
+        "Öffentlicher Campingplatz, einfaches Zelt, gemeinsame Sanitäranlagen",
+        "Gemeinsames 4x4 (4–6 Personen)"
+      ],
+      [
+        "Mittleres Budget",
+        "200–300 $",
+        "Budget-Lodge oder halbfestes Zeltcamp",
+        "Gemeinsames 4x4 (4–6 Personen)"
+      ],
+      [
+        "Mittelklasse",
+        "300–450 $",
+        "Gute Mittelklasse-Lodge mit eigenem Bad",
+        "Gemeinsam oder private Kleingruppe"
+      ],
+      [
+        "Gehobene Mittelklasse",
+        "450–700 $",
+        "Hochwertiges Zeltcamp, besseres Essen, kleinere Gruppe",
+        "Privatfahrzeug möglich"
+      ]
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Der Vorteil der grünen Saison"
+  },
+  {
+    "type": "p",
+    "text": "April und Mai – die lange Regenzeit – bilden Tansanias bedeutendste Nebensaison. Die Lodgepreise sinken um 20–40 %, manche Camps schließen ganz, und die Parks sind deutlich ruhiger. Die Tierwelt ist weiterhin ausgezeichnet: Raubtiere sind das ganze Jahr über aktiv, die Vegetation ist üppig und fotogen, und die Vogelwelt erreicht ihren Höhepunkt, wenn europäische Zugvögel zu den ansässigen Arten hinzukommen. Der Kompromiss besteht aus matschigen Straßen (ein 4x4 kommt damit zurecht, aber die Fahrten können langsamer sein) und gelegentlichen Nachmittagsschauern."
+  },
+  {
+    "type": "p",
+    "text": "Der November ist ein weiterer Monat mit gutem Preis-Leistungs-Verhältnis – die kurze Regenzeit beginnt, besteht aber meist aus kurzen täglichen Schauern statt der anhaltenden Regenfälle von April bis Mai. Die Tierbeobachtung ist ausgezeichnet, die Parks sind ruhig, und die Preise liegen deutlich unter denen der Hochsaisonzeiten Juni–Oktober und Januar–Februar. Für budgetbewusste Reisende bringt die Wahl von April–Mai oder November spürbare Ersparnisse, ohne wesentliche Einbußen beim Wildtiererlebnis."
+  },
+  {
+    "type": "h2",
+    "text": "Gruppen- oder Privatsafaris"
+  },
+  {
+    "type": "p",
+    "text": "Der Beitritt zu einer Kleingruppensafari ist die mit Abstand wirksamste Methode, um die Kosten pro Person bei einer Tansania-Safari zu senken. Wenn sich vier bis sechs Reisende ein Fahrzeug teilen, sinkt der anteilige Kostenbeitrag für Fahrzeugmiete, Guide-Gebühren und Kraftstoff erheblich. Hochwertige Anbieter von Gruppensafaris konzipieren ihre Fahrzeuge und Routen für Gruppen von vier bis sechs Personen – das Fahrzeug bietet sechs Fensterplätze mit guter Sicht, und die Gruppengröße bleibt klein genug, um gesellig und flexibel zu bleiben."
+  },
+  {
+    "type": "p",
+    "text": "Der Kompromiss liegt in der Planung. Eine Gruppensafari folgt festen Abfahrtsterminen und festen Reiserouten. Sie können nicht eine zusätzliche Stunde bei einer Löwensichtung verweilen, wenn die Gruppe weiterfahren möchte. Sie können die Route nicht basierend auf aktuellen Herdenbewegungen anpassen. Für Erstbesucher mit flexiblen Reisedaten und Fokus auf das Budget lohnt sich dieser Kompromiss absolut. Für Wiederholungsbesucher oder solche mit spezifischen Wildtierprioritäten ist ein Privatfahrzeug den Aufpreis wert."
+  },
+  {
+    "type": "tip",
+    "title": "Direkt bei tansanischen Anbietern buchen",
+    "text": "Die Direktbuchung bei einem in Tansania ansässigen Bodenanbieter statt über einen ausländischen Reisevermittler eliminiert den 15–25 %igen Aufschlag ausländischer Vermittler. Ein Anbieter aus Arusha, der 2.000 US-Dollar für eine 7-tägige Safari anbietet, bietet oft dieselbe oder eine bessere Qualität als ein britischer Vermittler, der 2.500 US-Dollar für dasselbe Produkt verlangt. Recherchieren Sie, lesen Sie Bewertungen und buchen Sie lokal."
+  },
+  {
+    "type": "h2",
+    "text": "Beispiel: Kosten einer 7-tägigen Budgetsafari"
+  },
+  {
+    "type": "p",
+    "text": "Eine 7-nächtige Campingsafari auf der Nordschleife für eine Person, bei der man sich ein Fahrzeug mit drei anderen Reisenden teilt, im Mai (grüne Saison) durch Tarangire, Manyara, Serengeti und Ngorongoro, mit einem in Arusha ansässigen Anbieter, kostet in der Regel 1.800–2.400 US-Dollar inklusive aller Parkgebühren, Mahlzeiten, Camping und Guide. Für Hin- und Rückflüge aus London oder einem großen europäischen Drehkreuz in derselben Saison (geringe Nachfrage = niedrigere Preise) kommen 1.000–1.600 US-Dollar hinzu. Gesamtkosten der Reise: 2.800–4.000 US-Dollar pro Person – weit weniger als die 10.000-Dollar-Marke, die viele Menschen als Minimum für eine Tansania-Safari annehmen."
+  },
+  {
+    "type": "h2",
+    "text": "Worauf Sie bei einer Budgetsafari verzichten"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Privatfahrzeug – Sie teilen sich das Fahrzeug mit anderen Reisenden und können nicht immer anhalten, wenn Sie möchten",
+      "Luxusunterkunft – öffentliche Campingplätze haben einfache Gemeinschaftssanitäranlagen; das Essen ist einfach, aber ausreichend",
+      "Buschcamp-Atmosphäre – die Magie, in einem exklusiven privaten Campingplatz umgeben von Wildtieren aufzuwachen, ist ein Luxuserlebnis",
+      "Flexibilität – Gruppenabreisen folgen festen Zeitplänen und Routen",
+      "Personalverhältnis – Luxuscamps haben mehrere Mitarbeiter pro Gast; Budget-Betriebe sind schlanker aufgestellt"
+    ]
+  },
+  {
+    "type": "callout",
+    "text": "Eine Budget-Safari in Tansania ist keine minderwertige Safari. Der Löwe in der Serengeti bemerkt nicht, mit welchem Fahrzeug Sie angereist sind. Das Morgenlicht über dem Ngorongoro-Krater ist genauso außergewöhnlich, egal ob Sie in einem 50-Dollar-Zelt oder einem 500-Dollar-Zimmer geschlafen haben. Was Sie opfern, sind Komfort und Flexibilität – was Sie gewinnen, ist der Zugang zu einem der größten Wildtierschauspiele der Erde, ohne ein Jahrzehnt dafür sparen zu müssen."
+  }
 ],
 
 'chimpanzee-trekking-tanzania': [
-  { type: 'p', text: 'Tansanias westliche Parks – Gombe Stream und Mahale Mountains – bieten das beste Schimpansen-Trekking der Welt. Dies sind die Orte, wo Jane Goodalls bahnbrechende Forschung über Schimpansen-Intelligenz und Sozialverhalten 1960 begann, eine Forschung, die unser Verständnis davon, was es bedeutet, Mensch zu sein, fundamental verändert hat.' },
-  { type: 'h2', text: 'Gombe Stream Nationalpark' },
-  { type: 'p', text: 'Gombe ist Tansanias kleinster Nationalpark, mit nur 52 Quadratkilometern steilen Waldlands entlang des östlichen Ufers des Tanganjikasees. Die Kasakela-Schimpansen-Gemeinschaft, die am meisten untersuchte Gruppe von Wildschimpansen der Welt, lebt im Wald über der Forschungsstation und kann täglich von Trekkern verfolgt werden.' },
-  { type: 'h2', text: 'Mahale Mountains Nationalpark' },
-  { type: 'p', text: 'Mahale ist alles, was Gombe nicht ist: abgelegen, riesig (1.613 Quadratkilometer), dramatisch schön und praktisch frei von anderen Touristen. Die Mahale-Berge steigen abrupt vom Ufer des Tanganjikasees auf – dem zweitttiefsten See der Welt – und der Wald, der diese Hänge hinaufsteigt, beherbergt etwa 1.000 Schimpansen.' },
-  { type: 'h2', text: 'Gombe vs. Mahale: Was wählen?' },
-  { type: 'table', headers: ['Faktor', 'Gombe', 'Mahale'], rows: [
-    ['Zugang', 'Schnellboot von Kigoma (1-2 Std.)', 'Charterflug oder lange Bootsfahrt von Kigoma'],
-    ['Größe', 'Sehr klein (52 km²)', 'Groß (1.613 km²)'],
-    ['Habituation', 'Kasakela-Gemeinschaft', 'M-Gruppe (und andere)'],
-    ['Tägliche Besucher', 'Bis zu 20', 'Weniger als 15'],
-    ['Kosten', 'Erschwinglicher', 'Teurer (abgelegene Camps)'],
-    ['Strand/See', 'Gutes Schwimmen am Gombe-Strand', 'Außergewöhnlich: unberührtes Seeufer'],
-    ['Andere Wildtiere', 'Olivenpaviane, Rotes Stummelaffen', 'Rotes Stummelaffen, andere Waldarten'],
-    ['Unterkunft', 'Nur basic bis Mittelklasse', 'Seecamps von mittel bis luxuriös'],
-  ]},
-  { type: 'tip', title: 'Gesundheitsvorschriften', text: 'Schimpansen teilen etwa 98,7 % der menschlichen DNA und sind sehr anfällig für menschliche Atemwegsviren. Sowohl Gombe als auch Mahale haben strenge Gesundheitsregeln: Jede Person mit Erkältungs- oder Grippesymptomen ist vom Trekking ausgeschlossen. Tragen Sie eine Maske, wenn Sie innerhalb von 10 Metern von Schimpansen sind. Das Mindestalter für Trekking beträgt 15 Jahre.' },
-  { type: 'callout', text: 'Im Wald zu sein, während eine Wildschimpansen-Familie durch die Bäume über Ihnen zieht – anhalteend, beobachtend, weitermachend – ist nicht einfach ein Wildtiererlebnis. Es ist eine Konfrontation mit der dünnen Grenze zwischen Arten. Das ist das am meisten unterschätzte Erlebnis Tansanias.' },
+  {
+    "type": "p",
+    "text": "Tansanias westliche Parks – Gombe Stream und Mahale Mountains – bieten das beste Schimpansen-Trekking der Welt. Hier begann 1960 Jane Goodalls bahnbrechende Forschung über die Intelligenz und das Sozialverhalten von Schimpansen – eine Forschung, die unser Verständnis dessen, was es bedeutet, Mensch zu sein, grundlegend verändert hat. Heute zählt das Aufspüren habituierter Schimpansengruppen im Wald zu den emotional bewegendsten Wildtiererlebnissen Afrikas – und zugleich zu den am meisten übersehenen, weit abseits des touristischen Mainstreams."
+  },
+  {
+    "type": "h2",
+    "text": "Gombe Stream Nationalpark"
+  },
+  {
+    "type": "p",
+    "text": "Gombe ist Tansanias kleinster Nationalpark – nur 52 Quadratkilometer steiler Wald entlang der Ostküste des Tanganjikasees. Zugleich ist er der bedeutendste für die Wildtierforschung. Jane Goodall kam 1960 hierher, und die von ihr gegründete Forschungsstation überwacht die Schimpansengemeinschaften auch Jahrzehnte später noch. Die Kasakela-Gemeinschaft, die meisterforschte wildlebende Schimpansengruppe der Welt, lebt im Wald oberhalb der Forschungsstation und kann von Trekkern täglich aufgesucht werden."
+  },
+  {
+    "type": "p",
+    "text": "Gombes Schimpansen sind die am stärksten habituierten Afrikas – eine direkte Folge sechs Jahrzehnte kontinuierlicher menschlicher Präsenz durch das Forschungsteam. Das bedeutet nähere, ruhigere Begegnungen als fast überall sonst. Schimpansen können bis auf zwei bis drei Meter an Ihre Trekkinggruppe herankommen, direkt über Ihnen in Bäumen sitzen und natürliches Sozialverhalten zeigen – Fellpflege, Nahrungssuche, Dominanzgehabe der Männchen – ohne sich von der menschlichen Anwesenheit nennenswert stören zu lassen."
+  },
+  {
+    "type": "h2",
+    "text": "Mahale Mountains Nationalpark"
+  },
+  {
+    "type": "p",
+    "text": "Mahale ist alles, was Gombe nicht ist: abgelegen, weitläufig (1.613 Quadratkilometer), dramatisch schön und fast völlig frei von anderen Touristen. Die Mahale-Berge erheben sich steil vom Ufer des Tanganjikasees – dem zweittiefsten See der Welt – und der Wald, der ihre Hänge hinaufklettert, beherbergt schätzungsweise 1.000 Schimpansen. Die M-Gruppe, die am stärksten habituierte Gemeinschaft, wird täglich von einer kleinen Zahl exklusiver Camps am Seeufer aus aufgesucht."
+  },
+  {
+    "type": "p",
+    "text": "Die Anreise nach Mahale ist Teil des Abenteuers. Es gibt keinen Straßenzugang – man erreicht den Park entweder per Charterflug zur Landebahn von Mahale oder per Boot von Kigoma aus (eine sechs- bis achtstündige Fahrt mit dem Motorboot). Diese Abgeschiedenheit hält die Besucherzahlen sehr niedrig: An jedem beliebigen Tag trekken weniger als 20 Menschen in Mahale. Die Schimpansenbegegnungen wirken auf eine Weise wirklich abgelegen und unberührt, die Gombe mit seiner Nähe zur Forschungsstation nicht ganz erreichen kann."
+  },
+  {
+    "type": "h2",
+    "text": "Das Trekking-Erlebnis"
+  },
+  {
+    "type": "p",
+    "text": "Das Trekking in Gombe und Mahale folgt demselben Muster. Führer mit tagesaktueller Kenntnis des Aufenthaltsorts der Schimpansengemeinschaft leiten die Trekker im Morgengrauen in den Wald. Fährtenleser, die den Schimpansen am Vorabend gefolgt sind, kennen deren Nistplatz – der Ausgangspunkt für die morgendliche Suche. Die Wanderung durch den Wald kann je nachdem, wohin sich die Schimpansen über Nacht bewegt haben, zwischen dreißig Minuten und vier Stunden dauern."
+  },
+  {
+    "type": "p",
+    "text": "Wenn die Schimpansengemeinschaft gefunden ist, positioniert Ihr Guide die Gruppe in respektvollem Abstand. Sie verbringen eine Stunde mit der Gruppe – dieselbe Schutzregel wie beim Gorilla-Trekking. Das Erlebnis, mit wilden Schimpansen zusammen zu sein, unterscheidet sich grundlegend von dem mit Gorillas: Schimpansen sind lauter, schneller, unberechenbarer und aktiver neugierig. Wo eine Gorillabegegnung oft von tiefer Stille und Kontemplation geprägt ist, ist eine Schimpansenbegegnung energiegeladen und mitunter überwältigend."
+  },
+  {
+    "type": "tip",
+    "title": "Gesundheitsprotokolle",
+    "text": "Schimpansen teilen etwa 98,7 % ihrer DNA mit dem Menschen und sind sehr anfällig für menschliche Atemwegsviren. Sowohl Gombe als auch Mahale wenden strenge Gesundheitsregeln an: Wer Erkältungs- oder Grippesymptome zeigt, ist vom Trekking ausgeschlossen. Innerhalb von 10 Metern zu den Schimpansen ist eine Gesichtsmaske zu tragen. Das Mindestalter fürs Trekking beträgt 15 Jahre."
+  },
+  {
+    "type": "h2",
+    "text": "Gombe vs. Mahale: Wofür entscheiden?"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Faktor",
+      "Gombe",
+      "Mahale"
+    ],
+    "rows": [
+      [
+        "Zugang",
+        "Schnellboot von Kigoma (1–2 Std.)",
+        "Charterflug oder lange Bootsfahrt von Kigoma"
+      ],
+      [
+        "Größe",
+        "Sehr klein (52 km²)",
+        "Groß (1.613 km²)"
+      ],
+      [
+        "Habituierte Gruppen",
+        "Kasakela-Gemeinschaft",
+        "M-Gruppe (und weitere)"
+      ],
+      [
+        "Tagesbesucher",
+        "Bis zu 20",
+        "Weniger als 15"
+      ],
+      [
+        "Kosten",
+        "Erschwinglicher",
+        "Teurer (abgelegene Camps)"
+      ],
+      [
+        "Strand/See",
+        "Gutes Schwimmen am Gombe-Strand",
+        "Außergewöhnlich – unberührtes Seeufer"
+      ],
+      [
+        "Sonstige Tierwelt",
+        "Anubispaviane, Rote Stummelaffen",
+        "Rote Stummelaffen, weitere Waldarten"
+      ],
+      [
+        "Unterkunft",
+        "Nur einfach bis mittelklassig",
+        "Mittelklasse bis Luxus-Seecamps"
+      ]
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Wie Sie die westlichen Parks in Ihre Tansania-Reiseroute einbauen"
+  },
+  {
+    "type": "p",
+    "text": "Gombe und Mahale lassen sich nicht ohne Weiteres mit dem Nordlichen Circuit in einer einzigen Reiseroute kombinieren – die Logistik erfordert einen Flug nach Kigoma (von Daressalam oder Arusha aus) und anschließend den Zugang zu den Parks per Boot. Die meisten Besucher entscheiden sich entweder für den Nordlichen Circuit (Serengeti, Ngorongoro, Tarangire) oder für die westlichen Parks – selten für beides. Eine eigenständige Reiseroute von fünf bis sieben Tagen durch die westlichen Parks – Gombe plus Mahale plus die historische Eisenbahnstadt Kigoma – ist eine überaus lohnende alternative Safarierfahrung für alle, die den Nordlichen Circuit bereits erlebt haben."
+  },
+  {
+    "type": "callout",
+    "text": "Im Wald zu stehen, während eine wilde Schimpansenfamilie durch die Bäume über Ihnen zieht – innehält, beobachtet, weiterzieht – ist nicht einfach eine Wildtierbegegnung. Es ist eine Konfrontation mit der dünnen Grenze zwischen den Arten. Jane Goodall verstand das bereits 1960. Besucher, die den Weg nach Gombe oder Mahale auf sich nehmen, verstehen es heute. Dies ist Tansanias am meisten unterschätztes Erlebnis."
+  }
 ],
 
 'luxury-safari-tanzania': [
-  { type: 'p', text: 'Eine Luxussafari in Tansania definiert sich nicht durch Fadenzahl der Bettwäsche oder Speisekarten. Sie definiert sich durch Zugang: Zugang zu exklusiven Konzessionen, wo keine anderen Fahrzeuge operieren, Zugang zu Expertenführern mit Jahrzehnten spezifischer Parkkenntnisse, Zugang zu Erlebnissen – private Busch-Abendessen, Ballonfahrten bei Sonnenaufgang, Spaziergänge mit Massai-Ältesten – die in Standardunterkünften einfach nicht existieren.' },
-  { type: 'h2', text: 'Was Luxus auf Safari wirklich bedeutet' },
-  { type: 'p', text: 'Ein Privatfahrzeug und ein Führer – nur für Ihre Gruppe – sind die Basis. Ohne sie sind Sie dem Zeitplan eines geteilten Zeitplans ausgeliefert. Nachtausflüge, die einen Betrieb in einer privaten Konzession oder einem Conservancy außerhalb der Nationalpark-Regelungen erfordern, sind oft Luxuscamps vorbehalten, weil nur sie exklusiven Landzugang haben.' },
-  { type: 'h2', text: 'Ikonische Luxus-Erlebnisse in Tansania' },
-  { type: 'ul', items: [
-    'Heißluftballonfahrt über die Serengeti bei Sonnenaufgang: Ein 60-90-minütiger Flug über wandernde Herden, gefolgt von einem Champagner-Frühstück in der Wildnis',
-    'Privates Busch-Abendessen: Ihr Camp baut einen Tisch für zwei unter den Sternen auf; Ihr Führer und ein Ranger begleiten Sie aus Sicherheitsgründen',
-    'Wandersafari mit einem Expertenführer: Das Fahrzeug zu verlassen und Wildtiere zu Fuß zu verfolgen verändert jeden sensorischen Input',
-    'Nachtausflüge in einer privaten Konzession: Leoparden, Hyänen, Erdferkel und kleinere nächtliche Arten verfolgen, die bei Tagesausflügen unsichtbar sind',
-    'Kultureller Besuch bei einer echten Massai-Gemeinschaft: Keine Aufführung, sondern eine geführte Einführung, die von einer Gemeinschaft mit einer langen Beziehung zu Ihrem Camp erleichtert wird',
-  ]},
-  { type: 'h2', text: 'Die Ballonfahrt über die Serengeti' },
-  { type: 'p', text: 'Die Ballonfahrt über die Serengeti ist eines der ikonischsten Luxus-Erlebnisse in Ostafrika. Vor dem Morgengrauen werden Sie zum Startplatz gebracht, steigen in den Korb ein und steigen leise auf, während die Serengeti unter Ihnen golden wird. Der Flug dauert 60-90 Minuten und gleitet in geringer Höhe über Ebenen und Uferwald. Das Erlebnis endet mit einem vollständigen Frühstück, das auf Klapptischen in der Wildnis serviert wird, mit Champagner, unabhängig von der Uhrzeit.' },
-  { type: 'tip', title: 'Wert vs. Preis', text: 'Das Luxus-Camp, das 1.500 $ pro Nacht berechnet, ist nicht unbedingt besser als das, das 800 $ berechnet. Die wichtigsten Kennzahlen sind die Exklusivität der Konzession, die Qualität des Führers, die Gruppengröße (je kleiner, desto besser) und die enthaltenen spezifischen Aktivitäten. Ein Camp für 800 $ pro Nacht in einer exklusiven Konzession mit einem exzellenten Naturkundler übertrifft ein Camp für 1.500 $ in einem überfüllten Parkgebiet.' },
-  { type: 'callout', text: "Der tansanische Luxussafari-Markt wurde über Jahrzehnte von Betreibern verfeinert, die verstehen, dass das beste Erlebnis nicht das aufwendigste ist, sondern das fokussierteste. Privatfahrzeug. Expertenführer. Intimes Camp. Der richtige Standort zur richtigen Jahreszeit. Alles andere ist Theater." },
+  {
+    "type": "p",
+    "text": "Eine Luxus-Safari in Tansania definiert sich nicht über Fadenzahl oder Menükarten. Sie definiert sich über Zugang: Zugang zu exklusiven Konzessionsgebieten, in denen kein anderes Fahrzeug unterwegs ist, Zugang zu erfahrenen Guides mit jahrzehntelangem, parkspezifischem Wissen, Zugang zu Erlebnissen – private Buschdinner, Ballonfahrten im Morgengrauen, Spaziergänge mit Massai-Ältesten –, die es in Standardunterkünften schlicht nicht gibt. Richtig umgesetzt, ist eine Luxus-Safari in Tansania das beste Wildtiererlebnis, das es irgendwo auf der Erde gibt."
+  },
+  {
+    "type": "h2",
+    "text": "Was Luxus auf Safari wirklich bedeutet"
+  },
+  {
+    "type": "p",
+    "text": "Das Wort 'Luxus' wird im Safari-Marketing hemmungslos missbraucht. Jedes Camp mit Plunge Pool nennt sich luxuriös. Die entscheidenden Unterschiede bei einer echten Luxus-Safari in Tansania sind operativer, nicht kosmetischer Natur. Ein privates Fahrzeug und ein privater Guide – nur für Ihre Gruppe – bilden die Grundlage. Ohne das sind Sie einem gemeinsamen Zeitplan ausgeliefert. Nachtfahrten, die den Betrieb in einer privaten Konzession oder Conservancy außerhalb der Nationalparkregeln erfordern, sind oft Luxus-Camps vorbehalten, weil nur diese über den exklusiven Landzugang verfügen."
+  },
+  {
+    "type": "p",
+    "text": "Die Camp-Größe ist der zweite entscheidende Faktor. Die besten Luxus-Camps in Tansania nehmen maximal acht bis sechzehn Gäste auf. In dieser Größenordnung ist jede Pirschfahrt wirklich unüberfüllt, die Guides kennen jeden Stammgast beim Namen, und das Erlebnis, in einer wilden Landschaft aufzuwachen – ohne Fremde beim Frühstück, ohne Konkurrenz um den besten Fahrzeugsitz – fühlt sich an, wie Safari war, bevor der Massentourismus alles komplizierter machte."
+  },
+  {
+    "type": "h2",
+    "text": "Exklusivnutzung und private Konzessionen"
+  },
+  {
+    "type": "p",
+    "text": "Tansanias Nationalparks sind öffentlich – jeder lizenzierte Anbieter darf dort fahren. Jenseits der Nationalparkgrenzen halten manche Anbieter jedoch exklusive private Konzessionen: große Landflächen, auf denen sie das einzige Fahrzeug, das einzige Camp, die einzige menschliche Präsenz sind. Diese privaten Konzessionen erlauben Geländefahrten abseits der Piste, Nachtfahrten, Walking Safaris und eine Exklusivität, die kein Nationalpark rechtlich bieten kann."
+  },
+  {
+    "type": "p",
+    "text": "Die privaten Konzessionsgebiete an der Grenze zur Serengeti – besonders im Norden nahe dem Mara-Fluss – zählen zu den besten Wildtiergebieten Ostafrikas. Dieselbe Migration, die durch den Nationalpark zieht, verläuft auch durch diese Konzessionen, aber Sie beobachten sie von einem Fahrzeug aus, das abseits der Piste fahren kann, um einem Rudel Wildhunde zu folgen, statt auf der Straße bleiben zu müssen, während das Rudel im Busch verschwindet."
+  },
+  {
+    "type": "h2",
+    "text": "Herausragende Luxuserlebnisse in Tansania"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Heißluftballon-Safari über die Serengeti bei Sonnenaufgang – ein 60- bis 90-minütiger Flug über die wandernden Herden, gefolgt von einem Champagner-Buschfrühstück auf den Ebenen",
+      "Privates Buschdinner im Feld – Ihr Camp deckt an einem geheimen Ort unter den Sternen einen Tisch für zwei; Ihr Guide und ein Ranger begleiten Sie zur Sicherheit",
+      "Walking Safari mit einem erfahrenen Guide – das Fahrzeug zu verlassen und Wildtiere zu Fuß zu verfolgen, verändert jeden sinnlichen Eindruck und jedes Element des Erlebnisses",
+      "Nächtliche Pirschfahrten in einer privaten Konzession – mit dem Scheinwerfer nach Leopard, Hyäne, Erdferkel und weiteren nachtaktiven Arten suchen, die bei Tagesfahrten unsichtbar bleiben",
+      "Kultureller Besuch bei einer echten Massai-Gemeinschaft – keine Vorführung, sondern eine geführte Begegnung, ermöglicht durch eine Gemeinschaft mit langer Beziehung zu Ihrem Camp",
+      "Fly Camping – eine Nacht in einem provisorischen Buschcamp verbringen, unter den Sternen schlafen, nur mit Zeltplane zwischen Ihnen und der afrikanischen Nacht"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Die Ballon-Safari"
+  },
+  {
+    "type": "p",
+    "text": "Die Ballon-Safari über die Serengeti ist eines der ikonischsten Luxuserlebnisse Ostafrikas. Vor Sonnenaufgang fahren Sie zum Startplatz, steigen mit einer Gruppe von acht bis zwölf Passagieren in den Ballonkorb und steigen lautlos empor, während die Serengeti unter Ihnen golden aufleuchtet. Der Flug dauert sechzig bis neunzig Minuten und gleitet in niedriger Höhe über die Ebenen und die Galeriewälder entlang der Flüsse. Die Tierwelt unter Ihnen ist genau das, was die Migration gerade unter Sie positioniert hat – was im Juli und August bedeuten kann, dass Sie direkt über Zehntausende von Gnus fliegen."
+  },
+  {
+    "type": "p",
+    "text": "Das Erlebnis endet mit einem vollständigen englischen Frühstück, serviert auf Klapptischen im Busch, mit Champagner unabhängig von der Uhrzeit. Es ist zweifellos theatralisch – aber auch auf eine Weise wirklich schön, die sich nicht fotografieren lässt. Die Stille des Ballons im Flug, nur unterbrochen vom gelegentlichen Gasstoß und den Geräuschen der Ebene darunter, ist mit keinem anderen Flugerlebnis vergleichbar."
+  },
+  {
+    "type": "h2",
+    "text": "Kosten einer Luxus-Safari"
+  },
+  {
+    "type": "p",
+    "text": "Echte Luxus-Safaris in Tansania kosten 700 bis 1.500 US-Dollar pro Person und Nacht, alles inklusive. Diese Spanne reicht von hochwertigen privaten Camps mit Privatfahrzeugen am unteren Ende bis zu ultraexklusiven Camps in privaten Konzessionen mit jedem erdenklichen Erlebnis am oberen Ende. Die Ballon-Safari kostet in der Regel zusätzlich 500 bis 600 US-Dollar pro Person. Eine siebentägige Luxus-Safarireiseroute kostet vor Ort, ohne internationale Flüge, 5.000 bis 12.000 US-Dollar pro Person."
+  },
+  {
+    "type": "tip",
+    "title": "Preis-Leistungs-Verhältnis vs. Preis",
+    "text": "Das Luxus-Camp, das 1.500 US-Dollar pro Nacht verlangt, ist nicht zwangsläufig besser als jenes für 800 US-Dollar. Die entscheidenden Kriterien sind Exklusivität der Konzession, Qualität des Guides, Gruppengröße (kleiner ist immer besser) und die konkret enthaltenen Aktivitäten. Ein Camp für 800 US-Dollar pro Nacht in einer exklusiven Konzession mit einem hervorragenden Naturführer schlägt ein Camp für 1.500 US-Dollar in einem überlaufenen Parkgebiet."
+  },
+  {
+    "type": "callout",
+    "text": "Tansanias Luxus-Safarimarkt wurde über Jahrzehnte von Anbietern verfeinert, die verstanden haben, dass das beste Erlebnis nicht das aufwendigste ist – sondern das fokussierteste. Privates Fahrzeug. Erfahrener Guide. Intimes Camp. Der richtige Ort zur richtigen Jahreszeit. Alles andere ist Theater."
+  }
 ],
 
 'safari-photography-tips': [
-  { type: 'p', text: 'Sie haben ein Jahr mit der Planung verbracht, Monate mit dem Sparen und Tausende von Dollar, um in einer der fotografisch außergewöhnlichsten Umgebungen der Erde zu sein. Der Unterschied zwischen der Heimkehr mit Bildern, die die Leute seufzen lassen, und Bildern, die wie jedes andere Safarifoto aussehen, ist nicht Ihre Kamera: Es ist Ihr Verständnis von Licht, Moment und den spezifischen technischen Herausforderungen der Wildtierfotografie aus einem fahrenden Fahrzeug unter dem harten, kontrastreichen afrikanischen Licht.' },
-  { type: 'h2', text: 'Kamera- und Objektiv-Grundlagen' },
-  { type: 'p', text: 'Das wichtigste Ausrüstungsstück für die Safarifotografie ist Ihr Objektiv, nicht der Kamerabody. Ein Objektiv, das 400 oder 500 mm erreicht, ist das Minimum, um Löwen, Leoparden und andere Wildtiere bei typischen Safaridistanzen bildschirmfüllend zu fotografieren. Das Canon RF 100-500mm, Nikon Z 100-400mm, Sony 100-400mm GM und Sigma/Tamron 150-600mm sind ausgezeichnete Safarobjektive.' },
-  { type: 'h2', text: 'Kameraeinstellungen für Wildtiere' },
-  { type: 'table', headers: ['Situation', 'Modus', 'Empfohlene Einstellung'], rows: [
-    ['Schnell bewegende Tiere (rennend)', 'Zeitvorwahl', 'Verschluss: 1/1.000 s oder schneller; Auto-ISO; Kontinuierlicher AF'],
-    ['Stationäres Raubtier', 'Blendenvorwahl', 'f/5,6-f/8; Auto-ISO; Kontinuierlicher AF'],
-    ['Wenig Licht bei Morgen-/Abenddämmerung', 'Manuell oder Auto-ISO', 'Verschluss: 1/250 s oder schneller; max. f/4-f/5,6; ISO bis 6.400'],
-    ['Vögel im Flug', 'Zeitvorwahl', 'Verschluss: 1/2.000 s oder schneller; Tracking-AF-Modus; Serienaufnahme'],
-    ['Weite Landschaft', 'Blendenvorwahl', 'f/8-f/11; niedriger ISO; Polarisationsfilter wenn vorhanden'],
-  ]},
-  { type: 'h2', text: 'Die goldenen Stunden' },
-  { type: 'p', text: 'Das wichtigste fotografische Konzept auf Safari ist einfach: Die Qualität des Lichts, nicht die Nähe zum Tier, bestimmt Ihre besten Bilder. Die Stunde nach Sonnenaufgang und die Stunde vor Sonnenuntergang – die goldenen Stunden – bieten warmes, gerichtetes, schmeichelhaftes Licht, das selbst einen statischen Löwen in ein kinematografisches Bild verwandelt.' },
-  { type: 'tip', title: 'Auf Augenhöhe schießen wenn möglich', text: "Die ansprechendsten Wildtierporträts werden auf Augenhöhe des Tieres aufgenommen, nicht von oben. Das bedeutet oft, vom Sitz durch das Seitenfenster zu schießen, anstatt durch das Dachluk zu stehen. Ein Löwe, der auf seiner Augenhöhe durch ein Fenster fotografiert wird, mit einem durch eine große Blende unscharfen Hintergrund, übertrifft fast immer denselben Löwen, der von oben durch das Dach fotografiert wurde." },
-  { type: 'h2', text: 'Kompositionsprinzipien für Safari' },
-  { type: 'ul', items: [
-    "Drittelregel: Platzieren Sie das Auge des Tieres an einem Gitterschnittpunkt, nicht in der Mitte des Rahmens",
-    "Der Hintergrund ist wichtig: Überprüfen Sie, was hinter dem Tier ist, bevor Sie auslösen: Ein Fahrzeug oder ein anderer Tourist ruiniert ein ansonsten hervorragendes Foto",
-    "Den Lebensraum einbeziehen: Ein Löwe, der den Rahmen ausfüllt, ist beeindruckend; ein Löwe im Kontext der Serengeti-Landschaft erzählt eine Geschichte",
-    "Raum für Bewegung: Lassen Sie Raum im Rahmen in der Richtung, in die das Tier schaut oder sich bewegt",
-    "Geduld vor Quantität: Auf den richtigen Moment zu warten – ein Gähnen, eine Kopfdrehung, ein direkter Blick – produziert viel bessere Bilder als Serienaufnahmen auf alles, was sich bewegt",
-  ]},
-  { type: 'callout', text: 'Die besten Safarifotografien werden nicht mit den besten Kameras aufgenommen: Sie werden von Fotografen gemacht, die früh aufgestanden sind, das Licht verstanden haben, das Tierverhalten respektiert haben, geduldig auf den entscheidenden Moment gewartet haben und einen Führer hatten, der erfahren genug war, das Fahrzeug richtig zu positionieren.' },
+  {
+    "type": "p",
+    "text": "Sie haben ein Jahr geplant, monatelang gespart und Tausende von Dollar investiert, um sich in einer der fotografisch außergewöhnlichsten Umgebungen der Erde zu befinden. Der Unterschied zwischen Bildern, die Menschen zum Staunen bringen, und Bildern, die wie jeder andere Safari-Schnappschuss aussehen, liegt nicht an Ihrer Kamera – er liegt an Ihrem Verständnis von Licht, Timing und den spezifischen technischen Herausforderungen der Tierfotografie von einem fahrenden Fahrzeug aus, im staubigen, kontrastreichen afrikanischen Licht."
+  },
+  {
+    "type": "h2",
+    "text": "Grundlagen bei Kamera und Objektiv"
+  },
+  {
+    "type": "p",
+    "text": "Das wichtigste Ausrüstungsstück für die Safarifotografie ist Ihr Objektiv, nicht Ihr Kameragehäuse. Ein Objektiv mit 400 mm oder 500 mm Brennweite ist das Minimum, um Löwen, Leoparden und andere Tiere bei typischen Safari-Entfernungen bildfüllend abzulichten. Das Canon RF 100–500 mm, das Nikon Z 100–400 mm, das Sony 100–400 mm GM sowie die Sigma-/Tamron-Objektive mit 150–600 mm sind allesamt ausgezeichnete Safari-Objektive. Fotografen mit kleinerem Budget erzielen mit spiegellosen Kameras wie der Sony a6700 oder der Fujifilm X-T5 in Kombination mit einem adaptierten Teleobjektiv ebenfalls hervorragende Ergebnisse."
+  },
+  {
+    "type": "p",
+    "text": "Ihr Kameragehäuse ist weniger entscheidend als Ihr Objektiv, doch moderne spiegellose Kameras haben die Safarifotografie mit außergewöhnlichem kontinuierlichem Autofokus (Motivverfolgung), hohen Serienbildraten (15–30 Bilder pro Sekunde) und herausragender Hochempfindlichkeitsleistung verändert, die auch im schwachen Morgenlicht – wenn Raubtiere am aktivsten sind – saubere Bilder ermöglicht. Sony, Canon und Nikon produzieren allesamt safaritaugliche spiegellose Kameras über verschiedene Preisklassen hinweg."
+  },
+  {
+    "type": "h2",
+    "text": "Kameraeinstellungen für die Tierfotografie"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Situation",
+      "Modus",
+      "Empfohlene Einstellungen"
+    ],
+    "rows": [
+      [
+        "Schnell bewegende Tiere (rennend)",
+        "Zeitpriorität (Tv)",
+        "Verschlusszeit: 1/1000 s+; Auto-ISO; kontinuierlicher AF"
+      ],
+      [
+        "Ruhende Raubtiere",
+        "Blendenpriorität (Av)",
+        "f/5.6–f/8; Auto-ISO; kontinuierlicher AF"
+      ],
+      [
+        "Schwaches Licht bei Morgen-/Abenddämmerung",
+        "Manuell oder Auto-ISO",
+        "Verschlusszeit: 1/250 s+; max. f/4–f/5.6; ISO bis 6400"
+      ],
+      [
+        "Vögel im Flug",
+        "Zeitpriorität (Tv)",
+        "Verschlusszeit: 1/2000 s+; AF-Verfolgungsmodus; Serienbild"
+      ],
+      [
+        "Weite Landschaft",
+        "Blendenpriorität (Av)",
+        "f/8–f/11; niedriger ISO; Polfilter, falls vorhanden"
+      ]
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Die goldenen Stunden"
+  },
+  {
+    "type": "p",
+    "text": "Das wichtigste Fotografiekonzept auf Safari ist einfach: Nicht die Nähe zum Tier, sondern die Lichtqualität bestimmt Ihre besten Bilder. Die Stunde nach Sonnenaufgang und die Stunde vor Sonnenuntergang – die goldenen Stunden – liefern warmes, gerichtetes, schmeichelndes Licht, das selbst einen ruhenden Löwen in ein filmreifes Bild verwandelt. Die Mittagssonne erzeugt hartes, unvorteilhaftes Licht von oben mit tiefen Schatten."
+  },
+  {
+    "type": "p",
+    "text": "Das passt perfekt zur Safari-Logistik. Morgenpirschfahrten, die um 6:00 bis 6:30 Uhr beginnen, erwischen sowohl die goldene Stunde als auch die aktivste Raubtierzeit. Nachmittagsfahrten von 15:30 bis 16:00 Uhr bringen Sie rechtzeitig ins Feld für die goldene Stunde vor Sonnenuntergang. Die Mittagszeit – in der die meisten Camps Mittagessen, eine Ruhepause und ein Nickerchen anbieten – fällt mit dem fotografisch am wenigsten ergiebigen Licht zusammen. Nutzen Sie diese Pause gut und seien Sie dann rechtzeitig für das nachmittägliche Gold wieder im Feld."
+  },
+  {
+    "type": "h2",
+    "text": "Fotografieren vom Fahrzeug aus"
+  },
+  {
+    "type": "p",
+    "text": "Das Safarifahrzeug ist Ihre Fotoplattform, und es richtig einzusetzen, macht einen dramatischen Unterschied für die Bildschärfe. Motorvibrationen sind der Feind scharfer Bilder – schalten Sie den Motor in dem Moment aus, in dem Sie an einer Sichtung anhalten, und stellen Sie sicher, dass Ihr Guide das ebenfalls tut. Ein laufender Motor erzeugt bei 400 mm selbst mit schnellen Verschlusszeiten sichtbare Unschärfe."
+  },
+  {
+    "type": "p",
+    "text": "Der Bohnensack ist der beste Freund des Safarifotografen. Über den Fensterrahmen gelegt (oder über die Kante der offenen Dachluke bei einem Fahrzeug mit Aufstelldach), dämpft ein Bohnensack Vibrationen und bietet eine stabile, winkelverstellbare Auflage für Ihr Objektiv. Er ist einfacher, vielseitiger und wirksamer als ein Einbeinstativ oder jedes andere am Fahrzeug befestigte System. Bringen Sie einen mit oder bitten Sie Ihren Veranstalter, einen zur Verfügung zu stellen – viele gute Anbieter führen sie mit."
+  },
+  {
+    "type": "tip",
+    "title": "Wenn möglich auf Augenhöhe fotografieren",
+    "text": "Die überzeugendsten Tierporträts entstehen auf Augenhöhe des Tieres, nicht von oben. Das bedeutet oft, im Sitzen durch das Fenster zu fotografieren, statt durch die Dachluke aufzustehen. Ein Löwe, auf Augenhöhe durch das Fenster fotografiert, mit unscharfem Hintergrund durch eine offene Blende, schlägt fast immer denselben Löwen, von oben durch das Dach fotografiert."
+  },
+  {
+    "type": "h2",
+    "text": "Kompositionsprinzipien für die Safari"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Drittel-Regel: Platzieren Sie das Auge des Tieres auf einem Schnittpunkt des Rasters, nicht in der Bildmitte",
+      "Der Hintergrund zählt: Prüfen Sie, was sich hinter dem Tier befindet, bevor Sie auslösen – ein Fahrzeug oder ein anderer Tourist ruiniert eine sonst hervorragende Aufnahme",
+      "Lebensraum einbeziehen: Ein Löwe, der den gesamten Bildrahmen ausfüllt, ist beeindruckend; ein Löwe im Kontext der Serengeti-Landschaft erzählt eine Geschichte",
+      "Platz für Bewegung lassen: Lassen Sie im Bild Raum in die Richtung, in die das Tier blickt oder sich bewegt",
+      "Geduld statt Masse: Auf den richtigen Moment zu warten – ein Gähnen, eine Kopfdrehung, ein direkter Blick – erzeugt weit bessere Bilder als wahllos auf alles zu drücken, was sich bewegt"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Staub im Griff behalten"
+  },
+  {
+    "type": "p",
+    "text": "Staub ist die größte praktische Gefahr für Ihre Kameraausrüstung auf Safari. Pirschfahrten in der Trockenzeit erzeugen erheblichen Staub, und schon geringe Staubmengen im Kameragehäuse oder auf dem Sensor verursachen Probleme. Bewahren Sie Kameras bei Nichtgebrauch in einer Kameratasche oder einem Trockensack auf. Wechseln Sie Objektive im Fahrzeug bei geschlossenen Fenstern und arbeiten Sie dabei zügig. Bringen Sie einen Blasebalg und ein Objektivtuch für die tägliche Reinigung mit. Erwägen Sie einen UV-Filter für Ihr meistgenutztes Objektiv, um die Frontlinse vor Sandeinwirkung zu schützen."
+  },
+  {
+    "type": "callout",
+    "text": "Die besten Safarifotos entstehen nicht mit den besten Kameras – sie entstehen durch Fotografen, die früh aufgestanden sind, das Licht verstanden haben, das Verhalten der Tiere respektierten, geduldig auf den entscheidenden Moment warteten und einen Guide hatten, der geschickt genug war, das Fahrzeug richtig zu positionieren. Ausrüstung zählt, aber nicht annähernd so viel wie zur richtigen Zeit am richtigen Ort mit dem richtigen Wissen zu sein."
+  }
 ],
 
 'ruaha-national-park-guide': [
-  { type: 'p', text: 'Ruaha ist Tansanias größter Nationalpark mit 20.226 Quadratkilometern und einer der am wenigsten besuchten bedeutenden Wildtierstandorte in Ostafrika. Das liegt nicht daran, dass Ruaha zweitklassig wäre. Es liegt daran, dass Ruaha abgelegen ist, einen Flug von Daressalam oder Arusha erfordert und nur einen Bruchteil der Camping-Kapazität der Nordschleifen-Parks hat. Für diejenigen, die den Weg machen, liefert Ruaha konsequent das, was erfahrene Safarireisende als das beste Wildtiererlebnis Tansanias beschreiben – vielleicht sogar Afrikas.' },
-  { type: 'h2', text: 'Warum Ruaha außergewöhnlich ist' },
-  { type: 'p', text: 'Ruaha beherbergt geschätzte 10 % der verbleibenden Löwenpopulation der Welt: Tausende von Löwen, die in einem Park konzentriert sind, der relativ wenige Touristen empfängt. Die Löwenrudel hier sind groß, die Männchen sind imposant, und die Dichte der Raubtier-Beute-Interaktionen am Great Ruaha River ist mit allem in der Serengeti vergleichbar.' },
-  { type: 'h2', text: 'Ruahas Wildtiere' },
-  { type: 'ul', items: [
-    'Löwe: Außergewöhnliche Dichte; große Rudel mit mehreren erwachsenen Männchen; sehr zuverlässige Sichtungen',
-    'Afrikanischer Wildhund: Rudel von 10-30 Individuen; bester Park Tansanias für Wildhund-Begegnungen',
-    'Leopard: Felsiges Gelände und Uferwald schaffen exzellenten Lebensraum; mit geduldiger Suche zuverlässig',
-    'Gepard: Vorhanden, wenn auch weniger häufig als in offenen Graslandparks',
-    'Elefant: Große Bullen mit beeindruckenden Stoßzähnen; Herden konzentrieren sich in der Trockenzeit am Fluss',
-    'Büffel: Große Herden entlang des Great Ruaha River in der Trockenzeit',
-    'Großkudu und Kleinkudu: In Nordtansanias Parks selten',
-    'Rappenantilope: Eine der schönsten Antilopen Afrikas; in Ruaha zuverlässig',
-    'Krokodil und Nilpferd: Massive Konzentrationen in den Tümpeln des Great Ruaha River',
-  ]},
-  { type: 'tip', title: 'Beste Zeit für Ruaha', text: 'Die Trockenzeit von Juni bis Oktober ist die Hauptzeit für Ruaha, besonders von Juli bis Oktober, wenn der Great Ruaha River die Wildtiere aus dem gesamten Park konzentriert. Die Regenzeit (Dezember-April) sieht den Park in Üppig-Grün verwandelt; gut für Vögel und neugeborene Tiere, aber manche Wege werden unpassierbar.' },
-  { type: 'callout', text: 'Ruaha ist die Tansania-Safari, über die erfahrene Afrikareisende leise sprechen, wenn sie ein Geheimnis teilen möchten. Es ist schwieriger zu erreichen als die Serengeti, weniger berühmt und deutlich weniger überfüllt. Es belohnt den Aufwand mit Wildtierbegegnungen – Wildhundjagden im Morgengrauen, Löwenrudel auf Beute am Fluss, Elefantenbullen bei Sonnenuntergang – die genauso dramatisch sind wie alles, was die Nordschleife produziert, aber mit einem Bruchteil des Publikums.' },
+  {
+    "type": "p",
+    "text": "Ruaha ist mit 20.226 Quadratkilometern Tansanias größter Nationalpark – und eines der am wenigsten besuchten bedeutenden Wildtiergebiete Ostafrikas. Das liegt nicht daran, dass Ruaha zweitklassig wäre. Es liegt daran, dass Ruaha abgelegen ist, einen Flug von Daressalam oder Arusha erfordert und nur einen Bruchteil der Camp-Kapazität der Parks im Nordlichen Circuit besitzt. Für alle, die den Weg auf sich nehmen, bietet Ruaha durchweg das, was erfahrene Safarireisende als das beste Wildtiererlebnis Tansanias beschreiben – vielleicht sogar Afrikas."
+  },
+  {
+    "type": "h2",
+    "text": "Warum Ruaha außergewöhnlich ist"
+  },
+  {
+    "type": "p",
+    "text": "Ruaha beherbergt schätzungsweise 10 % der weltweit verbliebenen Löwenpopulation – Tausende von Löwen, konzentriert in einem Park, den verhältnismäßig wenige Touristen besuchen. Die Löwenrudel hier sind groß, die Männchen gewaltig, und die Dichte der Räuber-Beute-Interaktionen am Great Ruaha River kann es mit allem in der Serengeti aufnehmen. Doch Ruahas Löwen sind nicht im selben Maße habituiert wie die Populationen der Serengeti – sie sind wilder, weniger vorhersehbar und gerade deshalb umso packender zu erleben."
+  },
+  {
+    "type": "p",
+    "text": "Die Elefantenpopulation Ruahas ist beträchtlich und für ihre Stoßzahngröße bemerkenswert. Die sogenannten 'Ruaha-Bullen' – gewaltige alte Elefantenbullen mit massivem Elfenbein – sind unter Großwildkennern legendär, auch wenn ihre Zahl durch historische Wilderei zurückgegangen ist. Der Park beherbergt zudem eine der bedeutendsten Wildhundpopulationen Afrikas, und Ruaha gilt weithin als der beste Ort in Tansania – möglicherweise in ganz Afrika –, um Afrikanische Wildhunde zu sehen."
+  },
+  {
+    "type": "h2",
+    "text": "Tierwelt in Ruaha"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Löwe: außergewöhnliche Dichte; große Rudel mit mehreren erwachsenen Männchen; sehr verlässliche Sichtungen",
+      "Afrikanischer Wildhund: Rudel von 10–30 Tieren; bester Park Tansanias für Wildhundbegegnungen",
+      "Leopard: felsiges Gelände und Galeriewald bieten exzellenten Lebensraum; mit geduldiger Suche verlässlich",
+      "Gepard: vorhanden, wenn auch seltener als in Parks mit offenem Grasland",
+      "Elefant: große Bullen mit beeindruckenden Stoßzähnen; Herden versammeln sich in der Trockenzeit am Fluss",
+      "Büffel: große Herden entlang des Great Ruaha River in der Trockenzeit",
+      "Kudu: sowohl Groß- als auch Kleinkudu – in den nordtansanischen Parks ungewöhnlich",
+      "Rappenantilope: eine der schönsten Antilopen Afrikas; in Ruaha verlässlich anzutreffen",
+      "Pferdeantilope: eine weitere ungewöhnliche Art, die nördlich des Rift Valley selten zu sehen ist",
+      "Krokodil und Flusspferd: gewaltige Konzentrationen in den Wasserlöchern des Great Ruaha River"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Der Great Ruaha River"
+  },
+  {
+    "type": "p",
+    "text": "Der Great Ruaha River ist das ökologische Rückgrat des Parks. In der Trockenzeit (Juni–Oktober), wenn die umliegenden Wasserstellen versiegen, wird der Fluss zur einzigen Wasserquelle im Park, und jede Art des Ökosystems strömt an ihm zusammen. Morgenfahrten entlang des Flusses zeigen Flusspferdgruppen, gewaltige Krokodile, Elefantenfamilien, die im Morgengrauen trinken, und Löwen an Beutetieren nur wenige Meter vom Wasser entfernt. Die Konzentration des Lebens entlang des Flusses während der Trockenzeit kann es mit allem in der Serengeti aufnehmen."
+  },
+  {
+    "type": "p",
+    "text": "Walking Safaris entlang des Flusses – in Begleitung eines bewaffneten Rangers – zählen zu Ruahas Signaturerlebnissen. Zu Fuß, beim Verfolgen eines Wildhundrudels oder bei der Annäherung an ein Löwenrudel mit einem kundigen Ranger, gewinnen die Weite des Parks und die Wildheit der Tiere eine völlig andere Dimension. Ruahas Walking-Safari-Erlebnis gilt als eines der besten in Ostafrika – gerade weil die Tierwelt weniger habituiert und die Umgebung wirklich abgelegen ist."
+  },
+  {
+    "type": "h2",
+    "text": "Anreise nach Ruaha"
+  },
+  {
+    "type": "p",
+    "text": "Ruaha liegt im südlichen Circuit Tansanias, in beträchtlicher Entfernung von den Parks des Nordlichen Circuits. Ruaha und die Serengeti lassen sich in einer einzigen einwöchigen Reiseroute nicht sinnvoll kombinieren. Die meisten Ruaha-Besucher fliegen: Coastal Aviation, Auric Air und andere Buschfluggesellschaften bieten Linien- und Charterflüge von Daressalam und Arusha zur Msembe-Landebahn im Park an. Flüge von Daressalam dauern etwa 60 bis 75 Minuten. Von Arusha aus beinhaltet die Reise in der Regel eine Zwischenlandung in Daressalam oder einen Direktcharter."
+  },
+  {
+    "type": "tip",
+    "title": "Beste Reisezeit für Ruaha",
+    "text": "Die Trockenzeit von Juni bis Oktober ist die beste Zeit für Ruaha, besonders von Juli bis Oktober, wenn der Great Ruaha River die Tierwelt aus dem gesamten Park konzentriert. Die Regenzeit (Dezember–April) verwandelt den Park – üppig grün, gut für Vogelbeobachtung und Jungtiere –, doch manche Straßen werden unpassierbar, und weniger Camps sind geöffnet."
+  },
+  {
+    "type": "h2",
+    "text": "Ruaha mit Nyerere kombinieren"
+  },
+  {
+    "type": "p",
+    "text": "Ruaha lässt sich hervorragend mit dem Nyerere-Nationalpark (früher Selous Game Reserve) kombinieren – einer riesigen Wildnis im Süden Tansanias, die Bootssafaris auf dem Rufiji-Fluss bietet, ein Erlebnis, das im Nordlichen Circuit nirgends verfügbar ist. Eine Reiseroute im südlichen Circuit, die Ruaha (vier bis fünf Nächte, landgestützte Safari und Walking Safaris) mit Nyerere (zwei bis drei Nächte, Bootssafari und Fly Camping) kombiniert, zählt zu den vollständigsten und lohnendsten verfügbaren Tansania-Reiserouten."
+  },
+  {
+    "type": "callout",
+    "text": "Ruaha ist die Tansania-Safari, von der erfahrene Afrikareisende flüstern, wenn sie ein Geheimnis teilen wollen. Sie ist schwerer zu erreichen als die Serengeti, weniger berühmt und deutlich weniger überlaufen. Sie belohnt die Mühe mit Wildtierbegegnungen – Wildhundjagden im Morgengrauen, Löwenrudel an ihrer Beute am Fluss, Elefantenbullen bei Sonnenuntergang –, die es an Dramatik mit allem aufnehmen können, was der Nordliche Circuit bietet, bei einem Bruchteil des Publikums."
+  }
 ],
 
 'tanzania-vs-south-africa-safari': [
-  { type: 'p', text: 'Tansania und Südafrika sind die zwei meistbesuchten Safariziele Afrikas, und sie sind anders als die meisten Erstbesucher erwarten. Sie teilen Arten und das Safari-Konzept, bieten aber grundlegend unterschiedliche Erlebnisse in Bezug auf Landschaft, Wildtiere, Infrastruktur, Kultur und das Gefühl, in der Wildnis zu sein.' },
-  { type: 'h2', text: 'Wildtiere: Der fundamentale Vergleich' },
-  { type: 'p', text: 'Das Südafrika-Argument für Wildtiere ruht auf Zugang und Management. Der Kruger-Nationalpark bietet ausgezeichnete Big-Five-Sichtungen, eine extrem gut gewartete Straßeninfrastruktur und ein Netzwerk privater Wildreservate (Sabi Sand, Timbavati, Thornybush), die an den Kruger grenzen, wo Leoparden so vollständig habituiert wurden, dass enge, verlängerte Begegnungen fast zur Routine geworden sind.' },
-  { type: 'h2', text: 'Wichtige Unterschiede auf einen Blick' },
-  { type: 'table', headers: ['Faktor', 'Tansania', 'Südafrika'], rows: [
-    ['Große Migration', 'Ja, exklusiv', 'Nein'],
-    ['Malariarisiko', 'Mäßig bis hoch in Safarigebieten', 'Malariafreie Optionen verfügbar'],
-    ['Geländefahrten', 'Nur Privatkonzessionen', 'Standard in privaten Reservaten'],
-    ['Nachtausflüge', 'Nur Privatgebiete', 'Standard in privaten Reservaten'],
-    ['Infrastruktur', 'Einfach bis luxuriös; holprige Straßen', 'Ausgezeichnet; einfache Logistik'],
-    ['Leoparden-Sichtungen', 'Gut, aber scheue Tiere', 'Ausgezeichnet im Sabi Sand'],
-    ['Wildhund', 'Ausgezeichnet (Ruaha, Nyerere)', 'Gut (Kruger und Reservate)'],
-    ['Stranderweiterung', 'Sansibar (ausgezeichnet)', 'Garden Route, Kapstadt'],
-    ['Erster Safari-Kosten', 'Etwas höher insgesamt', 'Mittelklasse sehr wettbewerbsfähig'],
-    ['Ökosystemgröße', 'Riesig, wild, eingezäunt', 'Eingezäunte Reservate; kleinerer Maßstab'],
-  ]},
-  { type: 'tip', title: 'Die Zwei-Länder-Lösung', text: 'Viele Stammreisende nach Afrika kombinieren beide Länder: Tansania für die Migration und Sansibars Strand, Südafrika für Sabi Sands Nachtausflüge, Kapstadt und die Garden Route. Zwei Wochen in beiden Ländern erfasst das Beste der afrikanischen Wildtiere und bietet zwei völlig unterschiedliche kulturelle und landschaftliche Erlebnisse.' },
-  { type: 'callout', text: 'Tansania ist die afrikanische Wildnis so, wie sie erlebt werden sollte: riesig, unvorhersehbar und demütigend in ihrer Größenordnung. Südafrika ist Wildtiertourismus, der zu einer Wissenschaft verfeinert wurde: konsistent, zugänglich und zu einem hohen Standard poliert. Keines ist ein Kompromiss. Beide verdienen es, zu verschiedenen Zeiten Ihres Safarilebens auf Ihrer Reiseroute zu stehen.' },
+  {
+    "type": "p",
+    "text": "Tansania und Südafrika sind Afrikas zwei meistbesuchte Safariziele – und sie unterscheiden sich stärker voneinander, als die meisten Erstbesucher erwarten. Sie teilen sich Tierarten und das Konzept der Safari, liefern aber grundlegend unterschiedliche Erlebnisse in Bezug auf Landschaft, Tierwelt, Infrastruktur, Kultur und das Gefühl, im Busch zu sein. Die Wahl zwischen beiden ist eine der häufigsten Fragen bei der Afrika-Reiseplanung, und die ehrliche Antwort erfordert einen Blick hinter die Hochglanzversprechen beider Länder."
+  },
+  {
+    "type": "h2",
+    "text": "Tierwelt: Der Kernvergleich"
+  },
+  {
+    "type": "p",
+    "text": "Tansanias Argument in Sachen Tierwelt beruht auf drei Dingen: der Großen Migration, dem Ausmaß und der Intaktheit des Ökosystems. Das Serengeti-Mara-Ökosystem ist das größte noch intakte migratorische Wildtiersystem der Erde, und kein anderes afrikanisches Land hat etwas Vergleichbares vorzuweisen. Die jährliche Wanderung von 1,5 Millionen Gnus und 500.000 Zebras ist ein Schauspiel, das Tansania uneingeschränkt für sich beanspruchen kann. Über die Migration hinaus ist die schiere Dichte und Vielfalt der Tierwelt in Tansanias verschiedenen Ökosystemen – von den Geparden der Serengeti über die Wildhunde Ruahas bis zu den Schimpansen von Mahale – unerreicht."
+  },
+  {
+    "type": "p",
+    "text": "Südafrikas Argument in Sachen Tierwelt beruht auf Zugänglichkeit und Management. Der Kruger-Nationalpark bietet außergewöhnliche Big-Five-Sichtungen, eine äußerst gut gepflegte Straßeninfrastruktur und ein Netzwerk privater Wildreservate (Sabi Sand, Timbavati, Thornybush) angrenzend an Kruger, in denen Leoparden über Jahrzehnte so gründlich habituiert wurden, dass nahe, ausgedehnte Begegnungen fast schon Routine sind. Südafrika hat zudem die höchste Dichte privater Wildreservate Afrikas – malariafreie Optionen wie Madikwe, Waterberg und die Reservate der Cape Winelands machen es für Familien mit kleinen Kindern und für Reisende, die sich um das Malariarisiko sorgen, zugänglich."
+  },
+  {
+    "type": "h2",
+    "text": "Das Safarierlebnis: Wie sie sich unterschiedlich anfühlen"
+  },
+  {
+    "type": "p",
+    "text": "Eine Safari in Tansania fühlt sich an wie das wilde Afrika. Die Parks sind riesig, die Straßen holprig, die Camps abgelegen, und die Tierwelt ist wirklich wild und unberechenbar. Pirschfahrten legen oft Hunderte von Kilometern durch unumzäunte Wildnis zurück. Zwischen Arusha und der Serengeti gibt es keine Ampeln, keine Supermärkte innerhalb eines Tagesausflugs von Ihrem Camp, und der Nachthimmel ist – aufgrund der Abwesenheit von Lichtverschmutzung – außergewöhnlich. Diese Wildheit ist der Kern dessen, was Tansania bietet."
+  },
+  {
+    "type": "p",
+    "text": "Eine Safari in Südafrika – besonders in den privaten Reservaten – wirkt geschliffener. Nachtfahrten sind Standard, Geländefahrten abseits der Piste sind Routine, und die Guides in Sabi Sand gehören zu den kenntnisreichsten Afrikas, gerade weil sie ihre gesamte Karriere damit verbringen, dieselben Individuen in einem verhältnismäßig kleinen Reservat zu verfolgen. Die Infrastruktur ist Weltklasse. Sie können mit einem Codeshare-Flug nach Johannesburg fliegen, drei Stunden zum Reservat fahren und noch am selben Abend auf Pirschfahrt gehen. Die Logistik ist auf eine Weise einfach, die Tansania sorgfältige Planung abverlangt."
+  },
+  {
+    "type": "h2",
+    "text": "Wichtige Unterschiede auf einen Blick"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Faktor",
+      "Tansania",
+      "Südafrika"
+    ],
+    "rows": [
+      [
+        "Große Migration",
+        "Ja – exklusiv",
+        "Nein"
+      ],
+      [
+        "Malariarisiko",
+        "Mäßig bis hoch in Safarigebieten",
+        "Malariafreie Optionen verfügbar"
+      ],
+      [
+        "Geländefahrten abseits der Piste",
+        "Nur in privaten Konzessionen",
+        "Standard in privaten Reservaten"
+      ],
+      [
+        "Nachtfahrten",
+        "Nur in privaten Gebieten",
+        "Standard in privaten Reservaten"
+      ],
+      [
+        "Infrastruktur",
+        "Einfach bis luxuriös; holprige Straßen",
+        "Ausgezeichnet; einfache Logistik"
+      ],
+      [
+        "Leopardensichtungen",
+        "Gut, aber scheue Tiere",
+        "Hervorragend in Sabi Sand"
+      ],
+      [
+        "Wildhund",
+        "Exzellent (Ruaha, Nyerere)",
+        "Gut (Kruger und Reservate)"
+      ],
+      [
+        "Strandkombination",
+        "Sansibar (herausragend)",
+        "Garden Route, Kapstadt"
+      ],
+      [
+        "Kosten der ersten Safari",
+        "Insgesamt etwas höher",
+        "Mittelklasse ist sehr wettbewerbsfähig"
+      ],
+      [
+        "Ökosystemgröße",
+        "Riesig, wild, unumzäunt",
+        "Umzäunte Reservate; kleinerer Maßstab"
+      ]
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Was ist besser für die erste Safari?"
+  },
+  {
+    "type": "p",
+    "text": "Für einen Afrika-Erstbesucher, der zwischen Tansania und Südafrika wählt, läuft die Entscheidung oft auf zwei Faktoren hinaus: Möchten Sie die Große Migration sehen? Und wie wichtig ist Ihnen malariafreies Reisen? Wenn die Migration auf Ihrer Liste steht – und das sollte sie – ist Tansania die einzige Antwort. Wenn Sie mit kleinen Kindern reisen und malariafreie Optionen mit exzellenten Big-Five-Sichtungen suchen, ist Südafrikas Madikwe-Reservat oder Waterberg eine ausgezeichnete erste Safari, logistisch einfacher und medizinisch risikoärmer."
+  },
+  {
+    "type": "p",
+    "text": "Tansania belohnt Besucher, die ein wilderes, abgelegeneres und authentischeres Afrika-Erlebnis suchen. Südafrika belohnt Besucher, die die konsistenteste, am leichtesten zu organisierende und infrastrukturell bestunterstützte Safari wollen. Beide sind außergewöhnliche Reiseziele – die Wahl ist wirklich eine Frage von Persönlichkeit und Prioritäten, nicht von Qualität."
+  },
+  {
+    "type": "tip",
+    "title": "Die Zwei-Länder-Lösung",
+    "text": "Viele Afrika-Stammgäste kombinieren beide Länder: Tansania für die Migration und den Strand Sansibars, Südafrika für Nachtfahrten in Sabi Sand, Kapstadt und die Garden Route. Zwei Wochen in beiden Ländern erfassen das Beste der afrikanischen Tierwelt und liefern zwei völlig unterschiedliche kulturelle und landschaftliche Erlebnisse."
+  },
+  {
+    "type": "callout",
+    "text": "Tansania ist das wilde Afrika, so wie es erlebt werden sollte – weitläufig, unberechenbar und in seiner Größe demütigend. Südafrika ist Wildtiertourismus, zu einer Wissenschaft verfeinert – konsistent, zugänglich und auf hohem Niveau geschliffen. Keines von beiden ist ein Kompromiss. Beide verdienen einen Platz auf Ihrer Afrika-Reiseroute, zu unterschiedlichen Zeitpunkten Ihres Safarilebens."
+  }
 ],
 
 'mountain-biking-arusha': [
-  { type: 'p', text: 'Der Arusha-Nationalpark ist Tansanias am meisten unterschätztes Abenteuer-Ziel. Während die meisten Besucher ihn auf dem Weg zu den Parks der Nordschleife in wenigen Stunden durchqueren, verbirgt der Park etwas, das nur wenige Safari-Reiserouten jemals einbeziehen: Ein ausgezeichnetes Mountainbike-Wegenetz durch Bergwald, offenes Moorland und den Rand des Ngurdoto-Kraters, eines der schönsten, aber am wenigsten bekannten geologischen Merkmale Tansanias.' },
-  { type: 'h2', text: 'Was auf den Trails zu erwarten ist' },
-  { type: 'p', text: 'Die Radwege im Arusha-Nationalpark reichen von weichen Forststraßen bis zu technischeren Singletracks durch die Bergzone. Anfänger- und Fortgeschrittenfahrer werden gut bedient durch die Hauptforstschleife, die sich durch hohe Podocarpus-Bäume, Bambusrohre und offene Lichtungen windet, wo Colobus-Affen praktisch garantiert sind. Selbstbewusstere Fahrer können höher zum Ngurdoto-Kraterrand oder auf der Momela-Seen-Schleife fahren, wo Flamingos und Wasservögel die alkalischen Gewässer füllen.' },
-  { type: 'image', src: '/images/gallery/IMG-20260610-WA0079.webp', alt: 'Cyclists on a forest trail in Arusha National Park with tall trees overhead', caption: 'The montane forest trails offer shade, wildlife, and dramatic scenery in every direction.' },
-  { type: 'h2', text: 'Logistik und praktische Informationen' },
-  { type: 'ul', items: [
-    'Mountainbikes und Helme werden von lokalen Betreibern bereitgestellt; bringen Sie eigene Handschuhe und gepolsterte Radhosen wenn möglich',
-    'Alle Ausflüge erfordern Begleitung durch einen bewaffneten Ranger: Standard in allen tansanischen Nationalparks für Fuß- oder Radaktivitäten',
-    'Halbtages- und Ganztages-Schleifen verfügbar; die Ganztages-Ngurdoto-Rand-Schleife ist die lohnendste',
-    'Beste Monate: Juni-Oktober (Trockenzeit) für die klarsten Trails und beste Wildtierbeobachtung; März-Mai-Trails können sehr matschig sein',
-    'Mindestfitness: Vernünftiges Basis-Radfahrniveau; die Forstschleife ist für Nicht-Spezialisten geeignet',
-    'Höhenhinweis: Der Park erreicht 2.500 m am Meru-Krater: Bei Anreise aus dem Tiefland kann etwas Kurzatmigkeit auftreten',
-  ]},
-  { type: 'tip', title: 'Bei lokalem Betreiber buchen', text: 'Mehrere in Arusha ansässige Abenteuerbetreiber bieten geführte Mountainbike-Touren im Park an. Sie kümmern sich um TANAPA-Genehmigungen, stellen die Ranger-Eskorte bereit und liefern die Fahrräder. Buchen Sie mindestens 24 Stunden im Voraus.' },
-  { type: 'callout', text: 'Mountainbiken im Arusha-Nationalpark ist eines jener Erlebnisse, die Reisende zufällig entdecken und jahrelang in Erinnerung behalten. Wenn Sie auch nur einen halben Tag in Arusha vor oder nach Ihrer Safari haben, tauschen Sie einen Fahrzeugausflug gegen eine Radtour durch den Wald: Sie begegnen denselben Wildtieren auf eine völlig andere Weise.' },
+  {
+    "type": "p",
+    "text": "Der Arusha-Nationalpark ist Tansanias am meisten unterschätztes Abenteuerziel. Während die meisten Besucher ihn auf dem Weg zu den Parks des Nordlichen Circuits in wenigen Stunden durchqueren, verbirgt der Park etwas, das kaum eine Safarireiseroute je einschließt: ein ausgezeichnetes Netz von Mountainbike-Trails durch Bergwald, offenes Hochmoor und entlang des Randes des Ngurdoto-Kraters – eines der landschaftlich reizvollsten, aber am meisten übersehenen geologischen Merkmale Tansanias."
+  },
+  {
+    "type": "h2",
+    "text": "Warum im Arusha-Nationalpark Mountainbiken?"
+  },
+  {
+    "type": "p",
+    "text": "Der Arusha-Nationalpark liegt am Fuß des Mount Meru – Tansanias zweithöchstem Berg – und steigt durch eine dramatische Abfolge von Lebensräumen an: Akazien-Savanne im Tiefland, Cussonia-Waldland, Podocarpus-Wald und das alpine Hochmoor an Merus oberen Hängen. Die Vielfalt des Geländes innerhalb eines einzigen Parks macht ihn zu einer der besten Mountainbike-Umgebungen Ostafrikas, und die Kombination aus Wildtierbegegnungen und körperlicher Herausforderung auf zwei Rädern lässt sich anderswo auf dem Kontinent kaum wiederholen."
+  },
+  {
+    "type": "p",
+    "text": "Anders als bei Pirschfahrten können Sie sich beim Mountainbiken im Park in einem anderen Tempo durch die Landschaft bewegen – schnell genug, um Strecke zu machen, langsam genug, um die Rufe der Stummelaffen über sich zu hören, frische Elefantenspuren auf dem Weg zu bemerken oder an einem Aussichtspunkt über den Momella-See zu halten, ohne den Lärm und die Enge eines Fahrzeugs. Es ist ein grundlegend intimeres Erlebnis des Buschs."
+  },
+  {
+    "type": "h2",
+    "text": "Was Sie auf den Trails erwartet"
+  },
+  {
+    "type": "p",
+    "text": "Die Bike-Trails im Arusha-Nationalpark reichen von sanften Waldwegen bis zu anspruchsvolleren Singletrails durch die Bergzone. Anfänger und fortgeschrittene Fahrer sind auf dem Hauptwaldrundweg gut aufgehoben, der sich durch hochragende Podocarpus-Bäume, Bambushaine und offene Lichtungen windet, in denen Schwarz-Weiß-Stummelaffen fast garantiert zu sehen sind. Erfahrenere Fahrer können höher hinauf zum Rand des Ngurdoto-Kraters vordringen oder die Runde um die Momella-Seen fahren, wo Flamingos und Wasservögel die alkalischen Gewässer bevölkern."
+  },
+  {
+    "type": "p",
+    "text": "Wildtierbegegnungen sind auf jedem Trail an der Tagesordnung. Giraffen stehen im offenen Waldland, scheinbar unbeeindruckt von Radfahrern. Büffel grasen im Kraterbecken unten. Warzenschweinfamilien huschen über den Weg. Der Park beherbergt zudem eine gesunde Leopardenpopulation – selten gesehen, aber gelegentlich von erfahrenen Guides entdeckt, die wissen, wo man suchen und welche Spuren man lesen muss."
+  },
+  {
+    "type": "image",
+    "src": "/images/gallery/IMG-20260610-WA0079.webp",
+    "alt": "Radfahrer auf einem Waldpfad im Arusha-Nationalpark mit hohen Bäumen über ihnen",
+    "caption": "Die Bergwald-Trails bieten Schatten, Tierwelt und eine eindrucksvolle Kulisse in jede Richtung."
+  },
+  {
+    "type": "h2",
+    "text": "Logistik und praktische Hinweise"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Mountainbikes und Helme werden von lokalen Anbietern gestellt; bringen Sie nach Möglichkeit eigene Handschuhe und eine gepolsterte Radhose mit",
+      "Alle Touren erfordern eine bewaffnete Ranger-Begleitung – Standard in allen tansanischen Nationalparks für Aktivitäten zu Fuß oder mit dem Rad",
+      "Halbtages- und Ganztagestouren sind verfügbar; die Ganztagestour rund um den Ngurdoto-Kraterrand ist die lohnendste",
+      "Beste Monate: Juni–Oktober (Trockenzeit) für die besten Trails und die beste Tierbeobachtung; von März bis Mai können die Trails sehr matschig sein",
+      "Mindestfitness: eine angemessene Grundfitness zum Radfahren; der Waldrundweg ist auch für Nicht-Spezialisten geeignet",
+      "Höhenhinweis: Der Park erreicht am Meru-Krater 2.500 m Höhe – bei Anreise aus niedrigerer Höhenlage kann leichte Atemnot auftreten"
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Biken mit einer Safari kombinieren"
+  },
+  {
+    "type": "p",
+    "text": "Mountainbiken im Arusha-Nationalpark eignet sich hervorragend als Tagesausflug von der Stadt Arusha aus, vor oder nach Ihrer eigentlichen Safari im Nordlichen Circuit. Es lässt sich auch mit einer morgendlichen Pirschfahrt im Park kombinieren – morgens durch den Wald biken, dann am Nachmittag den Abschnitt der Momella-Seen befahren. Der Park ist klein genug, dass beide Aktivitäten bequem an einem einzigen Tag Platz finden. Alternativ lässt sich das Biken mit einer Wanderung auf dem Mount Meru zu zwei vollen Tagen aktiven Abenteuers vor Beginn Ihrer Safari kombinieren."
+  },
+  {
+    "type": "tip",
+    "title": "Einen lokalen Anbieter buchen",
+    "text": "Mehrere in Arusha ansässige Abenteueranbieter bieten geführte Mountainbike-Touren im Park an. Sie übernehmen die TANAPA-Genehmigungen, stellen die Ranger-Begleitung und liefern die Fahrräder. Buchen Sie mindestens 24 Stunden im Voraus – die Genehmigungen werden am Tor ausgestellt, und manche Touren erfordern einen frühen Start, um der Hitze zuvorzukommen."
+  },
+  {
+    "type": "callout",
+    "text": "Mountainbiken im Arusha-Nationalpark ist eines jener Erlebnisse, die Reisende eher zufällig entdecken und dann jahrelang in Erinnerung behalten. Wenn Sie vor oder nach Ihrer Safari auch nur einen halben Tag in Arusha haben, tauschen Sie eine Pirschfahrt gegen eine Fahrradtour durch den Wald ein – Sie werden dieselbe Tierwelt begegnen, nur auf völlig andere Weise."
+  }
 ],
 
 'zanzibar-experience': [
-  { type: 'p', text: 'Sansibar ist ein Name mit Gewicht. Es war eine Gewürzinsel, ein Zentrum des Sklavenhandels, ein arabisches Sultanat, ein britisches Protektorat und einer der charakteristischsten kulturellen Schmelztiegel des Indischen Ozeans. Die meisten Besucher kennen es heute als Strandziel – und die Strände sind außergewöhnlich – aber Sansibar auf weißen Sand und türkisfarbenes Wasser zu reduzieren, ist so, als würde man Istanbul wegen seines Klimas besuchen.' },
-  { type: 'h2', text: 'Stone Town: Das Herz Sansibars' },
-  { type: 'p', text: 'Stone Town ist das Altstadtviertel von Sansibar-Stadt, UNESCO-Weltkulturerbe und eine der architektonisch und kulturell dichtesten städtischen Umgebungen in Ostafrika. Die Stadt wuchs aus einer arabischen Handelssiedlung im 19. Jahrhundert heraus, als Sansibar das Zentrum des Gewürz- und Sklavenhandels des Indischen Ozeans war.' },
-  { type: 'image', src: '/images/gallery/stone-town.webp', alt: 'Historic carved wooden door in Stone Town Zanzibar', caption: "Stone Town's famous carved doors are a physical record of the island's layered cultural history." },
-  { type: 'h2', text: 'Die Gewürzfarm-Erfahrung' },
-  { type: 'p', text: 'Sansibar verdiente seinen historischen Namen als Gewürzinsel durch arabische Händler eingeführte Nelkenplantagen im frühen 19. Jahrhundert. Eine Halbtagestour zu einer Gewürzfarm von Stone Town aus nimmt Sie durch aktive Farmen, wo Führer Sie an lebenden Pflanzen entlangführen und erklären, was Sie sehen: den Nelkenbaum, die Vanille-Orchidee, den Zimtbaum, die schwarze Pfefferschlingpflanze.' },
-  { type: 'h2', text: 'Gefängnisinsel und Riesenschildkröten' },
-  { type: 'p', text: 'Einen kurzen Bootsausflug von Stone Town entfernt wurde Gefängnisinsel (Changuu Island) von den Briten 1893 als Quarantäneeinrichtung gebaut. Heute ist sie berühmt für ihre Kolonie von Aldabra-Riesenschildkröten, die 1919 von den Seychellen auf die Insel gebracht wurden. Einige dieser Individuen sind über 100 Jahre alt: riesige, langsam bewegende Geschöpfe, die es Besuchern ermöglichen, sich ihnen zu nähern und sie von Hand zu füttern.' },
-  { type: 'image', src: '/images/gallery/Prison-island1.webp', alt: 'Giant Aldabra tortoise at Prison Island Zanzibar', caption: 'Some of the Prison Island tortoises are over 100 years old — and completely unfazed by visitors.' },
-  { type: 'h2', text: 'Jozani-Wald und der Rote Sansibar-Colobus' },
-  { type: 'p', text: 'Der Jozani-Chwaka-Bay-Nationalpark schützt einen Restbestand von Grundwasserwald im Inselinneren und die letzte bedeutende Population des Roten Sansibar-Colobus, eines der seltensten Primaten der Welt. Diese kupfer-schwarz gefärbten Affen sind endemisch für Sansibar und finden sich nirgendwo sonst auf der Erde. Habituierte Gruppen bewegen sich durch das Kronendach direkt über dem erhöhten Boardwalk.' },
-  { type: 'image', src: '/images/gallery/Jozani-forest.webp', alt: 'Zanzibar red colobus monkey in Jozani Forest with lush green backdrop', caption: 'The Zanzibar red colobus is found only on this island — and Jozani Forest is the best place to see them.' },
-  { type: 'h2', text: 'Die Strände' },
-  { type: 'ul', items: [
-    'Beste Strände zum Schwimmen: Nungwi und Kendwa (Nordküste)',
-    'Beste für Kitesurfen: Paje und Jambiani (Südostküste)',
-    'Beste für Schnorcheln: Mnemba-Atoll (Nordosten)',
-    'Beste für Geschichte: Kizimkazi (Süden): Delfinschwimmen und alte Moschee',
-    'Am entwickeltsten mit mehr Restaurants: Nungwi',
-  ]},
-  { type: 'callout', text: 'Strände und Kultur zusammen – nicht getrennt – machen Sansibar außergewöhnlich. Ein Tag in Stone Town gefolgt von drei Tagen am Strand gibt Ihnen zwei völlig verschiedene Sansibars. Beide sind es wert.' },
+  {
+    "type": "p",
+    "text": "Sansibar ist ein Name mit Gewicht. Die Insel war Gewürzinsel, Zentrum des Sklavenhandels, arabisches Sultanat, britisches Protektorat und einer der eigenwilligsten kulturellen Schmelztiegel des Indischen Ozeans. Heute kennen die meisten Besucher sie als Strandziel – und die Strände sind tatsächlich außergewöhnlich –, doch Sansibar auf weißen Sand und türkisfarbenes Wasser zu reduzieren, ist, als würde man Istanbul wegen des Wetters besuchen. Hier gibt es weit mehr zu erleben, als die Resorts allein verraten."
+  },
+  {
+    "type": "h2",
+    "text": "Stone Town: Das Herz Sansibars"
+  },
+  {
+    "type": "p",
+    "text": "Stone Town ist das Altstadtviertel von Sansibar-Stadt – ein UNESCO-Weltkulturerbe und eine der architektonisch und kulturell dichtesten urbanen Umgebungen Ostafrikas. Die Stadt entstand im neunzehnten Jahrhundert aus einer arabischen Handelssiedlung, als Sansibar das zentrale Drehkreuz des Gewürz- und Sklavenhandels im Indischen Ozean war. Der Sultan von Oman verlegte 1840 seinen Hof hierher, und die Architektur, die daraus folgte – persische Hofhäuser, arabische Stadthäuser mit vorkragenden Balkonen, Kaufmannshäuser aus Korallenstein –, prägt das Stadtbild bis heute."
+  },
+  {
+    "type": "p",
+    "text": "Stone Town ohne Karte zu durchstreifen, ist der richtige Ansatz. Die engen Gassen, zu schmal für Fahrzeuge, öffnen sich unversehens zu Gewürzmärkten, Hofcafés, Moscheeminaretten und gelegentlich den Ruinen einer ehemaligen Sklavenauktionsstätte. Jede geschnitzte Holztür, an der Sie vorbeikommen, erzählt eine Geschichte: Je größer und aufwendiger die Tür, desto wohlhabender und gesellschaftlich einflussreicher die Familie, die sie in Auftrag gab. Türen mit nach außen gerichteten Messingspitzen sind eine sansibarische Anpassung einer indischen Tradition, ursprünglich gedacht, um Kriegselefanten am Rammen der Tür zu hindern – hier zum reinen Statussymbol geworden."
+  },
+  {
+    "type": "image",
+    "src": "/images/gallery/stone-town.webp",
+    "alt": "Historische geschnitzte Holztür in Stone Town, Sansibar",
+    "caption": "Die berühmten geschnitzten Türen Stone Towns sind ein physisches Zeugnis der vielschichtigen Kulturgeschichte der Insel."
+  },
+  {
+    "type": "h2",
+    "text": "Die Gewürzfarm-Erfahrung"
+  },
+  {
+    "type": "p",
+    "text": "Sansibar verdankt seinen historischen Namen als Gewürzinsel den Nelkenplantagen, die arabische Händler zu Beginn des neunzehnten Jahrhunderts einführten. Auf dem Höhepunkt lieferte Sansibar den Großteil der Nelken weltweit. Heute bedecken die Plantagen Teile des Inselinneren, und eine Gewürzfarm-Tour – obwohl eine vielbegangene touristische Aktivität – bleibt eines der sinnlichsten Erlebnisse, die die Insel zu bieten hat."
+  },
+  {
+    "type": "p",
+    "text": "Eine gute Gewürztour führt Sie durch eine aktive Farm, wo ein Guide Sie zu lebenden Pflanzen bringt und erklärt, was Sie sehen: die dunkelgrünen Blätter des Nelkenbaums mit kleinen Blütenknospen, die zur bekannten getrockneten Nelke reifen; die Vanilleorchidee, die an einer Stützstange emporrankt; den Zimtbaum, dessen Rinde sich in duftenden Streifen abschält; die Schwarzpfefferranke, die sich durchs Blätterdach windet. Alles, was Sie hier riechen und schmecken, ist unmittelbar mit einer jahrhundertealten globalen Handelsgeschichte verbunden."
+  },
+  {
+    "type": "h2",
+    "text": "Prison Island und die Riesenschildkröten"
+  },
+  {
+    "type": "p",
+    "text": "Eine kurze Bootsfahrt von Stone Town entfernt wurde Prison Island (Changuu Island) 1893 von den Briten als Quarantänestation errichtet und später als Haftanstalt genutzt. Heute ist die Insel berühmt für ihre Kolonie von Aldabra-Riesenschildkröten, die der Insel 1919 von den Seychellen geschenkt wurden. Manche dieser Tiere sind über 100 Jahre alt – massive, langsame Geschöpfe, die es Besuchern erlauben, sich ihnen zu nähern, sie mit Gras zu füttern und für Fotos zu posieren, wie es an einem weniger streng verwalteten Ort unmöglich wäre."
+  },
+  {
+    "type": "image",
+    "src": "/images/gallery/Prison-island1.webp",
+    "alt": "Aldabra-Riesenschildkröte auf Prison Island, Sansibar",
+    "caption": "Manche der Schildkröten auf Prison Island sind über 100 Jahre alt – und völlig unbeeindruckt von Besuchern."
+  },
+  {
+    "type": "h2",
+    "text": "Der Jozani-Wald und der Rote Stummelaffe"
+  },
+  {
+    "type": "p",
+    "text": "Der Jozani-Chwaka-Bay-Nationalpark schützt ein verbliebenes Stück Grundwasserwald im Inselinneren – und die letzte bedeutende Population des Sansibar-Roten-Stummelaffen, einer der seltensten Primatenarten der Welt. Diese kupfer-schwarzen Affen sind endemisch auf Sansibar und kommen nirgendwo sonst auf der Erde vor. Habituierte Gruppen bewegen sich direkt über dem erhöhten Holzsteg durch das Blätterdach und bieten ohne jeden Aufwand hervorragende, nahe Sichtungen."
+  },
+  {
+    "type": "image",
+    "src": "/images/gallery/Jozani-forest.webp",
+    "alt": "Sansibar-Roter Stummelaffe im Jozani-Wald vor üppig grünem Hintergrund",
+    "caption": "Der Sansibar-Rote Stummelaffe kommt nur auf dieser Insel vor – und der Jozani-Wald ist der beste Ort, um ihn zu sehen."
+  },
+  {
+    "type": "h2",
+    "text": "Die Strände"
+  },
+  {
+    "type": "p",
+    "text": "Nach all der Kultur und Geschichte halten die Strände Sansibars, was sie versprechen. Das Wasser des Indischen Ozeans ist ganzjährig warm, der Sand feiner weißer Korallensand, und die Riffsysteme – besonders rund um das Mnemba-Atoll im Nordosten und den Chumbe Island Coral Park im Südwesten – bieten einige der zugänglichsten Schnorchelgebiete Afrikas. Nungwi im Norden und das direkt südlich davon gelegene Kendwa haben bei jedem Gezeitenstand das beste Schwimmen (die meisten Strände der Ostküste werden bei Ebbe sehr flach). Paje an der Südostküste ist die Kitesurf-Hauptstadt des Indischen Ozeans."
+  },
+  {
+    "type": "ul",
+    "items": [
+      "Beste Strände zum Schwimmen: Nungwi und Kendwa (Nordküste)",
+      "Am besten zum Kitesurfen: Paje und Jambiani (Südostküste)",
+      "Am besten zum Schnorcheln: Mnemba-Atoll (Nordosten)",
+      "Am besten für Geschichte: Kizimkazi (Süden) – Delfinschwimmen und antike Moschee",
+      "Am stärksten erschlossen mit den meisten Restaurants: Nungwi"
+    ]
+  },
+  {
+    "type": "callout",
+    "text": "Die Strände und die Kultur zusammen – nicht getrennt voneinander – machen Sansibar außergewöhnlich. Ein Tag in Stone Town, gefolgt von drei Tagen am Strand, verschafft Ihnen zwei völlig unterschiedliche Sansibars. Beide sind es wert, erlebt zu werden."
+  }
 ],
 
 'the-maasai-tribe': [
-  { type: 'p', text: 'Die Massai sind eines der am meisten fotografierten, am meisten beschriebenen und bekanntesten indigenen Völker der Welt, und doch verlassen die meisten Safarigäste Tansania, ohne viel mehr über sie zu wissen als das rote Tuch und die Sprünge. Dies liegt teilweise an dem komprimierten Boma-Besuch, den die meisten Reiserouten beinhalten: ein 45-minütiger Halt in einer Gemeinschaftssiedlung, eine Sprungdemonstration, eine Feuermachervorführung und ein Blick auf den Handwerksmarkt.' },
-  { type: 'h2', text: 'Wer sind die Massai?' },
-  { type: 'p', text: 'Die Massai sind ein nilotisches Volk, das etwa im 15. Jahrhundert aus der Niltal-Region nach Süden wanderte und sich schließlich in dem heutigen Südkenia und Nordtansania niederließ. Im Höhepunkt im 19. Jahrhundert erstreckte sich das Massai-Territorium von dem heutigen Zentralkenia bis zur tansanischen Großen Rifttal-Einschärzung.' },
-  { type: 'h2', text: 'Das Altersklassensystem' },
-  { type: 'p', text: 'Die Massai-Gesellschaft ist um ein Altersklassensystem organisiert: Kohorten von Männern, die gemeinsam durch definierte Lebensphasen gehen. Jungen derselben Altersgruppe werden gemeinsam beschnitten, treten gemeinsam in die Kriegerklasse (Moran) ein, ziehen sich gemeinsam aus der Kriegerkraft zurück und rücken gemeinsam in den Ältestenstatus vor.' },
-  { type: 'h2', text: 'Koexistenz mit Wildtieren' },
-  { type: 'p', text: 'Der bemerkenswerteste Aspekt der Massai-Kultur aus einer Naturschutzperspektive ist die Tradition der Koexistenz mit Wildtieren in einem Ausmaß, das weltweit kaum Parallelen hat. Massai-Gemeinschaften haben historisch zugelassen, dass Wildtiere durch ihre Weidegründe ziehen, ohne systematische Verfolgung. Diese Toleranz auf Landschaftsebene war grundlegend für das Überleben der großen Wildtierpopulationen Ostafrikas.' },
-  { type: 'h2', text: 'Wie ein Boma-Besuch wirklich aussieht' },
-  { type: 'p', text: 'Ein Boma ist eine Massai-Siedlung: eine kreisförmige Anordnung kleiner lehmverputzter Häuser um einen zentralen Viehpferch, geschützt durch einen Dornenzaun. Der in den meisten Tansania-Safarireiserouten enthaltene Boma-Besuch bietet ein echtes Fenster in diese häusliche Welt, ist aber auch eine Handelstransaktion.' },
-  { type: 'tip', title: 'Einen echten Boma-Besuch wählen', text: 'Es gibt einen erheblichen Unterschied zwischen einem sehr kommerzialisierten Boma auf den Haupttouristenrouten und einem Gemeinschaftsbesuch, der über ein massaieigenes Unternehmen oder einen vertrauenswürdigen lokalen Betreiber organisiert wird. Fragen Sie Ihr Safariunternehmen, ob der Boma-Besuch echtes Gemeinschaftsengagement oder eine Aufführung für Reisebusse beinhaltet.' },
-  { type: 'h2', text: 'Die Massai heute' },
-  { type: 'p', text: 'Viele Massai navigieren diese Spannung auf bemerkenswerte Weise. Massai-eigene Tourismusunternehmen – Conservancies, Kulturzentren, Führerausbildungsprogramme – schaffen wirtschaftliche Wege, die die Kulturerhaltung direkt mit Einnahmen verknüpfen. Ein Massai-Führer im Amboseli-Ökosystem, der fließend Englisch spricht, jeden Vogel mit lateinischem Namen und auf Maa nennen kann und auch die Landrechts-Governance-Struktur seiner Familie erklären kann, ist kein Widerspruch zu seiner Kultur: Er ist das Produkt ihrer außergewöhnlichen Anpassungsfähigkeit.' },
-  { type: 'callout', text: 'Das rote Tuch und der springende Krieger sind zu einem visuellen Kürzel für die Wildnis Ostafrikas auf der ganzen Welt geworden. Aber je mehr Zeit man mit Massai-Gemeinschaften verbringt – durch echtes kulturelles Engagement statt einer inszenierten Aufführung –, desto komplexer, einfallsreicher und tief in der Erde verwurzelt offenbart sich dieses Volk. Ihre Präsenz in der Landschaft ist keine Randkuriosität Ihrer Safari; sie ist Teil dessen, was das Ökosystem funktionieren lässt.' },
+  {
+    "type": "p",
+    "text": "Die Massai gehören zu den am meisten fotografierten, am meisten beschriebenen und am meisten anerkannten indigenen Völkern der Welt – und doch verlassen die meisten Safaribesucher Tansania mit kaum mehr Wissen über sie als dem roten Tuch und dem Springen. Das liegt teilweise am verkürzten Boma-Besuch, den die meisten Reiserouten einschließen: ein 45-minütiger Stopp bei einer Gemeinschaftssiedlung, eine Sprungvorführung, eine Feuermach-Demonstration und ein Rundgang über den Kunsthandwerksmarkt. Das ist in mancher Hinsicht authentisch und in anderer Inszenierung, und es kratzt selten an der Oberfläche einer Kultur, die sich über Jahrhunderte hinweg der Assimilation widersetzt hat – in einer der umstrittensten und wildreichsten Landschaften der Erde."
+  },
+  {
+    "type": "h2",
+    "text": "Wer sind die Massai?"
+  },
+  {
+    "type": "p",
+    "text": "Die Massai sind ein nilotisches Volk, das um das fünfzehnte Jahrhundert aus der Region des Niltals nach Süden wanderte und sich schließlich im Gebiet des heutigen südlichen Kenia und nördlichen Tansania niederließ. Auf ihrem Höhepunkt im neunzehnten Jahrhundert erstreckte sich das Massai-Territorium vom heutigen Zentralkenia bis zum Great Rift Valley in Tansania – eine riesige Weidedomäne, gehalten von Kriegern, deren Ruf sie in ganz Ostafrika gefürchtet machte. Die europäischen Kolonialherren, die Ende des neunzehnten Jahrhunderts eintrafen, stellten fest, dass die Massai das eine Volk der Region waren, das sich nicht leicht unterwerfen ließ, und die kolonialen Landabkommen, die folgten – und Massai-Gemeinschaften auf bestimmte Reservate beschränkten –, sind bis heute umstritten."
+  },
+  {
+    "type": "p",
+    "text": "Die Massai sind halbnomadische Viehhirten. Ihr Reichtum bemisst sich an Rindern – der soziale Status eines Mannes, seine Heiratsfähigkeit und seine Fähigkeit, als vollwertiges erwachsenes Mitglied der Gemeinschaft zu funktionieren, sind alle an die Größe und Gesundheit seiner Herde gebunden. Rinder sind nicht nur Vermögenswerte; sie sind spirituelle Währung, Familiengeschichte und sozialer Vertrag zugleich. Traditionell ernähren sich die Massai von Fleisch, Blut und Milch – eine proteinreiche Ernährung, die ihre Kriegerkultur über Jahrhunderte von Konflikten und Umweltschwankungen hinweg trug."
+  },
+  {
+    "type": "h2",
+    "text": "Das Altersstufensystem"
+  },
+  {
+    "type": "p",
+    "text": "Die Massai-Gesellschaft ist um ein System von Altersstufen organisiert – Kohorten von Männern, die gemeinsam bestimmte Lebensabschnitte durchlaufen. Jungen derselben Altersgruppe werden gemeinsam beschnitten, treten gemeinsam in die Kriegerstufe (Moran) ein, scheiden gemeinsam aus dem Kriegerstand aus und steigen gemeinsam zum Ältestenstatus auf. Diese Bindungen, geschmiedet in der gemeinsam erlebten Erfahrung jeder Stufe, schaffen einen außergewöhnlich engen sozialen Zusammenhalt innerhalb jeder Altersgruppe."
+  },
+  {
+    "type": "p",
+    "text": "Die Moran – jüngere Krieger typischerweise zwischen 15 und 30 Jahren – sind die sichtbarsten und am meisten fotografierten Mitglieder der Massai-Gesellschaft. Sie tragen das rote Tuch (Shuka), führen Speere, flechten und färben ihr langes Haar mit Ocker und sind die Kohorte, die für den Schutz des Viehs der Gemeinschaft vor Raubtieren und vor Viehdiebstahl zuständig ist. Historisch bewies ein junger Mann seinen Wert als Krieger, indem er allein mit einem Speer einen Löwen tötete – eine heute illegale und zunehmend seltene Praxis, die aber weiterhin als kultureller Bezugspunkt und Stolz gilt."
+  },
+  {
+    "type": "h2",
+    "text": "Koexistenz mit der Tierwelt"
+  },
+  {
+    "type": "p",
+    "text": "Der aus Naturschutzsicht bemerkenswerteste Aspekt der Massai-Kultur ist die Tradition der Koexistenz mit der Tierwelt in einem Ausmaß, das weltweit fast beispiellos ist. Massai-Gemeinschaften haben es der Tierwelt historisch gestattet, sich ohne systematische Verfolgung durch ihre Weideflächen zu bewegen. Löwen, Leoparden und Elefanten teilen sich riesige Gebiete des Serengeti-Mara-Ökosystems und des Amboseli-Beckens mit Massai-Rindern. Diese Koexistenz ist nicht immer bequem – Rinder werden von Raubtieren gerissen, und die Spannung zwischen Naturschutzökonomie und pastoralem Lebensunterhalt ist real und andauernd –, doch die Toleranz auf Landschaftsebene war entscheidend für das Überleben der großen Wildtierpopulationen Ostafrikas."
+  },
+  {
+    "type": "p",
+    "text": "Diese Beziehung wird heute durch gemeinschaftliche Conservancies formalisiert, bei denen Massai-Landbesitzer direkte Zahlungen dafür erhalten, dass sie der Tierwelt die Nutzung ihres Landes gestatten. Im Amboseli-Tsavo-Ökosystem in Kenia und im Ngorongoro-Schutzgebiet in Tansania sind Massai-Gemeinschaften aktive Beteiligte am Wildtiertourismus – sie erhalten Übernachtungsgebühren, Beschäftigung und Naturschutzzahlungen, die den Löwen auf ihrem Land wertvoller machen, lebend, als die entsprechende Fläche Ackerland es wäre."
+  },
+  {
+    "type": "h2",
+    "text": "Wie ein Boma-Besuch tatsächlich aussieht"
+  },
+  {
+    "type": "p",
+    "text": "Ein Boma ist eine Massai-Homestead – eine kreisförmige Siedlung kleiner, lehmverputzter Häuser, angeordnet um ein zentrales Viehgehege, geschützt durch einen Dornbuschzaun. Der Boma-Besuch, der in den meisten Tansania-Safarireiserouten enthalten ist, bietet einen echten Einblick in diese häusliche Welt, auch wenn er zugleich eine kommerzielle Transaktion ist."
+  },
+  {
+    "type": "p",
+    "text": "Bei einem guten Boma-Besuch sehen Sie die Struktur der Siedlung – die Anordnung der Häuser, das Verhältnis zwischen Viehgehege und Wohnbereich, die Art, wie die Siedlung die nächtliche Bewegung der Tiere regelt. Sie sehen traditionelles Feuermachen (mit Reibhölzern), hören die Lieder, die zu bestimmten Altersgruppen und Zeremonien gehören, und beobachten eine Vorführung des Adumu-Sprungtanzes – eine Prüfung athletischer Fähigkeit und sozialer Zurschaustellung eines Kriegers. Frauen zeigen Ihnen ihre Perlenarbeiten, die eine ebenso komplexe visuelle Sprache darstellen wie jede afrikanische Textiltradition: Jede Farb- und Musterkombination vermittelt spezifische Informationen über Alter, Familienstand und Gemeinschaftszugehörigkeit der Trägerin."
+  },
+  {
+    "type": "tip",
+    "title": "Einen echten Boma-Besuch auswählen",
+    "text": "Es besteht ein erheblicher Unterschied zwischen einem stark kommerzialisierten Boma auf den touristischen Hauptrouten und einem Gemeinschaftsbesuch, der über ein Massai-eigenes Unternehmen oder einen vertrauenswürdigen lokalen Veranstalter organisiert wird. Fragen Sie Ihr Safariunternehmen, ob der Boma-Besuch echtes Gemeinschaftsengagement beinhaltet oder eine Vorführung für Reisebusse ist. Letzteres ist nicht ohne Wert, aber es ist nicht dasselbe Erlebnis."
+  },
+  {
+    "type": "h2",
+    "text": "Die Massai heute"
+  },
+  {
+    "type": "p",
+    "text": "Die zeitgenössische Geschichte der Massai ist eine der kulturellen Aushandlung unter Druck. Der Zugang zu Bildung, Mobiltelefonen und Lohnarbeit hat jüngere Massai in die weitere tansanische und kenianische Wirtschaft gezogen, während der Landdruck durch landwirtschaftliche Expansion, Schutzgebietsgrenzen und Infrastrukturentwicklung das pastorale Territorium weiter schrumpfen lässt. Die Spannung zwischen der Bewahrung kultureller Identität und dem Zugang zu den Chancen der modernen Wirtschaft wird in jeder Massai-Gemeinschaft deutlich spürbar."
+  },
+  {
+    "type": "p",
+    "text": "Viele Massai bewältigen diese Spannung auf bemerkenswerte Weise. Massai-eigene Tourismusunternehmen – Conservancies, Kulturzentren, Guide-Ausbildungsprogramme – schaffen wirtschaftliche Wege, die kulturelle Bewahrung direkt mit Einkommen verknüpfen. Ein Massai-Guide im Amboseli-Ökosystem, der fließend Englisch spricht, jeden Vogel beim lateinischen und beim Maa-Namen benennen kann und zugleich die Governance-Struktur der Landrechte seiner Familie erklären kann, ist kein Widerspruch zu seiner Kultur – er ist ein Produkt ihrer außergewöhnlichen Anpassungsfähigkeit."
+  },
+  {
+    "type": "callout",
+    "text": "Das rote Tuch und der springende Krieger sind weltweit zum visuellen Sinnbild der ostafrikanischen Wildnis geworden. Doch je mehr Zeit man mit Massai-Gemeinschaften verbringt – durch echtes kulturelles Engagement statt eines inszenierten Besuchs –, desto komplexer, findiger und tiefer in ihrem Land verwurzelt erweist sich dieses Volk. Ihre Präsenz in der Landschaft ist keine Kuriosität am Rand Ihrer Safari; sie ist Teil dessen, was das Ökosystem funktionieren lässt."
+  }
 ],
 
 }

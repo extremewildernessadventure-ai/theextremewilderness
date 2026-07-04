@@ -562,8 +562,7 @@ export default async function DestinationsPage() {
                 {t('ctaHeading')}
               </h2>
               <p className="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
-                Our team is born and based in Arusha &mdash; these are our home parks. We know every road,
-                every season, every camp. Let us design an itinerary built around what you want to see.
+                {t('ctaBody')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <BookNowButton

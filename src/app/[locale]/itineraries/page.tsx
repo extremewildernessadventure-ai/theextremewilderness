@@ -9,133 +9,67 @@ import { getTranslations, getLocale } from 'next-intl/server'
 import { MONTHS } from '@/lib/seasonData'
 import PlanBuilderEntryCard from '@/components/plan/PlanBuilderEntryCard'
 
-export const metadata: Metadata = {
-  title: 'Safari Itineraries | The Extreme Wilderness',
-  description:
-    'Browse curated safari itineraries across Tanzania, Kenya and Rwanda. From classic Serengeti circuits to gorilla trekking and Kilimanjaro summit bids. Every journey custom-built.',
-  keywords: [
-    'Tanzania safari itinerary',
-    'East Africa safari itinerary',
-    '7 day Tanzania safari',
-    '10 day Tanzania safari',
-    'Serengeti itinerary',
-    'Ngorongoro itinerary',
-    'safari trip planner Tanzania',
-    'Tanzania travel itinerary',
-    'Africa safari planner',
-    'gorilla trekking itinerary Rwanda',
-    'Kilimanjaro itinerary',
-    'combined safari Tanzania',
-    'custom Tanzania itinerary',
-    'Tanzania safari package deals',
-    'Africa travel plan',
-  ],
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('itineraries')
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    keywords: t.raw('metaKeywords') as string[],
+  }
 }
 
-const editions = [
-  {
-    label: 'The Classic Edition',
-    subtitle: 'Small Group Safaris',
-    slug: '/safaris/7-day-serengeti-ngorongoro',
-    image: '/images/gallery/Serengeti-National-park.webp',
-    duration: '7 days',
-    priceFrom: 3200,
-    destinations: 'Tanzania — Serengeti, Ngorongoro, Tarangire',
-    badge: 'Bestseller',
-  },
-  {
-    label: 'The Primate Edition',
-    subtitle: 'Small Group Safaris',
-    slug: '/safaris/12-days-rwanda-primates',
-    image: '/images/gallery/gorilla.webp',
-    duration: '8 days',
-    priceFrom: 4800,
-    destinations: 'Rwanda — Volcanoes NP · Tanzania — Mahale',
-    badge: 'Iconic',
-  },
-  {
-    label: 'The Wild South Edition',
-    subtitle: 'Small Group Safaris',
-    slug: '/safaris/7-day-southern-circuit',
-    image: '/images/gallery/Ruaha-National-Park.webp',
-    duration: '7 days',
-    priceFrom: 3500,
-    destinations: 'Tanzania — Ruaha NP, Nyerere NP',
-    badge: 'Remote',
-  },
-  {
-    label: 'The Signature Edition',
-    subtitle: 'Small Group Safaris',
-    slug: '/safaris/10-day-safari-zanzibar',
-    image: '/images/gallery/zanzibar-1.webp',
-    duration: '10 days',
-    priceFrom: 4200,
-    destinations: 'Tanzania — Serengeti, Ngorongoro, Zanzibar',
-    badge: 'Popular',
-  },
-]
+const EDITION_META = [
+  { slug: '7-day-serengeti-ngorongoro', image: '/images/gallery/Serengeti-National-park.webp', badgeKey: 'badgeBestseller' },
+  { slug: '12-days-rwanda-primates', image: '/images/gallery/gorilla.webp', badgeKey: 'badgeIconic' },
+  { slug: '7-day-southern-circuit', image: '/images/gallery/Ruaha-National-Park.webp', badgeKey: 'badgeRemote' },
+  { slug: '10-day-safari-zanzibar', image: '/images/gallery/zanzibar-1.webp', badgeKey: 'badgePopular' },
+] as const
 
-const extra = [
-  {
-    slug: '/safaris/5-day-serengeti-fly-in',
-    name: 'Serengeti Fly-In Circuit',
-    duration: 5,
-    priceFrom: 3800,
-    image: '/images/gallery/safari-025.webp',
-    destinations: ['Tanzania — Serengeti NP (fly-in)'],
-    badge: 'Luxury' as string | null,
-  },
-  {
-    slug: '/safaris/11-days-kenya-undisputed',
-    name: 'Tanzania & Kenya Circuit',
-    duration: 12,
-    priceFrom: 5200,
-    image: '/images/gallery/safari-026.webp',
-    destinations: ['Tanzania — Serengeti', 'Kenya — Masai Mara, Amboseli'],
-    badge: null,
-  },
-  {
-    slug: '/safaris/10-day-northern-circuit',
-    name: 'Northern Tanzania Circuit',
-    duration: 9,
-    priceFrom: 3900,
-    image: '/images/gallery/safari-027.webp',
-    destinations: ['Tanzania — Serengeti, Ngorongoro, Tarangire, Manyara'],
-    badge: null,
-  },
-  {
-    slug: '/safaris/7-day-southern-circuit',
-    name: 'Southern Tanzania Circuit',
-    duration: 8,
-    priceFrom: 3600,
-    image: '/images/gallery/safari-028.webp',
-    destinations: ['Tanzania — Nyerere NP, Ruaha NP'],
-    badge: null,
-  },
-  {
-    slug: '/safaris/11-days-kenya-undisputed',
-    name: 'Kenya Wildlife Circuit',
-    duration: 9,
-    priceFrom: 4100,
-    image: '/images/gallery/safari-029.webp',
-    destinations: ['Kenya — Masai Mara, Laikipia, Ol Pejeta'],
-    badge: null,
-  },
-  {
-    slug: '/safaris/kilimanjaro-machame-7day',
-    name: 'Kilimanjaro Machame Route',
-    duration: 7,
-    priceFrom: 2100,
-    image: '/images/gallery/kilimanjaro.webp',
-    destinations: ['Tanzania — Kilimanjaro NP (Machame → Uhuru Peak)'],
-    badge: null,
-  },
-]
+const EXTRA_META = [
+  { slug: '5-day-serengeti-fly-in', image: '/images/gallery/safari-025.webp', badgeKey: 'badgeLuxury' },
+  { slug: '11-days-kenya-undisputed', image: '/images/gallery/safari-026.webp', badgeKey: null },
+  { slug: '10-day-northern-circuit', image: '/images/gallery/safari-027.webp', badgeKey: null },
+  { slug: '7-day-southern-circuit', image: '/images/gallery/safari-028.webp', badgeKey: null },
+  { slug: '11-days-kenya-undisputed', image: '/images/gallery/safari-029.webp', badgeKey: null },
+  { slug: 'kilimanjaro-machame-7day', image: '/images/gallery/kilimanjaro.webp', badgeKey: null },
+] as const
 
 export default async function ItinerariesPage() {
   const locale = await getLocale()
   const packages = getPackages(locale)
   const t = await getTranslations('itineraries')
+
+  const findPkg = (slug: string) => packages.find((p) => p.slug === slug)!
+  const smallGroupSafaris = t('smallGroupSafaris')
+
+  const editions = EDITION_META.map(({ slug, image, badgeKey }, i) => {
+    const n = i + 1
+    const pkg = findPkg(slug)
+    return {
+      label: t(`edition${n}Label` as 'edition1Label'),
+      subtitle: smallGroupSafaris,
+      slug: `/safaris/${slug}`,
+      image,
+      duration: `${pkg.duration} ${t('daysLabel')}`,
+      priceFrom: pkg.priceFrom,
+      destinations: t(`edition${n}Destinations` as 'edition1Destinations'),
+      badge: t(badgeKey as 'badgeBestseller'),
+    }
+  })
+
+  const extra = EXTRA_META.map(({ slug, image, badgeKey }, i) => {
+    const n = i + 1
+    const pkg = findPkg(slug)
+    return {
+      slug: `/safaris/${slug}`,
+      name: t(`extra${n}Name` as 'extra1Name'),
+      duration: pkg.duration,
+      priceFrom: pkg.priceFrom,
+      image,
+      destinations: [t(`extra${n}Destinations` as 'extra1Destinations')],
+      badge: badgeKey ? t(badgeKey as 'badgeLuxury') : null,
+    }
+  })
   const tSteps = [
     { num: '01', title: t('step1Title'), desc: t('step1Desc') },
     { num: '02', title: t('step2Title'), desc: t('step2Desc') },

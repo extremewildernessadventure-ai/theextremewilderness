@@ -3,203 +3,111 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, MapPin, Clock, Users, Star, Mountain, CheckCircle2, Car, Headphones, Shield, Compass, Trophy } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
+import { getDestinations } from '@/data/destinations.i18n'
 
-export const metadata: Metadata = {
-  title: 'Rwanda Gorilla Trekking 2026 | Volcanoes National Park Permits & Safaris',
-  description:
-    "Book gorilla trekking in Rwanda with certified guides. Volcanoes National Park gorilla permits, mountain gorilla tracking, chimpanzee trekking Nyungwe, Big Five Akagera. 2026 packages.",
-  keywords: [
-    'gorilla trekking Rwanda',
-    'Rwanda gorilla permit',
-    'Volcanoes National Park gorilla trekking',
-    'mountain gorilla Rwanda 2026',
-    'book gorilla permit Rwanda',
-    'Rwanda safari packages',
-    'chimpanzee trekking Nyungwe',
-    'Rwanda gorilla tour operator',
-    'gorilla trekking cost Rwanda',
-    'East Africa gorilla safari',
-  ],
+const RWANDA_DEST_ORDER = ['volcanoes', 'nyungwe', 'akagera', 'lake-kivu', 'kigali'] as const
+const RWANDA_DEST_IMAGES: Record<string, string> = {
+  volcanoes: '/images/gallery/volcanoes.webp',
+  nyungwe: '/images/gallery/nyungwe.webp',
+  akagera: '/images/gallery/akagera.webp',
+  'lake-kivu': '/images/gallery/safari-123.webp',
+  kigali: '/images/gallery/kigali-city.webp',
+}
+const RWANDA_DEST_BADGE_COLORS: Record<string, string> = {
+  volcanoes: 'bg-gold text-brand',
+  nyungwe: 'bg-brand text-white',
+  akagera: 'bg-brand-secondary text-white',
+  'lake-kivu': 'bg-gold text-brand',
+  kigali: 'bg-brand text-white',
 }
 
-const destinations = [
-  {
-    id: 'volcanoes',
-    name: 'Volcanoes National Park',
-    tagline: 'Home of the Mountain Gorilla',
-    size: '160 km2 · 4,507 m elevation',
-    image: '/images/gallery/volcanoes.webp',
-    badge: 'Top Experience',
-    badgeColor: 'bg-gold text-brand',
-    highlights: [
-      "Half the world's mountain gorillas live here",
-      'Five dormant Virunga volcanoes to explore',
-      'Karisimbi — highest peak at 4,507 m',
-      'Rare golden monkeys in bamboo forest',
-      'Dian Fossey gorilla research legacy',
-      '90-minute gorilla tracking encounters',
-    ],
-    wildlife: ['Mountain Gorilla', 'Golden Monkey', 'Buffalo', 'Forest Elephant', 'Bushbuck', 'Leopard', 'Serval', 'Olive Baboon'],
-    bestTime: 'Jun – Sep & Dec – Feb',
-    duration: '1–3 days',
-    overview:
-      "Volcanoes National Park is one of the most extraordinary wildlife destinations on Earth and the centrepiece of any Rwanda itinerary. Situated within the Virunga massif at elevations reaching 15,000 feet, the park shelters roughly half of the world's remaining mountain gorilla population — a critically endangered species numbering fewer than 1,000 individuals. Gorilla tracking involves a guided forest trek of around 90 minutes through lush bamboo and rainforest before spending a magical hour with a habituated gorilla family. The park also protects the playful golden monkey, and its five dormant volcanoes — Karisimbi, Bisoke, Sabinyo, Gahinga, and Muhabura — offer spectacular high-altitude hiking. The late primatologist Dian Fossey conducted her famous gorilla research here, and her story adds a powerful conservation dimension to every visit.",
-    activities: ['Gorilla tracking', 'Golden monkey trekking', 'Volcano hiking', 'Musanze cave exploration', 'Crater lake hike', "Iby'Iwacu cultural village"],
-    priceFrom: '$1,500',
-  },
-  {
-    id: 'nyungwe',
-    name: 'Nyungwe National Park',
-    tagline: "Africa's Most Diverse Primate Destination",
-    size: '1,020 km2 · Ancient Rainforest',
-    image: '/images/gallery/nyungwe.webp',
-    badge: 'Primate Paradise',
-    badgeColor: 'bg-brand text-white',
-    highlights: [
-      '12 primate species including chimpanzees',
-      'Only canopy walkway in East Africa (60 m high)',
-      '1,068 plant species & 140 orchid varieties',
-      '322 bird species including Albertine endemics',
-      '15 hiking trails through ancient forest',
-      '400 habituated Ruwenzori colobus monkeys',
-    ],
-    wildlife: ['Chimpanzee', 'Ruwenzori Colobus', "L'Hoest's Monkey", 'Owl-Faced Monkey', 'Leopard', 'Serval', 'Clawless Otter', 'Mongoose'],
-    bestTime: 'Jun – Sep & Dec – Feb',
-    duration: '2–3 days',
-    overview:
-      "Nyungwe National Park is a phenomenon of nature — one of Africa's oldest and most biodiverse rainforests, draped across Rwanda's southwestern highlands. The park harbours 12 primate species, making it the most diverse primate destination on the continent. Chimpanzee trekking is the headline experience, but Nyungwe's signature attraction is its breathtaking canopy walkway — the only one in East Africa — suspended 60 metres above the forest floor. With 1,068 plant species, 140 orchid varieties, 322 bird species, and 15 marked hiking trails, Nyungwe rewards slow, thoughtful exploration. The park is also home to the owl-faced monkey, endemic to the Albertine Rift and found almost nowhere else.",
-    activities: ['Chimpanzee trekking', 'Canopy walkway', 'Colobus monkey tracking', 'Bird watching', 'Lusomo Waterfall hike', 'Forest trail hiking'],
-    priceFrom: '$200',
-  },
-  {
-    id: 'akagera',
-    name: 'Akagera National Park',
-    tagline: "Rwanda's Big Five Savannah Safari",
-    size: '1,122 km2 · Savannah & Wetlands',
-    image: '/images/gallery/akagera.webp',
-    badge: 'Big Five',
-    badgeColor: 'bg-brand-secondary text-white',
-    highlights: [
-      'All Big Five including reintroduced lions',
-      '18 black rhinos — restored from local extinction',
-      "Africa's largest wetland national park",
-      '500+ bird species including shoebill stork',
-      'Lake Ihema boat safaris with hippo & crocodile',
-      'Giraffe, elephant, zebra & topi on open plains',
-    ],
-    wildlife: ['Lion', 'Black Rhino', 'Elephant', 'Giraffe', 'Hippo', 'Crocodile', 'Shoebill Stork', 'Sitatunga'],
-    bestTime: 'Jun – Sep & Dec – Feb',
-    duration: '2–3 days',
-    overview:
-      "Akagera National Park in northeastern Rwanda is a triumph of conservation — a park that was once devastated by conflict and poaching, now fully restored to its former glory. The park spans 1,122 km2 of savannah, acacia woodland, papyrus swamps, rolling highlands, and a necklace of beautiful lakes, making it the largest wetland park on the continent. Akagera achieved a historic milestone in 2015 and 2017 when lions and black rhinos were reintroduced after decades of local extinction, completing the Big Five once more. Lake Ihema offers exceptional boat safaris where hippos, crocodiles, and over 500 bird species can be observed at close quarters, including the prehistoric-looking shoebill stork.",
-    activities: ['Game drives', 'Boat safari on Lake Ihema', 'Rhino tracking', 'Bird watching', 'Night game drives', 'Self-drive safari'],
-    priceFrom: '$180',
-  },
-  {
-    id: 'lake-kivu',
-    name: 'Lake Kivu',
-    tagline: "Rwanda's Serene Inland Sea",
-    size: '2,700 km2 · 485 m deep',
-    image: '/images/gallery/safari-123.webp',
-    badge: 'Scenic Escape',
-    badgeColor: 'bg-gold text-brand',
-    highlights: [
-      "Africa's sixth largest lake by area",
-      'Safe for swimming — no hippos or crocodiles',
-      '220 km Congo Nile Trail along the shore',
-      'Dramatic sunrise & sunset over the water',
-      'Rubavu — charming colonial lakeside town',
-      'Mountain biking, kayaking & boat rides',
-    ],
-    wildlife: ['Pelican', 'Crowned Crane', 'Kingfisher', 'Fish Eagle', 'Cormorant', 'Otter', 'Various waterbirds'],
-    bestTime: 'Jun – Sep & Dec – Feb',
-    duration: '2–4 days',
-    overview:
-      "Lake Kivu is one of Africa's Great Rift Valley lakes — and one of the most beautiful. Spanning 2,700 square kilometres along Rwanda's western border with the Democratic Republic of Congo, the lake sits at altitude in a landscape of rolling green hills tumbling dramatically into shimmering water. Unlike most East African rift lakes, Kivu is completely safe for swimming with no hippos or crocodiles. The lakeside town of Rubavu retains charming colonial architecture and offers some of Rwanda's finest restaurants and sundowner bars with panoramic lake views. The 220-kilometre Congo Nile Trail follows the shoreline south to Rusizi, offering world-class cycling and trekking through terraced hills and fishing villages.",
-    activities: ['Boat tours', 'Kayaking & paddleboarding', 'Congo Nile Trail cycling', 'Swimming', 'Bird watching', 'Fishing'],
-    priceFrom: '$120',
-  },
-  {
-    id: 'kigali',
-    name: 'Kigali',
-    tagline: "Africa's Cleanest, Greenest Capital City",
-    size: "Rwanda's Capital · Pop. 1.5 million",
-    image: '/images/gallery/kigali-city.webp',
-    badge: 'Cultural Hub',
-    badgeColor: 'bg-brand text-white',
-    highlights: [
-      "Voted Africa's cleanest city multiple years",
-      'Kigali Genocide Memorial — sobering & essential',
-      'Vibrant arts scene & Kigali Cultural Village',
-      'World-class restaurants with panoramic hill views',
-      'Modern convention centres & boutique hotels',
-      "Gateway to all Rwanda's safari destinations",
-    ],
-    wildlife: ['Nearby Gishwati-Mukura Forest', 'Urban birdlife', 'Short drive to gorilla country'],
-    bestTime: 'Year-round',
-    duration: '1–2 days',
-    overview:
-      "Kigali is one of Africa's great surprises — a spotlessly clean, green, and vibrant capital that defies every preconception about African cities. Surrounded by hills and mountains, the city's dramatic topography makes it one of the most photogenic capitals on the continent. Rwanda's extraordinary recovery after 1994 makes Kigali a city of profound emotional resonance: the Kigali Genocide Memorial is essential and moving. But the city also throbs with creative energy — a radiant arts scene, locally owned boutique hotels, rooftop restaurants serving Rwandan and international cuisine with panoramic hill views, and a modern spirit that has made it a hub for tech startups and pan-African business.",
-    activities: ['Genocide Memorial visit', 'Kigali Cultural Village', 'Art gallery tours', 'Cooking classes', 'City walking tour', 'Craft market shopping'],
-    priceFrom: '$80',
-  },
-]
-
-const whyRwanda = [
-  { icon: '🦍', stat: '~1,000', label: 'Mountain Gorillas on Earth' },
-  { icon: '🐒', stat: '12', label: 'Primate Species in Nyungwe' },
-  { icon: '🐦', stat: '700+', label: 'Bird Species Recorded' },
-  { icon: '🌿', stat: '1,068', label: 'Plant Species in Nyungwe' },
-  { icon: '🏔️', stat: '4,507 m', label: "Mt Karisimbi Summit" },
-  { icon: '🌍', stat: '#1', label: "Africa's Cleanest Capital" },
-]
-
-const permitFacts = [
-  { label: 'Permit Cost', value: '$1,500 USD per person' },
-  { label: 'Groups Limited To', value: '8 people per family' },
-  { label: 'Time With Gorillas', value: '1 hour maximum' },
-  { label: 'Families Available', value: '12 habituated families' },
-  { label: 'Minimum Age', value: '15 years old' },
-  { label: 'Trek Duration', value: '30 min – 6 hours' },
-]
-
-const seasons = [
-  {
-    months: 'Jun – Sep',
-    label: 'Long Dry Season',
-    color: 'bg-amber-50 border-amber-200',
-    labelColor: 'text-amber-700',
-    tip: 'Best gorilla tracking — dry trails, less rain in forests. Peak season: book permits 6+ months ahead.',
-  },
-  {
-    months: 'Oct – Nov',
-    label: 'Short Rains',
-    color: 'bg-blue-50 border-blue-200',
-    labelColor: 'text-blue-700',
-    tip: 'Lush green landscapes. Gorilla tracking still possible. Good birding. Fewer tourists.',
-  },
-  {
-    months: 'Dec – Feb',
-    label: 'Short Dry Season',
-    color: 'bg-green-50 border-green-200',
-    labelColor: 'text-brand',
-    tip: 'Excellent second-best season. Comfortable temperatures. Great for all Rwanda activities.',
-  },
-  {
-    months: 'Mar – May',
-    label: 'Long Rains',
-    color: 'bg-sky-50 border-sky-200',
-    labelColor: 'text-sky-700',
-    tip: 'Heaviest rainfall. Trails can be muddy. Lower permit demand — better availability. Lush scenery.',
-  },
-]
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('rwanda')
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    keywords: t.raw('metaKeywords') as string[],
+  }
+}
 
 export default async function RwandaPage() {
   const t = await getTranslations('rwanda')
   const tc = await getTranslations('common')
   const statLabels = [t('statGorillas'), t('statPrimates'), t('statBirds'), t('statPlants'), t('statPeak'), t('statCapital')]
   const seasonLabels = [t('season1Label'), t('season2Label'), t('season3Label'), t('season4Label')]
+
+  const locale = await getLocale()
+  const destByCountry = getDestinations(locale)
+
+  const destExtra = t.raw('destExtra') as Record<string, { badge: string; size: string; bestTime: string; duration: string; activities: string[] }>
+  const box1ChipDesc = t.raw('box1ChipDesc') as Record<string, string>
+  const box3Stats = t.raw('box3Stats') as { label: string; sub: string }[]
+  const permitFacts = t.raw('permitFacts') as { label: string; value: string }[]
+
+  const destPriceFrom: Record<string, string> = { volcanoes: '$1,500', nyungwe: '$200', akagera: '$180', 'lake-kivu': '$120', kigali: '$80' }
+
+  const destinations = RWANDA_DEST_ORDER.map((slug) => {
+    const d = destByCountry.find((x) => x.slug === slug)!
+    const extra = destExtra[slug]
+    return {
+      id: slug,
+      name: d.name,
+      tagline: d.tagline,
+      size: extra.size,
+      image: RWANDA_DEST_IMAGES[slug],
+      badge: extra.badge,
+      badgeColor: RWANDA_DEST_BADGE_COLORS[slug],
+      highlights: d.highlights,
+      wildlife: d.wildlife,
+      bestTime: extra.bestTime,
+      duration: extra.duration,
+      overview: d.description,
+      activities: extra.activities,
+      priceFrom: destPriceFrom[slug],
+    }
+  })
+
+  const whyRwanda = [
+    { icon: '🦍', stat: '~1,000', label: 'Mountain Gorillas on Earth' },
+    { icon: '🐒', stat: '12', label: 'Primate Species in Nyungwe' },
+    { icon: '🐦', stat: '700+', label: 'Bird Species Recorded' },
+    { icon: '🌿', stat: '1,068', label: 'Plant Species in Nyungwe' },
+    { icon: '🏔️', stat: '4,507 m', label: "Mt Karisimbi Summit" },
+    { icon: '🌍', stat: '#1', label: "Africa's Cleanest Capital" },
+  ]
+
+  const seasons = [
+    {
+      months: 'Jun – Sep',
+      label: seasonLabels[0],
+      color: 'bg-amber-50 border-amber-200',
+      labelColor: 'text-amber-700',
+      tip: t('season1Tip'),
+    },
+    {
+      months: 'Oct – Nov',
+      label: seasonLabels[1],
+      color: 'bg-blue-50 border-blue-200',
+      labelColor: 'text-blue-700',
+      tip: t('season2Tip'),
+    },
+    {
+      months: 'Dec – Feb',
+      label: seasonLabels[2],
+      color: 'bg-green-50 border-green-200',
+      labelColor: 'text-brand',
+      tip: t('season3Tip'),
+    },
+    {
+      months: 'Mar – May',
+      label: seasonLabels[3],
+      color: 'bg-sky-50 border-sky-200',
+      labelColor: 'text-sky-700',
+      tip: t('season4Tip'),
+    },
+  ]
+
   return (
     <>
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
@@ -222,9 +130,7 @@ export default async function RwandaPage() {
               <span className="text-gold">{t('heroTitleGold')}</span>
             </h1>
             <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-xl">
-              Meet the mountain gorillas. Trek ancient rainforests with chimpanzees. Safari the savannahs.
-              Rwanda is small in size but extraordinary in depth &mdash; one of Africa&apos;s most intimate
-              and transformative destinations.
+              {t('heroSubtitleBody')}
             </p>
             <div className="flex flex-wrap gap-3">
               <BookNowButton
@@ -268,12 +174,7 @@ export default async function RwandaPage() {
               {t('introHeading')}
             </h2>
             <p className="text-text-muted leading-relaxed">
-              Rwanda has undergone one of the most extraordinary transformations in modern history &mdash; from tragedy
-              to triumph, it is today one of Africa&apos;s safest, cleanest, and most forward-thinking nations. For
-              wildlife lovers, Rwanda offers something no other country can match: the intimate experience of sitting
-              with a family of mountain gorillas in ancient volcanic forest. Combined with chimpanzee trekking, Big
-              Five safaris, pristine lakes, and the remarkable warmth of the Rwandan people, it is a destination that
-              leaves every visitor changed.
+              {t('introBody')}
             </p>
           </div>
         </div>
@@ -290,11 +191,11 @@ export default async function RwandaPage() {
               <h3 className="text-2xl font-bold text-white mb-6">{t('box1Heading')}</h3>
               <div className="space-y-3 flex-1">
                 {[
-                  { icon: '🦍', label: 'Volcanoes National Park', desc: 'Mountain Gorillas · Virunga Volcanoes' },
-                  { icon: '🐒', label: 'Nyungwe Forest', desc: 'Chimpanzees · Only Canopy Walkway in E. Africa' },
-                  { icon: '🦁', label: 'Akagera National Park', desc: 'Big Five · Lake Ihema Boat Safaris' },
-                  { icon: '🌊', label: 'Lake Kivu', desc: 'Scenic Inland Sea · Congo Nile Trail' },
-                  { icon: '🏙️', label: 'Kigali', desc: "Africa's Cleanest Capital · Cultural Hub" },
+                  { icon: '🦍', label: destinations[0].name, desc: box1ChipDesc['volcanoes'] },
+                  { icon: '🐒', label: destinations[1].name, desc: box1ChipDesc['nyungwe'] },
+                  { icon: '🦁', label: destinations[2].name, desc: box1ChipDesc['akagera'] },
+                  { icon: '🌊', label: destinations[3].name, desc: box1ChipDesc['lake-kivu'] },
+                  { icon: '🏙️', label: destinations[4].name, desc: box1ChipDesc['kigali'] },
                 ].map((d) => (
                   <a
                     key={d.label}
@@ -346,12 +247,12 @@ export default async function RwandaPage() {
               <h3 className="text-2xl font-bold text-brand mb-6">{t('box3Heading')}</h3>
               <div className="grid grid-cols-2 gap-5 flex-1">
                 {[
-                  { stat: '~1,000', label: 'Mountain gorillas on Earth', sub: 'Only great ape population growing' },
-                  { stat: '12', label: 'Primate species in Nyungwe', sub: "Africa's most diverse primate forest" },
-                  { stat: '$1,500', label: 'Gorilla permit cost', sub: 'Funds conservation & communities' },
-                  { stat: '4,507m', label: 'Mt Karisimbi summit', sub: 'Highest Virunga volcano' },
-                  { stat: '700+', label: 'Bird species recorded', sub: '29 Albertine Rift endemics' },
-                  { stat: '1 hour', label: 'With a gorilla family', sub: 'Most intimate wildlife encounter on Earth' },
+                  { stat: '~1,000', ...box3Stats[0] },
+                  { stat: '12', ...box3Stats[1] },
+                  { stat: '$1,500', ...box3Stats[2] },
+                  { stat: '4,507m', ...box3Stats[3] },
+                  { stat: '700+', ...box3Stats[4] },
+                  { stat: '1 hour', ...box3Stats[5] },
                 ].map((item) => (
                   <div key={item.stat} className="bg-white rounded-2xl px-4 py-3 border border-brand/5">
                     <p className="text-gold-label font-bold text-xl leading-none">{item.stat}</p>
@@ -408,9 +309,7 @@ export default async function RwandaPage() {
                   {t('permitHeading')}
                 </h3>
                 <p className="text-white/70 text-sm leading-relaxed mb-4">
-                  Rwanda issues just 96 gorilla permits per day (8 per habituated family, 12 families). Permits are
-                  in high demand year-round and sell out months ahead for peak season. We handle all permit bookings
-                  as part of your itinerary &mdash; contact us early for the best availability.
+                  {t('permitSectionBody')}
                 </p>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {permitFacts.map((f) => (
@@ -525,7 +424,7 @@ export default async function RwandaPage() {
                       packageType="Rwanda Safari"
                       priceFrom={dest.priceFrom}
                       duration={dest.duration}
-                      label={`Book ${dest.name.split(' ')[0]} Trip`}
+                      label={t('bookTripButton', { destName: dest.name })}
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
                       arrow
                     />
@@ -546,8 +445,7 @@ export default async function RwandaPage() {
             </span>
             <h2 className="text-3xl font-semibold text-brand mb-3">{t('seasonHeading')}</h2>
             <p className="text-text-muted max-w-lg mx-auto text-sm">
-              Rwanda is a year-round destination. Gorilla trekking is possible every day, but dry seasons bring
-              easier trails and more comfortable conditions.
+              {t('seasonSubtitle')}
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -574,17 +472,14 @@ export default async function RwandaPage() {
                 <span className="text-gold">{t('comboHeadingGold')}</span>
               </h2>
               <p className="text-text-muted leading-relaxed mb-5">
-                Rwanda&apos;s gorillas and Tanzania&apos;s Serengeti plains are the two most iconic wildlife
-                experiences in Africa. Combining them in a single itinerary gives you the complete East African
-                picture &mdash; ancient rainforests, volcanic mountains, sweeping savannahs, and the world&apos;s
-                greatest wildlife spectacle.
+                {t('comboBody')}
               </p>
               <div className="space-y-2.5 mb-7">
                 {[
-                  'Start with gorilla trekking in Volcanoes NP',
-                  'Fly or drive to Akagera for a classic Big Five safari',
-                  'Connect to Tanzania for the Serengeti Migration',
-                  'Finish on Zanzibar or Ngorongoro Crater',
+                  t('comboBullet1'),
+                  t('comboBullet2'),
+                  t('comboBullet3'),
+                  t('comboBullet4'),
                 ].map((p) => (
                   <div key={p} className="flex items-start gap-2 text-sm text-brand">
                     <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
@@ -623,7 +518,7 @@ export default async function RwandaPage() {
               <div className="absolute bottom-4 left-0 right-0 flex justify-center">
                 <span className="bg-brand/80 backdrop-blur-sm text-white text-xs font-medium px-4 py-2 rounded-full flex items-center gap-1.5">
                   <MapPin className="w-3 h-3 text-gold" />
-                  Rwanda &mdash; Major Destinations
+                  {t('mapCaption')}
                 </span>
               </div>
             </div>
@@ -638,19 +533,16 @@ export default async function RwandaPage() {
             {t('conservationHeading')}
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto text-sm leading-relaxed mb-6">
-            Rwanda&apos;s gorilla permit fees directly fund conservation programmes and benefit local communities.
-            Since tourism resumed, mountain gorilla numbers have grown from around 620 in 2008 to nearly 1,000
-            today &mdash; the only great ape population that is increasing. Every visitor plays a real role in
-            keeping these animals alive.
+            {t('conservationBody')}
           </p>
           <div className="flex flex-wrap justify-center gap-2">
             {[
-              'Mountain Gorilla Protection',
-              'Anti-Poaching Patrols',
-              'Community Revenue Sharing',
-              'Habitat Restoration',
-              'Veterinary Care Programmes',
-              'Research & Monitoring',
+              t('conservationBadge1'),
+              t('conservationBadge2'),
+              t('conservationBadge3'),
+              t('conservationBadge4'),
+              t('conservationBadge5'),
+              t('conservationBadge6'),
             ].map((b) => (
               <span key={b} className="text-xs text-white/70 border border-white/20 px-3 py-1.5 rounded-full">
                 {b}
@@ -675,8 +567,7 @@ export default async function RwandaPage() {
                 {t('ctaHeading')}
               </h2>
               <p className="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
-                Gorilla permits are the most sought-after wildlife permits in Africa. Reach out now and our team
-                will secure your dates, design your itinerary, and handle every detail.
+                {t('ctaBody')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <BookNowButton
@@ -695,7 +586,7 @@ export default async function RwandaPage() {
               </div>
               <p className="text-white/60 text-xs mt-6">
                 <Users className="inline w-3 h-3 mr-1" />
-                Solo travellers &middot; Couples &middot; Families &middot; Private groups &mdash; all welcome
+                {t('footerDisclaimer')}
               </p>
             </div>
           </div>

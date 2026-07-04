@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 const BASE_URL = 'https://theextremewilderness.com'
 const LOCALES = ['en', 'fr', 'es', 'de'] as const
 
-const SAFARI_SLUGS = [
+export const SAFARI_SLUGS = [
   '7-day-serengeti-ngorongoro',
   '10-day-northern-circuit',
   '10-day-safari-zanzibar',
@@ -30,16 +30,16 @@ const SAFARI_SLUGS = [
   '12-days-grand-safari',
 ]
 
-const DESTINATION_SLUGS = [
+export const DESTINATION_SLUGS = [
   'serengeti', 'ngorongoro', 'tarangire', 'manyara', 'zanzibar', 'arusha',
   'ruaha', 'nyerere', 'mahale', 'katavi', 'gombe', 'lake-victoria',
   'masai-mara', 'volcanoes', 'amboseli', 'kenyan-coast', 'lake-nakuru',
   'ol-pejeta', 'samburu', 'tsavo', 'akagera', 'kigali', 'lake-kivu', 'nyungwe',
 ]
 
-const TREKKING_ROUTES = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit']
+export const TREKKING_ROUTES = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit']
 
-const BLOG_SLUGS = [
+export const BLOG_SLUGS = [
   'great-migration-guide',
   'tanzania-safari-cost',
   'best-time-to-visit-serengeti',
@@ -69,6 +69,11 @@ function localeUrl(locale: string, path: string): string {
   if (locale === 'en') return `${BASE_URL}${path || '/'}`
   return `${BASE_URL}/${locale}${path}`
 }
+
+export const STATIC_PAGES = [
+  '', '/safaris', '/destinations', '/trekking', '/itineraries', '/experiences',
+  '/kenya', '/rwanda', '/about', '/contact', '/blog', '/travel-info', '/privacy', '/terms',
+]
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [

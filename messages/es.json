@@ -49,20 +49,74 @@
         "priceFrom": "2.350 USD por persona (grupo 5+)"
       },
       "whyChoose": [
-        { "title": "El perfil de aclimatación funciona.", "body": "La estrategia de la Machame de 'subir alto, dormir bajo' — ascendiendo a 4.630 m en la Torre de Lava el día 3, y luego descendiendo al Campamento Barranco a 3.900 m — es una de las técnicas más eficaces de gestión de altitud en una ruta de 7 días." },
-        { "title": "El paisaje es extraordinario.", "body": "Ninguna otra ruta del Kilimanjaro transita paisajes tan dramáticamente distintos en un solo día — selva tropical ecuatorial, páramo abierto de brezo, la vasta meseta de Shira, desierto alpino y terreno glaciar." },
-        { "title": "El Muro de Barranco es único.", "body": "Una escalada casi vertical de 300 metros al amanecer que parece aterradora y resulta magnífica — manos y pies, secciones expuestas, y una sonrisa que no podrás quitarte el resto del día." },
-        { "title": "La ruta te prepara adecuadamente para la noche de cumbre.", "body": "Al llegar al Campamento Base Barafu en el día 5, tu cuerpo ha pasado cuatro días a altitud progresivamente mayor. La noche de cumbre, aunque nunca fácil, se siente manejable en lugar de brutal." }
+        {
+          "title": "El perfil de aclimatación funciona.",
+          "body": "La estrategia de la Machame de 'subir alto, dormir bajo' — ascendiendo a 4.630 m en la Torre de Lava el día 3, y luego descendiendo al Campamento Barranco a 3.900 m — es una de las técnicas más eficaces de gestión de altitud en una ruta de 7 días."
+        },
+        {
+          "title": "El paisaje es extraordinario.",
+          "body": "Ninguna otra ruta del Kilimanjaro transita paisajes tan dramáticamente distintos en un solo día — selva tropical ecuatorial, páramo abierto de brezo, la vasta meseta de Shira, desierto alpino y terreno glaciar."
+        },
+        {
+          "title": "El Muro de Barranco es único.",
+          "body": "Una escalada casi vertical de 300 metros al amanecer que parece aterradora y resulta magnífica — manos y pies, secciones expuestas, y una sonrisa que no podrás quitarte el resto del día."
+        },
+        {
+          "title": "La ruta te prepara adecuadamente para la noche de cumbre.",
+          "body": "Al llegar al Campamento Base Barafu en el día 5, tu cuerpo ha pasado cuatro días a altitud progresivamente mayor. La noche de cumbre, aunque nunca fácil, se siente manejable en lugar de brutal."
+        }
       ],
       "arrivalDay": "Llegas a Tanzania y te trasladas a tu hotel en Arusha o Moshi. Tu guía principal te recibe para una charla informativa previa a la ascensión — revisión de equipo, resumen de la ruta, protocolo de seguridad en altitud y preguntas. Descansa bien. Hidrátate. Duerme temprano. Tu expedición comienza mañana.",
       "itinerary": [
-        { "day": 1, "title": "Puerta Machame → Campamento Machame", "meta": "Campamento: Machame · Elevación: 3.026 m · Distancia: 11 km · Tiempo de caminata: 5–7 horas", "body": "El Día 1 más largo de cualquier ruta estándar del Kilimanjaro. Desde la Puerta Machame a 1.800 m, el sendero entra de inmediato en la selva tropical. Los colobos se mueven entre los árboles. El campamento está en una cresta de páramo sobre la línea de árboles, donde las estrellas, en una noche despejada, son extraordinarias.", "expect": "Tu primer día completo de sendero. Las piernas lo sentirán. Come bien, bebe más agua de la que crees necesitar, y duerme lo antes posible." },
-        { "day": 2, "title": "Campamento Machame → Campamento Shira", "meta": "Campamento: Shira · Elevación: 3.766 m · Distancia: 5 km · Tiempo de caminata: 4–6 horas", "body": "El bosque se adelgaza y el mundo se abre. La vegetación se transforma en páramo abierto de brezo, y la meseta de Shira se abre ante ti: vasta, azotada por el viento, antigua. La cumbre glaciar del Kibo se eleva en el horizonte.", "expect": "Un día más corto tras el esfuerzo del Día 1. La fatiga de la tarde es normal. Los dolores de cabeza leves son comunes a esta altitud — suelen resolverse durante la noche." },
-        { "day": 3, "title": "Campamento Shira → Torre de Lava → Campamento Barranco", "meta": "Campamento: Barranco · Elevación: 3.983 m · Distancia: 10 km · Tiempo de caminata: 6–8 horas", "body": "El día más importante de la Ruta Machame. La mañana asciende hacia la Torre de Lava a 4.630 m — la estrategia 'subir alto, dormir bajo' en acción. Luego el sendero desciende casi 700 metros hasta el Campamento Barranco, con vistas dramáticas del Muro de Barranco que se alza sobre el campamento.", "expect": "Este es el día en que la altitud se hace sentir. El apetito puede disminuir. Los dolores de cabeza son comunes. Avisa a tu guía de inmediato si los síntomas parecen importantes." },
-        { "day": 4, "title": "Campamento Barranco → Muro de Barranco → Campamento Karanga", "meta": "Campamento: Karanga · Elevación: 3.995 m · Distancia: 5 km · Tiempo de caminata: 4–5 horas", "body": "El Muro de Barranco te espera — una escalada rocosa de 300 metros que se ha convertido en una de las secciones más icónicas del Kilimanjaro. La tarde cruza el Valle de Karanga, la última fuente de agua confiable en la montaña.", "expect": "Una mañana emocionante seguida de una tarde satisfactoria. La energía suele volver tras el ajuste de altitud del Día 3." },
-        { "day": 5, "title": "Campamento Karanga → Campamento Base Barafu", "meta": "Campamento: Barafu · Elevación: 4.673 m · Distancia: 4 km · Tiempo de caminata: 3–4 horas", "body": "El día de caminata más corto de la expedición. El sendero asciende por el desierto alpino hasta Barafu — el campamento alto principal del Kilimanjaro a 4.673 m. Tu guía realiza la charla completa sobre la cumbre. A medianoche, suena la alarma.", "expect": "La anticipación, los nervios y la inquietud relacionada con la altitud son completamente normales. Descansa aunque no puedas dormir. Come la cena completa aunque el apetito sea bajo." },
-        { "day": 6, "title": "Noche de cumbre → Pico Uhuru → Campamento Mweka", "meta": "Campamento: Mweka · Elevación: 3.110 m · Ascenso: 5 km · Descenso: 12 km · Tiempo total: 10–14 horas", "body": "Medianoche. Tu guía marca el ritmo — pole pole. En Stella Point (5.739 m), la primera luz del amanecer rompe sobre el Océano Índico. Cuarenta y cinco minutos después — el Pico Uhuru. África, 5.895 metros bajo tus pies. El descenso continúa hasta el Campamento Mweka.", "expect": "La noche de cumbre es el desafío físico y mental más difícil de la expedición. También es, sin excepción, el más gratificante." },
-        { "day": 7, "title": "Campamento Mweka → Puerta Mweka → Hotel", "meta": "Fin de la expedición · Elevación: 1.640 m · Distancia: 10 km · Tiempo de caminata: 3–4 horas", "body": "La última mañana a través de la selva tropical. En la Puerta Mweka, tu guía te entrega el certificado de cumbre. Tu conductor te espera para el traslado de vuelta al hotel.", "expect": "Descansa. Celebra. La montaña ha quedado atrás. El recuerdo es permanente." }
+        {
+          "day": 1,
+          "title": "Puerta Machame → Campamento Machame",
+          "meta": "Campamento: Machame · Elevación: 3.026 m · Distancia: 11 km · Tiempo de caminata: 5–7 horas",
+          "body": "El Día 1 más largo de cualquier ruta estándar del Kilimanjaro. Desde la Puerta Machame a 1.800 m, el sendero entra de inmediato en la selva tropical. Los colobos se mueven entre los árboles. El campamento está en una cresta de páramo sobre la línea de árboles, donde las estrellas, en una noche despejada, son extraordinarias.",
+          "expect": "Tu primer día completo de sendero. Las piernas lo sentirán. Come bien, bebe más agua de la que crees necesitar, y duerme lo antes posible."
+        },
+        {
+          "day": 2,
+          "title": "Campamento Machame → Campamento Shira",
+          "meta": "Campamento: Shira · Elevación: 3.766 m · Distancia: 5 km · Tiempo de caminata: 4–6 horas",
+          "body": "El bosque se adelgaza y el mundo se abre. La vegetación se transforma en páramo abierto de brezo, y la meseta de Shira se abre ante ti: vasta, azotada por el viento, antigua. La cumbre glaciar del Kibo se eleva en el horizonte.",
+          "expect": "Un día más corto tras el esfuerzo del Día 1. La fatiga de la tarde es normal. Los dolores de cabeza leves son comunes a esta altitud — suelen resolverse durante la noche."
+        },
+        {
+          "day": 3,
+          "title": "Campamento Shira → Torre de Lava → Campamento Barranco",
+          "meta": "Campamento: Barranco · Elevación: 3.983 m · Distancia: 10 km · Tiempo de caminata: 6–8 horas",
+          "body": "El día más importante de la Ruta Machame. La mañana asciende hacia la Torre de Lava a 4.630 m — la estrategia 'subir alto, dormir bajo' en acción. Luego el sendero desciende casi 700 metros hasta el Campamento Barranco, con vistas dramáticas del Muro de Barranco que se alza sobre el campamento.",
+          "expect": "Este es el día en que la altitud se hace sentir. El apetito puede disminuir. Los dolores de cabeza son comunes. Avisa a tu guía de inmediato si los síntomas parecen importantes."
+        },
+        {
+          "day": 4,
+          "title": "Campamento Barranco → Muro de Barranco → Campamento Karanga",
+          "meta": "Campamento: Karanga · Elevación: 3.995 m · Distancia: 5 km · Tiempo de caminata: 4–5 horas",
+          "body": "El Muro de Barranco te espera — una escalada rocosa de 300 metros que se ha convertido en una de las secciones más icónicas del Kilimanjaro. La tarde cruza el Valle de Karanga, la última fuente de agua confiable en la montaña.",
+          "expect": "Una mañana emocionante seguida de una tarde satisfactoria. La energía suele volver tras el ajuste de altitud del Día 3."
+        },
+        {
+          "day": 5,
+          "title": "Campamento Karanga → Campamento Base Barafu",
+          "meta": "Campamento: Barafu · Elevación: 4.673 m · Distancia: 4 km · Tiempo de caminata: 3–4 horas",
+          "body": "El día de caminata más corto de la expedición. El sendero asciende por el desierto alpino hasta Barafu — el campamento alto principal del Kilimanjaro a 4.673 m. Tu guía realiza la charla completa sobre la cumbre. A medianoche, suena la alarma.",
+          "expect": "La anticipación, los nervios y la inquietud relacionada con la altitud son completamente normales. Descansa aunque no puedas dormir. Come la cena completa aunque el apetito sea bajo."
+        },
+        {
+          "day": 6,
+          "title": "Noche de cumbre → Pico Uhuru → Campamento Mweka",
+          "meta": "Campamento: Mweka · Elevación: 3.110 m · Ascenso: 5 km · Descenso: 12 km · Tiempo total: 10–14 horas",
+          "body": "Medianoche. Tu guía marca el ritmo — pole pole. En Stella Point (5.739 m), la primera luz del amanecer rompe sobre el Océano Índico. Cuarenta y cinco minutos después — el Pico Uhuru. África, 5.895 metros bajo tus pies. El descenso continúa hasta el Campamento Mweka.",
+          "expect": "La noche de cumbre es el desafío físico y mental más difícil de la expedición. También es, sin excepción, el más gratificante."
+        },
+        {
+          "day": 7,
+          "title": "Campamento Mweka → Puerta Mweka → Hotel",
+          "meta": "Fin de la expedición · Elevación: 1.640 m · Distancia: 10 km · Tiempo de caminata: 3–4 horas",
+          "body": "La última mañana a través de la selva tropical. En la Puerta Mweka, tu guía te entrega el certificado de cumbre. Tu conductor te espera para el traslado de vuelta al hotel.",
+          "expect": "Descansa. Celebra. La montaña ha quedado atrás. El recuerdo es permanente."
+        }
       ],
       "included": [
         "Todas las tarifas del Parque Nacional del Kilimanjaro, tasa de conservación y tarifa de rescate TANAPA",
@@ -78,8 +132,18 @@
         "Certificado de cumbre del Kilimanjaro",
         "18% de IVA y todos los impuestos tanzanos aplicables"
       ],
-      "excluded": ["Vuelos internacionales", "Visa de Tanzania", "Seguro de viaje personal (obligatorio)", "Equipo personal", "Propinas"],
-      "pricing": { "solo": 2695, "small": 2495, "group": 2350 }
+      "excluded": [
+        "Vuelos internacionales",
+        "Visa de Tanzania",
+        "Seguro de viaje personal (obligatorio)",
+        "Equipo personal",
+        "Propinas"
+      ],
+      "pricing": {
+        "solo": 2695,
+        "small": 2495,
+        "group": 2350
+      }
     },
     "lemosho": {
       "nickname": "La Elección del Conocedor",
@@ -103,21 +167,81 @@
         "priceFrom": "2.595 USD por persona (grupo 5+)"
       },
       "whyChoose": [
-        { "title": "La aclimatación es excepcional.", "body": "El Día 3 es un día de descanso y caminata corta en la Meseta de Shira a 3.810 m — más de 24 horas adicionales en altitud antes de seguir ascendiendo. Esa diferencia se nota más claramente en la mañana de la cumbre." },
-        { "title": "El sendero es más tranquilo.", "body": "El acceso a través de la reserva forestal de Londorossi es una de las secciones menos transitadas del Kilimanjaro. Del Día 1 al Día 3, es poco probable que te encuentres con otro grupo de escalada." },
-        { "title": "La entrada por Londorossi es extraordinaria.", "body": "Se encuentran búfalos con regularidad en el acceso inferior. El bosque es antiguo, denso y verdaderamente salvaje." },
-        { "title": "Se une al circuito Machame el Día 4.", "body": "Tras el tranquilo acceso salvaje, te unes al icónico circuito sur y vives el Muro de Barranco, el Valle de Karanga y la ruta completa hacia la cumbre." }
+        {
+          "title": "La aclimatación es excepcional.",
+          "body": "El Día 3 es un día de descanso y caminata corta en la Meseta de Shira a 3.810 m — más de 24 horas adicionales en altitud antes de seguir ascendiendo. Esa diferencia se nota más claramente en la mañana de la cumbre."
+        },
+        {
+          "title": "El sendero es más tranquilo.",
+          "body": "El acceso a través de la reserva forestal de Londorossi es una de las secciones menos transitadas del Kilimanjaro. Del Día 1 al Día 3, es poco probable que te encuentres con otro grupo de escalada."
+        },
+        {
+          "title": "La entrada por Londorossi es extraordinaria.",
+          "body": "Se encuentran búfalos con regularidad en el acceso inferior. El bosque es antiguo, denso y verdaderamente salvaje."
+        },
+        {
+          "title": "Se une al circuito Machame el Día 4.",
+          "body": "Tras el tranquilo acceso salvaje, te unes al icónico circuito sur y vives el Muro de Barranco, el Valle de Karanga y la ruta completa hacia la cumbre."
+        }
       ],
       "arrivalDay": "Traslado desde el Aeropuerto Internacional del Kilimanjaro a tu hotel. Tu guía principal te recibe para una charla informativa completa previa a la ascensión — revisión de equipo, resumen de la ruta, protocolo de seguridad en altitud y estrategia de cumbre. Ven con tus preguntas.",
       "itinerary": [
-        { "day": 1, "title": "Puerta Londorossi → Campamento Big Tree (Mti Mkubwa)", "meta": "Campamento: Mti Mkubwa · Elevación: 2.650 m · Distancia: 6 km · Tiempo de caminata: 2–3 horas", "body": "Un día de apertura suave y deliberado. Desde la Puerta Londorossi a 2.100 m, el sendero entra en la característica más distintiva de la Lemosho — una sección de bosque tan prístina que se siente genuinamente intacta. Huellas de búfalo cruzan el camino.", "expect": "El día de caminata más corto de la ruta. Aprovecha la tarde para descansar, explorar el borde del bosque y adaptarte al cambio de altitud." },
-        { "day": 2, "title": "Mti Mkubwa → Cresta Shira → Campamento Shira 1", "meta": "Campamento: Shira 1 · Elevación: 3.500 m · Distancia: 8 km · Tiempo de caminata: 4–6 horas", "body": "El bosque se retira y la montaña se revela. El sendero asciende hacia el brezo y páramo abierto de la Cresta Shira. En la cima, la Meseta de Shira se abre ante ti — vasta, antigua, de otro mundo.", "expect": "Un ascenso sostenido con ganancia significativa de altitud. Los dolores de cabeza son comunes esta noche — la respuesta normal del cuerpo a ascender 1.400 m en un solo día." },
-        { "day": 3, "title": "Shira 1 → Campamento Shira 2 (Día de Aclimatación)", "meta": "Campamento: Shira 2 · Elevación: 3.810 m · Distancia: 8 km · Tiempo de caminata: 4–5 horas", "body": "Este es el día que distingue a la Lemosho de cualquier otra ruta de la montaña. Una caminata matutina más corta te lleva al campamento a primera hora de la tarde — el resto del día es tuyo, y es la aclimatación más productiva disponible en cualquier ruta estándar.", "expect": "El día de descanso más importante de la expedición. Aprovéchalo. Come bien. Bebe 4 litros de agua." },
-        { "day": 4, "title": "Shira 2 → Torre de Lava → Campamento Barranco", "meta": "Campamento: Barranco · Elevación: 3.983 m · Distancia: 10 km · Tiempo de caminata: 6–8 horas", "body": "La Lemosho se une hoy al circuito Machame. La ruta asciende hacia la Torre de Lava a 4.630 m, y luego desciende 700 metros hasta el Campamento Barranco. Tu cuerpo, aclimatado por la Lemosho, maneja esta altitud con notablemente más facilidad.", "expect": "Un día largo y exigente, pero donde tu ventaja de aclimatación empieza a notarse. La energía y el apetito suelen mantenerse fuertes." },
-        { "day": 5, "title": "Muro de Barranco → Campamento Karanga", "meta": "Campamento: Karanga · Elevación: 3.995 m · Distancia: 5 km · Tiempo de caminata: 4–5 horas", "body": "El Muro de Barranco — 300 metros de escalada casi vertical que requiere manos y pies todo el tiempo. La tarde cruza el Valle de Karanga, la última fuente de agua en la montaña.", "expect": "Una mañana emocionante que suele restaurar la energía tras los días de ajuste de altitud." },
-        { "day": 6, "title": "Campamento Karanga → Campamento Base Barafu", "meta": "Campamento: Barafu · Elevación: 4.673 m · Distancia: 4 km · Tiempo de caminata: 3–4 horas", "body": "El acceso final al campamento base, encaramado en una cresta rocosa a 4.673 m. Tu guía realiza la charla completa de la noche de cumbre. A medianoche, suena la alarma.", "expect": "Una caminata corta seguida de una larga espera. Confía en tu preparación — seis días de aclimatación constante han hecho su trabajo." },
-        { "day": 7, "title": "Noche de cumbre → Pico Uhuru → Campamento Mweka", "meta": "Campamento: Mweka · Elevación: 3.110 m · Ascenso: 5 km · Descenso: 12 km · Tiempo total: 10–14 horas", "body": "Salida a medianoche hacia el borde del cráter. Stella Point llega a 5.739 m mientras el sol rompe sobre el Océano Índico. Cuarenta y cinco minutos después — el Pico Uhuru. Estás en el Techo de África.", "expect": "El día más difícil y extraordinario de la expedición. Todo lo anterior fue preparación para esto." },
-        { "day": 8, "title": "Campamento Mweka → Puerta Mweka → Hotel", "meta": "Fin de la expedición · Elevación: 1.640 m · Distancia: 10 km · Tiempo de caminata: 3–4 horas", "body": "Una última mañana en el bosque. En la Puerta Mweka, se te entrega tu certificado de cumbre. Tu conductor espera.", "expect": "Descansa. Celebra. Has escalado el Kilimanjaro." }
+        {
+          "day": 1,
+          "title": "Puerta Londorossi → Campamento Big Tree (Mti Mkubwa)",
+          "meta": "Campamento: Mti Mkubwa · Elevación: 2.650 m · Distancia: 6 km · Tiempo de caminata: 2–3 horas",
+          "body": "Un día de apertura suave y deliberado. Desde la Puerta Londorossi a 2.100 m, el sendero entra en la característica más distintiva de la Lemosho — una sección de bosque tan prístina que se siente genuinamente intacta. Huellas de búfalo cruzan el camino.",
+          "expect": "El día de caminata más corto de la ruta. Aprovecha la tarde para descansar, explorar el borde del bosque y adaptarte al cambio de altitud."
+        },
+        {
+          "day": 2,
+          "title": "Mti Mkubwa → Cresta Shira → Campamento Shira 1",
+          "meta": "Campamento: Shira 1 · Elevación: 3.500 m · Distancia: 8 km · Tiempo de caminata: 4–6 horas",
+          "body": "El bosque se retira y la montaña se revela. El sendero asciende hacia el brezo y páramo abierto de la Cresta Shira. En la cima, la Meseta de Shira se abre ante ti — vasta, antigua, de otro mundo.",
+          "expect": "Un ascenso sostenido con ganancia significativa de altitud. Los dolores de cabeza son comunes esta noche — la respuesta normal del cuerpo a ascender 1.400 m en un solo día."
+        },
+        {
+          "day": 3,
+          "title": "Shira 1 → Campamento Shira 2 (Día de Aclimatación)",
+          "meta": "Campamento: Shira 2 · Elevación: 3.810 m · Distancia: 8 km · Tiempo de caminata: 4–5 horas",
+          "body": "Este es el día que distingue a la Lemosho de cualquier otra ruta de la montaña. Una caminata matutina más corta te lleva al campamento a primera hora de la tarde — el resto del día es tuyo, y es la aclimatación más productiva disponible en cualquier ruta estándar.",
+          "expect": "El día de descanso más importante de la expedición. Aprovéchalo. Come bien. Bebe 4 litros de agua."
+        },
+        {
+          "day": 4,
+          "title": "Shira 2 → Torre de Lava → Campamento Barranco",
+          "meta": "Campamento: Barranco · Elevación: 3.983 m · Distancia: 10 km · Tiempo de caminata: 6–8 horas",
+          "body": "La Lemosho se une hoy al circuito Machame. La ruta asciende hacia la Torre de Lava a 4.630 m, y luego desciende 700 metros hasta el Campamento Barranco. Tu cuerpo, aclimatado por la Lemosho, maneja esta altitud con notablemente más facilidad.",
+          "expect": "Un día largo y exigente, pero donde tu ventaja de aclimatación empieza a notarse. La energía y el apetito suelen mantenerse fuertes."
+        },
+        {
+          "day": 5,
+          "title": "Muro de Barranco → Campamento Karanga",
+          "meta": "Campamento: Karanga · Elevación: 3.995 m · Distancia: 5 km · Tiempo de caminata: 4–5 horas",
+          "body": "El Muro de Barranco — 300 metros de escalada casi vertical que requiere manos y pies todo el tiempo. La tarde cruza el Valle de Karanga, la última fuente de agua en la montaña.",
+          "expect": "Una mañana emocionante que suele restaurar la energía tras los días de ajuste de altitud."
+        },
+        {
+          "day": 6,
+          "title": "Campamento Karanga → Campamento Base Barafu",
+          "meta": "Campamento: Barafu · Elevación: 4.673 m · Distancia: 4 km · Tiempo de caminata: 3–4 horas",
+          "body": "El acceso final al campamento base, encaramado en una cresta rocosa a 4.673 m. Tu guía realiza la charla completa de la noche de cumbre. A medianoche, suena la alarma.",
+          "expect": "Una caminata corta seguida de una larga espera. Confía en tu preparación — seis días de aclimatación constante han hecho su trabajo."
+        },
+        {
+          "day": 7,
+          "title": "Noche de cumbre → Pico Uhuru → Campamento Mweka",
+          "meta": "Campamento: Mweka · Elevación: 3.110 m · Ascenso: 5 km · Descenso: 12 km · Tiempo total: 10–14 horas",
+          "body": "Salida a medianoche hacia el borde del cráter. Stella Point llega a 5.739 m mientras el sol rompe sobre el Océano Índico. Cuarenta y cinco minutos después — el Pico Uhuru. Estás en el Techo de África.",
+          "expect": "El día más difícil y extraordinario de la expedición. Todo lo anterior fue preparación para esto."
+        },
+        {
+          "day": 8,
+          "title": "Campamento Mweka → Puerta Mweka → Hotel",
+          "meta": "Fin de la expedición · Elevación: 1.640 m · Distancia: 10 km · Tiempo de caminata: 3–4 horas",
+          "body": "Una última mañana en el bosque. En la Puerta Mweka, se te entrega tu certificado de cumbre. Tu conductor espera.",
+          "expect": "Descansa. Celebra. Has escalado el Kilimanjaro."
+        }
       ],
       "included": [
         "Todas las tarifas del Parque Nacional del Kilimanjaro, tasa de conservación y tarifa de rescate TANAPA",
@@ -133,8 +257,18 @@
         "Certificado de cumbre del Kilimanjaro",
         "18% de IVA y todos los impuestos tanzanos aplicables"
       ],
-      "excluded": ["Vuelos internacionales", "Visa de Tanzania", "Seguro de viaje personal (obligatorio)", "Equipo personal", "Propinas"],
-      "pricing": { "solo": 2950, "small": 2750, "group": 2595 }
+      "excluded": [
+        "Vuelos internacionales",
+        "Visa de Tanzania",
+        "Seguro de viaje personal (obligatorio)",
+        "Equipo personal",
+        "Propinas"
+      ],
+      "pricing": {
+        "solo": 2950,
+        "small": 2750,
+        "group": 2595
+      }
     },
     "rongai": {
       "nickname": "El Acceso Norte",
@@ -158,20 +292,74 @@
         "priceFrom": "2.250 USD por persona (grupo 5+)"
       },
       "whyChoose": [
-        { "title": "La soledad es real.", "body": "En algunos días de la Rongai, no te encontrarás con ningún otro grupo de escalada. Para escaladores solitarios y grupos pequeños que valoran la naturaleza genuina, esto importa." },
-        { "title": "La fauna es excepcional.", "body": "Elefantes, búfalos, cebras y elands se encuentran regularmente en las laderas bajas del norte — una experiencia de fauna que ninguna ruta sur ofrece." },
-        { "title": "Es la única ruta viable durante las grandes lluvias.", "body": "Abril y mayo son meses de temporada de lluvias en las laderas sur — embarradas y exigentes. La exposición norte de la Rongai se mantiene seca. No es un compromiso — es la elección correcta." },
-        { "title": "La pendiente es más constante.", "body": "La Rongai asciende con un perfil más gradual y lineal que la Machame o la Lemosho. Sin secciones de escalada, sin travesías de cresta expuestas." }
+        {
+          "title": "La soledad es real.",
+          "body": "En algunos días de la Rongai, no te encontrarás con ningún otro grupo de escalada. Para escaladores solitarios y grupos pequeños que valoran la naturaleza genuina, esto importa."
+        },
+        {
+          "title": "La fauna es excepcional.",
+          "body": "Elefantes, búfalos, cebras y elands se encuentran regularmente en las laderas bajas del norte — una experiencia de fauna que ninguna ruta sur ofrece."
+        },
+        {
+          "title": "Es la única ruta viable durante las grandes lluvias.",
+          "body": "Abril y mayo son meses de temporada de lluvias en las laderas sur — embarradas y exigentes. La exposición norte de la Rongai se mantiene seca. No es un compromiso — es la elección correcta."
+        },
+        {
+          "title": "La pendiente es más constante.",
+          "body": "La Rongai asciende con un perfil más gradual y lineal que la Machame o la Lemosho. Sin secciones de escalada, sin travesías de cresta expuestas."
+        }
       ],
       "arrivalDay": "Llegas a Tanzania y te trasladas a tu hotel. Tu guía realiza una charla informativa completa previa a la ascensión — revisión de equipo, resumen de la ruta, protocolos de seguridad en altitud y preguntas. La Rongai comienza más lejos de Arusha que otras rutas, por lo que te informamos a fondo durante el trayecto hacia la puerta a la mañana siguiente.",
       "itinerary": [
-        { "day": 1, "title": "Puerta Rongai → Campamento Simba", "meta": "Campamento: Simba · Elevación: 2.625 m · Distancia: 7 km · Tiempo de caminata: 3–4 horas", "body": "El trayecto de Moshi a la Puerta Rongai te lleva a través de la zona fronteriza con Kenia — sabana abierta, asentamientos masái y las primeras vistas lejanas de las laderas norte del Kilimanjaro. Desde la puerta, el sendero entra en un bosque seco y abierto.", "expect": "Un día de apertura suave y rico en fauna. La menor ganancia de elevación del Día 1 en la Rongai permite un comienzo más cómodo." },
-        { "day": 2, "title": "Campamento Simba → Campamento Second Cave", "meta": "Campamento: Second Cave · Elevación: 3.450 m · Distancia: 9 km · Tiempo de caminata: 4–6 horas", "body": "El sendero asciende a través de una vegetación en constante cambio — el bosque abierto da paso al páramo y aparecen las primeras lobelias gigantes. Las vistas se extienden al norte sobre las llanuras kenianas y al sur hacia el Mawenzi.", "expect": "Un día más largo con ganancia constante de altitud. La altitud empieza a notarse esta noche — bebe 4 litros de agua y come una cena completa." },
-        { "day": 3, "title": "Campamento Second Cave → Campamento Kikelewa Cave", "meta": "Campamento: Kikelewa Cave · Elevación: 3.600 m · Distancia: 5 km · Tiempo de caminata: 3–4 horas", "body": "Un día más corto diseñado para la aclimatación. El sendero continúa a través de un páramo abierto, austero y hermoso, con el Pico Mawenzi dominando el horizonte oriental. Tu guía recomienda una caminata de aclimatación por la tarde.", "expect": "Un día de descanso con exposición significativa a la altitud. Usa la tarde para explorar y aclimatarte en lugar de descansar pasivamente." },
-        { "day": 4, "title": "Kikelewa Cave → Campamento Mawenzi Tarn", "meta": "Campamento: Mawenzi Tarn · Elevación: 4.330 m · Distancia: 4 km · Tiempo de caminata: 3–5 horas", "body": "El sendero asciende con fuerza hasta Mawenzi Tarn — un lago glaciar bajo las espectaculares agujas del Pico Mawenzi. Este es el equivalente de la Rongai a la parada de la Torre de Lava — un alcance de altitud significativo antes de descender a dormir.", "expect": "La altitud se hace notar claramente a 4.330 m. Los dolores de cabeza son comunes y normales." },
-        { "day": 5, "title": "Mawenzi Tarn → Kibo Hut (Campamento Base)", "meta": "Campamento: Kibo Hut · Elevación: 4.703 m · Distancia: 9 km · Tiempo de caminata: 4–6 horas", "body": "El largo cruce de la silla entre Mawenzi y Kibo — un paisaje lunar de polvo volcánico y piedra pómez. Kibo Hut a 4.703 m es un edificio de piedra en lugar de una tienda, único de la Rongai en esta sección.", "expect": "El cruce de la silla es mentalmente exigente — largo, expuesto y a altitud considerable. Tómalo con calma." },
-        { "day": 6, "title": "Noche de cumbre → Pico Uhuru → Campamento Horombo", "meta": "Campamento: Horombo · Elevación: 3.720 m · Ascenso: 5 km · Descenso: 12 km · Tiempo total: 10–14 horas", "body": "La ruta de cumbre de la Rongai se acerca desde el norte y el este, alcanzando el borde del cráter en Gilman's Point (5.681 m) antes de la caminata por el borde del cráter hasta el Pico Uhuru. El descenso regresa por la ruta sur hasta el Campamento Horombo.", "expect": "La noche de cumbre de la Rongai se considera ligeramente más exigente técnicamente debido a la pendiente norte más pronunciada." },
-        { "day": 7, "title": "Campamento Horombo → Puerta Marangu → Hotel", "meta": "Fin de la expedición · Elevación: 1.860 m · Distancia: 19 km · Tiempo de caminata: 5–7 horas", "body": "Un largo último día a través del páramo y la selva tropical hasta la puerta, terminando en la Puerta Marangu donde te espera tu certificado. Traslado de vuelta a tu hotel.", "expect": "La Rongai ha quedado atrás. La historia no." }
+        {
+          "day": 1,
+          "title": "Puerta Rongai → Campamento Simba",
+          "meta": "Campamento: Simba · Elevación: 2.625 m · Distancia: 7 km · Tiempo de caminata: 3–4 horas",
+          "body": "El trayecto de Moshi a la Puerta Rongai te lleva a través de la zona fronteriza con Kenia — sabana abierta, asentamientos masái y las primeras vistas lejanas de las laderas norte del Kilimanjaro. Desde la puerta, el sendero entra en un bosque seco y abierto.",
+          "expect": "Un día de apertura suave y rico en fauna. La menor ganancia de elevación del Día 1 en la Rongai permite un comienzo más cómodo."
+        },
+        {
+          "day": 2,
+          "title": "Campamento Simba → Campamento Second Cave",
+          "meta": "Campamento: Second Cave · Elevación: 3.450 m · Distancia: 9 km · Tiempo de caminata: 4–6 horas",
+          "body": "El sendero asciende a través de una vegetación en constante cambio — el bosque abierto da paso al páramo y aparecen las primeras lobelias gigantes. Las vistas se extienden al norte sobre las llanuras kenianas y al sur hacia el Mawenzi.",
+          "expect": "Un día más largo con ganancia constante de altitud. La altitud empieza a notarse esta noche — bebe 4 litros de agua y come una cena completa."
+        },
+        {
+          "day": 3,
+          "title": "Campamento Second Cave → Campamento Kikelewa Cave",
+          "meta": "Campamento: Kikelewa Cave · Elevación: 3.600 m · Distancia: 5 km · Tiempo de caminata: 3–4 horas",
+          "body": "Un día más corto diseñado para la aclimatación. El sendero continúa a través de un páramo abierto, austero y hermoso, con el Pico Mawenzi dominando el horizonte oriental. Tu guía recomienda una caminata de aclimatación por la tarde.",
+          "expect": "Un día de descanso con exposición significativa a la altitud. Usa la tarde para explorar y aclimatarte en lugar de descansar pasivamente."
+        },
+        {
+          "day": 4,
+          "title": "Kikelewa Cave → Campamento Mawenzi Tarn",
+          "meta": "Campamento: Mawenzi Tarn · Elevación: 4.330 m · Distancia: 4 km · Tiempo de caminata: 3–5 horas",
+          "body": "El sendero asciende con fuerza hasta Mawenzi Tarn — un lago glaciar bajo las espectaculares agujas del Pico Mawenzi. Este es el equivalente de la Rongai a la parada de la Torre de Lava — un alcance de altitud significativo antes de descender a dormir.",
+          "expect": "La altitud se hace notar claramente a 4.330 m. Los dolores de cabeza son comunes y normales."
+        },
+        {
+          "day": 5,
+          "title": "Mawenzi Tarn → Kibo Hut (Campamento Base)",
+          "meta": "Campamento: Kibo Hut · Elevación: 4.703 m · Distancia: 9 km · Tiempo de caminata: 4–6 horas",
+          "body": "El largo cruce de la silla entre Mawenzi y Kibo — un paisaje lunar de polvo volcánico y piedra pómez. Kibo Hut a 4.703 m es un edificio de piedra en lugar de una tienda, único de la Rongai en esta sección.",
+          "expect": "El cruce de la silla es mentalmente exigente — largo, expuesto y a altitud considerable. Tómalo con calma."
+        },
+        {
+          "day": 6,
+          "title": "Noche de cumbre → Pico Uhuru → Campamento Horombo",
+          "meta": "Campamento: Horombo · Elevación: 3.720 m · Ascenso: 5 km · Descenso: 12 km · Tiempo total: 10–14 horas",
+          "body": "La ruta de cumbre de la Rongai se acerca desde el norte y el este, alcanzando el borde del cráter en Gilman's Point (5.681 m) antes de la caminata por el borde del cráter hasta el Pico Uhuru. El descenso regresa por la ruta sur hasta el Campamento Horombo.",
+          "expect": "La noche de cumbre de la Rongai se considera ligeramente más exigente técnicamente debido a la pendiente norte más pronunciada."
+        },
+        {
+          "day": 7,
+          "title": "Campamento Horombo → Puerta Marangu → Hotel",
+          "meta": "Fin de la expedición · Elevación: 1.860 m · Distancia: 19 km · Tiempo de caminata: 5–7 horas",
+          "body": "Un largo último día a través del páramo y la selva tropical hasta la puerta, terminando en la Puerta Marangu donde te espera tu certificado. Traslado de vuelta a tu hotel.",
+          "expect": "La Rongai ha quedado atrás. La historia no."
+        }
       ],
       "included": [
         "Todas las tarifas del Parque Nacional del Kilimanjaro, tasa de conservación y tarifa de rescate TANAPA",
@@ -187,8 +375,18 @@
         "Certificado de cumbre del Kilimanjaro",
         "18% de IVA y todos los impuestos tanzanos aplicables"
       ],
-      "excluded": ["Vuelos internacionales", "Visa de Tanzania", "Seguro de viaje personal (obligatorio)", "Equipo personal", "Propinas"],
-      "pricing": { "solo": 2595, "small": 2395, "group": 2250 }
+      "excluded": [
+        "Vuelos internacionales",
+        "Visa de Tanzania",
+        "Seguro de viaje personal (obligatorio)",
+        "Equipo personal",
+        "Propinas"
+      ],
+      "pricing": {
+        "solo": 2595,
+        "small": 2395,
+        "group": 2250
+      }
     },
     "marangu": {
       "nickname": "La Ruta Clásica",
@@ -212,18 +410,60 @@
         "priceFrom": "1.950 USD por persona (grupo 5+)"
       },
       "whyChoose": [
-        { "title": "El alojamiento en cabañas es único.", "body": "Mandara Hut a 2.720 m, Horombo Hut a 3.720 m y Kibo Hut a 4.703 m son las únicas estructuras permanentes disponibles en cualquier ruta del Kilimanjaro." },
-        { "title": "Es la ruta históricamente más significativa del Kilimanjaro.", "body": "La Marangu fue la primera ruta abierta para expediciones de escalada organizadas. Las primeras cumbres registradas de la montaña se lograron por este camino." },
-        { "title": "El ascenso y descenso por el mismo camino.", "body": "A diferencia de otras rutas, la Marangu asciende y desciende por el mismo sendero — una simplicidad logística que algunos escaladores aprecian." },
-        { "title": "El precio más accesible.", "body": "El alojamiento en cabañas, compartido entre varios grupos, reduce el requerimiento de equipo — convirtiéndola en la opción más asequible sin sacrificar la calidad del guía ni la seguridad." }
+        {
+          "title": "El alojamiento en cabañas es único.",
+          "body": "Mandara Hut a 2.720 m, Horombo Hut a 3.720 m y Kibo Hut a 4.703 m son las únicas estructuras permanentes disponibles en cualquier ruta del Kilimanjaro."
+        },
+        {
+          "title": "Es la ruta históricamente más significativa del Kilimanjaro.",
+          "body": "La Marangu fue la primera ruta abierta para expediciones de escalada organizadas. Las primeras cumbres registradas de la montaña se lograron por este camino."
+        },
+        {
+          "title": "El ascenso y descenso por el mismo camino.",
+          "body": "A diferencia de otras rutas, la Marangu asciende y desciende por el mismo sendero — una simplicidad logística que algunos escaladores aprecian."
+        },
+        {
+          "title": "El precio más accesible.",
+          "body": "El alojamiento en cabañas, compartido entre varios grupos, reduce el requerimiento de equipo — convirtiéndola en la opción más asequible sin sacrificar la calidad del guía ni la seguridad."
+        }
       ],
       "arrivalDay": "Traslado desde el Aeropuerto del Kilimanjaro a tu hotel. Charla informativa completa previa a la ascensión con tu guía principal — revisión de equipo, resumen de la ruta, detalles del alojamiento en cabañas, protocolo de seguridad en altitud y preguntas. La Puerta Marangu es la más cercana a Moshi de todas las rutas.",
       "itinerary": [
-        { "day": 1, "title": "Puerta Marangu → Mandara Hut", "meta": "Campamento: Mandara Hut · Elevación: 2.720 m · Distancia: 8 km · Tiempo de caminata: 3–4 horas", "body": "Desde la Puerta Marangu a 1.860 m, el sendero entra en la selva tropical y asciende de forma constante a través de una de las secciones de bosque más bellas del Kilimanjaro. Mandara Hut es un conjunto de cabañas en forma de A en un claro del bosque. Se recomienda una caminata corta por la tarde al Cráter Maundi.", "expect": "Un primer día cómodo con ganancia moderada de altitud. Las cabañas suelen compartirse con otros grupos de escalada — disfruta de la camaradería." },
-        { "day": 2, "title": "Mandara Hut → Horombo Hut", "meta": "Campamento: Horombo Hut · Elevación: 3.720 m · Distancia: 12 km · Tiempo de caminata: 5–7 horas", "body": "El bosque da paso al páramo mientras el sendero asciende constantemente hacia Horombo — un día largo con ganancia significativa de altitud, la sección más exigente de la Marangu. El Pico Mawenzi aparece hacia el este.", "expect": "El día más largo y exigente. Los dolores de cabeza por altitud son comunes en Horombo. Come una cena completa, bebe 4 litros de agua y duerme lo antes posible." },
-        { "day": 3, "title": "Horombo Hut → Kibo Hut (Campamento Base)", "meta": "Campamento: Kibo Hut · Elevación: 4.703 m · Distancia: 10 km · Tiempo de caminata: 5–6 horas", "body": "El páramo da paso a la silla — un vasto paisaje volcánico plano entre Mawenzi y Kibo. Kibo Hut a 4.703 m es un edificio de piedra, austero y azotado por el viento, encaramado directamente bajo el cono de la cumbre.", "expect": "Un día exigente con un impacto significativo de la altitud. Escucha atentamente a tu cuerpo e informa a tu guía de cualquier síntoma preocupante." },
-        { "day": 4, "title": "Noche de cumbre → Pico Uhuru → Horombo Hut", "meta": "Regreso a Horombo Hut · Elevación: 3.720 m · Ascenso: 5 km · Descenso: 15 km · Tiempo total: 10–14 horas", "body": "Salida a medianoche desde Kibo Hut. El sendero de cumbre asciende con fuerza a través de escoria volcánica hacia Gilman's Point (5.681 m). La caminata por el borde del cráter hacia el oeste hasta el Pico Uhuru entrega la recompensa definitiva de la montaña. El descenso regresa por el mismo camino hasta Horombo Hut.", "expect": "El día más difícil de la expedición. El perfil de ascenso más rápido de la Marangu significa que la noche de cumbre exige una resiliencia mental y determinación física particulares." },
-        { "day": 5, "title": "Horombo Hut → Puerta Marangu → Hotel", "meta": "Fin de la expedición · Elevación: 1.860 m · Distancia: 20 km · Tiempo de caminata: 5–7 horas", "body": "El descenso final a través del páramo y la selva tropical — una larga y satisfactoria caminata de vuelta a la puerta donde comenzó la expedición. En la Puerta Marangu, se te entrega tu certificado de cumbre.", "expect": "Terminas donde empezaste, la montaña completando un círculo completo." }
+        {
+          "day": 1,
+          "title": "Puerta Marangu → Mandara Hut",
+          "meta": "Campamento: Mandara Hut · Elevación: 2.720 m · Distancia: 8 km · Tiempo de caminata: 3–4 horas",
+          "body": "Desde la Puerta Marangu a 1.860 m, el sendero entra en la selva tropical y asciende de forma constante a través de una de las secciones de bosque más bellas del Kilimanjaro. Mandara Hut es un conjunto de cabañas en forma de A en un claro del bosque. Se recomienda una caminata corta por la tarde al Cráter Maundi.",
+          "expect": "Un primer día cómodo con ganancia moderada de altitud. Las cabañas suelen compartirse con otros grupos de escalada — disfruta de la camaradería."
+        },
+        {
+          "day": 2,
+          "title": "Mandara Hut → Horombo Hut",
+          "meta": "Campamento: Horombo Hut · Elevación: 3.720 m · Distancia: 12 km · Tiempo de caminata: 5–7 horas",
+          "body": "El bosque da paso al páramo mientras el sendero asciende constantemente hacia Horombo — un día largo con ganancia significativa de altitud, la sección más exigente de la Marangu. El Pico Mawenzi aparece hacia el este.",
+          "expect": "El día más largo y exigente. Los dolores de cabeza por altitud son comunes en Horombo. Come una cena completa, bebe 4 litros de agua y duerme lo antes posible."
+        },
+        {
+          "day": 3,
+          "title": "Horombo Hut → Kibo Hut (Campamento Base)",
+          "meta": "Campamento: Kibo Hut · Elevación: 4.703 m · Distancia: 10 km · Tiempo de caminata: 5–6 horas",
+          "body": "El páramo da paso a la silla — un vasto paisaje volcánico plano entre Mawenzi y Kibo. Kibo Hut a 4.703 m es un edificio de piedra, austero y azotado por el viento, encaramado directamente bajo el cono de la cumbre.",
+          "expect": "Un día exigente con un impacto significativo de la altitud. Escucha atentamente a tu cuerpo e informa a tu guía de cualquier síntoma preocupante."
+        },
+        {
+          "day": 4,
+          "title": "Noche de cumbre → Pico Uhuru → Horombo Hut",
+          "meta": "Regreso a Horombo Hut · Elevación: 3.720 m · Ascenso: 5 km · Descenso: 15 km · Tiempo total: 10–14 horas",
+          "body": "Salida a medianoche desde Kibo Hut. El sendero de cumbre asciende con fuerza a través de escoria volcánica hacia Gilman's Point (5.681 m). La caminata por el borde del cráter hacia el oeste hasta el Pico Uhuru entrega la recompensa definitiva de la montaña. El descenso regresa por el mismo camino hasta Horombo Hut.",
+          "expect": "El día más difícil de la expedición. El perfil de ascenso más rápido de la Marangu significa que la noche de cumbre exige una resiliencia mental y determinación física particulares."
+        },
+        {
+          "day": 5,
+          "title": "Horombo Hut → Puerta Marangu → Hotel",
+          "meta": "Fin de la expedición · Elevación: 1.860 m · Distancia: 20 km · Tiempo de caminata: 5–7 horas",
+          "body": "El descenso final a través del páramo y la selva tropical — una larga y satisfactoria caminata de vuelta a la puerta donde comenzó la expedición. En la Puerta Marangu, se te entrega tu certificado de cumbre.",
+          "expect": "Terminas donde empezaste, la montaña completando un círculo completo."
+        }
       ],
       "included": [
         "Todas las tarifas del Parque Nacional del Kilimanjaro, tasa de conservación y tarifa de rescate TANAPA",
@@ -239,8 +479,18 @@
         "Certificado de cumbre del Kilimanjaro",
         "18% de IVA y todos los impuestos tanzanos aplicables"
       ],
-      "excluded": ["Vuelos internacionales", "Visa de Tanzania", "Seguro de viaje personal (obligatorio)", "Equipo personal", "Propinas"],
-      "pricing": { "solo": 2295, "small": 2095, "group": 1950 }
+      "excluded": [
+        "Vuelos internacionales",
+        "Visa de Tanzania",
+        "Seguro de viaje personal (obligatorio)",
+        "Equipo personal",
+        "Propinas"
+      ],
+      "pricing": {
+        "solo": 2295,
+        "small": 2095,
+        "group": 1950
+      }
     },
     "umbwe": {
       "nickname": "La Ruta Más Directa",
@@ -264,20 +514,74 @@
         "priceFrom": "1.880 USD por persona (grupo 5+)"
       },
       "whyChoose": [
-        { "title": "Es la línea más directa hacia la montaña.", "body": "Sin largo acceso, sin calentamiento gradual — la Umbwe asciende directamente a la selva tropical y sigue subiendo. Si quieres la distancia más corta entre la puerta y los glaciares, esta es." },
-        { "title": "La soledad es real, al menos al principio.", "body": "La Umbwe recibe muchos menos escaladores que la Machame o la Lemosho en sus laderas bajas. Tendrás el bosque prácticamente para ti hasta que la ruta se una al circuito sur en el Campamento Barranco." },
-        { "title": "La versión de 7 días añade el día de aclimatación que le falta a la Umbwe.", "body": "El ascenso empinado y rápido que hace famosa a la Umbwe es también su mayor riesgo — este itinerario añade un día de descanso dedicado en el Campamento Barranco antes del muro, dando a tu cuerpo tiempo real para ajustarse antes del empuje final." },
-        { "title": "Recompensa a los escaladores que ya saben lo que hacen.", "body": "Esta no es una primera ascensión al Kilimanjaro. Recomendamos la Umbwe a excursionistas con experiencia previa en altitud que quieren la ruta estándar más exigente de la montaña, con los ojos bien abiertos." }
+        {
+          "title": "Es la línea más directa hacia la montaña.",
+          "body": "Sin largo acceso, sin calentamiento gradual — la Umbwe asciende directamente a la selva tropical y sigue subiendo. Si quieres la distancia más corta entre la puerta y los glaciares, esta es."
+        },
+        {
+          "title": "La soledad es real, al menos al principio.",
+          "body": "La Umbwe recibe muchos menos escaladores que la Machame o la Lemosho en sus laderas bajas. Tendrás el bosque prácticamente para ti hasta que la ruta se una al circuito sur en el Campamento Barranco."
+        },
+        {
+          "title": "La versión de 7 días añade el día de aclimatación que le falta a la Umbwe.",
+          "body": "El ascenso empinado y rápido que hace famosa a la Umbwe es también su mayor riesgo — este itinerario añade un día de descanso dedicado en el Campamento Barranco antes del muro, dando a tu cuerpo tiempo real para ajustarse antes del empuje final."
+        },
+        {
+          "title": "Recompensa a los escaladores que ya saben lo que hacen.",
+          "body": "Esta no es una primera ascensión al Kilimanjaro. Recomendamos la Umbwe a excursionistas con experiencia previa en altitud que quieren la ruta estándar más exigente de la montaña, con los ojos bien abiertos."
+        }
       ],
       "arrivalDay": "Llegas a Tanzania y te trasladas a tu hotel en Moshi. Tu guía principal te recibe para una charla informativa completa previa a la ascensión — revisión de equipo, resumen de la ruta, protocolo de seguridad en altitud y preguntas. Los empinados primeros días de la Umbwe merecen atención especial aquí. Descansa bien y duerme temprano — tu expedición comienza mañana.",
       "itinerary": [
-        { "day": 1, "title": "Puerta Umbwe → Campamento Umbwe Cave", "meta": "Campamento: Umbwe Cave · Elevación: 2.850 m · Distancia: 11 km · Tiempo de caminata: 5–6 horas", "body": "El día 1 más empinado de cualquier ruta estándar del Kilimanjaro. Desde la Puerta Umbwe, el sendero asciende de inmediato y sin descanso a través de densa selva tropical — una pista forestal empinada con poco terreno plano. Observa la copa de los árboles en busca de colobos mientras asciendes.", "expect": "Este es un primer día exigente sin transición suave. Administra tu ritmo, bebe abundante agua, y espera sentir el ascenso en las piernas al llegar al campamento." },
-        { "day": 2, "title": "Campamento Umbwe Cave → Campamento Barranco", "meta": "Campamento: Barranco · Elevación: 3.900 m · Distancia: 6 km · Tiempo de caminata: 4–5 horas", "body": "El bosque cede paso al páramo mientras el sendero sigue la Cresta Umbwe en un ascenso constante. Por la tarde llegas al Campamento Barranco, donde la Umbwe se une al circuito sur de la ruta Machame — la soledad de los dos primeros días da paso a un campamento más animado y sociable.", "expect": "La ganancia de altitud es significativa en dos días rápidos — los dolores de cabeza leves son comunes. Informa a tu guía de inmediato si los síntomas parecen más serios." },
-        { "day": 3, "title": "Día de aclimatación en el Campamento Barranco", "meta": "Campamento: Barranco · Elevación: 3.900 m · Distancia: Caminata corta de aclimatación · Tiempo de caminata: Flexible", "body": "Un día de descanso dedicado — la única adición que la versión de 7 días de la Umbwe hace sobre la versión más rápida de 6 días, y la razón por la que la recomendamos. Aprovecha el día para explorar el valle a un ritmo tranquilo, descansar, y dejar que tu cuerpo se ponga al día con la altitud antes del muro.", "expect": "Este es el día más importante de la ascensión para tus posibilidades de cumbre. Descansa activamente en lugar de pasivamente — una caminata corta ayuda más que quedarse quieto." },
-        { "day": 4, "title": "Muro de Barranco → Campamento Karanga", "meta": "Campamento: Karanga · Elevación: 3.995 m · Distancia: 5 km · Tiempo de caminata: 3–4 horas", "body": "El Muro de Barranco — una escalada empinada por un acantilado rocoso de 250 metros — te recibe a primera hora de la mañana. Parece más difícil de lo que es usando manos y pies. Más allá del muro, el sendero continúa hacia el Valle de Karanga para un último tramo empinado hasta el campamento.", "expect": "Una mañana corta pero intensa seguida de una tarde más fácil. La energía suele ser mejor hoy tras el día de descanso." },
-        { "day": 5, "title": "Campamento Karanga → Campamento Base Barafu", "meta": "Campamento: Barafu · Elevación: 4.673 m · Distancia: 4 km · Tiempo de caminata: 3–4 horas", "body": "El sendero completa el Circuito Sur, ofreciendo vistas de la cumbre desde casi todos los ángulos, antes de ascender por el desierto alpino hasta Barafu — el campamento alto principal del Kilimanjaro. Tu guía realiza la charla completa sobre la cumbre antes de una cena temprana e intento de dormir.", "expect": "Un día de caminata corto pero mentalmente importante. Descansa aunque no puedas dormir — la medianoche llega rápido." },
-        { "day": 6, "title": "Noche de cumbre → Pico Uhuru → Campamento Mweka", "meta": "Campamento: Mweka · Elevación: 3.110 m · Ascenso: 5 km · Descenso: 13 km · Tiempo total: 10–13 horas", "body": "Medianoche. La ruta asciende por un sendero empinado y suelto pasando los Glaciares Rebmann y Ratzel hacia Stella Point, recompensado con el amanecer sobre el borde del cráter. Desde allí sigue un último empuje a través de la nieve hasta el Pico Uhuru. El descenso es largo, continuando hasta el Campamento Mweka.", "expect": "El día más difícil de la expedición, y el más gratificante. El descenso posterior es largo — administra tu ritmo con piernas cansadas." },
-        { "day": 7, "title": "Campamento Mweka → Puerta Mweka → Hotel", "meta": "Fin de la expedición · Elevación: 1.640 m · Distancia: 10 km · Tiempo de caminata: 3–4 horas", "body": "El descenso final continúa a través de la selva tropical hasta la Puerta Mweka, donde se te entrega tu certificado. Tu conductor te lleva de vuelta a tu hotel en Moshi.", "expect": "Descansa. Celebra. La montaña ha quedado atrás." }
+        {
+          "day": 1,
+          "title": "Puerta Umbwe → Campamento Umbwe Cave",
+          "meta": "Campamento: Umbwe Cave · Elevación: 2.850 m · Distancia: 11 km · Tiempo de caminata: 5–6 horas",
+          "body": "El día 1 más empinado de cualquier ruta estándar del Kilimanjaro. Desde la Puerta Umbwe, el sendero asciende de inmediato y sin descanso a través de densa selva tropical — una pista forestal empinada con poco terreno plano. Observa la copa de los árboles en busca de colobos mientras asciendes.",
+          "expect": "Este es un primer día exigente sin transición suave. Administra tu ritmo, bebe abundante agua, y espera sentir el ascenso en las piernas al llegar al campamento."
+        },
+        {
+          "day": 2,
+          "title": "Campamento Umbwe Cave → Campamento Barranco",
+          "meta": "Campamento: Barranco · Elevación: 3.900 m · Distancia: 6 km · Tiempo de caminata: 4–5 horas",
+          "body": "El bosque cede paso al páramo mientras el sendero sigue la Cresta Umbwe en un ascenso constante. Por la tarde llegas al Campamento Barranco, donde la Umbwe se une al circuito sur de la ruta Machame — la soledad de los dos primeros días da paso a un campamento más animado y sociable.",
+          "expect": "La ganancia de altitud es significativa en dos días rápidos — los dolores de cabeza leves son comunes. Informa a tu guía de inmediato si los síntomas parecen más serios."
+        },
+        {
+          "day": 3,
+          "title": "Día de aclimatación en el Campamento Barranco",
+          "meta": "Campamento: Barranco · Elevación: 3.900 m · Distancia: Caminata corta de aclimatación · Tiempo de caminata: Flexible",
+          "body": "Un día de descanso dedicado — la única adición que la versión de 7 días de la Umbwe hace sobre la versión más rápida de 6 días, y la razón por la que la recomendamos. Aprovecha el día para explorar el valle a un ritmo tranquilo, descansar, y dejar que tu cuerpo se ponga al día con la altitud antes del muro.",
+          "expect": "Este es el día más importante de la ascensión para tus posibilidades de cumbre. Descansa activamente en lugar de pasivamente — una caminata corta ayuda más que quedarse quieto."
+        },
+        {
+          "day": 4,
+          "title": "Muro de Barranco → Campamento Karanga",
+          "meta": "Campamento: Karanga · Elevación: 3.995 m · Distancia: 5 km · Tiempo de caminata: 3–4 horas",
+          "body": "El Muro de Barranco — una escalada empinada por un acantilado rocoso de 250 metros — te recibe a primera hora de la mañana. Parece más difícil de lo que es usando manos y pies. Más allá del muro, el sendero continúa hacia el Valle de Karanga para un último tramo empinado hasta el campamento.",
+          "expect": "Una mañana corta pero intensa seguida de una tarde más fácil. La energía suele ser mejor hoy tras el día de descanso."
+        },
+        {
+          "day": 5,
+          "title": "Campamento Karanga → Campamento Base Barafu",
+          "meta": "Campamento: Barafu · Elevación: 4.673 m · Distancia: 4 km · Tiempo de caminata: 3–4 horas",
+          "body": "El sendero completa el Circuito Sur, ofreciendo vistas de la cumbre desde casi todos los ángulos, antes de ascender por el desierto alpino hasta Barafu — el campamento alto principal del Kilimanjaro. Tu guía realiza la charla completa sobre la cumbre antes de una cena temprana e intento de dormir.",
+          "expect": "Un día de caminata corto pero mentalmente importante. Descansa aunque no puedas dormir — la medianoche llega rápido."
+        },
+        {
+          "day": 6,
+          "title": "Noche de cumbre → Pico Uhuru → Campamento Mweka",
+          "meta": "Campamento: Mweka · Elevación: 3.110 m · Ascenso: 5 km · Descenso: 13 km · Tiempo total: 10–13 horas",
+          "body": "Medianoche. La ruta asciende por un sendero empinado y suelto pasando los Glaciares Rebmann y Ratzel hacia Stella Point, recompensado con el amanecer sobre el borde del cráter. Desde allí sigue un último empuje a través de la nieve hasta el Pico Uhuru. El descenso es largo, continuando hasta el Campamento Mweka.",
+          "expect": "El día más difícil de la expedición, y el más gratificante. El descenso posterior es largo — administra tu ritmo con piernas cansadas."
+        },
+        {
+          "day": 7,
+          "title": "Campamento Mweka → Puerta Mweka → Hotel",
+          "meta": "Fin de la expedición · Elevación: 1.640 m · Distancia: 10 km · Tiempo de caminata: 3–4 horas",
+          "body": "El descenso final continúa a través de la selva tropical hasta la Puerta Mweka, donde se te entrega tu certificado. Tu conductor te lleva de vuelta a tu hotel en Moshi.",
+          "expect": "Descansa. Celebra. La montaña ha quedado atrás."
+        }
       ],
       "included": [
         "Todas las tarifas del Parque Nacional del Kilimanjaro, tasa de conservación y tarifa de rescate TANAPA",
@@ -293,8 +597,18 @@
         "Certificado de cumbre del Kilimanjaro",
         "18% de IVA y todos los impuestos tanzanos aplicables"
       ],
-      "excluded": ["Vuelos internacionales", "Visa de Tanzania", "Seguro de viaje personal (obligatorio)", "Equipo personal", "Propinas"],
-      "pricing": { "solo": 1880, "small": 1880, "group": 1880 }
+      "excluded": [
+        "Vuelos internacionales",
+        "Visa de Tanzania",
+        "Seguro de viaje personal (obligatorio)",
+        "Equipo personal",
+        "Propinas"
+      ],
+      "pricing": {
+        "solo": 1880,
+        "small": 1880,
+        "group": 1880
+      }
     },
     "northern-circuit": {
       "nickname": "La Gran Travesía",
@@ -318,22 +632,88 @@
         "priceFrom": "2.237 USD por persona (grupo 5+)"
       },
       "whyChoose": [
-        { "title": "Es la ruta más larga — y más completa — del Kilimanjaro.", "body": "Nueve días en la montaña significan más tiempo en altitud que cualquier otra ruta estándar, lo que se traduce directamente en una de las tasas de éxito de cumbre más altas disponibles." },
-        { "title": "Ves lados del Kilimanjaro que casi nadie más ve.", "body": "La ruta rodea las laderas nórdicas raramente visitadas entre la Lemosho y la silla Kibo-Mawenzi — terreno que otras rutas simplemente no tocan." },
-        { "title": "Es genuinamente tranquila.", "body": "La Northern Circuit sigue siendo una de las vías menos concurridas hacia la cumbre. Espera largos tramos de sendero sin ningún otro grupo de escalada a la vista." },
-        { "title": "El perfil de aclimatación es excepcional.", "body": "Una circunnavegación larga y gradual con ganancia constante de altitud le da a tu cuerpo más tiempo para adaptarse que cualquier ruta más rápida — exactamente lo que hace que los días adicionales valgan la pena en la noche de cumbre." }
+        {
+          "title": "Es la ruta más larga — y más completa — del Kilimanjaro.",
+          "body": "Nueve días en la montaña significan más tiempo en altitud que cualquier otra ruta estándar, lo que se traduce directamente en una de las tasas de éxito de cumbre más altas disponibles."
+        },
+        {
+          "title": "Ves lados del Kilimanjaro que casi nadie más ve.",
+          "body": "La ruta rodea las laderas nórdicas raramente visitadas entre la Lemosho y la silla Kibo-Mawenzi — terreno que otras rutas simplemente no tocan."
+        },
+        {
+          "title": "Es genuinamente tranquila.",
+          "body": "La Northern Circuit sigue siendo una de las vías menos concurridas hacia la cumbre. Espera largos tramos de sendero sin ningún otro grupo de escalada a la vista."
+        },
+        {
+          "title": "El perfil de aclimatación es excepcional.",
+          "body": "Una circunnavegación larga y gradual con ganancia constante de altitud le da a tu cuerpo más tiempo para adaptarse que cualquier ruta más rápida — exactamente lo que hace que los días adicionales valgan la pena en la noche de cumbre."
+        }
       ],
       "arrivalDay": "Llegas a Tanzania y te trasladas a tu hotel en Moshi. Tu guía principal te recibe para una charla informativa completa previa a la ascensión — revisión de equipo, resumen de la ruta, protocolo de seguridad en altitud y preguntas. La Northern Circuit es la ruta más larga que operamos, así que tómate el tiempo de hacer todas tus preguntas. Descansa bien — tu expedición comienza mañana.",
       "itinerary": [
-        { "day": 1, "title": "Puerta Londorossi → Campamento Mti Mkubwa", "meta": "Campamento: Mti Mkubwa · Elevación: 2.780 m · Distancia: 6 km · Tiempo de caminata: 2–3 horas", "body": "Un trayecto en 4x4 por la pista forestal hasta los Claros de Lemosho comienza el día antes de que el sendero empiece a pie. Esta es la sección con más vegetación y fauna de la ruta — observa la copa de los árboles en busca de monos mientras asciendes por la selva tropical.", "expect": "Un día de apertura suave. Aprovéchalo para adaptarte al ritmo del sendero." },
-        { "day": 2, "title": "Mti Mkubwa → Cresta Shira → Campamento Shira 1", "meta": "Campamento: Shira 1 · Elevación: 3.600 m · Distancia: 8 km · Tiempo de caminata: 4–5 horas", "body": "Los árboles se adelgazan rápidamente hoy mientras el sendero asciende la espectacular Cresta Shira. Es un día empinado, recompensado con hermosas vistas panorámicas sobre la Meseta occidental de Shira.", "expect": "Un ascenso sostenido con verdadera ganancia de altitud. Los dolores de cabeza leves esta noche son normales." },
-        { "day": 3, "title": "Meseta de Shira → Campamento Shira 2", "meta": "Campamento: Shira 2 · Elevación: 3.850 m · Distancia: 8 km · Tiempo de caminata: 4–5 horas", "body": "Un día más suave cruzando las praderas abiertas de la Meseta de Shira — bueno para la aclimatación. Cortos senderos exploratorios alrededor del campamento te permiten conocer el páramo circundante.", "expect": "Un día cómodo en comparación. Aprovecha la distancia más corta para descansar bien." },
-        { "day": 4, "title": "Shira 2 → Torre de Lava → Campamento Moir", "meta": "Campamento: Moir · Elevación: 4.200 m · Distancia: 14 km · Tiempo de caminata: 5–7 horas", "body": "El sendero atraviesa el Jardín de los Senecios — la última vegetación de mayor tamaño — antes del almuerzo en la espectacular formación rocosa de la Torre de Lava. Aquí la Northern Circuit se separa de las rutas del circuito sur, entrando en el desierto alpino y la mitad norte más tranquila de la montaña.", "expect": "Un día largo con un contacto significativo con la altitud en la Torre de Lava. Aquí es donde la Northern Circuit empieza a sentirse verdaderamente remota." },
-        { "day": 5, "title": "Valle de Moir → Campamento Buffalo", "meta": "Campamento: Buffalo · Elevación: 4.020 m · Distancia: 12 km · Tiempo de caminata: 5–6 horas", "body": "Un sendero moderadamente empinado rodea las laderas nórdicas del Kibo, con subidas y bajadas graduales y la opción de subir Little Lent Hill para vistas extendidas. El Campamento Buffalo en sí es un punto destacado de la Northern Circuit — un campamento genuinamente aislado que pocos escaladores en otras rutas llegan a ver.", "expect": "Terreno ondulado en lugar de una sola subida difícil. El aislamiento aquí es todo el sentido — disfrútalo." },
-        { "day": 6, "title": "Cresta Buffalo → Campamento Third Cave", "meta": "Campamento: Third Cave · Elevación: 3.875 m · Distancia: 8 km · Tiempo de caminata: 5–7 horas", "body": "El sendero asciende la Cresta Buffalo antes de bordear las laderas nórdicas remotas hacia el Campamento Third Cave, cerca de donde pasa la ruta Rongai. Para este momento tu cuerpo está bien adaptado a la gran altitud.", "expect": "Un día largo, pero tu ventaja de aclimatación debería notarse en este punto de la caminata." },
-        { "day": 7, "title": "Silla Kibo-Mawenzi → Campamento School Hut", "meta": "Campamento: School Hut · Elevación: 4.800 m · Distancia: 15 km · Tiempo de caminata: 4–5 horas", "body": "Un ascenso más empinado hoy, cruzando la silla entre los Picos Kibo y Mawenzi con vistas únicas de ambos. Sigue una cena temprana y una noche temprana — la hora de despertar es medianoche.", "expect": "Los nervios y la inquietud relacionada con la altitud son normales esta noche. Descansa aunque no puedas dormir." },
-        { "day": 8, "title": "Noche de cumbre → Pico Uhuru → Campamento Millennium", "meta": "Campamento: Millennium · Elevación: 3.950 m · Ascenso: 5 km · Descenso: 12 km · Tiempo total: 10–15 horas", "body": "Salida a medianoche para el empinado ascenso hacia Gilman's Point, donde te unes a escaladores de otras rutas para el empuje final. La caminata por el borde del cráter ofrece vistas impresionantes del Pico Mawenzi antes de la última escalada a través de la nieve hasta el Pico Uhuru. El largo descenso continúa hasta el Campamento Millennium.", "expect": "El día más difícil y extraordinario de la expedición. El descenso posterior es largo — administra tu ritmo." },
-        { "day": 9, "title": "Campamento Millennium → Puerta Mweka → Hotel", "meta": "Fin de la expedición · Elevación: 1.640 m · Distancia: 10 km · Tiempo de caminata: 3–4 horas", "body": "Respirar se vuelve más fácil con cada paso mientras el sendero regresa a la selva tropical. En la Puerta Mweka, se te entrega tu certificado de cumbre antes del traslado de vuelta a tu hotel en Moshi.", "expect": "Descansa. Celebra. Has completado la ruta más larga del Kilimanjaro." }
+        {
+          "day": 1,
+          "title": "Puerta Londorossi → Campamento Mti Mkubwa",
+          "meta": "Campamento: Mti Mkubwa · Elevación: 2.780 m · Distancia: 6 km · Tiempo de caminata: 2–3 horas",
+          "body": "Un trayecto en 4x4 por la pista forestal hasta los Claros de Lemosho comienza el día antes de que el sendero empiece a pie. Esta es la sección con más vegetación y fauna de la ruta — observa la copa de los árboles en busca de monos mientras asciendes por la selva tropical.",
+          "expect": "Un día de apertura suave. Aprovéchalo para adaptarte al ritmo del sendero."
+        },
+        {
+          "day": 2,
+          "title": "Mti Mkubwa → Cresta Shira → Campamento Shira 1",
+          "meta": "Campamento: Shira 1 · Elevación: 3.600 m · Distancia: 8 km · Tiempo de caminata: 4–5 horas",
+          "body": "Los árboles se adelgazan rápidamente hoy mientras el sendero asciende la espectacular Cresta Shira. Es un día empinado, recompensado con hermosas vistas panorámicas sobre la Meseta occidental de Shira.",
+          "expect": "Un ascenso sostenido con verdadera ganancia de altitud. Los dolores de cabeza leves esta noche son normales."
+        },
+        {
+          "day": 3,
+          "title": "Meseta de Shira → Campamento Shira 2",
+          "meta": "Campamento: Shira 2 · Elevación: 3.850 m · Distancia: 8 km · Tiempo de caminata: 4–5 horas",
+          "body": "Un día más suave cruzando las praderas abiertas de la Meseta de Shira — bueno para la aclimatación. Cortos senderos exploratorios alrededor del campamento te permiten conocer el páramo circundante.",
+          "expect": "Un día cómodo en comparación. Aprovecha la distancia más corta para descansar bien."
+        },
+        {
+          "day": 4,
+          "title": "Shira 2 → Torre de Lava → Campamento Moir",
+          "meta": "Campamento: Moir · Elevación: 4.200 m · Distancia: 14 km · Tiempo de caminata: 5–7 horas",
+          "body": "El sendero atraviesa el Jardín de los Senecios — la última vegetación de mayor tamaño — antes del almuerzo en la espectacular formación rocosa de la Torre de Lava. Aquí la Northern Circuit se separa de las rutas del circuito sur, entrando en el desierto alpino y la mitad norte más tranquila de la montaña.",
+          "expect": "Un día largo con un contacto significativo con la altitud en la Torre de Lava. Aquí es donde la Northern Circuit empieza a sentirse verdaderamente remota."
+        },
+        {
+          "day": 5,
+          "title": "Valle de Moir → Campamento Buffalo",
+          "meta": "Campamento: Buffalo · Elevación: 4.020 m · Distancia: 12 km · Tiempo de caminata: 5–6 horas",
+          "body": "Un sendero moderadamente empinado rodea las laderas nórdicas del Kibo, con subidas y bajadas graduales y la opción de subir Little Lent Hill para vistas extendidas. El Campamento Buffalo en sí es un punto destacado de la Northern Circuit — un campamento genuinamente aislado que pocos escaladores en otras rutas llegan a ver.",
+          "expect": "Terreno ondulado en lugar de una sola subida difícil. El aislamiento aquí es todo el sentido — disfrútalo."
+        },
+        {
+          "day": 6,
+          "title": "Cresta Buffalo → Campamento Third Cave",
+          "meta": "Campamento: Third Cave · Elevación: 3.875 m · Distancia: 8 km · Tiempo de caminata: 5–7 horas",
+          "body": "El sendero asciende la Cresta Buffalo antes de bordear las laderas nórdicas remotas hacia el Campamento Third Cave, cerca de donde pasa la ruta Rongai. Para este momento tu cuerpo está bien adaptado a la gran altitud.",
+          "expect": "Un día largo, pero tu ventaja de aclimatación debería notarse en este punto de la caminata."
+        },
+        {
+          "day": 7,
+          "title": "Silla Kibo-Mawenzi → Campamento School Hut",
+          "meta": "Campamento: School Hut · Elevación: 4.800 m · Distancia: 15 km · Tiempo de caminata: 4–5 horas",
+          "body": "Un ascenso más empinado hoy, cruzando la silla entre los Picos Kibo y Mawenzi con vistas únicas de ambos. Sigue una cena temprana y una noche temprana — la hora de despertar es medianoche.",
+          "expect": "Los nervios y la inquietud relacionada con la altitud son normales esta noche. Descansa aunque no puedas dormir."
+        },
+        {
+          "day": 8,
+          "title": "Noche de cumbre → Pico Uhuru → Campamento Millennium",
+          "meta": "Campamento: Millennium · Elevación: 3.950 m · Ascenso: 5 km · Descenso: 12 km · Tiempo total: 10–15 horas",
+          "body": "Salida a medianoche para el empinado ascenso hacia Gilman's Point, donde te unes a escaladores de otras rutas para el empuje final. La caminata por el borde del cráter ofrece vistas impresionantes del Pico Mawenzi antes de la última escalada a través de la nieve hasta el Pico Uhuru. El largo descenso continúa hasta el Campamento Millennium.",
+          "expect": "El día más difícil y extraordinario de la expedición. El descenso posterior es largo — administra tu ritmo."
+        },
+        {
+          "day": 9,
+          "title": "Campamento Millennium → Puerta Mweka → Hotel",
+          "meta": "Fin de la expedición · Elevación: 1.640 m · Distancia: 10 km · Tiempo de caminata: 3–4 horas",
+          "body": "Respirar se vuelve más fácil con cada paso mientras el sendero regresa a la selva tropical. En la Puerta Mweka, se te entrega tu certificado de cumbre antes del traslado de vuelta a tu hotel en Moshi.",
+          "expect": "Descansa. Celebra. Has completado la ruta más larga del Kilimanjaro."
+        }
       ],
       "included": [
         "Todas las tarifas del Parque Nacional del Kilimanjaro, tasa de conservación y tarifa de rescate TANAPA",
@@ -349,8 +729,18 @@
         "Certificado de cumbre del Kilimanjaro",
         "18% de IVA y todos los impuestos tanzanos aplicables"
       ],
-      "excluded": ["Vuelos internacionales", "Visa de Tanzania", "Seguro de viaje personal (obligatorio)", "Equipo personal", "Propinas"],
-      "pricing": { "solo": 2237, "small": 2237, "group": 2237 }
+      "excluded": [
+        "Vuelos internacionales",
+        "Visa de Tanzania",
+        "Seguro de viaje personal (obligatorio)",
+        "Equipo personal",
+        "Propinas"
+      ],
+      "pricing": {
+        "solo": 2237,
+        "small": 2237,
+        "group": 2237
+      }
     }
   },
   "planBuilder": {
@@ -1011,7 +1401,62 @@
     "excluded3": "Propinas para el guía y porteadores (recomendado)",
     "excluded4": "Equipo personal (saco de dormir, bastones, etc.)",
     "excluded5": "Bebidas alcohólicas",
-    "excluded6": "Lavandería personal e imprevistos"
+    "excluded6": "Lavandería personal e imprevistos",
+    "route1Name": "Ruta Machame",
+    "route2Name": "Ruta Lemosho",
+    "route3Name": "Ruta Marangu",
+    "route4Name": "Ruta Rongai",
+    "route5Name": "Ruta Umbwe",
+    "route6Name": "Circuito Norte",
+    "route1Desc": "La ruta más escénica y popular de la montaña, con un perfil de aclimatación probado de \"sube alto, duerme bajo\" a través de cinco zonas ecológicas distintas.",
+    "route2Desc": "Ampliamente considerada la mejor ruta en general: un inicio remoto por el oeste, la vasta meseta de Shira y la tasa de éxito más alta entre las rutas estándar.",
+    "route3Desc": "La ruta clásica, y la única con alojamiento en refugios durante todo el trayecto: cómoda y asequible, aunque su ascenso más rápido reduce la tasa de éxito.",
+    "route4Desc": "La única ruta que se aproxima desde el norte, cerca de la frontera con Kenia: más tranquila, más seca y una excelente opción durante la temporada de lluvias.",
+    "route5Desc": "La línea más empinada y directa hacia la cumbre, solo para excursionistas experimentados, a través de bosque denso y crestas espectaculares.",
+    "route6Desc": "La ruta más nueva y más larga, que rodea toda la montaña ofreciendo vistas desde los cuatro lados y la mejor aclimatación de todas las rutas.",
+    "route1H1": "Escalada del Muro de Barranco",
+    "route1H2": "Aclimatación en la Torre de Lava",
+    "route1H3": "Ecosistemas diversos",
+    "route1H4": "Descenso por Mweka",
+    "route2H1": "Remota meseta de Shira",
+    "route2H2": "Mejor perfil de aclimatación",
+    "route2H3": "Diversidad de bosque y páramo",
+    "route2H4": "Tasa de éxito más alta",
+    "route3H1": "Alojamiento en refugios en todo el trayecto",
+    "route3H2": "La ruta más asequible",
+    "route3H3": "Ascenso gradual por sendero de selva",
+    "route3H4": "Mismo camino de ida y vuelta",
+    "route4H1": "Aproximación por el lado norte",
+    "route4H2": "Senderos menos concurridos",
+    "route4H3": "Buena opción en temporada de lluvias",
+    "route4H4": "Ambiente de naturaleza salvaje",
+    "route5H1": "La ruta más directa",
+    "route5H2": "Cresta de bosque denso",
+    "route5H3": "Se une a Machame en Barranco",
+    "route5H4": "Solo para excursionistas experimentados",
+    "route6H1": "Tasa de éxito más alta, 95%+",
+    "route6H2": "Vistas de 360° de la montaña",
+    "route6H3": "Mejor aclimatación",
+    "route6H4": "La más remota y escénica",
+    "metaTitle": "Trekking al Kilimanjaro y Escalada de Montaña en Tanzania 2026",
+    "metaDescription": "Escala el pico más alto de África con los guías locales más experimentados de Tanzania. Rutas Machame, Lemosho, Marangu y Rongai. Certificados por TANAPA, con respaldo de seguridad completo.",
+    "metaKeywords": [
+      "escalada Kilimanjaro 2026",
+      "rutas del Kilimanjaro",
+      "ruta Machame Kilimanjaro",
+      "ruta Lemosho Kilimanjaro",
+      "ruta Marangu Kilimanjaro",
+      "costo de escalar el Kilimanjaro",
+      "trekking Kilimanjaro Tanzania",
+      "mejor ruta del Kilimanjaro",
+      "tasa de éxito Kilimanjaro",
+      "operador turístico Kilimanjaro",
+      "montaña más alta de África",
+      "cumbre del Kilimanjaro",
+      "trekking guiado Kilimanjaro",
+      "escalada de montaña Tanzania",
+      "Pico Uhuru Tanzania"
+    ]
   },
   "contact": {
     "getInTouch": "Contactar",
@@ -1093,7 +1538,30 @@
     "findOurOffice": "Encuentra nuestra oficina",
     "ourOfficeCard": "Nuestra oficina",
     "companyName": "The Extreme Wilderness Adventure",
-    "getDirections": "Cómo llegar"
+    "getDirections": "Cómo llegar",
+    "team1Role": "Gerente de Destinos",
+    "team1Bio": "Mike supervisa toda nuestra cartera de destinos en Tanzania, Kenia y Ruanda. Conoce cada parque, cada lodge y cada camino secundario — y se asegura de que cada itinerario esté diseñado en torno a lo mejor de cada destino.",
+    "team2Role": "Guía de Safari",
+    "team2Bio": "Johnson da vida a la sabana con un conocimiento experto de la fauna y una precisión serena al volante. Certificado por TANAPA y fluido en varios idiomas, convierte cada game drive en una historia digna de contar.",
+    "team3Role": "Guía de Montaña",
+    "team3Bio": "Joshua ha llevado a cientos de escaladores a la cumbre del Kilimanjaro por todas las rutas principales. Su profundo conocimiento de la altitud, los patrones climáticos y el ritmo mantiene a cada excursionista seguro y en curso.",
+    "metaTitle": "Sobre Extreme Wilderness Adventure | Mejor Operador de Safaris en Tanzania 2026",
+    "metaDescription": "Operador de safaris nacido en Tanzania, de propiedad local y registrado en TATO. Guías expertos, safaris en grupos pequeños e itinerarios 100% personalizados. Calificado 4.9/5 por más de 200 huéspedes.",
+    "metaKeywords": [
+      "mejor operador de safaris en Tanzania",
+      "empresa de safaris en Tanzania",
+      "operador turístico local de Tanzania",
+      "guía de safari en Tanzania",
+      "safari registrado en TATO",
+      "empresa de safaris en Arusha",
+      "safari en grupo pequeño Tanzania",
+      "reseñas de safaris en Tanzania",
+      "guías de safari certificados en Tanzania",
+      "operador certificado por TANAPA",
+      "safari en Tanzania 2026",
+      "empresa de safaris africanos",
+      "mejor operador de safaris de África"
+    ]
   },
   "forms": {
     "firstName": "Nombre *",
@@ -1365,7 +1833,8 @@
     "mapSomeSafaris": "Algunos safaris",
     "mapTopSafari": "Safari premium",
     "mapCulturalRegion": "Región cultural",
-    "mapLowActivity": "Baja actividad"
+    "mapLowActivity": "Baja actividad",
+    "ctaBody": "Nuestro equipo nació y vive en Arusha — estos son nuestros parques de casa. Conocemos cada camino, cada temporada, cada campamento. Déjanos diseñar un itinerario construido en torno a lo que quieres ver."
   },
   "kenya": {
     "heroEyebrow": "Safaris en Kenia",
@@ -1401,7 +1870,7 @@
     "freeConsultation": "Consulta gratuita · Sin compromiso",
     "seasonEyebrow": "Planificar su visita",
     "seasonHeading": "Mejor época para hacer un safari en Kenia",
-    "seasonSubtitle": "Kenia es un destino durante todo el año, pero planificar alrededor de los cruces de la Gran Migración maximiza sus encuentros con la fauna.",
+    "seasonSubtitle": "Kenia es un destino para todo el año, pero programar tu visita en torno al cruce de la Gran Migración o la temporada seca maximiza tus encuentros con la vida salvaje.",
     "season1Label": "Temporada seca corta",
     "season2Label": "Lluvias largas",
     "season3Label": "Temporada alta",
@@ -1416,7 +1885,186 @@
     "birdingHeading": "Kenia: El principal destino ornitológico de África",
     "ctaEyebrow": "¿Listo para Kenia?",
     "ctaHeading": "Planifiquemos juntos su safari en Kenia",
-    "exploreTanzaniaToo": "Explorar Tanzania también"
+    "exploreTanzaniaToo": "Explorar Tanzania también",
+    "destExtra": {
+      "masai-mara": {
+        "badge": "Más Popular",
+        "bestTime": "Jul – oct",
+        "bestTimeLabel": "Temporada de Migración",
+        "duration": "3–5 días",
+        "priceFrom": "$320",
+        "activities": [
+          "Game drives",
+          "Safari en globo",
+          "Visita a un poblado cultural masái",
+          "Observación de aves",
+          "Caminatas por el monte",
+          "Game drives nocturnos"
+        ]
+      },
+      "amboseli": {
+        "badge": "Vistas Icónicas",
+        "bestTime": "Jun – oct y ene – feb",
+        "bestTimeLabel": "Temporada Seca",
+        "duration": "2–4 días",
+        "priceFrom": "$280",
+        "activities": [
+          "Rastreo de elefantes",
+          "Game drives",
+          "Visita a un poblado masái",
+          "Observación de aves",
+          "Safaris fotográficos",
+          "Game drives al atardecer"
+        ]
+      },
+      "samburu": {
+        "badge": "Especies Raras",
+        "bestTime": "Jun – oct y ene – mar",
+        "bestTimeLabel": "Temporada Seca",
+        "duration": "2–3 días",
+        "priceFrom": "$290",
+        "activities": [
+          "Game drives especializados",
+          "Recorridos culturales samburu",
+          "Paseos en camello",
+          "Caminatas junto al río",
+          "Observación de aves",
+          "Cena bush al atardecer"
+        ]
+      },
+      "tsavo": {
+        "badge": "Salvaje y Remoto",
+        "bestTime": "Jun – oct y ene – feb",
+        "bestTimeLabel": "Temporada Seca",
+        "duration": "3–5 días",
+        "priceFrom": "$260",
+        "activities": [
+          "Game drives",
+          "Caminata a las Fuentes de Mzima",
+          "Visita a las Cataratas de Lugard",
+          "Game drives nocturnos",
+          "Observación de aves",
+          "Campamentos de lujo"
+        ]
+      },
+      "ol-pejeta": {
+        "badge": "Ícono de Conservación",
+        "bestTime": "Todo el año",
+        "bestTimeLabel": "Siempre Abierto",
+        "duration": "2–3 días",
+        "priceFrom": "$350",
+        "activities": [
+          "Rastreo de rinocerontes a pie",
+          "Rastreo de leones",
+          "Visita al santuario de chimpancés",
+          "Game drives nocturnos",
+          "Charlas de conservación",
+          "Cenas bush"
+        ]
+      },
+      "lake-nakuru": {
+        "badge": "Sitio UNESCO",
+        "bestTime": "Jun – mar",
+        "bestTimeLabel": "Mejor Época de Flamencos",
+        "duration": "1–2 días",
+        "priceFrom": "$220",
+        "activities": [
+          "Observación de flamencos",
+          "Rastreo de rinocerontes",
+          "Observación de aves",
+          "Game drives",
+          "Miradores del escarpe",
+          "Tours fotográficos"
+        ]
+      },
+      "kenyan-coast": {
+        "badge": "Playa y Vida Marina",
+        "bestTime": "Dic – mar y jun – oct",
+        "bestTimeLabel": "Temporada Seca",
+        "duration": "3–7 días",
+        "priceFrom": "$190",
+        "activities": [
+          "Esnórquel y buceo",
+          "Navegación en dhow",
+          "Kitesurf",
+          "Monitoreo de tortugas",
+          "Tour cultural en Lamu",
+          "Pesca de altura"
+        ]
+      }
+    },
+    "box1ChipDesc": {
+      "masai-mara": "Gran Migración · Grandes Felinos · Cultura Masái",
+      "amboseli": "Manadas de Elefantes · Vistas del Kilimanjaro",
+      "samburu": "Los Cinco Especiales de Samburu · Norte Remoto",
+      "tsavo": "El Parque Más Grande de Kenia · Elefantes Rojos",
+      "ol-pejeta": "Últimos Rinocerontes Blancos · Chimpancés",
+      "lake-nakuru": "Flamencos · Escarpe del Valle del Rift",
+      "kenyan-coast": "Océano Índico · Cultura Suajili"
+    },
+    "box3Stats": [
+      {
+        "label": "Ñus en la Migración",
+        "sub": "La mayor migración terrestre del mundo"
+      },
+      {
+        "label": "Últimos rinocerontes blancos del norte",
+        "sub": "Viven en la Reserva de Ol Pejeta"
+      },
+      {
+        "label": "km² del Complejo del Parque Tsavo",
+        "sub": "La mayor área protegida de Kenia"
+      },
+      {
+        "label": "Flamencos en el Lago Nakuru",
+        "sub": "El mayor espectáculo ornitológico"
+      },
+      {
+        "label": "Especies de mamíferos en la Mara",
+        "sub": "La mayor densidad de grandes felinos de África"
+      },
+      {
+        "label": "Especies de aves registradas",
+        "sub": "La principal nación de observación de aves de África"
+      }
+    ],
+    "season1Tip": "Excelente observación de fauna — hierba baja, los animales se reúnen junto al agua. Ideal para Amboseli y Samburu.",
+    "season2Tip": "Paisajes verdes y exuberantes, con crías recién nacidas. Menos turistas y mejores tarifas. La Mara sigue siendo productiva.",
+    "season3Tip": "Cruces de ríos durante la Gran Migración (jul–sep). La mejor fauna de toda Kenia. Reserva con 6–12 meses de antelación.",
+    "season4Tip": "Llegada de aves migratorias. Los paisajes florecen. Buena relación calidad-precio y multitudes manejables.",
+    "heroSubtitleBody": "Desde el atronador galope de la Gran Migración hasta los apacibles gigantes de Amboseli — Kenia ofrece los espectáculos de vida salvaje más icónicos de África, culturas ancestrales y playas prístinas del Océano Índico.",
+    "introBody": "Kenia ha inspirado a los viajeros de safari durante más de un siglo — y por buenas razones. Es el hogar del mayor espectáculo de vida salvaje del planeta (la Gran Migración), los dos últimos rinocerontes blancos del norte que quedan en el mundo, algunos de los mejores lodges de lujo de África y un litoral de extraordinaria belleza. En The Extreme Wilderness, diseñamos safaris en Kenia que van más allá de lo obvio — combinando reservas icónicas con joyas ocultas, experiencias de conservación y profundos encuentros culturales para un viaje que perdura mucho después de regresar a casa.",
+    "migrationCalloutBody": "Más de 1,5 millones de ñus y 500.000 cebras realizan un épico circuito en sentido horario entre el Serengeti de Tanzania y la Masai Mara de Kenia, impulsados por las lluvias y los pastos frescos. Los cruces del río Mara — donde miles de animales se lanzan a aguas infestadas de cocodrilos — ocurren de julio a octubre. Combina Kenia y Tanzania para vivir la experiencia completa de la Migración durante todo el año.",
+    "comboBody": "Kenia y Tanzania comparten el Gran Valle del Rift, el ecosistema Serengeti–Mara y la sombra del Kilimanjaro. Juntos forman el circuito de safari más importante del mundo. En The Extreme Wilderness, nos especializamos en itinerarios transfronterizos que combinan a la perfección lo mejor de ambos países — los cruces de la Masai Mara, las llanuras del Serengeti, el Cráter del Ngorongoro, los elefantes de Amboseli y las playas de Zanzíbar — en un viaje inolvidable.",
+    "comboBullet1": "Sigue la Migración desde el Serengeti hasta la Masai Mara",
+    "comboBullet2": "Sube al Kilimanjaro y luego vuela a Amboseli para ver elefantes",
+    "comboBullet3": "Combina el Cráter del Ngorongoro con las especies raras de Samburu",
+    "comboBullet4": "Termina en Zanzíbar o en la playa de Diani para relajarte en el Océano Índico",
+    "mapCaption": "Kenia — Principales destinos",
+    "birdingBody": "Con más de 1.100 especies de aves registradas — incluyendo el raro pico zapato, el viudo de Jackson y el cálao terrestre abisinio — Kenia es un paraíso para los observadores de aves. Los flamencos del Lago Nakuru, el avestruz somalí de Samburu y las aves rapaces de la Masai Mara son solo el comienzo.",
+    "birdingBadge1": "Flamencos del Lago Nakuru",
+    "birdingBadge2": "Especies de zonas secas de Samburu",
+    "birdingBadge3": "Aves rapaces de la Masai Mara",
+    "birdingBadge4": "Aves del Bosque de Aberdare",
+    "birdingBadge5": "Especialidades del Valle del Rift",
+    "birdingBadge6": "Aves marinas en la costa",
+    "ctaBody": "Nuestro equipo de expertos — nacido y con base en África Oriental — diseñará un itinerario adaptado a tus intereses, plazos y presupuesto. No hay dos safaris iguales.",
+    "footerDisclaimer": "Grupos privados · Viajeros en solitario · Lunas de miel · Safaris familiares — todos son bienvenidos",
+    "bookSafariButton": "Reservar safari en {destName}",
+    "metaTitle": "Paquetes de Safari en Kenia 2026 | Masai Mara, Amboseli y la Gran Migración",
+    "metaDescription": "Reserva paquetes de safari en Kenia — la Gran Migración en la Masai Mara, manadas de elefantes en Amboseli, especies raras en Samburu. Safaris combinados Kenia-Tanzania desde $1,200 por persona. Certificado por TATO.",
+    "metaKeywords": [
+      "paquetes de safari en Kenia",
+      "safari Masai Mara 2026",
+      "Gran Migración Masai Mara",
+      "operador de safaris en Kenia",
+      "safari Parque Nacional Amboseli",
+      "Parque Nacional Samburu",
+      "combo de safari Kenia y Tanzania",
+      "mejor época Masai Mara",
+      "vacaciones de safari en Kenia",
+      "safari de lujo en Kenia"
+    ]
   },
   "rwanda": {
     "heroEyebrow": "Safaris en Ruanda",
@@ -1454,7 +2102,7 @@
     "freeConsultation": "Consulta gratuita · Sin compromiso",
     "seasonEyebrow": "Planificar su visita",
     "seasonHeading": "Mejor época para visitar Ruanda",
-    "seasonSubtitle": "Ruanda es un destino durante todo el año. El trekking de gorilas es posible cada día, pero las temporadas secas ofrecen senderos más fáciles.",
+    "seasonSubtitle": "Ruanda es un destino para todo el año. El senderismo de gorilas es posible todos los días, pero las temporadas secas ofrecen senderos más fáciles y condiciones más cómodas.",
     "season1Label": "Temporada seca larga",
     "season2Label": "Lluvias largas",
     "season3Label": "Temporada seca corta",
@@ -1470,7 +2118,175 @@
     "exploreTanzaniaToo": "Explorar Tanzania también",
     "statPlants": "Especies vegetales en Nyungwe",
     "statCapital": "Capital más limpia de África",
-    "gorillaPermitNotice": "Solo 96 permisos de gorila emitidos por día — reserve con mucha antelación"
+    "gorillaPermitNotice": "Solo 96 permisos de gorila emitidos por día — reserve con mucha antelación",
+    "destExtra": {
+      "volcanoes": {
+        "badge": "Experiencia Estrella",
+        "size": "160 km² · 4.507 m de elevación",
+        "bestTime": "Jun – sep y dic – feb",
+        "duration": "1–3 días",
+        "activities": [
+          "Rastreo de gorilas",
+          "Senderismo de monos dorados",
+          "Excursión a volcanes",
+          "Exploración de cuevas de Musanze",
+          "Caminata al lago del cráter",
+          "Pueblo cultural Iby'Iwacu"
+        ]
+      },
+      "nyungwe": {
+        "badge": "Paraíso de Primates",
+        "size": "1.020 km² · Selva tropical ancestral",
+        "bestTime": "Jun – sep y dic – feb",
+        "duration": "2–3 días",
+        "activities": [
+          "Senderismo de chimpancés",
+          "Puente colgante sobre el dosel",
+          "Rastreo de colobos",
+          "Observación de aves",
+          "Caminata a la cascada Lusomo",
+          "Senderismo forestal"
+        ]
+      },
+      "akagera": {
+        "badge": "Los Cinco Grandes",
+        "size": "1.122 km² · Sabana y humedales",
+        "bestTime": "Jun – sep y dic – feb",
+        "duration": "2–3 días",
+        "activities": [
+          "Game drives",
+          "Safari en bote por el lago Ihema",
+          "Rastreo de rinocerontes",
+          "Observación de aves",
+          "Game drives nocturnos",
+          "Safari autoguiado"
+        ]
+      },
+      "lake-kivu": {
+        "badge": "Escapada Escénica",
+        "size": "2.700 km² · 485 m de profundidad",
+        "bestTime": "Jun – sep y dic – feb",
+        "duration": "2–4 días",
+        "activities": [
+          "Paseos en bote",
+          "Kayak y paddle surf",
+          "Ciclismo por el Sendero Congo-Nilo",
+          "Natación",
+          "Observación de aves",
+          "Pesca"
+        ]
+      },
+      "kigali": {
+        "badge": "Centro Cultural",
+        "size": "Capital de Ruanda · 1,5 millones de hab.",
+        "bestTime": "Todo el año",
+        "duration": "1–2 días",
+        "activities": [
+          "Visita al Memorial del Genocidio",
+          "Aldea Cultural de Kigali",
+          "Recorrido por galerías de arte",
+          "Clases de cocina",
+          "Recorrido a pie por la ciudad",
+          "Compras en el mercado de artesanías"
+        ]
+      }
+    },
+    "box1ChipDesc": {
+      "volcanoes": "Gorilas de montaña · Volcanes Virunga",
+      "nyungwe": "Chimpancés · Único puente de dosel en África Oriental",
+      "akagera": "Los Cinco Grandes · Safaris en bote por el lago Ihema",
+      "lake-kivu": "Mar interior escénico · Sendero Congo-Nilo",
+      "kigali": "La capital más limpia de África · Centro cultural"
+    },
+    "box3Stats": [
+      {
+        "label": "Gorilas de montaña en el mundo",
+        "sub": "La única población de grandes simios en crecimiento"
+      },
+      {
+        "label": "Especies de primates en Nyungwe",
+        "sub": "El bosque de primates más diverso de África"
+      },
+      {
+        "label": "Costo del permiso de gorilas",
+        "sub": "Financia la conservación y las comunidades"
+      },
+      {
+        "label": "Cumbre del monte Karisimbi",
+        "sub": "El volcán Virunga más alto"
+      },
+      {
+        "label": "Especies de aves registradas",
+        "sub": "29 endémicas del Rift Albertino"
+      },
+      {
+        "label": "Con una familia de gorilas",
+        "sub": "El encuentro con vida salvaje más íntimo del mundo"
+      }
+    ],
+    "permitFacts": [
+      {
+        "label": "Costo del permiso",
+        "value": "$1,500 USD por persona"
+      },
+      {
+        "label": "Grupos limitados a",
+        "value": "8 personas por familia"
+      },
+      {
+        "label": "Tiempo con los gorilas",
+        "value": "1 hora máximo"
+      },
+      {
+        "label": "Familias disponibles",
+        "value": "12 familias habituadas"
+      },
+      {
+        "label": "Edad mínima",
+        "value": "15 años"
+      },
+      {
+        "label": "Duración del trekking",
+        "value": "30 min – 6 horas"
+      }
+    ],
+    "season1Tip": "Mejor época para el rastreo de gorilas — senderos secos, menos lluvia en los bosques. Temporada alta: reserva los permisos con 6+ meses de antelación.",
+    "season2Tip": "Paisajes exuberantes y verdes. El rastreo de gorilas sigue siendo posible. Buena observación de aves. Menos turistas.",
+    "season3Tip": "Excelente segunda mejor temporada. Temperaturas agradables. Ideal para todas las actividades en Ruanda.",
+    "season4Tip": "Mayor cantidad de lluvia. Los senderos pueden estar embarrados. Menor demanda de permisos — mejor disponibilidad. Paisajes exuberantes.",
+    "heroSubtitleBody": "Conoce a los gorilas de montaña. Recorre antiguas selvas tropicales junto a los chimpancés. Ve de safari por las sabanas. Ruanda es pequeña en tamaño pero extraordinaria en profundidad — uno de los destinos más íntimos y transformadores de África.",
+    "introBody": "Ruanda ha vivido una de las transformaciones más extraordinarias de la historia moderna — de la tragedia al triunfo, es hoy una de las naciones más seguras, limpias y progresistas de África. Para los amantes de la vida salvaje, Ruanda ofrece algo que ningún otro país puede igualar: la experiencia íntima de sentarse junto a una familia de gorilas de montaña en un antiguo bosque volcánico. Combinado con el senderismo de chimpancés, safaris de los Cinco Grandes, lagos prístinos y la extraordinaria calidez de su gente, es un destino que transforma a cada visitante.",
+    "permitSectionBody": "Ruanda emite solo 96 permisos de gorilas por día (8 por familia habituada, 12 familias). Los permisos tienen alta demanda todo el año y se agotan con meses de antelación en temporada alta. Nosotros gestionamos todas las reservas de permisos como parte de tu itinerario — contáctanos con anticipación para la mejor disponibilidad.",
+    "comboBody": "Los gorilas de Ruanda y las llanuras del Serengeti en Tanzania son las dos experiencias de vida salvaje más icónicas de África. Combinarlas en un solo itinerario te da la imagen completa de África Oriental — antiguas selvas tropicales, montañas volcánicas, vastas sabanas y el mayor espectáculo de vida salvaje del mundo.",
+    "comboBullet1": "Comienza con senderismo de gorilas en el Parque Nacional de los Volcanes",
+    "comboBullet2": "Vuela o conduce hasta Akagera para un safari clásico de los Cinco Grandes",
+    "comboBullet3": "Conecta con Tanzania para la Migración del Serengeti",
+    "comboBullet4": "Termina en Zanzíbar o en el Cráter del Ngorongoro",
+    "conservationBody": "Las tarifas de los permisos de gorilas en Ruanda financian directamente programas de conservación y benefician a las comunidades locales. Desde que se reanudó el turismo, la población de gorilas de montaña ha crecido de unos 620 en 2008 a casi 1.000 en la actualidad — la única población de grandes simios que está aumentando. Cada visitante juega un papel real en mantener con vida a estos animales.",
+    "conservationBadge1": "Protección del Gorila de Montaña",
+    "conservationBadge2": "Patrullas Antifurtivas",
+    "conservationBadge3": "Reparto de Ingresos Comunitarios",
+    "conservationBadge4": "Restauración del Hábitat",
+    "conservationBadge5": "Programas de Atención Veterinaria",
+    "conservationBadge6": "Investigación y Monitoreo",
+    "ctaBody": "Los permisos de gorilas son los permisos de vida salvaje más solicitados de África. Contáctanos ahora y nuestro equipo asegurará tus fechas, diseñará tu itinerario y se encargará de cada detalle.",
+    "footerDisclaimer": "Viajeros en solitario · Parejas · Familias · Grupos privados — todos son bienvenidos",
+    "mapCaption": "Ruanda — Principales destinos",
+    "bookTripButton": "Reservar viaje a {destName}",
+    "metaTitle": "Trekking de Gorilas en Ruanda 2026 | Permisos y Safaris del Parque Nacional de los Volcanes",
+    "metaDescription": "Reserva tu trekking de gorilas en Ruanda con guías certificados. Permisos de gorilas en el Parque Nacional de los Volcanes, rastreo de gorilas de montaña, senderismo de chimpancés en Nyungwe, Cinco Grandes en Akagera. Paquetes 2026.",
+    "metaKeywords": [
+      "trekking de gorilas en Ruanda",
+      "permiso de gorilas Ruanda",
+      "trekking de gorilas Parque Nacional de los Volcanes",
+      "gorila de montaña Ruanda 2026",
+      "reservar permiso de gorilas Ruanda",
+      "paquetes de safari en Ruanda",
+      "senderismo de chimpancés Nyungwe",
+      "operador turístico de gorilas en Ruanda",
+      "costo del trekking de gorilas en Ruanda",
+      "safari de gorilas África Oriental"
+    ]
   },
   "experiences": {
     "heroEyebrow": "África Oriental",
@@ -1602,7 +2418,52 @@
     "maxLabel": "Máx",
     "paxLabel": "pers.",
     "viewLabel": "Ver",
-    "durationSuffix": "· Desde"
+    "durationSuffix": "· Desde",
+    "smallGroupSafaris": "Safaris en Grupos Pequeños",
+    "badgeBestseller": "Más Vendido",
+    "badgeIconic": "Icónico",
+    "badgeRemote": "Remoto",
+    "badgePopular": "Popular",
+    "badgeLuxury": "Lujo",
+    "edition1Label": "La Edición Clásica",
+    "edition1Destinations": "Tanzania — Serengeti, Ngorongoro, Tarangire",
+    "edition2Label": "La Edición de los Primates",
+    "edition2Destinations": "Ruanda — PN de los Volcanes · Tanzania — Mahale",
+    "edition3Label": "La Edición del Sur Salvaje",
+    "edition3Destinations": "Tanzania — PN Ruaha, PN Nyerere",
+    "edition4Label": "La Edición Emblemática",
+    "edition4Destinations": "Tanzania — Serengeti, Ngorongoro, Zanzíbar",
+    "extra1Name": "Circuito Serengeti en Avioneta",
+    "extra1Destinations": "Tanzania — PN Serengeti (en avioneta)",
+    "extra2Name": "Circuito Tanzania y Kenia",
+    "extra2Destinations": "Tanzania — Serengeti · Kenia — Masai Mara, Amboseli",
+    "extra3Name": "Circuito del Norte de Tanzania",
+    "extra3Destinations": "Tanzania — Serengeti, Ngorongoro, Tarangire, Manyara",
+    "extra4Name": "Circuito del Sur de Tanzania",
+    "extra4Destinations": "Tanzania — PN Nyerere, PN Ruaha",
+    "extra5Name": "Circuito de Vida Salvaje de Kenia",
+    "extra5Destinations": "Kenia — Masai Mara, Laikipia, Ol Pejeta",
+    "extra6Name": "Ruta Machame del Kilimanjaro",
+    "extra6Destinations": "Tanzania — PN Kilimanjaro (Machame → Pico Uhuru)",
+    "metaTitle": "Itinerarios de Safari | The Extreme Wilderness",
+    "metaDescription": "Explora itinerarios de safari cuidadosamente seleccionados por Tanzania, Kenia y Ruanda. Desde circuitos clásicos por el Serengeti hasta el trekking de gorilas y ascensos al Kilimanjaro. Cada viaje hecho a medida.",
+    "metaKeywords": [
+      "itinerario de safari en Tanzania",
+      "itinerario de safari en África Oriental",
+      "safari de 7 días en Tanzania",
+      "safari de 10 días en Tanzania",
+      "itinerario del Serengeti",
+      "itinerario del Ngorongoro",
+      "planificador de viajes de safari en Tanzania",
+      "itinerario de viaje por Tanzania",
+      "planificador de safaris en África",
+      "itinerario de trekking de gorilas en Ruanda",
+      "itinerario del Kilimanjaro",
+      "safari combinado en Tanzania",
+      "itinerario personalizado en Tanzania",
+      "paquetes de safari en Tanzania",
+      "plan de viaje por África"
+    ]
   },
   "privacy": {
     "heroTitle1": "Política de",
@@ -1905,5 +2766,11 @@
     "contactSubtitle": "Nuestro equipo en Arusha está disponible los siete días de la semana para responder preguntas pre-viaje sobre requisitos de salud, solicitudes de visado, qué empacar y todo lo que necesite saber antes de su viaje.",
     "contactBtn1": "Contáctenos",
     "contactBtn2": "Ver safaris"
+  },
+  "notFound": {
+    "title": "Perdido en la Naturaleza Salvaje",
+    "subtitle": "Incluso los mejores guías a veces toman un camino equivocado. Deja que te ayudemos a volver a la senda.",
+    "backHome": "Volver al Inicio",
+    "browseDestinations": "Explorar Destinos"
   }
 }

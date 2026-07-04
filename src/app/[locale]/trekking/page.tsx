@@ -3,228 +3,165 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
   Droplets, Pill, HeartPulse, Zap, Package, ShieldCheck } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 
-export const metadata: Metadata = {
-  title: 'Kilimanjaro Trekking & Mountain Climbing Tanzania 2026',
-  description:
-    "Climb Africa's highest peak with Tanzania's most experienced local guides. Machame, Lemosho, Marangu and Rongai routes. TANAPA certified, full safety backup.",
-  keywords: [
-    'Kilimanjaro climb 2026',
-    'Kilimanjaro routes',
-    'Kilimanjaro Machame route',
-    'Kilimanjaro Lemosho route',
-    'Kilimanjaro Marangu route',
-    'climb Kilimanjaro cost',
-    'Kilimanjaro trekking Tanzania',
-    'best Kilimanjaro route',
-    'Kilimanjaro success rate',
-    'Kilimanjaro tour operator',
-    'Africa highest mountain',
-    'Kilimanjaro summit',
-    'Kilimanjaro guided trek',
-    'Tanzania mountain climbing',
-    'Uhuru Peak Tanzania',
-  ],
+const ROUTE_SLUGS = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const
+const ROUTE_BADGE_KEYS: Record<string, string | null> = {
+  machame: 'badgeMostPopular',
+  lemosho: 'badgeRecommended',
+  marangu: null,
+  rongai: null,
+  umbwe: 'badgeAdvanced',
+  'northern-circuit': 'badgeBestRate',
+}
+const ROUTE_IMAGES: Record<string, string> = {
+  machame: '/images/gallery/kilimanjaro.webp',
+  lemosho: '/images/gallery/kilimanjaro%20(4).webp',
+  marangu: '/images/gallery/kilimanjaro%20(1).webp',
+  rongai: '/images/gallery/kilimanjaro%20(2).webp',
+  umbwe: '/images/gallery/kilimanjaro%20(3).webp',
+  'northern-circuit': '/images/gallery/kilimanjaro%20(5).webp',
 }
 
-const GEAR_CATEGORIES = [
-  {
-    label: 'Clothing & Warmth',
-    items: [
-      { icon: Layers,      name: 'Layering System',     desc: 'Thermal base layers, fleece mid-layer, waterproof shell jacket & trousers' },
-      { icon: Moon,        name: 'Sleeping Bag',         desc: 'Rated to -10°C / 14°F. Warmth is critical above 4,000m at night' },
-      { icon: Mountain,    name: 'Trekking Boots',       desc: 'Waterproof, ankle-supporting, well broken-in before the climb' },
-      { icon: ShieldCheck, name: 'Gaiters',              desc: 'Keep debris and water out of boots on volcanic scree sections' },
-    ],
-  },
-  {
-    label: 'Essential Gear',
-    items: [
-      { icon: Navigation2, name: 'Trekking Poles',       desc: 'Collapsible poles reduce knee strain significantly on descent' },
-      { icon: Flashlight,  name: 'Headlamp + Batteries', desc: 'Essential for summit night (3am start). Bring spare batteries' },
-      { icon: Package,     name: 'Waterproof Bag',       desc: 'Keep electronics and sleeping bag dry — rain is unpredictable' },
-    ],
-  },
-  {
-    label: 'Health & Safety',
-    items: [
-      { icon: Pill,        name: 'Altitude Medicine',    desc: 'Diamox (acetazolamide) — consult your doctor before the climb' },
-      { icon: HeartPulse,  name: 'First Aid Kit',        desc: 'Blister treatment, ibuprofen, anti-nausea tablets, bandages' },
-      { icon: Sun,         name: 'Sun Protection',        desc: 'SPF 50+ sunscreen, UV-blocking sunglasses, wide-brim hat' },
-    ],
-  },
-  {
-    label: 'Fuel & Hydration',
-    items: [
-      { icon: Droplets,    name: 'Hydration System',     desc: '2–3 litre water bladder or bottles. Water freezes at summit' },
-      { icon: Zap,         name: 'Snacks & Energy',      desc: 'High-calorie snacks: nuts, chocolate, energy gels for summit push' },
-    ],
-  },
-]
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('trekking')
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    keywords: t.raw('metaKeywords') as string[],
+  }
+}
 
-const SEASONS = [
-  {
-    label: 'Prime Season',
-    months: 'June → October',
-    desc: 'Cold, dry and clear. Every route fully open. Your best chance of standing on Uhuru Peak.',
-    bullets: [
-      'Clear summit skies on most days',
-      'All 6 routes fully operational',
-      'Dry underfoot — trails at their best',
-      'Peak porter & guide availability',
-    ],
-    chips: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-    style: 'prime' as const,
-    warning: null,
-  },
-  {
-    label: 'Shoulder Season',
-    months: 'Dec · Jan · Feb',
-    desc: 'Warm and generally dry. Wildlife-rich around the mountain. Fewer crowds, still great summit odds.',
-    bullets: [
-      'Good visibility & milder temperatures',
-      'Calving season — exceptional wildlife',
-      'Quieter trails than peak months',
-    ],
-    chips: ['Dec', 'Jan', 'Feb'],
-    style: 'good' as const,
-    warning: null,
-  },
-  {
-    label: 'Rain Season',
-    months: 'Mar · Apr · May · Nov',
-    desc: 'Long and short rains bring muddy trails, reduced summit visibility, and lower success rates.',
-    bullets: [
-      'Heavy rainfall — trails become difficult',
-      'Poor summit-day visibility common',
-      'Some high camps partially inaccessible',
-    ],
-    chips: ['Mar', 'Apr', 'May', 'Nov'],
-    style: 'avoid' as const,
-    warning: 'We still run climbs on request — conditions vary significantly year to year.',
-  },
-]
+export default async function TrekkingPage() {
+  const t = await getTranslations('trekking')
+  const trd = await getTranslations('trekkingRouteDetail')
 
-const MONTH_CHIPS = [
-  { name: 'Jan', type: 'good' }, { name: 'Feb', type: 'good' },
-  { name: 'Mar', type: 'avoid' }, { name: 'Apr', type: 'avoid' }, { name: 'May', type: 'avoid' },
-  { name: 'Jun', type: 'prime' }, { name: 'Jul', type: 'prime' }, { name: 'Aug', type: 'prime' },
-  { name: 'Sep', type: 'prime' }, { name: 'Oct', type: 'prime' },
-  { name: 'Nov', type: 'avoid' }, { name: 'Dec', type: 'good' },
-]
+  const GEAR_CATEGORIES = [
+    {
+      label: t('gear1Cat'),
+      items: [
+        { icon: Layers,      name: t('gear1item1Name'), desc: t('gear1item1Desc') },
+        { icon: Moon,        name: t('gear1item2Name'), desc: t('gear1item2Desc') },
+        { icon: Mountain,    name: t('gear1item3Name'), desc: t('gear1item3Desc') },
+        { icon: ShieldCheck, name: t('gear1item4Name'), desc: t('gear1item4Desc') },
+      ],
+    },
+    {
+      label: t('gear2Cat'),
+      items: [
+        { icon: Navigation2, name: t('gear2item1Name'), desc: t('gear2item1Desc') },
+        { icon: Flashlight,  name: t('gear2item2Name'), desc: t('gear2item2Desc') },
+        { icon: Package,     name: t('gear2item3Name'), desc: t('gear2item3Desc') },
+      ],
+    },
+    {
+      label: t('gear3Cat'),
+      items: [
+        { icon: Pill,        name: t('gear3item1Name'), desc: t('gear3item1Desc') },
+        { icon: HeartPulse,  name: t('gear3item2Name'), desc: t('gear3item2Desc') },
+        { icon: Sun,         name: t('gear3item3Name'), desc: t('gear3item3Desc') },
+      ],
+    },
+    {
+      label: t('gear4Cat'),
+      items: [
+        { icon: Droplets,    name: t('gear4item1Name'), desc: t('gear4item1Desc') },
+        { icon: Zap,         name: t('gear4item2Name'), desc: t('gear4item2Desc') },
+      ],
+    },
+  ]
 
-const ARTICLES = [
-  {
-    category: 'Route Guide',
-    title: 'Machame vs Lemosho: Which Route Is Actually Better?',
-    desc: "Our guides have led thousands on both routes. Here's an honest side-by-side — terrain, success rates, crowd levels and which suits your fitness level.",
-    readTime: '8 min read',
-    href: '/blog',
-    image: '/images/gallery/kilimanjaro.webp',
-  },
-  {
-    category: 'Training',
-    title: 'How to Train for Kilimanjaro: A 12-Week Fitness Plan',
-    desc: "You don't need to be an athlete to summit Kilimanjaro. But preparation is everything. Here's exactly what to do in the 12 weeks before your climb.",
-    readTime: '10 min read',
-    href: '/blog',
-    image: '/images/gallery/kilimanjaro%20(4).webp',
-  },
-  {
-    category: 'Health & Safety',
-    title: 'Altitude Sickness on Kilimanjaro: Prevention & Treatment',
-    desc: 'AMS affects up to 75% of climbers. Understanding the symptoms, prevention steps, and when to descend could be the difference between summit and safety.',
-    readTime: '7 min read',
-    href: '/blog',
-    image: '/images/gallery/kilimanjaro%20(2).webp',
-  },
-  {
-    category: 'Planning',
-    title: 'What Does a Kilimanjaro Climb Actually Cost in 2026?',
-    desc: 'The real numbers — park fees, tips, gear, flights. We break down every cost so you can budget accurately and avoid hidden surprises.',
-    readTime: '6 min read',
-    href: '/blog',
-    image: '/images/gallery/kilimanjaro%20(3).webp',
-  },
-]
+  const SEASONS = [
+    {
+      label: t('season1Label'),
+      months: t('season1Months'),
+      desc: t('season1Desc'),
+      bullets: [t('season1b1'), t('season1b2'), t('season1b3'), t('season1b4')],
+      chips: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+      style: 'prime' as const,
+      warning: null,
+    },
+    {
+      label: t('season2Label'),
+      months: t('season2Months'),
+      desc: t('season2Desc'),
+      bullets: [t('season2b1'), t('season2b2'), t('season2b3')],
+      chips: ['Dec', 'Jan', 'Feb'],
+      style: 'good' as const,
+      warning: null,
+    },
+    {
+      label: t('season3Label'),
+      months: t('season3Months'),
+      desc: t('season3Desc'),
+      bullets: [t('season3b1'), t('season3b2'), t('season3b3')],
+      chips: ['Mar', 'Apr', 'May', 'Nov'],
+      style: 'avoid' as const,
+      warning: t('season3Warning'),
+    },
+  ]
 
-const routes = [
-  {
-    name: 'Machame Route',
-    nickname: 'The Whiskey Route',
-    days: '6–7 days',
-    difficulty: 'Hard',
-    successRate: '85%',
-    priceFrom: 2350,
-    desc: 'The most scenic and popular route, nicknamed the "Whiskey Route" for its challenging terrain. Excellent acclimatisation profile with a high-camp, low-sleep approach.',
-    href: '/trekking/machame',
-    image: '/images/gallery/kilimanjaro.webp',
-    badge: 'Most Popular',
-  },
-  {
-    name: 'Lemosho Route',
-    nickname: "The Connoisseur's Choice",
-    days: '7–8 days',
-    difficulty: 'Moderate',
-    successRate: '90%',
-    priceFrom: 2595,
-    desc: 'Widely considered the best overall route. Starts remote on the western slope, crosses the Shira Plateau and delivers the highest summit success rate of all standard routes.',
-    href: '/trekking/lemosho',
-    image: '/images/gallery/kilimanjaro%20(4).webp',
-    badge: 'Recommended',
-  },
-  {
-    name: 'Marangu Route',
-    nickname: 'The Classic Route',
-    days: '5–6 days',
-    difficulty: 'Moderate',
-    successRate: '65%',
-    priceFrom: 1950,
-    desc: 'The classic route and the only one with hut dormitory accommodation throughout. A comfortable, affordable option, though its rapid ascent reduces summit success rates.',
-    href: '/trekking/marangu',
-    image: '/images/gallery/kilimanjaro%20(1).webp',
-    badge: null,
-  },
-  {
-    name: 'Rongai Route',
-    nickname: 'The Northern Approach',
-    days: '6–7 days',
-    difficulty: 'Easy–Moderate',
-    successRate: '80%',
-    priceFrom: 2250,
-    desc: 'The only route approaching from the north near the Kenyan border. Quieter, drier, and ideal during the rainy season. A true wilderness feel with gentle gradients.',
-    href: '/trekking/rongai',
-    image: '/images/gallery/kilimanjaro%20(2).webp',
-    badge: null,
-  },
-  {
-    name: 'Umbwe Route',
-    nickname: 'The Most Direct Route',
-    days: '6–7 days',
-    difficulty: 'Very Hard',
-    successRate: '70%',
-    priceFrom: 1880,
-    desc: 'The steepest and most direct route — for experienced trekkers only. Gains elevation rapidly through dense forest and dramatic ridgelines before joining the Southern Circuit.',
-    href: '/trekking/umbwe',
-    image: '/images/gallery/kilimanjaro%20(3).webp',
-    badge: 'Advanced',
-  },
-  {
-    name: 'Northern Circuit',
-    nickname: 'The Grand Traverse',
-    days: '9–10 days',
-    difficulty: 'Moderate',
-    successRate: '95%',
-    priceFrom: 2237,
-    desc: 'The newest and longest route, circumnavigating the entire mountain for a four-sided view. The extra days deliver the best acclimatisation and the highest summit success rate of any route.',
-    href: '/trekking/northern-circuit',
-    image: '/images/gallery/kilimanjaro%20(5).webp',
-    badge: 'Best Success Rate',
-  },
-]
+  const MONTH_CHIPS = [
+    { name: 'Jan', type: 'good' }, { name: 'Feb', type: 'good' },
+    { name: 'Mar', type: 'avoid' }, { name: 'Apr', type: 'avoid' }, { name: 'May', type: 'avoid' },
+    { name: 'Jun', type: 'prime' }, { name: 'Jul', type: 'prime' }, { name: 'Aug', type: 'prime' },
+    { name: 'Sep', type: 'prime' }, { name: 'Oct', type: 'prime' },
+    { name: 'Nov', type: 'avoid' }, { name: 'Dec', type: 'good' },
+  ]
 
-export default function TrekkingPage() {
+  const ARTICLES = [
+    {
+      category: t('article1Cat'),
+      title: t('article1Title'),
+      desc: t('article1Desc'),
+      readTime: t('article1Time'),
+      href: '/blog',
+      image: '/images/gallery/kilimanjaro.webp',
+    },
+    {
+      category: t('article2Cat'),
+      title: t('article2Title'),
+      desc: t('article2Desc'),
+      readTime: t('article2Time'),
+      href: '/blog',
+      image: '/images/gallery/kilimanjaro%20(4).webp',
+    },
+    {
+      category: t('article3Cat'),
+      title: t('article3Title'),
+      desc: t('article3Desc'),
+      readTime: t('article3Time'),
+      href: '/blog',
+      image: '/images/gallery/kilimanjaro%20(2).webp',
+    },
+    {
+      category: t('article4Cat'),
+      title: t('article4Title'),
+      desc: t('article4Desc'),
+      readTime: t('article4Time'),
+      href: '/blog',
+      image: '/images/gallery/kilimanjaro%20(3).webp',
+    },
+  ]
+
+  const routes = ROUTE_SLUGS.map((slug, i) => {
+    const n = i + 1
+    const badgeKey = ROUTE_BADGE_KEYS[slug]
+    return {
+      name: t(`route${n}Name` as 'route1Name'),
+      nickname: trd(`${slug}.nickname` as 'machame.nickname'),
+      days: trd(`${slug}.quickFacts.duration` as 'machame.quickFacts.duration'),
+      difficulty: trd(`${slug}.quickFacts.difficulty` as 'machame.quickFacts.difficulty'),
+      successRate: trd(`${slug}.quickFacts.successRate` as 'machame.quickFacts.successRate'),
+      priceFrom: Number(trd.raw(`${slug}.pricing.group` as 'machame.pricing.group')),
+      desc: t(`route${n}Desc` as 'route1Desc'),
+      href: `/trekking/${slug}`,
+      image: ROUTE_IMAGES[slug],
+      badge: badgeKey ? t(badgeKey as 'badgeMostPopular') : null,
+    }
+  })
+
   return (
     <>
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden bg-brand">
@@ -242,14 +179,14 @@ export default function TrekkingPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
-              Summit Africa
+              {t('heroEyebrow')}
             </span>
             <h1 className="text-5xl lg:text-6xl font-semibold text-white mb-5">
-              Kilimanjaro<br />
-              <span className="text-gold">5,895m</span>
+              {t('heroTitle')}<br />
+              <span className="text-gold">{t('stat1Value')}</span>
             </h1>
             <p className="text-white/70 text-lg">
-              Africa's highest peak. The world's tallest free-standing mountain. Guided by Tanzania-born experts who have stood on the summit hundreds of times.
+              {t('heroTagline')}
             </p>
           </div>
         </div>
@@ -260,9 +197,9 @@ export default function TrekkingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-12">
             {[
-              { value: '5,895m', label: 'Summit altitude', sub: 'Uhuru Peak' },
-              { value: '7–9 days', label: 'Trek duration', sub: 'Depending on route' },
-              { value: '90%+', label: 'Our success rate', sub: 'With proper acclimatization' },
+              { value: t('stat1Value'), label: t('stat1Label'), sub: t('stat1Sub') },
+              { value: t('stat2Value'), label: t('stat2Label'), sub: t('stat2Sub') },
+              { value: t('stat3Value'), label: t('stat3Label'), sub: t('stat3Sub') },
             ].map(({ value, label, sub }) => (
               <div key={label} className="p-6 bg-light-green rounded-2xl">
                 <div className="text-3xl font-bold text-brand mb-1">{value}</div>
@@ -272,7 +209,7 @@ export default function TrekkingPage() {
             ))}
           </div>
 
-          <h2 className="text-2xl font-semibold text-brand mb-8">Choose Your Route</h2>
+          <h2 className="text-2xl font-semibold text-brand mb-8">{t('chooseRouteHeading')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {routes.map((route) => (
               <Link
@@ -297,16 +234,16 @@ export default function TrekkingPage() {
                   <div className="flex flex-wrap gap-3 text-xs text-text-muted mb-4">
                     <span>{route.days}</span>
                     <span>{route.difficulty}</span>
-                    <span>{route.successRate} success</span>
+                    <span>{route.successRate}{t('successSuffix')}</span>
                   </div>
                   <div className="flex items-center justify-between pt-3 border-t border-gray-100">
                     <div>
-                      <span className="text-xs text-text-muted">From </span>
+                      <span className="text-xs text-text-muted">{t('fromLabel')}</span>
                       <span className="font-bold text-brand">${route.priceFrom.toLocaleString()}</span>
-                      <span className="text-xs text-text-muted">/person</span>
+                      <span className="text-xs text-text-muted">{t('personLabel')}</span>
                     </div>
                     <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">
-                      View route <ArrowRight className="w-3.5 h-3.5" />
+                      {t('viewRoute')} <ArrowRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </div>
@@ -323,10 +260,10 @@ export default function TrekkingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="mb-12">
-            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Your Summit Kit</span>
-            <h2 className="text-3xl font-semibold text-white">What to Pack</h2>
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{t('summitKitEyebrow')}</span>
+            <h2 className="text-3xl font-semibold text-white">{t('packHeading')}</h2>
             <p className="text-white/70 text-sm mt-2">
-              12 essentials your porters won&rsquo;t carry for you — everything else is handled.
+              {t('packSubtitle')}
             </p>
           </div>
 
@@ -361,10 +298,9 @@ export default function TrekkingPage() {
           <div className="mt-12 bg-white/8 border border-white/15 rounded-2xl p-6 flex items-start gap-4">
             <span className="text-xl flex-shrink-0">💡</span>
             <div>
-              <p className="text-white font-semibold text-sm mb-1">Pro tip from our guides</p>
+              <p className="text-white font-semibold text-sm mb-1">{t('proTipLabel')}</p>
               <p className="text-white/75 text-sm leading-relaxed">
-                The single biggest mistake climbers make is packing too heavy. Every extra kilogram will slow your summit attempt.
-                Our porters carry your main bag (max 15 kg) — keep your day pack to 5–7 kg with just the essentials.
+                {t('proTipText')}
               </p>
             </div>
           </div>
@@ -376,10 +312,10 @@ export default function TrekkingPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Summit Intelligence</span>
-            <h2 className="text-3xl font-semibold text-brand">When to Summit</h2>
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{t('sumIntelEyebrow')}</span>
+            <h2 className="text-3xl font-semibold text-brand">{t('whenToSummitHeading')}</h2>
             <p className="text-text-muted text-sm mt-3 max-w-lg mx-auto">
-              Kilimanjaro never closes — but the mountain rewards those who choose their window wisely.
+              {t('whenToSummitSubtitle')}
             </p>
           </div>
 
@@ -462,14 +398,14 @@ export default function TrekkingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
-              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">Expedition Notes</span>
-              <h2 className="text-3xl font-semibold text-brand">Before You Climb</h2>
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{t('expeditionEyebrow')}</span>
+              <h2 className="text-3xl font-semibold text-brand">{t('beforeClimbHeading')}</h2>
               <p className="text-text-muted text-sm mt-2 max-w-md">
-                Field-tested knowledge from our guides, written for climbers who want to be genuinely prepared.
+                {t('beforeClimbSubtitle')}
               </p>
             </div>
             <Link href="/blog" className="flex-shrink-0 flex items-center gap-1.5 text-brand font-semibold text-sm hover:text-gold transition-colors">
-              Browse all articles <ArrowRight className="w-4 h-4" />
+              {t('browseAllArticles')} <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
@@ -497,7 +433,7 @@ export default function TrekkingPage() {
               </h3>
               <p className="text-white/65 text-sm mb-5 max-w-xl hidden sm:block">{ARTICLES[0].desc}</p>
               <span className="inline-flex items-center gap-2 text-gold font-semibold text-sm group-hover:gap-3 transition-all">
-                Read the guide <ArrowRight className="w-4 h-4" />
+                {t('readTheGuide')} <ArrowRight className="w-4 h-4" />
               </span>
             </div>
           </Link>
@@ -527,7 +463,7 @@ export default function TrekkingPage() {
                   <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
                     <span className="text-xs text-text-muted">{readTime}</span>
                     <span className="flex items-center gap-1 text-brand text-xs font-semibold group-hover:text-gold transition-colors">
-                      Read <ArrowRight className="w-3 h-3" />
+                      {t('readLabel')} <ArrowRight className="w-3 h-3" />
                     </span>
                   </div>
                 </div>
@@ -540,10 +476,10 @@ export default function TrekkingPage() {
       {/* CTA */}
       <section className="py-16 bg-brand text-center">
         <div className="max-w-xl mx-auto px-4">
-          <h2 className="text-3xl font-semibold text-white mb-4">Ready for the Summit?</h2>
-          <p className="text-white/70 mb-8">Tell us your fitness level, dates, and budget — we'll match you with the perfect Kilimanjaro route.</p>
+          <h2 className="text-3xl font-semibold text-white mb-4">{t('ctaHeading')}</h2>
+          <p className="text-white/70 mb-8">{t('ctaSubtitle')}</p>
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors">
-            Plan My Kilimanjaro Trek <ArrowRight className="w-4 h-4" />
+            {t('ctaButton')} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

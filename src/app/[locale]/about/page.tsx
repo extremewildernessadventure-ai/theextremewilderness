@@ -9,24 +9,11 @@ import {
 } from 'lucide-react'
 
 export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('about')
   return {
-    title: 'About Extreme Wilderness Adventure | Best Tanzania Safari Operator 2026',
-    description: 'Tanzania-born, locally owned, TATO-registered safari operator. Expert guides, small group safaris, and 100% personalised itineraries. Rated 4.9/5 by 200+ guests.',
-    keywords: [
-      'best Tanzania safari operator',
-      'Tanzania safari company',
-      'local Tanzania tour operator',
-      'Tanzania safari guide',
-      'TATO registered safari',
-      'Arusha safari company',
-      'small group safari Tanzania',
-      'Tanzania safari reviews',
-      'certified Tanzania safari guides',
-      'TANAPA certified operator',
-      'Tanzania safari 2026',
-      'African safari company',
-      'best safari operator Africa',
-    ],
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    keywords: t.raw('metaKeywords') as string[],
   }
 }
 
@@ -60,20 +47,20 @@ export default async function AboutPage() {
     {
       image: '/Team/Mike Mawolle.png',
       name: 'Mike Mawolle',
-      role: 'Destinations Manager',
-      bio: 'Mike oversees our entire destination portfolio across Tanzania, Kenya, and Rwanda. He knows every park, lodge, and back road — and makes sure every itinerary is built around what each destination does best.',
+      role: t('team1Role'),
+      bio: t('team1Bio'),
     },
     {
       image: '/Team/Johnson Rafael.jpeg',
       name: 'Johnson Rafael',
-      role: 'Safari Guide',
-      bio: 'Johnson brings the bush to life with expert wildlife knowledge and calm precision behind the wheel. TANAPA-certified and fluent in multiple languages, he turns every game drive into a story worth telling.',
+      role: t('team2Role'),
+      bio: t('team2Bio'),
     },
     {
       image: '/Team/Joshua Meela.jpeg',
       name: 'Josh Meela',
-      role: 'Mountain Guide',
-      bio: 'Joshua has led hundreds of climbers to the Kilimanjaro summit across all major routes. His deep knowledge of altitude, weather patterns, and pacing keeps every trekker safe and on track.',
+      role: t('team3Role'),
+      bio: t('team3Bio'),
     },
   ]
 

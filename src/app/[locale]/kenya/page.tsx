@@ -7,22 +7,13 @@ import { getTranslations } from 'next-intl/server'
 import { getLocale } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
 
-export const metadata: Metadata = {
-  title: 'Kenya Safari Packages 2026 | Masai Mara, Amboseli & Great Migration',
-  description:
-    "Book Kenya safari packages — Masai Mara Great Migration, Amboseli elephant herds, Samburu rare species. Combined Kenya-Tanzania safaris from $1,200/person. TATO certified.",
-  keywords: [
-    'Kenya safari packages',
-    'Masai Mara safari 2026',
-    'Great Migration Masai Mara',
-    'Kenya safari tour operator',
-    'Amboseli National Park safari',
-    'Samburu National Park',
-    'Kenya Tanzania safari combo',
-    'best time Masai Mara',
-    'Kenyan safari holidays',
-    'luxury Kenya safari',
-  ],
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('kenya')
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    keywords: t.raw('metaKeywords') as string[],
+  }
 }
 
 const kenyaStats = [
@@ -34,112 +25,26 @@ const kenyaStats = [
   { icon: '🏆', stat: '#1' },
 ]
 
-const KENYA_DEST_EXTRA: Record<string, {
-  badge: string
-  badgeColor: string
-  bestTime: string
-  bestTimeLabel: string
-  duration: string
-  priceFrom: string
-  activities: string[]
-}> = {
-  'masai-mara': {
-    badge: 'Most Popular',
-    badgeColor: 'bg-gold text-brand',
-    bestTime: 'Jul – Oct',
-    bestTimeLabel: 'Migration Season',
-    duration: '3–5 days',
-    priceFrom: '$320',
-    activities: ['Game drives', 'Balloon safari', 'Cultural Maasai village', 'Bird watching', 'Bush walks', 'Night drives'],
-  },
-  amboseli: {
-    badge: 'Iconic Views',
-    badgeColor: 'bg-brand text-white',
-    bestTime: 'Jun – Oct & Jan – Feb',
-    bestTimeLabel: 'Dry Season',
-    duration: '2–4 days',
-    priceFrom: '$280',
-    activities: ['Elephant tracking', 'Game drives', 'Maasai village visit', 'Bird watching', 'Photography safaris', 'Sundowner drives'],
-  },
-  samburu: {
-    badge: 'Rare Species',
-    badgeColor: 'bg-brand text-white',
-    bestTime: 'Jun – Oct & Jan – Mar',
-    bestTimeLabel: 'Dry Season',
-    duration: '2–3 days',
-    priceFrom: '$290',
-    activities: ['Specialized game drives', 'Samburu cultural tours', 'Camel rides', 'River walks', 'Bird watching', 'Sundowner bush dinner'],
-  },
-  tsavo: {
-    badge: 'Wild & Remote',
-    badgeColor: 'bg-brand-secondary text-white',
-    bestTime: 'Jun – Oct & Jan – Feb',
-    bestTimeLabel: 'Dry Season',
-    duration: '3–5 days',
-    priceFrom: '$260',
-    activities: ['Game drives', 'Mzima Springs walk', 'Lugard Falls visit', 'Night game drives', 'Bird watching', 'Luxury tented camps'],
-  },
-  'ol-pejeta': {
-    badge: 'Conservation Icon',
-    badgeColor: 'bg-gold text-brand',
-    bestTime: 'Year-round',
-    bestTimeLabel: 'Always Open',
-    duration: '2–3 days',
-    priceFrom: '$350',
-    activities: ['Rhino tracking on foot', 'Lion tracking', 'Chimp sanctuary visit', 'Night game drives', 'Conservation talks', 'Bush dinners'],
-  },
-  'lake-nakuru': {
-    badge: 'UNESCO Site',
-    badgeColor: 'bg-brand text-white',
-    bestTime: 'Jun – Mar',
-    bestTimeLabel: 'Best Flamingo',
-    duration: '1–2 days',
-    priceFrom: '$220',
-    activities: ['Flamingo viewing', 'Rhino tracking', 'Bird watching', 'Game drives', 'Escarpment viewpoints', 'Photography tours'],
-  },
-  'kenyan-coast': {
-    badge: 'Beach & Marine',
-    badgeColor: 'bg-brand-secondary text-white',
-    bestTime: 'Dec – Mar & Jun – Oct',
-    bestTimeLabel: 'Dry Season',
-    duration: '3–7 days',
-    priceFrom: '$190',
-    activities: ['Snorkelling & diving', 'Dhow sailing', 'Kite surfing', 'Turtle monitoring', 'Lamu cultural tour', 'Deep sea fishing'],
-  },
+const KENYA_DEST_BADGE_COLORS: Record<string, string> = {
+  'masai-mara': 'bg-gold text-brand',
+  amboseli: 'bg-brand text-white',
+  samburu: 'bg-brand text-white',
+  tsavo: 'bg-brand-secondary text-white',
+  'ol-pejeta': 'bg-gold text-brand',
+  'lake-nakuru': 'bg-brand text-white',
+  'kenyan-coast': 'bg-brand-secondary text-white',
 }
-
-const seasons = [
-  {
-    months: 'Jan – Feb',
-    color: 'bg-amber-50 border-amber-200',
-    labelColor: 'text-amber-700',
-    tip: 'Excellent game viewing — low grass, animals congregate at water. Great for Amboseli & Samburu.',
-  },
-  {
-    months: 'Mar – May',
-    color: 'bg-blue-50 border-blue-200',
-    labelColor: 'text-blue-700',
-    tip: 'Lush green landscapes and newborn animals. Fewer tourists and better rates. Mara still productive.',
-  },
-  {
-    months: 'Jun – Oct',
-    color: 'bg-green-50 border-green-200',
-    labelColor: 'text-brand',
-    tip: 'Great Migration river crossings (Jul–Sep). Best wildlife throughout Kenya. Book 6–12 months ahead.',
-  },
-  {
-    months: 'Nov – Dec',
-    color: 'bg-sky-50 border-sky-200',
-    labelColor: 'text-sky-700',
-    tip: 'Migratory birds arrive. Landscapes bloom. Good value and manageable crowds.',
-  },
-]
 
 export default async function KenyaPage() {
   const t = await getTranslations('kenya')
   const tc = await getTranslations('common')
   const locale = await getLocale()
   const allDestinations = getDestinations(locale)
+
+  const destExtra = t.raw('destExtra') as Record<string, { badge: string; bestTime: string; bestTimeLabel: string; duration: string; priceFrom: string; activities: string[] }>
+  const box1ChipDesc = t.raw('box1ChipDesc') as Record<string, string>
+  const box3Stats = t.raw('box3Stats') as { label: string; sub: string }[]
+
   const kenyaDestinations = allDestinations
     .filter(d => d.country === 'kenya')
     .map(d => ({
@@ -152,19 +57,19 @@ export default async function KenyaPage() {
       overview: d.description,
       highlights: d.highlights,
       wildlife: d.wildlife,
-      ...(KENYA_DEST_EXTRA[d.slug] ?? {
-        badge: '',
-        badgeColor: 'bg-brand text-white',
-        bestTime: '',
-        bestTimeLabel: '',
-        duration: '',
-        priceFrom: '',
-        activities: [],
-      }),
+      badgeColor: KENYA_DEST_BADGE_COLORS[d.slug] ?? 'bg-brand text-white',
+      ...(destExtra[d.slug] ?? { badge: '', bestTime: '', bestTimeLabel: '', duration: '', priceFrom: '', activities: [] }),
     }))
 
   const statLabels = [t('statMammalsMara'), t('statBirds'), t('statRhinos'), t('statElephants'), t('statParks'), t('statRanking')]
   const seasonLabels = [t('season1Label'), t('season2Label'), t('season3Label'), t('season4Label')]
+
+  const seasons = [
+    { months: 'Jan – Feb', color: 'bg-amber-50 border-amber-200', labelColor: 'text-amber-700', tip: t('season1Tip') },
+    { months: 'Mar – May', color: 'bg-blue-50 border-blue-200', labelColor: 'text-blue-700', tip: t('season2Tip') },
+    { months: 'Jun – Oct', color: 'bg-green-50 border-green-200', labelColor: 'text-brand', tip: t('season3Tip') },
+    { months: 'Nov – Dec', color: 'bg-sky-50 border-sky-200', labelColor: 'text-sky-700', tip: t('season4Tip') },
+  ]
 
   return (
     <>
@@ -189,8 +94,7 @@ export default async function KenyaPage() {
               <span className="text-gold">{t('heroTitleGold')}</span>
             </h1>
             <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-xl">
-              From the thundering hooves of the Great Migration to the gentle giants of Amboseli &mdash; Kenya offers
-              Africa&apos;s most iconic wildlife spectacles, ancient cultures, and pristine Indian Ocean beaches.
+              {t('heroSubtitleBody')}
             </p>
             <div className="flex flex-wrap gap-3">
               <BookNowButton
@@ -236,12 +140,7 @@ export default async function KenyaPage() {
               {t('introHeading')}
             </h2>
             <p className="text-text-muted leading-relaxed">
-              Kenya has inspired safari travellers for over a century &mdash; and for good reason. It is home to the
-              planet&apos;s greatest wildlife spectacle (the Great Migration), the last two northern white rhinos on
-              Earth, some of Africa&apos;s finest luxury lodges, and a coastline of extraordinary beauty. At The Extreme
-              Wilderness, we design Kenya safaris that go beyond the obvious &mdash; combining iconic reserves with
-              hidden gems, conservation experiences, and deep cultural encounters for a journey that resonates long after
-              you return home.
+              {t('introBody')}
             </p>
           </div>
         </div>
@@ -258,14 +157,18 @@ export default async function KenyaPage() {
               <h3 className="text-2xl font-bold text-white mb-6">{t('box1Heading')}</h3>
               <div className="space-y-2.5 flex-1">
                 {[
-                  { icon: '🦁', label: 'Masai Mara', desc: 'Great Migration · Big Cats · Maasai Culture' },
-                  { icon: '🐘', label: 'Amboseli', desc: 'Elephant Herds · Kilimanjaro Views' },
-                  { icon: '🦒', label: 'Samburu', desc: 'Samburu Special Five · Remote North' },
-                  { icon: '🌿', label: 'Tsavo East & West', desc: "Kenya's Largest Park · Red Elephants" },
-                  { icon: '🦏', label: 'Ol Pejeta Conservancy', desc: "Last White Rhinos · Chimpanzees" },
-                  { icon: '🦩', label: 'Lake Nakuru', desc: 'Flamingos · Rift Valley Escarpment' },
-                  { icon: '🏝️', label: 'Kenyan Coast', desc: 'Indian Ocean · Swahili Culture' },
-                ].map((d) => (
+                  { icon: '🦁', slug: 'masai-mara' },
+                  { icon: '🐘', slug: 'amboseli' },
+                  { icon: '🦒', slug: 'samburu' },
+                  { icon: '🌿', slug: 'tsavo' },
+                  { icon: '🦏', slug: 'ol-pejeta' },
+                  { icon: '🦩', slug: 'lake-nakuru' },
+                  { icon: '🏝️', slug: 'kenyan-coast' },
+                ].map(({ icon, slug }) => ({
+                  icon,
+                  label: kenyaDestinations.find((d) => d.slug === slug)?.name ?? slug,
+                  desc: box1ChipDesc[slug],
+                })).map((d) => (
                   <a
                     key={d.label}
                     href="#destinations"
@@ -313,12 +216,12 @@ export default async function KenyaPage() {
               <h3 className="text-2xl font-bold text-brand mb-6">{t('box3Heading')}</h3>
               <div className="grid grid-cols-2 gap-5 flex-1">
                 {[
-                  { stat: '1.5M', label: 'Wildebeest in the Migration', sub: 'Largest land migration on Earth' },
-                  { stat: '2', label: 'Last northern white rhinos', sub: 'Living at Ol Pejeta Conservancy' },
-                  { stat: '22,000', label: "km² Tsavo Park Complex", sub: "Kenya's largest protected area" },
-                  { stat: '1M+', label: 'Flamingos at Lake Nakuru', sub: 'Greatest ornithological spectacle' },
-                  { stat: '90+', label: 'Mammal species in the Mara', sub: 'Highest big cat density in Africa' },
-                  { stat: '1,100+', label: 'Bird species recorded', sub: "Africa's premier birding nation" },
+                  { stat: '1.5M', ...box3Stats[0] },
+                  { stat: '2', ...box3Stats[1] },
+                  { stat: '22,000', ...box3Stats[2] },
+                  { stat: '1M+', ...box3Stats[3] },
+                  { stat: '90+', ...box3Stats[4] },
+                  { stat: '1,100+', ...box3Stats[5] },
                 ].map((item) => (
                   <div key={item.stat} className="bg-white rounded-2xl px-4 py-3 border border-brand/5">
                     <p className="text-gold-label font-bold text-xl leading-none">{item.stat}</p>
@@ -460,7 +363,7 @@ export default async function KenyaPage() {
                       packageType="Kenya Safari"
                       priceFrom={dest.priceFrom}
                       duration={dest.duration}
-                      label={`Book ${dest.name.split(' ')[0]} Safari`}
+                      label={t('bookSafariButton', { destName: dest.name })}
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
                       arrow
                     />
@@ -482,8 +385,7 @@ export default async function KenyaPage() {
             </span>
             <h2 className="text-3xl font-semibold text-brand mb-3">{t('seasonHeading')}</h2>
             <p className="text-text-muted max-w-lg mx-auto text-sm">
-              Kenya is a year-round destination, but timing your visit around the Great Migration crossing or the dry
-              season maximises your wildlife encounters.
+              {t('seasonSubtitle')}
             </p>
           </div>
 
@@ -504,10 +406,7 @@ export default async function KenyaPage() {
                 {t('migrationCalloutHeading')}
               </h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Over 1.5 million wildebeest and 500,000 zebra make an epic clockwise loop between Tanzania&apos;s
-                Serengeti and Kenya&apos;s Masai Mara, driven by rainfall and fresh grazing. The Mara River crossings
-                &mdash; where thousands of animals plunge through crocodile-infested water &mdash; occur July to
-                October. Combine Kenya and Tanzania for the full Migration experience year-round.
+                {t('migrationCalloutBody')}
               </p>
             </div>
             <BookNowButton
@@ -534,18 +433,14 @@ export default async function KenyaPage() {
                 <span className="text-gold">{t('comboHeadingGold')}</span>
               </h2>
               <p className="text-text-muted leading-relaxed mb-5">
-                Kenya and Tanzania share the Great Rift Valley, the Serengeti&ndash;Mara ecosystem, and
-                Kilimanjaro&apos;s shadow. Together they form the world&apos;s premier safari circuit. At The Extreme
-                Wilderness, we specialise in cross-border itineraries that seamlessly combine the best of both countries
-                &mdash; Masai Mara crossings, Serengeti plains, Ngorongoro Crater, Amboseli elephants, and Zanzibar
-                beaches &mdash; in one unforgettable journey.
+                {t('comboBody')}
               </p>
               <div className="space-y-2.5 mb-7">
                 {[
-                  'Follow the Migration from Serengeti to Masai Mara',
-                  'Summit Kilimanjaro then fly to Amboseli for elephant sightings',
-                  'Combine Ngorongoro Crater with Samburu rare species',
-                  'End on Zanzibar or Diani Beach for Indian Ocean relaxation',
+                  t('comboBullet1'),
+                  t('comboBullet2'),
+                  t('comboBullet3'),
+                  t('comboBullet4'),
                 ].map((p) => (
                   <div key={p} className="flex items-start gap-2 text-sm text-brand">
                     <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
@@ -584,7 +479,7 @@ export default async function KenyaPage() {
               <div className="absolute bottom-4 left-0 right-0 flex justify-center">
                 <span className="bg-brand/80 backdrop-blur-sm text-white text-xs font-medium px-4 py-2 rounded-full flex items-center gap-1.5">
                   <MapPin className="w-3 h-3 text-gold" />
-                  Kenya &mdash; Major Destinations
+                  {t('mapCaption')}
                 </span>
               </div>
             </div>
@@ -600,18 +495,16 @@ export default async function KenyaPage() {
             {t('birdingHeading')}
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto text-sm leading-relaxed mb-6">
-            With over 1,100 recorded bird species &mdash; including the rare Shoebill, Jackson&apos;s Widowbird, and
-            the Abyssinian Ground Hornbill &mdash; Kenya is a birder&apos;s paradise. Lake Nakuru&apos;s flamingos,
-            Samburu&apos;s Somali ostrich, and the Masai Mara&apos;s raptors are just the beginning.
+            {t('birdingBody')}
           </p>
           <div className="flex flex-wrap justify-center gap-2">
             {[
-              'Lake Nakuru Flamingos',
-              'Samburu Dry-Country Species',
-              'Masai Mara Raptors',
-              'Aberdare Forest Birds',
-              'Rift Valley Specials',
-              'Marine Birds on the Coast',
+              t('birdingBadge1'),
+              t('birdingBadge2'),
+              t('birdingBadge3'),
+              t('birdingBadge4'),
+              t('birdingBadge5'),
+              t('birdingBadge6'),
             ].map((b) => (
               <span key={b} className="text-xs text-white/70 border border-white/20 px-3 py-1.5 rounded-full">
                 {b}
@@ -637,8 +530,7 @@ export default async function KenyaPage() {
                 {t('ctaHeading')}
               </h2>
               <p className="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
-                Our expert team &mdash; born and based in East Africa &mdash; will design an itinerary tailored to your
-                interests, timeline, and budget. No two safaris are alike.
+                {t('ctaBody')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <BookNowButton
@@ -657,7 +549,7 @@ export default async function KenyaPage() {
               </div>
               <p className="text-white/60 text-xs mt-6">
                 <Users className="inline w-3 h-3 mr-1" />
-                Private groups &middot; Solo travellers &middot; Honeymoons &middot; Family safaris &mdash; all welcome
+                {t('footerDisclaimer')}
               </p>
             </div>
           </div>

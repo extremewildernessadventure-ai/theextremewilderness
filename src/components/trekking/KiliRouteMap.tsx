@@ -7,101 +7,39 @@ import { useTranslations } from 'next-intl'
 import { useBooking } from '@/context/BookingContext'
 import KiliRouteMapSVG from '@/components/trekking/KiliRouteMapSVG'
 
-const routes = [
-  {
-    id: 'machame',
-    name: 'Machame Route',
-    nickname: 'The Whiskey Route',
-    mapFile: 'machame.webp',
-    difficulty: 'Hard',
-    difficultyColor: 'text-orange-500',
-    days: '6–7 days',
-    successRate: '85%',
-    priceFrom: 2350,
-    description:
-      'The most scenic and popular route on Kilimanjaro, nicknamed the "Whiskey Route" for its challenging terrain. Beginning at Machame Gate on the southern slope, the trail winds through magnificent rainforest before ascending to the Shira Plateau. The route offers an excellent acclimatization profile with its high-camp, low-sleep approach. Descent is via the Mweka trail.',
-    highlights: ['Barranco Wall scramble', 'Lava Tower acclimatisation', 'Diverse ecosystems', 'Mweka descent'],
-    href: '/trekking/machame',
-  },
-  {
-    id: 'lemosho',
-    name: 'Lemosho Route',
-    nickname: "The Connoisseur's Choice",
-    mapFile: 'lemosho.webp',
-    difficulty: 'Moderate',
-    difficultyColor: 'text-yellow-500',
-    days: '7–8 days',
-    successRate: '90%',
-    priceFrom: 2595,
-    description:
-      'Widely considered the best overall route on Kilimanjaro. Starting from Londorossi Gate in the west, Lemosho traverses the remote Shira Plateau and joins the Southern Circuit. Its longer duration gives superior acclimatisation and the highest summit success rate of the standard routes. The route is less crowded on the lower slopes and armed rangers accompany groups on the first day.',
-    highlights: ['Remote Shira Plateau', 'Best acclimatisation profile', 'Forest & moorland diversity', 'Highest success rate'],
-    href: '/trekking/lemosho',
-  },
-  {
-    id: 'marangu',
-    name: 'Marangu Route',
-    nickname: 'The Classic Route',
-    mapFile: 'marangu.webp',
-    difficulty: 'Moderate',
-    difficultyColor: 'text-yellow-500',
-    days: '5–6 days',
-    successRate: '65%',
-    priceFrom: 1950,
-    description:
-      'The classic Kilimanjaro route and the only one offering dormitory hut accommodation at every campsite, making it the most comfortable option. It is the most direct path to the summit and one of the more affordable routes. However, its shorter duration and rapid ascent means lower acclimatisation time and a reduced summit success rate.',
-    highlights: ['Hut accommodation throughout', 'Most affordable route', 'Gradual ascent on rainforest trail', 'Same ascent & descent path'],
-    href: '/trekking/marangu',
-  },
-  {
-    id: 'rongai',
-    name: 'Rongai Route',
-    nickname: 'The Northern Approach',
-    mapFile: 'rongai.webp',
-    difficulty: 'Easy–Moderate',
-    difficultyColor: 'text-green-500',
-    days: '6–7 days',
-    successRate: '80%',
-    priceFrom: 2250,
-    description:
-      'The only route approaching Kilimanjaro from the north, starting near the Kenyan border. Rongai is one of the quieter and least-trafficked routes, offering a true wilderness feel. The northern slopes receive less rainfall, making this a good option during the rainy season. The route is considered one of the easiest with a gentle gradient throughout.',
-    highlights: ['North side approach', 'Less crowded trails', 'Good in rainy season', 'Wilderness atmosphere'],
-    href: '/trekking/rongai',
-  },
-  {
-    id: 'umbwe',
-    name: 'Umbwe Route',
-    nickname: 'The Most Direct Route',
-    mapFile: 'umbwe.webp',
-    difficulty: 'Very Hard',
-    difficultyColor: 'text-red-500',
-    days: '6–7 days',
-    successRate: '70%',
-    priceFrom: 1880,
-    description:
-      'The steepest and most direct route to the summit, recommended only for experienced trekkers with high altitude experience. Umbwe gains elevation rapidly through dense forest and dramatic ridgelines before joining the Southern Circuit at Barranco Camp. Due to the rapid ascent, acclimatisation is challenging and summit success rates are lower. Not recommended for first-time Kilimanjaro climbers.',
-    highlights: ['Most direct route', 'Dense forest ridgeline', 'Joins Machame at Barranco', 'For experienced trekkers only'],
-    href: '/trekking/umbwe',
-  },
-  {
-    id: 'northern-circuit',
-    name: 'Northern Circuit',
-    nickname: 'The Grand Traverse',
-    mapFile: 'northern-circuit.webp',
-    difficulty: 'Moderate',
-    difficultyColor: 'text-yellow-500',
-    days: '9–10 days',
-    successRate: '95%',
-    priceFrom: 2237,
-    description:
-      'The newest and longest route on Kilimanjaro, offering the best acclimatisation of any route and the highest summit success rate at 95%+. Beginning on the western slope, the Northern Circuit circumnavigates the entire mountain — giving trekkers breathtaking views from all four sides — before summiting from the west. The extra days make a real difference in altitude adaptation.',
-    highlights: ['Highest success rate 95%+', '360° views of the mountain', 'Best acclimatisation', 'Most remote & scenic'],
-    href: '/trekking/northern-circuit',
-  },
-]
+const ROUTE_META: Record<string, { mapFile: string; difficultyColor: string; priceFrom: number; href: string }> = {
+  machame:            { mapFile: 'machame.webp',           difficultyColor: 'text-orange-500', priceFrom: 2350, href: '/trekking/machame' },
+  lemosho:             { mapFile: 'lemosho.webp',            difficultyColor: 'text-yellow-500', priceFrom: 2595, href: '/trekking/lemosho' },
+  marangu:             { mapFile: 'marangu.webp',            difficultyColor: 'text-yellow-500', priceFrom: 1950, href: '/trekking/marangu' },
+  rongai:              { mapFile: 'rongai.webp',             difficultyColor: 'text-green-500',  priceFrom: 2250, href: '/trekking/rongai' },
+  umbwe:               { mapFile: 'umbwe.webp',              difficultyColor: 'text-red-500',    priceFrom: 1880, href: '/trekking/umbwe' },
+  'northern-circuit':  { mapFile: 'northern-circuit.webp',   difficultyColor: 'text-yellow-500', priceFrom: 2237, href: '/trekking/northern-circuit' },
+}
+const ROUTE_IDS = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const
 
 export default function KiliRouteMap({ route }: { route?: string } = {}) {
   const isLocked = route !== undefined
+  const t = useTranslations('trekking')
+  const trd = useTranslations('trekkingRouteDetail')
+
+  const routes = ROUTE_IDS.map((id, i) => {
+    const n = i + 1
+    return {
+      id,
+      name: t(`route${n}Name` as 'route1Name'),
+      nickname: trd(`${id}.nickname` as 'machame.nickname'),
+      difficulty: trd(`${id}.quickFacts.difficulty` as 'machame.quickFacts.difficulty'),
+      days: trd(`${id}.quickFacts.duration` as 'machame.quickFacts.duration'),
+      successRate: trd(`${id}.quickFacts.successRate` as 'machame.quickFacts.successRate'),
+      description: trd(`${id}.intro.0` as 'machame.intro.0'),
+      highlights: [
+        t(`route${n}H1` as 'route1H1'), t(`route${n}H2` as 'route1H2'),
+        t(`route${n}H3` as 'route1H3'), t(`route${n}H4` as 'route1H4'),
+      ],
+      ...ROUTE_META[id],
+    }
+  })
+
   // When locked to a single route, activeId always tracks the route prop
   // directly (not state) so client-side navigation between route pages
   // (e.g. clicking a route card link) can't leave a stale map on screen.
@@ -109,7 +47,6 @@ export default function KiliRouteMap({ route }: { route?: string } = {}) {
   const activeId = isLocked ? route! : selectedId
   const active = routes.find((r) => r.id === activeId) ?? routes.find((r) => r.id === 'machame')!
   const { openBooking } = useBooking()
-  const t = useTranslations('trekking')
 
   return (
     <section className="relative py-24 overflow-hidden bg-brand-dark">
