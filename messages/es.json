@@ -745,6 +745,24 @@
   },
   "planBuilder": {
     "heroCta": "Crea tu propio safari",
+    "aiAdvisor": {
+      "title": "Pregunta a nuestra IA de safaris",
+      "subtitle": "Describe el viaje de tus sueños con tus propias palabras — nuestra IA lo compara con nuestros itinerarios reales en Tanzania, Kenia y Ruanda y te indica lo que realmente se puede reservar.",
+      "placeholder": "p. ej. \"Quiero ver gorilas y los Cinco Grandes en menos de 10 días\"",
+      "examplePrompt1": "Gorilas + Cinco Grandes en 10 días",
+      "examplePrompt2": "Safari de luna de miel con final de playa",
+      "examplePrompt3": "El mejor viaje para fotografía de fauna",
+      "submitButton": "Preguntar",
+      "thinkingLabel": "Pensando…",
+      "errorTitle": "Algo salió mal",
+      "errorMessage": "No pudimos contactar con nuestra IA de safaris — inténtalo de nuevo o pasa directamente al planificador guiado de abajo.",
+      "retryButton": "Intentar de nuevo",
+      "rateLimitMessage": "¡Estás haciendo muchas preguntas! Espera un momento e inténtalo de nuevo.",
+      "noMatchTitle": "Nada en nuestra colección actual encaja perfectamente con eso",
+      "noMatchMessage": "Cuéntale más a nuestro equipo abajo y diseñaremos algo a tu medida.",
+      "resultsHeading": "Coincidencias con itinerarios reales",
+      "wizardCta": "Afinar con nuestro planificador guiado"
+    },
     "entryCard": {
       "title": "¿No sabes por dónde empezar?",
       "subtitle": "Crea tu propio safari en 90 segundos — indícanos tus fechas, intereses y estilo, y descubre itinerarios reales con precios transparentes.",
@@ -2445,7 +2463,7 @@
     "extra5Destinations": "Kenia — Masai Mara, Laikipia, Ol Pejeta",
     "extra6Name": "Ruta Machame del Kilimanjaro",
     "extra6Destinations": "Tanzania — PN Kilimanjaro (Machame → Pico Uhuru)",
-    "metaTitle": "Itinerarios de Safari | The Extreme Wilderness",
+    "metaTitle": "Itinerarios de Safari",
     "metaDescription": "Explora itinerarios de safari cuidadosamente seleccionados por Tanzania, Kenia y Ruanda. Desde circuitos clásicos por el Serengeti hasta el trekking de gorilas y ascensos al Kilimanjaro. Cada viaje hecho a medida.",
     "metaKeywords": [
       "itinerario de safari en Tanzania",

@@ -17,7 +17,7 @@ const AMENITY_ICONS: Record<string, typeof Wifi> = {
 export default function AmenityStay({ label, stay }: { label: string; stay: TierStay }) {
   return (
     <div className="rounded-xl overflow-hidden border border-gray-100 bg-white">
-      <div className="relative h-24 w-full bg-light-green">
+      <div className="relative aspect-video w-full bg-light-green">
         {/* eslint-disable-next-line @next/next/no-img-element -- temporary hotlinked placeholder from the property's own site, swap for next/image once real/licensed photos are hosted locally */}
         <img src={stay.image} alt={stay.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
       </div>

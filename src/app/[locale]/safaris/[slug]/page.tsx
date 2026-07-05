@@ -108,6 +108,11 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'East Africa combined tour', '11 day East Africa', 'Rwanda Tanzania 2026',
     'gorilla safari and Tanzania', 'Africa gorilla and wildlife', 'Rwanda Tanzania tour operator', 'East Africa safari combination',
   ],
+  '12-days-rwanda-tanzania-zanzibar': [
+    'Rwanda Tanzania Zanzibar safari', 'gorilla trekking safari beach', '12 day East Africa safari',
+    'Rwanda gorilla Zanzibar beach', 'East Africa gorilla safari beach', 'Rwanda Tanzania Zanzibar 2026',
+    'gorilla trek and beach holiday', 'ultimate East Africa safari', 'Africa gorilla safari honeymoon', 'three country East Africa tour',
+  ],
   '12-days-rwanda-primates': [
     'Rwanda primate safari', 'gorilla chimpanzee trekking Rwanda', 'Rwanda 12 days',
     'mountain gorilla Rwanda', 'golden monkey Rwanda', 'chimpanzee Rwanda',

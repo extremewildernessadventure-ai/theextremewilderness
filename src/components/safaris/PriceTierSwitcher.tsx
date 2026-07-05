@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import type { PricingTierRow } from '@/data/packages'
 
 const TIERS = ['trail', 'reserve', 'sovereign'] as const
 type Tier = (typeof TIERS)[number]
+type Season = 'high' | 'low'
 
 export default function PriceTierSwitcher({
   rows,
@@ -15,18 +16,46 @@ export default function PriceTierSwitcher({
   provisional?: boolean
 }) {
   const t = useTranslations('safari')
-  const [pax, setPax] = useState(rows[0]?.pax ?? 2)
+
+  const seasons = useMemo(
+    () => Array.from(new Set(rows.map((r) => r.season).filter((s): s is Season => !!s))),
+    [rows]
+  )
+  const [season, setSeason] = useState<Season>(seasons[0] ?? 'high')
+  const seasonRows = seasons.length > 1 ? rows.filter((r) => r.season === season) : rows
+
+  const [pax, setPax] = useState(seasonRows[0]?.pax ?? 2)
   const [tier, setTier] = useState<Tier>('trail')
 
-  const row = rows.find((r) => r.pax === pax) ?? rows[0]
+  const row = seasonRows.find((r) => r.pax === pax) ?? seasonRows[0]
   const price = row[tier]
 
   return (
     <div className="bg-light-green rounded-2xl p-6">
+      {seasons.length > 1 && (
+        <div className="mb-4">
+          <p className="text-text-muted text-xs uppercase tracking-wide mb-2">{t('season')}</p>
+          <div className="grid grid-cols-2 gap-1.5">
+            {(['high', 'low'] as const).map((s) => (
+              <button
+                key={s}
+                type="button"
+                onClick={() => setSeason(s)}
+                className={`h-9 rounded-lg text-sm font-semibold transition-colors ${
+                  season === s ? 'bg-brand text-white' : 'bg-white text-text-muted hover:bg-white/70'
+                }`}
+              >
+                {s === 'high' ? t('highSeason') : t('lowSeason')}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="mb-4">
         <p className="text-text-muted text-xs uppercase tracking-wide mb-2">{t('choosePax')}</p>
         <div className="flex gap-1.5">
-          {rows.map((r) => (
+          {seasonRows.map((r) => (
             <button
               key={r.pax}
               type="button"

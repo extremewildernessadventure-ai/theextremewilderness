@@ -745,6 +745,24 @@
   },
   "planBuilder": {
     "heroCta": "Créez votre propre safari",
+    "aiAdvisor": {
+      "title": "Demandez à notre IA Safari",
+      "subtitle": "Décrivez le voyage de vos rêves avec vos propres mots — notre IA le compare à nos véritables itinéraires en Tanzanie, au Kenya et au Rwanda et vous indique ce qui est réellement réservable.",
+      "placeholder": "ex. « Je veux voir les gorilles et le Big Five en moins de 10 jours »",
+      "examplePrompt1": "Gorilles + Big Five en 10 jours",
+      "examplePrompt2": "Safari de lune de miel avec finale à la plage",
+      "examplePrompt3": "Meilleur voyage pour la photographie animalière",
+      "submitButton": "Demander",
+      "thinkingLabel": "Réflexion…",
+      "errorTitle": "Une erreur est survenue",
+      "errorMessage": "Nous n'avons pas pu joindre notre IA Safari — réessayez, ou passez directement au planificateur guidé ci-dessous.",
+      "retryButton": "Réessayer",
+      "rateLimitMessage": "Vous posez beaucoup de questions ! Patientez un instant puis réessayez.",
+      "noMatchTitle": "Rien dans notre collection actuelle ne correspond parfaitement à cela",
+      "noMatchMessage": "Donnez plus de détails à notre équipe ci-dessous et nous concevrons quelque chose sur mesure pour vous.",
+      "resultsHeading": "Correspondances avec de vrais itinéraires",
+      "wizardCta": "Affiner avec notre planificateur guidé"
+    },
     "entryCard": {
       "title": "Vous ne savez pas par où commencer ?",
       "subtitle": "Créez votre propre safari en 90 secondes — indiquez vos dates, vos centres d'intérêt et votre style, et découvrez de vrais itinéraires correspondants avec des tarifs transparents.",
@@ -2445,7 +2463,7 @@
     "extra5Destinations": "Kenya — Masai Mara, Laikipia, Ol Pejeta",
     "extra6Name": "Route Machame du Kilimandjaro",
     "extra6Destinations": "Tanzanie — PN Kilimandjaro (Machame → Pic Uhuru)",
-    "metaTitle": "Itinéraires de Safari | The Extreme Wilderness",
+    "metaTitle": "Itinéraires de Safari",
     "metaDescription": "Parcourez des itinéraires de safari organisés en Tanzanie, au Kenya et au Rwanda. Des circuits classiques du Serengeti au trekking des gorilles et à l'ascension du Kilimandjaro. Chaque voyage est sur mesure.",
     "metaKeywords": [
       "itinéraire de safari en Tanzanie",

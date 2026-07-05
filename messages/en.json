@@ -745,6 +745,24 @@
   },
   "planBuilder": {
     "heroCta": "Build Your Own Safari",
+    "aiAdvisor": {
+      "title": "Ask our Safari AI",
+      "subtitle": "Describe your dream trip in your own words — our AI checks it against our real Tanzania, Kenya and Rwanda itineraries and points you to what's actually bookable.",
+      "placeholder": "e.g. \"I want gorillas and the Big Five in under 10 days\"",
+      "examplePrompt1": "Gorillas + Big Five in 10 days",
+      "examplePrompt2": "Honeymoon safari with a beach finish",
+      "examplePrompt3": "Best trip for wildlife photography",
+      "submitButton": "Ask",
+      "thinkingLabel": "Thinking…",
+      "errorTitle": "Something went wrong",
+      "errorMessage": "We couldn't reach our Safari AI just now — try again, or jump straight into the guided planner below.",
+      "retryButton": "Try again",
+      "rateLimitMessage": "You're asking a lot of questions! Give it a minute and try again.",
+      "noMatchTitle": "Nothing in our current collection is a perfect fit for that",
+      "noMatchMessage": "Tell our team more below and we'll design something around you.",
+      "resultsHeading": "Matched to real itineraries",
+      "wizardCta": "Refine with our guided planner"
+    },
     "entryCard": {
       "title": "Not sure where to start?",
       "subtitle": "Build your own safari in 90 seconds — tell us your dates, interests and style, and see real matched itineraries with transparent pricing.",
@@ -2445,7 +2463,7 @@
     "extra5Destinations": "Kenya — Masai Mara, Laikipia, Ol Pejeta",
     "extra6Name": "Kilimanjaro Machame Route",
     "extra6Destinations": "Tanzania — Kilimanjaro NP (Machame → Uhuru Peak)",
-    "metaTitle": "Safari Itineraries | The Extreme Wilderness",
+    "metaTitle": "Safari Itineraries",
     "metaDescription": "Browse curated safari itineraries across Tanzania, Kenya and Rwanda. From classic Serengeti circuits to gorilla trekking and Kilimanjaro summit bids. Every journey custom-built.",
     "metaKeywords": [
       "Tanzania safari itinerary",

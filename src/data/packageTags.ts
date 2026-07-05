@@ -33,6 +33,7 @@ export const packageTags: Record<string, string[]> = {
   // list "All park and gorilla permit fees" — the permit cost is bundled into
   // priceFrom, not a separate line item, unlike the spec's assumption in §5/§11 Q2.
   '11-days-rwanda-tanzania': ['gorilla', 'bigfive'],
+  '12-days-rwanda-tanzania-zanzibar': ['gorilla', 'bigfive', 'beach', 'honeymoon', 'luxury'],
   '12-days-rwanda-primates': ['gorilla', 'remote', 'photography'],
   '11-days-kenya-undisputed': ['bigfive', 'family', 'photography'],
   '10-days-southern-secrets': ['bigfive', 'remote'],

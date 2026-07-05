@@ -55,12 +55,18 @@ export default function PlanWizard({
   packages,
   tags,
   fxRates,
+  initialOverrides,
 }: {
   packages: SafariPackage[]
   tags: Record<string, string[]>
   fxRates: Record<Currency, number>
+  initialOverrides?: Partial<WizardState>
 }) {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(
+    reducer,
+    initialState,
+    (init) => (initialOverrides ? { ...init, ...initialOverrides } : init)
+  )
 
   useEffect(() => {
     trackEvent('plan_step_view', { step: state.step })
@@ -84,7 +90,7 @@ export default function PlanWizard({
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-28 sm:pt-32 pb-16">
+    <div className="pb-16">
       <ProgressIndicator step={state.step} />
 
       {state.step === 1 && (

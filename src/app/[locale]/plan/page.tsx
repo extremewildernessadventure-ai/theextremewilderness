@@ -3,12 +3,42 @@ import { getPackages } from '@/data/packages.i18n'
 import { packageTags } from '@/data/packageTags'
 import { getFxRates } from '@/lib/fxRates'
 import { getLocale } from 'next-intl/server'
-import PlanWizard from '@/components/plan/PlanWizard'
+import { SITE_URL } from '@/lib/site'
+import PlanPageClient from '@/components/plan/PlanPageClient'
+
+const TITLE = 'AI Safari Planner | Craft Your Safari'
+const DESCRIPTION =
+  'Ask our AI Safari Advisor anything about Tanzania, Kenya or Rwanda, then fine-tune with our 90-second guided planner — see real matched itineraries with transparent pricing, no invented tours.'
 
 export const metadata: Metadata = {
-  title: 'Craft Your Safari | The Extreme Wilderness',
-  description:
-    'Tell us your dates, interests and style — see 1-3 real matched Tanzania, Kenya and Rwanda itineraries with transparent pricing in under 90 seconds.',
+  // Root layout's title template already appends " | The Extreme Wilderness" —
+  // repeating it here previously produced a doubled "... | The Extreme
+  // Wilderness | The Extreme Wilderness" browser-tab/SERP title.
+  title: TITLE,
+  description: DESCRIPTION,
+  keywords: [
+    'AI safari planner',
+    'AI travel advisor Tanzania',
+    'AI safari advisor Kenya Rwanda',
+    'plan Tanzania safari online',
+    'Tanzania Kenya Rwanda trip planner',
+    'custom safari builder',
+    'safari itinerary generator',
+    'build your own safari',
+    'East Africa safari planning tool',
+    'AI travel assistant Africa',
+  ],
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    type: 'website',
+    url: `${SITE_URL}/plan`,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 }
 
 export default async function PlanPage() {
@@ -17,6 +47,6 @@ export default async function PlanPage() {
   const fxRates = await getFxRates()
 
   return (
-    <PlanWizard packages={packages} tags={packageTags} fxRates={fxRates} />
+    <PlanPageClient packages={packages} tags={packageTags} fxRates={fxRates} />
   )
 }

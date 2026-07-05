@@ -745,6 +745,24 @@
   },
   "planBuilder": {
     "heroCta": "Gestalte deine eigene Safari",
+    "aiAdvisor": {
+      "title": "Frag unsere Safari-KI",
+      "subtitle": "Beschreibe deine Traumreise mit eigenen Worten — unsere KI gleicht sie mit unseren echten Reiserouten in Tansania, Kenia und Ruanda ab und zeigt dir, was wirklich buchbar ist.",
+      "placeholder": "z. B. „Ich möchte Gorillas und die Big Five in weniger als 10 Tagen erleben“",
+      "examplePrompt1": "Gorillas + Big Five in 10 Tagen",
+      "examplePrompt2": "Flitterwochen-Safari mit Strandabschluss",
+      "examplePrompt3": "Beste Reise für Wildlife-Fotografie",
+      "submitButton": "Fragen",
+      "thinkingLabel": "Denkt nach…",
+      "errorTitle": "Etwas ist schiefgelaufen",
+      "errorMessage": "Wir konnten unsere Safari-KI gerade nicht erreichen — versuche es erneut oder starte direkt den geführten Planer unten.",
+      "retryButton": "Erneut versuchen",
+      "rateLimitMessage": "Du stellst gerade viele Fragen! Warte einen Moment und versuche es erneut.",
+      "noMatchTitle": "Nichts in unserem aktuellen Angebot passt dazu perfekt",
+      "noMatchMessage": "Erzähl unserem Team unten mehr und wir gestalten etwas genau für dich.",
+      "resultsHeading": "Passende echte Reiserouten",
+      "wizardCta": "Mit unserem geführten Planer verfeinern"
+    },
     "entryCard": {
       "title": "Nicht sicher, wo du anfangen sollst?",
       "subtitle": "Gestalte deine eigene Safari in 90 Sekunden — nenne uns deine Reisedaten, Interessen und deinen Stil und entdecke echte passende Reiserouten mit transparenten Preisen.",
@@ -2445,7 +2463,7 @@
     "extra5Destinations": "Kenia — Masai Mara, Laikipia, Ol Pejeta",
     "extra6Name": "Kilimandscharo Machame-Route",
     "extra6Destinations": "Tansania — Kilimandscharo-NP (Machame → Uhuru Peak)",
-    "metaTitle": "Safari-Reiserouten | The Extreme Wilderness",
+    "metaTitle": "Safari-Reiserouten",
     "metaDescription": "Durchstöbern Sie kuratierte Safari-Reiserouten durch Tansania, Kenia und Ruanda. Von klassischen Serengeti-Rundreisen bis zu Gorilla-Trekking und Kilimandscharo-Besteigungen. Jede Reise individuell gestaltet.",
     "metaKeywords": [
       "Tansania Safari-Reiseroute",

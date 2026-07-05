@@ -17,13 +17,15 @@ export default function ResultCard({
   rates,
   month,
   year,
+  reasonOverride,
 }: {
   result: MatchResult
   isTopMatch: boolean
   currency: Currency
   rates: Record<Currency, number>
-  month: string
-  year: number
+  month?: string
+  year?: number
+  reasonOverride?: string
 }) {
   const t = useTranslations('planBuilder.results')
   const tTags = useTranslations('planBuilder.step2.tags')
@@ -53,13 +55,14 @@ export default function ResultCard({
       </div>
 
       <p className="text-sm text-text-muted leading-relaxed mb-3">
-        {t('whyLine', {
-          month,
-          year,
-          interests: result.matchedTags.length
-            ? result.matchedTags.map((tag) => tTags(tag)).join(', ')
-            : t('generalFit'),
-        })}
+        {reasonOverride ??
+          t('whyLine', {
+            month: month ?? '',
+            year: year ?? 0,
+            interests: result.matchedTags.length
+              ? result.matchedTags.map((tag) => tTags(tag)).join(', ')
+              : t('generalFit'),
+          })}
       </p>
 
       {result.paxWarning && (

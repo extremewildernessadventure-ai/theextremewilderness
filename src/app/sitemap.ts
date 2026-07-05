@@ -22,6 +22,7 @@ export const SAFARI_SLUGS = [
   '7-days-flight-ndutu',
   '8-days-flight-migration',
   '11-days-rwanda-tanzania',
+  '12-days-rwanda-tanzania-zanzibar',
   '12-days-rwanda-primates',
   '11-days-kenya-undisputed',
   '10-days-southern-secrets',

@@ -19,10 +19,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const EDITION_META = [
-  { slug: '7-day-serengeti-ngorongoro', image: '/images/gallery/Serengeti-National-park.webp', badgeKey: 'badgeBestseller' },
+  { slug: '7-day-serengeti-ngorongoro', image: '/images/gallery/ngorongoro-crater-landscape.webp', badgeKey: 'badgeBestseller' },
   { slug: '12-days-rwanda-primates', image: '/images/gallery/gorilla.webp', badgeKey: 'badgeIconic' },
   { slug: '7-day-southern-circuit', image: '/images/gallery/Ruaha-National-Park.webp', badgeKey: 'badgeRemote' },
-  { slug: '10-day-safari-zanzibar', image: '/images/gallery/zanzibar-1.webp', badgeKey: 'badgePopular' },
+  { slug: '10-day-safari-zanzibar', image: '/images/gallery/zanzibar-nungwi-aerial.webp', badgeKey: 'badgePopular' },
 ] as const
 
 const EXTRA_META = [
