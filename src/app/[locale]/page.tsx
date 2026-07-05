@@ -4,6 +4,7 @@ import HeroSection from '@/components/home/HeroSection'
 import TrustBar from '@/components/home/TrustBar'
 import StatsRow from '@/components/home/StatsRow'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
+import PlanBuilderSection from '@/components/home/PlanBuilderSection'
 import BlogPreview from '@/components/home/BlogPreview'
 import CtaBanner from '@/components/home/CtaBanner'
 
@@ -43,6 +44,7 @@ export default function HomePage() {
       <FeaturedPackages />
       <WhyChooseUs />
       <Testimonials />
+      <PlanBuilderSection />
       <TravelByMonth />
       <BlogPreview />
       <CtaBanner />
