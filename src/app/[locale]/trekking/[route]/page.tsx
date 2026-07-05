@@ -126,6 +126,14 @@ const ROUTE_CARD_IMAGES: Record<string, string> = {
   umbwe: '/images/gallery/kilimanjaro%20(3).webp',
   'northern-circuit': '/images/gallery/kilimanjaro%20(5).webp',
 }
+const ROUTE_HERO_IMAGES: Record<string, { src: string; alt: string }> = {
+  machame: { src: '/images/gallery/kilimanjaro1.webp', alt: 'Mount Kilimanjaro rising above the savanna' },
+  lemosho: { src: '/images/gallery/kilimanjaro%20(6.webp', alt: 'Wide scenic view of Kilimanjaro from the Lemosho side' },
+  marangu: { src: '/images/gallery/kilimanjarosasa.webp', alt: 'An elephant grazing with Kilimanjaro in the background' },
+  rongai: { src: '/images/gallery/kilimanjaro%20(4)e.webp', alt: 'A giraffe with Mount Kilimanjaro behind it' },
+  umbwe: { src: '/images/gallery/kilimanjaro%20(2)1.webp', alt: 'Climbers ascending toward the summit at sunrise' },
+  'northern-circuit': { src: '/images/gallery/kilimanjaro%20(3)e.webp', alt: 'The Uhuru Peak summit sign at the top of Kilimanjaro' },
+}
 
 function isRouteWithDetailContent(route: string): route is RouteWithDetailContent {
   return (ROUTES_WITH_DETAIL_CONTENT as readonly string[]).includes(route)
@@ -133,6 +141,7 @@ function isRouteWithDetailContent(route: string): route is RouteWithDetailConten
 
 export default async function TrekkingPage({ params }: RouteProps) {
   const { route } = await params
+  const heroImage = ROUTE_HERO_IMAGES[route] ?? ROUTE_HERO_IMAGES.machame
   const t = await getTranslations('trekking')
   let routeContent: RouteDetailContent | null = null
   let tDetail: Awaited<ReturnType<typeof getTranslations>> | null = null
@@ -284,8 +293,8 @@ export default async function TrekkingPage({ params }: RouteProps) {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden bg-brand">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/kilimanjaro%20(5).webp"
-            alt="Kilimanjaro summit at dawn"
+            src={heroImage.src}
+            alt={heroImage.alt}
             fill
             className="object-cover object-center"
             priority
