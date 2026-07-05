@@ -13,37 +13,34 @@ export default function PlanBuilderSection() {
   ]
 
   return (
-    <section className="py-20 bg-brand relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold rounded-full translate-x-1/3 -translate-y-1/3" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold rounded-full -translate-x-1/3 translate-y-1/3" />
-      </div>
-
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-4">
+    <section className="py-20">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
           {t('heroCta')}
         </span>
-        <h2 className="text-3xl lg:text-5xl font-semibold text-white mb-4">
-          {t('entryCard.title')}
-        </h2>
-        <p className="text-white/70 text-lg max-w-2xl mx-auto mb-12">
+        <div className="mb-6">
+          <h2 className="inline-block bg-brand text-white text-2xl lg:text-3xl font-bold rounded-xl px-8 py-4 shadow-sm">
+            {t('entryCard.title')}
+          </h2>
+        </div>
+        <p className="text-text-muted text-lg max-w-2xl mx-auto mb-12">
           {t('entryCard.subtitle')}
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-12">
           {steps.map(({ Icon, label }) => (
             <div key={label} className="flex flex-col items-center gap-3">
-              <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
-                <Icon className="w-5 h-5 text-gold" />
+              <div className="w-12 h-12 bg-gold rounded-xl shadow-sm flex items-center justify-center">
+                <Icon className="w-5 h-5 text-brand" />
               </div>
-              <span className="text-white/80 text-sm font-medium">{label}</span>
+              <span className="text-brand text-sm font-medium">{label}</span>
             </div>
           ))}
         </div>
 
         <Link
           href="/plan"
-          className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors"
+          className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand hover:bg-brand-secondary text-white font-bold rounded-xl transition-colors"
         >
           {t('entryCard.cta')} <ArrowRight className="w-4 h-4" />
         </Link>
