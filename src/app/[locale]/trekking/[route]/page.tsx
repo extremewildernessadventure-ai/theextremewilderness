@@ -120,19 +120,19 @@ const ROUTE_BADGE_KEYS: Record<string, string | null> = {
 }
 const ROUTE_CARD_IMAGES: Record<string, string> = {
   machame: '/images/gallery/kilimanjaro.webp',
-  lemosho: '/images/gallery/kilimanjaro%20(4).webp',
-  marangu: '/images/gallery/kilimanjaro%20(1).webp',
-  rongai: '/images/gallery/kilimanjaro%20(2).webp',
-  umbwe: '/images/gallery/kilimanjaro%20(3).webp',
-  'northern-circuit': '/images/gallery/kilimanjaro%20(5).webp',
+  lemosho: '/images/gallery/kilimanjaro1.webp',
+  marangu: '/images/gallery/kilimanjarosasa.webp',
+  rongai: '/images/gallery/kilimanjaro%20(6).webp',
+  umbwe: '/images/gallery/kilimanjarosasa.webp',
+  'northern-circuit': '/images/gallery/kilimanjaro1.webp',
 }
 const ROUTE_HERO_IMAGES: Record<string, { src: string; alt: string }> = {
   machame: { src: '/images/gallery/kilimanjaro1.webp', alt: 'Mount Kilimanjaro rising above the savanna' },
-  lemosho: { src: '/images/gallery/kilimanjaro%20(6.webp', alt: 'Wide scenic view of Kilimanjaro from the Lemosho side' },
+  lemosho: { src: '/images/gallery/kilimanjaro%20(6).webp', alt: 'Wide scenic view of Kilimanjaro from the Lemosho side' },
   marangu: { src: '/images/gallery/kilimanjarosasa.webp', alt: 'An elephant grazing with Kilimanjaro in the background' },
-  rongai: { src: '/images/gallery/kilimanjaro%20(4)e.webp', alt: 'A giraffe with Mount Kilimanjaro behind it' },
-  umbwe: { src: '/images/gallery/kilimanjaro%20(2)1.webp', alt: 'Climbers ascending toward the summit at sunrise' },
-  'northern-circuit': { src: '/images/gallery/kilimanjaro%20(3)e.webp', alt: 'The Uhuru Peak summit sign at the top of Kilimanjaro' },
+  rongai: { src: '/images/gallery/kilimanjaro.webp', alt: 'A giraffe with Mount Kilimanjaro behind it' },
+  umbwe: { src: '/images/gallery/kilimanjaro1.webp', alt: 'Climbers ascending toward the summit at sunrise' },
+  'northern-circuit': { src: '/images/gallery/kilimanjarosasa.webp', alt: 'The Uhuru Peak summit sign at the top of Kilimanjaro' },
 }
 
 function isRouteWithDetailContent(route: string): route is RouteWithDetailContent {
@@ -251,7 +251,7 @@ export default async function TrekkingPage({ params }: RouteProps) {
       desc: t('article2Desc'),
       readTime: t('article2Time'),
       href: '/blog',
-      image: '/images/gallery/kilimanjaro%20(4).webp',
+      image: '/images/gallery/kilimanjaro1.webp',
     },
     {
       category: t('article3Cat'),
@@ -259,7 +259,7 @@ export default async function TrekkingPage({ params }: RouteProps) {
       desc: t('article3Desc'),
       readTime: t('article3Time'),
       href: '/blog',
-      image: '/images/gallery/kilimanjaro%20(2).webp',
+      image: '/images/gallery/kilimanjarosasa.webp',
     },
     {
       category: t('article4Cat'),
@@ -267,7 +267,7 @@ export default async function TrekkingPage({ params }: RouteProps) {
       desc: t('article4Desc'),
       readTime: t('article4Time'),
       href: '/blog',
-      image: '/images/gallery/kilimanjaro%20(3).webp',
+      image: '/images/gallery/kilimanjaro%20(6).webp',
     },
   ]
 

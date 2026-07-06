@@ -17,11 +17,11 @@ const ROUTE_BADGE_KEYS: Record<string, string | null> = {
 }
 const ROUTE_IMAGES: Record<string, string> = {
   machame: '/images/gallery/kilimanjaro.webp',
-  lemosho: '/images/gallery/kilimanjaro%20(4).webp',
-  marangu: '/images/gallery/kilimanjaro%20(1).webp',
-  rongai: '/images/gallery/kilimanjaro%20(2).webp',
-  umbwe: '/images/gallery/kilimanjaro%20(3).webp',
-  'northern-circuit': '/images/gallery/kilimanjaro%20(5).webp',
+  lemosho: '/images/gallery/kilimanjaro1.webp',
+  marangu: '/images/gallery/kilimanjarosasa.webp',
+  rongai: '/images/gallery/kilimanjaro%20(6).webp',
+  umbwe: '/images/gallery/kilimanjarosasa.webp',
+  'northern-circuit': '/images/gallery/kilimanjaro1.webp',
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -125,7 +125,7 @@ export default async function TrekkingPage() {
       desc: t('article2Desc'),
       readTime: t('article2Time'),
       href: '/blog',
-      image: '/images/gallery/kilimanjaro%20(4).webp',
+      image: '/images/gallery/kilimanjaro1.webp',
     },
     {
       category: t('article3Cat'),
@@ -133,7 +133,7 @@ export default async function TrekkingPage() {
       desc: t('article3Desc'),
       readTime: t('article3Time'),
       href: '/blog',
-      image: '/images/gallery/kilimanjaro%20(2).webp',
+      image: '/images/gallery/kilimanjarosasa.webp',
     },
     {
       category: t('article4Cat'),
@@ -141,7 +141,7 @@ export default async function TrekkingPage() {
       desc: t('article4Desc'),
       readTime: t('article4Time'),
       href: '/blog',
-      image: '/images/gallery/kilimanjaro%20(3).webp',
+      image: '/images/gallery/kilimanjaro%20(6).webp',
     },
   ]
 
@@ -167,7 +167,7 @@ export default async function TrekkingPage() {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden bg-brand">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/kilimanjaro%20(5).webp"
+            src="/images/gallery/kilimanjarosasa.webp"
             alt="Kilimanjaro summit at dawn"
             fill
             className="object-cover object-center"

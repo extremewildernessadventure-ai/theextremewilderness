@@ -130,7 +130,7 @@ export const destinations: Destination[] = [
     name: 'Arusha & Kilimanjaro',
     region: 'arusha',
     country: 'tanzania',
-    heroImage: '/images/gallery/kilimanjaro%20(4).webp',
+    heroImage: '/images/gallery/kilimanjaro1.webp',
     tagline: 'Tor zum Nördlichen Stromkreis',
     description:
       'Arusha ist Tansanias Safari-Hauptstadt und Tor zum Nördlichen Stromkreis. Eingebettet zwischen dem Mount Meru (4.562 m) und mit Blick auf den Kilimandscharo (5.895 m), hat Arusha seinen eigenen Nationalpark mit flamingogesäumten Seen, Stummelaffen und Giraffen. Es ist auch Ihre Ausgangsbasis für Kilimandscharo-Trekkingtouren und Nordsafaris.',

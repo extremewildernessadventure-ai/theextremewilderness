@@ -15,7 +15,7 @@ export default function BlogPreview() {
       date: t('blog0Date'),
       readTime: t('blog0ReadTime'),
       category: t('blog0Category'),
-      image: '/images/gallery/serengeti (1).png',
+      image: '/images/gallery/Wildebeest-Migration.webp',
     },
     {
       slug: 'kilimanjaro-climbing-guide',
@@ -24,7 +24,7 @@ export default function BlogPreview() {
       date: t('blog1Date'),
       readTime: t('blog1ReadTime'),
       category: t('blog1Category'),
-      image: '/images/gallery/kilimanjaro (1).png',
+      image: '/images/gallery/kilimanjaro1.webp',
     },
     {
       slug: 'zanzibar-travel-guide',

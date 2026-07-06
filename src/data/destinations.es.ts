@@ -130,7 +130,7 @@ export const destinations: Destination[] = [
     name: 'Arusha & Kilimanjaro',
     region: 'arusha',
     country: 'tanzania',
-    heroImage: '/images/gallery/kilimanjaro%20(4).webp',
+    heroImage: '/images/gallery/kilimanjaro1.webp',
     tagline: 'Puerta de Entrada al Circuito Norte',
     description:
       'Arusha es la capital safari de Tanzania y puerta de entrada al Circuito Norte. Anidada entre el Monte Meru (4.562 m) y con vistas al Kilimanjaro (5.895 m), Arusha tiene su propio parque nacional con lagos bordeados de flamencos, colobos y jirafas. También es tu campamento base para las excursiones al Kilimanjaro y los safaris del norte.',

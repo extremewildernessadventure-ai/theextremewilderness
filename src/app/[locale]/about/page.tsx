@@ -18,12 +18,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const galleryImages = [
-  '/images/gallery/serengeti (1).png',
+  '/images/gallery/Serengeti-National-park.webp',
   '/images/gallery/safari-007.webp',
-  '/images/gallery/kilimanjaro (1).png',
+  '/images/gallery/kilimanjarosasa.webp',
   '/images/gallery/elephants.webp',
   '/images/gallery/safari-014.webp',
-  '/images/gallery/zanzibar (1).png',
+  '/images/gallery/zanzibar-nungwi-aerial.webp',
 ]
 
 export default async function AboutPage() {
@@ -141,7 +141,7 @@ export default async function AboutPage() {
             </div>
             <div className="relative">
               <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image src="/images/gallery/kilimanjaro (1).png" alt="Guide in the field" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                <Image src="/images/gallery/kilimanjaro1.webp" alt="Guide in the field" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand/40 to-transparent" />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100">
