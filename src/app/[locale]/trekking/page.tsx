@@ -167,8 +167,8 @@ export default async function TrekkingPage() {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden bg-brand">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/kilimanjarosasa.webp"
-            alt="Kilimanjaro summit at dawn"
+            src="/images/gallery/kilimanjaro-hero.webp"
+            alt="Mount Kilimanjaro's snow-capped summit against a clear blue sky"
             fill
             className="object-cover object-center"
             priority
