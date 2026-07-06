@@ -119,12 +119,12 @@ const ROUTE_BADGE_KEYS: Record<string, string | null> = {
   'northern-circuit': 'badgeBestRate',
 }
 const ROUTE_CARD_IMAGES: Record<string, string> = {
-  machame: '/images/gallery/kilimanjaro.webp',
-  lemosho: '/images/gallery/kilimanjaro1.webp',
-  marangu: '/images/gallery/kilimanjarosasa.webp',
-  rongai: '/images/gallery/kilimanjaro%20(6).webp',
-  umbwe: '/images/gallery/kilimanjarosasa.webp',
-  'northern-circuit': '/images/gallery/kilimanjaro1.webp',
+  machame: '/images/gallery/kilimanjaro-card-machame.webp',
+  lemosho: '/images/gallery/kilimanjaro-card-lemosho.webp',
+  marangu: '/images/gallery/kilimanjaro-card-marangu.webp',
+  rongai: '/images/gallery/kilimanjaro-card-rongai.webp',
+  umbwe: '/images/gallery/kilimanjaro-card-umbwe.webp',
+  'northern-circuit': '/images/gallery/kilimanjaro-card-northern-circuit.webp',
 }
 const ROUTE_HERO_IMAGES: Record<string, { src: string; alt: string }> = {
   machame: { src: '/images/gallery/kilimanjaro1.webp', alt: 'Mount Kilimanjaro rising above the savanna' },
