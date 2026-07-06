@@ -127,12 +127,12 @@ const ROUTE_CARD_IMAGES: Record<string, string> = {
   'northern-circuit': '/images/gallery/kilimanjaro-card-northern-circuit.webp',
 }
 const ROUTE_HERO_IMAGES: Record<string, { src: string; alt: string }> = {
-  machame: { src: '/images/gallery/kilimanjaro1.webp', alt: 'Mount Kilimanjaro rising above the savanna' },
-  lemosho: { src: '/images/gallery/kilimanjaro%20(6).webp', alt: 'Wide scenic view of Kilimanjaro from the Lemosho side' },
-  marangu: { src: '/images/gallery/kilimanjarosasa.webp', alt: 'An elephant grazing with Kilimanjaro in the background' },
-  rongai: { src: '/images/gallery/kilimanjaro.webp', alt: 'A giraffe with Mount Kilimanjaro behind it' },
-  umbwe: { src: '/images/gallery/kilimanjaro1.webp', alt: 'Climbers ascending toward the summit at sunrise' },
-  'northern-circuit': { src: '/images/gallery/kilimanjarosasa.webp', alt: 'The Uhuru Peak summit sign at the top of Kilimanjaro' },
+  machame: { src: '/images/gallery/kilimanjaro-card-machame.webp', alt: 'Mount Kilimanjaro rising above the savanna, framed by acacia trees' },
+  lemosho: { src: '/images/gallery/kilimanjaro-card-lemosho.webp', alt: 'Wide scenic view of Kilimanjaro emerging above the clouds' },
+  marangu: { src: '/images/gallery/kilimanjaro-card-marangu.webp', alt: 'Aerial view of the Kilimanjaro summit breaking through the clouds' },
+  rongai: { src: '/images/gallery/kilimanjaro-card-rongai.webp', alt: 'A dirt trail leading toward Mount Kilimanjaro on the Rongai route' },
+  umbwe: { src: '/images/gallery/kilimanjaro-card-umbwe.webp', alt: 'Climbers ascending toward the summit at sunrise' },
+  'northern-circuit': { src: '/images/gallery/kilimanjaro-card-northern-circuit.webp', alt: 'A rocky, snow-covered ridge rising above a sea of clouds' },
 }
 
 function isRouteWithDetailContent(route: string): route is RouteWithDetailContent {
