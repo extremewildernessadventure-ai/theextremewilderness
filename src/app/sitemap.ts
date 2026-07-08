@@ -29,6 +29,9 @@ export const SAFARI_SLUGS = [
   '11-days-southern-spice',
   '12-days-tanzania-kenya',
   '12-days-grand-safari',
+  '5-day-comfort-tanzania-safari',
+  '6-day-comfort-tanzania-safari',
+  'kenya-tanzania-highlights-safari',
 ]
 
 export const DESTINATION_SLUGS = [

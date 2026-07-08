@@ -143,6 +143,21 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'Tanzania best wildlife 12 days', 'Tanzania everything safari', 'Africa bucket list grand',
     'Tanzania grandest safari', '12 night Tanzania safari', 'Tanzania comprehensive safari', 'best Africa 12 day safari',
   ],
+  '5-day-comfort-tanzania-safari': [
+    '5 day Tanzania safari', 'Tanzania Northern Circuit safari', 'Tarangire Serengeti Ngorongoro safari',
+    'comfort safari Tanzania', '5 day Tanzania safari price', 'Tanzania safari from Arusha',
+    '5 day Africa safari', 'Tanzania 5 days itinerary', 'short Tanzania safari Northern Circuit', 'Tanzania safari 5 nights',
+  ],
+  '6-day-comfort-tanzania-safari': [
+    '6 day Tanzania safari', 'Tanzania Northern Circuit 6 days', 'Serengeti safari 2 days',
+    'Tanzania comfort safari', '6 day safari from Arusha', 'Tarangire Serengeti Ngorongoro Manyara safari price',
+    '6 day Africa safari', 'Tanzania 6 days Northern Circuit', 'two full days Serengeti safari', 'Tanzania safari 6 nights',
+  ],
+  'kenya-tanzania-highlights-safari': [
+    'Kenya Tanzania safari', 'Masai Mara Serengeti safari', 'Kenya Tanzania safari itinerary',
+    'highlights Kenya Tanzania', 'East Africa safari 10 days', 'Ngorongoro Serengeti Masai Mara safari price',
+    'cross border safari East Africa', 'Kenya Tanzania 10 day tour', 'Amboseli Masai Mara Serengeti safari', 'best East Africa safari',
+  ],
 }
 
 const DEFAULT_SAFARI_KEYWORDS = [

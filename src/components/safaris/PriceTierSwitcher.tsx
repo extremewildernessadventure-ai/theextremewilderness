@@ -28,7 +28,9 @@ export default function PriceTierSwitcher({
   const [tier, setTier] = useState<Tier>('trail')
 
   const row = seasonRows.find((r) => r.pax === pax) ?? seasonRows[0]
-  const price = row[tier]
+  const price = row[tier] ?? 0
+  // Only show tier buttons for tiers that have values in at least one row
+  const availableTiers = TIERS.filter((tr) => seasonRows.some((r) => r[tr] !== undefined && r[tr]! > 0))
 
   return (
     <div className="bg-light-green rounded-2xl p-6">
@@ -71,8 +73,8 @@ export default function PriceTierSwitcher({
       </div>
 
       <div className="mb-4">
-        <div className="grid grid-cols-3 gap-1.5">
-          {TIERS.map((tr) => (
+        <div className={`grid gap-1.5 ${availableTiers.length === 1 ? 'grid-cols-1' : availableTiers.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
+          {availableTiers.map((tr) => (
             <button
               key={tr}
               type="button"
