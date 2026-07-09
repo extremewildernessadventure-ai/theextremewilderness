@@ -15,6 +15,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'placehold.co',
       },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        pathname: '/wikipedia/**',
+      },
     ],
   },
   async redirects() {

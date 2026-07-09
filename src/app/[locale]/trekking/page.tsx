@@ -5,6 +5,10 @@ import { ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
   Droplets, Pill, HeartPulse, Zap, Package, ShieldCheck } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
+import Breadcrumb from '@/components/ui/Breadcrumb'
+import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
+import PdfDownloadButton from '@/components/trekking/PdfDownloadButton'
+import BookNowButton from '@/components/booking/BookNowButton'
 
 const ROUTE_SLUGS = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const
 const ROUTE_BADGE_KEYS: Record<string, string | null> = {
@@ -33,7 +37,12 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function TrekkingPage() {
+interface Props {
+  params: Promise<{ locale?: string }>
+}
+
+export default async function TrekkingPage({ params }: Props) {
+  const { locale = 'en' } = await params
   const t = await getTranslations('trekking')
   const trd = await getTranslations('trekkingRouteDetail')
 
@@ -162,6 +171,8 @@ export default async function TrekkingPage() {
     }
   })
 
+  const minPrice = Math.min(...routes.map((r) => r.priceFrom))
+
   return (
     <>
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden bg-brand">
@@ -177,17 +188,36 @@ export default async function TrekkingPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-brand/70 via-brand/50 to-brand/80" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-2xl">
-            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
-              {t('heroEyebrow')}
-            </span>
-            <h1 className="text-5xl lg:text-6xl font-semibold text-white mb-5">
-              {t('heroTitle')}<br />
-              <span className="text-gold">{t('stat1Value')}</span>
-            </h1>
-            <p className="text-white/70 text-lg">
-              {t('heroTagline')}
-            </p>
+          <div className="flex flex-col lg:flex-row items-end justify-between gap-8">
+            {/* Left title block */}
+            <div className="flex-1 min-w-0">
+              <Breadcrumb items={[
+                { label: 'EWA Safari Outfitters', href: `/${locale}` },
+                { label: t('heroEyebrow') },
+              ]} />
+              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
+                {t('heroEyebrow')}
+              </span>
+              <h1 className="text-5xl lg:text-6xl font-semibold text-white mb-5">
+                {t('heroTitle')}<br />
+                <span className="text-gold">{t('stat1Value')}</span>
+              </h1>
+              <p className="text-white/70 text-lg">
+                {t('heroTagline')}
+              </p>
+            </div>
+
+            {/* Right glass CTA */}
+            <div className="hidden lg:flex flex-col bg-white/10 backdrop-blur-md rounded-2xl px-6 py-6 border border-white/20 min-w-[200px] text-center flex-shrink-0">
+              <p className="text-white/60 text-xs uppercase tracking-wide mb-1">{trd('labels.from')}</p>
+              <p className="text-gold font-bold text-4xl leading-none">${minPrice.toLocaleString()}</p>
+              <p className="text-white/50 text-xs mt-1 mb-5">{trd('labels.perPerson')}</p>
+              <p className="text-white/60 text-xs mb-5">{t('stat3Value')} · {t('stat2Value')}</p>
+              <BookNowButton
+                label={t('ctaButton')}
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -249,6 +279,41 @@ export default async function TrekkingPage() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog suggestion + PDF download row */}
+      <section className="py-12 bg-light-green">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <BlogSuggestionCard
+              slug="kilimanjaro-climbing-guide"
+              title="How to Climb Kilimanjaro: Routes, Cost, Training & Everything You Need to Know"
+              excerpt="Africa's highest peak at 5,895 m doesn't require technical climbing skills — but it demands preparation. Here's everything you need to know before you go."
+              category="Trekking"
+              image="/images/gallery/kilimanjaro1.webp"
+              readTime="14 min read"
+            />
+            <div className="bg-white border border-gray-100 rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <span className="inline-block px-2.5 py-0.5 bg-gold/10 text-gold-label text-[10px] font-bold uppercase tracking-wider rounded-full mb-3">
+                  PDF Guide
+                </span>
+                <h3 className="font-bold text-brand text-base mb-2">{trd('labels.downloadRouteGuide')}</h3>
+                <p className="text-text-muted text-sm leading-relaxed mb-5">{trd('labels.routeGuideDesc')}</p>
+              </div>
+              <div className="flex flex-col gap-2">
+                {(['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const).map((slug, i) => (
+                  <PdfDownloadButton
+                    key={slug}
+                    route={slug}
+                    label={t(`route${i + 1}Name` as 'route1Name')}
+                    compact
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

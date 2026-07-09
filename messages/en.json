@@ -25,7 +25,13 @@
       "successRate": "Summit Success Rate",
       "bestSeason": "Best Season",
       "accommodation": "Accommodation",
-      "priceFrom": "Price From"
+      "priceFrom": "Price From",
+      "from": "From",
+      "bookThisRoute": "Book This Route",
+      "downloadRouteGuide": "Download Route Guide",
+      "routeGuideDesc": "Complete itinerary, gear list & pricing — all in one printable document.",
+      "otherRoutes": "Other Routes",
+      "featuredGuide": "Featured Guide"
     },
     "machame": {
       "nickname": "The Whiskey Route",

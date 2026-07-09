@@ -25,7 +25,13 @@
       "successRate": "Taux de réussite au sommet",
       "bestSeason": "Meilleure saison",
       "accommodation": "Hébergement",
-      "priceFrom": "Prix à partir de"
+      "priceFrom": "Prix à partir de",
+      "from": "À partir de",
+      "bookThisRoute": "Réserver cet itinéraire",
+      "downloadRouteGuide": "Télécharger le guide de l'itinéraire",
+      "routeGuideDesc": "Itinéraire complet, liste d'équipement et tarifs — en un seul document imprimable.",
+      "otherRoutes": "Autres itinéraires",
+      "featuredGuide": "Guide à la une"
     },
     "machame": {
       "nickname": "La route du Whisky",

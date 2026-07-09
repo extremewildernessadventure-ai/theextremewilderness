@@ -25,7 +25,13 @@
       "successRate": "Gipfelerfolgsquote",
       "bestSeason": "Beste Reisezeit",
       "accommodation": "Unterkunft",
-      "priceFrom": "Preis ab"
+      "priceFrom": "Preis ab",
+      "from": "Ab",
+      "bookThisRoute": "Diese Route buchen",
+      "downloadRouteGuide": "Routenführer herunterladen",
+      "routeGuideDesc": "Vollständiges Reiseprogramm, Ausrüstungsliste und Preise — alles in einem druckbaren Dokument.",
+      "otherRoutes": "Andere Routen",
+      "featuredGuide": "Empfohlener Reiseführer"
     },
     "machame": {
       "nickname": "Die Whiskey-Route",

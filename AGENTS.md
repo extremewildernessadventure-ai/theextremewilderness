@@ -6,8 +6,14 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Site-Wide UI Rules
 
-## No breadcrumbs or URL paths in hero sections
-Hero sections must NEVER show breadcrumb navigation or URL path indicators (e.g. "Home / Safaris / Package Name", "Home > About Us", "← Back to Blog"). These were deliberately removed from every page. When creating a new page, do not add any `<nav>` breadcrumb block, back-link, or path indicator inside the hero section.
+## Professional breadcrumbs are required in hero sections
+Hero sections on all content pages MUST include a breadcrumb navigation block using the shared `<Breadcrumb>` component from `@/components/ui/Breadcrumb`. Format: `EWA Safari Outfitters · Section · Subsection · Page Name` separated by `·` (middle dot). Use real display names — never raw slugs or URL segments. Examples:
+- Trekking index: `EWA Safari Outfitters · Trekking`
+- Route detail: `EWA Safari Outfitters · Trekking · Kilimanjaro Routes · Machame Route`
+- Safari detail: `EWA Safari Outfitters · Safari Packages · [Package Name]`
+- Destination: `EWA Safari Outfitters · Destinations · [Destination Name]`
+
+The `<Breadcrumb>` component sits above the eyebrow label inside the hero `<section>`. Do NOT use old-style "Home / Page" slash separators or `← Back` links.
 
 ## Inquiry form is always a modal — never inline on content pages
 The `InquiryForm` component must NOT be rendered inline on any content page (safari detail, destination detail, trekking route, etc.). Use `BookNowButton` from `@/components/booking/BookNowButton` instead — it triggers the global `EnquiryModal` that is already mounted in `Providers`. The only page allowed to render `InquiryForm` directly is `/contact`.
