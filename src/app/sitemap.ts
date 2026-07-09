@@ -32,6 +32,10 @@ export const SAFARI_SLUGS = [
   '5-day-comfort-tanzania-safari',
   '6-day-comfort-tanzania-safari',
   'kenya-tanzania-highlights-safari',
+  '10-day-kenya-tanzania-safari',
+  '2-day-selous-safari-from-zanzibar',
+  '4-day-tarangire-ngorongoro-lake-eyasi',
+  '5-day-kenya-safari',
 ]
 
 export const DESTINATION_SLUGS = [

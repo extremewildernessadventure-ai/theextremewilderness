@@ -43,4 +43,8 @@ export const packageTags: Record<string, string[]> = {
   '5-day-comfort-tanzania-safari': ['bigfive', 'migration', 'classic'],
   '6-day-comfort-tanzania-safari': ['bigfive', 'migration', 'classic'],
   'kenya-tanzania-highlights-safari': ['bigfive', 'migration', 'classic', 'luxury'],
+  '10-day-kenya-tanzania-safari': ['bigfive', 'migration', 'classic'],
+  '2-day-selous-safari-from-zanzibar': ['bigfive', 'beach', 'short-break'],
+  '4-day-tarangire-ngorongoro-lake-eyasi': ['bigfive', 'classic'],
+  '5-day-kenya-safari': ['bigfive', 'migration', 'classic'],
 }

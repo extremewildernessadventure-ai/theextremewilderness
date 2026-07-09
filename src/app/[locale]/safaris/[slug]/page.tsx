@@ -158,6 +158,26 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'highlights Kenya Tanzania', 'East Africa safari 10 days', 'Ngorongoro Serengeti Masai Mara safari price',
     'cross border safari East Africa', 'Kenya Tanzania 10 day tour', 'Amboseli Masai Mara Serengeti safari', 'best East Africa safari',
   ],
+  '10-day-kenya-tanzania-safari': [
+    'Kenya Tanzania safari 10 days', 'Masai Mara Serengeti safari', 'East Africa combination safari',
+    'Kenya Tanzania border crossing safari', 'Ngorongoro Crater Tarangire safari', 'best East Africa safari 10 days',
+    'Masai Mara game drive', 'Tanzania Kenya wildlife safari', 'East Africa safari 2026',
+  ],
+  '2-day-selous-safari-from-zanzibar': [
+    'Zanzibar safari 2 days', 'Nyerere safari from Zanzibar', 'Selous safari Zanzibar',
+    'Rufiji River boat safari', 'Tanzania short safari', 'add safari to Zanzibar beach holiday',
+    'fly-in safari Zanzibar', 'Nyerere National Park boat safari', 'Zanzibar safari package',
+  ],
+  '4-day-tarangire-ngorongoro-lake-eyasi': [
+    'Tarangire Ngorongoro safari 4 days', 'Lake Eyasi Hadzabe experience', 'Tanzania cultural safari',
+    'Ngorongoro Crater day trip', 'Tarangire elephant safari', 'Tanzania 4 day safari package',
+    'Hadzabe hunter gatherer visit', 'Ngorongoro Tarangire wildlife', 'short Tanzania safari',
+  ],
+  '5-day-kenya-safari': [
+    "Kenya safari 5 days", "Hell's Gate National Park cycling", 'Lake Nakuru flamingo safari',
+    'Masai Mara Great Migration', 'Kenya safari package 2026', 'Lake Naivasha safari',
+    "Hell's Gate bike safari Kenya", 'Kenya safari cost', 'best Kenya safari 5 days',
+  ],
 }
 
 const DEFAULT_SAFARI_KEYWORDS = [
