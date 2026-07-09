@@ -11,7 +11,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 import RouteImageGallery from '@/components/trekking/RouteImageGallery'
 import RoutePricingButton from '@/components/trekking/RoutePricingButton'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
-import PdfDownloadButton from '@/components/trekking/PdfDownloadButton'
+import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
 import BookNowButton from '@/components/booking/BookNowButton'
 
 interface RouteProps {
@@ -125,50 +125,48 @@ const ROUTE_HERO_IMAGES: Record<string, { src: string; alt: string }> = {
   'northern-circuit':{ src: '/images/gallery/kilimanjaro-card-northern-circuit.webp', alt: 'A rocky, snow-covered ridge rising above a sea of clouds' },
 }
 
-const WM = 'https://upload.wikimedia.org/wikipedia/commons'
-
 const ROUTE_GALLERY_IMAGES: Record<string, string[]> = {
   machame: [
-    `${WM}/b/b0/Shira_plateau.jpg`,
-    `${WM}/1/1e/Climbers_Barranco_Wall_Kilimanjaro_Tanzania.jpg`,
-    `${WM}/3/31/Porteurs_sur_la_voie_Machame_en_janvier_2020.png`,
-    `${WM}/8/8c/Karanga_Camp_%284000m%29_Kilimanjaro.jpg`,
-    `${WM}/8/84/Kilimanjaro_sunrise_at_GillmanPoint%281%29.jpg`,
+    '/images/gallery/kilimanjaro-card-machame.webp',
+    '/Route%20maps/machame.webp',
+    '/images/gallery/kilimanjaro-hero.webp',
+    '/images/gallery/kilimanjaro1.webp',
+    '/images/gallery/kilimanjarosasa.webp',
   ],
   lemosho: [
-    `${WM}/9/98/Camp_on_Lemosho.jpg`,
-    `${WM}/5/5f/Lava_Tower.jpg`,
-    `${WM}/8/8f/Lemosho_Route_Panorama.jpg`,
-    `${WM}/1/10/Sunrise_on_Kilimanjaro%2C_Shira_1_camp%2C_Kilimanjaro_region%2C_Tanzania.jpg`,
-    `${WM}/a/ad/Barranco_Southern_Icefields.jpg`,
+    '/images/gallery/kilimanjaro-card-lemosho.webp',
+    '/Route%20maps/lemosho.webp',
+    '/images/gallery/kilimanjaro.webp',
+    '/images/gallery/kilimanjaro-hero.webp',
+    '/images/gallery/kilimanjaro1.webp',
   ],
   marangu: [
-    `${WM}/c/ce/Kilimanjaro_road_to_MandaraHut.jpg`,
-    `${WM}/c/c3/Horombo_Hut_in_Kilimanjaro_Park_001.JPG`,
-    `${WM}/1/14/Kilimanjaro_Kibo_Hut.jpg`,
-    `${WM}/a/a3/Kilimanjaro_road_to_KiboHut.jpg`,
-    `${WM}/9/91/Mawenzi_Cone_at_sunrise_from_Kilimanjaro_crater_rim.jpg`,
+    '/images/gallery/kilimanjaro-card-marangu.webp',
+    '/Route%20maps/marangu.webp',
+    '/images/gallery/kilimanjaro1.webp',
+    '/images/gallery/kilimanjaro.webp',
+    '/images/gallery/kilimanjaro%20(6).webp',
   ],
   rongai: [
-    `${WM}/f/fb/Marangu_Gate_in_Kilimanjaro_Park_001.JPG`,
-    `${WM}/6/62/Moorland_Chat_at_the_Kilimanjaro_moorland_cropped.JPG`,
-    `${WM}/e/e5/Kilimanjaro_KiboHut.jpg`,
-    `${WM}/e/e4/Kibo_summit_of_Mt_Kilimanjaro_001.JPG`,
-    `${WM}/c/c3/Kibo_Summit%2C_Mount_Kilimanjaro%2C_Tanzania_%2830819102678%29.jpg`,
+    '/images/gallery/kilimanjaro-card-rongai.webp',
+    '/Route%20maps/rongai.webp',
+    '/images/gallery/kilimanjaro-hero.webp',
+    '/images/gallery/kilimanjarosasa.webp',
+    '/images/gallery/kilimanjaro.webp',
   ],
   umbwe: [
-    `${WM}/2/27/Forest_in_Marangu_route_in_Kilimanjaro_area_001.JPG`,
-    `${WM}/a/a9/Lascar_Trekking_routes_up_Kilimanjaro_-_Machame_Route_%284463890875%29.jpg`,
-    `${WM}/1/16/Trekking_Barranco_Valley_Kilimanjaro_Tanzania.jpg`,
-    `${WM}/3/3c/Kilimanjaro_high_camp_Barafu_showing_elevation.jpg`,
-    `${WM}/d/d4/Furtwangler_Glacier_Mount_Kilimanjaro_Tanzania.jpg`,
+    '/images/gallery/kilimanjaro-card-umbwe.webp',
+    '/Route%20maps/umbwe.webp',
+    '/images/gallery/kilimanjaro1.webp',
+    '/images/gallery/kilimanjaro%20(6).webp',
+    '/images/gallery/kilimanjarosasa.webp',
   ],
   'northern-circuit': [
-    `${WM}/1/1b/Africa_natural_tours_kilimanjaro_climbing_%28159%29.jpg`,
-    `${WM}/a/a7/Lascar_Shira_caves_%284463892581%29.jpg`,
-    `${WM}/6/6f/Eastern_icefield_Mt._Kilimanjaro.JPG`,
-    `${WM}/b/b0/The_Kibo_and_Mawenzi_Cones_of_Mt._Kilimanjaro.jpg`,
-    `${WM}/6/62/Reusch_Crater_Mount_Kilimanjaro_Tanzania.jpg`,
+    '/images/gallery/kilimanjaro-card-northern-circuit.webp',
+    '/Route%20maps/northern-circuit.webp',
+    '/images/gallery/kilimanjaro-hero.webp',
+    '/images/gallery/kilimanjaro.webp',
+    '/images/gallery/kilimanjaro1.webp',
   ],
 }
 
@@ -423,6 +421,9 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                 </div>
               </div>
 
+              {/* Free guide download card */}
+              <KilimanjaroPdfCard />
+
               {/* Included / Not Included */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
@@ -505,12 +506,6 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                   />
                 </div>
 
-                {/* PDF Download */}
-                <div className="bg-white border border-gray-100 rounded-2xl p-5">
-                  <h3 className="font-semibold text-brand text-sm mb-1.5">{trd('labels.downloadRouteGuide')}</h3>
-                  <p className="text-text-muted text-xs leading-relaxed mb-4">{trd('labels.routeGuideDesc')}</p>
-                  <PdfDownloadButton route={route} label={trd('labels.downloadRouteGuide')} />
-                </div>
 
                 {/* Featured blog post */}
                 <div>

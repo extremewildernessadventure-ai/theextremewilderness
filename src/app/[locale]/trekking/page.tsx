@@ -7,7 +7,7 @@ import { getTranslations } from 'next-intl/server'
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
-import PdfDownloadButton from '@/components/trekking/PdfDownloadButton'
+import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
 import BookNowButton from '@/components/booking/BookNowButton'
 
 const ROUTE_SLUGS = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const
@@ -295,25 +295,7 @@ export default async function TrekkingPage({ params }: Props) {
               image="/images/gallery/kilimanjaro1.webp"
               readTime="14 min read"
             />
-            <div className="bg-white border border-gray-100 rounded-2xl p-6 flex flex-col justify-between">
-              <div>
-                <span className="inline-block px-2.5 py-0.5 bg-gold/10 text-gold-label text-[10px] font-bold uppercase tracking-wider rounded-full mb-3">
-                  PDF Guide
-                </span>
-                <h3 className="font-bold text-brand text-base mb-2">{trd('labels.downloadRouteGuide')}</h3>
-                <p className="text-text-muted text-sm leading-relaxed mb-5">{trd('labels.routeGuideDesc')}</p>
-              </div>
-              <div className="flex flex-col gap-2">
-                {(['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const).map((slug, i) => (
-                  <PdfDownloadButton
-                    key={slug}
-                    route={slug}
-                    label={t(`route${i + 1}Name` as 'route1Name')}
-                    compact
-                  />
-                ))}
-              </div>
-            </div>
+            <KilimanjaroPdfCard />
           </div>
         </div>
       </section>
