@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { ArrowRight, Clock, Users, MapPin, CheckCircle2, Calendar, Compass, HelpCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Calendar, Compass, HelpCircle, Clock, Users, MapPin } from 'lucide-react'
 import { getPackages } from '@/data/packages.i18n'
 import NewsletterForm from '@/components/home/NewsletterForm'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { getTranslations, getLocale } from 'next-intl/server'
 import { MONTHS } from '@/lib/seasonData'
 import PlanBuilderEntryCard from '@/components/plan/PlanBuilderEntryCard'
+import FilteredPackageGrid from '@/components/itineraries/FilteredPackageGrid'
+import NationalParksGrid from '@/components/itineraries/NationalParksGrid'
+import FaqAccordion from '@/components/itineraries/FaqAccordion'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('itineraries')
@@ -81,6 +84,29 @@ export default async function ItinerariesPage() {
     { q: t('faq1q'), a: t('faq1a') },
     { q: t('faq2q'), a: t('faq2a') },
     { q: t('faq3q'), a: t('faq3a') },
+    { q: t('faq4q'), a: t('faq4a') },
+    { q: t('faq5q'), a: t('faq5a') },
+    { q: t('faq6q'), a: t('faq6a') },
+    { q: t('faq7q'), a: t('faq7a') },
+    { q: t('faq8q'), a: t('faq8a') },
+    { q: t('faq9q'), a: t('faq9a') },
+    { q: t('faq10q'), a: t('faq10a') },
+  ]
+
+  const tanzaniaParks = [
+    { name: t('park1Name'), desc: t('park1Desc'), image: '/images/gallery/serengeti.webp' },
+    { name: t('park2Name'), desc: t('park2Desc'), image: '/images/gallery/ngorongoro-crater-landscape.webp' },
+    { name: t('park3Name'), desc: t('park3Desc'), image: '/images/gallery/tarangire-1.webp' },
+    { name: t('park4Name'), desc: t('park4Desc'), image: '/images/gallery/tarangire-elephants-baobab.webp' },
+    { name: t('park5Name'), desc: t('park5Desc'), image: '/images/gallery/Ruaha-National-Park.webp' },
+    { name: t('park6Name'), desc: t('park6Desc'), image: '/images/gallery/nyerere.webp' },
+  ]
+  const kenyaParks = [
+    { name: t('park7Name'),  desc: t('park7Desc'),  image: '/images/gallery/maasai-mara.webp' },
+    { name: t('park8Name'),  desc: t('park8Desc'),  image: '/images/gallery/amboseli.webp' },
+    { name: t('park9Name'),  desc: t('park9Desc'),  image: '/images/gallery/samburu.webp' },
+    { name: t('park10Name'), desc: t('park10Desc'), image: '/images/gallery/tsavo.webp' },
+    { name: t('park11Name'), desc: t('park11Desc'), image: '/images/gallery/nakuru.webp' },
   ]
   const tGettingHereTips = [t('gettingHereTip1'), t('gettingHereTip2'), t('gettingHereTip3'), t('gettingHereTip4'), t('gettingHereTip5')]
   const tBullets = [t('heroBullet1'), t('heroBullet2'), t('heroBullet3'), t('heroBullet4')]
@@ -259,11 +285,11 @@ export default async function ItinerariesPage() {
         </div>
       </section>
 
-      {/* ── 4. ALL PACKAGES ──────────────────────────────────────────────────── */}
+      {/* ── 4. ALL PACKAGES (filterable by country) ──────────────────────────── */}
       <section className="bg-light-green py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('completeCollectionEyebrow')}</span>
             <h2 className="text-brand font-semibold text-3xl lg:text-4xl mt-2">{t('completeCollectionHeading')}</h2>
             <p className="text-text-muted mt-3 max-w-lg mx-auto text-sm leading-relaxed">
@@ -271,45 +297,52 @@ export default async function ItinerariesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {packages.map((pkg) => (
-              <PackageCard
-                key={pkg.slug}
-                slug={`/safaris/${pkg.slug}`}
-                name={pkg.name}
-                duration={pkg.duration}
-                priceFrom={pkg.priceFrom}
-                image={pkg.heroImage}
-                destinations={pkg.destinations.map((d) => d.charAt(0).toUpperCase() + d.slice(1))}
-                groupSize={pkg.groupSize}
-                badge={pkg.badge}
-                daysLabel={t('daysLabel')}
-                maxLabel={t('maxLabel')}
-                paxLabel={t('paxLabel')}
-                fromLabel={t('fromPrefix')}
-                viewLabel={t('viewLabel')}
-              />
-            ))}
-            {extra.map((it) => (
-              <PackageCard
-                key={it.slug + it.name}
-                slug={it.slug}
-                name={it.name}
-                duration={it.duration}
-                priceFrom={it.priceFrom}
-                image={it.image}
-                destinations={it.destinations}
-                badge={it.badge ?? undefined}
-                daysLabel={t('daysLabel')}
-                maxLabel={t('maxLabel')}
-                paxLabel={t('paxLabel')}
-                fromLabel={t('fromPrefix')}
-                viewLabel={t('viewLabel')}
-              />
-            ))}
-          </div>
+          <FilteredPackageGrid
+            packages={[
+              ...packages.map((pkg) => ({
+                slug: `/safaris/${pkg.slug}`,
+                name: pkg.name,
+                duration: pkg.duration,
+                priceFrom: pkg.priceFrom,
+                image: pkg.heroImage,
+                destinations: pkg.destinations,
+                groupSize: pkg.groupSize,
+                badge: pkg.badge ?? null,
+              })),
+              ...extra.map((it) => ({
+                slug: it.slug,
+                name: it.name,
+                duration: it.duration,
+                priceFrom: it.priceFrom,
+                image: it.image,
+                destinations: [it.destinations[0]?.toLowerCase() ?? ''],
+                badge: it.badge ?? null,
+              })),
+            ]}
+            labels={{
+              filterAll:      t('filterAll'),
+              filterTanzania: t('filterTanzania'),
+              filterKenya:    t('filterKenya'),
+              filterCombined: t('filterCombined'),
+              days: t('daysLabel'),
+              max:  t('maxLabel'),
+              pax:  t('paxLabel'),
+              from: t('fromPrefix'),
+              view: t('viewLabel'),
+            }}
+          />
         </div>
       </section>
+
+      {/* ── 4b. NATIONAL PARKS ───────────────────────────────────────────────── */}
+      <NationalParksGrid
+        eyebrow={t('parksEyebrow')}
+        heading={t('parksHeading')}
+        tanzaniaLabel={t('parksTanzaniaLabel')}
+        kenyaLabel={t('parksKenyaLabel')}
+        tanzaniaParks={tanzaniaParks}
+        kenyaParks={kenyaParks}
+      />
 
       {/* ── 5. HOW WE CRAFT YOUR JOURNEY ─────────────────────────────────────── */}
       <section className="bg-brand py-24 relative overflow-hidden">
@@ -453,6 +486,17 @@ export default async function ItinerariesPage() {
             </div>
 
           </div>
+        </div>
+      </section>
+
+      {/* ── 6b. FAQ ──────────────────────────────────────────────────────────── */}
+      <section className="py-24 bg-light-green">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('faqEyebrow')}</span>
+            <h2 className="text-brand font-semibold text-3xl lg:text-4xl mt-2">{t('faqHeading')}</h2>
+          </div>
+          <FaqAccordion faqs={tFaqs} />
         </div>
       </section>
 
