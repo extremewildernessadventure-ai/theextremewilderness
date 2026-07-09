@@ -437,22 +437,22 @@ export default function EnquiryModal() {
                   </SelectWrapper>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-                  <div>
+                  <div className="min-w-0 overflow-hidden">
                     <Label>{t('preferredArrival')}</Label>
                     <input
                       type="date" value={arrivalDate}
                       onChange={(e) => setArrivalDate(e.target.value)}
                       min={new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0]}
-                      className={inputCls}
+                      className={`${inputCls} appearance-none min-w-0 max-w-full`}
                     />
                   </div>
-                  <div>
+                  <div className="min-w-0 overflow-hidden">
                     <Label>{t('preferredDeparture')}</Label>
                     <input
                       type="date" value={departureDate}
                       onChange={(e) => setDepartureDate(e.target.value)}
                       min={arrivalDate || new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0]}
-                      className={inputCls}
+                      className={`${inputCls} appearance-none min-w-0 max-w-full`}
                     />
                   </div>
                 </div>
