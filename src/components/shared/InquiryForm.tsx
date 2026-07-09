@@ -240,13 +240,13 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
               </SelectWrapper>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
+              <div className="min-w-0">
                 <Label>{t('arrivalDate')}</Label>
-                <input name="arrivalDate" type="date" min={minDateStr} value={form.arrivalDate} onChange={handleChange} className={inputCls} />
+                <input name="arrivalDate" type="date" min={minDateStr} value={form.arrivalDate} onChange={handleChange} className={`${inputCls} min-w-0`} />
               </div>
-              <div>
+              <div className="min-w-0">
                 <Label>{t('departureDate')}</Label>
-                <input name="departureDate" type="date" min={form.arrivalDate || minDateStr} value={form.departureDate} onChange={handleChange} className={inputCls} />
+                <input name="departureDate" type="date" min={form.arrivalDate || minDateStr} value={form.departureDate} onChange={handleChange} className={`${inputCls} min-w-0`} />
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
