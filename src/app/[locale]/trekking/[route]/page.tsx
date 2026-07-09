@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -521,19 +520,23 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                 </div>
 
                 {/* Other routes */}
-                <div>
-                  <p className="text-xs font-bold text-text-muted uppercase tracking-widest mb-3">{trd('labels.otherRoutes')}</p>
-                  <div className="space-y-0.5">
+                <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+                  <div className="px-5 pt-4 pb-3 border-b border-gray-50">
+                    <p className="text-[10px] font-black text-text-muted uppercase tracking-[0.15em]">
+                      {trd('labels.otherRoutes')}
+                    </p>
+                  </div>
+                  <div className="p-3 space-y-1.5">
                     {ROUTE_SLUGS.filter((slug) => slug !== route).map((slug) => {
                       const idx = ROUTE_SLUGS.indexOf(slug)
                       return (
                         <Link
                           key={slug}
                           href={`/${locale}/trekking/${slug}`}
-                          className="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-light-green transition-colors group"
+                          className="flex items-center justify-between w-full px-4 py-2.5 rounded-full border border-brand/15 bg-light-green/40 text-brand hover:bg-brand hover:border-brand hover:text-white transition-all duration-200 group"
                         >
-                          <span className="text-sm text-brand font-medium">{t(`route${idx + 1}Name` as 'route1Name')}</span>
-                          <ArrowRight className="w-3.5 h-3.5 text-text-muted group-hover:text-brand transition-colors" />
+                          <span className="text-sm font-semibold">{t(`route${idx + 1}Name` as 'route1Name')}</span>
+                          <ArrowRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" />
                         </Link>
                       )
                     })}
