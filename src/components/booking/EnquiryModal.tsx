@@ -195,6 +195,12 @@ export default function EnquiryModal() {
   }, [children])
 
   useEffect(() => {
+    if (arrivalDate && departureDate && departureDate < arrivalDate) {
+      setDepartureDate('')
+    }
+  }, [arrivalDate])
+
+  useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [isOpen])
@@ -270,12 +276,16 @@ export default function EnquiryModal() {
   const contactMethodLabel = CONTACT_OPTIONS.find((o) => o.value === contactPref)?.label ?? t('contactOptions.email')
 
   return (
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
-      onClick={(e) => { if (e.target === e.currentTarget) closeBooking() }}
-    >
-      {/* Backdrop */}
-      <div className="absolute inset-0 bg-brand/75 backdrop-blur-sm" />
+    <>
+      {/* Backdrop — click closes modal, sits behind card */}
+      <div
+        className="fixed inset-0 z-[100] bg-brand/75 backdrop-blur-sm"
+        onClick={closeBooking}
+        aria-hidden="true"
+      />
+
+      {/* Positioner — no click handler so card clicks never bubble to backdrop */}
+      <div className="fixed inset-0 z-[101] flex items-center justify-center p-4 sm:p-6 pointer-events-none">
 
       {/* Modal card */}
       <div
@@ -283,7 +293,7 @@ export default function EnquiryModal() {
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
-        className="relative z-10 w-full max-w-2xl max-h-[92vh] flex flex-col bg-white rounded-3xl shadow-2xl overflow-hidden"
+        className="relative w-full max-w-2xl max-h-[92vh] flex flex-col bg-white rounded-3xl shadow-2xl overflow-hidden pointer-events-auto"
       >
 
         {/* ── Header ─────────────────────────────────────────────── */}
@@ -345,7 +355,7 @@ export default function EnquiryModal() {
               {/* ── 1. Personal Details ──────────────────────────── */}
               <div>
                 <SectionHeader icon={User} title={t('personalDetails')} />
-                <div className="grid grid-cols-2 gap-3 mb-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                   <div>
                     <Label>{t('firstNameLabel')}</Label>
                     <input
@@ -363,7 +373,7 @@ export default function EnquiryModal() {
                     />
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-3 mb-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                   <div>
                     <Label>{t('emailLabel')}</Label>
                     <div className="relative">
@@ -389,7 +399,7 @@ export default function EnquiryModal() {
                     </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <Label>{t('gender')}</Label>
                     <SelectWrapper>
@@ -426,7 +436,7 @@ export default function EnquiryModal() {
                     </select>
                   </SelectWrapper>
                 </div>
-                <div className="grid grid-cols-2 gap-3 mb-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                   <div>
                     <Label>{t('preferredArrival')}</Label>
                     <input
@@ -517,7 +527,7 @@ export default function EnquiryModal() {
               {/* ── 4. Budget & Preferences ──────────────────────── */}
               <div>
                 <SectionHeader icon={Wallet} title={t('budgetPreferences')} />
-                <div className="grid grid-cols-2 gap-3 mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                   <div>
                     <Label>{t('budgetPerPerson')}</Label>
                     <SelectWrapper>
@@ -564,22 +574,18 @@ export default function EnquiryModal() {
                   <Label>{t('contactVia')}</Label>
                   <div className="flex gap-3 flex-wrap">
                     {CONTACT_OPTIONS.map((opt) => (
-                      <label
+                      <button
                         key={opt.value}
-                        className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl border cursor-pointer transition-all ${
+                        type="button"
+                        onClick={() => setContactPref(opt.value)}
+                        className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl border transition-all ${
                           contactPref === opt.value
                             ? 'bg-brand text-white border-brand'
                             : 'bg-white text-gray-600 border-gray-200 hover:border-brand'
                         }`}
                       >
-                        <input
-                          type="radio" name="contactPref" value={opt.value}
-                          checked={contactPref === opt.value}
-                          onChange={() => setContactPref(opt.value)}
-                          className="sr-only"
-                        />
                         <span className="text-sm font-medium">{opt.emoji} {opt.label}</span>
-                      </label>
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -643,6 +649,8 @@ export default function EnquiryModal() {
           </div>
         )}
       </div>
-    </div>
+
+      </div>
+    </>
   )
 }
