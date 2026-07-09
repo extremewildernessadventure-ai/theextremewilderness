@@ -180,6 +180,7 @@ export default function EnquiryModal() {
   const [privacyAgreed, setPrivacyAgreed] = useState(false)
   const [submitted, setSubmitted]   = useState(false)
   const [submitting, setSubmitting] = useState(false)
+  const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({})
 
   useEffect(() => {
     if (bookingInfo?.packageType) setTripType(bookingInfo.packageType)
@@ -237,9 +238,23 @@ export default function EnquiryModal() {
     )
   }
 
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const PHONE_RE = /^\+?[\d\s\-().]{7,20}$/
+
+  const validateFields = () => {
+    const errs: { email?: string; phone?: string } = {}
+    if (!EMAIL_RE.test(email)) errs.email = t('emailInvalid')
+    const phoneRequired = contactPref !== 'email'
+    if (phoneRequired && !phone) errs.phone = t('phoneRequired')
+    else if (phone && !PHONE_RE.test(phone)) errs.phone = t('phoneInvalid')
+    setFieldErrors(errs)
+    return Object.keys(errs).length === 0
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!firstName || !lastName || !email || !phone || !privacyAgreed) return
+    if (!firstName || !lastName || !privacyAgreed) return
+    if (!validateFields()) return
     setSubmitting(true)
     try {
       const res = await fetch('/api/enquiry', {
@@ -380,23 +395,45 @@ export default function EnquiryModal() {
                       <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
                         type="email" required aria-required="true" value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => {
+                          setEmail(e.target.value)
+                          if (fieldErrors.email) setFieldErrors((p) => ({ ...p, email: undefined }))
+                        }}
                         placeholder="jane@email.com"
-                        className={inputCls + ' pl-10'}
+                        className={inputCls + ' pl-10' + (fieldErrors.email ? ' !border-red-400 !ring-red-200' : '')}
                       />
                     </div>
+                    {fieldErrors.email && (
+                      <p className="mt-1 text-xs text-red-500">{fieldErrors.email}</p>
+                    )}
                   </div>
                   <div>
-                    <Label>{t('phoneLabel')}</Label>
+                    <Label>
+                      {t('phoneLabel')}
+                      {contactPref === 'email' && (
+                        <span className="ml-1 text-gray-400 font-normal normal-case tracking-normal text-[11px]">
+                          ({t('optional')})
+                        </span>
+                      )}
+                    </Label>
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
-                        type="tel" required aria-required="true" value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        type="tel"
+                        required={contactPref !== 'email'}
+                        aria-required={contactPref !== 'email'}
+                        value={phone}
+                        onChange={(e) => {
+                          setPhone(e.target.value)
+                          if (fieldErrors.phone) setFieldErrors((p) => ({ ...p, phone: undefined }))
+                        }}
                         placeholder="+1 555 000 0000"
-                        className={inputCls + ' pl-10'}
+                        className={inputCls + ' pl-10' + (fieldErrors.phone ? ' !border-red-400 !ring-red-200' : '')}
                       />
                     </div>
+                    {fieldErrors.phone && (
+                      <p className="mt-1 text-xs text-red-500">{fieldErrors.phone}</p>
+                    )}
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -625,7 +662,7 @@ export default function EnquiryModal() {
             <button
               type="submit"
               form="booking-form"
-              disabled={submitting || !privacyAgreed || !firstName || !lastName || !email || !phone}
+              disabled={submitting || !privacyAgreed || !firstName || !lastName || !email || (contactPref !== 'email' && !phone) || Object.keys(fieldErrors).length > 0}
               className="w-full flex items-center justify-center gap-2.5 py-3.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all text-sm"
             >
               {submitting ? (
