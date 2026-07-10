@@ -320,15 +320,24 @@ export default async function ItinerariesPage() {
               })),
             ]}
             labels={{
+              durationLabel:  t('filterDurationLabel'),
+              dur2to5:        t('filterDur2to5'),
+              dur6to9:        t('filterDur6to9'),
+              dur10plus:      t('filterDur10plus'),
+              filterByPrice:  t('filterByPrice'),
+              countryLabel:   t('filterCountryLabel'),
               filterAll:      t('filterAll'),
               filterTanzania: t('filterTanzania'),
               filterKenya:    t('filterKenya'),
               filterCombined: t('filterCombined'),
-              days: t('daysLabel'),
-              max:  t('maxLabel'),
-              pax:  t('paxLabel'),
-              from: t('fromPrefix'),
-              view: t('viewLabel'),
+              days:           t('daysLabel'),
+              max:            t('maxLabel'),
+              pax:            t('paxLabel'),
+              from:           t('fromPrefix'),
+              view:           t('viewLabel'),
+              loadMore:       t('filterLoadMore'),
+              showingOf:      t('filterShowingOf'),
+              noResults:      t('filterNoResults'),
             }}
           />
         </div>
