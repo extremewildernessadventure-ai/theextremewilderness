@@ -23,6 +23,12 @@ body {
   font-size: 16px;
 }
 
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
 html {
   scroll-behavior: smooth;
   width: 100%;
