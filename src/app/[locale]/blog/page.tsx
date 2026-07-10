@@ -9,6 +9,16 @@ import { getTranslations, getLocale } from 'next-intl/server'
 export const metadata: Metadata = {
   title: 'Safari Blog | Tanzania & East Africa Travel Guides | The Extreme Wilderness',
   description: 'Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.',
+  openGraph: {
+    title: 'Safari Blog | Tanzania & East Africa Travel Guides',
+    description: 'Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.',
+    images: [{ url: '/images/gallery/safari-114.webp', width: 1200, height: 630, alt: 'Safari vehicles on the Serengeti plains at golden hour' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Safari Blog | The Extreme Wilderness',
+    images: ['/images/gallery/safari-114.webp'],
+  },
   keywords: [
     'Tanzania safari blog',
     'Africa safari travel guide',

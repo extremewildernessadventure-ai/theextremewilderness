@@ -240,6 +240,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${pkg.name} | Tanzania Safari`,
     description: `${pkg.name} — ${pkg.duration} nights starting from $${pkg.priceFrom.toLocaleString()}/person. ${pkg.highlights[0]}.`,
     keywords: SAFARI_KEYWORDS[slug] ?? DEFAULT_SAFARI_KEYWORDS,
+    openGraph: {
+      title: pkg.name,
+      description: `${pkg.duration} nights from $${pkg.priceFrom.toLocaleString()}/person. ${pkg.highlights[0]}.`,
+      images: [{ url: pkg.heroImage, width: 1200, height: 630, alt: pkg.name }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: pkg.name,
+      images: [pkg.heroImage],
+    },
   }
 }
 

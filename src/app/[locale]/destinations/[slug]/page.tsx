@@ -147,6 +147,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `visit ${dest.name}`, `${dest.name} wildlife`, `${dest.name} 2026`,
       'Tanzania safari', 'East Africa safari', 'Tanzania tour operator', 'Africa safari holiday',
     ],
+    openGraph: {
+      title: `${dest.name} Safari`,
+      description: `Plan your ${dest.name} safari. ${dest.tagline}.`,
+      images: [{ url: dest.heroImage, width: 1200, height: 630, alt: dest.name }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${dest.name} Safari`,
+      images: [dest.heroImage],
+    },
   }
 }
 

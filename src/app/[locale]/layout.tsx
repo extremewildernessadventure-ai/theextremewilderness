@@ -19,6 +19,10 @@ type Props = {
 const NON_DEFAULT_LOCALES = routing.locales.filter((l) => l !== routing.defaultLocale)
 const LOCALE_PREFIX_RE = new RegExp(`^/(${NON_DEFAULT_LOCALES.join('|')})(?=/|$)`)
 
+const OG_LOCALE: Record<string, string> = {
+  en: 'en_US', fr: 'fr_FR', es: 'es_ES', de: 'de_DE',
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const headersList = await headers()
@@ -26,6 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const unprefixedPath = rawPathname.replace(LOCALE_PREFIX_RE, '') || '/'
 
   return {
+    openGraph: {
+      locale: OG_LOCALE[locale] ?? 'en_US',
+    },
     alternates: {
       canonical: localeUrl(locale, unprefixedPath),
       languages: {

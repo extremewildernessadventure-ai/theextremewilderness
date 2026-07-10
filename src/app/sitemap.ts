@@ -75,7 +75,7 @@ export const BLOG_SLUGS = [
 
 export const STATIC_PAGES = [
   '', '/safaris', '/destinations', '/trekking', '/itineraries', '/experiences',
-  '/kenya', '/rwanda', '/about', '/contact', '/blog', '/travel-info', '/privacy', '/terms',
+  '/kenya', '/rwanda', '/about', '/contact', '/blog', '/travel-info', '/plan', '/privacy', '/terms',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -92,6 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/contact', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/blog', priority: 0.7, changeFrequency: 'weekly' as const },
     { path: '/travel-info', priority: 0.6, changeFrequency: 'monthly' as const },
+    { path: '/plan', priority: 0.6, changeFrequency: 'monthly' as const },
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
   ]
@@ -108,9 +109,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency,
         priority,
         alternates: {
-          languages: Object.fromEntries(
-            LOCALES.map((l) => [l, localeUrl(l, path)])
-          ),
+          languages: {
+            ...Object.fromEntries(LOCALES.map((l) => [l, localeUrl(l, path)])),
+            'x-default': localeUrl('en', path),
+          },
         },
       })
     }

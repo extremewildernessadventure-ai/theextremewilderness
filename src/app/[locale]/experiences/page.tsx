@@ -27,6 +27,16 @@ export const metadata: Metadata = {
     'Tanzania safari experiences 2026',
     'unique Africa experiences',
   ],
+  openGraph: {
+    title: 'Safari Experiences East Africa | EWA Safari Outfitters',
+    description: 'Hot air balloon safaris, walking safaris, gorilla trekking, photography safaris & more. Discover every way to explore East Africa.',
+    images: [{ url: '/images/gallery/safari-118.webp', width: 1200, height: 630, alt: 'East Africa safari landscape' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Safari Experiences East Africa | EWA',
+    images: ['/images/gallery/safari-118.webp'],
+  },
 }
 
 export default async function ExperiencesPage() {

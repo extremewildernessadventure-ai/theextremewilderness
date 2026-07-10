@@ -1,6 +1,12 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
+
+export const metadata: Metadata = {
+  title: '404 — Page Not Found',
+  robots: { index: false, follow: false },
+}
 
 export default async function NotFound() {
   const t = await getTranslations('notFound')

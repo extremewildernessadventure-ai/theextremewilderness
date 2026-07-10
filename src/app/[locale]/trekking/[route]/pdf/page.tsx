@@ -1,6 +1,11 @@
+import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { Check, X, Printer } from 'lucide-react'
 import PrintTrigger from './PrintTrigger'
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+}
 
 interface Props {
   params: Promise<{ locale?: string; route: string }>

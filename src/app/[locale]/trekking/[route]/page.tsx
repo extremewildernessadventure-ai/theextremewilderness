@@ -98,7 +98,13 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
 export async function generateMetadata({ params }: RouteProps): Promise<import('next').Metadata> {
   const { locale, route } = await params
   const fallback = ROUTE_META[route] ?? ROUTE_META.machame
-  if (!locale || locale === 'en' || !isRouteWithDetailContent(route)) return fallback
+  const hero = ROUTE_HERO_IMAGES[route]
+  const ogImage = hero ? [{ url: hero.src, width: 1200, height: 630, alt: hero.alt }] : undefined
+  const ogMeta = {
+    openGraph: { images: ogImage },
+    twitter: { card: 'summary_large_image' as const, images: hero ? [hero.src] : undefined },
+  }
+  if (!locale || locale === 'en' || !isRouteWithDetailContent(route)) return { ...fallback, ...ogMeta }
 
   const trd = await getTranslations({ locale, namespace: 'trekkingRouteDetail' })
   const tMeta = await getTranslations({ locale, namespace: 'trekking' })
@@ -111,6 +117,7 @@ export async function generateMetadata({ params }: RouteProps): Promise<import('
     title: `${routeName} 2026 | ${duration} | Extreme Wilderness Adventure`,
     description: `${routeName} — ${nickname}. ${duration}, ${successRate}${tMeta('successSuffix')}.`,
     keywords: fallback.keywords,
+    ...ogMeta,
   }
 }
 

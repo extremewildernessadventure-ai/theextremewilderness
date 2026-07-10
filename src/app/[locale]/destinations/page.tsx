@@ -24,6 +24,16 @@ export const metadata: Metadata = {
     'northern circuit Tanzania',
     'southern circuit Tanzania',
   ],
+  openGraph: {
+    title: 'Tanzania Safari Destinations | Serengeti, Ngorongoro & More',
+    description: "Explore Tanzania's finest safari destinations — Serengeti, Ngorongoro Crater, Tarangire, Zanzibar, and more. Expert-guided from Arusha.",
+    images: [{ url: '/images/gallery/safari-119.webp', width: 1200, height: 630, alt: 'Lions at golden sunset on the Tanzania Serengeti plains' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tanzania Safari Destinations | EWA',
+    images: ['/images/gallery/safari-119.webp'],
+  },
 }
 
 const tanzaniaStats = [

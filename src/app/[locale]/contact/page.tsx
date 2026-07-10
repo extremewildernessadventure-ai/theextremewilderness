@@ -9,6 +9,16 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Contact & Plan Your Safari | The Extreme Wilderness',
     description: 'Get in touch with our Tanzania-based safari experts. We respond within 2 hours with a custom itinerary.',
+    openGraph: {
+      title: 'Contact & Plan Your Safari | The Extreme Wilderness',
+      description: 'Get in touch with our Tanzania-based safari experts. We respond within 2 hours with a custom itinerary.',
+      images: [{ url: '/images/gallery/safari-014.webp', width: 1200, height: 630, alt: 'Safari in the Serengeti' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Contact | The Extreme Wilderness',
+      images: ['/images/gallery/safari-014.webp'],
+    },
     keywords: [
       'book Tanzania safari',
       'Tanzania safari enquiry',

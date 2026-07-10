@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
@@ -9,6 +9,12 @@ const geist = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
 })
+
+export const viewport: Viewport = {
+  themeColor: '#1C3A2A',
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -35,11 +41,21 @@ export const metadata: Metadata = {
     type: 'website',
     url: SITE_URL,
     siteName: 'The Extreme Wilderness',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/images/gallery/safari-119.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Lions at golden sunset on the Tanzania Serengeti plains',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'The Extreme Wilderness | Tanzania Safari',
     description: 'Custom Tanzania safaris born in the wilderness.',
+    images: ['/images/gallery/safari-119.webp'],
   },
   robots: { index: true, follow: true },
   verification: {

@@ -14,6 +14,16 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t('metaTitle'),
     description: t('metaDescription'),
     keywords: t.raw('metaKeywords') as string[],
+    openGraph: {
+      title: t('metaTitle'),
+      description: t('metaDescription'),
+      images: [{ url: '/images/gallery/safari-119.webp', width: 1200, height: 630, alt: 'Lions at sunset on the Masai Mara plains' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('metaTitle'),
+      images: ['/images/gallery/safari-119.webp'],
+    },
   }
 }
 

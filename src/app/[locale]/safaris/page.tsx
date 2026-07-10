@@ -23,6 +23,16 @@ export async function generateMetadata(): Promise<Metadata> {
       'East Africa safari',
       'Tanzania wildlife safari',
     ],
+    openGraph: {
+      title: 'Tanzania Safari Packages 2026 | EWA Safari Outfitters',
+      description: 'Book Tanzania safari packages with a certified local operator. Serengeti, Ngorongoro, Zanzibar combos, and luxury family safaris from $1,000/person.',
+      images: [{ url: '/images/gallery/safari-114.webp', width: 1200, height: 630, alt: 'Safari vehicles on the Serengeti plains' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Tanzania Safari Packages 2026 | EWA',
+      images: ['/images/gallery/safari-114.webp'],
+    },
   }
 }
 
