@@ -8,11 +8,13 @@ const FROM = process.env.RESEND_FROM ?? 'EWA Guide <noreply@theextremewilderness
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, phone } = await req.json() as {
-      name?: string
-      email?: string
-      phone?: string
+    const { name, email, phone, website, renderTime } = await req.json() as {
+      name?: string; email?: string; phone?: string; website?: string; renderTime?: number
     }
+
+    if (website) return NextResponse.json({ success: true })
+    const elapsed = Date.now() - Number(renderTime ?? 0)
+    if (elapsed < 3_000) return NextResponse.json({ success: true })
 
     if (!name?.trim() || !email?.trim()) {
       return NextResponse.json({ error: 'Name and email are required' }, { status: 400 })

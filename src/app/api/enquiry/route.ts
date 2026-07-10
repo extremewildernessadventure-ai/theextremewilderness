@@ -93,7 +93,11 @@ function buildHtml(d: Record<string, unknown>) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json() as Record<string, unknown>
-    const { firstName, lastName, email } = body
+    const { firstName, lastName, email, website, renderTime } = body
+
+    if (website) return NextResponse.json({ success: true })
+    const elapsed = Date.now() - Number(renderTime ?? 0)
+    if (elapsed < 3_000) return NextResponse.json({ success: true })
 
     if (!firstName || !lastName || !email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })

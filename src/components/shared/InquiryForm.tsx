@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { Send, Check, ChevronDown } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
@@ -106,6 +106,10 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
     { value: 'phone',    label: `📞 ${t('contactOptions.phone')}` },
   ]
 
+  const [website, setWebsite] = useState('')
+  const [renderTime, setRenderTime] = useState(0)
+  useEffect(() => { setRenderTime(Date.now()) }, [])
+
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -152,7 +156,7 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
       const res = await fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, specialReqs, source: 'contact_page' }),
+        body: JSON.stringify({ ...form, specialReqs, source: 'contact_page', website, renderTime }),
       })
       if (!res.ok) throw new Error('send failed')
       setSubmitted(true)
@@ -179,7 +183,11 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+    <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden" style={{ position: 'relative' }}>
+      {/* honeypot */}
+      <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
+        <input type="text" name="website" tabIndex={-1} value={website} onChange={(e) => setWebsite(e.target.value)} autoComplete="off" />
+      </div>
 
       {/* Form header */}
       <div className="bg-brand px-7 py-5">

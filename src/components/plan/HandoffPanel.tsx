@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { MessageCircle, Send } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
@@ -40,6 +40,9 @@ export default function HandoffPanel({
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [website, setWebsite] = useState('')
+  const [renderTime, setRenderTime] = useState(0)
+  useEffect(() => { setRenderTime(Date.now()) }, [])
 
   const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     buildWhatsappMessage(state, topMatch, t)
@@ -71,6 +74,7 @@ export default function HandoffPanel({
           topMatchName: topMatch?.package.name,
           topMatchSlug: topMatch?.package.slug,
           belowThreshold,
+          website, renderTime,
         }),
       })
       if (!res.ok) throw new Error('failed')
@@ -98,7 +102,11 @@ export default function HandoffPanel({
       {status === 'sent' ? (
         <p className="text-sm text-brand font-semibold text-center py-3">{t('emailSuccess')}</p>
       ) : (
-        <form onSubmit={handleEmailSubmit} className="space-y-3">
+        <form onSubmit={handleEmailSubmit} className="space-y-3" style={{ position: 'relative' }}>
+          {/* honeypot */}
+          <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
+            <input type="text" name="website" tabIndex={-1} value={website} onChange={(e) => setWebsite(e.target.value)} autoComplete="off" />
+          </div>
           <div className="grid grid-cols-2 gap-3">
             <input
               type="text"

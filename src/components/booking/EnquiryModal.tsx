@@ -181,6 +181,12 @@ export default function EnquiryModal() {
   const [submitted, setSubmitted]   = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({})
+  const [website, setWebsite] = useState('')
+  const [renderTime, setRenderTime] = useState(0)
+
+  useEffect(() => {
+    if (isOpen) setRenderTime(Date.now())
+  }, [isOpen])
 
   useEffect(() => {
     if (bookingInfo?.packageType) setTripType(bookingInfo.packageType)
@@ -271,6 +277,7 @@ export default function EnquiryModal() {
           duration: bookingInfo?.duration,
           priceFrom: bookingInfo?.priceFrom,
           source: 'booking_modal',
+          website, renderTime,
         }),
       })
       if (!res.ok) throw new Error('send failed')
@@ -365,7 +372,11 @@ export default function EnquiryModal() {
               </p>
             </div>
           ) : (
-            <form id="booking-form" onSubmit={handleSubmit} className="p-6 space-y-7">
+            <form id="booking-form" onSubmit={handleSubmit} className="p-6 space-y-7" style={{ position: 'relative' }}>
+              {/* honeypot */}
+              <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
+                <input type="text" name="website" tabIndex={-1} value={website} onChange={(e) => setWebsite(e.target.value)} autoComplete="off" />
+              </div>
 
               {/* ── 1. Personal Details ──────────────────────────── */}
               <div>
