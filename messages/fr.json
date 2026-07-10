@@ -274,7 +274,77 @@
         "solo": 2950,
         "small": 2750,
         "group": 2595
-      }
+      },
+      "pricing6Day": { "solo": 3185, "small": 2450, "group": 1911 },
+      "pricing7Day": { "solo": 3575, "small": 2750, "group": 2145 },
+      "quickFacts6Day": {
+        "routeName": "Route Lemosho",
+        "duration": "6 jours / 5 nuits",
+        "distance": "~65 km de porte à porte",
+        "startGate": "Porte Londorossi (1 830 m)",
+        "finishGate": "Porte Mweka (1 680 m)",
+        "summit": "Pic Uhuru — 5 895 m / 19 341 pi",
+        "difficulty": "Difficile",
+        "trailTraffic": "Faible à modérée",
+        "successRate": "~75–80 %",
+        "bestSeason": "Juin–octobre · Janvier–février",
+        "accommodation": "Tentes de camping 4 saisons",
+        "priceFrom": "1 911 USD par personne (groupe 6)"
+      },
+      "quickFacts7Day": {
+        "routeName": "Route Lemosho",
+        "duration": "7 jours / 6 nuits",
+        "distance": "~65 km de porte à porte",
+        "startGate": "Porte Londorossi (1 830 m)",
+        "finishGate": "Porte Mweka (1 680 m)",
+        "summit": "Pic Uhuru — 5 895 m / 19 341 pi",
+        "difficulty": "Modéré à difficile",
+        "trailTraffic": "Faible à modérée",
+        "successRate": "~85–90 %",
+        "bestSeason": "Juin–octobre · Janvier–février",
+        "accommodation": "Tentes de camping 4 saisons",
+        "priceFrom": "2 145 USD par personne (groupe 6)"
+      },
+      "arrivalDay6Day": "Prise en charge à l'aéroport du Kilimandjaro ou d'Arusha et transfert privé vers votre hôtel à Moshi. Prévoyez d'arriver au moins un jour avant le début de votre trek — cette journée est réservée à un briefing complet, à la vérification du matériel et à la location de tout équipement de dernière minute.",
+      "arrivalDay7Day": "Transfert de l'aéroport du Kilimandjaro ou d'Arusha vers votre hôtel à Moshi. Votre guide principal vous retrouve pour un briefing complet avant l'ascension — vérification du matériel, aperçu de l'itinéraire, protocole de sécurité en altitude et stratégie du sommet. Venez avec vos questions.",
+      "itinerary6Day": [
+        { "day": 1, "title": "Porte Londorossi → Camp Mti Mkubwa", "meta": "Camp : Mti Mkubwa · Altitude : 2 650 m · Distance : 6 km · Durée de marche : 2–3 heures · Habitat : Forêt de montagne", "body": "Après le petit-déjeuner, route jusqu'à la porte du parc de Londorossi (environ 3 heures), puis en 4x4 jusqu'aux clairières de Lemosho avant de partir à pied jusqu'au camp Mti Mkubwa. La forêt semble véritablement intacte.", "expect": "La journée de marche la plus courte. Profitez de l'après-midi pour vous reposer et vous adapter à l'altitude." },
+        { "day": 2, "title": "Camp Mti Mkubwa → Camp Shira 2", "meta": "Camp : Shira 2 · Altitude : 3 850 m · Distance : 16 km · Durée de marche : 7–8 heures · Habitat : Lande", "body": "Le sentier s'élève dans la lande de grandes bruyères, traversant plusieurs ruisseaux et montant vers la crête de Shira, avant le camp Shira 2 dans les prairies ouvertes.", "expect": "Une montée soutenue avec un gain d'altitude significatif. Les maux de tête sont fréquents — buvez 4 litres d'eau." },
+        { "day": 3, "title": "Camp Shira 2 → Camp Barranco", "meta": "Camp : Barranco · Altitude : 4 000 m · Distance : 8 km · Durée de marche : 5–6 heures · Habitat : Semi-désert", "body": "Vers l'est sur le plateau du Shira jusqu'à la Tour de Lave à 4 650 m, puis descente au camp Barranco. Un classique « montez haut, dormez bas ».", "expect": "Le gain d'altitude jusqu'à la Tour de Lave est une préparation essentielle à la nuit du sommet." },
+        { "day": 4, "title": "Camp Barranco → Camp Barafu", "meta": "Camp : Barafu · Altitude : 4 700 m · Distance : 9 km · Temps de montée : 7–8 heures · Habitat : Désert alpin", "body": "Le Mur de Barranco mène à travers la vallée de Karanga jusqu'au camp Barafu. La journée la plus longue de l'itinéraire 6 jours, combinant ce que les itinéraires de 7 et 8 jours répartissent sur deux jours.", "expect": "La journée la plus exigeante. Avancez à votre rythme — votre acclimatation vous portera." },
+        { "day": 5, "title": "Nuit du sommet → Pic Uhuru → Camp Mweka", "meta": "Camp : Mweka · Altitude : 5 895 m sommet → 3 090 m · Distance : 5 km montée / 13 km descente · Durée : 10–14 heures", "body": "Départ entre minuit et 2h du matin vers le point Stella sur le rebord du cratère, puis le pic Uhuru. Descendez au camp Mweka pour votre dernière nuit sur la montagne.", "expect": "La journée la plus difficile et la plus extraordinaire de l'expédition." },
+        { "day": 6, "title": "Camp Mweka → Porte Mweka → Hôtel", "meta": "Fin de l'expédition · Altitude : 1 680 m · Distance : 10 km · Durée de marche : 3–4 heures · Habitat : Forêt", "body": "Descente jusqu'à la porte Mweka pour récupérer votre certificat de sommet. Notre équipe vous attend pour le retour à Moshi.", "expect": "Un dernier matin en forêt. Reposez-vous. Célébrez. Vous avez gravi le Kilimandjaro." }
+      ],
+      "itinerary7Day": [
+        { "day": 1, "title": "Moshi → Porte Londorossi → Camp Mti Mkubwa", "meta": "Camp : Mti Mkubwa · Altitude : 2 650 m · Distance : 6 km · Durée de marche : 2–3 heures · Habitat : Forêt de montagne", "body": "Route de Moshi jusqu'à la porte du parc de Lemosho, puis piste en 4x4 jusqu'aux clairières avant de partir à pied vers le camp Mti Mkubwa. Un début tranquille et délibéré.", "expect": "La journée de marche la plus courte — un départ volontairement progressif." },
+        { "day": 2, "title": "Camp Mti Mkubwa → Camp Shira 2", "meta": "Camp : Shira 2 · Altitude : 3 850 m · Distance : 16 km · Durée de marche : 7–8 heures · Habitat : Lande", "body": "Le sentier s'élève dans la grande lande de bruyères, traversant des ruisseaux et montant vers la crête de Shira jusqu'au camp Shira 2.", "expect": "Montée soutenue avec gain d'altitude significatif. Buvez 4 litres d'eau et mangez un dîner complet." },
+        { "day": 3, "title": "Camp Shira 2 → Camp Barranco", "meta": "Camp : Barranco · Altitude : 4 000 m · Distance : 8 km · Durée de marche : 5–6 heures · Habitat : Semi-désert", "body": "Vers l'est sur le plateau du Shira jusqu'à la Tour de Lave à 4 650 m, puis descente au camp Barranco. Acclimatation essentielle pour ce qui suit.", "expect": "Un classique « montez haut, dormez bas ». Préparation critique pour la nuit du sommet." },
+        { "day": 4, "title": "Camp Barranco → Camp Karanga", "meta": "Camp : Karanga · Altitude : 4 050 m · Distance : 5 km · Temps de montée : 3–4 heures · Habitat : Désert alpin", "body": "Le Mur de Barranco mène à la vallée de Karanga, la dernière source d'eau sur la montagne.", "expect": "Une matinée exaltante — le mur est de l'escalade facile, pas de l'alpinisme technique." },
+        { "day": 5, "title": "Camp Karanga → Camp Barafu", "meta": "Camp : Barafu · Altitude : 4 700 m · Distance : 4 km · Temps de montée : 3–4 heures · Habitat : Désert alpin", "body": "En complétant le Circuit Sud, le camp Barafu offre des vues panoramiques sur le sommet. Repos, dîner tôt et dernière préparation.", "expect": "Une courte marche puis une longue attente. Faites confiance à votre préparation." },
+        { "day": 6, "title": "Nuit du sommet → Pic Uhuru → Camp Mweka", "meta": "Camp : Mweka · Altitude : 5 895 m sommet → 3 090 m · Distance : 5 km montée / 13 km descente · Durée : 10–14 heures", "body": "Départ entre minuit et 2h du matin vers le point Stella, puis le pic Uhuru. Après avoir célébré, descendez au camp Mweka.", "expect": "La journée la plus difficile et la plus extraordinaire de l'expédition." },
+        { "day": 7, "title": "Camp Mweka → Porte Mweka → Hôtel", "meta": "Fin de l'expédition · Altitude : 1 680 m · Distance : 10 km · Durée de marche : 3–4 heures · Habitat : Forêt", "body": "Descente jusqu'à la porte Mweka pour récupérer votre certificat de sommet. Notre véhicule vous attend pour le retour vers votre hôtel à Moshi.", "expect": "Reposez-vous. Célébrez. Vous avez gravi le Kilimandjaro." }
+      ],
+      "choosing": {
+        "intro": "Les trois itinéraires suivent le même chemin sur le versant occidental du Kilimandjaro et partagent l'attrait essentiel de la Lemosho : des paysages exceptionnels et l'un des meilleurs profils d'acclimatation de la montagne. La différence tient au rythme — et au temps que votre corps a pour s'adapter à l'altitude avant la nuit du sommet.",
+        "items": [
+          { "label": "Lemosho 6 jours", "successRate": "~75–80 %", "desc": "Notre option la plus rapide, combinant les étapes Barranco–Karanga–Barafu en une seule longue journée. Idéale pour les grimpeurs ayant récemment été en haute altitude ou ayant une bonne condition physique et un calendrier serré." },
+          { "label": "Lemosho 7 jours", "successRate": "~85–90 %", "desc": "Notre option la plus populaire et notre recommandation par défaut. Conçue pour les grimpeurs ayant une expérience générale de randonnée. De nombreux premiers randonneurs la complètent avec succès." },
+          { "label": "Lemosho 8 jours", "successRate": "~90–95 %", "desc": "L'option au meilleur taux de réussite. Ajoute une journée d'acclimatation complète. Donne à votre corps le plus de temps pour s'adapter — le bon choix pour les meilleures chances d'atteindre le pic Uhuru." }
+        ],
+        "footer": "Quel que soit votre choix, la préparation physique en amont compte plus que le nombre de jours — arriver en forme rend chaque version de cette ascension plus sûre et plus agréable."
+      },
+      "highlights": [
+        { "title": "Le Pic de la Cathédrale", "body": "Une formation rocheuse spectaculaire s'élevant à 3 872 m sur le plateau du Shira, accessible via une randonnée d'acclimatation facultative. L'un des meilleurs points de vue sur l'itinéraire entier — et une préparation à l'altitude intelligente." },
+        { "title": "Dendrosenecio kilimanjari", "body": "Gardez l'œil ouvert sur les tronçons de lande pour ce séneçon géant — une plante étrange en forme d'arbre que l'on ne trouve presque nulle part ailleurs en dehors des zones de haute altitude d'Afrique de l'Est. Un incontournable pour les photos." }
+      ],
+      "faq": [
+        { "q": "Comment choisir entre les itinéraires Lemosho de 6, 7 et 8 jours ?", "a": "Cela dépend de votre expérience en altitude et du temps disponible. Le 6 jours convient aux grimpeurs ayant récemment été en haute altitude. Le 7 jours est notre recommandation par défaut. Le 8 jours offre le meilleur taux de réussite." },
+        { "q": "La Lemosho est-elle plus difficile que la Machame ?", "a": "Pas techniquement — le terrain est similaire là où les itinéraires se superposent. L'avantage de la Lemosho est un profil d'acclimatation plus long et plus progressif, avec moins de foule dans les premiers jours." },
+        { "q": "Quel est le taux de réussite au sommet sur la Lemosho ?", "a": "Il varie selon la durée : le 6 jours atteint environ 75–80 %, le 7 jours 85–90 %, et le 8 jours régulièrement 90–95 %." },
+        { "q": "Ai-je besoin d'une expérience de randonnée préalable ?", "a": "Aucune compétence technique n'est requise — c'est un itinéraire de marche. Une bonne condition physique générale facilite les journées, notamment lors de la nuit du sommet." },
+        { "q": "Quelle est la meilleure période pour gravir la Lemosho ?", "a": "Les saisons sèches — de fin juin à octobre et de décembre à février — offrent la météo la plus stable et les meilleures vues." },
+        { "q": "Puis-je combiner une ascension avec un safari ou une extension à Zanzibar ?", "a": "Oui — de nombreux grimpeurs ajoutent un safari ou un séjour balnéaire avant ou après leur trek." }
+      ]
     },
     "rongai": {
       "nickname": "L'approche nordique",

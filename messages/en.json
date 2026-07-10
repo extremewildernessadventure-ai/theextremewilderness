@@ -274,7 +274,191 @@
         "solo": 2950,
         "small": 2750,
         "group": 2595
-      }
+      },
+      "pricing6Day": { "solo": 3185, "small": 2450, "group": 1911 },
+      "pricing7Day": { "solo": 3575, "small": 2750, "group": 2145 },
+      "quickFacts6Day": {
+        "routeName": "Lemosho Route",
+        "duration": "6 Days / 5 Nights",
+        "distance": "~65 km gate to gate",
+        "startGate": "Londorossi Gate (1,830m)",
+        "finishGate": "Mweka Gate (1,680m)",
+        "summit": "Uhuru Peak — 5,895m / 19,341ft",
+        "difficulty": "Challenging",
+        "trailTraffic": "Low to Moderate",
+        "successRate": "~75–80%",
+        "bestSeason": "June–October · January–February",
+        "accommodation": "4-season camping tents",
+        "priceFrom": "USD $1,911 per person (group 6)"
+      },
+      "quickFacts7Day": {
+        "routeName": "Lemosho Route",
+        "duration": "7 Days / 6 Nights",
+        "distance": "~65 km gate to gate",
+        "startGate": "Londorossi Gate (1,830m)",
+        "finishGate": "Mweka Gate (1,680m)",
+        "summit": "Uhuru Peak — 5,895m / 19,341ft",
+        "difficulty": "Moderate to Challenging",
+        "trailTraffic": "Low to Moderate",
+        "successRate": "~85–90%",
+        "bestSeason": "June–October · January–February",
+        "accommodation": "4-season camping tents",
+        "priceFrom": "USD $2,145 per person (group 6)"
+      },
+      "arrivalDay6Day": "Pick-up from Kilimanjaro or Arusha Airport and a private transfer to your hotel in Moshi. Plan to arrive at least a day before your trek starts — this day is set aside for a full briefing, an equipment check, and any last-minute gear rental.",
+      "arrivalDay7Day": "Transfer from Kilimanjaro or Arusha Airport to your hotel in Moshi. Your lead guide meets you for a thorough pre-climb briefing — gear check, route overview, altitude safety protocol, and summit strategy. Come with questions.",
+      "itinerary6Day": [
+        {
+          "day": 1,
+          "title": "Londorossi Gate → Mti Mkubwa Camp",
+          "meta": "Camp: Mti Mkubwa · Elevation: 2,650m · Distance: 6 km · Hiking Time: 2–3 hours · Habitat: Montane Forest",
+          "body": "After breakfast, drive to Londorossi Park Gate (about 3 hours), then continue by 4WD along a forest track to the Lemosho Glades before setting out on foot through pristine forest trail to Mti Mkubwa campsite. Buffalo tracks cross the path — the forest feels genuinely untouched.",
+          "expect": "The shortest hiking day of the route. Use the afternoon to rest, explore the forest edge, and adjust to the change in altitude."
+        },
+        {
+          "day": 2,
+          "title": "Mti Mkubwa Camp → Shira 2 Camp",
+          "meta": "Camp: Shira 2 · Elevation: 3,850m · Distance: 16 km · Hiking Time: 7–8 hours · Habitat: Moorland",
+          "body": "The trail steepens into giant heather moorland, crossing several streams and climbing over Shira Ridge, past Shira 1, on to Shira 2 Camp beside a stream in open moorland meadows.",
+          "expect": "A sustained climb with significant altitude gain. Headaches are common tonight — the body's normal response to ascending over 1,000m in a single day. Drink 4 litres of water."
+        },
+        {
+          "day": 3,
+          "title": "Shira 2 Camp → Barranco Camp",
+          "meta": "Camp: Barranco · Elevation: 4,000m · Distance: 8 km · Hiking Time: 5–6 hours · Habitat: Semi-desert",
+          "body": "East along the Shira Plateau past the junction toward Kibo's peak, then southeast to Lava Tower — the 'Shark's Tooth' at 4,650m — before descending to Barranco Camp. You'll finish near the elevation you started at, but this day is essential acclimatisation for what's ahead.",
+          "expect": "A classic 'climb high, sleep low' day. The altitude gain to Lava Tower is critical preparation for summit night."
+        },
+        {
+          "day": 4,
+          "title": "Barranco Camp → Barafu Camp",
+          "meta": "Camp: Barafu · Elevation: 4,700m · Distance: 9 km · Climbing Time: 7–8 hours · Habitat: Alpine Desert",
+          "body": "The Barranco Wall leads up through Karanga Valley and on to the junction with the Mweka Trail — completing the South Circuit with sweeping views of the summit — before reaching Barafu Camp. This is the longest day on the 6-day route, combining what the 7- and 8-day itineraries split across two days. Tents are set up on arrival; rest and an early dinner follow before summit night.",
+          "expect": "The most demanding day on this itinerary. Take it steadily — your acclimatisation from previous days carries you through."
+        },
+        {
+          "day": 5,
+          "title": "Summit Night → Uhuru Peak → Mweka Camp",
+          "meta": "Camp: Mweka · Elevation: 5,895m summit → 3,090m · Distance: 5 km up / 13 km down · Hiking Time: 10–14 hours total",
+          "body": "Departing between midnight and 2 AM, you'll climb between the Rebmann and Ratzel glaciers toward Stella Point on the crater rim — the most physically and mentally demanding stretch of the climb, rewarded with one of the finest sunrises anywhere on the mountain. From Stella Point, a further hour brings you to Uhuru Peak. Descend past Barafu for a lunch stop, continuing to Mweka Camp for your final night.",
+          "expect": "The hardest and most extraordinary day of the expedition. Everything that came before was preparation for this."
+        },
+        {
+          "day": 6,
+          "title": "Mweka Camp → Mweka Gate → Hotel",
+          "meta": "End of Expedition · Elevation: 1,680m · Distance: 10 km · Hiking Time: 3–4 hours · Habitat: Forest",
+          "body": "Descend to Mweka Gate to collect your summit certificate. Lower elevations can be wet and muddy — gaiters and poles help. Our team meets you at the gate for the drive back to your hotel in Moshi (~60 minutes).",
+          "expect": "One final morning in the forest. Rest. Celebrate. You have climbed Kilimanjaro."
+        }
+      ],
+      "itinerary7Day": [
+        {
+          "day": 1,
+          "title": "Moshi → Londorossi Gate → Mti Mkubwa Camp",
+          "meta": "Camp: Mti Mkubwa · Elevation: 2,650m · Distance: 6 km · Hiking Time: 2–3 hours · Habitat: Montane Forest",
+          "body": "A drive from Moshi to the Lemosho Park Gate, then a 4WD track into the Lemosho Glades before you set out on foot through lush forest trail to Mti Mkubwa ('Big Tree') campsite. A steady, easy opener.",
+          "expect": "The shortest hiking day of the route — a deliberate, gentle start. Buffalo tracks cross the path in the lower sections."
+        },
+        {
+          "day": 2,
+          "title": "Mti Mkubwa Camp → Shira 2 Camp",
+          "meta": "Camp: Shira 2 · Elevation: 3,850m · Distance: 16 km · Hiking Time: 7–8 hours · Habitat: Moorland",
+          "body": "The trail steepens into giant heather moorland, crossing streams and climbing over Shira Ridge before reaching Shira 2 Camp on open moorland meadows.",
+          "expect": "A sustained climb with significant altitude gain. Headaches are common tonight — drink 4 litres of water and eat a full dinner."
+        },
+        {
+          "day": 3,
+          "title": "Shira 2 Camp → Barranco Camp",
+          "meta": "Camp: Barranco · Elevation: 4,000m · Distance: 8 km · Hiking Time: 5–6 hours · Habitat: Semi-desert",
+          "body": "East along the Shira Plateau, past the junction toward Kibo's peak, then southeast to Lava Tower — nicknamed the 'Shark's Tooth' at 4,650m — before descending to Barranco Camp. You'll finish near the same elevation you started, but this day is essential acclimatisation for what's ahead.",
+          "expect": "A classic 'climb high, sleep low' day. The altitude gain to Lava Tower is critical preparation for summit night."
+        },
+        {
+          "day": 4,
+          "title": "Barranco Camp → Karanga Camp",
+          "meta": "Camp: Karanga · Elevation: 4,050m · Distance: 5 km · Climbing Time: 3–4 hours · Habitat: Alpine Desert",
+          "body": "The Barranco Wall — steep, but shorter than it looks — leads up to Karanga Valley at its junction with the Mweka Trail. The last water source on the mountain is here.",
+          "expect": "An exhilarating morning that typically restores energy after the altitude adjustment days. The wall is scrambling, not technical climbing."
+        },
+        {
+          "day": 5,
+          "title": "Karanga Camp → Barafu Camp",
+          "meta": "Camp: Barafu · Elevation: 4,700m · Distance: 4 km · Climbing Time: 3–4 hours · Habitat: Alpine Desert",
+          "body": "Completing the South Circuit, Barafu Camp offers sweeping views of the summit from multiple angles. Rest, an early dinner, and final prep for summit night.",
+          "expect": "A short hike followed by a long wait. Trust your preparation — five days of steady acclimatisation have done their work."
+        },
+        {
+          "day": 6,
+          "title": "Summit Night → Uhuru Peak → Mweka Camp",
+          "meta": "Camp: Mweka · Elevation: 5,895m summit → 3,090m · Distance: 5 km up / 13 km down · Hiking Time: 10–14 hours total",
+          "body": "Departing between midnight and 2 AM, you'll climb between the Rebmann and Ratzel glaciers toward Stella Point on the crater rim — the most physically and mentally demanding stretch of the climb. From Stella Point, Uhuru Peak awaits, often with snow underfoot near the top. After celebrating at the summit, descend to Mweka Camp.",
+          "expect": "The hardest and most extraordinary day of the expedition. Everything that came before was preparation for this."
+        },
+        {
+          "day": 7,
+          "title": "Mweka Camp → Mweka Gate → Hotel",
+          "meta": "End of Expedition · Elevation: 1,680m · Distance: 10 km · Hiking Time: 3–4 hours · Habitat: Forest",
+          "body": "Descend to Mweka Gate to collect your summit certificate. An EWA Safari Outfitters vehicle meets you at the gate for the drive back to your hotel in Moshi (~60 minutes).",
+          "expect": "One final morning in the forest. Rest. Celebrate. You have climbed Kilimanjaro."
+        }
+      ],
+      "choosing": {
+        "intro": "All three routes follow the same path up Kilimanjaro's western slope and share Lemosho's core appeal: exceptional scenery and one of the strongest acclimatisation profiles on the mountain. The difference comes down to pace — and how much time your body gets to adjust to altitude before summit night.",
+        "items": [
+          {
+            "label": "6-Day Lemosho",
+            "successRate": "~75–80%",
+            "desc": "Our fastest option, combining the Barranco–Karanga–Barafu stretch into a single, longer climbing day. Best suited to climbers who've been at high altitude recently, or those with strong trekking fitness and a tighter schedule. The compressed acclimatisation window means a somewhat lower success rate — worth weighing against the extra day or two saved."
+          },
+          {
+            "label": "7-Day Lemosho",
+            "successRate": "~85–90%",
+            "desc": "Our most popular option and recommended default. Built for climbers with general outdoor or trekking experience. The first two days on foot are deliberately gentle — conserving energy for the demanding days ahead. Plenty of first-time trekkers complete it successfully."
+          },
+          {
+            "label": "8-Day Lemosho",
+            "successRate": "~90–95%",
+            "desc": "The highest-success option. Adds a full extra acclimatisation day and begins on foot in the tropical forest rather than by vehicle. Gives your body the most time to adjust to altitude, meaningfully lowering the risk of altitude sickness — the right call if you haven't trekked in a while, or simply want the best possible odds of reaching Uhuru Peak."
+          }
+        ],
+        "footer": "Whichever you choose, physical preparation beforehand matters more than the day count — arriving fit makes every version of this climb safer and more enjoyable."
+      },
+      "highlights": [
+        {
+          "title": "Cathedral Peak",
+          "body": "A dramatic rock formation rising to 3,872m (12,703ft) on the Shira Plateau, reachable via an optional acclimatisation side-hike. It's one of the best viewpoints on the entire route — and because it's a there-and-back detour, it doubles as smart altitude prep without adding net elevation gain for the day."
+        },
+        {
+          "title": "Dendrosenecio kilimanjari",
+          "body": "Keep an eye out on the moorland stretches for this giant groundsel — a strange, tree-like plant found almost nowhere else on Earth outside East Africa's high-altitude zones. It's one of Kilimanjaro's more surreal sights, and a favourite photo stop for climbers crossing the Shira Plateau."
+        }
+      ],
+      "faq": [
+        {
+          "q": "How do I choose between the 6-, 7-, and 8-day Lemosho itineraries?",
+          "a": "It comes down to altitude experience and how much time you have. The 6-day route is best suited to climbers who've been at high altitude recently or have strong trekking fitness — not recommended as a first Kilimanjaro attempt, since it compresses two acclimatisation days into one. The 7-day is our most popular choice and recommended default — solid for anyone with general trekking experience. The 8-day adds a further acclimatisation day, giving you the highest achievable success rate."
+        },
+        {
+          "q": "Is Lemosho harder than Machame?",
+          "a": "Not technically — the terrain is similar where the routes overlap. Lemosho's advantage is a longer, gentler acclimatisation profile and lower crowds in the early days, which generally makes it feel more manageable, not harder."
+        },
+        {
+          "q": "What's the summit success rate on Lemosho?",
+          "a": "It varies by duration: the 6-day sees around 75–80%, the 7-day 85–90%, and the 8-day consistently 90–95% — among the highest of any standard route on the mountain."
+        },
+        {
+          "q": "Do I need prior hiking experience for Lemosho?",
+          "a": "No technical climbing skill is required on any Lemosho itinerary — it's a walking route throughout. That said, general fitness and some outdoor experience make the days more enjoyable, especially on summit night."
+        },
+        {
+          "q": "What's the best time of year to climb via Lemosho?",
+          "a": "The dry seasons — late June through October, and December through February — offer the most stable weather and clearest views. The route is walkable outside those windows, though with a higher chance of rain and cloud cover on the lower slopes."
+        },
+        {
+          "q": "Can I combine a Lemosho climb with a safari or Zanzibar extension?",
+          "a": "Yes — many climbers add a safari or beach stay either before or after their trek. Since you'll already be acclimatised to Tanzania's time zone and travel rhythm, it's an efficient way to extend the trip."
+        }
+      ]
     },
     "rongai": {
       "nickname": "The Northern Approach",

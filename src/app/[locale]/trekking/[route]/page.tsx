@@ -12,6 +12,7 @@ import RoutePricingButton from '@/components/trekking/RoutePricingButton'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
 import BookNowButton from '@/components/booking/BookNowButton'
+import LemoshoMultiItinerary from '@/components/trekking/LemoshoMultiItinerary'
 
 interface RouteProps {
   params: Promise<{ locale?: string; route: string }>
@@ -196,6 +197,34 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
     }
   }
 
+  const lemoshoExtras = route === 'lemosho' ? {
+    variants: {
+      '6': {
+        quickFacts: trd.raw('lemosho.quickFacts6Day'),
+        arrivalDay: trd('lemosho.arrivalDay6Day'),
+        itinerary:  trd.raw('lemosho.itinerary6Day'),
+        pricing:    trd.raw('lemosho.pricing6Day'),
+      },
+      '7': {
+        quickFacts: trd.raw('lemosho.quickFacts7Day'),
+        arrivalDay: trd('lemosho.arrivalDay7Day'),
+        itinerary:  trd.raw('lemosho.itinerary7Day'),
+        pricing:    trd.raw('lemosho.pricing7Day'),
+      },
+      '8': {
+        quickFacts: routeContent!.quickFacts,
+        arrivalDay: routeContent!.arrivalDay,
+        itinerary:  routeContent!.itinerary,
+        pricing:    routeContent!.pricing,
+      },
+    },
+    included:  routeContent!.included,
+    excluded:  routeContent!.excluded,
+    choosing:  trd.raw('lemosho.choosing'),
+    highlights: trd.raw('lemosho.highlights'),
+    faq:        trd.raw('lemosho.faq'),
+  } : null
+
   const GEAR_CATEGORIES = [
     {
       label: t('gear1Cat'),
@@ -356,127 +385,160 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                 altPrefix={routeContent.quickFacts.routeName}
               />
 
-              {/* Quick Facts */}
-              <div>
-                <h2 className="text-2xl font-semibold text-brand mb-5">{trd('labels.quickFacts')}</h2>
-                <div className="bg-light-green rounded-2xl p-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
-                  {QUICK_FACT_KEYS.map((key) => (
-                    <div key={key} className="flex justify-between gap-3 text-sm">
-                      <span className="text-text-muted font-medium">{trd(`labels.${key}`)}</span>
-                      <span className="text-brand font-semibold text-right">{routeContent!.quickFacts[key]}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Why Choose */}
-              <div>
-                <h2 className="text-2xl font-semibold text-brand mb-5">{trd('labels.whyChoose')}</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {routeContent.whyChoose.map((item, i) => (
-                    <div key={i} className="bg-white border border-gray-100 rounded-xl p-5">
-                      <p className="font-semibold text-brand text-sm mb-1.5">{item.title}</p>
-                      <p className="text-text-muted text-sm leading-relaxed">{item.body}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Day-by-Day Itinerary */}
-              <div>
-                <h2 className="text-2xl font-semibold text-brand mb-5">{trd('labels.itinerary')}</h2>
-                <div className="space-y-3">
-                  <details className="group border border-gray-100 rounded-xl overflow-hidden">
-                    <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
-                      <div className="flex items-center gap-3">
-                        <span className="w-8 h-8 rounded-full bg-brand/60 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">0</span>
-                        <span className="font-medium text-brand text-sm">{trd('labels.arrivalDay')}</span>
-                      </div>
-                      <ChevronDown className="w-4 h-4 text-text-muted group-open:rotate-180 transition-transform" />
-                    </summary>
-                    <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
-                      <p className="text-sm text-text-muted leading-relaxed">{routeContent.arrivalDay}</p>
-                    </div>
-                  </details>
-
-                  {routeContent.itinerary.map((day) => (
-                    <details key={day.day} className="group border border-gray-100 rounded-xl overflow-hidden">
-                      <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
-                        <div className="flex items-center gap-3">
-                          <span className="w-8 h-8 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
-                            {day.day}
-                          </span>
-                          <span className="font-medium text-brand text-sm">{day.title}</span>
+              {/* Lemosho: tabbed multi-itinerary component */}
+              {route === 'lemosho' && lemoshoExtras ? (
+                <LemoshoMultiItinerary
+                  variants={lemoshoExtras.variants as Parameters<typeof LemoshoMultiItinerary>[0]['variants']}
+                  included={lemoshoExtras.included}
+                  excluded={lemoshoExtras.excluded}
+                  choosing={lemoshoExtras.choosing}
+                  highlights={lemoshoExtras.highlights}
+                  faq={lemoshoExtras.faq}
+                  bookThisRouteLabel={trd('labels.bookThisRoute')}
+                  labels={{
+                    quickFacts:   trd('labels.quickFacts'),
+                    itinerary:    trd('labels.itinerary'),
+                    arrivalDay:   trd('labels.arrivalDay'),
+                    whatToExpect: trd('labels.whatToExpect'),
+                    included:     trd('labels.included'),
+                    notIncluded:  trd('labels.notIncluded'),
+                    pricing:      trd('labels.pricing'),
+                    solo:         trd('labels.solo'),
+                    small:        trd('labels.small'),
+                    group:        trd('labels.group'),
+                    perPerson:    trd('labels.perPerson'),
+                    from:         trd('labels.from'),
+                    bookThisRoute: trd('labels.bookThisRoute'),
+                    ...Object.fromEntries(
+                      QUICK_FACT_KEYS.map((k) => [k, trd(`labels.${k}`)])
+                    ),
+                  }}
+                />
+              ) : (
+                <>
+                  {/* Quick Facts */}
+                  <div>
+                    <h2 className="text-2xl font-semibold text-brand mb-5">{trd('labels.quickFacts')}</h2>
+                    <div className="bg-light-green rounded-2xl p-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2.5">
+                      {QUICK_FACT_KEYS.map((key) => (
+                        <div key={key} className="flex justify-between gap-3 text-sm">
+                          <span className="text-text-muted font-medium">{trd(`labels.${key}`)}</span>
+                          <span className="text-brand font-semibold text-right">{routeContent!.quickFacts[key]}</span>
                         </div>
-                        <ChevronDown className="w-4 h-4 text-text-muted group-open:rotate-180 transition-transform" />
-                      </summary>
-                      <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
-                        <p className="text-xs text-gold-label font-semibold uppercase tracking-wide mb-2">{day.meta}</p>
-                        <p className="text-sm text-text-muted leading-relaxed mb-3">{day.body}</p>
-                        <p className="text-xs text-text-muted italic">{trd('labels.whatToExpect')} {day.expect}</p>
-                      </div>
-                    </details>
-                  ))}
-                </div>
-              </div>
-
-              {/* Free guide download card */}
-              <KilimanjaroPdfCard />
-
-              {/* Included / Not Included */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-500" /> {trd('labels.included')}
-                  </h3>
-                  <ul className="space-y-1.5">
-                    {routeContent.included.map((item) => (
-                      <li key={item} className="text-sm text-text-muted flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
-                    <X className="w-4 h-4 text-red-400" /> {trd('labels.notIncluded')}
-                  </h3>
-                  <ul className="space-y-1.5">
-                    {routeContent.excluded.map((item) => (
-                      <li key={item} className="text-sm text-text-muted flex items-start gap-2">
-                        <X className="w-3.5 h-3.5 text-red-400 mt-0.5 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Pricing */}
-              <div>
-                <h2 className="text-2xl font-semibold text-brand mb-5">{trd('labels.pricing')}</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  {([
-                    { label: trd('labels.solo'),  key: 'solo',  price: routeContent.pricing.solo  },
-                    { label: trd('labels.small'), key: 'small', price: routeContent.pricing.small },
-                    { label: trd('labels.group'), key: 'group', price: routeContent.pricing.group },
-                  ] as const).map((tier) => (
-                    <div key={tier.label} className="bg-brand rounded-2xl p-6 text-center">
-                      <p className="text-white/70 text-xs uppercase tracking-wide mb-2">{tier.label}</p>
-                      <p className="text-gold text-2xl font-bold">${tier.price.toLocaleString()}</p>
-                      <p className="text-white/50 text-xs mt-1">{trd('labels.perPerson')}</p>
-                      <RoutePricingButton
-                        routeName={routeContent.quickFacts.routeName}
-                        tier={tier.key}
-                        price={tier.price}
-                        duration={routeContent.quickFacts.duration}
-                        label={trd('labels.bookThisRoute')}
-                      />
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
+                  </div>
+
+                  {/* Why Choose */}
+                  <div>
+                    <h2 className="text-2xl font-semibold text-brand mb-5">{trd('labels.whyChoose')}</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {routeContent!.whyChoose.map((item, i) => (
+                        <div key={i} className="bg-white border border-gray-100 rounded-xl p-5">
+                          <p className="font-semibold text-brand text-sm mb-1.5">{item.title}</p>
+                          <p className="text-text-muted text-sm leading-relaxed">{item.body}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Day-by-Day Itinerary */}
+                  <div>
+                    <h2 className="text-2xl font-semibold text-brand mb-5">{trd('labels.itinerary')}</h2>
+                    <div className="space-y-3">
+                      <details className="group border border-gray-100 rounded-xl overflow-hidden">
+                        <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
+                          <div className="flex items-center gap-3">
+                            <span className="w-8 h-8 rounded-full bg-brand/60 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">0</span>
+                            <span className="font-medium text-brand text-sm">{trd('labels.arrivalDay')}</span>
+                          </div>
+                          <ChevronDown className="w-4 h-4 text-text-muted group-open:rotate-180 transition-transform" />
+                        </summary>
+                        <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
+                          <p className="text-sm text-text-muted leading-relaxed">{routeContent!.arrivalDay}</p>
+                        </div>
+                      </details>
+
+                      {routeContent!.itinerary.map((day) => (
+                        <details key={day.day} className="group border border-gray-100 rounded-xl overflow-hidden">
+                          <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
+                            <div className="flex items-center gap-3">
+                              <span className="w-8 h-8 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
+                                {day.day}
+                              </span>
+                              <span className="font-medium text-brand text-sm">{day.title}</span>
+                            </div>
+                            <ChevronDown className="w-4 h-4 text-text-muted group-open:rotate-180 transition-transform" />
+                          </summary>
+                          <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
+                            <p className="text-xs text-gold-label font-semibold uppercase tracking-wide mb-2">{day.meta}</p>
+                            <p className="text-sm text-text-muted leading-relaxed mb-3">{day.body}</p>
+                            <p className="text-xs text-text-muted italic">{trd('labels.whatToExpect')} {day.expect}</p>
+                          </div>
+                        </details>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Free guide download card */}
+                  <KilimanjaroPdfCard />
+
+                  {/* Included / Not Included */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
+                        <Check className="w-4 h-4 text-green-500" /> {trd('labels.included')}
+                      </h3>
+                      <ul className="space-y-1.5">
+                        {routeContent!.included.map((item) => (
+                          <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                            <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
+                        <X className="w-4 h-4 text-red-400" /> {trd('labels.notIncluded')}
+                      </h3>
+                      <ul className="space-y-1.5">
+                        {routeContent!.excluded.map((item) => (
+                          <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                            <X className="w-3.5 h-3.5 text-red-400 mt-0.5 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Pricing */}
+                  <div>
+                    <h2 className="text-2xl font-semibold text-brand mb-5">{trd('labels.pricing')}</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      {([
+                        { label: trd('labels.solo'),  key: 'solo',  price: routeContent!.pricing.solo  },
+                        { label: trd('labels.small'), key: 'small', price: routeContent!.pricing.small },
+                        { label: trd('labels.group'), key: 'group', price: routeContent!.pricing.group },
+                      ] as const).map((tier) => (
+                        <div key={tier.label} className="bg-brand rounded-2xl p-6 text-center">
+                          <p className="text-white/70 text-xs uppercase tracking-wide mb-2">{tier.label}</p>
+                          <p className="text-gold text-2xl font-bold">${tier.price.toLocaleString()}</p>
+                          <p className="text-white/50 text-xs mt-1">{trd('labels.perPerson')}</p>
+                          <RoutePricingButton
+                            routeName={routeContent!.quickFacts.routeName}
+                            tier={tier.key}
+                            price={tier.price}
+                            duration={routeContent!.quickFacts.duration}
+                            label={trd('labels.bookThisRoute')}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
             </main>
 
             {/* ── Sidebar ───────────────────────────────────────────── */}
