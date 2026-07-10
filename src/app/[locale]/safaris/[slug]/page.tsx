@@ -13,6 +13,8 @@ import AmenityStay from '@/components/safaris/AmenityStay'
 import RelatedSafaris from '@/components/safaris/RelatedSafaris'
 import { packages } from '@/data/packages'
 import { getPackage, getPackages } from '@/data/packages.i18n'
+import { blogPosts } from '@/data/blog'
+import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import { routing } from '@/i18n/routing'
 import { SITE_URL, localeUrl } from '@/lib/site'
 
@@ -186,6 +188,39 @@ const DEFAULT_SAFARI_KEYWORDS = [
   'Tanzania wildlife tour', 'safari Tanzania 2026', 'Africa safari vacation',
 ]
 
+const SAFARI_BLOG_MAP: Record<string, string> = {
+  '7-day-serengeti-ngorongoro':          'best-time-to-visit-serengeti',
+  '10-day-northern-circuit':             'great-migration-guide',
+  '10-day-safari-zanzibar':              'zanzibar-travel-guide',
+  '5-day-serengeti-fly-in':              'best-time-to-visit-serengeti',
+  '5-days-highlights-safari':            'great-migration-guide',
+  '7-days-crown-jewels':                 'zanzibar-travel-guide',
+  '7-days-migration-southern':           'great-migration-guide',
+  '7-day-southern-circuit':              'big-five-africa-tanzania',
+  '8-days-honeymoon-safari':             'safari-honeymoon-tanzania',
+  '10-days-luxury-family':               'family-safari-africa',
+  '12-days-wild-wilderness':             'big-five-africa-tanzania',
+  '12-days-tanzania-kenya':              'tanzania-vs-kenya-safari',
+  '11-days-kenya-undisputed':            'serengeti-vs-masai-mara',
+  '12-days-rwanda-primates':             'gorilla-trekking-rwanda',
+  '11-days-rwanda-tanzania':             'gorilla-trekking-rwanda',
+  '12-days-rwanda-tanzania-zanzibar':    'gorilla-trekking-rwanda',
+  'kilimanjaro-machame-7day':            'kilimanjaro-climbing-guide',
+  '7-days-gems-of-north':               'ngorongoro-crater-guide',
+  '7-days-flight-ndutu':                'great-migration-guide',
+  '8-days-flight-migration':             'great-migration-guide',
+  '10-days-southern-secrets':            'big-five-africa-tanzania',
+  '11-days-southern-spice':              'zanzibar-travel-guide',
+  '5-day-comfort-tanzania-safari':       'tanzania-safari-cost',
+  '6-day-comfort-tanzania-safari':       'tanzania-safari-cost',
+  'kenya-tanzania-highlights-safari':    'tanzania-vs-kenya-safari',
+  '10-day-kenya-tanzania-safari':        'serengeti-vs-masai-mara',
+  '5-day-kenya-safari':                  'serengeti-vs-masai-mara',
+  '2-day-selous-safari-from-zanzibar':   'zanzibar-travel-guide',
+  '4-day-tarangire-ngorongoro-lake-eyasi': 'ngorongoro-crater-guide',
+}
+const DEFAULT_BLOG_SLUG = 'tanzania-safari-cost'
+
 interface Props {
   params: Promise<{ locale: string; slug: string }>
 }
@@ -214,6 +249,10 @@ export default async function SafariPackagePage({ params }: Props) {
 
   const t = await getTranslations('safari')
   const tc = await getTranslations('common')
+
+  const featuredPost = blogPosts.find(
+    (p) => p.slug === (SAFARI_BLOG_MAP[pkg.slug] ?? DEFAULT_BLOG_SLUG)
+  )
 
   const touristTripSchema = {
     '@context': 'https://schema.org',
@@ -478,6 +517,23 @@ export default async function SafariPackagePage({ params }: Props) {
                 />
                 <p className="text-white/60 text-xs">{t('noPayment')}</p>
               </div>
+
+              {/* Featured blog post */}
+              {featuredPost && (
+                <div>
+                  <p className="text-xs font-bold text-text-muted uppercase tracking-widest mb-3">
+                    {t('featuredGuide')}
+                  </p>
+                  <BlogSuggestionCard
+                    slug={featuredPost.slug}
+                    title={featuredPost.title}
+                    excerpt={featuredPost.excerpt}
+                    category={featuredPost.category}
+                    image={featuredPost.heroImage}
+                    readTime={featuredPost.readTime}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
