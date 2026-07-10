@@ -5,6 +5,7 @@ import { ArrowRight, MapPin, Clock, Users, Star, Mountain, CheckCircle2, Car, He
 import BookNowButton from '@/components/booking/BookNowButton'
 import { getTranslations, getLocale } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 
 const RWANDA_DEST_ORDER = ['volcanoes', 'nyungwe', 'akagera', 'lake-kivu', 'kigali'] as const
 const RWANDA_DEST_IMAGES: Record<string, string> = {
@@ -123,6 +124,10 @@ export default async function RwandaPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/75" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <Breadcrumb items={[
+            { label: 'EWA Safari Outfitters', href: `/${locale}` },
+            { label: 'Rwanda' },
+          ]} />
           <div className="max-w-2xl">
             <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">

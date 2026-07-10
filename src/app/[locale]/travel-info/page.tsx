@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Link } from '@/i18n/navigation'
 import {
   ChevronRight, ArrowRight, Calendar, Heart, DollarSign,
@@ -31,6 +32,7 @@ export const metadata: Metadata = {
 
 export default async function TravelInfoPage() {
   const t = await getTranslations('travelInfo')
+  const locale = await getLocale()
 
   const quickFacts = [
     { label: t('qf1Label'), value: t('qf1Value') },
@@ -121,6 +123,10 @@ export default async function TravelInfoPage() {
       <section className="relative bg-brand py-32 lg:py-40 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/safari-118.webp')] bg-cover bg-center" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb items={[
+            { label: 'EWA Safari Outfitters', href: `/${locale}` },
+            { label: 'Travel Information' },
+          ]} />
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 max-w-3xl">
             {t('heroTitle')} <span className="text-gold">{t('heroTitleGold')}</span>

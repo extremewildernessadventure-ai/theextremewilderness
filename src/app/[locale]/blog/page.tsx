@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import { ArrowRight, Calendar, Clock } from 'lucide-react'
 import { getBlogPosts, getBlogCategories } from '@/data/blog/index.i18n'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 import { getTranslations, getLocale } from 'next-intl/server'
 
 export const metadata: Metadata = {
@@ -43,6 +44,10 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
     <>
       <section className="pt-28 pb-12 bg-brand">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb items={[
+            { label: 'EWA Safari Outfitters', href: `/${locale}` },
+            { label: 'Blog' },
+          ]} />
           <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-4">
             {t.rich('heroTitle', {
               highlight: (chunks) => <span className="text-gold">{chunks}</span>,

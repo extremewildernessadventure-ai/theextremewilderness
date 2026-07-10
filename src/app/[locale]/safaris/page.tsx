@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation'
 import { getTranslations, getLocale } from 'next-intl/server'
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 import { getPackages } from '@/data/packages.i18n'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -39,6 +40,10 @@ export default async function SafarisPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/75" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <Breadcrumb items={[
+            { label: 'EWA Safari Outfitters', href: `/${locale}` },
+            { label: 'Safari Packages' },
+          ]} />
           <div className="max-w-2xl">
             <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-4">
               {t('heroTitle').split(' ')[0]} <span className="text-gold">{t('heroTitle').split(' ').slice(1).join(' ')}</span>

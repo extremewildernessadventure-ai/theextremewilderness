@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 import {
   ArrowRight, MapPin, Star, Users, Award,
   Globe, Shield, Clock, Leaf,
@@ -28,6 +29,7 @@ const galleryImages = [
 
 export default async function AboutPage() {
   const t = await getTranslations('about')
+  const locale = await getLocale()
 
   const stats = [
     { value: '4.9', label: t('tripAdvisorRating'), sub: t('tripAdvisorSub'), icon: Star },
@@ -72,6 +74,10 @@ export default async function AboutPage() {
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative bg-brand min-h-[90vh] flex items-stretch overflow-hidden">
         <div className="relative z-10 flex flex-col justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 pt-32 pb-16 lg:py-32">
+          <Breadcrumb items={[
+            { label: 'EWA Safari Outfitters', href: `/${locale}` },
+            { label: 'About Us' },
+          ]} />
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">{t('ourStory')}</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
             {t('weAreTanzania').split(' ').slice(0, -1).join(' ')} <span className="text-gold">{t('weAreTanzania').split(' ').slice(-1)}</span>

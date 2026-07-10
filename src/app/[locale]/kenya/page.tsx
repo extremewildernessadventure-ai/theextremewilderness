@@ -6,6 +6,7 @@ import BookNowButton from '@/components/booking/BookNowButton'
 import { getTranslations } from 'next-intl/server'
 import { getLocale } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('kenya')
@@ -87,6 +88,10 @@ export default async function KenyaPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <Breadcrumb items={[
+            { label: 'EWA Safari Outfitters', href: `/${locale}` },
+            { label: 'Kenya' },
+          ]} />
           <div className="max-w-2xl">
             <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">

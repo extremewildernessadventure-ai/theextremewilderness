@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Mail, Phone, MapPin, Star, Award, MessageCircle } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
 
@@ -34,6 +35,7 @@ const WHATSAPP_SVG = (
 
 export default async function ContactPage() {
   const t = await getTranslations('contact')
+  const locale = await getLocale()
 
   const trustSignals = [
     { icon: Star, text: t('tripAdvisor') },
@@ -47,6 +49,10 @@ export default async function ContactPage() {
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative bg-brand min-h-[60vh] flex items-stretch overflow-hidden">
         <div className="relative z-10 flex flex-col justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 pt-32 pb-16 lg:py-28">
+          <Breadcrumb items={[
+            { label: 'EWA Safari Outfitters', href: `/${locale}` },
+            { label: 'Contact' },
+          ]} />
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">{t('getInTouch')}</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
             {t('planYourSafari').split(' ').slice(0, -1).join(' ')} <span className="text-gold">{t('planYourSafari').split(' ').slice(-1)}</span>

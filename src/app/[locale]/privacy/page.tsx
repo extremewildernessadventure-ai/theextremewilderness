@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Link } from '@/i18n/navigation'
 import { Mail, Phone, ChevronRight, ShieldCheck, Eye, Share2, Globe, Clock, UserCheck, Lock, Baby, RefreshCw, Cookie, MessageCircle } from 'lucide-react'
 import TableOfContents from '@/components/legal/TableOfContents'
@@ -58,6 +59,7 @@ function TipBox({ children }: { children: React.ReactNode }) {
 
 export default async function PrivacyPage() {
   const t = await getTranslations('privacy')
+  const locale = await getLocale()
   const sl = t('sectionLabel')
 
   const tocSections = [
@@ -102,6 +104,10 @@ export default async function PrivacyPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+          <Breadcrumb items={[
+            { label: 'EWA Safari Outfitters', href: `/${locale}` },
+            { label: 'Privacy Policy' },
+          ]} />
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full text-white/70 text-xs mb-5">
               <ShieldCheck className="w-3.5 h-3.5 text-gold" />

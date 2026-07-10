@@ -10,6 +10,7 @@ import { getPackages } from '@/data/packages.i18n'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { routing } from '@/i18n/routing'
 import { SITE_URL, localeUrl } from '@/lib/site'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 
 
 const DEST_KEYWORDS: Record<string, string[]> = {
@@ -197,6 +198,11 @@ export default async function DestinationPage({ params }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/30 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
+          <Breadcrumb items={[
+            { label: 'EWA Safari Outfitters', href: `/${locale}` },
+            { label: 'Destinations', href: `/${locale}/destinations` },
+            { label: dest.name },
+          ]} />
           <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-2">{dest.name}</h1>
           <p className="text-gold text-lg font-medium">{dest.tagline}</p>
         </div>

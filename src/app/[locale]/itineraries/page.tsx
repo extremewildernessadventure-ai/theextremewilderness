@@ -11,6 +11,7 @@ import PlanBuilderEntryCard from '@/components/plan/PlanBuilderEntryCard'
 import FilteredPackageGrid from '@/components/itineraries/FilteredPackageGrid'
 import NationalParksGrid from '@/components/itineraries/NationalParksGrid'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('itineraries')
@@ -133,6 +134,10 @@ export default async function ItinerariesPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb items={[
+            { label: 'EWA Safari Outfitters', href: `/${locale}` },
+            { label: 'Safari Itineraries' },
+          ]} />
           <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroPill')}</p>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] mb-6 max-w-3xl">

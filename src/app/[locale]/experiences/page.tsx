@@ -6,6 +6,7 @@ import NewsletterForm from '@/components/home/NewsletterForm'
 import { getTranslations } from 'next-intl/server'
 import { getLocale } from 'next-intl/server'
 import { getExperiences } from '@/data/experiences.i18n'
+import Breadcrumb from '@/components/ui/Breadcrumb'
 import type { Experience } from '@/data/experiences'
 
 export const metadata: Metadata = {
@@ -66,6 +67,10 @@ export default async function ExperiencesPage() {
 
         {/* Content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumb items={[
+            { label: 'EWA Safari Outfitters', href: `/${locale}` },
+            { label: 'Experiences' },
+          ]} />
           <p className="text-gold font-semibold text-sm uppercase tracking-widest mb-3">{t('heroEyebrow')}</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] mb-6 max-w-3xl">
             {t('heroTitle')}<br />
