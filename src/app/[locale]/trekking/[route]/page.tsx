@@ -413,6 +413,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                       QUICK_FACT_KEYS.map((k) => [k, trd(`labels.${k}`)])
                     ),
                   }}
+                  pdfCard={<KilimanjaroPdfCard />}
                 />
               ) : (
                 <>

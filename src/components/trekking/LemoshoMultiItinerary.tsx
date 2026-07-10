@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { ChevronDown, Check, X } from 'lucide-react'
+import { type ReactNode } from 'react'
 import RoutePricingButton from '@/components/trekking/RoutePricingButton'
-import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
 
 type DayItem = { day: number; title: string; meta: string; body: string; expect: string }
 type QuickFacts = Record<string, string>
@@ -51,6 +51,7 @@ interface Props {
   faq: FAQ[]
   labels: Labels
   bookThisRouteLabel: string
+  pdfCard: ReactNode
 }
 
 type TabKey = '6' | '7' | '8'
@@ -69,6 +70,7 @@ export default function LemoshoMultiItinerary({
   highlights,
   faq,
   labels,
+  pdfCard,
 }: Props) {
   const [active, setActive] = useState<TabKey>('7')
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -182,7 +184,7 @@ export default function LemoshoMultiItinerary({
       </div>
 
       {/* ── PDF guide card ───────────────────────────────────── */}
-      <KilimanjaroPdfCard />
+      {pdfCard}
 
       {/* ── Pricing ──────────────────────────────────────────── */}
       <div>
