@@ -54,7 +54,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled || forceOpaque ? 'bg-brand shadow-lg' : 'bg-transparent'
+        scrolled || forceOpaque ? 'bg-brand' : 'bg-transparent'
       }`}
     >
       <div className="w-full px-6 sm:px-10 lg:px-16">
