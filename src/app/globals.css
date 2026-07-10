@@ -21,6 +21,13 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   line-height: 1.7;
   font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input, textarea, select, [contenteditable] {
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 img {

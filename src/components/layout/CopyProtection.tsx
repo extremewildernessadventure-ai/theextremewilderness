@@ -15,6 +15,12 @@ export default function CopyProtection() {
       timer = setTimeout(() => setTip(null), 2200)
     }
 
+    const isFormField = (t: EventTarget | null) => {
+      if (!t) return false
+      const el = t as HTMLElement
+      return el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT' || el.isContentEditable
+    }
+
     const onKeyDown = (e: KeyboardEvent) => {
       const ctrl = e.ctrlKey || e.metaKey
       if (
@@ -24,6 +30,14 @@ export default function CopyProtection() {
       ) {
         e.preventDefault()
       }
+      // Block copy/cut outside form fields
+      if (ctrl && (e.key === 'c' || e.key === 'x') && !isFormField(e.target)) {
+        e.preventDefault()
+      }
+    }
+
+    const onCopy = (e: ClipboardEvent) => {
+      if (!isFormField(e.target)) e.preventDefault()
     }
 
     const onDragStart = (e: DragEvent) => {
@@ -32,12 +46,14 @@ export default function CopyProtection() {
 
     document.addEventListener('contextmenu', onContextMenu)
     document.addEventListener('keydown', onKeyDown)
+    document.addEventListener('copy', onCopy)
     document.addEventListener('dragstart', onDragStart)
 
     return () => {
       clearTimeout(timer)
       document.removeEventListener('contextmenu', onContextMenu)
       document.removeEventListener('keydown', onKeyDown)
+      document.removeEventListener('copy', onCopy)
       document.removeEventListener('dragstart', onDragStart)
     }
   }, [])
