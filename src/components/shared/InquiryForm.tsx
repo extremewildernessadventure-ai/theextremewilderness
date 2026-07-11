@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { Send, Check, ChevronDown } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
+import { trackFormFillConversion } from '@/lib/analytics'
 
 // Country list stays in English (universal standard across all locales)
 const COUNTRIES = [
@@ -159,6 +160,7 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
         body: JSON.stringify({ ...form, specialReqs, source: 'contact_page', website, renderTime }),
       })
       if (!res.ok) throw new Error('send failed')
+      trackFormFillConversion()
       setSubmitted(true)
     } catch {
       // Keep form open so user can retry

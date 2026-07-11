@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import { useBooking } from '@/context/BookingContext'
 import { useTranslations } from 'next-intl'
+import { trackFormFillConversion } from '@/lib/analytics'
 
 // Country list stays in English (universal standard)
 const COUNTRIES = [
@@ -281,6 +282,7 @@ export default function EnquiryModal() {
         }),
       })
       if (!res.ok) throw new Error('send failed')
+      trackFormFillConversion()
       setSubmitted(true)
       setTimeout(() => {
         closeBooking()

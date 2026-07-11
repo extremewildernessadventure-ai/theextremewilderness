@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Send, Check } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
+import { trackFormFillConversion } from '@/lib/analytics'
 
 const inputCls =
   'w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-brand focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 bg-white placeholder-gray-400 transition-all'
@@ -57,6 +58,7 @@ export default function ContactForm() {
       })
       if (res.status === 429) { setError('Too many requests. Please wait a few minutes and try again.'); return }
       if (!res.ok) throw new Error('send failed')
+      trackFormFillConversion()
       setSubmitted(true)
     } catch {
       setError('Something went wrong. Please try emailing us directly at info@theextremewilderness.com')
