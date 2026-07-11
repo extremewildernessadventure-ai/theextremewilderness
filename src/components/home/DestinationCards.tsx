@@ -149,12 +149,12 @@ export default function DestinationCards() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-0 mt-2" role="group" aria-label="Destination slides">
+          <div className="flex justify-center items-center gap-0 mt-2" role="group" aria-label={tc('destinationSlides')}>
             {featured.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
-                aria-label={`Go to destination ${i + 1}`}
+                aria-label={tc('goToDestination', { n: i + 1 })}
                 aria-current={i === active ? 'true' : undefined}
                 className="p-3 flex items-center justify-center group"
               >

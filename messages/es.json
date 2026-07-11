@@ -31,7 +31,16 @@
       "downloadRouteGuide": "Descargar guía de la ruta",
       "routeGuideDesc": "Itinerario completo, lista de equipamiento y precios — todo en un documento imprimible.",
       "otherRoutes": "Otras rutas",
-      "featuredGuide": "Guía destacada"
+      "featuredGuide": "Guía destacada",
+      "choosingHeading": "Elige tu itinerario Lemosho",
+      "highlightsHeading": "Aspectos destacados de la ruta Lemosho",
+      "faqHeading": "Preguntas frecuentes sobre la ruta Lemosho",
+      "overview": "Resumen",
+      "routeNotFound": "Ruta no encontrada.",
+      "printSavePdf": "Imprimir / Guardar como PDF",
+      "dayLabel": "Día",
+      "routeTableHeader": "Ruta",
+      "priceNote": "Los precios mostrados son la tarifa de grupo (5+ personas) por persona. Consulta las tarifas individuales y para grupos pequeños."
     },
     "machame": {
       "nickname": "La Ruta del Whisky",
@@ -300,7 +309,9 @@
       ],
       "choosing": { "intro": "Las tres rutas siguen el mismo camino por la vertiente occidental del Kilimanjaro y comparten el atractivo esencial de la Lemosho: paisajes excepcionales y uno de los mejores perfiles de aclimatación de la montaña. La diferencia radica en el ritmo — y en el tiempo que tiene tu cuerpo para adaptarse a la altitud antes de la noche de cumbre.", "items": [ { "label": "Lemosho 6 días", "successRate": "~75–80%", "desc": "Nuestra opción más rápida, combinando las etapas Barranco–Karanga–Barafu en un solo día largo. Ideal para escaladores con experiencia reciente en altitud o con buena condición física y agenda ajustada." }, { "label": "Lemosho 7 días", "successRate": "~85–90%", "desc": "Nuestra opción más popular y recomendación por defecto. Diseñada para senderistas con experiencia general al aire libre. Muchos principiantes la completan con éxito." }, { "label": "Lemosho 8 días", "successRate": "~90–95%", "desc": "La opción con mayor tasa de éxito. Añade un día completo de aclimatación comenzando a pie en el bosque tropical. Da a tu cuerpo más tiempo para adaptarse — la elección correcta para las mejores probabilidades de alcanzar el Pico Uhuru." } ], "footer": "Cualquiera que sea tu elección, la preparación física previa importa más que el número de días — llegar en forma hace que cada versión de esta ascensión sea más segura y agradable." },
       "highlights": [ { "title": "El Pico de la Catedral", "body": "Una formación rocosa espectacular que se eleva a 3.872 m en el Plateau de Shira, accesible mediante una excursión de aclimatación opcional. Uno de los mejores miradores de toda la ruta — y una preparación inteligente para la altitud." }, { "title": "Dendrosenecio kilimanjari", "body": "Presta atención en los tramos de páramo a esta senecio gigante — una extraña planta con forma de árbol que casi no se encuentra en ningún otro lugar fuera de las zonas de alta altitud de África Oriental. Una parada fotográfica imprescindible." } ],
-      "faq": [ { "q": "¿Cómo elegir entre los itinerarios Lemosho de 6, 7 y 8 días?", "a": "Depende de tu experiencia en altitud y del tiempo disponible. El de 6 días es ideal para escaladores con experiencia reciente en altitud. El de 7 días es nuestra recomendación por defecto. El de 8 días ofrece la mayor tasa de éxito posible." }, { "q": "¿Es la Lemosho más difícil que la Machame?", "a": "Técnicamente no — el terreno es similar donde las rutas se solapan. La ventaja de la Lemosho es un perfil de aclimatación más largo y gradual, con menos aglomeración en los primeros días." }, { "q": "¿Cuál es la tasa de éxito en la cumbre de la Lemosho?", "a": "Varía según la duración: el de 6 días alcanza aproximadamente un 75–80%, el de 7 días un 85–90%, y el de 8 días regularmente un 90–95%." }, { "q": "¿Necesito experiencia previa de senderismo?", "a": "No se requiere habilidad técnica de escalada — es una ruta de caminata. La condición física general facilita los días, especialmente la noche de cumbre." }, { "q": "¿Cuál es la mejor época del año para escalar la Lemosho?", "a": "Las temporadas secas — de finales de junio a octubre y de diciembre a febrero — ofrecen el clima más estable y las mejores vistas." }, { "q": "¿Puedo combinar la ascensión con un safari o extensión a Zanzíbar?", "a": "Sí — muchos escaladores añaden un safari o una estancia en la playa antes o después del trekking." } ]
+      "faq": [ { "q": "¿Cómo elegir entre los itinerarios Lemosho de 6, 7 y 8 días?", "a": "Depende de tu experiencia en altitud y del tiempo disponible. El de 6 días es ideal para escaladores con experiencia reciente en altitud. El de 7 días es nuestra recomendación por defecto. El de 8 días ofrece la mayor tasa de éxito posible." }, { "q": "¿Es la Lemosho más difícil que la Machame?", "a": "Técnicamente no — el terreno es similar donde las rutas se solapan. La ventaja de la Lemosho es un perfil de aclimatación más largo y gradual, con menos aglomeración en los primeros días." }, { "q": "¿Cuál es la tasa de éxito en la cumbre de la Lemosho?", "a": "Varía según la duración: el de 6 días alcanza aproximadamente un 75–80%, el de 7 días un 85–90%, y el de 8 días regularmente un 90–95%." }, { "q": "¿Necesito experiencia previa de senderismo?", "a": "No se requiere habilidad técnica de escalada — es una ruta de caminata. La condición física general facilita los días, especialmente la noche de cumbre." }, { "q": "¿Cuál es la mejor época del año para escalar la Lemosho?", "a": "Las temporadas secas — de finales de junio a octubre y de diciembre a febrero — ofrecen el clima más estable y las mejores vistas." }, { "q": "¿Puedo combinar la ascensión con un safari o extensión a Zanzíbar?", "a": "Sí — muchos escaladores añaden un safari o una estancia en la playa antes o después del trekking." } ],
+      "tabLabels": { "6": "Lemosho 6 días", "7": "Lemosho 7 días", "8": "Lemosho 8 días" },
+      "routeNameByDuration": { "6": "Ruta Lemosho — 6 días", "7": "Ruta Lemosho — 7 días", "8": "Ruta Lemosho — 8 días" }
     },
     "rongai": {
       "nickname": "El Acceso Norte",
@@ -1015,7 +1026,28 @@
     "step4Title": "Llegar y vivir la experiencia",
     "step4DescTanzania": "Tu guía privado te recibe en el aeropuerto de Arusha. A partir de ahí, Tanzania se despliega exactamente como lo imaginaste.",
     "step4DescKenya": "Tu guía privado te recibe en el aeropuerto. A partir de ahí, Kenia se despliega exactamente como lo imaginaste.",
-    "step4DescRwanda": "Tu guía privado te recibe en el aeropuerto. A partir de ahí, Ruanda se despliega exactamente como lo imaginaste."
+    "step4DescRwanda": "Tu guía privado te recibe en el aeropuerto. A partir de ahí, Ruanda se despliega exactamente como lo imaginaste.",
+    "packageTypes": {
+      "kiliTrek": "Trekking al Kilimanjaro",
+      "safari": "Safari",
+      "tanzaniaSafari": "Safari en Tanzania",
+      "wildlifeSafari": "Safari de vida salvaje",
+      "rwandaSafari": "Safari en Ruanda",
+      "rwandaGorillaSafari": "Safari de gorilas en Ruanda",
+      "kenyaSafari": "Safari en Kenia",
+      "kenyaTanzaniaSafari": "Safari en Kenia y Tanzania",
+      "combinedSafari": "Safari combinado",
+      "customSafari": "Safari personalizado",
+      "tanzaniaMigrationSafari": "Safari de la migración en Tanzania"
+    },
+    "goToReviewPage": "Ir a la página de reseñas {n}",
+    "previousReviews": "Reseñas anteriores",
+    "nextReviews": "Reseñas siguientes",
+    "reviewPages": "Páginas de reseñas",
+    "destinationSlides": "Diapositivas de destinos",
+    "moreLabel": "Más",
+    "languageSwitcher": "Selector de idioma",
+    "breadcrumbNav": "Ruta de navegación"
   },
   "home": {
     "badge": "La experiencia safari premium de África Oriental",
@@ -1240,6 +1272,7 @@
   "safari": {
     "heroTitle": "Paquetes Safari",
     "heroDesc": "Cada safari está hecho a medida — estos son puntos de partida. Cuéntanos tu sueño y crearemos algo solo para ti.",
+    "heroImageAlt": "Vehículos de safari en las llanuras del Serengeti",
     "packageHighlights": "Puntos destacados del paquete",
     "dayByDayItinerary": "Itinerario día a día",
     "included": "Incluido",
@@ -1541,12 +1574,17 @@
     "whatsappDesc": "Chatea directamente con nuestro equipo safari para una respuesta instantánea.",
     "openWhatsapp": "Abrir chat de WhatsApp",
     "tripAdvisorRating": "4,9 / 5 en TripAdvisor",
-    "tripAdvisorSub": "Valorado por viajeros de todo el mundo"
+    "tripAdvisorSub": "Valorado por viajeros de todo el mundo",
+    "breadcrumbLabel": "Contacto",
+    "tagline": "Especialistas en safaris y trekking en Tanzania",
+    "callUsLabel": "Llámanos — +255 747 999 070",
+    "whatsappUs": "Escríbenos por WhatsApp"
   },
   "about": {
     "ourStory": "Nuestra historia",
     "weAreTanzania": "Somos Tanzania",
     "heroDesc": "Somos guías tanzanos que nos cansamos de ver a operadores extranjeros vender África desde el exterior. En 2022, construimos algo diferente — una empresa de safari auténtica, completamente nacida de esta tierra.",
+    "heroImageAlt": "El Serengeti al amanecer",
     "est2009": "Fundado en 2022",
     "tatoCertified": "Certificado TATO",
     "locallyOwned": "100% propiedad local",
@@ -1567,6 +1605,7 @@
     "pullQuoteAuthor": "— Samuel Mwangi, cofundador",
     "localDesc2": "La calidad de un safari viene de la experiencia vivida, no de catálogos brillantes. Sabemos qué cruce del río Mara es más activo en agosto. Conocemos al guarda que lleva seis años rastreando una manada en particular. Conocemos los caminos secundarios y los miradores secretos que los operadores de viajes en grupo nunca visitan.",
     "localDesc3": "Esa es la diferencia. Y es una diferencia que sentirás cada día en la sabana.",
+    "storyImageAlt": "Un guía en el terreno",
     "ourDifference": "Nuestra diferencia",
     "whatMakesDifferent": "Qué nos hace diferentes",
     "locallyOwnedTitle": "Propiedad local",
@@ -1646,6 +1685,35 @@
     "dreamPlaceholder": "Describe tu viaje de ensueño — prioridades de fauna, forma física, ocasiones especiales, necesidades dietéticas o preguntas para nuestro equipo...",
     "privacyConsentText": "Acepto la <privacyLink>Política de Privacidad</privacyLink> y consiento que The Extreme Wilderness me contacte sobre mi consulta.",
     "privacyPolicy": "Política de privacidad",
+    "contactForm": {
+      "subjects": {
+        "safariBooking": "Consulta de reserva de safari",
+        "kiliTrek": "Consulta sobre trekking al Kilimanjaro",
+        "customItinerary": "Solicitud de itinerario personalizado",
+        "groupBooking": "Reserva de grupo",
+        "partnership": "Colaboración / Comercial",
+        "general": "Consulta general"
+      },
+      "heading": "Envíanos un mensaje",
+      "subheading": "Normalmente respondemos en un plazo de 2 horas.",
+      "messageSent": "¡Mensaje enviado!",
+      "thankYou": "Gracias, {name}. Normalmente respondemos en un plazo de 2 horas con una respuesta personalizada.",
+      "fullName": "Nombre completo",
+      "emailAddress": "Correo electrónico",
+      "phoneWhatsapp": "Teléfono / WhatsApp",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "fullNamePlaceholder": "Jane Smith",
+      "emailPlaceholder": "jane@email.com",
+      "phonePlaceholder": "+1 555 000 0000",
+      "messagePlaceholder": "¿Cómo podemos ayudarte?",
+      "selectSubject": "Selecciona un asunto",
+      "privacyConsentText": "Acepto la <privacyLink>Política de Privacidad</privacyLink> y consiento que The Extreme Wilderness me contacte sobre mi mensaje.",
+      "rateLimitError": "Demasiadas solicitudes. Espera unos minutos e inténtalo de nuevo.",
+      "genericError": "Algo salió mal. Intenta escribirnos directamente a info@theextremewilderness.com",
+      "sending": "Enviando…",
+      "sendMessage": "Enviar mensaje"
+    },
     "sendEnquiry": "Enviar mi consulta",
     "sending": "Enviando…",
     "responseNote": "⏱ Respuesta promedio: menos de 2 horas · Sin pago ni compromiso",
@@ -1905,6 +1973,7 @@
     "heroTitle": "Kenia Salvaje.",
     "heroTitleGold": "Encuentros Extraordinarios.",
     "heroSubtitle": "Desde los cascos atronadores de la Gran Migración hasta los gentiles gigantes de Amboseli — Kenia ofrece los espectáculos de fauna más icónicos de África.",
+    "heroImageAlt": "Leones al atardecer en las llanuras de la Masai Mara",
     "planMyKenyaSafari": "Planificar mi safari en Kenia",
     "exploreDestinations": "Explorar destinos",
     "statMammalsMara": "Especies de mamíferos en el Mara",
@@ -1958,12 +2027,12 @@
         "duration": "3–5 días",
         "priceFrom": "$320",
         "activities": [
-          "Game drives",
+          "Safari en vehículo",
           "Safari en globo",
           "Visita a un poblado cultural masái",
           "Observación de aves",
           "Caminatas por el monte",
-          "Game drives nocturnos"
+          "Safaris nocturnos en vehículo"
         ]
       },
       "amboseli": {
@@ -1974,11 +2043,11 @@
         "priceFrom": "$280",
         "activities": [
           "Rastreo de elefantes",
-          "Game drives",
+          "Safari en vehículo",
           "Visita a un poblado masái",
           "Observación de aves",
           "Safaris fotográficos",
-          "Game drives al atardecer"
+          "Safaris en vehículo al atardecer"
         ]
       },
       "samburu": {
@@ -1988,7 +2057,7 @@
         "duration": "2–3 días",
         "priceFrom": "$290",
         "activities": [
-          "Game drives especializados",
+          "Safaris en vehículo especializados",
           "Recorridos culturales samburu",
           "Paseos en camello",
           "Caminatas junto al río",
@@ -2003,10 +2072,10 @@
         "duration": "3–5 días",
         "priceFrom": "$260",
         "activities": [
-          "Game drives",
+          "Safari en vehículo",
           "Caminata a las Fuentes de Mzima",
           "Visita a las Cataratas de Lugard",
-          "Game drives nocturnos",
+          "Safaris nocturnos en vehículo",
           "Observación de aves",
           "Campamentos de lujo"
         ]
@@ -2021,7 +2090,7 @@
           "Rastreo de rinocerontes a pie",
           "Rastreo de leones",
           "Visita al santuario de chimpancés",
-          "Game drives nocturnos",
+          "Safaris nocturnos en vehículo",
           "Charlas de conservación",
           "Cenas bush"
         ]
@@ -2036,7 +2105,7 @@
           "Observación de flamencos",
           "Rastreo de rinocerontes",
           "Observación de aves",
-          "Game drives",
+          "Safari en vehículo",
           "Miradores del escarpe",
           "Tours fotográficos"
         ]
@@ -2105,6 +2174,7 @@
     "comboBullet3": "Combina el Cráter del Ngorongoro con las especies raras de Samburu",
     "comboBullet4": "Termina en Zanzíbar o en la playa de Diani para relajarte en el Océano Índico",
     "mapCaption": "Kenia — Principales destinos",
+    "mapImageAlt": "Mapa de los principales destinos de Kenia",
     "birdingBody": "Con más de 1.100 especies de aves registradas — incluyendo el raro pico zapato, el viudo de Jackson y el cálao terrestre abisinio — Kenia es un paraíso para los observadores de aves. Los flamencos del Lago Nakuru, el avestruz somalí de Samburu y las aves rapaces de la Masai Mara son solo el comienzo.",
     "birdingBadge1": "Flamencos del Lago Nakuru",
     "birdingBadge2": "Especies de zonas secas de Samburu",
@@ -2135,6 +2205,7 @@
     "heroTitle": "Tierra de las",
     "heroTitleGold": "Mil Colinas.",
     "heroSubtitle": "Conozca a los gorilas de montaña. Treque por selvas antiguas con chimpancés. Safari en las sabanas. Ruanda es pequeño en tamaño pero extraordinario en profundidad.",
+    "heroImageAlt": "Picos montañosos volcánicos con exuberante brezal verde — macizo de los Virunga en Ruanda",
     "planMyRwandaSafari": "Planificar mi safari en Ruanda",
     "exploreDestinations": "Explorar destinos",
     "statGorillas": "Gorilas de montaña en la Tierra",
@@ -2218,11 +2289,11 @@
         "bestTime": "Jun – sep y dic – feb",
         "duration": "2–3 días",
         "activities": [
-          "Game drives",
+          "Safari en vehículo",
           "Safari en bote por el lago Ihema",
           "Rastreo de rinocerontes",
           "Observación de aves",
-          "Game drives nocturnos",
+          "Safaris nocturnos en vehículo",
           "Safari autoguiado"
         ]
       },
@@ -2336,6 +2407,7 @@
     "ctaBody": "Los permisos de gorilas son los permisos de vida salvaje más solicitados de África. Contáctanos ahora y nuestro equipo asegurará tus fechas, diseñará tu itinerario y se encargará de cada detalle.",
     "footerDisclaimer": "Viajeros en solitario · Parejas · Familias · Grupos privados — todos son bienvenidos",
     "mapCaption": "Ruanda — Principales destinos",
+    "mapImageAlt": "Mapa de los principales destinos de Ruanda",
     "bookTripButton": "Reservar viaje a {destName}",
     "metaTitle": "Trekking de Gorilas en Ruanda 2026 | Permisos y Safaris del Parque Nacional de los Volcanes",
     "metaDescription": "Reserva tu trekking de gorilas en Ruanda con guías certificados. Permisos de gorilas en el Parque Nacional de los Volcanes, rastreo de gorilas de montaña, senderismo de chimpancés en Nyungwe, Cinco Grandes en Akagera. Paquetes 2026.",
@@ -2357,6 +2429,7 @@
     "heroTitle": "Experiencias",
     "heroTitleGold": "Salvajes",
     "heroSubtitle": "Doce formas de descubrir África Oriental — cada una diseñada por guías que nacieron aquí, viven aquí y la aman profundamente.",
+    "heroImageAlt": "Paisaje de safari en África Oriental",
     "ourPhilosophyEyebrow": "Nuestra filosofía",
     "introParagraph1": "Durante años, The Extreme Wilderness ha creado viajes safari para personas que quieren más que un tour — una transformación.",
     "introParagraph2": "África Oriental es enorme y extraordinariamente variada. Estamos aquí para ayudarle a encontrar su experiencia — la que se adapta a su ritmo, su asombro, su familia.",
@@ -2379,6 +2452,7 @@
     "ctaEyebrow": "¿Listo para ir?",
     "ctaHeading": "Empiece a planificar su viaje por África Oriental",
     "ctaSubtitle": "Cada itinerario comienza con una conversación. Cuéntenos adónde quiere ir — o déjenos sorprenderle. Sin obligación.",
+    "ctaImageAlt": "Safari al atardecer",
     "ctaButton1": "Planificar mi safari",
     "ctaButton2": "Ver paquetes",
     "newsletterEyebrow": "The Wilderness Edit",
@@ -2392,6 +2466,9 @@
     "introHeadingSecondary": "Son cien, y las conocemos todas.",
     "introParagraph1Full": "Durante años, The Extreme Wilderness ha creado viajes de safari para personas que quieren más que un tour — quieren una transformación. Somos un operador de propiedad tanzana con sede en Arusha, con raíces profundas en la naturaleza y relaciones personales con los campamentos, lodges y comunidades con los que trabajamos.",
     "introParagraph2Full": "África del Este es enorme y extraordinariamente variada. Una semana en el Serengeti no se parece en nada a una semana en Ruaha. El trekking de gorilas en Ruanda no se parece al trekking de chimpancés en Mahale. Estamos aquí para ayudarte a encontrar tu experiencia — la que se adapte a tu ritmo, tu asombro, tu familia.",
+    "mosaicLandscapeAlt": "Paisaje de safari",
+    "mosaicWildlifeAlt": "Fauna salvaje",
+    "mosaicBushCampAlt": "Campamento en la sabana",
     "expType0": "Safaris de Fauna",
     "expType1": "Trekking de Gorilas",
     "expType2": "Kilimanjaro",
@@ -2408,6 +2485,7 @@
     "heroTitle": "Itinerarios Diseñados.",
     "heroTitleGold": "Naturaleza Extraordinaria.",
     "heroSubtitle": "Cada ruta que diseñamos se mueve al ritmo de la naturaleza — no en su contra. Campamentos seleccionados a mano, guías residentes expertos y un nivel de detalle que la mayoría de operadores no alcanzan.",
+    "heroImageAlt": "Paisaje de safari en África Oriental a la hora dorada",
     "heroBullet1": "5+ años en África Oriental",
     "heroBullet2": "Itinerarios completamente a medida",
     "heroBullet3": "Propiedad y operación local",
@@ -2896,6 +2974,7 @@
     "badge": "Guía Gratis",
     "imagePanelBrand": "Extreme Wilderness Adventure",
     "imagePanelTitle": "La Guía Completa de Trekking al Kilimanjaro",
+    "imageAlt": "Guía de trekking al Kilimanjaro",
     "bullet1": "6 rutas comparadas",
     "bullet2": "Lista completa de equipamiento",
     "bullet3": "Mejores temporadas de ascenso",

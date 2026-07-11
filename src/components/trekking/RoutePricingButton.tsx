@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowRight } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useBooking } from '@/context/BookingContext'
 
 interface Props {
@@ -13,13 +14,14 @@ interface Props {
 
 export default function RoutePricingButton({ routeName, tier: _tier, price, duration, label = 'Book at this price' }: Props) {
   const { openBooking } = useBooking()
+  const tc = useTranslations('common')
 
   return (
     <button
       onClick={() =>
         openBooking({
           packageName: routeName,
-          packageType: 'Kilimanjaro Trek',
+          packageType: tc('packageTypes.kiliTrek'),
           priceFrom: `$${price.toLocaleString()}`,
           duration,
         })

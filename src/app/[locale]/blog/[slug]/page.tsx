@@ -229,7 +229,7 @@ export default async function BlogArticlePage({ params }: Props) {
                 <BookNowButton
                   label={t('getFreeQuote')}
                   packageName="Custom Safari Enquiry"
-                  packageType="safari"
+                  packageType={tCommon('packageTypes.safari')}
                   arrow
                 />
               </div>
@@ -268,7 +268,7 @@ export default async function BlogArticlePage({ params }: Props) {
                   <BookNowButton
                     label={t('getCustomQuote')}
                     packageName="Custom Safari Enquiry"
-                    packageType="safari"
+                    packageType={tCommon('packageTypes.safari')}
                     arrow
                   />
                 </div>

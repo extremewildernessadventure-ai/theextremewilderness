@@ -28,7 +28,7 @@ export default async function PdfPage({ params }: Props) {
   const trd = await getTranslations({ locale, namespace: 'trekkingRouteDetail' })
 
   if (!isRouteWithDetailContent(route)) {
-    return <p className="p-8 text-center text-text-muted">Route not found.</p>
+    return <p className="p-8 text-center text-text-muted">{trd('labels.routeNotFound')}</p>
   }
 
   const routeContent = {
@@ -77,7 +77,7 @@ export default async function PdfPage({ params }: Props) {
           className="flex items-center gap-2 px-5 py-2.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand/90 transition-colors text-sm"
         >
           <Printer className="w-4 h-4" />
-          Print / Save as PDF
+          {trd('labels.printSavePdf')}
         </button>
       </div>
 
@@ -93,13 +93,13 @@ export default async function PdfPage({ params }: Props) {
           </div>
           <div className="text-right text-xs text-gray-400">
             <p className="font-semibold text-gray-600">{trd('labels.downloadRouteGuide')}</p>
-            <p className="mt-1">{new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+            <p className="mt-1">{new Date().toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}</p>
           </div>
         </div>
 
         {/* Overview */}
         <div className="mb-6 no-break">
-          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-l-4 border-gray-900 pl-3">Overview</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-l-4 border-gray-900 pl-3">{trd('labels.overview')}</h2>
           {routeContent.intro.map((p, i) => (
             <p key={i} className="text-sm text-gray-700 leading-relaxed mb-2 last:mb-0">{p}</p>
           ))}
@@ -124,13 +124,13 @@ export default async function PdfPage({ params }: Props) {
 
           {/* Arrival day */}
           <div className="mb-3 no-break">
-            <p className="text-sm font-bold text-gray-800">Day 0 — {trd('labels.arrivalDay')}</p>
+            <p className="text-sm font-bold text-gray-800">{trd('labels.dayLabel')} 0 — {trd('labels.arrivalDay')}</p>
             <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">{routeContent.arrivalDay}</p>
           </div>
 
           {routeContent.itinerary.map((day) => (
             <div key={day.day} className="mb-3 no-break">
-              <p className="text-sm font-bold text-gray-800">Day {day.day} — {day.title}</p>
+              <p className="text-sm font-bold text-gray-800">{trd('labels.dayLabel')} {day.day} — {day.title}</p>
               <p className="text-xs text-gray-500 mb-0.5 italic">{day.meta}</p>
               <p className="text-xs text-gray-600 leading-relaxed">{day.body}</p>
               <p className="text-xs text-gray-500 italic mt-0.5">{trd('labels.whatToExpect')} {day.expect}</p>

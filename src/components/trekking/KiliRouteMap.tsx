@@ -21,6 +21,7 @@ export default function KiliRouteMap({ route }: { route?: string } = {}) {
   const isLocked = route !== undefined
   const t = useTranslations('trekking')
   const trd = useTranslations('trekkingRouteDetail')
+  const tc = useTranslations('common')
 
   const routes = ROUTE_IDS.map((id, i) => {
     const n = i + 1
@@ -174,7 +175,7 @@ export default function KiliRouteMap({ route }: { route?: string } = {}) {
                   type="button"
                   onClick={() => openBooking({
                     packageName: active.name,
-                    packageType: 'Kilimanjaro Trek',
+                    packageType: tc('packageTypes.kiliTrek'),
                     priceFrom: `$${active.priceFrom.toLocaleString()}`,
                     duration: active.days,
                   })}

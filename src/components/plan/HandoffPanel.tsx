@@ -37,6 +37,7 @@ export default function HandoffPanel({
   belowThreshold: boolean
 }) {
   const t = useTranslations('planBuilder.handoff')
+  const tc = useTranslations('common')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
@@ -141,7 +142,7 @@ export default function HandoffPanel({
         <BookNowButton
           label={t('talkButton')}
           packageName={topMatch?.package.name}
-          packageType="Custom Safari"
+          packageType={tc('packageTypes.customSafari')}
           className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-gold transition-colors"
           arrow
         />

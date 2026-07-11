@@ -9,7 +9,7 @@ interface Props {
   category: string
   image: string
   readTime?: string
-  readLabel?: string
+  readLabel: string
 }
 
 export default function BlogSuggestionCard({
@@ -19,7 +19,7 @@ export default function BlogSuggestionCard({
   category,
   image,
   readTime,
-  readLabel = 'Read Article',
+  readLabel,
 }: Props) {
   return (
     <Link

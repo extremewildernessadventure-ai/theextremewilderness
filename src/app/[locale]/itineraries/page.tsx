@@ -52,6 +52,7 @@ export default async function ItinerariesPage() {
   const locale = await getLocale()
   const packages = getPackages(locale)
   const t = await getTranslations('itineraries')
+  const tc = await getTranslations('common')
 
   const findPkg = (slug: string) => packages.find((p) => p.slug === slug)!
   const smallGroupSafaris = t('smallGroupSafaris')
@@ -133,7 +134,7 @@ export default async function ItinerariesPage() {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <Image
           src="/images/gallery/safari-009.webp"
-          alt="East Africa safari landscape at golden hour"
+          alt={t('heroImageAlt')}
           fill
           priority
           className="object-cover object-center"
@@ -162,7 +163,7 @@ export default async function ItinerariesPage() {
           <div className="flex flex-wrap gap-3 mb-10">
             <BookNowButton
               packageName="Custom Safari"
-              packageType="Safari"
+              packageType={tc('packageTypes.safari')}
               label={t('startPlanningButton')}
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg"
             />
@@ -402,7 +403,7 @@ export default async function ItinerariesPage() {
           <div className="text-center mt-14">
             <BookNowButton
               packageName="Custom Safari"
-              packageType="Safari"
+              packageType={tc('packageTypes.safari')}
               label={t('letsStartPlanning')}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg text-base"
             />
@@ -541,7 +542,7 @@ export default async function ItinerariesPage() {
               </p>
               <BookNowButton
                 packageName="Custom Safari"
-                packageType="Safari"
+                packageType={tc('packageTypes.safari')}
                 label={t('startPlanningLabel')}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg text-base"
               />

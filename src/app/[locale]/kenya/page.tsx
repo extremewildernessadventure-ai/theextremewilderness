@@ -89,7 +89,7 @@ export default async function KenyaPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/gallery/safari-119.webp"
-            alt="Lions at sunset on the Masai Mara plains"
+            alt={t('heroImageAlt')}
             fill
             className="object-cover object-center"
             priority
@@ -114,7 +114,7 @@ export default async function KenyaPage() {
             <div className="flex flex-wrap gap-3">
               <BookNowButton
                 packageName="Kenya Safari"
-                packageType="Kenya Safari"
+                packageType={tc('packageTypes.kenyaSafari')}
                 label={t('planMyKenyaSafari')}
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg"
                 arrow
@@ -272,7 +272,7 @@ export default async function KenyaPage() {
               <div className="mt-6 pt-5 border-t border-white/10">
                 <BookNowButton
                   packageName="Kenya Safari"
-                  packageType="Kenya Safari"
+                  packageType={tc('packageTypes.kenyaSafari')}
                   label={t('startPlanningFree')}
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                   arrow
@@ -375,7 +375,7 @@ export default async function KenyaPage() {
                   <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
                     <BookNowButton
                       packageName={dest.name}
-                      packageType="Kenya Safari"
+                      packageType={tc('packageTypes.kenyaSafari')}
                       priceFrom={dest.priceFrom}
                       duration={dest.duration}
                       label={t('bookSafariButton', { destName: dest.name })}
@@ -426,7 +426,7 @@ export default async function KenyaPage() {
             </div>
             <BookNowButton
               packageName="Great Migration Safari"
-              packageType="Kenya & Tanzania Safari"
+              packageType={tc('packageTypes.kenyaTanzaniaSafari')}
               label={t('planMigrationSafari')}
               className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors whitespace-nowrap"
               arrow
@@ -466,7 +466,7 @@ export default async function KenyaPage() {
               <div className="flex flex-wrap gap-3">
                 <BookNowButton
                   packageName="Kenya & Tanzania Combined Safari"
-                  packageType="Combined Safari"
+                  packageType={tc('packageTypes.combinedSafari')}
                   label={t('designCombinedSafari')}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-brand hover:bg-brand-secondary text-white font-bold rounded-xl transition-colors"
                   arrow
@@ -486,7 +486,7 @@ export default async function KenyaPage() {
             >
               <Image
                 src="/Maps/Kenya%20map%20of%20major%20destinations.png"
-                alt="Kenya major destinations map"
+                alt={t('mapImageAlt')}
                 fill
                 className="object-contain"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -550,7 +550,7 @@ export default async function KenyaPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <BookNowButton
                   packageName="Kenya Safari"
-                  packageType="Kenya Safari"
+                  packageType={tc('packageTypes.kenyaSafari')}
                   label={t('startPlanningFree')}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-base shadow-lg"
                   arrow

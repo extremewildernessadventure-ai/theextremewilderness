@@ -13,7 +13,7 @@ import AmenityStay from '@/components/safaris/AmenityStay'
 import RelatedSafaris from '@/components/safaris/RelatedSafaris'
 import { packages } from '@/data/packages'
 import { getPackage, getPackages } from '@/data/packages.i18n'
-import { blogPosts } from '@/data/blog'
+import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import { routing } from '@/i18n/routing'
 import { SITE_URL, localeUrl } from '@/lib/site'
@@ -261,8 +261,9 @@ export default async function SafariPackagePage({ params }: Props) {
   const t = await getTranslations('safari')
   const tc = await getTranslations('common')
 
-  const featuredPost = blogPosts.find(
-    (p) => p.slug === (SAFARI_BLOG_MAP[pkg.slug] ?? DEFAULT_BLOG_SLUG)
+  const featuredPost = getBlogPostMeta(
+    SAFARI_BLOG_MAP[pkg.slug] ?? DEFAULT_BLOG_SLUG,
+    locale
   )
 
   const touristTripSchema = {
@@ -547,6 +548,7 @@ export default async function SafariPackagePage({ params }: Props) {
                     category={featuredPost.category}
                     image={featuredPost.heroImage}
                     readTime={featuredPost.readTime}
+                    readLabel={tc('readMore')}
                   />
                 </div>
               )}

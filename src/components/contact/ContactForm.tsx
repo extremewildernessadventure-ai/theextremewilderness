@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { Send, Check } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import { trackFormFillConversion } from '@/lib/analytics'
@@ -8,16 +9,18 @@ import { trackFormFillConversion } from '@/lib/analytics'
 const inputCls =
   'w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-brand focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 bg-white placeholder-gray-400 transition-all'
 
-const SUBJECTS = [
-  'Safari Booking Enquiry',
-  'Kilimanjaro Trek Enquiry',
-  'Custom Itinerary Request',
-  'Group Booking',
-  'Partnership / Trade',
-  'General Question',
-]
-
 export default function ContactForm() {
+  const t = useTranslations('forms')
+
+  const SUBJECTS = [
+    t('contactForm.subjects.safariBooking'),
+    t('contactForm.subjects.kiliTrek'),
+    t('contactForm.subjects.customItinerary'),
+    t('contactForm.subjects.groupBooking'),
+    t('contactForm.subjects.partnership'),
+    t('contactForm.subjects.general'),
+  ]
+
   const [renderTime, setRenderTime] = useState(0)
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -56,12 +59,12 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, renderTime }),
       })
-      if (res.status === 429) { setError('Too many requests. Please wait a few minutes and try again.'); return }
+      if (res.status === 429) { setError(t('contactForm.rateLimitError')); return }
       if (!res.ok) throw new Error('send failed')
       trackFormFillConversion()
       setSubmitted(true)
     } catch {
-      setError('Something went wrong. Please try emailing us directly at info@theextremewilderness.com')
+      setError(t('contactForm.genericError'))
     } finally {
       setSubmitting(false)
     }
@@ -73,9 +76,9 @@ export default function ContactForm() {
         <div className="w-16 h-16 bg-light-green rounded-full flex items-center justify-center mx-auto mb-5">
           <Check className="w-8 h-8 text-brand" />
         </div>
-        <h3 className="text-2xl font-bold text-brand mb-2">Message Sent!</h3>
+        <h3 className="text-2xl font-bold text-brand mb-2">{t('contactForm.messageSent')}</h3>
         <p className="text-text-muted text-sm leading-relaxed max-w-sm mx-auto">
-          Thank you, <strong>{form.fullName.split(' ')[0]}</strong>. We typically reply within 2 hours with a personalised response.
+          {t('contactForm.thankYou', { name: form.fullName.split(' ')[0] })}
         </p>
       </div>
     )
@@ -84,8 +87,8 @@ export default function ContactForm() {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
       <div className="px-7 py-5 bg-brand">
-        <h2 className="text-white font-bold text-xl">Send us a message</h2>
-        <p className="text-white/65 text-sm mt-0.5">We typically reply within 2 hours.</p>
+        <h2 className="text-white font-bold text-xl">{t('contactForm.heading')}</h2>
+        <p className="text-white/65 text-sm mt-0.5">{t('contactForm.subheading')}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-5">
@@ -105,14 +108,14 @@ export default function ContactForm() {
         {/* Full Name */}
         <div>
           <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
-            Full Name <span className="text-red-400">*</span>
+            {t('contactForm.fullName')} <span className="text-red-400">*</span>
           </label>
           <input
             name="fullName"
             required
             value={form.fullName}
             onChange={handleChange}
-            placeholder="Jane Smith"
+            placeholder={t('contactForm.fullNamePlaceholder')}
             className={inputCls}
           />
         </div>
@@ -121,7 +124,7 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
-              Email Address <span className="text-red-400">*</span>
+              {t('contactForm.emailAddress')} <span className="text-red-400">*</span>
             </label>
             <input
               name="email"
@@ -129,20 +132,20 @@ export default function ContactForm() {
               required
               value={form.email}
               onChange={handleChange}
-              placeholder="jane@email.com"
+              placeholder={t('contactForm.emailPlaceholder')}
               className={inputCls}
             />
           </div>
           <div>
             <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
-              Phone / WhatsApp
+              {t('contactForm.phoneWhatsapp')}
             </label>
             <input
               name="phone"
               type="tel"
               value={form.phone}
               onChange={handleChange}
-              placeholder="+1 555 000 0000"
+              placeholder={t('contactForm.phonePlaceholder')}
               className={inputCls}
             />
           </div>
@@ -151,7 +154,7 @@ export default function ContactForm() {
         {/* Subject */}
         <div>
           <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
-            Subject <span className="text-red-400">*</span>
+            {t('contactForm.subject')} <span className="text-red-400">*</span>
           </label>
           <div className="relative">
             <select
@@ -161,7 +164,7 @@ export default function ContactForm() {
               onChange={handleChange}
               className={`${inputCls} appearance-none`}
             >
-              <option value="">Select a subject</option>
+              <option value="">{t('contactForm.selectSubject')}</option>
               {SUBJECTS.map((s) => <option key={s}>{s}</option>)}
             </select>
             <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -173,7 +176,7 @@ export default function ContactForm() {
         {/* Message */}
         <div>
           <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
-            Message <span className="text-red-400">*</span>
+            {t('contactForm.message')} <span className="text-red-400">*</span>
           </label>
           <textarea
             name="message"
@@ -181,7 +184,7 @@ export default function ContactForm() {
             value={form.message}
             onChange={handleChange}
             rows={5}
-            placeholder="How can we help?"
+            placeholder={t('contactForm.messagePlaceholder')}
             className={`${inputCls} resize-none`}
           />
         </div>
@@ -195,9 +198,11 @@ export default function ContactForm() {
             className="mt-0.5 w-4 h-4 accent-brand flex-shrink-0"
           />
           <span className="text-xs text-text-muted leading-relaxed">
-            I agree to the{' '}
-            <Link href="/privacy" className="text-brand underline hover:no-underline">Privacy Policy</Link>
-            {' '}and consent to The Extreme Wilderness contacting me about my message.
+            {t.rich('contactForm.privacyConsentText', {
+              privacyLink: (chunks) => (
+                <Link href="/privacy" className="text-brand underline hover:no-underline">{chunks}</Link>
+              ),
+            })}
           </span>
         </label>
 
@@ -215,7 +220,7 @@ export default function ContactForm() {
           ) : (
             <Send className="w-4 h-4" />
           )}
-          {submitting ? 'Sending…' : 'Send message'}
+          {submitting ? t('contactForm.sending') : t('contactForm.sendMessage')}
         </button>
 
       </form>

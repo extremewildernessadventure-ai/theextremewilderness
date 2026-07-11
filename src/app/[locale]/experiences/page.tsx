@@ -66,7 +66,7 @@ export default async function ExperiencesPage() {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <Image
           src="/images/gallery/safari-118.webp"
-          alt="East Africa safari landscape"
+          alt={t('heroImageAlt')}
           fill
           className="object-cover object-center"
           priority
@@ -137,14 +137,14 @@ export default async function ExperiencesPage() {
             {/* Mosaic photos */}
             <div className="grid grid-cols-2 gap-3">
               <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
-                <Image src="/images/gallery/safari-021.webp" alt="Safari landscape" fill className="object-cover" sizes="30vw" />
+                <Image src="/images/gallery/safari-021.webp" alt={t('mosaicLandscapeAlt')} fill className="object-cover" sizes="30vw" />
               </div>
               <div className="flex flex-col gap-3">
                 <div className="relative rounded-2xl overflow-hidden aspect-video">
-                  <Image src="/images/gallery/safari-022.webp" alt="Wildlife" fill className="object-cover" sizes="20vw" />
+                  <Image src="/images/gallery/safari-022.webp" alt={t('mosaicWildlifeAlt')} fill className="object-cover" sizes="20vw" />
                 </div>
                 <div className="relative rounded-2xl overflow-hidden flex-1">
-                  <Image src="/images/gallery/safari-023.webp" alt="Bush camp" fill className="object-cover" sizes="20vw" />
+                  <Image src="/images/gallery/safari-023.webp" alt={t('mosaicBushCampAlt')} fill className="object-cover" sizes="20vw" />
                 </div>
               </div>
             </div>
@@ -226,7 +226,7 @@ export default async function ExperiencesPage() {
       <section className="relative py-24 overflow-hidden">
         <Image
           src="/images/gallery/safari-128.webp"
-          alt="Sunset safari"
+          alt={t('ctaImageAlt')}
           fill
           className="object-cover"
           sizes="100vw"

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 
 interface BreadcrumbItem {
   label: string
@@ -9,9 +10,10 @@ interface BreadcrumbProps {
   items: BreadcrumbItem[]
 }
 
-export default function Breadcrumb({ items }: BreadcrumbProps) {
+export default async function Breadcrumb({ items }: BreadcrumbProps) {
+  const tc = await getTranslations('common')
   return (
-    <nav aria-label="Breadcrumb" className="mb-4">
+    <nav aria-label={tc('breadcrumbNav')} className="mb-4">
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
         {items.map((item, i) => {
           const isLast = i === items.length - 1

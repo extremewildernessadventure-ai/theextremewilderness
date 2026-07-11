@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Globe, ChevronDown, Check } from 'lucide-react'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 
@@ -15,6 +15,7 @@ const LANGUAGES: Record<string, { code: string; native: string; flag: string }> 
 
 export default function LanguageSwitcher() {
   const locale = useLocale()
+  const tc = useTranslations('common')
   const pathname = usePathname()
   const router = useRouter()
   const [open, setOpen] = useState(false)
@@ -42,7 +43,7 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div ref={ref} className="relative" role="navigation" aria-label="Language switcher">
+    <div ref={ref} className="relative" role="navigation" aria-label={tc('languageSwitcher')}>
       <button
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"

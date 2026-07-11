@@ -113,10 +113,10 @@ export default async function AboutPage() {
 
         <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2">
           <div className="absolute inset-y-0 left-0 w-32 z-10 bg-gradient-to-r from-brand to-transparent" />
-          <Image src="/images/gallery/elephants.webp" alt="Serengeti at sunrise" fill className="object-cover" priority sizes="50vw" />
+          <Image src="/images/gallery/elephants.webp" alt={t('heroImageAlt')} fill className="object-cover" priority sizes="50vw" />
         </div>
         <div className="lg:hidden absolute inset-0 z-0">
-          <Image src="/images/gallery/elephants.webp" alt="Serengeti at sunrise" fill className="object-cover opacity-20" priority sizes="100vw" />
+          <Image src="/images/gallery/elephants.webp" alt={t('heroImageAlt')} fill className="object-cover opacity-20" priority sizes="100vw" />
         </div>
       </section>
 
@@ -157,7 +157,7 @@ export default async function AboutPage() {
             </div>
             <div className="relative">
               <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image src="/images/gallery/kilimanjaro1.webp" alt="Guide in the field" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                <Image src="/images/gallery/kilimanjaro1.webp" alt={t('storyImageAlt')} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand/40 to-transparent" />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100">

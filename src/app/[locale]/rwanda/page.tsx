@@ -125,7 +125,7 @@ export default async function RwandaPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/gallery/gorilla.webp"
-            alt="Volcanic mountain peaks with lush green heathland — Rwanda Virunga massif"
+            alt={t('heroImageAlt')}
             fill
             className="object-cover object-bottom"
             priority
@@ -150,7 +150,7 @@ export default async function RwandaPage() {
             <div className="flex flex-wrap gap-3">
               <BookNowButton
                 packageName="Rwanda Gorilla Safari"
-                packageType="Rwanda Safari"
+                packageType={tc('packageTypes.rwandaSafari')}
                 label={t('planMyRwandaSafari')}
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg"
                 arrow
@@ -303,7 +303,7 @@ export default async function RwandaPage() {
               <div className="mt-6 pt-5 border-t border-white/10">
                 <BookNowButton
                   packageName="Rwanda Gorilla Safari"
-                  packageType="Rwanda Safari"
+                  packageType={tc('packageTypes.rwandaSafari')}
                   label={t('startPlanningFree')}
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                   arrow
@@ -337,7 +337,7 @@ export default async function RwandaPage() {
               </div>
               <BookNowButton
                 packageName="Rwanda Gorilla Trek"
-                packageType="Rwanda Gorilla Safari"
+                packageType={tc('packageTypes.rwandaGorillaSafari')}
                 priceFrom="$1,500"
                 label={t('secureMyPermit')}
                 className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors whitespace-nowrap"
@@ -436,7 +436,7 @@ export default async function RwandaPage() {
                   <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
                     <BookNowButton
                       packageName={dest.name}
-                      packageType="Rwanda Safari"
+                      packageType={tc('packageTypes.rwandaSafari')}
                       priceFrom={dest.priceFrom}
                       duration={dest.duration}
                       label={t('bookTripButton', { destName: dest.name })}
@@ -505,7 +505,7 @@ export default async function RwandaPage() {
               <div className="flex flex-wrap gap-3">
                 <BookNowButton
                   packageName="Rwanda & Tanzania Safari"
-                  packageType="Combined Safari"
+                  packageType={tc('packageTypes.combinedSafari')}
                   label={t('designCombinedSafari')}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-brand hover:bg-brand-secondary text-white font-bold rounded-xl transition-colors"
                   arrow
@@ -525,7 +525,7 @@ export default async function RwandaPage() {
             >
               <Image
                 src="/Maps/Rwanda%20major%20destinations%20travel%20map.png"
-                alt="Rwanda major destinations map"
+                alt={t('mapImageAlt')}
                 fill
                 className="object-contain"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -587,7 +587,7 @@ export default async function RwandaPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <BookNowButton
                   packageName="Rwanda Gorilla Safari"
-                  packageType="Rwanda Safari"
+                  packageType={tc('packageTypes.rwandaSafari')}
                   label={t('startPlanningFree')}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-base shadow-lg"
                   arrow

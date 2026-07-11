@@ -280,7 +280,7 @@ export default async function DestinationPage({ params }: Props) {
                   label={t('getFreeQuote')}
                   arrow={false}
                   packageName={dest.name}
-                  packageType="Wildlife Safari"
+                  packageType={tc('packageTypes.wildlifeSafari')}
                   className="block w-full py-2.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl text-sm transition-colors"
                 />
               </div>
@@ -346,7 +346,7 @@ export default async function DestinationPage({ params }: Props) {
           <BookNowButton
             label={t('requestQuote')}
             packageName={dest.name}
-            packageType="Wildlife Safari"
+            packageType={tc('packageTypes.wildlifeSafari')}
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
           />
           <p className="text-white/70 text-xs mt-4">{t('noPaymentNote')}</p>

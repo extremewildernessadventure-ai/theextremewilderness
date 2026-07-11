@@ -77,7 +77,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
           className="flex items-center gap-2 px-5 py-2.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand/90 transition-colors text-sm"
         >
           <Printer className="w-4 h-4" />
-          Print / Save as PDF
+          {trd('labels.printSavePdf')}
         </button>
       </div>
 
@@ -98,7 +98,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
           <div className="text-right text-xs text-gray-400">
             <p className="font-bold text-gray-600 text-sm">{t('pdfCardBadge')}</p>
             <p className="mt-0.5">info@theextremewilderness.com</p>
-            <p>{new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+            <p>{new Date().toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}</p>
           </div>
         </div>
 
@@ -115,7 +115,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
           <table className="w-full text-xs border-collapse">
             <thead>
               <tr className="bg-gray-900 text-white">
-                <th className="text-left px-3 py-2 font-bold">Route</th>
+                <th className="text-left px-3 py-2 font-bold">{trd('labels.routeTableHeader')}</th>
                 <th className="text-left px-3 py-2 font-bold">{trd('labels.duration')}</th>
                 <th className="text-left px-3 py-2 font-bold">{trd('labels.difficulty')}</th>
                 <th className="text-left px-3 py-2 font-bold">{trd('labels.successRate')}</th>
@@ -134,7 +134,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
               ))}
             </tbody>
           </table>
-          <p className="text-[10px] text-gray-400 mt-1">Prices shown are group rate (5+ persons) per person. Solo and small group rates available.</p>
+          <p className="text-[10px] text-gray-400 mt-1">{trd('labels.priceNote')}</p>
         </div>
 
         {/* ── What's included / excluded ── */}

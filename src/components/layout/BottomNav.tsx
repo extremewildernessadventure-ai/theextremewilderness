@@ -34,6 +34,8 @@ const FbIcon = () => (
 
 export default function BottomNav() {
   const t = useTranslations('bottomNav')
+  const tf = useTranslations('forms')
+  const tc = useTranslations('common')
   const [moreOpen, setMoreOpen] = useState(false)
   const pathname = usePathname()
 
@@ -97,7 +99,7 @@ export default function BottomNav() {
               <button
                 onClick={close}
                 className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                aria-label="Close"
+                aria-label={tf('closeLabel')}
               >
                 <X className="w-4 h-4" />
               </button>
@@ -217,7 +219,7 @@ export default function BottomNav() {
         <button
           onClick={() => setMoreOpen((o) => !o)}
           className={tabCls(moreOpen)}
-          aria-label="More"
+          aria-label={tc('moreLabel')}
         >
           <Grid2x2 className="w-5 h-5" />
           <span>{t('more')}</span>

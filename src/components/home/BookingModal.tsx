@@ -11,7 +11,7 @@ export default function BookingModal() {
   return (
     <div className="flex flex-col sm:flex-row gap-4">
       <button
-        onClick={() => openBooking({ packageType: 'Custom Safari' })}
+        onClick={() => openBooking({ packageType: tc('packageTypes.customSafari') })}
         className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-base shadow-lg"
       >
         {tc('planMySafari')} →

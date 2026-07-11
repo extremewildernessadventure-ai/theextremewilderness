@@ -17,6 +17,7 @@ const BULLETS = ['bullet1', 'bullet2', 'bullet3', 'bullet4'] as const
 
 export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) {
   const t = useTranslations('pdfLead')
+  const tf = useTranslations('forms')
   const params = useParams()
   const locale = (params?.locale as string) ?? 'en'
 
@@ -118,7 +119,7 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
             {/* Close */}
             <button
               onClick={close}
-              aria-label="Close"
+              aria-label={tf('closeLabel')}
               className="absolute top-3 right-3 z-30 w-9 h-9 rounded-full bg-black/25 backdrop-blur-sm flex items-center justify-center hover:bg-black/40 transition-colors group"
             >
               <X className="w-4 h-4 text-white" />
@@ -130,7 +131,7 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
             <div className="relative sm:w-[42%] h-44 sm:h-auto flex-shrink-0 overflow-hidden">
               <Image
                 src="/images/gallery/kilimanjarosasa.webp"
-                alt="Kilimanjaro Trekking Guide"
+                alt={t('imageAlt')}
                 fill
                 className="object-cover"
                 sizes="(max-width: 640px) 100vw, 360px"

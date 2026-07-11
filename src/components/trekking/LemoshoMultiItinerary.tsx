@@ -42,6 +42,8 @@ const QUICK_FACT_KEYS = [
   'difficulty', 'trailTraffic', 'successRate', 'bestSeason', 'accommodation', 'priceFrom',
 ] as const
 
+type TabKey = '6' | '7' | '8'
+
 interface Props {
   variants: { '6': Variant; '7': Variant; '8': Variant }
   included: string[]
@@ -52,15 +54,13 @@ interface Props {
   labels: Labels
   bookThisRouteLabel: string
   pdfCard: ReactNode
+  tabLabels: Record<TabKey, string>
+  tabBadges: Partial<Record<TabKey, string>>
+  routeNames: Record<TabKey, string>
+  headings: { choosing: string; highlights: string; faq: string }
 }
 
-type TabKey = '6' | '7' | '8'
-
-const TABS: { key: TabKey; label: string; badge?: string }[] = [
-  { key: '6', label: '6-Day' },
-  { key: '7', label: '7-Day', badge: 'Recommended' },
-  { key: '8', label: '8-Day', badge: 'Best Success' },
-]
+const TAB_KEYS: TabKey[] = ['6', '7', '8']
 
 export default function LemoshoMultiItinerary({
   variants,
@@ -71,6 +71,10 @@ export default function LemoshoMultiItinerary({
   faq,
   labels,
   pdfCard,
+  tabLabels,
+  tabBadges,
+  routeNames,
+  headings,
 }: Props) {
   const [active, setActive] = useState<TabKey>('7')
   const [openFaq, setOpenFaq] = useState<number | null>(null)
@@ -83,7 +87,7 @@ export default function LemoshoMultiItinerary({
       {/* ── Tab switcher ─────────────────────────────────────── */}
       <div>
         <div className="flex gap-2 flex-wrap mb-8">
-          {TABS.map(({ key, label, badge }) => (
+          {TAB_KEYS.map((key) => (
             <button
               key={key}
               onClick={() => setActive(key)}
@@ -93,11 +97,11 @@ export default function LemoshoMultiItinerary({
                   : 'bg-white text-brand border-gray-200 hover:border-brand/40'
               }`}
             >
-              <span>{label} Lemosho</span>
-              {badge && (
+              <span>{tabLabels[key]}</span>
+              {tabBadges[key] && (
                 <span className={`text-[10px] font-bold uppercase tracking-wide mt-0.5 ${
                   active === key ? 'text-gold' : 'text-text-muted'
-                }`}>{badge}</span>
+                }`}>{tabBadges[key]}</span>
               )}
             </button>
           ))}
@@ -200,7 +204,7 @@ export default function LemoshoMultiItinerary({
               <p className="text-gold text-2xl font-bold">${tier.price.toLocaleString()}</p>
               <p className="text-white/50 text-xs mt-1">{labels.perPerson}</p>
               <RoutePricingButton
-                routeName={`Lemosho Route — ${active}-Day`}
+                routeName={routeNames[active]}
                 tier={tier.key}
                 price={tier.price}
                 duration={v.quickFacts.duration}
@@ -213,7 +217,7 @@ export default function LemoshoMultiItinerary({
 
       {/* ── Choosing section ─────────────────────────────────── */}
       <div className="bg-light-green rounded-2xl p-7">
-        <h2 className="text-2xl font-semibold text-brand mb-4">Choosing Your Lemosho Itinerary</h2>
+        <h2 className="text-2xl font-semibold text-brand mb-4">{headings.choosing}</h2>
         <p className="text-text-muted text-sm leading-relaxed mb-6">{choosing.intro}</p>
         <div className="space-y-4 mb-6">
           {choosing.items.map((item) => (
@@ -233,7 +237,7 @@ export default function LemoshoMultiItinerary({
 
       {/* ── Highlights ───────────────────────────────────────── */}
       <div>
-        <h2 className="text-2xl font-semibold text-brand mb-5">Signature Lemosho Highlights</h2>
+        <h2 className="text-2xl font-semibold text-brand mb-5">{headings.highlights}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {highlights.map((h) => (
             <div key={h.title} className="bg-white border border-gray-100 rounded-xl p-5">
@@ -246,7 +250,7 @@ export default function LemoshoMultiItinerary({
 
       {/* ── FAQ ──────────────────────────────────────────────── */}
       <div>
-        <h2 className="text-2xl font-semibold text-brand mb-5">Lemosho Route FAQ</h2>
+        <h2 className="text-2xl font-semibold text-brand mb-5">{headings.faq}</h2>
         <div className="space-y-3">
           {faq.map((item, i) => (
             <div key={i} className="border border-gray-100 rounded-xl overflow-hidden">

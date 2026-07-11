@@ -179,18 +179,18 @@ export default function Testimonials() {
           <button
             onClick={goPrev}
             disabled={page === 0}
-            aria-label="Previous reviews"
+            aria-label={tc('previousReviews')}
             className="w-10 h-10 rounded-full border border-gray-200 hover:border-brand hover:text-brand flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
           >
             <ChevronLeft className="w-4 h-4" aria-hidden="true" />
           </button>
 
-          <div className="flex gap-0" role="group" aria-label="Review pages">
+          <div className="flex gap-0" role="group" aria-label={tc('reviewPages')}>
             {Array.from({ length: totalPages }).map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
-                aria-label={`Go to review page ${i + 1}`}
+                aria-label={tc('goToReviewPage', { n: i + 1 })}
                 aria-current={i === page ? 'true' : undefined}
                 className="p-3 flex items-center justify-center group"
               >
@@ -204,7 +204,7 @@ export default function Testimonials() {
           <button
             onClick={goNext}
             disabled={page === totalPages - 1}
-            aria-label="Next reviews"
+            aria-label={tc('nextReviews')}
             className="w-10 h-10 rounded-full border border-gray-200 hover:border-brand hover:text-brand flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
           >
             <ChevronRight className="w-4 h-4" aria-hidden="true" />

@@ -91,6 +91,7 @@ function Stepper({ label, sublabel, value, onChange, min = 0 }: {
 
 export default function EnquiryModal() {
   const t = useTranslations('forms')
+  const tc = useTranslations('common')
   const { isOpen, bookingInfo, closeBooking } = useBooking()
   const scrollRef = useRef<HTMLDivElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
@@ -347,7 +348,7 @@ export default function EnquiryModal() {
               <div className="flex-1 min-w-0">
                 <div className="text-white font-semibold text-sm truncate">{bookingInfo.packageName}</div>
                 <div className="text-white/60 text-xs">
-                  {[bookingInfo.packageType, bookingInfo.duration, bookingInfo.priceFrom && `From ${bookingInfo.priceFrom}`]
+                  {[bookingInfo.packageType, bookingInfo.duration, bookingInfo.priceFrom && `${tc('from')} ${bookingInfo.priceFrom}`]
                     .filter(Boolean).join(' · ')}
                 </div>
               </div>

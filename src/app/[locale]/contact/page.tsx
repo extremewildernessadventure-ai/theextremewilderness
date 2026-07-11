@@ -61,7 +61,7 @@ export default async function ContactPage() {
         <div className="relative z-10 flex flex-col justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 pt-32 pb-16 lg:py-28">
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: 'Contact' },
+            { label: t('breadcrumbLabel') },
           ]} />
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">{t('getInTouch')}</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
@@ -96,10 +96,10 @@ export default async function ContactPage() {
 
               {/* Company info */}
               <div>
-                <p className="text-xs font-bold text-text-muted uppercase tracking-widest mb-3">Our Office</p>
+                <p className="text-xs font-bold text-text-muted uppercase tracking-widest mb-3">{t('ourOffice')}</p>
                 <h2 className="text-2xl font-bold text-brand mb-1">The Extreme Wilderness</h2>
                 <p className="text-sm text-text-muted leading-relaxed mb-4">
-                  Tanzania Safari &amp; Trekking Specialists
+                  {t('tagline')}
                 </p>
                 <div className="flex items-start gap-2 text-sm text-text-muted">
                   <MapPin className="w-4 h-4 text-brand mt-0.5 flex-shrink-0" />
@@ -114,7 +114,7 @@ export default async function ContactPage() {
                   className="flex items-center gap-3 px-5 py-3.5 bg-brand hover:bg-brand-secondary text-white rounded-xl font-semibold text-sm transition-colors"
                 >
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  Call Us — +255 747 999 070
+                  {t('callUsLabel')}
                 </a>
                 <a
                   href="https://wa.me/255747999070"
@@ -123,7 +123,7 @@ export default async function ContactPage() {
                   className="flex items-center gap-3 px-5 py-3.5 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold text-sm transition-colors"
                 >
                   {WHATSAPP_SVG}
-                  WhatsApp Us
+                  {t('whatsappUs')}
                 </a>
                 <a
                   href="mailto:info@theextremewilderness.com"

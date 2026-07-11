@@ -13,6 +13,7 @@ import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
 import BookNowButton from '@/components/booking/BookNowButton'
 import LemoshoMultiItinerary from '@/components/trekking/LemoshoMultiItinerary'
+import { getBlogPostMeta } from '@/data/blog/index.i18n'
 
 interface RouteProps {
   params: Promise<{ locale?: string; route: string }>
@@ -187,6 +188,8 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
   const galleryImages = ROUTE_GALLERY_IMAGES[route] ?? ROUTE_GALLERY_IMAGES.machame
   const t = await getTranslations('trekking')
   const trd = await getTranslations('trekkingRouteDetail')
+  const tc = await getTranslations('common')
+  const featuredPost = getBlogPostMeta('kilimanjaro-climbing-guide', locale)
 
   let routeContent: RouteDetailContent | null = null
 
@@ -354,7 +357,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                 </div>
                 <BookNowButton
                   packageName={routeContent.quickFacts.routeName}
-                  packageType="Kilimanjaro Trek"
+                  packageType={tc('packageTypes.kiliTrek')}
                   priceFrom={`$${routeContent.pricing.group.toLocaleString()}`}
                   duration={routeContent.quickFacts.duration}
                   label={trd('labels.bookThisRoute')}
@@ -402,6 +405,25 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                   highlights={lemoshoExtras.highlights}
                   faq={lemoshoExtras.faq}
                   bookThisRouteLabel={trd('labels.bookThisRoute')}
+                  tabLabels={{
+                    '6': trd('lemosho.tabLabels.6'),
+                    '7': trd('lemosho.tabLabels.7'),
+                    '8': trd('lemosho.tabLabels.8'),
+                  }}
+                  tabBadges={{
+                    '7': t('badgeRecommended'),
+                    '8': t('badgeBestRate'),
+                  }}
+                  routeNames={{
+                    '6': trd('lemosho.routeNameByDuration.6'),
+                    '7': trd('lemosho.routeNameByDuration.7'),
+                    '8': trd('lemosho.routeNameByDuration.8'),
+                  }}
+                  headings={{
+                    choosing: trd('labels.choosingHeading'),
+                    highlights: trd('labels.highlightsHeading'),
+                    faq: trd('labels.faqHeading'),
+                  }}
                   labels={{
                     quickFacts:   trd('labels.quickFacts'),
                     itinerary:    trd('labels.itinerary'),
@@ -567,7 +589,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                   </div>
                   <BookNowButton
                     packageName={routeContent.quickFacts.routeName}
-                    packageType="Kilimanjaro Trek"
+                    packageType={tc('packageTypes.kiliTrek')}
                     priceFrom={`$${routeContent.pricing.group.toLocaleString()}`}
                     duration={routeContent.quickFacts.duration}
                     label={trd('labels.bookThisRoute')}
@@ -579,14 +601,17 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                 {/* Featured blog post */}
                 <div>
                   <p className="text-xs font-bold text-text-muted uppercase tracking-widest mb-3">{trd('labels.featuredGuide')}</p>
-                  <BlogSuggestionCard
-                    slug="kilimanjaro-climbing-guide"
-                    title="How to Climb Kilimanjaro: Routes, Cost, Training & Everything You Need to Know"
-                    excerpt="Africa's highest peak at 5,895 m doesn't require technical climbing skills — but it demands preparation. Here's everything you need to know before you go."
-                    category="Trekking"
-                    image="/images/gallery/kilimanjaro1.webp"
-                    readTime="14 min read"
-                  />
+                  {featuredPost && (
+                    <BlogSuggestionCard
+                      slug="kilimanjaro-climbing-guide"
+                      title={featuredPost.title}
+                      excerpt={featuredPost.excerpt}
+                      category={featuredPost.category}
+                      image="/images/gallery/kilimanjaro1.webp"
+                      readTime={featuredPost.readTime}
+                      readLabel={tc('readMore')}
+                    />
+                  )}
                 </div>
 
                 {/* Other routes */}

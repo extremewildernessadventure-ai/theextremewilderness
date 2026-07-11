@@ -9,6 +9,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
 import BookNowButton from '@/components/booking/BookNowButton'
+import { getBlogPostMeta } from '@/data/blog/index.i18n'
 
 const ROUTE_SLUGS = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const
 const ROUTE_BADGE_KEYS: Record<string, string | null> = {
@@ -55,6 +56,8 @@ export default async function TrekkingPage({ params }: Props) {
   const { locale = 'en' } = await params
   const t = await getTranslations('trekking')
   const trd = await getTranslations('trekkingRouteDetail')
+  const tc = await getTranslations('common')
+  const featuredPost = getBlogPostMeta('kilimanjaro-climbing-guide', locale)
 
   const GEAR_CATEGORIES = [
     {
@@ -297,14 +300,17 @@ export default async function TrekkingPage({ params }: Props) {
       <section className="py-12 bg-light-green">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <BlogSuggestionCard
-              slug="kilimanjaro-climbing-guide"
-              title="How to Climb Kilimanjaro: Routes, Cost, Training & Everything You Need to Know"
-              excerpt="Africa's highest peak at 5,895 m doesn't require technical climbing skills — but it demands preparation. Here's everything you need to know before you go."
-              category="Trekking"
-              image="/images/gallery/kilimanjaro1.webp"
-              readTime="14 min read"
-            />
+            {featuredPost && (
+              <BlogSuggestionCard
+                slug="kilimanjaro-climbing-guide"
+                title={featuredPost.title}
+                excerpt={featuredPost.excerpt}
+                category={featuredPost.category}
+                image="/images/gallery/kilimanjaro1.webp"
+                readTime={featuredPost.readTime}
+                readLabel={tc('readMore')}
+              />
+            )}
             <KilimanjaroPdfCard />
           </div>
         </div>

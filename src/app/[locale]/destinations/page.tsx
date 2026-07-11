@@ -187,7 +187,7 @@ export default async function DestinationsPage() {
             <div className="flex flex-wrap gap-3">
               <BookNowButton
                 packageName="Tanzania Safari"
-                packageType="Tanzania Safari"
+                packageType={tc('packageTypes.tanzaniaSafari')}
                 label={t('planMyTanzaniaSafari')}
                 className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg"
                 arrow
@@ -336,7 +336,7 @@ export default async function DestinationsPage() {
               <div className="mt-6 pt-5 border-t border-white/10">
                 <BookNowButton
                   packageName="Tanzania Safari"
-                  packageType="Tanzania Safari"
+                  packageType={tc('packageTypes.tanzaniaSafari')}
                   label={t('startPlanningFree')}
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                   arrow
@@ -432,7 +432,7 @@ export default async function DestinationsPage() {
                     <div className="flex items-center gap-3 pt-4 border-t border-gray-100 flex-wrap">
                       <BookNowButton
                         packageName={dest.name}
-                        packageType="Tanzania Safari"
+                        packageType={tc('packageTypes.tanzaniaSafari')}
                         priceFrom={dest.priceFrom}
                         duration={dest.duration}
                         label={t('bookThisSafari')}
@@ -493,7 +493,7 @@ export default async function DestinationsPage() {
                   <div className="flex items-center gap-3 pt-4 border-t border-gray-100 flex-wrap">
                     <BookNowButton
                       packageName={extra.name}
-                      packageType="Tanzania Safari"
+                      packageType={tc('packageTypes.tanzaniaSafari')}
                       priceFrom={extra.priceFrom}
                       label={t('enquireNow')}
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
@@ -548,7 +548,7 @@ export default async function DestinationsPage() {
             </div>
             <BookNowButton
               packageName="Great Migration Safari"
-              packageType="Tanzania Migration Safari"
+              packageType={tc('packageTypes.tanzaniaMigrationSafari')}
               label={t('planMigrationSafari')}
               className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors whitespace-nowrap"
               arrow
@@ -582,7 +582,7 @@ export default async function DestinationsPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <BookNowButton
                   packageName="Tanzania Safari"
-                  packageType="Tanzania Safari"
+                  packageType={tc('packageTypes.tanzaniaSafari')}
                   label={t('startPlanningFree')}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-base shadow-lg"
                   arrow
