@@ -23,14 +23,13 @@ const featuredMeta = [
   { nameKey: 'dc5Name', wildlifeKey: 'dc5Wildlife', href: '/destinations/kenyan-coast', image: '/images/gallery/mombasa.webp', packages: 2 },
 ] as const
 
-function DestCard({ dest, exploreLabel, priority = false }: { dest: DestItem; exploreLabel: string; priority?: boolean }) {
+function DestCard({ dest, exploreLabel }: { dest: DestItem; exploreLabel: string }) {
   const inner = (
     <>
       <Image
         src={dest.image}
         alt={dest.name}
         fill
-        priority={priority}
         className="object-cover transition-transform duration-500 group-hover:scale-105"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
@@ -141,9 +140,9 @@ export default function DestinationCards() {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${active * 100}%)` }}
             >
-              {featured.map((dest, i) => (
+              {featured.map((dest) => (
                 <div key={dest.name} className="flex-shrink-0 w-full">
-                  <DestCard dest={dest} exploreLabel={exploreLabel} priority={i === 0} />
+                  <DestCard dest={dest} exploreLabel={exploreLabel} />
                 </div>
               ))}
             </div>
@@ -170,9 +169,9 @@ export default function DestinationCards() {
 
         {/* ── Desktop grid ── */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {featured.map((dest, i) => (
+          {featured.map((dest) => (
             <div key={dest.name} className="rounded-2xl border-[3px] border-gold">
-              <DestCard dest={dest} exploreLabel={exploreLabel} priority={i === 0} />
+              <DestCard dest={dest} exploreLabel={exploreLabel} />
             </div>
           ))}
         </div>

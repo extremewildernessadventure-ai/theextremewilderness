@@ -8,7 +8,7 @@ import { Clock, MapPin, Users, ArrowRight } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import { packages } from '@/data/packages'
 
-function PackageCard({ pkg, tc, priority = false }: { pkg: (typeof packages)[number]; tc: ReturnType<typeof useTranslations>; priority?: boolean }) {
+function PackageCard({ pkg, tc }: { pkg: (typeof packages)[number]; tc: ReturnType<typeof useTranslations> }) {
   return (
     <Link
       href={`/safaris/${pkg.slug}`}
@@ -19,7 +19,6 @@ function PackageCard({ pkg, tc, priority = false }: { pkg: (typeof packages)[num
           src={pkg.heroImage}
           alt={pkg.name}
           fill
-          priority={priority}
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
@@ -150,9 +149,9 @@ export default function FeaturedPackages() {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${active * 100}%)` }}
             >
-              {featured.map((pkg, i) => (
+              {featured.map((pkg) => (
                 <div key={pkg.slug} className="flex-shrink-0 w-full">
-                  <PackageCard pkg={pkg} tc={tc} priority={i === 0} />
+                  <PackageCard pkg={pkg} tc={tc} />
                 </div>
               ))}
             </div>
@@ -177,8 +176,8 @@ export default function FeaturedPackages() {
 
         {/* Desktop grid */}
         <div className="hidden md:grid md:grid-cols-2 gap-6">
-          {featured.map((pkg, i) => (
-            <PackageCard key={pkg.slug} pkg={pkg} tc={tc} priority={i === 0} />
+          {featured.map((pkg) => (
+            <PackageCard key={pkg.slug} pkg={pkg} tc={tc} />
           ))}
         </div>
 

@@ -122,7 +122,6 @@ export default function MapSection() {
                   height={1000}
                   className="w-full h-auto"
                   sizes="(max-width: 1024px) 100vw, 72vw"
-                  priority
                 />
               </div>
             </div>

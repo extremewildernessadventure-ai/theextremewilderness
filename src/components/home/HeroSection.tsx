@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import BookingModal from './BookingModal'
+import HeroVideo from './HeroVideo'
 
 export default function HeroSection() {
   const t = useTranslations('home')
@@ -19,18 +20,7 @@ export default function HeroSection() {
         className="object-cover"
         aria-hidden
       />
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="none"
-        className="absolute inset-0 w-full h-full object-cover"
-        aria-hidden
-      >
-        <source src="/Video/hero.webm" type="video/webm" />
-        <source src="/Video/hero.mp4" type="video/mp4" />
-      </video>
+      <HeroVideo />
 
       <div className="absolute inset-0 bg-brand/55" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-brand/70" />

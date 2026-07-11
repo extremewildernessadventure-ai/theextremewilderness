@@ -123,7 +123,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
         <Script
           id="tawk-reposition"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           dangerouslySetInnerHTML={{
             __html: `
               (function(){

@@ -5,6 +5,7 @@ import TrustBar from '@/components/home/TrustBar'
 import StatsRow from '@/components/home/StatsRow'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
 import PlanBuilderSection from '@/components/home/PlanBuilderSection'
+import TravelByMonth from '@/components/home/TravelByMonth'
 import BlogPreview from '@/components/home/BlogPreview'
 import CtaBanner from '@/components/home/CtaBanner'
 
@@ -12,7 +13,6 @@ const DestinationCards = dynamic(() => import('@/components/home/DestinationCard
 const FeaturedPackages = dynamic(() => import('@/components/home/FeaturedPackages'))
 const MapSection       = dynamic(() => import('@/components/home/MapSection'))
 const Testimonials     = dynamic(() => import('@/components/home/Testimonials'))
-const TravelByMonth    = dynamic(() => import('@/components/home/TravelByMonth'))
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
