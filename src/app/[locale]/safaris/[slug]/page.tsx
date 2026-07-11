@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Clock, Users, Check, X, ChevronDown } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import BookNowButton from '@/components/booking/BookNowButton'
@@ -16,7 +16,7 @@ import { getPackage, getPackages } from '@/data/packages.i18n'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import { routing } from '@/i18n/routing'
-import { SITE_URL, localeUrl } from '@/lib/site'
+import { SITE_URL, localeUrl, buildAlternates } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 
 
@@ -237,6 +237,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pkg = getPackage(slug, locale)
   if (!pkg) return {}
   return {
+    alternates: buildAlternates(locale, `/safaris/${slug}`),
     title: `${pkg.name} | Tanzania Safari`,
     description: `${pkg.name} — ${pkg.duration} nights starting from $${pkg.priceFrom.toLocaleString()}/person. ${pkg.highlights[0]}.`,
     keywords: SAFARI_KEYWORDS[slug] ?? DEFAULT_SAFARI_KEYWORDS,
@@ -255,6 +256,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SafariPackagePage({ params }: Props) {
   const { slug, locale } = await params
+  setRequestLocale(locale)
   const pkg = getPackage(slug, locale)
   if (!pkg) notFound()
 

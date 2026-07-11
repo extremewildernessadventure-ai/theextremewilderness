@@ -1,13 +1,20 @@
 import type { Metadata } from 'next'
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Link } from '@/i18n/navigation'
 import { Mail, Phone, ChevronRight, ShieldCheck, Eye, Share2, Globe, Clock, UserCheck, Lock, Baby, RefreshCw, Cookie, MessageCircle } from 'lucide-react'
 import TableOfContents from '@/components/legal/TableOfContents'
+import { buildAlternates } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy | The Extreme Wilderness',
-  description: 'How The Extreme Wilderness collects, uses, and protects your personal data. GDPR-compliant privacy policy for our safari booking services.',
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    alternates: buildAlternates(locale, '/privacy'),
+    title: 'Privacy Policy | The Extreme Wilderness',
+    description: 'How The Extreme Wilderness collects, uses, and protects your personal data. GDPR-compliant privacy policy for our safari booking services.',
+  }
 }
 
 const EFFECTIVE_DATE = '1 July 2026'
@@ -57,9 +64,10 @@ function TipBox({ children }: { children: React.ReactNode }) {
   )
 }
 
-export default async function PrivacyPage() {
+export default async function PrivacyPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations('privacy')
-  const locale = await getLocale()
   const sl = t('sectionLabel')
 
   const tocSections = [

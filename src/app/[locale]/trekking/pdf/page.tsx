@@ -1,10 +1,19 @@
 import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, getLocale } from 'next-intl/server'
 import { Printer } from 'lucide-react'
 import PrintTrigger from './PrintTrigger'
+import { buildAlternates } from '@/lib/site'
 
-export const metadata: Metadata = {
-  robots: { index: false, follow: false },
+// Kept dynamic deliberately: the printed document shows today's date
+// (new Date() below), which would otherwise freeze at build time.
+export const dynamic = 'force-dynamic'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale()
+  return {
+    alternates: buildAlternates(locale, '/trekking/pdf'),
+    robots: { index: false, follow: false },
+  }
 }
 
 interface Props {

@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next'
 import { Geist } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
-import { getLocale } from 'next-intl/server'
 import { SITE_URL } from '@/lib/site'
 
 const geist = Geist({
@@ -76,10 +75,15 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const locale = await getLocale()
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Static default — this layout sits above app/[locale] and can't read the
+  // locale segment without a Dynamic API, which would force the whole site
+  // to render per-request. app/[locale]/layout.tsx corrects this attribute
+  // synchronously on the client for non-English locales (see LangCorrection
+  // below); hreflang tags (the signal that matters for SEO) are already
+  // set correctly per-page regardless of this attribute.
   return (
-    <html lang={locale} className={`${geist.variable} h-full w-full`}>
+    <html lang="en" className={`${geist.variable} h-full w-full`}>
       <body className="min-h-screen w-full flex flex-col antialiased overflow-x-hidden">
         {children}
         <Script

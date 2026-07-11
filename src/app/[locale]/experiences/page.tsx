@@ -3,44 +3,51 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, Clock, MapPin, Star } from 'lucide-react'
 import NewsletterForm from '@/components/home/NewsletterForm'
-import { getTranslations } from 'next-intl/server'
-import { getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { getExperiences } from '@/data/experiences.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import type { Experience } from '@/data/experiences'
+import { buildAlternates } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Safari Experiences East Africa | Walking Safaris, Hot Air Balloon, Photography',
-  description: 'From Great Migration game drives to gorilla trekking, hot air balloon safaris, photography safaris, and walking safaris. Discover every way to explore East Africa.',
-  keywords: [
-    'walking safari Tanzania',
-    'hot air balloon safari Serengeti',
-    'photography safari Africa',
-    'night game drive Tanzania',
-    'gorilla trekking experience',
-    'Kilimanjaro trek experience',
-    'cultural safari Tanzania',
-    'East Africa safari experiences',
-    'Tanzania adventure safari',
-    'bush dinner Tanzania',
-    'sunset game drive Africa',
-    'Tanzania safari experiences 2026',
-    'unique Africa experiences',
-  ],
-  openGraph: {
-    title: 'Safari Experiences East Africa | EWA Safari Outfitters',
-    description: 'Hot air balloon safaris, walking safaris, gorilla trekking, photography safaris & more. Discover every way to explore East Africa.',
-    images: [{ url: '/images/gallery/safari-118.webp', width: 1200, height: 630, alt: 'East Africa safari landscape' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Safari Experiences East Africa | EWA',
-    images: ['/images/gallery/safari-118.webp'],
-  },
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    alternates: buildAlternates(locale, '/experiences'),
+    title: 'Safari Experiences East Africa | Walking Safaris, Hot Air Balloon, Photography',
+    description: 'From Great Migration game drives to gorilla trekking, hot air balloon safaris, photography safaris, and walking safaris. Discover every way to explore East Africa.',
+    keywords: [
+      'walking safari Tanzania',
+      'hot air balloon safari Serengeti',
+      'photography safari Africa',
+      'night game drive Tanzania',
+      'gorilla trekking experience',
+      'Kilimanjaro trek experience',
+      'cultural safari Tanzania',
+      'East Africa safari experiences',
+      'Tanzania adventure safari',
+      'bush dinner Tanzania',
+      'sunset game drive Africa',
+      'Tanzania safari experiences 2026',
+      'unique Africa experiences',
+    ],
+    openGraph: {
+      title: 'Safari Experiences East Africa | EWA Safari Outfitters',
+      description: 'Hot air balloon safaris, walking safaris, gorilla trekking, photography safaris & more. Discover every way to explore East Africa.',
+      images: [{ url: '/images/gallery/safari-118.webp', width: 1200, height: 630, alt: 'East Africa safari landscape' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Safari Experiences East Africa | EWA',
+      images: ['/images/gallery/safari-118.webp'],
+    },
+  }
 }
 
-export default async function ExperiencesPage() {
-  const locale = await getLocale()
+export default async function ExperiencesPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const experiences = getExperiences(locale)
   const t = await getTranslations('experiences')
 

@@ -4,7 +4,7 @@ import {
   ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
   Droplets, Pill, HeartPulse, Zap, Package, ShieldCheck, Check, X, ChevronDown,
 } from 'lucide-react'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import RouteImageGallery from '@/components/trekking/RouteImageGallery'
@@ -14,6 +14,7 @@ import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
 import BookNowButton from '@/components/booking/BookNowButton'
 import LemoshoMultiItinerary from '@/components/trekking/LemoshoMultiItinerary'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
+import { buildAlternates } from '@/lib/site'
 
 interface RouteProps {
   params: Promise<{ locale?: string; route: string }>
@@ -105,7 +106,8 @@ export async function generateMetadata({ params }: RouteProps): Promise<import('
     openGraph: { images: ogImage },
     twitter: { card: 'summary_large_image' as const, images: hero ? [hero.src] : undefined },
   }
-  if (!locale || locale === 'en' || !isRouteWithDetailContent(route)) return { ...fallback, ...ogMeta }
+  const alternates = buildAlternates(locale || 'en', `/trekking/${route}`)
+  if (!locale || locale === 'en' || !isRouteWithDetailContent(route)) return { ...fallback, ...ogMeta, alternates }
 
   const trd = await getTranslations({ locale, namespace: 'trekkingRouteDetail' })
   const tMeta = await getTranslations({ locale, namespace: 'trekking' })
@@ -118,6 +120,7 @@ export async function generateMetadata({ params }: RouteProps): Promise<import('
     title: `${routeName} 2026 | ${duration} | Extreme Wilderness Adventure`,
     description: `${routeName} — ${nickname}. ${duration}, ${successRate}${tMeta('successSuffix')}.`,
     keywords: fallback.keywords,
+    alternates,
     ...ogMeta,
   }
 }
@@ -184,6 +187,7 @@ function isRouteWithDetailContent(route: string): route is RouteWithDetailConten
 
 export default async function TrekkingRoutePage({ params }: RouteProps) {
   const { route, locale = 'en' } = await params
+  setRequestLocale(locale)
   const heroImage = ROUTE_HERO_IMAGES[route] ?? ROUTE_HERO_IMAGES.machame
   const galleryImages = ROUTE_GALLERY_IMAGES[route] ?? ROUTE_GALLERY_IMAGES.machame
   const t = await getTranslations('trekking')

@@ -3,13 +3,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
   Droplets, Pill, HeartPulse, Zap, Package, ShieldCheck } from 'lucide-react'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
+import { buildAlternates } from '@/lib/site'
 
 const ROUTE_SLUGS = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const
 const ROUTE_BADGE_KEYS: Record<string, string | null> = {
@@ -29,12 +30,14 @@ const ROUTE_IMAGES: Record<string, string> = {
   'northern-circuit': '/images/gallery/kilimanjaro-card-northern-circuit.webp',
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('trekking')
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale = 'en' } = await params
+  const t = await getTranslations({ locale, namespace: 'trekking' })
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
     keywords: t.raw('metaKeywords') as string[],
+    alternates: buildAlternates(locale, '/trekking'),
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
@@ -54,6 +57,7 @@ interface Props {
 
 export default async function TrekkingPage({ params }: Props) {
   const { locale = 'en' } = await params
+  setRequestLocale(locale)
   const t = await getTranslations('trekking')
   const trd = await getTranslations('trekkingRouteDetail')
   const tc = await getTranslations('common')

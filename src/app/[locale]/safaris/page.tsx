@@ -1,14 +1,19 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { getPackages } from '@/data/packages.i18n'
+import { buildAlternates } from '@/lib/site'
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
   return {
+    alternates: buildAlternates(locale, '/safaris'),
     title: 'Tanzania Safari Packages 2026 | Serengeti, Ngorongoro & More | EWA',
     description: 'Book Tanzania safari packages with a certified local operator. Serengeti, Ngorongoro, Zanzibar combos, and luxury family safaris from $1,000/person. Best Tanzania safari 2026.',
     keywords: [
@@ -36,8 +41,9 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function SafarisPage() {
-  const locale = await getLocale()
+export default async function SafarisPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const packages = getPackages(locale)
   const t = await getTranslations('safari')
   const tc = await getTranslations('common')

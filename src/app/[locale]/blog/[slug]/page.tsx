@@ -11,8 +11,8 @@ import BookNowButton from '@/components/booking/BookNowButton'
 import { getPackages, getPackage } from '@/data/packages.i18n'
 import { getDestinations, getDestination } from '@/data/destinations.i18n'
 import { routing } from '@/i18n/routing'
-import { getTranslations } from 'next-intl/server'
-import { SITE_URL } from '@/lib/site'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { SITE_URL, buildAlternates } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 
 interface Props {
@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPostMeta(slug, locale)
   if (!post) return {}
   return {
+    alternates: buildAlternates(locale, `/blog/${slug}`),
     title: post.metaTitle,
     description: post.metaDescription,
     keywords: post.keywords,
@@ -153,6 +154,7 @@ function renderSection(section: SectionType, idx: number) {
 
 export default async function BlogArticlePage({ params }: Props) {
   const { slug, locale } = await params
+  setRequestLocale(locale)
   const [post, t, tCommon] = await Promise.all([
     Promise.resolve(getBlogPostMeta(slug, locale)),
     getTranslations('blog'),

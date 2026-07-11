@@ -4,41 +4,52 @@ import Image from 'next/image'
 import { ArrowRight, Calendar, Clock } from 'lucide-react'
 import { getBlogPosts, getBlogCategories } from '@/data/blog/index.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { buildAlternates } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Safari Blog | Tanzania & East Africa Travel Guides | The Extreme Wilderness',
-  description: 'Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.',
-  openGraph: {
-    title: 'Safari Blog | Tanzania & East Africa Travel Guides',
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    alternates: buildAlternates(locale, '/blog'),
+    title: 'Safari Blog | Tanzania & East Africa Travel Guides | The Extreme Wilderness',
     description: 'Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.',
-    images: [{ url: '/images/gallery/safari-114.webp', width: 1200, height: 630, alt: 'Safari vehicles on the Serengeti plains at golden hour' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Safari Blog | The Extreme Wilderness',
-    images: ['/images/gallery/safari-114.webp'],
-  },
-  keywords: [
-    'Tanzania safari blog',
-    'Africa safari travel guide',
-    'Kilimanjaro trekking guide',
-    'East Africa wildlife blog',
-    'Tanzania travel tips',
-    'safari planning advice',
-    'gorilla trekking guide Rwanda',
-    'Africa wildlife articles',
-    'Serengeti travel guide',
-    'Tanzania tourism blog',
-    'Africa travel blog',
-    'safari photography tips',
-    'best time Africa safari',
-    'Tanzania travel information',
-  ],
+    openGraph: {
+      title: 'Safari Blog | Tanzania & East Africa Travel Guides',
+      description: 'Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.',
+      images: [{ url: '/images/gallery/safari-114.webp', width: 1200, height: 630, alt: 'Safari vehicles on the Serengeti plains at golden hour' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Safari Blog | The Extreme Wilderness',
+      images: ['/images/gallery/safari-114.webp'],
+    },
+    keywords: [
+      'Tanzania safari blog',
+      'Africa safari travel guide',
+      'Kilimanjaro trekking guide',
+      'East Africa wildlife blog',
+      'Tanzania travel tips',
+      'safari planning advice',
+      'gorilla trekking guide Rwanda',
+      'Africa wildlife articles',
+      'Serengeti travel guide',
+      'Tanzania tourism blog',
+      'Africa travel blog',
+      'safari photography tips',
+      'best time Africa safari',
+      'Tanzania travel information',
+    ],
+  }
 }
 
-export default async function BlogPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
-  const locale = await getLocale()
+type Props = {
+  params: Promise<{ locale: string }>
+  searchParams: Promise<{ category?: string }>
+}
+
+export default async function BlogPage({ params, searchParams }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const allPosts = getBlogPosts(locale)
   const categories = getBlogCategories(locale)
   const t = await getTranslations('blog')

@@ -5,20 +5,25 @@ import { ArrowRight, CheckCircle2, Calendar, Compass, HelpCircle, Clock, Users, 
 import { getPackages } from '@/data/packages.i18n'
 import NewsletterForm from '@/components/home/NewsletterForm'
 import BookNowButton from '@/components/booking/BookNowButton'
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { MONTHS } from '@/lib/seasonData'
 import PlanBuilderEntryCard from '@/components/plan/PlanBuilderEntryCard'
 import FilteredPackageGrid from '@/components/itineraries/FilteredPackageGrid'
 import NationalParksGrid from '@/components/itineraries/NationalParksGrid'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import Breadcrumb from '@/components/ui/Breadcrumb'
+import { buildAlternates } from '@/lib/site'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('itineraries')
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'itineraries' })
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
     keywords: t.raw('metaKeywords') as string[],
+    alternates: buildAlternates(locale, '/itineraries'),
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
@@ -48,8 +53,9 @@ const EXTRA_META = [
   { slug: 'kilimanjaro-machame-7day', image: '/images/gallery/kilimanjaro.webp', badgeKey: null },
 ] as const
 
-export default async function ItinerariesPage() {
-  const locale = await getLocale()
+export default async function ItinerariesPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const packages = getPackages(locale)
   const t = await getTranslations('itineraries')
   const tc = await getTranslations('common')

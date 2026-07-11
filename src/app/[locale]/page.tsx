@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import { setRequestLocale } from 'next-intl/server'
+import { buildAlternates } from '@/lib/site'
 import HeroSection from '@/components/home/HeroSection'
 import TrustBar from '@/components/home/TrustBar'
 import StatsRow from '@/components/home/StatsRow'
@@ -14,8 +16,12 @@ const FeaturedPackages = dynamic(() => import('@/components/home/FeaturedPackage
 const MapSection       = dynamic(() => import('@/components/home/MapSection'))
 const Testimonials     = dynamic(() => import('@/components/home/Testimonials'))
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
   return {
+    alternates: buildAlternates(locale, '/'),
     title: 'Extreme Wilderness Adventure | Tanzania Safari & Kilimanjaro Trekking 2026',
     description: 'Book Tanzania safaris, Kilimanjaro treks, gorilla trekking Rwanda and Kenya safaris with a certified local operator. Serengeti, Ngorongoro, Great Migration. 4.9/5 rated.',
     keywords: [
@@ -44,7 +50,9 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function HomePage() {
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   return (
     <>
       <HeroSection />

@@ -3,37 +3,43 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, MapPin, Clock, Star, CheckCircle2, Binoculars, Users, Car, Headphones, Shield, Compass, Trophy } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
-import { getTranslations } from 'next-intl/server'
-import { getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
+import { buildAlternates } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Tanzania Safari Destinations | Serengeti, Ngorongoro & More',
-  description:
-    "Explore Tanzania's finest safari destinations across three circuits. Serengeti's Great Migration, Ngorongoro Crater's Big Five, Tarangire's elephant herds, southern wilderness, and western chimpanzee parks. Expert-guided from Arusha.",
-  keywords: [
-    'Tanzania safari destinations',
-    'Serengeti National Park',
-    'Ngorongoro Crater',
-    'Tarangire National Park',
-    'Ruaha National Park',
-    'Nyerere National Park',
-    'Zanzibar island',
-    'Tanzania circuits',
-    'northern circuit Tanzania',
-    'southern circuit Tanzania',
-  ],
-  openGraph: {
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    alternates: buildAlternates(locale, '/destinations'),
     title: 'Tanzania Safari Destinations | Serengeti, Ngorongoro & More',
-    description: "Explore Tanzania's finest safari destinations — Serengeti, Ngorongoro Crater, Tarangire, Zanzibar, and more. Expert-guided from Arusha.",
-    images: [{ url: '/images/gallery/safari-119.webp', width: 1200, height: 630, alt: 'Lions at golden sunset on the Tanzania Serengeti plains' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Tanzania Safari Destinations | EWA',
-    images: ['/images/gallery/safari-119.webp'],
-  },
+    description:
+      "Explore Tanzania's finest safari destinations across three circuits. Serengeti's Great Migration, Ngorongoro Crater's Big Five, Tarangire's elephant herds, southern wilderness, and western chimpanzee parks. Expert-guided from Arusha.",
+    keywords: [
+      'Tanzania safari destinations',
+      'Serengeti National Park',
+      'Ngorongoro Crater',
+      'Tarangire National Park',
+      'Ruaha National Park',
+      'Nyerere National Park',
+      'Zanzibar island',
+      'Tanzania circuits',
+      'northern circuit Tanzania',
+      'southern circuit Tanzania',
+    ],
+    openGraph: {
+      title: 'Tanzania Safari Destinations | Serengeti, Ngorongoro & More',
+      description: "Explore Tanzania's finest safari destinations — Serengeti, Ngorongoro Crater, Tarangire, Zanzibar, and more. Expert-guided from Arusha.",
+      images: [{ url: '/images/gallery/safari-119.webp', width: 1200, height: 630, alt: 'Lions at golden sunset on the Tanzania Serengeti plains' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Tanzania Safari Destinations | EWA',
+      images: ['/images/gallery/safari-119.webp'],
+    },
+  }
 }
 
 const tanzaniaStats = [
@@ -98,10 +104,11 @@ const CIRCUIT_META = [
   },
 ]
 
-export default async function DestinationsPage() {
+export default async function DestinationsPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations('destinations')
   const tc = await getTranslations('common')
-  const locale = await getLocale()
   const allDestinations = getDestinations(locale)
   const tanzaniaDestinations = allDestinations.filter(d => d.country === 'tanzania')
 

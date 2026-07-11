@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Link } from '@/i18n/navigation'
 import {
@@ -8,10 +8,17 @@ import {
   Lock, CheckCircle2, CloudLightning, Star,
 } from 'lucide-react'
 import TableOfContents from '@/components/legal/TableOfContents'
+import { buildAlternates } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Terms & Conditions | The Extreme Wilderness',
-  description: 'Terms and Conditions for booking safaris, trekking, and travel experiences with The Extreme Wilderness. Includes cancellation policy, liability, and insurance requirements.',
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    alternates: buildAlternates(locale, '/terms'),
+    title: 'Terms & Conditions | The Extreme Wilderness',
+    description: 'Terms and Conditions for booking safaris, trekking, and travel experiences with The Extreme Wilderness. Includes cancellation policy, liability, and insurance requirements.',
+  }
 }
 
 const EFFECTIVE_DATE = '1 July 2026'
@@ -71,9 +78,10 @@ function TipBox({ children }: { children: React.ReactNode }) {
   )
 }
 
-export default async function TermsPage() {
+export default async function TermsPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations('terms')
-  const locale = await getLocale()
   const sl = t('sectionLabel')
 
   const tocSections = [

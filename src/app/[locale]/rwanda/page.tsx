@@ -3,9 +3,12 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, MapPin, Clock, Users, Star, Mountain, CheckCircle2, Car, Headphones, Shield, Compass, Trophy } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
+import { buildAlternates } from '@/lib/site'
+
+type Props = { params: Promise<{ locale: string }> }
 
 const RWANDA_DEST_ORDER = ['volcanoes', 'nyungwe', 'akagera', 'lake-kivu', 'kigali'] as const
 const RWANDA_DEST_IMAGES: Record<string, string> = {
@@ -23,12 +26,14 @@ const RWANDA_DEST_BADGE_COLORS: Record<string, string> = {
   kigali: 'bg-brand text-white',
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('rwanda')
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'rwanda' })
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
     keywords: t.raw('metaKeywords') as string[],
+    alternates: buildAlternates(locale, '/rwanda'),
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
@@ -42,13 +47,14 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function RwandaPage() {
+export default async function RwandaPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations('rwanda')
   const tc = await getTranslations('common')
   const statLabels = [t('statGorillas'), t('statPrimates'), t('statBirds'), t('statPlants'), t('statPeak'), t('statCapital')]
   const seasonLabels = [t('season1Label'), t('season2Label'), t('season3Label'), t('season4Label')]
 
-  const locale = await getLocale()
   const destByCountry = getDestinations(locale)
 
   const destExtra = t.raw('destExtra') as Record<string, { badge: string; size: string; bestTime: string; duration: string; activities: string[] }>

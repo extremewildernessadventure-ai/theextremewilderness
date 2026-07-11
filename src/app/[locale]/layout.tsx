@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { headers } from 'next/headers'
 import { routing } from '@/i18n/routing'
-import { localeUrl, SITE_URL } from '@/lib/site'
+import { SITE_URL } from '@/lib/site'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import BottomNav from '@/components/layout/BottomNav'
@@ -16,29 +15,19 @@ type Props = {
   params: Promise<{ locale: string }>
 }
 
-const NON_DEFAULT_LOCALES = routing.locales.filter((l) => l !== routing.defaultLocale)
-const LOCALE_PREFIX_RE = new RegExp(`^/(${NON_DEFAULT_LOCALES.join('|')})(?=/|$)`)
-
 const OG_LOCALE: Record<string, string> = {
   en: 'en_US', fr: 'fr_FR', es: 'es_ES', de: 'de_DE',
 }
 
+// Canonical/hreflang alternates are set per-page (via buildAlternates in
+// @/lib/site) instead of here — computing them from the request path would
+// require headers(), a Dynamic API that forces this whole layout, and every
+// page under it, to render per-request instead of being statically generated.
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
-  const headersList = await headers()
-  const rawPathname = headersList.get('x-pathname') ?? '/'
-  const unprefixedPath = rawPathname.replace(LOCALE_PREFIX_RE, '') || '/'
-
   return {
     openGraph: {
       locale: OG_LOCALE[locale] ?? 'en_US',
-    },
-    alternates: {
-      canonical: localeUrl(locale, unprefixedPath),
-      languages: {
-        ...Object.fromEntries(routing.locales.map((l) => [l, localeUrl(l, unprefixedPath)])),
-        'x-default': localeUrl(routing.defaultLocale, unprefixedPath),
-      },
     },
   }
 }
@@ -54,6 +43,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound()
   }
 
+  setRequestLocale(locale)
   const messages = await getMessages()
 
   const orgSchema = {
@@ -87,8 +77,17 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       <Providers>
+        {/* Root layout (above this segment) can't read `locale` without a
+            Dynamic API, so it hardcodes lang="en". This corrects it
+            synchronously for non-English locales before paint — no visible
+            flash, since it runs as the parser reaches it. */}
+        {locale !== 'en' && (
+          <script
+            dangerouslySetInnerHTML={{ __html: `document.documentElement.lang=${JSON.stringify(locale)}` }}
+          />
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}

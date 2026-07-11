@@ -2,14 +2,14 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Calendar, MapPin, Ruler, ArrowRight, Check } from 'lucide-react'
 import { destinations } from '@/data/destinations'
 import { getDestination, getDestinations } from '@/data/destinations.i18n'
 import { getPackages } from '@/data/packages.i18n'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { routing } from '@/i18n/routing'
-import { SITE_URL, localeUrl } from '@/lib/site'
+import { SITE_URL, localeUrl, buildAlternates } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 
 
@@ -140,6 +140,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dest = getDestination(slug, locale)
   if (!dest) return {}
   return {
+    alternates: buildAlternates(locale, `/destinations/${slug}`),
     title: `${dest.name} Safari | The Extreme Wilderness Tanzania`,
     description: `Plan your ${dest.name} safari with Tanzania's leading local operator. ${dest.tagline}.`,
     keywords: DEST_KEYWORDS[slug] ?? [
@@ -162,6 +163,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function DestinationPage({ params }: Props) {
   const { slug, locale } = await params
+  setRequestLocale(locale)
   const dest = getDestination(slug, locale)
   if (!dest) notFound()
 

@@ -1,20 +1,25 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
+import { buildAlternates } from '@/lib/site'
 import {
   ArrowRight, MapPin, Star, Users, Award,
   Globe, Shield, Clock, Leaf,
   Mail, Phone,
 } from 'lucide-react'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('about')
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'about' })
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
     keywords: t.raw('metaKeywords') as string[],
+    alternates: buildAlternates(locale, '/about'),
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
@@ -37,9 +42,10 @@ const galleryImages = [
   '/images/gallery/zanzibar-nungwi-aerial.webp',
 ]
 
-export default async function AboutPage() {
+export default async function AboutPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations('about')
-  const locale = await getLocale()
 
   const stats = [
     { value: '4.9', label: t('tripAdvisorRating'), sub: t('tripAdvisorSub'), icon: Star },

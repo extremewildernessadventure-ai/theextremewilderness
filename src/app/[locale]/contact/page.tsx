@@ -1,12 +1,17 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Mail, Phone, MapPin, Star, Award, MessageCircle } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
+import { buildAlternates } from '@/lib/site'
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
   return {
+    alternates: buildAlternates(locale, '/contact'),
     title: 'Contact & Plan Your Safari | The Extreme Wilderness',
     description: 'Get in touch with our Tanzania-based safari experts. We respond within 2 hours with a custom itinerary.',
     openGraph: {
@@ -43,9 +48,10 @@ const WHATSAPP_SVG = (
   </svg>
 )
 
-export default async function ContactPage() {
+export default async function ContactPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations('contact')
-  const locale = await getLocale()
 
   const trustSignals = [
     { icon: Star, text: t('tripAdvisor') },

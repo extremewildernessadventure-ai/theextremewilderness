@@ -1,48 +1,56 @@
 import type { Metadata } from 'next'
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Link } from '@/i18n/navigation'
 import {
   ChevronRight, ArrowRight, Calendar, Heart, DollarSign,
   Shirt, ShieldCheck, Phone, Syringe, Sun,
 } from 'lucide-react'
+import { buildAlternates } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: 'Tanzania Travel Information | Visas, Health, Currency & Packing | The Extreme Wilderness',
-  description:
-    'Essential Tanzania travel information — best time to visit, visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari or Kilimanjaro trek.',
-  openGraph: {
-    title: 'Tanzania Travel Information | Visas, Health, Currency & Packing',
-    description: 'Essential Tanzania travel information — visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari.',
-    images: [{ url: '/images/gallery/safari-118.webp', width: 1200, height: 630, alt: 'East Africa safari landscape' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Tanzania Travel Information | The Extreme Wilderness',
-    images: ['/images/gallery/safari-118.webp'],
-  },
-  keywords: [
-    'Tanzania visa requirements',
-    'Tanzania travel tips',
-    'Tanzania health vaccinations',
-    'Tanzania safari packing list',
-    'best time to visit Tanzania',
-    'Tanzania weather safari',
-    'Tanzania currency',
-    'Tanzania malaria prevention',
-    'Tanzania entry requirements',
-    'Tanzania travel guide USA',
-    'Tanzania holiday guide UK',
-    'what to pack for safari',
-    'Tanzania travel insurance',
-    'Tanzania yellow fever certificate',
-    'Tanzania travel advice',
-  ],
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    alternates: buildAlternates(locale, '/travel-info'),
+    title: 'Tanzania Travel Information | Visas, Health, Currency & Packing | The Extreme Wilderness',
+    description:
+      'Essential Tanzania travel information — best time to visit, visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari or Kilimanjaro trek.',
+    openGraph: {
+      title: 'Tanzania Travel Information | Visas, Health, Currency & Packing',
+      description: 'Essential Tanzania travel information — visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari.',
+      images: [{ url: '/images/gallery/safari-118.webp', width: 1200, height: 630, alt: 'East Africa safari landscape' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Tanzania Travel Information | The Extreme Wilderness',
+      images: ['/images/gallery/safari-118.webp'],
+    },
+    keywords: [
+      'Tanzania visa requirements',
+      'Tanzania travel tips',
+      'Tanzania health vaccinations',
+      'Tanzania safari packing list',
+      'best time to visit Tanzania',
+      'Tanzania weather safari',
+      'Tanzania currency',
+      'Tanzania malaria prevention',
+      'Tanzania entry requirements',
+      'Tanzania travel guide USA',
+      'Tanzania holiday guide UK',
+      'what to pack for safari',
+      'Tanzania travel insurance',
+      'Tanzania yellow fever certificate',
+      'Tanzania travel advice',
+    ],
+  }
 }
 
-export default async function TravelInfoPage() {
+export default async function TravelInfoPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
   const t = await getTranslations('travelInfo')
-  const locale = await getLocale()
 
   const quickFacts = [
     { label: t('qf1Label'), value: t('qf1Value') },
