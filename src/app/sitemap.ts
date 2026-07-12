@@ -74,7 +74,7 @@ export const BLOG_SLUGS = [
 ]
 
 export const STATIC_PAGES = [
-  '', '/safaris', '/destinations', '/trekking', '/itineraries', '/experiences',
+  '', '/safaris', '/destinations', '/trekking', '/experiences',
   '/kenya', '/rwanda', '/about', '/contact', '/blog', '/travel-info', '/plan', '/privacy', '/terms',
 ]
 
@@ -84,7 +84,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/safaris', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/destinations', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/trekking', priority: 0.8, changeFrequency: 'monthly' as const },
-    { path: '/itineraries', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/experiences', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/kenya', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/rwanda', priority: 0.8, changeFrequency: 'monthly' as const },

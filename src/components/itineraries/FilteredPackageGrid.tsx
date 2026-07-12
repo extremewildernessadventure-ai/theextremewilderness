@@ -28,6 +28,7 @@ interface Props {
     filterAll: string
     filterTanzania: string
     filterKenya: string
+    filterRwanda: string
     filterCombined: string
     days: string
     max: string
@@ -42,17 +43,21 @@ interface Props {
 
 const KENYA_DESTS = ['masai-mara', 'amboseli', 'samburu', 'tsavo', 'nakuru']
 const TZ_DESTS = ['serengeti', 'ngorongoro', 'tarangire', 'manyara', 'zanzibar', 'arusha', 'ruaha', 'nyerere']
+const RWANDA_DESTS = ['volcanoes', 'akagera', 'kigali', 'lake-kivu', 'nyungwe']
 const PAGE_SIZE = 6
 const STEP = 100
 
 type DurBucket = '2-5' | '6-9' | '10+'
-type CountryKey = 'all' | 'tanzania' | 'kenya' | 'combined'
+type CountryKey = 'all' | 'tanzania' | 'kenya' | 'rwanda' | 'combined'
 
-function pkgCountry(dests: string[]): 'tanzania' | 'kenya' | 'combined' {
+function pkgCountry(dests: string[]): 'tanzania' | 'kenya' | 'rwanda' | 'combined' {
   const hasK = dests.some((d) => KENYA_DESTS.includes(d))
   const hasT = dests.some((d) => TZ_DESTS.includes(d))
-  if (hasK && hasT) return 'combined'
+  const hasR = dests.some((d) => RWANDA_DESTS.includes(d))
+  const count = [hasK, hasT, hasR].filter(Boolean).length
+  if (count > 1) return 'combined'
   if (hasK) return 'kenya'
+  if (hasR) return 'rwanda'
   return 'tanzania'
 }
 
@@ -108,6 +113,7 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
     { key: 'all', label: labels.filterAll },
     { key: 'tanzania', label: labels.filterTanzania },
     { key: 'kenya', label: labels.filterKenya },
+    { key: 'rwanda', label: labels.filterRwanda },
     { key: 'combined', label: labels.filterCombined },
   ]
 

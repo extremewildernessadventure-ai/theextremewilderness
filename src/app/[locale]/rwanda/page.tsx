@@ -1,14 +1,25 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { ArrowRight, MapPin, Clock, Users, Star, Mountain, CheckCircle2, Car, Headphones, Shield, Compass, Trophy } from 'lucide-react'
+import { ArrowRight, MapPin, Users, Mountain, CheckCircle2, Car, Headphones, Shield, Compass, Trophy } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
+import DestinationCard from '@/components/destinations/DestinationCard'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { buildAlternates } from '@/lib/site'
 
 type Props = { params: Promise<{ locale: string }> }
+
+const RWANDA_FEATURED_SLUG = 'volcanoes'
+
+const RWANDA_DEST_REGION: Record<string, string> = {
+  volcanoes: 'Northern Rwanda',
+  nyungwe: 'South-West Rwanda',
+  akagera: 'Eastern Rwanda',
+  'lake-kivu': 'Western Rwanda',
+  kigali: 'Capital',
+}
 
 const RWANDA_DEST_ORDER = ['volcanoes', 'nyungwe', 'akagera', 'lake-kivu', 'kigali'] as const
 const RWANDA_DEST_IMAGES: Record<string, string> = {
@@ -69,12 +80,16 @@ export default async function RwandaPage({ params }: Props) {
     const extra = destExtra[slug]
     return {
       id: slug,
+      slug,
       name: d.name,
       tagline: d.tagline,
       size: extra.size,
       image: RWANDA_DEST_IMAGES[slug],
       badge: extra.badge,
       badgeColor: RWANDA_DEST_BADGE_COLORS[slug],
+      regionLabel: RWANDA_DEST_REGION[slug] ?? 'Rwanda',
+      firstParagraph: d.description.split('\n\n')[0],
+      packagesCount: d.packages.length,
       highlights: d.highlights,
       wildlife: d.wildlife,
       bestTime: extra.bestTime,
@@ -368,92 +383,27 @@ export default async function RwandaPage({ params }: Props) {
             </p>
           </div>
 
-          <div className="space-y-10">
-            {destinations.map((dest, i) => (
-              <div
-                key={dest.id}
-                className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-0 bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-gray-100`}
-              >
-                <div className="relative lg:w-[45%] flex-shrink-0 h-64 lg:h-auto min-h-[320px]">
-                  <Image
-                    src={dest.image}
-                    alt={dest.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 45vw"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {destinations.map((dest) => {
+              const isFeatured = dest.slug === RWANDA_FEATURED_SLUG
+              return (
+                <div key={dest.id} className={isFeatured ? 'sm:col-span-2' : ''}>
+                  <DestinationCard
+                    slug={dest.slug}
+                    name={dest.name}
+                    regionLabel={dest.regionLabel}
+                    description={dest.firstParagraph}
+                    image={dest.image}
+                    wildlife={dest.wildlife}
+                    bestTime={dest.bestTime}
+                    experiencesLabel={tc('experiencesCount', { count: dest.packagesCount })}
+                    priceFrom={dest.priceFrom}
+                    featured={isFeatured}
+                    labels={{ from: tc('from'), featuredBadge: tc('featuredDestination') }}
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className={`inline-block text-xs font-bold px-3 py-1.5 rounded-full shadow ${dest.badgeColor}`}>
-                      {dest.badge}
-                    </span>
-                  </div>
-                  <div className="absolute bottom-4 right-4 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5">
-                    <MapPin className="w-3 h-3 text-gold" />
-                    <span className="text-white text-xs font-medium">{dest.size}</span>
-                  </div>
                 </div>
-
-                <div className="flex-1 p-6 lg:p-8 flex flex-col">
-                  <div className="mb-4">
-                    <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{dest.tagline}</p>
-                    <h3 className="text-xl lg:text-2xl font-bold text-brand mb-2">{dest.name}</h3>
-                    <div className="flex flex-wrap gap-3 text-xs text-text-muted">
-                      <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {dest.duration}</span>
-                      <span className="flex items-center gap-1">
-                        <Star className="w-3 h-3 text-gold fill-gold" /> {t('bestTimePrefix')} {dest.bestTime}
-                      </span>
-                      <span className="flex items-center gap-1 font-semibold text-brand">{t('fromPrice', { price: dest.priceFrom })}</span>
-                    </div>
-                  </div>
-
-                  <p className="text-text-muted text-sm leading-relaxed mb-5 flex-1">{dest.overview}</p>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mb-5">
-                    {dest.highlights.map((h) => (
-                      <div key={h} className="flex items-start gap-2 text-xs text-brand">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-gold flex-shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mb-5">
-                    <p className="text-xs font-semibold text-text-muted uppercase tracking-wider mb-2">{t('wildlifeLabel')}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {dest.wildlife.map((w) => (
-                        <span key={w} className="text-xs bg-light-green text-brand px-2.5 py-1 rounded-full border border-brand/10 font-medium">
-                          {w}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mb-6">
-                    <p className="text-xs font-semibold text-text-muted uppercase tracking-wider mb-2">{t('activitiesLabel')}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {dest.activities.map((a) => (
-                        <span key={a} className="text-xs bg-brand/5 text-brand/70 px-2.5 py-1 rounded-full border border-brand/10">
-                          {a}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-                    <BookNowButton
-                      packageName={dest.name}
-                      packageType={tc('packageTypes.rwandaSafari')}
-                      priceFrom={dest.priceFrom}
-                      duration={dest.duration}
-                      label={t('bookTripButton', { destName: dest.name })}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-bold rounded-xl transition-colors"
-                      arrow
-                    />
-                    <span className="text-xs text-text-muted">{t('freeConsultation')}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>

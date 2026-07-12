@@ -30,17 +30,8 @@ export default function Navbar() {
         { label: t('rwanda'), href: '/rwanda' as const, flag: '🇷🇼', desc: t('rwandaDesc') },
       ],
     },
-    {
-      label: t('safaris'),
-      href: '/safaris' as const,
-      children: [
-        { label: t('tanzaniaSafaris'), href: '/safaris' as const, flag: '🇹🇿', desc: t('tanzaniaSafarisDesc') },
-        { label: t('kenyaSafaris'), href: '/kenya#packages', flag: '🇰🇪', desc: t('kenyaSafarisDesc') },
-        { label: t('rwandaSafaris'), href: '/rwanda#packages', flag: '🇷🇼', desc: t('rwandaSafarisDesc') },
-      ],
-    },
+    { label: t('safaris'), href: '/safaris' as const },
     { label: t('experiences'), href: '/experiences' as const },
-    { label: t('itineraries'), href: '/itineraries' as const },
     { label: t('trekking'), href: '/trekking' as const },
     { label: t('about'), href: '/about' as const },
   ]

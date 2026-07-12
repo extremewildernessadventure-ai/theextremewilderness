@@ -158,7 +158,121 @@
         "solo": 2695,
         "small": 2495,
         "group": 2350
-      }
+      },
+      "pricing6Day": { "solo": 2395, "small": 2195, "group": 2095 },
+      "quickFacts6Day": {
+        "routeName": "Route Machame (la Route du Whisky)",
+        "duration": "6 Jours / 5 Nuits",
+        "distance": "~62 km au total",
+        "startGate": "Porte de Machame (1 830 m)",
+        "finishGate": "Porte de Mweka (1 680 m)",
+        "summit": "Uhuru Peak — 5 895 m / 19 341 pieds",
+        "difficulty": "Difficile",
+        "trailTraffic": "Modéré à élevé",
+        "successRate": "~80–85 %",
+        "bestSeason": "Juin–octobre · Janvier–février",
+        "accommodation": "Tentes de camping 4 saisons",
+        "priceFrom": "2 095 USD par personne (groupe de 6)"
+      },
+      "arrivalDay6Day": "Arrivée à l'aéroport international du Kilimandjaro, où votre guide vous accueille pour le transfert vers votre lodge à Moshi. Installez-vous, puis retrouvez vos guides en soirée pour un briefing complet et une vérification de l'équipement avant le départ du lendemain. Reposez-vous bien — votre expédition commence le matin.",
+      "itinerary6Day": [
+        {
+          "day": 1,
+          "title": "Porte de Machame → Camp de Machame",
+          "meta": "Camp : Camp de Machame · Altitude : 3 050 m · Distance : 11 km · Temps de marche : 5–7 heures",
+          "body": "Environ 60 minutes de route depuis Moshi jusqu'à la Porte de Machame (1 830 m), en traversant le village de Machame sur les flancs inférieurs de la montagne. Depuis la porte, le sentier grimpe régulièrement à travers la forêt tropicale jusqu'au Camp de Machame, sur une crête de lande au-dessus de la limite des arbres — guêtres et bâtons de marche sont utiles, le sentier inférieur pouvant être boueux.",
+          "expect": "Le Jour 1 le plus long de toutes les routes standard du Kilimandjaro. Les jambes le sentiront. Mangez bien, buvez plus d'eau que vous ne le pensez nécessaire, et couchez-vous le plus tôt possible."
+        },
+        {
+          "day": 2,
+          "title": "Camp de Machame → Camp de Shira",
+          "meta": "Camp : Camp de Shira · Altitude : 3 850 m · Distance : 5 km · Temps de marche : 4–6 heures",
+          "body": "Laissant derrière soi les clairières de la forêt tropicale, le sentier grimpe une crête rocheuse escarpée à travers la vallée avant de tourner vers l'ouest dans la lande ouverte pour atteindre le Camp de Shira sur le vaste plateau du même nom.",
+          "expect": "Une journée plus courte après l'effort du Jour 1. La fatigue en fin d'après-midi est normale. Des maux de tête légers sont fréquents à cette altitude — ils se résorbent généralement pendant la nuit."
+        },
+        {
+          "day": 3,
+          "title": "Camp de Shira → Lava Tower → Camp de Barranco",
+          "meta": "Camp : Camp de Barranco · Altitude : 4 000 m · Distance : 10 km · Temps de marche : 5–6 heures",
+          "body": "Vers l'est le long du plateau de Shira, en passant la jonction vers le sommet du Kibo, puis vers le sud-est jusqu'à la Lava Tower — la « Dent de Requin » à 4 650 m — avant de redescendre au Camp de Barranco. Vous terminerez près de l'altitude de départ, mais cette journée constitue une acclimatation essentielle pour la suite.",
+          "expect": "C'est le jour où l'altitude se fait sentir. L'appétit peut diminuer. Les maux de tête sont fréquents. Prévenez immédiatement votre guide si les symptômes semblent importants."
+        },
+        {
+          "day": 4,
+          "title": "Camp de Barranco → Muraille de Barranco → Camp de Barafu",
+          "meta": "Camp : Camp de Barafu · Altitude : 4 700 m · Distance : 9 km · Temps de marche : 6–8 heures",
+          "body": "La Muraille de Barranco mène à travers la vallée de Karanga — la dernière source d'eau fiable de la montagne — jusqu'à la jonction avec le sentier de Mweka, complétant le circuit sud avec des vues sur le sommet sous plusieurs angles, avant d'atteindre le Camp de Barafu. C'est la journée la plus longue de l'itinéraire 6 jours, combinant ce que l'itinéraire 7 jours répartit sur deux jours.",
+          "expect": "La journée la plus exigeante de cet itinéraire. Avancez avec régularité — l'acclimatation des jours précédents vous porte. Votre guide effectue le briefing complet pour le sommet à l'arrivée."
+        },
+        {
+          "day": 5,
+          "title": "Nuit du Sommet → Uhuru Peak → Camp de Mweka",
+          "meta": "Camp : Camp de Mweka · Altitude : sommet à 5 895 m → 3 090 m · Distance : 5 km montée / 13 km descente · Temps de marche : 10–14 heures au total",
+          "body": "Départ entre minuit et 2 h du matin, vous grimperez entre les glaciers Rebmann et Ratzel vers Stella Point sur le bord du cratère — le tronçon le plus exigeant physiquement et mentalement de l'ascension, récompensé par l'un des plus beaux levers de soleil de la montagne. Depuis Stella Point, une heure supplémentaire — souvent dans la neige — mène à Uhuru Peak, le point culminant d'Afrique. Redescendez par Barafu pour une pause déjeuner, puis continuez jusqu'au Camp de Mweka pour votre dernière nuit sur la montagne.",
+          "expect": "La nuit du sommet est le défi physique et mental le plus difficile de l'expédition. C'est aussi, sans exception, le plus gratifiant."
+        },
+        {
+          "day": 6,
+          "title": "Camp de Mweka → Porte de Mweka → Hôtel",
+          "meta": "Fin de l'expédition · Altitude : 1 680 m · Distance : 10 km · Temps de marche : 3–4 heures",
+          "body": "Descente jusqu'à la Porte de Mweka pour récupérer votre certificat de sommet. Les altitudes inférieures peuvent être humides et boueuses — guêtres et bâtons aident. Notre équipe vous retrouve à la porte pour le trajet retour vers votre hôtel à Moshi (~60 minutes).",
+          "expect": "Reposez-vous. Célébrez. La montagne est derrière vous. Le souvenir est permanent."
+        }
+      ],
+      "choosing": {
+        "intro": "Les deux itinéraires suivent le même sentier sur le versant sud du Kilimandjaro et partagent l'attrait fondamental de Machame — cinq zones écologiques distinctes et une stratégie d'acclimatation éprouvée de type « monter haut, dormir bas ». La différence tient au rythme, et au temps que votre corps a pour s'adapter à l'altitude avant la nuit du sommet.",
+        "items": [
+          {
+            "label": "Machame 6 jours",
+            "successRate": "~80–85 %",
+            "desc": "Notre option Machame la plus rapide, combinant le tronçon Barranco–Karanga–Barafu en une seule journée de marche plus longue. Convient le mieux aux grimpeurs récemment exposés à la haute altitude, ou à ceux ayant une bonne condition physique de trekking et un emploi du temps plus serré. La fenêtre d'acclimatation compressée signifie un taux de réussite quelque peu inférieur — à mettre en balance avec la journée économisée."
+          },
+          {
+            "label": "Machame 7 jours",
+            "successRate": "~85–90 %",
+            "desc": "Notre choix par défaut recommandé. Répartit la Muraille de Barranco, la vallée de Karanga et l'approche vers Barafu sur deux journées complètes plutôt qu'une seule, donnant à votre corps nettement plus de temps pour s'adapter avant la nuit du sommet. Le bon choix pour la plupart des grimpeurs, y compris de nombreux débutants."
+          }
+        ],
+        "footer": "Quel que soit votre choix, la préparation physique au préalable compte plus que le nombre de jours — arriver en forme rend chaque version de cette ascension plus sûre et plus agréable."
+      },
+      "highlights": [
+        {
+          "title": "La Muraille de Barranco",
+          "body": "Une spectaculaire escalade rocheuse de 300 mètres qui paraît bien plus intimidante qu'elle ne l'est réellement — aucune compétence technique d'escalade requise, juste un peu d'escalade à mains nues et une tolérance à l'exposition. La vue depuis le sommet, en regardant la vallée en contrebas, est l'une des plus belles de la montagne."
+        },
+        {
+          "title": "Lava Tower (« la Dent de Requin »)",
+          "body": "Un impressionnant piton volcanique culminant à 4 650 m, visité dans le cadre du détour d'acclimatation avant la descente vers Barranco. C'est l'un des sites les plus photographiés du Kilimandjaro, et l'élément central du profil « monter haut, dormir bas » qui rend l'acclimatation de Machame si efficace."
+        }
+      ],
+      "faq": [
+        {
+          "q": "La route Machame 6 jours convient-elle pour une première tentative du Kilimandjaro ?",
+          "a": "Elle convient mieux aux grimpeurs ayant une expérience récente de la haute altitude ou une bonne condition physique de trekking, car elle compresse deux jours d'acclimatation en un seul. Les grimpeurs novices en haute altitude sont généralement mieux servis par notre version 7 jours, qui répartit la Muraille de Barranco, la vallée de Karanga et l'approche vers Barafu sur deux journées complètes."
+        },
+        {
+          "q": "Pourquoi Machame est-elle appelée la « Route du Whisky » ?",
+          "a": "C'est un surnom reflétant sa réputation d'ascension plus difficile et plus gratifiante comparée à la route Marangu, plus douce (surnommée la « Route du Coca-Cola »). Contrairement à l'hébergement en refuges de Marangu, les grimpeurs de Machame campent sous tente tout le long du parcours."
+        },
+        {
+          "q": "Quel est le taux de réussite au sommet sur la route Machame 6 jours ?",
+          "a": "Généralement dans la fourchette de 80–85 % — solide, bien que légèrement inférieur aux ~85–90 % de la version 7 jours, compte tenu du temps d'acclimatation réduit. La contrepartie est un voyage plus court et plus efficace pour les grimpeurs capables de tenir le rythme."
+        },
+        {
+          "q": "Ai-je besoin d'une expérience technique d'escalade ?",
+          "a": "Non — Machame est un itinéraire de randonnée du début à la fin, y compris l'escalade de la Muraille de Barranco. Une bonne condition physique générale et un peu d'expérience en plein air rendent les journées plus agréables, particulièrement la nuit du sommet."
+        },
+        {
+          "q": "Quelle est la meilleure période de l'année pour gravir Machame ?",
+          "a": "Les saisons sèches — de fin juin à octobre, et de décembre à février — offrent la météo la plus stable et les vues les plus dégagées."
+        },
+        {
+          "q": "Puis-je prolonger ce voyage avec un safari ou un séjour à Zanzibar ?",
+          "a": "Oui — de nombreux grimpeurs ajoutent un safari ou une extension balnéaire avant ou après l'ascension, pour un usage efficace du voyage en Tanzanie."
+        }
+      ],
+      "tabLabels": { "6": "Machame 6 jours", "7": "Machame 7 jours" },
+      "routeNameByDuration": { "6": "Route Machame — 6 jours", "7": "Route Machame — 7 jours" }
     },
     "lemosho": {
       "nickname": "Le choix du connaisseur",
@@ -965,7 +1079,6 @@
     "destinations": "Destinations",
     "safaris": "Safaris",
     "experiences": "Expériences",
-    "itineraries": "Itinéraires",
     "trekking": "Trekking",
     "about": "À propos",
     "cta": "Planifier mon safari",
@@ -974,13 +1087,7 @@
     "rwanda": "Rwanda",
     "tanzaniaDesc": "Serengeti · Ngorongoro · Zanzibar",
     "kenyaDesc": "Masai Mara · Amboseli · Tsavo",
-    "rwandaDesc": "Parc des Volcans · Trekking gorilles",
-    "tanzaniaSafaris": "Forfaits Tanzanie",
-    "kenyaSafaris": "Masai Mara & Kenya",
-    "rwandaSafaris": "Primates du Rwanda",
-    "tanzaniaSafarisDesc": "27 safaris sur mesure · à partir de 2 200 $ pp",
-    "kenyaSafarisDesc": "Pays des grands félins · à partir de 3 500 $ pp",
-    "rwandaSafarisDesc": "Trekking gorilles · à partir de 4 000 $ pp"
+    "rwandaDesc": "Parc des Volcans · Trekking gorilles"
   },
   "footer": {
     "tagline": "Là où la nature vous appelle chez vous. Fondée en Tanzanie, propriété locale, créant des safaris sur mesure depuis 2022.",
@@ -1022,6 +1129,9 @@
     "from": "À partir de",
     "viewPackage": "Voir le forfait",
     "details": "Détails",
+    "fullDetails": "Tous les détails",
+    "featuredDestination": "Destination Vedette",
+    "experiencesCount": "{count, plural, one {# expérience} other {# expériences}}",
     "allPackages": "Tous les forfaits",
     "allDestinations": "Toutes les destinations",
     "planMySafari": "Planifier mon safari",
@@ -1344,6 +1454,7 @@
     "guidingGameDrives": "Guide & Safaris",
     "featuredGuide": "Guide Recommandé",
     "pleaseNote": "À Noter",
+    "faq": "Questions Fréquentes",
     "otherSafaris": "Autres Safaris Susceptibles de Vous Plaire",
     "season": "Saison",
     "highSeason": "Haute Saison",
@@ -1370,7 +1481,16 @@
     "requestQuote": "Demander un devis gratuit",
     "noPaymentNote": "Sans paiement · Réponse dans les 2 heures",
     "viewPackage": "Voir le forfait",
-    "nightsFrom": "nuits · à partir de"
+    "nightsFrom": "nuits · à partir de",
+    "mapHeading": "Localisation",
+    "faqHeading": "Questions Fréquentes",
+    "featuredGuideHeading": "Guide en Vedette",
+    "genericGuideHeading": "Plus de Guides de Voyage",
+    "genericGuideBody": "Découvrez notre bibliothèque complète de guides safari et de voyage détaillés pour l'Afrique de l'Est.",
+    "exploreGuides": "Découvrir les Guides",
+    "gettingThereHeading": "Comment s'y Rendre",
+    "nearestAirport": "Aéroport le Plus Proche",
+    "transferLabel": "Temps de Trajet"
   },
   "trekking": {
     "heroTitle": "Kilimandjaro",
@@ -1899,13 +2019,8 @@
     "kenya": "Kenya",
     "rwanda": "Rwanda",
     "experiences": "Expériences",
-    "itineraries": "Itinéraires",
     "about": "À propos",
     "followUs": "Suivez-nous",
-    "safarisSection": "Forfaits Safari",
-    "tanzaniaPackages": "Forfaits Tanzanie",
-    "kenyaPackages": "Masai Mara & Kenya",
-    "rwandaPackages": "Primates du Rwanda",
     "blog": "Blog"
   },
   "blog": {
@@ -2595,6 +2710,7 @@
     "filterAll": "Tous",
     "filterTanzania": "Tanzanie",
     "filterKenya": "Kenya",
+    "filterRwanda": "Rwanda",
     "filterCombined": "Tanzanie + Kenya",
     "filterLoadMore": "Charger plus d'itinéraires",
     "filterShowingOf": "Affichage de [shown] sur [total] itinéraires",

@@ -13,6 +13,7 @@ import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
 import BookNowButton from '@/components/booking/BookNowButton'
 import LemoshoMultiItinerary from '@/components/trekking/LemoshoMultiItinerary'
+import MachameMultiItinerary from '@/components/trekking/MachameMultiItinerary'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import { buildAlternates } from '@/lib/site'
 
@@ -239,6 +240,28 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
     faq:        trd.raw('lemosho.faq'),
   } : null
 
+  const machameExtras = route === 'machame' ? {
+    variants: {
+      '6': {
+        quickFacts: trd.raw('machame.quickFacts6Day'),
+        arrivalDay: trd('machame.arrivalDay6Day'),
+        itinerary:  trd.raw('machame.itinerary6Day'),
+        pricing:    trd.raw('machame.pricing6Day'),
+      },
+      '7': {
+        quickFacts: routeContent!.quickFacts,
+        arrivalDay: routeContent!.arrivalDay,
+        itinerary:  routeContent!.itinerary,
+        pricing:    routeContent!.pricing,
+      },
+    },
+    included:  routeContent!.included,
+    excluded:  routeContent!.excluded,
+    choosing:  trd.raw('machame.choosing'),
+    highlights: trd.raw('machame.highlights'),
+    faq:        trd.raw('machame.faq'),
+  } : null
+
   const GEAR_CATEGORIES = [
     {
       label: t('gear1Cat'),
@@ -422,6 +445,51 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                     '6': trd('lemosho.routeNameByDuration.6'),
                     '7': trd('lemosho.routeNameByDuration.7'),
                     '8': trd('lemosho.routeNameByDuration.8'),
+                  }}
+                  headings={{
+                    choosing: trd('labels.choosingHeading'),
+                    highlights: trd('labels.highlightsHeading'),
+                    faq: trd('labels.faqHeading'),
+                  }}
+                  labels={{
+                    quickFacts:   trd('labels.quickFacts'),
+                    itinerary:    trd('labels.itinerary'),
+                    arrivalDay:   trd('labels.arrivalDay'),
+                    whatToExpect: trd('labels.whatToExpect'),
+                    included:     trd('labels.included'),
+                    notIncluded:  trd('labels.notIncluded'),
+                    pricing:      trd('labels.pricing'),
+                    solo:         trd('labels.solo'),
+                    small:        trd('labels.small'),
+                    group:        trd('labels.group'),
+                    perPerson:    trd('labels.perPerson'),
+                    from:         trd('labels.from'),
+                    bookThisRoute: trd('labels.bookThisRoute'),
+                    ...Object.fromEntries(
+                      QUICK_FACT_KEYS.map((k) => [k, trd(`labels.${k}`)])
+                    ),
+                  }}
+                  pdfCard={<KilimanjaroPdfCard />}
+                />
+              ) : route === 'machame' && machameExtras ? (
+                <MachameMultiItinerary
+                  variants={machameExtras.variants as Parameters<typeof MachameMultiItinerary>[0]['variants']}
+                  included={machameExtras.included}
+                  excluded={machameExtras.excluded}
+                  choosing={machameExtras.choosing}
+                  highlights={machameExtras.highlights}
+                  faq={machameExtras.faq}
+                  bookThisRouteLabel={trd('labels.bookThisRoute')}
+                  tabLabels={{
+                    '6': trd('machame.tabLabels.6'),
+                    '7': trd('machame.tabLabels.7'),
+                  }}
+                  tabBadges={{
+                    '7': t('badgeRecommended'),
+                  }}
+                  routeNames={{
+                    '6': trd('machame.routeNameByDuration.6'),
+                    '7': trd('machame.routeNameByDuration.7'),
                   }}
                   headings={{
                     choosing: trd('labels.choosingHeading'),

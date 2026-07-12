@@ -3,11 +3,14 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { Calendar, MapPin, Ruler, ArrowRight, Check } from 'lucide-react'
+import { Calendar, MapPin, Ruler, ArrowRight, Check, Plane, Clock } from 'lucide-react'
 import { destinations } from '@/data/destinations'
 import { getDestination, getDestinations } from '@/data/destinations.i18n'
 import { getPackages } from '@/data/packages.i18n'
+import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import BookNowButton from '@/components/booking/BookNowButton'
+import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
+import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import { routing } from '@/i18n/routing'
 import { SITE_URL, localeUrl, buildAlternates } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
@@ -192,12 +195,35 @@ export default async function DestinationPage({ params }: Props) {
     },
   }
 
+  const faqSchema = dest.faq && dest.faq.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: dest.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  } : null
+
+  const descriptionParagraphs = dest.description.split('\n\n')
+  const guidePost = dest.guideSlug ? getBlogPostMeta(dest.guideSlug, locale) : undefined
+
+  const { lat, lng } = dest.coordinates
+  const mapBbox = `${lng - 0.2},${lat - 0.15},${lng + 0.2},${lat + 0.15}`
+  const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${mapBbox}&marker=${lat},${lng}`
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(attractionSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {/* Hero */}
       <section className="relative h-[60vh] min-h-80 bg-brand flex items-end">
         <Image
@@ -226,7 +252,11 @@ export default async function DestinationPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <h2 className="text-2xl font-semibold text-brand mb-4">{t('about', { name: dest.name })}</h2>
-              <p className="text-text-muted leading-relaxed mb-6">{dest.description}</p>
+              <div className="space-y-4 mb-6">
+                {descriptionParagraphs.map((para, i) => (
+                  <p key={i} className="text-text-muted leading-relaxed">{para}</p>
+                ))}
+              </div>
               <h3 className="font-semibold text-brand mb-3">{t('highlights')}</h3>
               <ul className="space-y-2 mb-8">
                 {dest.highlights.map((h) => (
@@ -265,15 +295,86 @@ export default async function DestinationPage({ params }: Props) {
                     </div>
                   </div>
                 )}
-                <div className="flex items-center gap-3 text-sm">
-                  <Calendar className="w-4 h-4 text-gold" />
-                  <div>
+                <div className="text-sm">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Calendar className="w-4 h-4 text-gold" />
                     <div className="font-medium text-brand">{t('bestMonths')}</div>
-                    <div className="text-text-muted">
-                      {dest.bestMonths.map((m) => MONTH_NAMES[m - 1]).join(', ')}
-                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {MONTH_NAMES.map((m, i) => (
+                      <span
+                        key={m}
+                        className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide ${
+                          dest.bestMonths.includes(i + 1)
+                            ? 'bg-brand text-white'
+                            : 'bg-gray-100 text-gray-400'
+                        }`}
+                      >
+                        {m}
+                      </span>
+                    ))}
                   </div>
                 </div>
+              </div>
+
+              {dest.gettingThere && (
+                <div className="mt-5 bg-light-green rounded-2xl p-6 space-y-4">
+                  <h3 className="font-semibold text-brand mb-1">{t('gettingThereHeading')}</h3>
+                  <div className="flex items-center gap-3 text-sm">
+                    <Plane className="w-4 h-4 text-gold flex-shrink-0" />
+                    <div>
+                      <div className="font-medium text-brand">{t('nearestAirport')}</div>
+                      <div className="text-text-muted">{dest.gettingThere.airport}</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <Clock className="w-4 h-4 text-gold flex-shrink-0" />
+                    <div>
+                      <div className="font-medium text-brand">{t('transferLabel')}</div>
+                      <div className="text-text-muted">{dest.gettingThere.transferTime}</div>
+                    </div>
+                  </div>
+                  <p className="text-text-muted text-xs leading-relaxed pt-1 border-t border-brand/10">
+                    {dest.gettingThere.transferNotes}
+                  </p>
+                </div>
+              )}
+
+              <div className="mt-5 rounded-2xl overflow-hidden border border-gray-100">
+                <div className="px-6 pt-5 pb-3">
+                  <h3 className="font-semibold text-brand flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-gold" /> {t('mapHeading')}
+                  </h3>
+                </div>
+                <iframe
+                  src={mapEmbedUrl}
+                  className="w-full h-56 border-0"
+                  loading="lazy"
+                  title={`${dest.name} map`}
+                />
+              </div>
+
+              <div className="mt-5">
+                <p className="text-xs font-bold text-text-muted uppercase tracking-widest mb-3">{t('featuredGuideHeading')}</p>
+                {guidePost ? (
+                  <BlogSuggestionCard
+                    slug={guidePost.slug}
+                    title={guidePost.title}
+                    excerpt={guidePost.excerpt}
+                    category={guidePost.category}
+                    image={guidePost.heroImage}
+                    readTime={guidePost.readTime}
+                    readLabel={tc('readMore')}
+                  />
+                ) : (
+                  <div className="bg-light-green rounded-2xl p-6 text-center">
+                    <h3 className="font-semibold text-brand text-sm mb-2">{t('genericGuideHeading')}</h3>
+                    <p className="text-text-muted text-xs leading-relaxed mb-4">{t('genericGuideBody')}</p>
+                    <Link href="/blog" className="inline-flex items-center gap-1.5 text-sm text-brand font-semibold hover:text-gold transition-colors">
+                      {t('exploreGuides')} <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                )}
               </div>
 
               <div className="mt-5 p-5 bg-brand rounded-2xl text-white text-center">
@@ -318,6 +419,16 @@ export default async function DestinationPage({ params }: Props) {
         </section>
       )}
 
+      {/* FAQ */}
+      {dest.faq && dest.faq.length > 0 && (
+        <section className="py-16 bg-light-green">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-semibold text-brand mb-8 text-center">{t('faqHeading')}</h2>
+            <FaqAccordion faqs={dest.faq} />
+          </div>
+        </section>
+      )}
+
       {/* Nearby destinations */}
       {nearby.length > 0 && (
         <section className="py-16 bg-white">
@@ -325,13 +436,25 @@ export default async function DestinationPage({ params }: Props) {
             <h2 className="text-2xl font-semibold text-brand mb-8">{t('alsoConsider')}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {nearby.map((d) => (
-                <Link key={d.slug} href={`/destinations/${d.slug}`} className="flex items-center gap-4 p-4 border border-gray-100 rounded-xl hover:border-brand hover:bg-light-green transition-all group">
-                  <div className="relative w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden">
-                    <Image src={d.heroImage} alt={d.name} fill className="object-cover" sizes="64px" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-brand text-sm">{d.name}</div>
-                    <div className="text-text-muted text-xs mt-0.5">{d.tagline}</div>
+                <Link
+                  key={d.slug}
+                  href={`/destinations/${d.slug}`}
+                  className="group relative flex items-end rounded-2xl overflow-hidden min-h-[240px] block"
+                >
+                  <Image
+                    src={d.heroImage}
+                    alt={d.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand/95 via-brand/50 to-transparent" />
+                  <div className="relative z-10 p-6 w-full">
+                    <h3 className="font-bold text-white text-lg leading-snug mb-1">{d.name}</h3>
+                    <p className="text-white/70 text-xs leading-relaxed mb-3">{d.tagline}</p>
+                    <span className="flex items-center gap-1.5 text-white text-xs font-semibold group-hover:text-gold transition-colors">
+                      {tc('details')} <ArrowRight className="w-3 h-3" />
+                    </span>
                   </div>
                 </Link>
               ))}

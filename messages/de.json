@@ -158,7 +158,121 @@
         "solo": 2695,
         "small": 2495,
         "group": 2350
-      }
+      },
+      "pricing6Day": { "solo": 2395, "small": 2195, "group": 2095 },
+      "quickFacts6Day": {
+        "routeName": "Machame-Route (die Whisky-Route)",
+        "duration": "6 Tage / 5 Nächte",
+        "distance": "~62 km insgesamt",
+        "startGate": "Machame-Tor (1.830 m)",
+        "finishGate": "Mweka-Tor (1.680 m)",
+        "summit": "Uhuru Peak — 5.895 m / 19.341 ft",
+        "difficulty": "Anspruchsvoll",
+        "trailTraffic": "Mäßig bis hoch",
+        "successRate": "~80–85 %",
+        "bestSeason": "Juni–Oktober · Januar–Februar",
+        "accommodation": "4-Jahreszeiten-Zelte",
+        "priceFrom": "USD 2.095 pro Person (Gruppe von 6)"
+      },
+      "arrivalDay6Day": "Ankunft am internationalen Flughafen Kilimandscharo, wo Sie Ihr Guide für den Transfer zu Ihrer Lodge in Moshi empfängt. Richten Sie sich ein und treffen Sie am Abend Ihre Guides für ein vollständiges Briefing und eine Ausrüstungskontrolle vor dem morgigen Start. Ruhen Sie sich gut aus — Ihre Expedition beginnt am Morgen.",
+      "itinerary6Day": [
+        {
+          "day": 1,
+          "title": "Machame-Tor → Machame-Camp",
+          "meta": "Camp: Machame-Camp · Höhe: 3.050 m · Distanz: 11 km · Wanderzeit: 5–7 Stunden",
+          "body": "Eine etwa 60-minütige Fahrt von Moshi zum Machame-Tor (1.830 m), vorbei an der Ortschaft Machame an den unteren Hängen des Berges. Vom Tor aus steigt der Pfad stetig durch den Regenwald zum Machame-Camp auf einem Moorland-Grat oberhalb der Baumgrenze — Gamaschen und Wanderstöcke sind hilfreich, da der untere Pfad schlammig sein kann.",
+          "expect": "Der längste Tag 1 aller Standardrouten am Kilimandscharo. Die Beine werden es spüren. Essen Sie gut, trinken Sie mehr Wasser als Sie für nötig halten, und schlafen Sie so früh wie möglich."
+        },
+        {
+          "day": 2,
+          "title": "Machame-Camp → Shira-Camp",
+          "meta": "Camp: Shira-Camp · Höhe: 3.850 m · Distanz: 5 km · Wanderzeit: 4–6 Stunden",
+          "body": "Der Regenwald bleibt zurück, und der Pfad steigt über einen steilen Felsgrat durch das Tal, bevor er nach Westen in offenes Heideland abbiegt, um das Shira-Camp auf dem weiten Shira-Plateau zu erreichen.",
+          "expect": "Ein kürzerer Tag nach der Anstrengung von Tag 1. Nachmittägliche Erschöpfung ist normal. Leichte Kopfschmerzen sind bei dieser Höhe häufig — sie klingen meist über Nacht ab."
+        },
+        {
+          "day": 3,
+          "title": "Shira-Camp → Lava Tower → Barranco-Camp",
+          "meta": "Camp: Barranco-Camp · Höhe: 4.000 m · Distanz: 10 km · Wanderzeit: 5–6 Stunden",
+          "body": "Ostwärts über das Shira-Plateau, vorbei an der Abzweigung zum Kibo-Gipfel, dann südöstlich zum Lava Tower — dem 'Haifischzahn' auf 4.650 m — bevor es hinab zum Barranco-Camp geht. Sie enden nahe der Starthöhe, doch dieser Tag ist essenzielle Akklimatisierung für das, was noch kommt.",
+          "expect": "Dies ist der Tag, an dem sich die Höhe bemerkbar macht. Der Appetit kann nachlassen. Kopfschmerzen sind häufig. Informieren Sie Ihren Guide sofort, wenn Symptome erheblich erscheinen."
+        },
+        {
+          "day": 4,
+          "title": "Barranco-Camp → Barranco-Wand → Barafu-Camp",
+          "meta": "Camp: Barafu-Camp · Höhe: 4.700 m · Distanz: 9 km · Wanderzeit: 6–8 Stunden",
+          "body": "Die Barranco-Wand führt hinauf durch das Karanga-Tal — die letzte zuverlässige Wasserquelle am Berg — und weiter zur Kreuzung mit dem Mweka-Pfad, wodurch der Südkreis mit Ausblicken auf den Gipfel aus mehreren Winkeln vervollständigt wird, bevor das Barafu-Camp erreicht wird. Dies ist der längste Tag der 6-Tage-Route, der zusammenfasst, was die 7-Tage-Route auf zwei Tage aufteilt.",
+          "expect": "Der anspruchsvollste Tag dieser Route. Gehen Sie es stetig an — die Akklimatisierung der vorherigen Tage trägt Sie durch. Ihr Guide führt bei Ankunft das vollständige Gipfel-Briefing durch."
+        },
+        {
+          "day": 5,
+          "title": "Gipfelnacht → Uhuru Peak → Mweka-Camp",
+          "meta": "Camp: Mweka-Camp · Höhe: Gipfel 5.895 m → 3.090 m · Distanz: 5 km Aufstieg / 13 km Abstieg · Wanderzeit: 10–14 Stunden insgesamt",
+          "body": "Abmarsch zwischen Mitternacht und 2 Uhr morgens, Sie steigen zwischen den Rebmann- und Ratzel-Gletschern zum Stella Point am Kraterrand auf — der körperlich und mental anspruchsvollste Abschnitt des Aufstiegs, belohnt mit einem der schönsten Sonnenaufgänge am Berg. Vom Stella Point führt eine weitere Stunde — oft durch Schnee — zum Uhuru Peak, dem höchsten Punkt Afrikas. Steigen Sie über Barafu für eine Mittagspause ab und setzen Sie den Abstieg zum Mweka-Camp für Ihre letzte Nacht am Berg fort.",
+          "expect": "Die Gipfelnacht ist die härteste körperliche und mentale Herausforderung der Expedition. Sie ist auch, ausnahmslos, die lohnendste."
+        },
+        {
+          "day": 6,
+          "title": "Mweka-Camp → Mweka-Tor → Hotel",
+          "meta": "Ende der Expedition · Höhe: 1.680 m · Distanz: 10 km · Wanderzeit: 3–4 Stunden",
+          "body": "Abstieg zum Mweka-Tor, um Ihr Gipfelzertifikat entgegenzunehmen. Niedrigere Höhenlagen können nass und schlammig sein — Gamaschen und Stöcke helfen. Unser Team empfängt Sie am Tor für die Fahrt zurück zu Ihrem Hotel in Moshi (~60 Minuten).",
+          "expect": "Ruhen Sie sich aus. Feiern Sie. Der Berg liegt hinter Ihnen. Die Erinnerung bleibt für immer."
+        }
+      ],
+      "choosing": {
+        "intro": "Beide Routen folgen demselben Pfad an der Südflanke des Kilimandscharo und teilen Machames Kernreiz — fünf unterschiedliche ökologische Zonen und eine bewährte 'hoch steigen, tief schlafen'-Akklimatisierungsstrategie. Der Unterschied liegt im Tempo — und wie viel Zeit Ihr Körper hat, sich vor der Gipfelnacht an die Höhe anzupassen.",
+        "items": [
+          {
+            "label": "Machame 6 Tage",
+            "successRate": "~80–85 %",
+            "desc": "Unsere schnellste Machame-Option, die den Abschnitt Barranco–Karanga–Barafu zu einem einzigen, längeren Wandertag zusammenfasst. Am besten geeignet für Bergsteiger, die kürzlich in großer Höhe waren, oder solche mit starker Trekking-Fitness und einem engeren Zeitplan. Das komprimierte Akklimatisierungsfenster bedeutet eine etwas geringere Erfolgsquote — abzuwägen gegen den eingesparten Tag."
+          },
+          {
+            "label": "Machame 7 Tage",
+            "successRate": "~85–90 %",
+            "desc": "Unsere empfohlene Standardoption. Teilt die Barranco-Wand, das Karanga-Tal und den Anstieg zu Barafu auf zwei volle Tage statt einen auf, was Ihrem Körper deutlich mehr Zeit zur Anpassung vor der Gipfelnacht gibt. Die richtige Wahl für die meisten Bergsteiger, einschließlich vieler Erstbesteiger."
+          }
+        ],
+        "footer": "Für welche Option Sie sich auch entscheiden — die körperliche Vorbereitung im Vorfeld zählt mehr als die Anzahl der Tage. Fit anzureisen macht jede Version dieser Besteigung sicherer und angenehmer."
+      },
+      "highlights": [
+        {
+          "title": "Die Barranco-Wand",
+          "body": "Eine dramatische 300-Meter-Felskletterei, die weit einschüchternder aussieht, als sie tatsächlich ist — keine technischen Kletterkenntnisse erforderlich, nur etwas Klettern mit Händen und Füßen sowie Trittsicherheit bei Exposition. Der Blick von oben, zurück über das Tal, gehört zu den besten am ganzen Berg."
+        },
+        {
+          "title": "Lava Tower ('der Haifischzahn')",
+          "body": "Ein markanter vulkanischer Felspfeiler, der sich auf 4.650 m erhebt und im Rahmen des Akklimatisierungsumwegs vor dem Abstieg nach Barranco besucht wird. Er zählt zu den meistfotografierten Wahrzeichen des Kilimandscharo und ist das Kernstück des 'hoch steigen, tief schlafen'-Profils, das Machames Akklimatisierung so wirksam macht."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Eignet sich die 6-Tage-Machame-Route für einen ersten Kilimandscharo-Versuch?",
+          "a": "Sie eignet sich am besten für Bergsteiger mit kürzlicher Höhenerfahrung oder starker Trekking-Fitness, da sie zwei Akklimatisierungstage zu einem zusammenfasst. Höhen-Neulinge sind in der Regel mit unserer 7-Tage-Version besser bedient, die die Barranco-Wand, das Karanga-Tal und den Anstieg zu Barafu auf zwei volle Tage aufteilt."
+        },
+        {
+          "q": "Warum wird Machame die 'Whisky-Route' genannt?",
+          "a": "Es ist ein Spitzname, der ihren Ruf als härtere, lohnendere Besteigung im Vergleich zur sanfteren Marangu-Route (Spitzname 'Coca-Cola-Route') widerspiegelt. Anders als bei der Hüttenunterkunft auf der Marangu-Route campen Machame-Bergsteiger den gesamten Weg über in Zelten."
+        },
+        {
+          "q": "Wie hoch ist die Gipfelerfolgsquote auf der 6-Tage-Machame-Route?",
+          "a": "In der Regel im Bereich von 80–85 % — solide, wenn auch etwas niedriger als die ~85–90 % der 7-Tage-Version, angesichts der verkürzten Akklimatisierungszeit. Der Kompromiss ist eine kürzere, effizientere Reise für Bergsteiger, die das Tempo bewältigen können."
+        },
+        {
+          "q": "Benötige ich technische Klettererfahrung?",
+          "a": "Nein — Machame ist durchgehend eine Wanderroute, einschließlich der Kletterpassage an der Barranco-Wand. Allgemeine Fitness und etwas Outdoor-Erfahrung machen die Tage angenehmer, besonders die Gipfelnacht."
+        },
+        {
+          "q": "Was ist die beste Jahreszeit, um Machame zu besteigen?",
+          "a": "Die Trockenzeiten — von Ende Juni bis Oktober und von Dezember bis Februar — bieten das stabilste Wetter und die klarste Sicht."
+        },
+        {
+          "q": "Kann ich diese Reise mit einer Safari oder einem Sansibar-Aufenthalt verlängern?",
+          "a": "Ja — viele Bergsteiger fügen vor oder nach der Besteigung eine Safari oder einen Strandaufenthalt hinzu, um die Reise nach Tansania effizient zu nutzen."
+        }
+      ],
+      "tabLabels": { "6": "Machame 6 Tage", "7": "Machame 7 Tage" },
+      "routeNameByDuration": { "6": "Machame-Route — 6 Tage", "7": "Machame-Route — 7 Tage" }
     },
     "lemosho": {
       "nickname": "Die Wahl der Kenner",
@@ -921,7 +1035,6 @@
     "destinations": "Reiseziele",
     "safaris": "Safaris",
     "experiences": "Erlebnisse",
-    "itineraries": "Reiserouten",
     "trekking": "Trekking",
     "about": "Über uns",
     "cta": "Safari planen",
@@ -930,13 +1043,7 @@
     "rwanda": "Ruanda",
     "tanzaniaDesc": "Serengeti · Ngorongoro · Sansibar",
     "kenyaDesc": "Masai Mara · Amboseli · Tsavo",
-    "rwandaDesc": "Vulkane-NP · Gorilla-Trekking",
-    "tanzaniaSafaris": "Tansania-Pakete",
-    "kenyaSafaris": "Masai Mara & Kenia",
-    "rwandaSafaris": "Ruanda-Primaten",
-    "tanzaniaSafarisDesc": "27 maßgeschneiderte Safaris · ab $2.200 pp",
-    "kenyaSafarisDesc": "Raubtierland · ab $3.500 pp",
-    "rwandaSafarisDesc": "Gorilla-Trekking · ab $4.000 pp"
+    "rwandaDesc": "Vulkane-NP · Gorilla-Trekking"
   },
   "footer": {
     "tagline": "Wo die Wildnis dich nach Hause ruft. In Tansania geboren, in lokalem Besitz, seit 2022 individuelle Safaris.",
@@ -978,6 +1085,9 @@
     "from": "Ab",
     "viewPackage": "Paket ansehen",
     "details": "Details",
+    "fullDetails": "Alle Details",
+    "featuredDestination": "Top-Reiseziel",
+    "experiencesCount": "{count, plural, one {# Erlebnis} other {# Erlebnisse}}",
     "allPackages": "Alle Pakete",
     "allDestinations": "Alle Reiseziele",
     "planMySafari": "Safari planen",
@@ -1300,6 +1410,7 @@
     "guidingGameDrives": "Guide & Pirschfahrten",
     "featuredGuide": "Empfohlener Ratgeber",
     "pleaseNote": "Bitte Beachten",
+    "faq": "Häufig gestellte Fragen",
     "otherSafaris": "Weitere Safaris, die Ihnen gefallen könnten",
     "season": "Saison",
     "highSeason": "Hochsaison",
@@ -1326,7 +1437,16 @@
     "requestQuote": "Kostenloses Angebot anfordern",
     "noPaymentNote": "Keine Zahlung · Antwort innerhalb von 2 Stunden",
     "viewPackage": "Paket ansehen",
-    "nightsFrom": "Nächte · ab"
+    "nightsFrom": "Nächte · ab",
+    "mapHeading": "Lage",
+    "faqHeading": "Häufig Gestellte Fragen",
+    "featuredGuideHeading": "Empfohlener Reiseführer",
+    "genericGuideHeading": "Weitere Reiseführer",
+    "genericGuideBody": "Entdecken Sie unsere vollständige Sammlung ausführlicher Safari- und Reiseführer für Ostafrika.",
+    "exploreGuides": "Reiseführer Entdecken",
+    "gettingThereHeading": "Anreise",
+    "nearestAirport": "Nächster Flughafen",
+    "transferLabel": "Transferzeit"
   },
   "trekking": {
     "heroTitle": "Kilimandscharo",
@@ -1855,13 +1975,8 @@
     "kenya": "Kenia",
     "rwanda": "Ruanda",
     "experiences": "Erlebnisse",
-    "itineraries": "Reiserouten",
     "about": "Über uns",
     "followUs": "Folgen Sie uns",
-    "safarisSection": "Safari-Pakete",
-    "tanzaniaPackages": "Tansania-Pakete",
-    "kenyaPackages": "Masai Mara & Kenia",
-    "rwandaPackages": "Ruanda-Primaten",
     "blog": "Blog"
   },
   "blog": {
@@ -2551,6 +2666,7 @@
     "filterAll": "Alle",
     "filterTanzania": "Tansania",
     "filterKenya": "Kenia",
+    "filterRwanda": "Ruanda",
     "filterCombined": "Tansania + Kenia",
     "filterLoadMore": "Mehr Reiserouten laden",
     "filterShowingOf": "[shown] von [total] Reiserouten werden angezeigt",

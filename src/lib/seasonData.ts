@@ -1,4 +1,4 @@
-// Shared Prime/Good/Rainy season data, reused by the /itineraries season bar
+// Shared Prime/Good/Rainy season data, reused by the /safaris season bar
 // and the /plan wizard's Step 1 month hint — do not duplicate this array.
 export type SeasonType = 'prime' | 'good' | 'rain'
 

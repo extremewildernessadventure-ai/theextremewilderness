@@ -47,4 +47,6 @@ export const packageTags: Record<string, string[]> = {
   '2-day-selous-safari-from-zanzibar': ['bigfive', 'beach', 'short-break'],
   '4-day-tarangire-ngorongoro-lake-eyasi': ['bigfive', 'classic'],
   '5-day-kenya-safari': ['bigfive', 'migration', 'classic'],
+  '9-day-honeymoon-safari-zanzibar': ['honeymoon', 'beach', 'bigfive', 'luxury'],
+  '10-day-ultimate-great-migration-mara-river-crossing': ['migration', 'bigfive', 'photography', 'luxury'],
 }

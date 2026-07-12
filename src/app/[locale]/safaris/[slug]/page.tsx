@@ -292,12 +292,28 @@ export default async function SafariPackagePage({ params }: Props) {
     },
   }
 
+  const faqSchema = pkg.faq && pkg.faq.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: pkg.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  } : null
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(touristTripSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {/* Hero */}
       <section className="relative h-[55vh] min-h-80 bg-brand flex items-end">
         <Image src={pkg.heroImage} alt={pkg.name} fill className="object-cover" priority sizes="100vw" />
@@ -503,6 +519,26 @@ export default async function SafariPackagePage({ params }: Props) {
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+
+            {/* FAQ */}
+            {pkg.faq && pkg.faq.length > 0 && (
+              <div>
+                <h2 className="text-xl font-semibold text-brand mb-5">{t('faq')}</h2>
+                <div className="space-y-3">
+                  {pkg.faq.map((item, i) => (
+                    <details key={i} className="group border border-gray-100 rounded-xl overflow-hidden">
+                      <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
+                        <span className="font-medium text-brand text-sm pr-4">{item.q}</span>
+                        <ChevronDown className="w-4 h-4 text-text-muted flex-shrink-0 group-open:rotate-180 transition-transform" />
+                      </summary>
+                      <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
+                        <p className="text-sm text-text-muted leading-relaxed">{item.a}</p>
+                      </div>
+                    </details>
+                  ))}
+                </div>
               </div>
             )}
           </div>

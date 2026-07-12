@@ -12,7 +12,6 @@ import {
   MapPin,
   Globe,
   Sparkles,
-  List,
   Info,
   BookOpen,
   X,
@@ -46,17 +45,9 @@ export default function BottomNav() {
     { label: t('rwanda'),       href: '/rwanda' as const,       Icon: Globe },
   ]
 
-  const safariItems = [
-    { label: t('safaris'),          href: '/safaris' as const,       Icon: Compass },
-    { label: t('tanzaniaPackages'), href: '/safaris' as const,       Icon: Globe },
-    { label: t('kenyaPackages'),    href: '/kenya#packages',         Icon: Globe },
-    { label: t('rwandaPackages'),   href: '/rwanda#packages',        Icon: Globe },
-  ]
-
   const otherItems = [
     { label: t('blog'),         href: '/blog' as const,         Icon: BookOpen },
     { label: t('experiences'),  href: '/experiences' as const,  Icon: Sparkles },
-    { label: t('itineraries'),  href: '/itineraries' as const,  Icon: List },
     { label: t('about'),        href: '/about' as const,        Icon: Info },
   ]
 
@@ -121,22 +112,6 @@ export default function BottomNav() {
               {destItems.map(({ label, href, Icon }) => (
                 <Link
                   key={href}
-                  href={href}
-                  className="flex items-center gap-3 bg-white/10 hover:bg-white/20 active:bg-white/25 rounded-xl px-4 py-3 transition-colors"
-                >
-                  <Icon className="w-5 h-5 text-gold flex-shrink-0" />
-                  <span className="text-white text-sm font-medium">{label}</span>
-                </Link>
-              ))}
-            </div>
-
-            <div className="border-t border-white/10 mb-4" />
-
-            <p className="text-white/60 text-[10px] font-semibold uppercase tracking-widest mb-2">{t('safarisSection')}</p>
-            <div className="grid grid-cols-2 gap-3 mb-4">
-              {safariItems.map(({ label, href, Icon }) => (
-                <Link
-                  key={label}
                   href={href}
                   className="flex items-center gap-3 bg-white/10 hover:bg-white/20 active:bg-white/25 rounded-xl px-4 py-3 transition-colors"
                 >

@@ -158,7 +158,121 @@
         "solo": 2695,
         "small": 2495,
         "group": 2350
-      }
+      },
+      "pricing6Day": { "solo": 2395, "small": 2195, "group": 2095 },
+      "quickFacts6Day": {
+        "routeName": "Machame Route (The Whiskey Route)",
+        "duration": "6 Days / 5 Nights",
+        "distance": "~62 km total",
+        "startGate": "Machame Gate (1,830m)",
+        "finishGate": "Mweka Gate (1,680m)",
+        "summit": "Uhuru Peak — 5,895m / 19,341ft",
+        "difficulty": "Challenging",
+        "trailTraffic": "Moderate to High",
+        "successRate": "~80–85%",
+        "bestSeason": "June–October · January–February",
+        "accommodation": "4-season camping tents",
+        "priceFrom": "USD $2,095 per person (group 6)"
+      },
+      "arrivalDay6Day": "Arrive at Kilimanjaro International Airport, where your guide meets you for the transfer to your lodge in Moshi. Settle in, then meet your guides in the evening for a full trek briefing and equipment check ahead of tomorrow's start. Rest well — your expedition begins in the morning.",
+      "itinerary6Day": [
+        {
+          "day": 1,
+          "title": "Machame Gate → Machame Camp",
+          "meta": "Camp: Machame Camp · Elevation: 3,050m · Distance: 11 km · Hiking Time: 5–7 hours",
+          "body": "A roughly 60-minute drive from Moshi to Machame Gate at 1,830m, passing through Machame township on the mountain's lower slopes. From the gate, the trail climbs steadily through rainforest to Machame Camp on a moorland ridge above the treeline — gaiters and trekking poles are worth having, since the lower trail can be muddy.",
+          "expect": "The longest Day 1 of any standard Kilimanjaro route. Legs will feel it. Eat well, drink more water than you think you need, and sleep as early as possible."
+        },
+        {
+          "day": 2,
+          "title": "Machame Camp → Shira Camp",
+          "meta": "Camp: Shira Camp · Elevation: 3,850m · Distance: 5 km · Hiking Time: 4–6 hours",
+          "body": "Leaving the rainforest glades behind, the trail climbs a steep rocky ridge across the valley before turning west into open heather moorland to reach Shira Camp on the vast Shira Plateau.",
+          "expect": "A shorter day after Day 1's effort. Afternoon fatigue is normal. Mild headaches are common at this altitude — they usually resolve overnight."
+        },
+        {
+          "day": 3,
+          "title": "Shira Camp → Lava Tower → Barranco Camp",
+          "meta": "Camp: Barranco Camp · Elevation: 4,000m · Distance: 10 km · Hiking Time: 5–6 hours",
+          "body": "East along the Shira Plateau past the junction toward Kibo's peak, then southeast to Lava Tower — the 'Shark's Tooth' at 4,650m — before descending to Barranco Camp. You'll finish near the elevation you started at, but this day is essential acclimatisation for what's ahead.",
+          "expect": "This is the day altitude makes itself felt. Appetite may decrease. Headaches are common. Tell your guide immediately if symptoms feel significant."
+        },
+        {
+          "day": 4,
+          "title": "Barranco Camp → Barranco Wall → Barafu Camp",
+          "meta": "Camp: Barafu Camp · Elevation: 4,700m · Distance: 9 km · Hiking Time: 6–8 hours",
+          "body": "The Barranco Wall leads up through the Karanga Valley — the last reliable water source on the mountain — and on to the junction with the Mweka Trail, completing the South Circuit with views of the summit from multiple angles, before reaching Barafu Camp. This is the longest day on the 6-day route, combining what the 7-day itinerary splits across two days.",
+          "expect": "The most demanding day on this itinerary. Take it steadily — your acclimatisation from previous days carries you through. Your guide conducts the full summit briefing on arrival."
+        },
+        {
+          "day": 5,
+          "title": "Summit Night → Uhuru Peak → Mweka Camp",
+          "meta": "Camp: Mweka Camp · Elevation: 5,895m summit → 3,090m · Distance: 5 km up / 13 km down · Hiking Time: 10–14 hours total",
+          "body": "Departing between midnight and 2 AM, you'll climb between the Rebmann and Ratzel glaciers toward Stella Point on the crater rim — the most physically and mentally demanding stretch of the climb, rewarded with one of the finest sunrises on the mountain. From Stella Point, a further hour — often through snow — brings you to Uhuru Peak, the highest point in Africa. Descend past Barafu for a lunch stop, continuing to Mweka Camp for your final night on the mountain.",
+          "expect": "Summit night is the hardest physical and mental challenge of the expedition. It is also, without exception, the most rewarding."
+        },
+        {
+          "day": 6,
+          "title": "Mweka Camp → Mweka Gate → Hotel",
+          "meta": "End of Expedition · Elevation: 1,680m · Distance: 10 km · Hiking Time: 3–4 hours",
+          "body": "Descend to Mweka Gate to collect your summit certificate. Lower elevations can be wet and muddy — gaiters and poles help. Our team meets you at the gate for the drive back to your hotel in Moshi (~60 minutes).",
+          "expect": "Rest. Celebrate. The mountain is behind you. The memory is permanent."
+        }
+      ],
+      "choosing": {
+        "intro": "Both itineraries follow the same trail up Kilimanjaro's southern slope and share Machame's core appeal — five distinct ecological zones and a proven 'climb high, sleep low' acclimatisation strategy. The difference comes down to pace, and how much time your body gets to adjust to altitude before summit night.",
+        "items": [
+          {
+            "label": "6-Day Machame",
+            "successRate": "~80–85%",
+            "desc": "Our fastest Machame option, combining the Barranco–Karanga–Barafu stretch into a single, longer climbing day. Best suited to climbers who've been at high altitude recently, or those with strong trekking fitness and a tighter schedule. The compressed acclimatisation window means a somewhat lower success rate — worth weighing against the extra day saved."
+          },
+          {
+            "label": "7-Day Machame",
+            "successRate": "~85–90%",
+            "desc": "Our recommended default. Splits the Barranco Wall, Karanga Valley, and approach to Barafu across two full days rather than one, giving your body meaningfully more time to adjust before summit night. The right call for most climbers, including many first-timers."
+          }
+        ],
+        "footer": "Whichever you choose, physical preparation beforehand matters more than the day count — arriving fit makes every version of this climb safer and more enjoyable."
+      },
+      "highlights": [
+        {
+          "title": "The Barranco Wall",
+          "body": "A dramatic 300-metre rock scramble that looks far more intimidating than it actually is — no technical climbing skill required, just some hands-on scrambling and a head for the exposure. The view from the top, looking back across the valley, is one of the best on the mountain."
+        },
+        {
+          "title": "Lava Tower (\"Shark's Tooth\")",
+          "body": "A striking volcanic plug rising to 4,650m, visited as part of the acclimatisation detour before descending to Barranco. It's one of Kilimanjaro's most photographed landmarks, and the centrepiece of the 'climb high, sleep low' profile that makes Machame's acclimatisation so effective."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is the 6-day Machame route right for a first Kilimanjaro attempt?",
+          "a": "It's best suited to climbers with some recent high-altitude experience or strong trekking fitness, since it compresses two acclimatisation days into one. First-time high-altitude climbers are generally better served by our 7-day version, which splits the Barranco Wall, Karanga Valley, and approach to Barafu across two full days."
+        },
+        {
+          "q": "Why is Machame called the \"Whiskey Route\"?",
+          "a": "It's a nickname reflecting its reputation as a tougher, more rewarding climb compared to the gentler Marangu Route (nicknamed the \"Coca-Cola Route\"). Unlike Marangu's hut accommodation, Machame climbers camp in tents the entire way."
+        },
+        {
+          "q": "What's the summit success rate on the 6-day Machame route?",
+          "a": "Generally in the 80–85% range — solid, though somewhat lower than the 7-day version's ~85–90%, given the reduced acclimatisation time. The tradeoff is a shorter, more efficient trip for climbers who can handle the pace."
+        },
+        {
+          "q": "Do I need technical climbing experience?",
+          "a": "No — Machame is a walking route throughout, including the Barranco Wall scramble. General fitness and some outdoor experience make the days more enjoyable, particularly summit night."
+        },
+        {
+          "q": "What's the best time of year to climb Machame?",
+          "a": "The dry seasons — late June through October, and December through February — offer the most stable weather and clearest views."
+        },
+        {
+          "q": "Can I extend this trip with a safari or Zanzibar stay?",
+          "a": "Yes — many climbers add a safari or beach extension either before or after the climb, making efficient use of the trip to Tanzania."
+        }
+      ],
+      "tabLabels": { "6": "6-Day Machame", "7": "7-Day Machame" },
+      "routeNameByDuration": { "6": "Machame Route — 6-Day", "7": "Machame Route — 7-Day" }
     },
     "lemosho": {
       "nickname": "The Connoisseur's Choice",
@@ -1079,7 +1193,6 @@
     "destinations": "Destinations",
     "safaris": "Safaris",
     "experiences": "Experiences",
-    "itineraries": "Itineraries",
     "trekking": "Trekking",
     "about": "About",
     "cta": "Plan My Safari",
@@ -1088,13 +1201,7 @@
     "rwanda": "Rwanda",
     "tanzaniaDesc": "Serengeti · Ngorongoro · Zanzibar",
     "kenyaDesc": "Masai Mara · Amboseli · Tsavo",
-    "rwandaDesc": "Volcanoes NP · Gorilla Trekking",
-    "tanzaniaSafaris": "Tanzania Packages",
-    "kenyaSafaris": "Masai Mara & Kenya",
-    "rwandaSafaris": "Rwanda Primates",
-    "tanzaniaSafarisDesc": "27 tailored safaris · from $2,200 pp",
-    "kenyaSafarisDesc": "Big cat country · from $3,500 pp",
-    "rwandaSafarisDesc": "Gorilla trekking · from $4,000 pp"
+    "rwandaDesc": "Volcanoes NP · Gorilla Trekking"
   },
   "footer": {
     "tagline": "Where the Wild Calls You Home. Tanzania-born and locally owned, crafting custom safaris since 2022.",
@@ -1136,6 +1243,9 @@
     "from": "From",
     "viewPackage": "View package",
     "details": "Details",
+    "fullDetails": "Full Details",
+    "featuredDestination": "Featured Destination",
+    "experiencesCount": "{count, plural, one {# experience} other {# experiences}}",
     "allPackages": "All packages",
     "allDestinations": "All destinations",
     "planMySafari": "Plan My Safari",
@@ -1458,6 +1568,7 @@
     "guidingGameDrives": "Guiding & Game Drives",
     "featuredGuide": "Featured Guide",
     "pleaseNote": "Please Note",
+    "faq": "Frequently Asked Questions",
     "otherSafaris": "Other Safaris You Might Like",
     "season": "Season",
     "highSeason": "High Season",
@@ -1484,7 +1595,16 @@
     "requestQuote": "Request a Free Quote",
     "noPaymentNote": "No payment required · Response within 2 hours",
     "viewPackage": "View package",
-    "nightsFrom": "nights · from"
+    "nightsFrom": "nights · from",
+    "mapHeading": "Location",
+    "faqHeading": "Frequently Asked Questions",
+    "featuredGuideHeading": "Featured Guide",
+    "genericGuideHeading": "More Travel Guides",
+    "genericGuideBody": "Explore our full library of in-depth safari and travel guides for East Africa.",
+    "exploreGuides": "Explore Guides",
+    "gettingThereHeading": "Getting There",
+    "nearestAirport": "Nearest Airport",
+    "transferLabel": "Transfer Time"
   },
   "trekking": {
     "heroTitle": "Kilimanjaro",
@@ -2013,13 +2133,8 @@
     "kenya": "Kenya",
     "rwanda": "Rwanda",
     "experiences": "Experiences",
-    "itineraries": "Itineraries",
     "about": "About",
     "followUs": "Follow us",
-    "safarisSection": "Safari Packages",
-    "tanzaniaPackages": "Tanzania Packages",
-    "kenyaPackages": "Masai Mara & Kenya",
-    "rwandaPackages": "Rwanda Primates",
     "blog": "Blog"
   },
   "blog": {
@@ -2709,6 +2824,7 @@
     "filterAll": "All",
     "filterTanzania": "Tanzania",
     "filterKenya": "Kenya",
+    "filterRwanda": "Rwanda",
     "filterCombined": "Tanzania + Kenya",
     "filterLoadMore": "Load more itineraries",
     "filterShowingOf": "Showing [shown] of [total] itineraries",
