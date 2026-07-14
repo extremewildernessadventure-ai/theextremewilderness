@@ -2,8 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
-import { useParams } from 'next/navigation'
-import { X, ArrowRight, Shield, CheckCircle, Download } from 'lucide-react'
+import { X, ArrowRight, Shield, CheckCircle } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 interface Props {
@@ -18,8 +17,6 @@ const BULLETS = ['bullet1', 'bullet2', 'bullet3', 'bullet4'] as const
 export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) {
   const t = useTranslations('pdfLead')
   const tf = useTranslations('forms')
-  const params = useParams()
-  const locale = (params?.locale as string) ?? 'en'
 
   const [open, setOpen] = useState(false)
   const [name, setName]   = useState('')
@@ -78,8 +75,6 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
       })
       if (!res.ok) throw new Error()
       setStatus('success')
-      // Open the PDF in a new tab as immediate reward
-      setTimeout(() => window.open(`/${locale}/trekking/pdf`, '_blank'), 800)
     } catch {
       setStatus('error')
     }
@@ -193,19 +188,9 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
                   </p>
                   <p className="text-text-muted text-sm mb-8">{t('successHint')}</p>
 
-                  <a
-                    href={`/${locale}/trekking/pdf`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 px-7 py-3.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-colors text-sm shadow-lg shadow-brand/20"
-                  >
-                    <Download className="w-4 h-4" />
-                    {t('viewLabel')}
-                  </a>
-
                   <button
                     onClick={close}
-                    className="mt-4 text-sm text-text-muted hover:text-brand underline transition-colors"
+                    className="flex items-center gap-2.5 px-7 py-3.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-colors text-sm shadow-lg shadow-brand/20"
                   >
                     Close
                   </button>
