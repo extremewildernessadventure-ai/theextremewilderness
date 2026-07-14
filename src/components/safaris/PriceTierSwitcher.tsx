@@ -25,12 +25,12 @@ export default function PriceTierSwitcher({
   const seasonRows = seasons.length > 1 ? rows.filter((r) => r.season === season) : rows
 
   const [pax, setPax] = useState(seasonRows[0]?.pax ?? 2)
-  const [tier, setTier] = useState<Tier>('trail')
+  // Only show tier buttons for tiers that have values in at least one row
+  const availableTiers = TIERS.filter((tr) => seasonRows.some((r) => r[tr] !== undefined && r[tr]! > 0))
+  const [tier, setTier] = useState<Tier>(availableTiers[0] ?? 'trail')
 
   const row = seasonRows.find((r) => r.pax === pax) ?? seasonRows[0]
   const price = row[tier] ?? 0
-  // Only show tier buttons for tiers that have values in at least one row
-  const availableTiers = TIERS.filter((tr) => seasonRows.some((r) => r[tr] !== undefined && r[tr]! > 0))
 
   return (
     <div className="bg-light-green rounded-2xl p-6">

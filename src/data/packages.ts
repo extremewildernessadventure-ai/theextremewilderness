@@ -32,9 +32,10 @@ export interface PricingTierRow {
   // that wants a High/Low season toggle just tags every row with a season —
   // PriceTierSwitcher only renders the toggle when it sees more than one.
   season?: 'high' | 'low'
-  trail: number
-  // reserve and sovereign are optional — single-tier packages omit them;
-  // PriceTierSwitcher only renders buttons for tiers that are present.
+  // trail, reserve, and sovereign are all optional — a package supplies
+  // whichever tiers it actually offers; PriceTierSwitcher only renders
+  // buttons for tiers that are present.
+  trail?: number
   reserve?: number
   sovereign?: number
 }
@@ -648,6 +649,7 @@ export const packages: SafariPackage[] = [
         description: 'Board your light aircraft at Arusha and fly to Seronera airstrip in the heart of the Serengeti. An afternoon game drive puts you straight into lion country — the vast plains stretch to the horizon, broken only by kopjes and umbrella acacias.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'Lunch, Dinner',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 2,
@@ -655,6 +657,7 @@ export const packages: SafariPackage[] = [
         description: 'A full day exploring the Serengeti. Morning and afternoon drives cover different terrain in search of big cats, wildebeest, zebra, and giraffe. Cheetahs hunt across the open plains while lion prides rest beneath ancient acacia trees.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 3,
@@ -662,6 +665,7 @@ export const packages: SafariPackage[] = [
         description: 'Continue tracking the great wildebeest migration. Your guide reads the landscape for predator activity — a cluster of vultures, a nervous herd, a low silhouette in the grass. Sundowners in the bush as the sky turns amber.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 4,
@@ -669,6 +673,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to the Ngorongoro Conservation Area and descend 600 metres into the crater. This enclosed ecosystem supports the densest concentration of wildlife in Africa — lion, elephant, buffalo, rhino, and hippo share the crater floor. Visit a Maasai boma on the rim.',
         accommodation: 'Ngorongoro Crater Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'The Manor at Ngorongoro', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/TheManoratNgorongoro-Exterior-MainEntrance.jpg', amenities: ['view', 'restaurant', 'ensuite'] } },
       },
       {
         day: 5,
@@ -707,6 +712,7 @@ export const packages: SafariPackage[] = [
         description: 'Your guide meets you at Kilimanjaro International Airport and transfers you to your hotel in Arusha. A chilled champagne welcome awaits — the perfect start to your African honeymoon. Relax and enjoy a romantic dinner before the adventure begins.',
         accommodation: 'Arusha Coffee Lodge',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -714,6 +720,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Tarangire National Park and arrive in time for a romantic bush lunch. The afternoon game drive reveals the park\'s famous elephant herds moving between the Tarangire River and the surrounding woodland. Watch the sun sink behind the baobabs with a private sundowner.',
         accommodation: 'Tarangire Treetops',
         meals: 'Lunch, Dinner',
+        accommodationByTier: { reserve: { name: 'Tarangire Treetops', image: 'https://www.elewanacollection.com/images/ttt/Tarangire-Treetops---accommodation---exterior-view-of-Treehouse-Suite.jpg', amenities: ['view', 'wildlife-view', 'pool'] } },
       },
       {
         day: 3,
@@ -721,6 +728,7 @@ export const packages: SafariPackage[] = [
         description: 'A full day in Tarangire. Hundreds of elephants converge on the river during the dry season, sharing the water with zebra, wildebeest, and giraffe. The ancient baobab trees provide a dramatic backdrop — some are over a thousand years old.',
         accommodation: 'Tarangire Treetops',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Tarangire Treetops', image: 'https://www.elewanacollection.com/images/ttt/Tarangire-Treetops---accommodation---exterior-view-of-Treehouse-Suite.jpg', amenities: ['view', 'wildlife-view', 'pool'] } },
       },
       {
         day: 4,
@@ -728,6 +736,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Lake Manyara National Park, famous for its tree-climbing lions and enormous flocks of flamingos on the alkaline lake. The Mto wa Mbu area bursts with birdlife. Hot geysers steam along the shoreline as buffalo graze in the fever tree forest.',
         accommodation: 'Lake Manyara Serena Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kirurumu Manyara Lodge', image: 'https://static.wixstatic.com/media/d56c8d_07f5f6800a1c404ca6ba2bb5fcb46b90~mv2_d_3000_1996_s_2.jpg', amenities: ['view', 'garden'] } },
       },
       {
         day: 5,
@@ -735,6 +744,7 @@ export const packages: SafariPackage[] = [
         description: 'Descend into Ngorongoro Crater for a morning game drive among the Big Five. This ancient volcanic bowl shelters one of the highest concentrations of wildlife on earth. In the afternoon, drive to the Serengeti and settle into your tented camp as the stars emerge.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 6,
@@ -742,6 +752,7 @@ export const packages: SafariPackage[] = [
         description: 'The Serengeti in full light: cheetahs scanning termite mounds, lion prides sprawled under acacias, hyenas circling the edges of a kill. Your guide reads the landscape expertly. A candlelit bush dinner ends the day in style.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 7,
@@ -749,6 +760,7 @@ export const packages: SafariPackage[] = [
         description: 'Follow the wildebeest migration across the golden plains. Predator action is at its most intense during calving season, when the herds are vulnerable. An evening sundowner on a rocky kopje rewards you with panoramic Serengeti views and a sky on fire.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 8,
@@ -765,68 +777,126 @@ export const packages: SafariPackage[] = [
     duration: 7,
     destinations: ['ngorongoro', 'serengeti', 'zanzibar'],
     type: 'combination',
-    priceFrom: 3600,
+    priceFrom: 2821,
     groupSize: { min: 1, max: 8 },
     badge: 'bestseller',
     bestFor: ['couples', 'honeymoon', 'families'],
     highlights: [
-      'Big Five in Ngorongoro Crater',
-      'Serengeti big cats and migration',
-      'Zanzibar beaches and spice aromas',
-      'Stone Town — a UNESCO World Heritage site',
-      'Wildlife and beach in one seamless trip',
+      'The Big Five in a single, compact wildlife circuit',
+      'Two full days of cat sightings and open-plains game drives in Central Serengeti, at an unrushed pace',
+      'A beach finish on Zanzibar to close out the trip',
+      'Private throughout — your own vehicle, guide, and pace, never a shared group tour',
+      'Wildlife and coastline in one seamless trip, with a scenic flight instead of a long overland transfer',
     ],
     heroImage: '/images/gallery/Crown-Jewels-safari.webp',
     gallery: [],
-    included: ['All park entrance fees', 'All game drives', 'Zanzibar hotel (beach front)', 'All meals on safari', 'Breakfast in Zanzibar', 'Airport transfers and inter-island flights'],
+    pricingTiersProvisional: true,
+    pricingTiers: [
+      { pax: 2, season: 'low', reserve: 2821, sovereign: 4079 },
+      { pax: 2, season: 'high', reserve: 3855, sovereign: 5842 },
+    ],
+    included: ['All park entrance and concession fees', 'Vehicle, guide, and fuel for every game-drive day', 'The Serengeti–Zanzibar domestic flight (Auric Air)', 'Airport transfers', 'Drinking water and en-route lunch boxes', 'Guide accommodation and AMREF Flying Doctors evacuation cover'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Lunch and dinner in Zanzibar'],
+    includedCategorized: {
+      transfers: ['The Serengeti–Zanzibar domestic flight (Auric Air)', 'Airport transfers'],
+      accommodationMeals: ['All meals on safari, breakfast in Zanzibar', 'Drinking water and en-route lunch boxes'],
+      guidingGameDrives: ['All park entrance and concession fees', 'Vehicle, guide, and fuel for every game-drive day', 'Guide accommodation and AMREF Flying Doctors evacuation cover'],
+    },
+    excludedCategorized: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Lunch and dinner in Zanzibar'],
+    notes: [
+      'Rates shown are per person, twin share, NETT costing with a 25% margin applied; low and high figures reflect low-season and peak-season lodge rates.',
+      'A 30% deposit secures your booking, with the balance due 60 days before departure.',
+      'The Gran Meliá Arusha rate used in the Wilderness Sovereign tier is not yet confirmed — please check current pricing with our team before booking that tier.',
+    ],
+    faq: [
+      {
+        q: 'How much does a 7-day Tanzania safari with Zanzibar cost?',
+        a: 'The Crown Jewels Safari starts from $2,821 per person (Wilderness Reserve tier, low season, twin share), rising to $3,855 in peak season. Wilderness Sovereign, with upgraded lodges throughout, starts from $4,079 in low season and $5,842 in peak season. Because every safari is tailor-made, exact pricing depends on your dates, tier, and group size.',
+      },
+      {
+        q: 'Why book the Crown Jewels Safari with The Extreme Wilderness?',
+        a: "We're a Tanzania-born, Arusha-based operator, not an overseas agency reselling a route we've never driven. Every safari is tailor-made and led throughout by a professional, certified guide, with support from airport pickup to final drop-off.",
+      },
+      {
+        q: 'Is 7 days enough for a Tanzania safari and Zanzibar beach trip?',
+        a: 'Yes. Seven days covers the Ngorongoro Crater and two full days in Central Serengeti properly, then still leaves two nights to unwind in Zanzibar — you get a full day dedicated to the Serengeti rather than just passing through it.',
+      },
+      {
+        q: 'Will I see the Big Five on this safari?',
+        a: 'Ngorongoro Crater offers your best odds anywhere in Tanzania of seeing lion, leopard, elephant, buffalo, and the endangered black rhino, often within a single day, thanks to the crater\'s enclosed ecosystem and high animal density. The Serengeti days add further chances, particularly for leopard and cheetah.',
+      },
+      {
+        q: 'How do you get from the Serengeti to Zanzibar?',
+        a: "A scenic flight, roughly two hours including transfer time, from an airstrip near your Serengeti lodge directly to Zanzibar. It's faster and more comfortable than a road transfer and is included in the package.",
+      },
+      {
+        q: "What's included in the Crown Jewels Safari package?",
+        a: 'All park entrance and concession fees, all game drives, your private guide throughout, all meals while on safari, your Zanzibar beachfront hotel, breakfast in Zanzibar, airport transfers, the Serengeti–Zanzibar flight, drinking water, en-route lunch boxes, and emergency medical evacuation cover. International flights, visa fees, travel insurance, tips, and lunch/dinner in Zanzibar are not included.',
+      },
+      {
+        q: 'What size groups can join this safari?',
+        a: "It's a private, tailor-made safari — your own vehicle and a professional, certified guide, never a shared tour bus with fixed group departures. Dates and pacing are set around your schedule, not ours.",
+      },
+    ],
     itinerary: [
       {
         day: 1,
         title: 'Arrival in Arusha',
-        description: 'Arrive at Kilimanjaro International Airport and transfer to your Arusha hotel. Meet your guide for a safari briefing over dinner.',
+        description: 'Land at Kilimanjaro International Airport, where your safari guide will be waiting just outside the arrivals hall — the same guide who stays with you for the entire trip. It\'s roughly an hour to your accommodation in Arusha. Settle in, meet your guide, and get a full safari briefing before an early night.',
         accommodation: 'Arusha Hotel',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['garden', 'restaurant', 'wifi'] } },
+        insiderFact: 'Arusha sits at a comfortable elevation and has a cooler climate than the plains ahead — pack a light layer for the evening.',
       },
       {
         day: 2,
-        title: 'Ngorongoro Crater',
-        description: 'Drive to the Ngorongoro Conservation Area and descend into the crater. The Big Five all live within this enclosed volcanic bowl, making sightings remarkably reliable. Lions rest in the open grassland, black rhino graze near the soda lake, and massive buffalo herds dominate the crater floor. Visit a Maasai boma and learn about the community that has coexisted with these animals for generations. Nature walks along the rim at sunset.',
+        title: 'Descend into Ngorongoro Crater',
+        description: "After an early breakfast, it's a scenic three-hour drive to the rim of the Ngorongoro Crater, then a descent of 600 meters into what's often called Africa's Garden of Eden. This volcanic caldera packs an estimated 20,000–30,000 animals into a single enclosed floor — the highest concentration of predators found anywhere on the continent, and your best chance in Tanzania of spotting the endangered black rhino. A picnic lunch is served crater-side. In the afternoon, visit a Maasai boma to learn how this community has coexisted with wildlife for generations, then ascend to your rim lodge for dinner and a night's sleep above the clouds.",
         accommodation: 'Ngorongoro Crater Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'The Manor at Ngorongoro', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/TheManoratNgorongoro-Exterior-MainEntrance.jpg', amenities: ['view', 'restaurant', 'ensuite'] } },
+        insiderFact: 'The crater floor stays several degrees cooler than the rim — bring a jacket even if the day looks clear.',
       },
       {
         day: 3,
-        title: 'Ngorongoro to Serengeti',
-        description: 'Drive across the Ngorongoro highlands and descend onto the endless Serengeti plains. An afternoon game drive introduces you to the scale of Africa\'s greatest wildlife stage — big cats, zebra herds, and the distant rumble of wildebeest on the move.',
+        title: 'Ngorongoro to the Serengeti',
+        description: 'Leave the highlands behind and drive across the Ngorongoro Conservation Area into the Serengeti, where the landscape opens onto the "endless plains" that give the park its name. An afternoon game drive introduces you to the sheer scale of it: big cats stretched out in the shade, zebra herds stretching to the horizon, and, depending on the season, the distant rumble of the wildebeest migration in motion.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
+        insiderFact: 'The drive between the two parks is itself a game drive — keep your camera out.',
       },
       {
         day: 4,
-        title: 'Serengeti — Full Day',
-        description: 'A complete day in the Serengeti with morning and afternoon game drives. Track leopards in the kopjes, watch cheetahs sprint across open ground, and marvel at the sheer scale of the wildebeest and zebra migrations. Umbrella acacia silhouettes against the evening sky.',
+        title: 'Full Day in Central Serengeti',
+        description: "A complete day dedicated to the Serengeti's signature wildlife circuit, with game drives run around the best light and animal activity rather than the clock. Central Serengeti's rocky kopjes are prime leopard territory; cheetahs use the open ground here to hunt at speed, and the wildebeest and zebra herds that pass through make this one of the most productive big-cat regions in Tanzania.",
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
+        insiderFact: "Ask your guide about the migration's current position — the Serengeti's resident wildlife is excellent year-round, but timing your visit around the herds adds an entirely different layer.",
       },
       {
         day: 5,
         title: 'Fly to Zanzibar',
-        description: 'An early morning game drive, then fly to Zanzibar. Touch down on this spice island and transfer to your beachfront hotel. Spend the afternoon exploring narrow Stone Town alleyways, browsing the Darajani market, or simply settling your feet into white coral sand.',
+        description: "One final early-morning game drive to make the most of the Serengeti's cooler hours, then a short transfer to the airstrip for your scenic flight to Zanzibar. Touch down on the Spice Island and swap dust for sand as you transfer to your beachfront hotel. Spend the afternoon easing into island time, or wander Stone Town's narrow alleyways and the stalls of Darajani Market.",
         accommodation: 'Zanzibar Beach Hotel',
         meals: 'Breakfast',
+        accommodationByTier: { reserve: { name: 'Nungwi Dreams By Mantis', image: 'https://images.squarespace-cdn.com/content/v1/599f19dbbe6594169d40b462/1642068720195-0BOK8W146P8H8XR1JJCY/ATM_0220.JPG', amenities: ['pool', 'view'] } },
+        insiderFact: 'The flight from Serengeti to Zanzibar takes roughly two hours and delivers sweeping aerial views of the Rift Valley — a window seat is worth requesting.',
       },
       {
         day: 6,
-        title: 'Zanzibar — Beach, Culture, and History',
-        description: 'A guided Stone Town walking tour reveals layers of Swahili, Arab, Persian, and colonial history packed into one small UNESCO-listed city. In the afternoon, join a spice farm tour and discover the plants behind cloves, cinnamon, cardamom, and black pepper. Return to your resort for a sunset dhow cocktail cruise.',
+        title: 'Stone Town, Spice Farms & a Sunset Cruise',
+        description: "A guided Stone Town walking tour reveals centuries of Swahili, Arab, Persian, and colonial history layered into one small UNESCO World Heritage city — carved doors, coral-stone facades, and market alleys that haven't changed their footprint in generations. In the afternoon, a spice farm tour puts you face to face with the clove, cinnamon, cardamom, and black pepper plants that built Zanzibar's economy. Close the day with a sunset dhow cruise, cocktail in hand.",
         accommodation: 'Zanzibar Beach Hotel',
         meals: 'Breakfast',
+        accommodationByTier: { reserve: { name: 'Nungwi Dreams By Mantis', image: 'https://images.squarespace-cdn.com/content/v1/599f19dbbe6594169d40b462/1642068720195-0BOK8W146P8H8XR1JJCY/ATM_0220.JPG', amenities: ['pool', 'view'] } },
+        insiderFact: 'Stone Town is best explored on foot in comfortable shoes — the alleyways are narrow, shaded, and made for wandering without a fixed route.',
       },
       {
         day: 7,
         title: 'Departure',
-        description: 'A final morning on the beach before transferring to Zanzibar Airport for your international connection home.',
+        description: 'A final morning to enjoy the beach before your private transfer to Zanzibar Abeid Amani Karume International Airport for your international connecting flight home.',
         accommodation: 'N/A',
         meals: 'Breakfast',
       },
@@ -1145,6 +1215,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Kilimanjaro International Airport and transfer to your Arusha hotel for an overnight rest.',
         accommodation: 'Arusha Hotel',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -1152,6 +1223,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to the remote Enduiment Wildlife Management Area on the western flanks of Kilimanjaro. Elephants from Amboseli and Kilimanjaro drift through on seasonal corridors, sharing the acacia woodland with eland, giraffe, and a remarkable diversity of raptors. Exclusive night drives reveal the nocturnal cast — civets, genets, and bush babies — rarely seen on standard safaris.',
         accommodation: 'West Kilimanjaro Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kambi ya Tembo', image: 'https://twctanzania.com/wp-content/uploads/2023/10/TWC_1433.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 3,
@@ -1159,6 +1231,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning game drive focusing on the elephant corridors. Afternoon walking safari led by a Maasai warrior guide through the open savannah — tracking prints, reading the landscape, and learning how the Maasai coexist with wildlife. Another private night drive after dinner.',
         accommodation: 'West Kilimanjaro Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kambi ya Tembo', image: 'https://twctanzania.com/wp-content/uploads/2023/10/TWC_1433.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 4,
@@ -1166,6 +1239,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive north through the Rift Valley to Lake Natron, one of the world\'s most extreme environments. The alkaline lake supports the world\'s largest breeding colony of lesser flamingos — up to 2.5 million birds — which turn the red-tinged water pink. In the afternoon, walk to the base of Oldoinyo Lengai, the only active natrocarbonatite volcano on earth, still revered by the Maasai as the Mountain of God.',
         accommodation: 'Lake Natron Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Lake Natron Camp', image: 'https://images.squarespace-cdn.com/content/v1/5cadc10b348cd949ea83c056/1684095320992-HRK3BE6WDIRL47JUI36J/_G8A1066.jpg', amenities: ['view', 'garden'] } },
       },
       {
         day: 5,
@@ -1173,6 +1247,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning walk through the rift valley landscape with views across the escarpment. Visit a local Maasai community living at the lake\'s edge, one of the most remote settlements in Tanzania. Afternoon boat trip on the lake edge to observe flamingo flocks at close range.',
         accommodation: 'Lake Natron Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Lake Natron Camp', image: 'https://images.squarespace-cdn.com/content/v1/5cadc10b348cd949ea83c056/1684095320992-HRK3BE6WDIRL47JUI36J/_G8A1066.jpg', amenities: ['view', 'garden'] } },
       },
       {
         day: 6,
@@ -1180,6 +1255,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to the Serengeti National Park. En route, pass through the Ngorongoro highlands with views across the crater. An afternoon game drive in the central Serengeti around Seronera — the most productive area for year-round big cat sightings in Tanzania.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 7,
@@ -1187,6 +1263,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning and afternoon drives across the Serengeti\'s central and northern plains. Cheetah chases unfold in real time. Leopards lie along tree branches above dry riverbeds. The wildebeest herds flow across the horizon like living rivers.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 8,
@@ -1194,6 +1271,7 @@ export const packages: SafariPackage[] = [
         description: 'Push further into the Serengeti\'s less-visited western corridor or northern plains, depending on wildlife movements. Your guide follows fresh information from ranger networks to position you where the action is thickest.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 9,
@@ -1201,6 +1279,7 @@ export const packages: SafariPackage[] = [
         description: 'Descend into Ngorongoro Crater for a full day among the Big Five. The density of wildlife here is staggering — lions hunt in the open, rhino graze near the soda lake, and vast buffalo herds dominate the crater floor. Overnight in the charming highland town of Karatu.',
         accommodation: 'Karatu Coffee Farm Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Tloma Lodge, Karatu', image: 'https://twctanzania.com/wp-content/uploads/2023/10/Tloma-Lodge-Karatu-scaled.jpg', amenities: ['organic-farm', 'garden', 'restaurant'] } },
       },
       {
         day: 10,
@@ -1208,6 +1287,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Lake Eyasi and spend the day with the Hadzabe people — one of the last remaining hunter-gatherer communities on earth. Join them on a morning hunt with handmade bows and arrows, learn to make fire using traditional methods, and gain a rare window into a way of life that has remained essentially unchanged for tens of thousands of years.',
         accommodation: 'Lake Eyasi Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kisima Ngeda Tented Camp', image: 'https://www.africanmeccasafaris.com/wp-content/uploads/kisimangedacamp1.jpg', amenities: ['view', 'garden'] } },
       },
       {
         day: 11,
@@ -1215,6 +1295,7 @@ export const packages: SafariPackage[] = [
         description: 'Final game drives in Tarangire National Park, where large elephant herds gather around the seasonal river beneath ancient baobab trees. A rewarding close to twelve days of extraordinary wildlife encounters.',
         accommodation: 'Tarangire Safari Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Lemala Mpingo Ridge', image: 'https://www.lemalacamps.com/app/uploads/2021/09/Lemala-Mpingo-Ridge-35-scaled.jpg', amenities: ['view', 'pool', 'wildlife-view'] } },
       },
       {
         day: 12,
@@ -1253,6 +1334,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Kilimanjaro International Airport and transfer to your Arusha hotel for a rest and safari briefing.',
         accommodation: 'Arusha Hotel',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -1260,6 +1342,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Tarangire National Park. The Tarangire River is a magnet for wildlife in the dry season — enormous elephant herds, zebra, wildebeest, and giraffe converge on the water. Ancient baobab trees frame the landscape, and lions rest in their shade through the heat of the day.',
         accommodation: 'Tarangire Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Lemala Nanyukie', image: 'https://www.lemalacamps.com/app/uploads/2021/09/Lemala-Nanyukie-22-scaled-e1633857681308.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 3,
@@ -1267,6 +1350,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Ngorongoro and descend into Africa\'s most famous caldera. The Big Five all inhabit this enclosed bowl — black rhino graze near the soda lake, lion prides work the open floor, and large herds of buffalo move in slow, dusty columns. Visit a Maasai community on the crater rim before settling in for the night.',
         accommodation: 'Ngorongoro Crater Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'The Manor at Ngorongoro', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/TheManoratNgorongoro-Exterior-MainEntrance.jpg', amenities: ['view', 'restaurant', 'ensuite'] } },
       },
       {
         day: 4,
@@ -1274,6 +1358,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive across the Ngorongoro highlands and onto the Serengeti plains. Arrive in the Seronera area for an afternoon game drive through classic acacia savannah. Leopards drape themselves across branch forks, while cheetahs scan the open plains from raised ground.',
         accommodation: 'Serengeti Central Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kubu Kubu Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/10/TWC2018-724-scaled.jpg', amenities: ['view', 'restaurant'] } },
       },
       {
         day: 5,
@@ -1281,6 +1366,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive north to Kogatende, positioned 45 minutes from the Mara River crossing points. Between July and October, columns of wildebeest plunge into the crocodile-filled river in one of nature\'s most electrifying spectacles. Your guide monitors crossing activity so you are positioned when it happens.',
         accommodation: 'Northern Serengeti Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Mara Mara Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/08/AMP_9430.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 6,
@@ -1288,6 +1374,7 @@ export const packages: SafariPackage[] = [
         description: 'A full day at the Mara River. The crossings are unpredictable but unforgettable — tens of thousands of animals massing on the bank, then surging into the water as crocodiles strike. Between crossings, big cats work the exhausted stragglers on both banks.',
         accommodation: 'Northern Serengeti Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Mara Mara Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/08/AMP_9430.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 7,
@@ -1295,6 +1382,7 @@ export const packages: SafariPackage[] = [
         description: 'Final game drives in the northern Serengeti. If conditions favour another crossing, you will be there. The vast herds also attract cheetah, leopard, and lion in unusually high densities. The resident wildlife is spectacular even when the crossings are between rounds.',
         accommodation: 'Northern Serengeti Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Mara Mara Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/08/AMP_9430.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 8,
@@ -1333,6 +1421,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Kilimanjaro International Airport and transfer to your Arusha hotel. Meet your guide for a comprehensive safari briefing over dinner.',
         accommodation: 'Arusha Coffee Lodge',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -1340,6 +1429,7 @@ export const packages: SafariPackage[] = [
         description: 'A morning game drive in Arusha National Park — a diverse park that packs giraffe, zebra, colobus monkeys, leopard, and flamingos into a compact and scenic area. Afternoon at leisure in Arusha. Optional craft market visit.',
         accommodation: 'Arusha Coffee Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 3,
@@ -1347,6 +1437,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive south to Tarangire for a day among Tanzania\'s largest elephant herds. The Tarangire River draws thousands of animals during the dry season, and the ancient baobab forest provides one of Africa\'s most photogenic backdrops.',
         accommodation: 'Tarangire Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Lemala Nanyukie', image: 'https://www.lemalacamps.com/app/uploads/2021/09/Lemala-Nanyukie-22-scaled-e1633857681308.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 4,
@@ -1354,6 +1445,7 @@ export const packages: SafariPackage[] = [
         description: 'Descend into the Ngorongoro Crater for a full day with the Big Five. The enclosed caldera virtually guarantees lion, elephant, buffalo, leopard, and black rhino sightings in a single day.',
         accommodation: 'Ngorongoro Serena Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kitela Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2021/09/Kitela-Lodge-Tanzania-Ngorongoro-Conservation-Area-pool-etc.jpg', amenities: ['pool', 'view', 'garden'] } },
       },
       {
         day: 5,
@@ -1361,6 +1453,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning game drive in the crater, then visit Olduvai Gorge — the palaeontological site where 1.8-million-year-old hominid fossils were first discovered. The small museum provides excellent context for the significance of this landscape to human evolution.',
         accommodation: 'Ngorongoro Serena Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kitela Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2021/09/Kitela-Lodge-Tanzania-Ngorongoro-Conservation-Area-pool-etc.jpg', amenities: ['pool', 'view', 'garden'] } },
       },
       {
         day: 6,
@@ -1368,6 +1461,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to the Serengeti, arriving in the Seronera central area for an afternoon game drive. Lions and cheetahs are reliably spotted here year-round.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 7,
@@ -1375,6 +1469,7 @@ export const packages: SafariPackage[] = [
         description: 'An entire day in the Serengeti with drives in the morning and afternoon. Your guide tracks lions, leopards, and cheetahs as they hunt across the open plains. Vast wildebeest herds and zebra complete the classic East African panorama.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 8,
@@ -1382,6 +1477,7 @@ export const packages: SafariPackage[] = [
         description: 'Another full day in the Serengeti, exploring different areas of the park based on current wildlife concentrations. The western corridor and northern plains each offer unique habitats and species.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 9,
@@ -1389,6 +1485,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning game drive in the Serengeti, then fly to Zanzibar. Transfer to your beachfront hotel and spend the afternoon easing into island time.',
         accommodation: 'Zanzibar Beach Resort',
         meals: 'Breakfast',
+        accommodationByTier: { reserve: { name: 'Royal Zanzibar', image: 'https://www.royalzanzibar.com/resourcefiles/gallery-images/layer-1.jpg', amenities: ['pool', 'all-inclusive', 'view'] } },
       },
       {
         day: 10,
@@ -1396,6 +1493,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning guided tour of Stone Town, a labyrinth of carved wooden doors, coral stone architecture, and living Swahili culture. Afternoon spice farm tour through clove, vanilla, and cinnamon plantations.',
         accommodation: 'Zanzibar Beach Resort',
         meals: 'Breakfast',
+        accommodationByTier: { reserve: { name: 'Royal Zanzibar', image: 'https://www.royalzanzibar.com/resourcefiles/gallery-images/layer-1.jpg', amenities: ['pool', 'all-inclusive', 'view'] } },
       },
       {
         day: 11,
@@ -1403,6 +1501,7 @@ export const packages: SafariPackage[] = [
         description: 'A full free day on Zanzibar\'s legendary beaches. The turquoise water, white sand, and swaying palms are the perfect contrast to the intensity of the Serengeti. Optional snorkelling, dolphin-watching, or sailing on a traditional dhow.',
         accommodation: 'Zanzibar Beach Resort',
         meals: 'Breakfast',
+        accommodationByTier: { reserve: { name: 'Royal Zanzibar', image: 'https://www.royalzanzibar.com/resourcefiles/gallery-images/layer-1.jpg', amenities: ['pool', 'all-inclusive', 'view'] } },
       },
       {
         day: 12,
@@ -1440,6 +1539,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Kilimanjaro International Airport and transfer to your Arusha hotel for a rest and safari briefing.',
         accommodation: 'Arusha Hotel',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -1447,6 +1547,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Tarangire National Park. The Tarangire River supports extraordinary wildlife concentrations — elephants by the hundred, zebra, wildebeest, giraffe, and impala share the water with crocodiles and hippos. The ancient baobab trees lend the landscape an almost prehistoric atmosphere.',
         accommodation: 'Tarangire Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Lemala Nanyukie', image: 'https://www.lemalacamps.com/app/uploads/2021/09/Lemala-Nanyukie-22-scaled-e1633857681308.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 3,
@@ -1454,6 +1555,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Lake Manyara, famous for its tree-climbing lions — a behaviour unique to this population. The groundwater forest harbours baboon troops and colobus monkeys, while the shallow alkaline lake turns pink with flamingo flocks. Hot geysers steam at the water\'s edge.',
         accommodation: 'Lake Manyara Hotel',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'andBeyond Lake Manyara Tree Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/Lake_Manyara_Tree_Lodge_lounger-area.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 4,
@@ -1461,6 +1563,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive across the Ngorongoro highlands and descend onto the Serengeti plains. Arrive in the Seronera area for an afternoon game drive. Leopards haunt the sausage tree groves around the river junction — one of the most reliable leopard habitats in Tanzania.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 5,
@@ -1468,6 +1571,7 @@ export const packages: SafariPackage[] = [
         description: 'A complete day in the Serengeti with morning and afternoon drives. Cheetahs scan for prey from termite mounds. Lions patrol territory boundaries. The wildebeest herds stretch across the plains in columns that disappear over the horizon.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 6,
@@ -1475,6 +1579,7 @@ export const packages: SafariPackage[] = [
         description: 'Leave the Serengeti and descend into the Ngorongoro Crater — the crown jewel of Tanzania\'s northern circuit. The Big Five all reside within this ancient caldera. Lions are often seen hunting in the open, while black rhinos graze in the distance. Overnight in the highland town of Karatu.',
         accommodation: 'Karatu Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Tloma Lodge, Karatu', image: 'https://twctanzania.com/wp-content/uploads/2023/10/Tloma-Lodge-Karatu-scaled.jpg', amenities: ['organic-farm', 'garden', 'restaurant'] } },
       },
       {
         day: 7,
@@ -1512,6 +1617,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Kilimanjaro International Airport and transfer to your Arusha hotel. Safari briefing over dinner.',
         accommodation: 'Arusha Hotel',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -1519,6 +1625,7 @@ export const packages: SafariPackage[] = [
         description: 'Board your light aircraft at Arusha. The flight path takes you directly over the Ngorongoro Crater — from the air, the perfect circular bowl reveals its full scale, a miniature world of grassland and lakes set within a rim of ancient lava. Land at Seronera airstrip and begin your first afternoon game drive.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'Lunch, Dinner',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 3,
@@ -1526,6 +1633,7 @@ export const packages: SafariPackage[] = [
         description: 'A full day exploring the central Serengeti plains around Seronera. This is one of the most productive wildlife areas in Africa year-round, with resident lion prides, cheetah, and leopard complemented by vast herds of zebra and wildebeest.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 4,
@@ -1533,6 +1641,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive south to the Ndutu area on the border of the Serengeti and the Ngorongoro Conservation Area. During the calving season (January to March), up to 8,000 wildebeest calves are born here every single day. Cheetahs, lions, hyenas, and wild dogs converge on the vulnerable newborns in extraordinary predator concentrations.',
         accommodation: 'Ndutu Safari Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Masek Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/10/Masek-Tented-Lodge-scaled.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 5,
@@ -1540,6 +1649,7 @@ export const packages: SafariPackage[] = [
         description: 'Another full day tracking the calving herds and their predators across the short-grass plains. The Ndutu woodland provides habitat for leopards and African wild cats between the drama of the open ground. Birdlife explodes during this season.',
         accommodation: 'Ndutu Safari Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Masek Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/10/Masek-Tented-Lodge-scaled.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 6,
@@ -1547,6 +1657,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Ngorongoro and descend into the crater for a full day with the Big Five. The resident lion prides are among the most studied in the world. Black rhinos, rarely seen elsewhere, are spotted regularly here. Overnight in the charming town of Karatu.',
         accommodation: 'Karatu Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Tloma Lodge, Karatu', image: 'https://twctanzania.com/wp-content/uploads/2023/10/Tloma-Lodge-Karatu-scaled.jpg', amenities: ['organic-farm', 'garden', 'restaurant'] } },
       },
       {
         day: 7,
@@ -1584,6 +1695,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Kilimanjaro International Airport and transfer to your Arusha hotel. Safari briefing over dinner.',
         accommodation: 'Arusha Hotel',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: 'https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -1591,6 +1703,7 @@ export const packages: SafariPackage[] = [
         description: 'Board the light aircraft in Arusha. The flight passes over the Ngorongoro Crater rim, revealing the ancient caldera in miniature far below. Land at Kogatende airstrip in the far north of the Serengeti, just 45 minutes from the Mara River crossing points. An afternoon game drive sets the scene.',
         accommodation: 'Northern Serengeti Camp',
         meals: 'Lunch, Dinner',
+        accommodationByTier: { reserve: { name: 'Mara Mara Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/08/AMP_9430.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 3,
@@ -1598,6 +1711,7 @@ export const packages: SafariPackage[] = [
         description: 'The northern Serengeti between July and October hosts the most dramatic chapter of the Great Migration. Hundreds of thousands of wildebeest mass on the riverbank, then launch themselves into the water as massive Nile crocodiles strike from below. Your guide positions you at the best vantage point based on herd movements throughout the day.',
         accommodation: 'Northern Serengeti Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Mara Mara Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/08/AMP_9430.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 4,
@@ -1605,6 +1719,7 @@ export const packages: SafariPackage[] = [
         description: 'Another full day in the northern Serengeti. If the crossings are between rounds, the surrounding plains offer extraordinary wildlife: huge lion prides, leopards in the riverine trees, and cheetahs with cubs on the open grassland. The Mara River is lined with hippos and crocodiles at all times.',
         accommodation: 'Northern Serengeti Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Mara Mara Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/08/AMP_9430.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 5,
@@ -1612,6 +1727,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning game drive in the north before driving south toward the central Serengeti. The resident wildlife along this route — particularly elephants and giraffe in the north — makes for rich game viewing throughout the journey.',
         accommodation: 'Serengeti Central Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kubu Kubu Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/10/TWC2018-724-scaled.jpg', amenities: ['view', 'restaurant'] } },
       },
       {
         day: 6,
@@ -1619,6 +1735,7 @@ export const packages: SafariPackage[] = [
         description: 'A full day in the central Serengeti around Seronera. This is Tanzania\'s most reliable big cat territory year-round — lions, cheetahs, and leopards are almost guaranteed. Vast herds of zebra and buffalo fill the plains.',
         accommodation: 'Serengeti Central Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kubu Kubu Tented Lodge', image: 'https://twctanzania.com/wp-content/uploads/2023/10/TWC2018-724-scaled.jpg', amenities: ['view', 'restaurant'] } },
       },
       {
         day: 7,
@@ -1626,6 +1743,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Ngorongoro and descend into the crater. The Big Five all inhabit this enclosed caldera. Black rhino are reliable here, along with some of Tanzania\'s densest lion prides. Maasai pastoralists herd their cattle along the crater rim — a striking reminder of the area\'s dual heritage.',
         accommodation: 'Ngorongoro Crater Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'The Manor at Ngorongoro', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/TheManoratNgorongoro-Exterior-MainEntrance.jpg', amenities: ['view', 'restaurant', 'ensuite'] } },
       },
       {
         day: 8,
@@ -1663,6 +1781,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Kigali International Airport and transfer to your hotel. Kigali is one of Africa\'s cleanest and most organised capital cities — an ideal introduction to Rwanda.',
         accommodation: 'Kigali Hotel',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Radisson Blu Hotel & Convention Centre, Kigali', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/bf/0e/3d/radisson-blu-hotel-convention.jpg?w=900&h=500&s=1', amenities: ['pool', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -1670,6 +1789,7 @@ export const packages: SafariPackage[] = [
         description: 'Visit the Kigali Genocide Memorial, which honours the 250,000 victims buried on the grounds and traces the history of the 1994 genocide through survivor testimonies, photographs, and documentary film. The memorial is both deeply moving and essential context for understanding modern Rwanda. Afternoon free to explore Kigali\'s vibrant arts district.',
         accommodation: 'Kigali Hotel',
         meals: 'Breakfast, Dinner',
+        accommodationByTier: { reserve: { name: 'Radisson Blu Hotel & Convention Centre, Kigali', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/bf/0e/3d/radisson-blu-hotel-convention.jpg?w=900&h=500&s=1', amenities: ['pool', 'restaurant', 'wifi'] } },
       },
       {
         day: 3,
@@ -1677,6 +1797,7 @@ export const packages: SafariPackage[] = [
         description: 'A four-hour drive northwest to Ruhengeri (Musanze) through Rwanda\'s famous Thousand Hills. The Virunga volcano chain rises dramatically above the surrounding farmland. Stop for lunch at a local restaurant in the highlands and arrive in Ruhengeri by early evening.',
         accommodation: 'Ruhengeri Hotel',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kinigi Guest House', image: 'https://www.insidevolcanoesnationalpark.com/wp-content/uploads/2020/04/kinigi-guest-house-rwanda.jpg', amenities: ['view', 'garden'] } },
       },
       {
         day: 4,
@@ -1684,6 +1805,7 @@ export const packages: SafariPackage[] = [
         description: 'One of the world\'s most extraordinary wildlife experiences. Set out from Kinigi ranger station with your professional guide and armed rangers to locate a habituated gorilla family in the bamboo forests of the Virungas. Upon encounter, you spend one hour with these remarkable primates — watching silverbacks command their families, mothers nurse infants, and juveniles play overhead. Visit the Muheza gorilla veterinary project to learn about conservation efforts.',
         accommodation: 'Ruhengeri Hotel',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kinigi Guest House', image: 'https://www.insidevolcanoesnationalpark.com/wp-content/uploads/2020/04/kinigi-guest-house-rwanda.jpg', amenities: ['view', 'garden'] } },
       },
       {
         day: 5,
@@ -1691,6 +1813,7 @@ export const packages: SafariPackage[] = [
         description: 'Return to Volcanoes National Park to track the endangered golden monkey — an electric blue-gold primate found only in the Virunga mountains. The forest path differs from the gorilla trek, offering new perspectives on the bamboo habitat. Gazelles and antelopes graze the forest edges in the afternoon.',
         accommodation: 'Ruhengeri Hotel',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kinigi Guest House', image: 'https://www.insidevolcanoesnationalpark.com/wp-content/uploads/2020/04/kinigi-guest-house-rwanda.jpg', amenities: ['view', 'garden'] } },
       },
       {
         day: 6,
@@ -1698,6 +1821,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning transfer to Kigali Airport and fly to the Serengeti. The flight path takes you over Rwanda\'s thousand hills and across the border into Tanzania\'s vast savannah — a dramatic shift in landscape. Land at Seronera and begin your first afternoon game drive on the plains.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'Lunch, Dinner',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 7,
@@ -1705,6 +1829,7 @@ export const packages: SafariPackage[] = [
         description: 'A complete day in the central Serengeti. Big cats, wildebeest herds, and the iconic acacia landscape provide rich game viewing from morning through evening. Sundowners on a kopje as the Serengeti sky turns gold.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 8,
@@ -1712,6 +1837,7 @@ export const packages: SafariPackage[] = [
         description: 'Another full day tracking wildlife across the Serengeti plains. Your guide follows fresh intelligence to position you where lions are on the hunt or a cheetah has cubs in the grass.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 9,
@@ -1719,6 +1845,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Ngorongoro and descend into the crater for a full day with the Big Five. The enclosed caldera guarantees remarkable wildlife sightings in a spectacular volcanic setting.',
         accommodation: 'Ngorongoro Serena Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kitela Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2021/09/Kitela-Lodge-Tanzania-Ngorongoro-Conservation-Area-pool-etc.jpg', amenities: ['pool', 'view', 'garden'] } },
       },
       {
         day: 10,
@@ -1726,6 +1853,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Lake Eyasi to spend the day with the Hadzabe people, one of Africa\'s last true hunter-gatherer communities. Join a morning hunt with traditional bows and arrows, witness fire-making techniques unchanged for millennia, and gain a profound understanding of a way of life at the very edge of modernity.',
         accommodation: 'Lake Eyasi Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kisima Ngeda Tented Camp', image: 'https://www.africanmeccasafaris.com/wp-content/uploads/kisimangedacamp1.jpg', amenities: ['view', 'garden'] } },
       },
       {
         day: 11,
@@ -1966,6 +2094,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Kigali International Airport and transfer to your hotel. Kigali\'s clean streets and vibrant food scene make it one of Africa\'s most surprising capitals.',
         accommodation: 'Kigali Hotel',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Radisson Blu Hotel & Convention Centre, Kigali', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/bf/0e/3d/radisson-blu-hotel-convention.jpg?w=900&h=500&s=1', amenities: ['pool', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -1973,6 +2102,7 @@ export const packages: SafariPackage[] = [
         description: 'Visit the Kigali Genocide Memorial. Walking through the exhibition halls and gardens — where 250,000 victims are buried — is a solemn but vital experience for understanding Rwanda\'s journey from tragedy to one of Africa\'s most progressive nations.',
         accommodation: 'Kigali Hotel',
         meals: 'Breakfast, Dinner',
+        accommodationByTier: { reserve: { name: 'Radisson Blu Hotel & Convention Centre, Kigali', image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/bf/0e/3d/radisson-blu-hotel-convention.jpg?w=900&h=500&s=1', amenities: ['pool', 'restaurant', 'wifi'] } },
       },
       {
         day: 3,
@@ -1980,6 +2110,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive east toward Akagera National Park. En route, stop at a women\'s farming cooperative run by genocide survivors — a remarkable example of reconciliation and resilience. The community welcomes visitors and shares their story through guided tours of the cooperative.',
         accommodation: 'Akagera Game Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ruzizi Tented Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/ruzizi-tented-camp-12290-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 4,
@@ -1987,6 +2118,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning and afternoon game drives in Akagera — Rwanda\'s only savannah park, recently restocked with lions and black rhinos. Elephants wade through papyrus swamps, hippos claim the lake shallows, and crocodiles bask on the banks. The park\'s varied habitats support over 480 bird species.',
         accommodation: 'Akagera Game Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ruzizi Tented Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/ruzizi-tented-camp-12290-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 5,
@@ -1994,6 +2126,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning boat safari on Lake Ihema — hippos, crocodiles, and dense waterbird colonies at close range. Afternoon bicycle ride through the park buffer zone. Evening night drive reveals civets, genets, servals, and bush babies hunting in the darkness.',
         accommodation: 'Akagera Game Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ruzizi Tented Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/ruzizi-tented-camp-12290-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 6,
@@ -2001,6 +2134,7 @@ export const packages: SafariPackage[] = [
         description: 'A seven-hour drive southwest across Rwanda toward Nyungwe Forest National Park. En route, visit the reconstructed palace of the Rwandan royal family at Nyanza, with traditional dance performances by the royal dance troupe. Arrive at Nyungwe by evening.',
         accommodation: 'Nyungwe Forest Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'One&Only Nyungwe House', image: 'https://www.go2africa.com/wp-content/uploads/2017/10/2032235048NH_OO_Exteriors_House_Morning_Sun_0892_MASTER.jpg', amenities: ['view', 'spa', 'restaurant'] } },
       },
       {
         day: 7,
@@ -2008,6 +2142,7 @@ export const packages: SafariPackage[] = [
         description: 'Nyungwe is one of Africa\'s oldest and largest montane rainforests, sheltering 13 primate species. Today\'s focus is chimpanzee tracking — following a habituated community through the dense forest canopy. Over 300 bird species have been recorded here, including Albertine Rift endemics.',
         accommodation: 'Nyungwe Forest Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'One&Only Nyungwe House', image: 'https://www.go2africa.com/wp-content/uploads/2017/10/2032235048NH_OO_Exteriors_House_Morning_Sun_0892_MASTER.jpg', amenities: ['view', 'spa', 'restaurant'] } },
       },
       {
         day: 8,
@@ -2015,6 +2150,7 @@ export const packages: SafariPackage[] = [
         description: 'Walk the Nyungwe canopy bridge — suspended 50 metres above the forest floor — for a bird\'s-eye perspective on the rainforest. Afternoon guided trail to locate the famous 400-strong troop of Angola colobus monkeys, the largest primate troop in Africa.',
         accommodation: 'Nyungwe Forest Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'One&Only Nyungwe House', image: 'https://www.go2africa.com/wp-content/uploads/2017/10/2032235048NH_OO_Exteriors_House_Morning_Sun_0892_MASTER.jpg', amenities: ['view', 'spa', 'restaurant'] } },
       },
       {
         day: 9,
@@ -2022,6 +2158,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive north to Kinigi and set out to track a habituated mountain gorilla family in the Virunga bamboo forest. One hour spent in the presence of these great apes — watching silverbacks, mothers with infants, and curious juveniles — is a life-changing encounter. Visit the Muheza gorilla veterinary project afterwards.',
         accommodation: 'Ruhengeri Hotel',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kinigi Guest House', image: 'https://www.insidevolcanoesnationalpark.com/wp-content/uploads/2020/04/kinigi-guest-house-rwanda.jpg', amenities: ['view', 'garden'] } },
       },
       {
         day: 10,
@@ -2029,6 +2166,7 @@ export const packages: SafariPackage[] = [
         description: 'Return to Volcanoes National Park for golden monkey tracking. These brilliantly coloured primates — found only in the Albertine Rift — move through the bamboo forest in fast-moving groups, making them a thrilling and photogenic subject.',
         accommodation: 'Ruhengeri Hotel',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kinigi Guest House', image: 'https://www.insidevolcanoesnationalpark.com/wp-content/uploads/2020/04/kinigi-guest-house-rwanda.jpg', amenities: ['view', 'garden'] } },
       },
       {
         day: 11,
@@ -2036,6 +2174,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Rubavu (Gisenyi) on the shores of Lake Kivu. This emerald-green crater lake is one of Africa\'s Great Lakes, flanked by colonial-era mansions and vibrant fishing communities. Afternoon kayaking on the lake, then sundowner cocktails overlooking the Congo border as the last light fades on the water.',
         accommodation: 'Lake Kivu Serena Hotel',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Lake Kivu Serena Hotel', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/lake-kivu-serena-hotel-12133-1920x630.jpg', amenities: ['pool', 'view', 'restaurant'] } },
       },
       {
         day: 12,
@@ -2074,6 +2213,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Jomo Kenyatta International Airport and transfer to your Nairobi hotel. Enjoy the pool and spa facilities and rest ahead of the adventure.',
         accommodation: 'Nairobi Luxury Hotel',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Hemingways Nairobi', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/HemingwaysNairobi-Exterior-ArialView.jpg', amenities: ['pool', 'spa', 'restaurant'] } },
       },
       {
         day: 2,
@@ -2081,6 +2221,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning visit to the Karen Blixen Museum, the colonial farmhouse that inspired Out of Africa, set against the backdrop of the Ngong Hills. Then to the Giraffe Centre, where you can feed endangered Rothschild giraffes by hand at eye level on the elevated platform. Afternoon at the Daphne Sheldrick Wildlife Trust elephant orphanage for the daily mud-bath feeding session.',
         accommodation: 'Nairobi Luxury Hotel',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Hemingways Nairobi', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/HemingwaysNairobi-Exterior-ArialView.jpg', amenities: ['pool', 'spa', 'restaurant'] } },
       },
       {
         day: 3,
@@ -2088,6 +2229,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Amboseli, Kenya\'s most iconic park, where enormous elephant herds roam against the snow-capped backdrop of Kilimanjaro. The mountain is visible on clear mornings in extraordinary detail — its glaciers reflecting above the dust of the savannah below. Amboseli supports over 600 bird species and reliable populations of lion and leopard.',
         accommodation: 'Amboseli Safari Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ol Tukai Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2017/10/OlTukaiLodge-edited1.jpg', amenities: ['view', 'wildlife-view', 'pool'] } },
       },
       {
         day: 4,
@@ -2095,6 +2237,7 @@ export const packages: SafariPackage[] = [
         description: 'A complete day in Amboseli with morning and afternoon game drives. The park\'s open grasslands and swamps make animal watching straightforward and deeply rewarding. Large elephant families move in slow processions, mothers shepherding calves through the acacia groves.',
         accommodation: 'Amboseli Safari Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ol Tukai Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2017/10/OlTukaiLodge-edited1.jpg', amenities: ['view', 'wildlife-view', 'pool'] } },
       },
       {
         day: 5,
@@ -2102,6 +2245,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive north to Samburu — a rugged, semi-arid reserve along the Ewaso Ng\'iro River. Samburu is famous for the "Samburu Special Five": Grevy\'s zebra, reticulated giraffe, Somali ostrich, gerenuk (the long-necked antelope), and beisa oryx — all northern species found nowhere else in Kenya. Optional horseback riding along the river.',
         accommodation: 'Samburu Safari Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Samburu Intrepids', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/samburu-intrepids-2185-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 6,
@@ -2109,6 +2253,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning game drive along the Ewaso Ng\'iro River where leopards are remarkably habituated and often seen at close range in the riverine trees. Crocodiles line the sandy banks. The resident lion pride hunts at dawn. Afternoon at leisure or optional cultural visit to a Samburu manyatta.',
         accommodation: 'Samburu Safari Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Samburu Intrepids', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/samburu-intrepids-2185-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 7,
@@ -2116,6 +2261,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Ol Pejeta Conservancy, home to the largest population of black rhino in East Africa and the last two northern white rhinos on earth. The conservancy also supports East Africa\'s only chimpanzee sanctuary, where rescued chimps live in a large forested enclosure open to guided visits. Sundowner game drive across the open plains.',
         accommodation: 'Ol Pejeta Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Sweetwaters Serena Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/sweetwaters-serena-camp-2196-1920x630.jpg', amenities: ['wildlife-view', 'pool'] } },
       },
       {
         day: 8,
@@ -2123,6 +2269,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Lake Nakuru, famous for its enormous flamingo flocks that can reach two million birds, turning the shallow alkaline lake entirely pink. The park is also a rhino sanctuary — both black and white rhinos — and supports healthy populations of lion, leopard, and Rothschild giraffe.',
         accommodation: 'Lake Nakuru Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Lake Nakuru Lodge', image: 'https://lakenakurulodge.com/wp-content/uploads/2024/03/Nakuru-Lodge-15-scaled.jpg', amenities: ['view', 'restaurant'] } },
       },
       {
         day: 9,
@@ -2130,6 +2277,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive south to the Masai Mara — Kenya\'s most celebrated wildlife reserve and one of the great wildlife destinations on earth. Voted repeatedly among the Seven Natural Wonders of Africa, the Mara supports year-round populations of lion, cheetah, leopard, elephant, buffalo, and hippo, in addition to hosting the Great Migration from July to October.',
         accommodation: 'Masai Mara Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kichwa Tembo Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/Kichwa-classic-tent-andBeyond-Kichwa-Tembo.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 10,
@@ -2137,6 +2285,7 @@ export const packages: SafariPackage[] = [
         description: 'A complete day in the Masai Mara with morning and afternoon game drives. Horseback riding across the open savannah alongside zebra and giraffe is available as an optional extra for the ultimate immersive experience. Big cat sightings are among the most reliable anywhere in Africa.',
         accommodation: 'Masai Mara Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kichwa Tembo Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/Kichwa-classic-tent-andBeyond-Kichwa-Tembo.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 11,
@@ -2174,6 +2323,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Julius Nyerere International Airport in Dar es Salaam and transfer directly to your lodge on the banks of the Rufiji River inside Nyerere National Park. An optional sunset boat ride introduces you to the river hippos and crocodiles on your first evening.',
         accommodation: 'Rufiji River Camp',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/rufiji-river-camp-3363-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 2,
@@ -2181,6 +2331,7 @@ export const packages: SafariPackage[] = [
         description: 'Full day game drives in Nyerere — Tanzania\'s largest national park, covering 50,000 square kilometres of riverine forest, open grassland, and miombo woodland. Lion prides, elephant herds, buffalo, kudu, and giraffe are all reliably spotted across the varied terrain.',
         accommodation: 'Rufiji River Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/rufiji-river-camp-3363-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 3,
@@ -2188,6 +2339,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning boat safari on the Rufiji River — one of East Africa\'s greatest waterways. Hippo pools, crocodile banks, and dense waterbird colonies line the shores. Elephant herds wade across at shallow crossings. This is walking and boat safari territory at its finest, with no vehicle restrictions on where guides can take you.',
         accommodation: 'Rufiji River Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/rufiji-river-camp-3363-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 4,
@@ -2195,6 +2347,7 @@ export const packages: SafariPackage[] = [
         description: 'A final morning game drive in Nyerere before transferring north to Mikumi National Park. The drive passes through remote southern Tanzania countryside rarely seen by visitors.',
         accommodation: 'Mikumi Wildlife Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Mikumi Wildlife Lodge', image: 'https://static.wixstatic.com/media/806f4e_b2f92832be0d45a794b880d2d1ff7bd9~mv2.jpg', amenities: ['pool', 'view', 'restaurant'] } },
       },
       {
         day: 5,
@@ -2202,6 +2355,7 @@ export const packages: SafariPackage[] = [
         description: 'Game drives across the Mkata floodplain — Mikumi\'s most productive wildlife habitat. Elephants, elands, lions, leopards, cheetahs, and wild dogs all inhabit the park. Mikumi is often called "the Serengeti of the south" for its open grassland landscape and accessible big cat viewing.',
         accommodation: 'Mikumi Wildlife Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Mikumi Wildlife Lodge', image: 'https://static.wixstatic.com/media/806f4e_b2f92832be0d45a794b880d2d1ff7bd9~mv2.jpg', amenities: ['pool', 'view', 'restaurant'] } },
       },
       {
         day: 6,
@@ -2209,6 +2363,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to the Udzungwa Mountains — one of Tanzania\'s most biodiverse parks and a global conservation priority. Hike through montane forest to Sanje Waterfall, where you can swim in the natural pools beneath the falls. The forest shelters two endemic primate species and over 400 bird species, including many Albertine Rift endemics.',
         accommodation: 'Udzungwa Forest Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Hondo Hondo Udzungwa Forest Camp', image: 'https://www.exploretanzania.nl/wp-content/uploads/2019/05/accommodatie-udzungwa-hondo-hondo00032-1920x1080.jpg', amenities: ['garden', 'view'] } },
       },
       {
         day: 7,
@@ -2216,6 +2371,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive west to Ruaha National Park — a long but scenic journey through the southern highlands. Ruaha is Tanzania\'s largest national park and one of the most exciting destinations on the continent for serious wildlife enthusiasts.',
         accommodation: 'Ruaha River Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: 'https://b-cdn.springnest.com/media/img/wu/ruaha_foxes_caseypratt_loveafrica-5225e2dc7de.jpg?aspect_ratio=672%3A415&width=1344', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 8,
@@ -2223,6 +2379,7 @@ export const packages: SafariPackage[] = [
         description: 'Ruaha shelters Tanzania\'s largest populations of lion, leopard, cheetah, and wild dog — the park\'s predator density is exceptional. Elephant herds number in the thousands. The Great Ruaha River is the lifeline of the park, drawing animals from across the region in the dry season. No crowds, no noise — just the wilderness in its purest form.',
         accommodation: 'Ruaha River Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: 'https://b-cdn.springnest.com/media/img/wu/ruaha_foxes_caseypratt_loveafrica-5225e2dc7de.jpg?aspect_ratio=672%3A415&width=1344', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 9,
@@ -2230,6 +2387,7 @@ export const packages: SafariPackage[] = [
         description: 'Another full day in Ruaha. Morning drives target the river areas where predators are most active at dawn. Afternoon drives push into the remote interior where rarely-visited areas harbour sable antelope, greater kudu, and oryx alongside the more common species.',
         accommodation: 'Ruaha River Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: 'https://b-cdn.springnest.com/media/img/wu/ruaha_foxes_caseypratt_loveafrica-5225e2dc7de.jpg?aspect_ratio=672%3A415&width=1344', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 10,
@@ -2268,6 +2426,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Julius Nyerere International Airport in Dar es Salaam and transfer to your lodge inside Nyerere National Park on the banks of the Rufiji River. An optional sunset boat ride introduces you to the river\'s hippos and crocodiles on your first evening.',
         accommodation: 'Rufiji River Camp',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/rufiji-river-camp-3363-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 2,
@@ -2275,6 +2434,7 @@ export const packages: SafariPackage[] = [
         description: 'Full day game drives in Nyerere National Park. Large lion prides move through the miombo woodland and open grasslands, sharing the landscape with elephant herds, buffalo, and giraffe. The scale of the park — larger than Switzerland — means encounters feel truly wild and unhurried.',
         accommodation: 'Rufiji River Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/rufiji-river-camp-3363-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 3,
@@ -2282,6 +2442,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning game drive focusing on the woodland areas where leopards and wild dogs hunt. Afternoon boat safari on the Rufiji River — a unique perspective on African wildlife that few visitors ever experience. Sundowners by the water as hippos surface around the boat.',
         accommodation: 'Rufiji River Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/rufiji-river-camp-3363-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 4,
@@ -2289,6 +2450,7 @@ export const packages: SafariPackage[] = [
         description: 'Board your light aircraft and fly west over the southern Tanzanian plains to Ruaha National Park. The bird\'s-eye view reveals the scale of the miombo woodland stretching to the horizon. An afternoon game drive at the Great Ruaha River sets the tone for what follows.',
         accommodation: 'Ruaha River Lodge',
         meals: 'Lunch, Dinner',
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: 'https://b-cdn.springnest.com/media/img/wu/ruaha_foxes_caseypratt_loveafrica-5225e2dc7de.jpg?aspect_ratio=672%3A415&width=1344', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 5,
@@ -2296,6 +2458,7 @@ export const packages: SafariPackage[] = [
         description: 'A full day in Ruaha — Tanzania\'s largest national park and one of Africa\'s greatest secrets. The predator density is extraordinary: lions, leopards, cheetahs, and wild dogs all inhabit the same landscape. Elephant herds number in the thousands. No tour bus convoys, no crowds — just you, your guide, and the wilderness.',
         accommodation: 'Ruaha River Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: 'https://b-cdn.springnest.com/media/img/wu/ruaha_foxes_caseypratt_loveafrica-5225e2dc7de.jpg?aspect_ratio=672%3A415&width=1344', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 6,
@@ -2303,6 +2466,7 @@ export const packages: SafariPackage[] = [
         description: 'Push into the more remote areas of Ruaha. Sable antelope and greater kudu inhabit the dry miombo forest. The Great Ruaha River draws animals from across the region, and predator-prey interactions at the water\'s edge are a daily spectacle.',
         accommodation: 'Ruaha River Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: 'https://b-cdn.springnest.com/media/img/wu/ruaha_foxes_caseypratt_loveafrica-5225e2dc7de.jpg?aspect_ratio=672%3A415&width=1344', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 7,
@@ -2310,6 +2474,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning game drive in Ruaha, then fly to Zanzibar. Touch down on this legendary spice island and transfer to your five-star beachfront resort. Spend the afternoon on the white sand, getting used to paradise.',
         accommodation: 'Zanzibar Luxury Beach Resort',
         meals: 'Breakfast',
+        accommodationByTier: { reserve: { name: 'Kilindi Zanzibar', image: 'https://static.guestcentric.net/bin/ebb27fe9658a6e14/kilindi-zanzibar-bannersunsetpoolwide.webp', amenities: ['pool', 'spa', 'all-inclusive'] } },
       },
       {
         day: 8,
@@ -2317,6 +2482,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning guided tour of Stone Town — UNESCO-listed and full of carved wooden doors, Arab arches, and Swahili cultural life. Boat trip to Prison Island, where giant Aldabra tortoises over 100 years old roam freely through the gardens. Afternoon dhow sunset cruise.',
         accommodation: 'Zanzibar Luxury Beach Resort',
         meals: 'Breakfast',
+        accommodationByTier: { reserve: { name: 'Kilindi Zanzibar', image: 'https://static.guestcentric.net/bin/ebb27fe9658a6e14/kilindi-zanzibar-bannersunsetpoolwide.webp', amenities: ['pool', 'spa', 'all-inclusive'] } },
       },
       {
         day: 9,
@@ -2324,6 +2490,7 @@ export const packages: SafariPackage[] = [
         description: 'Early morning boat trip to Kizimkazi to swim with wild spinner dolphins in the open ocean. Afternoon spice farm tour through plantations of cloves, cinnamon, vanilla, black pepper, and ylang-ylang. Evening cocktails at the resort as the sun drops into the Indian Ocean.',
         accommodation: 'Zanzibar Luxury Beach Resort',
         meals: 'Breakfast',
+        accommodationByTier: { reserve: { name: 'Kilindi Zanzibar', image: 'https://static.guestcentric.net/bin/ebb27fe9658a6e14/kilindi-zanzibar-bannersunsetpoolwide.webp', amenities: ['pool', 'spa', 'all-inclusive'] } },
       },
       {
         day: 10,
@@ -2331,6 +2498,7 @@ export const packages: SafariPackage[] = [
         description: 'A completely free day on Zanzibar\'s legendary beaches. The turquoise water, white coral sand, and swaying palms are the perfect contrast to the intensity of the southern safari parks. Optional snorkelling, sailing, or kayaking.',
         accommodation: 'Zanzibar Luxury Beach Resort',
         meals: 'Breakfast',
+        accommodationByTier: { reserve: { name: 'Kilindi Zanzibar', image: 'https://static.guestcentric.net/bin/ebb27fe9658a6e14/kilindi-zanzibar-bannersunsetpoolwide.webp', amenities: ['pool', 'spa', 'all-inclusive'] } },
       },
       {
         day: 11,
@@ -2368,6 +2536,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Jomo Kenyatta International Airport and transfer to your Nairobi hotel. Relax and prepare for twelve days across two of Africa\'s greatest wildlife destinations.',
         accommodation: 'Nairobi Hotel',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Hemingways Nairobi', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/HemingwaysNairobi-Exterior-ArialView.jpg', amenities: ['pool', 'spa', 'restaurant'] } },
       },
       {
         day: 2,
@@ -2375,6 +2544,7 @@ export const packages: SafariPackage[] = [
         description: 'Visit the Karen Blixen Museum, set on the farm that inspired Out of Africa. Then to the Giraffe Centre where Rothschild giraffes eat pellets from your palm at eye level on the elevated viewing platform. Afternoon at the Daphne Sheldrick elephant orphanage for the mud-bath feeding session.',
         accommodation: 'Nairobi Hotel',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Hemingways Nairobi', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/HemingwaysNairobi-Exterior-ArialView.jpg', amenities: ['pool', 'spa', 'restaurant'] } },
       },
       {
         day: 3,
@@ -2382,6 +2552,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Amboseli beneath the ice-capped summit of Kilimanjaro. Africa\'s highest mountain dominates the landscape on clear mornings, providing an iconic backdrop for the largest elephant herds in Kenya. Over 600 bird species have been recorded in this compact park.',
         accommodation: 'Amboseli Safari Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ol Tukai Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2017/10/OlTukaiLodge-edited1.jpg', amenities: ['view', 'wildlife-view', 'pool'] } },
       },
       {
         day: 4,
@@ -2389,6 +2560,7 @@ export const packages: SafariPackage[] = [
         description: 'A complete day exploring Amboseli\'s swamps, woodlands, and open grasslands. Large elephant family groups move through the reeds and acacia groves, lion prides hunt the floodplain edges, and cheetahs chase gazelle across the open ground.',
         accommodation: 'Amboseli Safari Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ol Tukai Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2017/10/OlTukaiLodge-edited1.jpg', amenities: ['view', 'wildlife-view', 'pool'] } },
       },
       {
         day: 5,
@@ -2396,6 +2568,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Lake Nakuru, where the alkaline lake supports one of the largest flamingo populations in the world. The famous pink mass on the water shifts and swirls with the birds\' movements. The park is also a rhino sanctuary for both black and white rhinos — one of the best places in Kenya to see them.',
         accommodation: 'Lake Nakuru Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Lake Nakuru Lodge', image: 'https://lakenakurulodge.com/wp-content/uploads/2024/03/Nakuru-Lodge-15-scaled.jpg', amenities: ['view', 'restaurant'] } },
       },
       {
         day: 6,
@@ -2403,6 +2576,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive south to the Masai Mara National Reserve — Kenya\'s crown jewel. The rolling grasslands of the Mara stretch across the horizon and seamlessly connect to the Serengeti to the south. Afternoon game drive introduces you to the resident lion prides and cheetah families.',
         accommodation: 'Masai Mara Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kichwa Tembo Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/Kichwa-classic-tent-andBeyond-Kichwa-Tembo.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 7,
@@ -2410,6 +2584,7 @@ export const packages: SafariPackage[] = [
         description: 'A full day in the Mara voted one of the Seven Natural Wonders of Africa. From July to October, the wildebeest migration fills every horizon. Year-round, the Big Five and the full cast of African predators make the Mara one of the greatest game-viewing destinations on earth. Optional horseback riding alongside the wildlife.',
         accommodation: 'Masai Mara Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kichwa Tembo Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/Kichwa-classic-tent-andBeyond-Kichwa-Tembo.jpg', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 8,
@@ -2417,6 +2592,7 @@ export const packages: SafariPackage[] = [
         description: 'Cross the border into Tanzania by light aircraft, landing at Seronera airstrip in the heart of the Serengeti. Afternoon game drive in the central plains as the Serengeti\'s resident lion and cheetah populations come alive in the golden afternoon light. Hippo pools glow in the sunset.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'Lunch, Dinner',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 9,
@@ -2424,6 +2600,7 @@ export const packages: SafariPackage[] = [
         description: 'A complete day on the Serengeti plains with morning and afternoon game drives. Big cats, wildebeest herds, zebra, giraffe, and elephant fill the landscape in every direction. The Serengeti is the largest unbroken savannah ecosystem on earth.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 10,
@@ -2431,6 +2608,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Ngorongoro and descend into the crater for a full day among the Big Five. The concentrated wildlife within this ancient caldera makes for some of the most productive game viewing in Africa. Black rhinos are reliably spotted here.',
         accommodation: 'Ngorongoro Serena Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Kitela Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2021/09/Kitela-Lodge-Tanzania-Ngorongoro-Conservation-Area-pool-etc.jpg', amenities: ['pool', 'view', 'garden'] } },
       },
       {
         day: 11,
@@ -2438,6 +2616,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Lake Manyara — the park Hemingway called "the most beautiful place in Africa." Tree-climbing lions drape themselves across fig tree branches above the forest floor. The alkaline lake supports enormous flocks of flamingos, pelicans, and storks. Hot geysers bubble along the shoreline.',
         accommodation: 'Lake Manyara Hotel',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'andBeyond Lake Manyara Tree Lodge', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/Lake_Manyara_Tree_Lodge_lounger-area.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 12,
@@ -2476,6 +2655,7 @@ export const packages: SafariPackage[] = [
         description: 'Arrive at Julius Nyerere International Airport in Dar es Salaam and transfer by road into Nyerere National Park, settling into your lodge on the banks of the Rufiji River. An optional sunset boat ride offers your first wildlife encounter — hippos, crocodiles, and waterbirds at close range.',
         accommodation: 'Rufiji River Camp',
         meals: 'Dinner',
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/rufiji-river-camp-3363-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 2,
@@ -2483,6 +2663,7 @@ export const packages: SafariPackage[] = [
         description: 'Full day game drives in the largest national park in Tanzania. Lion prides patrol the open plains, elephant herds move between the river and the woodland, and kudu, giraffe, and buffalo fill the landscape in every direction. The park is genuinely uncrowded — you may go hours without seeing another vehicle.',
         accommodation: 'Rufiji River Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/rufiji-river-camp-3363-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 3,
@@ -2490,6 +2671,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning game drive in the park\'s more remote woodland areas, then a full afternoon boat safari on the Rufiji River. Hippo pods dominate the sandbars, crocodiles bask on the banks, and dense waterbird colonies fill the trees. Sundowners served on the boat as the river turns gold.',
         accommodation: 'Rufiji River Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: 'https://www.go2africa.com/wp-content/uploads/2017/08/rufiji-river-camp-3363-1920x630.jpg', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 4,
@@ -2497,6 +2679,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning game drive in Nyerere, then drive north to Mikumi National Park. Mikumi provides an excellent transition between the southern and northern circuits — open Mkata plains with elephants, elands, giraffes, and big cats visible from the main road.',
         accommodation: 'Mikumi Wildlife Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Mikumi Wildlife Lodge', image: 'https://static.wixstatic.com/media/806f4e_b2f92832be0d45a794b880d2d1ff7bd9~mv2.jpg', amenities: ['pool', 'view', 'restaurant'] } },
       },
       {
         day: 5,
@@ -2504,6 +2687,7 @@ export const packages: SafariPackage[] = [
         description: 'Full day on the Mkata floodplain with morning and afternoon game drives. Elephants graze in family groups, lion prides rest beneath the shade trees, and cheetahs scan from elevated termite mounds. The open landscape makes spotting straightforward and rewarding.',
         accommodation: 'Mikumi Wildlife Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Mikumi Wildlife Lodge', image: 'https://static.wixstatic.com/media/806f4e_b2f92832be0d45a794b880d2d1ff7bd9~mv2.jpg', amenities: ['pool', 'view', 'restaurant'] } },
       },
       {
         day: 6,
@@ -2511,6 +2695,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive west through the scenic southern highland scenery to Ruaha National Park. The landscape shifts from cultivated hills to wild miombo woodland as you enter Tanzania\'s largest park.',
         accommodation: 'Ruaha River Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: 'https://b-cdn.springnest.com/media/img/wu/ruaha_foxes_caseypratt_loveafrica-5225e2dc7de.jpg?aspect_ratio=672%3A415&width=1344', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 7,
@@ -2518,6 +2703,7 @@ export const packages: SafariPackage[] = [
         description: 'A full day in Ruaha following the Great Ruaha River. Tanzania\'s biggest populations of lion, leopard, cheetah, and wild dog inhabit this park. Elephant herds number in the thousands. The intimate scale of the camps and the complete absence of crowds make Ruaha the most exciting park in Tanzania for experienced safari travellers.',
         accommodation: 'Ruaha River Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: 'https://b-cdn.springnest.com/media/img/wu/ruaha_foxes_caseypratt_loveafrica-5225e2dc7de.jpg?aspect_ratio=672%3A415&width=1344', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 8,
@@ -2525,6 +2711,7 @@ export const packages: SafariPackage[] = [
         description: 'Morning game drive in Ruaha, then board your light aircraft and fly north over the Tanzanian savannah to Seronera airstrip in the central Serengeti. An afternoon game drive puts you straight into lion and cheetah territory as the evening light casts long shadows across the plains.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'Lunch, Dinner',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 9,
@@ -2532,6 +2719,7 @@ export const packages: SafariPackage[] = [
         description: 'Full day in the central Serengeti. The Seronera River junction is one of the most productive wildlife corridors in Africa year-round. Leopards drape themselves in the sausage trees, cheetahs sprint after Thomson\'s gazelle, and lion prides move in slow processions across the open grassland.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 10,
@@ -2539,6 +2727,7 @@ export const packages: SafariPackage[] = [
         description: 'Another full day in the Serengeti, pushing into less-visited areas based on wildlife intelligence. The western corridor and northern plains each offer distinct habitats and species not found in the central zone.',
         accommodation: 'Serengeti Tented Camp',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: 'https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 11,
@@ -2546,6 +2735,7 @@ export const packages: SafariPackage[] = [
         description: 'Drive to Ngorongoro and descend 600 metres into the crater for a full day among the Big Five. The enclosed caldera provides some of the most concentrated wildlife viewing on earth. Lion prides hunt in the open, black rhinos graze near the soda lake, and vast buffalo herds move in slow columns across the crater floor. Overnight in the charming highland town of Karatu.',
         accommodation: 'Karatu Lodge',
         meals: 'All meals',
+        accommodationByTier: { reserve: { name: 'Tloma Lodge, Karatu', image: 'https://twctanzania.com/wp-content/uploads/2023/10/Tloma-Lodge-Karatu-scaled.jpg', amenities: ['organic-farm', 'garden', 'restaurant'] } },
       },
       {
         day: 12,
