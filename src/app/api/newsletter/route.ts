@@ -5,13 +5,11 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, website, renderTime } = await req.json() as {
-      name?: string; email?: string; website?: string; renderTime?: number
+    const { name, email, website } = await req.json() as {
+      name?: string; email?: string; website?: string
     }
 
     if (website) return NextResponse.json({ success: true })
-    const elapsed = Date.now() - Number(renderTime ?? 0)
-    if (elapsed < 3_000) return NextResponse.json({ success: true })
 
     if (!email) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 })

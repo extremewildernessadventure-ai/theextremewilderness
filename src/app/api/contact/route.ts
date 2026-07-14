@@ -5,19 +5,13 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 const FROM = process.env.RESEND_FROM ?? 'EWA Contact <noreply@theextremewilderness.com>'
 const TO   = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
 
-const MIN_SUBMIT_MS = 3_000 // bots submit instantly
-
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json() as Record<string, unknown>
-    const { fullName, email, phone, subject, message, website, renderTime } = body
+    const { fullName, email, phone, subject, message, website } = body
 
     // Honeypot — bots fill hidden fields
     if (website) return NextResponse.json({ success: true }) // silent discard
-
-    // Timing check — humans take > 3 s to fill a form
-    const elapsed = Date.now() - Number(renderTime ?? 0)
-    if (elapsed < MIN_SUBMIT_MS) return NextResponse.json({ success: true }) // silent discard
 
     // Required fields
     if (!fullName || !email || !message) {

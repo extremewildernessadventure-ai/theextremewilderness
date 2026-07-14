@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Send, Check, ChevronDown } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
@@ -108,8 +108,6 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
   ]
 
   const [website, setWebsite] = useState('')
-  const [renderTime, setRenderTime] = useState(0)
-  useEffect(() => { setRenderTime(Date.now()) }, [])
 
   const [form, setForm] = useState({
     firstName: '',
@@ -157,7 +155,7 @@ export default function InquiryForm({ tripType }: InquiryFormProps) {
       const res = await fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, specialReqs, source: 'contact_page', website, renderTime }),
+        body: JSON.stringify({ ...form, specialReqs, source: 'contact_page', website }),
       })
       if (!res.ok) throw new Error('send failed')
       trackFormFillConversion()

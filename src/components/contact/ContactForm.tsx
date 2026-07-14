@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Send, Check } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
@@ -21,7 +21,6 @@ export default function ContactForm() {
     t('contactForm.subjects.general'),
   ]
 
-  const [renderTime, setRenderTime] = useState(0)
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
@@ -35,10 +34,6 @@ export default function ContactForm() {
     website: '', // honeypot — humans leave this blank
   })
   const [privacy, setPrivacy] = useState(false)
-
-  useEffect(() => {
-    setRenderTime(Date.now())
-  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -57,7 +52,7 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, renderTime }),
+        body: JSON.stringify(form),
       })
       if (res.status === 429) { setError(t('contactForm.rateLimitError')); return }
       if (!res.ok) throw new Error('send failed')

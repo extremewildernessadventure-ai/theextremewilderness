@@ -184,11 +184,6 @@ export default function EnquiryModal() {
   const [submitting, setSubmitting] = useState(false)
   const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({})
   const [website, setWebsite] = useState('')
-  const [renderTime, setRenderTime] = useState(0)
-
-  useEffect(() => {
-    if (isOpen) setRenderTime(Date.now())
-  }, [isOpen])
 
   useEffect(() => {
     if (bookingInfo?.packageType) setTripType(bookingInfo.packageType)
@@ -279,7 +274,7 @@ export default function EnquiryModal() {
           duration: bookingInfo?.duration,
           priceFrom: bookingInfo?.priceFrom,
           source: 'booking_modal',
-          website, renderTime,
+          website,
         }),
       })
       if (!res.ok) throw new Error('send failed')

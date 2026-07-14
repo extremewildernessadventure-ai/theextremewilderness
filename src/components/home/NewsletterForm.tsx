@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
@@ -11,8 +11,6 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
   const [email, setEmail]   = useState('')
   const [status, setStatus] = useState<Status>('idle')
   const [website, setWebsite] = useState('')
-  const [renderTime, setRenderTime] = useState(0)
-  useEffect(() => { setRenderTime(Date.now()) }, [])
 
   const inputCls = dark
     ? 'w-full px-4 py-3 rounded-xl bg-white/15 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold'
@@ -30,7 +28,7 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
       const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, website, renderTime }),
+        body: JSON.stringify({ name, email, website }),
       })
       setStatus(res.ok ? 'success' : 'error')
     } catch {
