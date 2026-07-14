@@ -25,11 +25,6 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
   const [errors, setErrors] = useState<{ name?: string; email?: string }>({})
   const [status, setStatus] = useState<Status>('idle')
   const [website, setWebsite] = useState('')
-  const [renderTime, setRenderTime] = useState(0)
-
-  useEffect(() => {
-    if (open) setRenderTime(Date.now())
-  }, [open])
 
   const close = useCallback(() => {
     setOpen(false)
@@ -71,7 +66,7 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
       const res = await fetch('/api/pdf-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), website, renderTime }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), website }),
       })
       if (!res.ok) throw new Error()
       setStatus('success')

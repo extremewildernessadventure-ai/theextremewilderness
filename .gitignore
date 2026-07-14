@@ -43,3 +43,5 @@ next-env.d.ts
 
 # compression script (dev only)
 /scripts/compress-images.mjs
+
+.vercel
