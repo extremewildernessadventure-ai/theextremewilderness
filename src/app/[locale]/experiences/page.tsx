@@ -173,7 +173,7 @@ export default async function ExperiencesPage({ params }: Props) {
 
           <div className="space-y-6 pb-16">
             {experiences.map((exp, i) => (
-              <ExperienceCard key={exp.slug + i} exp={exp} flip={i % 2 === 1} locationLabel={t('cardLocation')} fromLabel={t('fromLabel')} perPersonLabel={t('perPersonLabel')} exploreButton={t('exploreButton')} />
+              <ExperienceCard key={exp.slug + i} exp={exp} flip={i % 2 === 1} locationLabel={t('cardLocation')} fromLabel={t('fromLabel')} perPersonLabel={t('perPersonLabel')} priceOnRequestLabel={t('priceOnRequest')} exploreButton={t('exploreButton')} />
             ))}
           </div>
         </div>
@@ -282,7 +282,7 @@ export default async function ExperiencesPage({ params }: Props) {
   )
 }
 
-function ExperienceCard({ exp, flip, locationLabel, fromLabel, perPersonLabel, exploreButton }: { exp: Experience; flip: boolean; locationLabel: string; fromLabel: string; perPersonLabel: string; exploreButton: string }) {
+function ExperienceCard({ exp, flip, locationLabel, fromLabel, perPersonLabel, priceOnRequestLabel, exploreButton }: { exp: Experience; flip: boolean; locationLabel: string; fromLabel: string; perPersonLabel: string; priceOnRequestLabel: string; exploreButton: string }) {
   return (
     <div className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col lg:flex-row ${flip ? 'lg:flex-row-reverse' : ''}`}>
       {/* Image */}
@@ -335,8 +335,14 @@ function ExperienceCard({ exp, flip, locationLabel, fromLabel, perPersonLabel, e
               {locationLabel}
             </span>
             <span className="font-semibold text-brand">
-              {fromLabel} <span className="text-base">{exp.priceFrom}</span>
-              <span className="text-text-muted font-normal">{perPersonLabel}</span>
+              {exp.priceFrom ? (
+                <>
+                  {fromLabel} <span className="text-base">{exp.priceFrom}</span>
+                  <span className="text-text-muted font-normal">{perPersonLabel}</span>
+                </>
+              ) : (
+                priceOnRequestLabel
+              )}
             </span>
           </div>
           <Link
