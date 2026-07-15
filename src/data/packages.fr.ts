@@ -2678,7 +2678,7 @@ export const packages: SafariPackage[] = [
       {
         day: 1,
         title: 'Arrivée à Arusha',
-        description: 'Arrivée à l\'aéroport d\'Arusha (ARK) ou à l\'aéroport international du Kilimandjaro (JRO) et rencontre avec votre représentant Extreme Wilderness Adventure. Transfert confortable à Kahawa House — une propriété charmante à Arusha, point de départ idéal pour les jours à venir.',
+        description: 'Arrivée à l\'aéroport d\'Arusha (ARK) ou à l\'aéroport international du Kilimandjaro (JRO) et rencontre avec votre représentant EWA Safari Outfitters. Transfert confortable à Kahawa House — une propriété charmante à Arusha, point de départ idéal pour les jours à venir.',
         accommodation: 'Kahawa House',
         meals: 'Dîner & Petit-déjeuner',
         insiderFact: 'Arusha est à 1 400 m d\'altitude — les soirées sont fraîches. Capitale des aventures en Tanzanie, c\'est la porte d\'entrée du Kilimandjaro et du Serengeti.',

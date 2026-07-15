@@ -49,7 +49,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   const orgSchema = {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'LocalBusiness'],
-    name: 'Extreme Wilderness Adventure',
+    name: 'EWA Safari Outfitters',
     url: SITE_URL,
     logo: `${SITE_URL}/EWA%20logo.png`,
     description: 'Premier East Africa safari operator specialising in Tanzania, Kenya and Rwanda wildlife safaris, Kilimanjaro treks, and gorilla trekking experiences.',

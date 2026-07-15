@@ -814,7 +814,7 @@ export const packages: SafariPackage[] = [
         a: 'The Crown Jewels Safari starts from $2,821 per person (Wilderness Reserve tier, low season, twin share), rising to $3,855 in peak season. Wilderness Sovereign, with upgraded lodges throughout, starts from $4,079 in low season and $5,842 in peak season. Because every safari is tailor-made, exact pricing depends on your dates, tier, and group size.',
       },
       {
-        q: 'Why book the Crown Jewels Safari with The Extreme Wilderness?',
+        q: 'Why book the Crown Jewels Safari with EWA Safari Outfitters?',
         a: "We're a Tanzania-born, Arusha-based operator, not an overseas agency reselling a route we've never driven. Every safari is tailor-made and led throughout by a professional, certified guide, with support from airport pickup to final drop-off.",
       },
       {
@@ -2865,7 +2865,7 @@ export const packages: SafariPackage[] = [
       {
         day: 1,
         title: 'Arrival in Arusha',
-        description: 'Arrive at Arusha Airport (ARK) or Kilimanjaro International Airport (JRO) and meet your Extreme Wilderness Adventure representative. A warm welcome and short briefing precede a comfortable transfer to Kahawa House — a charming, well-located property in Arusha and the ideal launchpad for the days ahead. Rest well; the bush begins tomorrow.',
+        description: 'Arrive at Arusha Airport (ARK) or Kilimanjaro International Airport (JRO) and meet your EWA Safari Outfitters representative. A warm welcome and short briefing precede a comfortable transfer to Kahawa House — a charming, well-located property in Arusha and the ideal launchpad for the days ahead. Rest well; the bush begins tomorrow.',
         accommodation: 'Kahawa House',
         meals: 'Dinner & Breakfast',
         insiderFact: 'Arusha sits at 1,400 m — a comfortable acclimatisation buffer before the parks. Most operators service and restock their vehicles here between trips.',
@@ -2995,7 +2995,7 @@ export const packages: SafariPackage[] = [
       {
         day: 1,
         title: 'Arrival in Arusha',
-        description: 'Arrive at Arusha Airport (ARK) or Kilimanjaro International Airport (JRO) and meet your Extreme Wilderness Adventure representative. Transfer to Kahawa House — a comfortable, characterful property in Arusha that serves as the ideal first night in Tanzania. Rest, settle in, and prepare for what the next five days have in store.',
+        description: 'Arrive at Arusha Airport (ARK) or Kilimanjaro International Airport (JRO) and meet your EWA Safari Outfitters representative. Transfer to Kahawa House — a comfortable, characterful property in Arusha that serves as the ideal first night in Tanzania. Rest, settle in, and prepare for what the next five days have in store.',
         accommodation: 'Kahawa House',
         meals: 'Dinner & Breakfast',
         insiderFact: 'Arusha sits at 1,400 m — cool evenings are common. Tanzania\'s adventure capital is the gateway to Kilimanjaro, the Serengeti, and the entire Northern Circuit.',

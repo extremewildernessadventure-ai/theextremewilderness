@@ -12,16 +12,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   return {
     alternates: buildAlternates(locale, '/contact'),
-    title: 'Contact & Plan Your Safari | The Extreme Wilderness',
+    title: 'Contact & Plan Your Safari',
     description: 'Get in touch with our Tanzania-based safari experts. We respond within 2 hours with a custom itinerary.',
     openGraph: {
-      title: 'Contact & Plan Your Safari | The Extreme Wilderness',
+      title: 'Contact & Plan Your Safari',
       description: 'Get in touch with our Tanzania-based safari experts. We respond within 2 hours with a custom itinerary.',
       images: [{ url: '/images/gallery/safari-014.webp', width: 1200, height: 630, alt: 'Safari in the Serengeti' }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Contact | The Extreme Wilderness',
+      title: 'Contact',
       images: ['/images/gallery/safari-014.webp'],
     },
     keywords: [
@@ -103,7 +103,7 @@ export default async function ContactPage({ params }: Props) {
               {/* Company info */}
               <div>
                 <p className="text-xs font-bold text-text-muted uppercase tracking-widest mb-3">{t('ourOffice')}</p>
-                <h2 className="text-2xl font-bold text-brand mb-1">The Extreme Wilderness</h2>
+                <h2 className="text-2xl font-bold text-brand mb-1">EWA Safari Outfitters</h2>
                 <p className="text-sm text-text-muted leading-relaxed mb-4">
                   {t('tagline')}
                 </p>
@@ -150,7 +150,7 @@ export default async function ContactPage({ params }: Props) {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="The Extreme Wilderness — Arusha, Tanzania"
+                  title="EWA Safari Outfitters — Arusha, Tanzania"
                 />
               </div>
 

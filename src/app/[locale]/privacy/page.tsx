@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   return {
     alternates: buildAlternates(locale, '/privacy'),
-    title: 'Privacy Policy | The Extreme Wilderness',
-    description: 'How The Extreme Wilderness collects, uses, and protects your personal data. GDPR-compliant privacy policy for our safari booking services.',
+    title: 'Privacy Policy',
+    description: 'How EWA Safari Outfitters collects, uses, and protects your personal data. GDPR-compliant privacy policy for our safari booking services.',
   }
 }
 

@@ -159,7 +159,8 @@ export default async function AboutPage({ params }: Props) {
                 <p className="text-text-muted text-xs mt-3 font-medium">{t('pullQuoteAuthor')}</p>
               </div>
               <p className="text-text-muted leading-relaxed mb-5">{t('localDesc2')}</p>
-              <p className="text-text-muted leading-relaxed">{t('localDesc3')}</p>
+              <p className="text-text-muted leading-relaxed mb-5">{t('localDesc3')}</p>
+              <p className="text-text-muted leading-relaxed">{t('localDesc4')}</p>
             </div>
             <div className="relative">
               <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
@@ -277,7 +278,7 @@ export default async function AboutPage({ params }: Props) {
                 className="w-full h-full min-h-[400px] border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="The Extreme Wilderness Adventure office location"
+                title="EWA Safari Outfitters office location"
               />
             </div>
           </div>

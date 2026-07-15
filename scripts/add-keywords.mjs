@@ -66,12 +66,12 @@ const STATIC_PAGES = [
       'src/app/itineraries/page.tsx',
     ],
     find: `export const metadata: Metadata = {
-  title: 'Safari Itineraries | The Extreme Wilderness',
+  title: 'Safari Itineraries',
   description:
     'Browse curated safari itineraries across Tanzania, Kenya and Rwanda. From classic Serengeti circuits to gorilla trekking and Kilimanjaro summit bids. Every journey custom-built.',
 }`,
     replace: `export const metadata: Metadata = {
-  title: 'Safari Itineraries | The Extreme Wilderness',
+  title: 'Safari Itineraries',
   description:
     'Browse curated safari itineraries across Tanzania, Kenya and Rwanda. From classic Serengeti circuits to gorilla trekking and Kilimanjaro summit bids. Every journey custom-built.',
   keywords: [
@@ -101,11 +101,11 @@ const STATIC_PAGES = [
       'src/app/blog/page.tsx',
     ],
     find: `export const metadata: Metadata = {
-  title: 'Safari Blog | Tanzania & East Africa Travel Guides | The Extreme Wilderness',
+  title: 'Safari Blog | Tanzania & East Africa Travel Guides',
   description: 'Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.',
 }`,
     replace: `export const metadata: Metadata = {
-  title: 'Safari Blog | Tanzania & East Africa Travel Guides | The Extreme Wilderness',
+  title: 'Safari Blog | Tanzania & East Africa Travel Guides',
   description: 'Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.',
   keywords: [
     'Tanzania safari blog',
@@ -133,12 +133,12 @@ const STATIC_PAGES = [
       'src/app/travel-info/page.tsx',
     ],
     find: `export const metadata: Metadata = {
-  title: 'Tanzania Travel Information | Visas, Health, Currency & Packing | The Extreme Wilderness',
+  title: 'Tanzania Travel Information | Visas, Health, Currency & Packing',
   description:
     'Essential Tanzania travel information — best time to visit, visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari or Kilimanjaro trek.',
 }`,
     replace: `export const metadata: Metadata = {
-  title: 'Tanzania Travel Information | Visas, Health, Currency & Packing | The Extreme Wilderness',
+  title: 'Tanzania Travel Information | Visas, Health, Currency & Packing',
   description:
     'Essential Tanzania travel information — best time to visit, visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari or Kilimanjaro trek.',
   keywords: [
@@ -384,7 +384,7 @@ interface RouteProps {
 
 const ROUTE_META: Record<string, import('next').Metadata> = {
   machame: {
-    title: 'Kilimanjaro Machame Route 2026 | 7 Days | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Machame Route 2026 | 7 Days',
     description: "Climb Kilimanjaro via the scenic Machame 'Whiskey Route' — 7 days, 85% success rate. Led by TANAPA-certified guides from Tanzania.",
     keywords: [
       'Kilimanjaro Machame route', 'Machame route 7 days', 'Kilimanjaro whiskey route',
@@ -393,7 +393,7 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
     ],
   },
   lemosho: {
-    title: 'Kilimanjaro Lemosho Route 2026 | 8 Days | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Lemosho Route 2026 | 8 Days',
     description: "The Lemosho Route — 8 days, 90% summit success rate. The most scenic and spacious Kilimanjaro route, perfect for acclimatisation.",
     keywords: [
       'Kilimanjaro Lemosho route', 'Lemosho route 8 days', 'best Kilimanjaro route USA',
@@ -402,7 +402,7 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
     ],
   },
   marangu: {
-    title: 'Kilimanjaro Marangu Route 2026 | 5–6 Days | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Marangu Route 2026 | 5–6 Days',
     description: "The Marangu 'Coca-Cola' Route — the classic Kilimanjaro hut route. 5–6 days, hut accommodation, ideal for a first climb.",
     keywords: [
       'Kilimanjaro Marangu route', 'Marangu Coca-Cola route', 'Kilimanjaro 5 day route',
@@ -411,7 +411,7 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
     ],
   },
   rongai: {
-    title: 'Kilimanjaro Rongai Route 2026 | 6–7 Days | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Rongai Route 2026 | 6–7 Days',
     description: "The Rongai Route approaches Kilimanjaro from the north — quieter, drier, ideal in the rainy season. 6–7 days, 80% success rate.",
     keywords: [
       'Kilimanjaro Rongai route', 'Rongai route 6 days', 'north side Kilimanjaro',
@@ -420,7 +420,7 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
     ],
   },
   umbwe: {
-    title: 'Kilimanjaro Umbwe Route 2026 | Most Direct | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Umbwe Route 2026 | Most Direct',
     description: "The Umbwe Route — the steepest and most direct Kilimanjaro route. For experienced trekkers only. 6–7 days of dramatic terrain.",
     keywords: [
       'Kilimanjaro Umbwe route', 'hardest Kilimanjaro route', 'Umbwe route guide',
@@ -429,7 +429,7 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
     ],
   },
   'northern-circuit': {
-    title: 'Kilimanjaro Northern Circuit 2026 | 9–10 Days | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Northern Circuit 2026 | 9–10 Days',
     description: "The Northern Circuit — Kilimanjaro's longest route with a 95% summit success rate. 9–10 days circumnavigating the entire mountain.",
     keywords: [
       'Kilimanjaro Northern Circuit', 'longest Kilimanjaro route', 'Kilimanjaro 95% success rate',

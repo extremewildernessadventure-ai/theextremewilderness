@@ -2678,7 +2678,7 @@ export const packages: SafariPackage[] = [
       {
         day: 1,
         title: 'Llegada a Arusha',
-        description: 'Llegada al aeropuerto de Arusha (ARK) o al aeropuerto internacional del Kilimanjaro (JRO) y encuentro con su representante de Extreme Wilderness Adventure. Traslado cómodo a Kahawa House — una propiedad encantadora en Arusha y el punto de partida perfecto para los días venideros.',
+        description: 'Llegada al aeropuerto de Arusha (ARK) o al aeropuerto internacional del Kilimanjaro (JRO) y encuentro con su representante de EWA Safari Outfitters. Traslado cómodo a Kahawa House — una propiedad encantadora en Arusha y el punto de partida perfecto para los días venideros.',
         accommodation: 'Kahawa House',
         meals: 'Cena y Desayuno',
         insiderFact: 'Arusha se encuentra a 1.400 m de altitud — una noche de aclimatación cómoda antes de los parques. Capital de aventuras de Tanzania, puerta de entrada al Kilimanjaro y al Serengeti.',

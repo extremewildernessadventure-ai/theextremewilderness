@@ -79,7 +79,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
       <div className="max-w-4xl mx-auto px-4 py-6 print:hidden flex items-center justify-between border-b border-gray-100">
         <div>
           <h1 className="text-xl font-bold text-brand">{t('pdfCardTitle')}</h1>
-          <p className="text-sm text-text-muted">Extreme Wilderness Adventure · Kilimanjaro</p>
+          <p className="text-sm text-text-muted">EWA Safari Outfitters · Kilimanjaro</p>
         </div>
         <button
           onClick={() => window.print()}
@@ -97,7 +97,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
         <div className="flex items-start justify-between pb-5 mb-6 border-b-[3px] border-gray-900 no-break">
           <div>
             <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">
-              Extreme Wilderness Adventure · Arusha, Tanzania
+              EWA Safari Outfitters · Arusha, Tanzania
             </p>
             <h1 className="text-3xl font-black text-gray-900 leading-tight">
               Kilimanjaro Trekking Guide
@@ -218,7 +218,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
         {/* ── Footer ── */}
         <div className="border-t-2 border-gray-900 pt-4 flex items-center justify-between no-break">
           <div>
-            <p className="text-sm font-black text-gray-900">Extreme Wilderness Adventure</p>
+            <p className="text-sm font-black text-gray-900">EWA Safari Outfitters</p>
             <p className="text-xs text-gray-500">info@theextremewilderness.com · www.theextremewilderness.com · Arusha, Tanzania</p>
           </div>
           <p className="text-xs text-gray-400">© {new Date().getFullYear()} EWA · {t('pdfCardBadge')}</p>

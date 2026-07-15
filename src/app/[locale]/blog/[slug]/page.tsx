@@ -178,8 +178,8 @@ export default async function BlogArticlePage({ params }: Props) {
     headline: post.title,
     description: post.metaDescription,
     image: `${SITE_URL}${post.heroImage}`,
-    author: { '@type': 'Organization', name: 'The Extreme Wilderness' },
-    publisher: { '@type': 'Organization', name: 'The Extreme Wilderness', logo: { '@type': 'ImageObject', url: `${SITE_URL}/EWA%20logo.webp` } },
+    author: { '@type': 'Organization', name: 'EWA Safari Outfitters' },
+    publisher: { '@type': 'Organization', name: 'EWA Safari Outfitters', logo: { '@type': 'ImageObject', url: `${SITE_URL}/EWA%20logo.webp` } },
     datePublished: post.date,
     dateModified: post.date,
   }

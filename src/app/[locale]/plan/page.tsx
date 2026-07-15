@@ -15,9 +15,9 @@ type Props = { params: Promise<{ locale: string }> }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   return {
-    // Root layout's title template already appends " | The Extreme Wilderness" —
+    // Root layout's title template already appends "" —
     // repeating it here previously produced a doubled "... | The Extreme
-    // Wilderness | The Extreme Wilderness" browser-tab/SERP title.
+    // Wilderness" browser-tab/SERP title.
     alternates: buildAlternates(locale, '/plan'),
     title: TITLE,
     description: DESCRIPTION,

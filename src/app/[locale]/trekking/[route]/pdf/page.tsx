@@ -97,7 +97,7 @@ export default async function PdfPage({ params }: Props) {
         {/* Header */}
         <div className="flex items-start justify-between pb-5 mb-6 border-b-2 border-gray-900 no-break">
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">Extreme Wilderness Adventure</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">EWA Safari Outfitters</p>
             <h1 className="text-3xl font-bold text-gray-900 leading-tight">{routeContent.quickFacts.routeName}</h1>
             <p className="text-base text-gray-600 mt-1 italic">{routeContent.nickname}</p>
           </div>
@@ -195,10 +195,10 @@ export default async function PdfPage({ params }: Props) {
         {/* Footer */}
         <div className="border-t border-gray-200 pt-4 flex items-center justify-between no-break">
           <div>
-            <p className="text-xs font-bold text-gray-900">Extreme Wilderness Adventure</p>
+            <p className="text-xs font-bold text-gray-900">EWA Safari Outfitters</p>
             <p className="text-xs text-gray-500">info@theextremewilderness.com · www.theextremewilderness.com</p>
           </div>
-          <p className="text-xs text-gray-400">© {new Date().getFullYear()} Extreme Wilderness Adventure</p>
+          <p className="text-xs text-gray-400">© {new Date().getFullYear()} EWA Safari Outfitters</p>
         </div>
       </div>
     </>

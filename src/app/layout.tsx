@@ -18,8 +18,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'The Extreme Wilderness | Tanzania Safari & Kilimanjaro',
-    template: '%s | The Extreme Wilderness',
+    default: 'EWA Safari Outfitters | Tanzania Safari & Kilimanjaro',
+    template: '%s | EWA Safari Outfitters',
   },
   description:
     "Tanzania's premier locally-owned safari operator. Custom safaris to Serengeti, Ngorongoro, Zanzibar & beyond. Kilimanjaro trekking from Arusha. 5+ years, 98% satisfaction.",
@@ -32,14 +32,14 @@ export const metadata: Metadata = {
     'Ngorongoro Crater safari',
     'Zanzibar holiday',
   ],
-  authors: [{ name: 'The Extreme Wilderness' }],
+  authors: [{ name: 'EWA Safari Outfitters' }],
   openGraph: {
-    title: 'The Extreme Wilderness — Where the Wild Calls You Home',
+    title: 'EWA Safari Outfitters — Where the Wild Calls You Home',
     description:
       'Custom Tanzania safaris, Kilimanjaro treks & Zanzibar beach holidays. Born and based in Arusha, Tanzania.',
     type: 'website',
     url: SITE_URL,
-    siteName: 'The Extreme Wilderness',
+    siteName: 'EWA Safari Outfitters',
     locale: 'en_US',
     images: [
       {
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Extreme Wilderness | Tanzania Safari',
+    title: 'EWA Safari Outfitters | Tanzania Safari',
     description: 'Custom Tanzania safaris born in the wilderness.',
     images: ['/images/gallery/safari-119.webp'],
   },

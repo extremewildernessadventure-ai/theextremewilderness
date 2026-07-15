@@ -276,7 +276,7 @@ export default async function SafariPackagePage({ params }: Props) {
     image: `${SITE_URL}${pkg.heroImage}`,
     provider: {
       '@type': 'Organization',
-      name: 'Extreme Wilderness Adventure',
+      name: 'EWA Safari Outfitters',
       url: SITE_URL,
     },
     offers: {

@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   return {
     alternates: buildAlternates(locale, '/travel-info'),
-    title: 'Tanzania Travel Information | Visas, Health, Currency & Packing | The Extreme Wilderness',
+    title: 'Tanzania Travel Information | Visas, Health, Currency & Packing',
     description:
       'Essential Tanzania travel information — best time to visit, visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari or Kilimanjaro trek.',
     openGraph: {
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Tanzania Travel Information | The Extreme Wilderness',
+      title: 'Tanzania Travel Information',
       images: ['/images/gallery/safari-118.webp'],
     },
     keywords: [

@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   return {
     alternates: buildAlternates(locale, '/terms'),
-    title: 'Terms & Conditions | The Extreme Wilderness',
-    description: 'Terms and Conditions for booking safaris, trekking, and travel experiences with The Extreme Wilderness. Includes cancellation policy, liability, and insurance requirements.',
+    title: 'Terms & Conditions',
+    description: 'Terms and Conditions for booking safaris, trekking, and travel experiences with EWA Safari Outfitters. Includes cancellation policy, liability, and insurance requirements.',
   }
 }
 

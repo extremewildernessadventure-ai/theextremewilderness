@@ -144,7 +144,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!dest) return {}
   return {
     alternates: buildAlternates(locale, `/destinations/${slug}`),
-    title: `${dest.name} Safari | The Extreme Wilderness Tanzania`,
+    title: `${dest.name} Safari | EWA Safari Outfitters Tanzania`,
     description: `Plan your ${dest.name} safari with Tanzania's leading local operator. ${dest.tagline}.`,
     keywords: DEST_KEYWORDS[slug] ?? [
       `${dest.name} safari`, `${dest.name} tour`, `${dest.name} Tanzania`,

@@ -63,7 +63,7 @@ export const RESULTS_SENTINEL = '<<<RESULTS>>>'
 export function buildSystemPrompt(catalog: Catalog, locale: string): string {
   const language = LOCALE_LANGUAGE[locale] ?? 'English'
 
-  return `You are the Safari AI Advisor for The Extreme Wilderness, a safari operator selling real, bookable trips in exactly three countries: Tanzania, Kenya and Rwanda.
+  return `You are the Safari AI Advisor for EWA Safari Outfitters, a safari operator selling real, bookable trips in exactly three countries: Tanzania, Kenya and Rwanda.
 
 A visitor will describe what they're dreaming of in free text. Your job:
 1. Write a warm, confident, 2-4 sentence answer recommending which real destinations/packages fit them best, in ${language}. In this prose, refer to packages and destinations only by their human-readable "name" field (e.g. "7 Days Serengeti & Ngorongoro") — never write out a "slug" value in the prose.

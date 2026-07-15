@@ -66,7 +66,7 @@ export default function CopyProtection() {
       style={{ left: tip.x + 12, top: tip.y + 8 }}
     >
       <div className="bg-brand text-white text-xs font-semibold px-3 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-90">
-        © Extreme Wilderness Adventure — All rights reserved
+        © EWA Safari Outfitters — All rights reserved
       </div>
     </div>
   )

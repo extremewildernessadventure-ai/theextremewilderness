@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params
   return {
     alternates: buildAlternates(locale, '/blog'),
-    title: 'Safari Blog | Tanzania & East Africa Travel Guides | The Extreme Wilderness',
+    title: 'Safari Blog | Tanzania & East Africa Travel Guides',
     description: 'Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.',
     openGraph: {
       title: 'Safari Blog | Tanzania & East Africa Travel Guides',
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Safari Blog | The Extreme Wilderness',
+      title: 'Safari Blog',
       images: ['/images/gallery/safari-114.webp'],
     },
     keywords: [

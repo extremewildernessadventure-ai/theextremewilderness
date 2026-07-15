@@ -43,7 +43,7 @@ interface RouteDetailContent {
 
 const ROUTE_META: Record<string, import('next').Metadata> = {
   machame: {
-    title: 'Kilimanjaro Machame Route 2026 | 7 Days | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Machame Route 2026 | 7 Days',
     description: "Climb Kilimanjaro via the scenic Machame 'Whiskey Route' — 7 days, 85% success rate. Led by TANAPA-certified guides from Tanzania.",
     keywords: [
       'Kilimanjaro Machame route', 'Machame route 7 days', 'Kilimanjaro whiskey route',
@@ -52,7 +52,7 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
     ],
   },
   lemosho: {
-    title: 'Kilimanjaro Lemosho Route 2026 | 8 Days | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Lemosho Route 2026 | 8 Days',
     description: "The Lemosho Route — 8 days, 90% summit success rate. The most scenic and spacious Kilimanjaro route, perfect for acclimatisation.",
     keywords: [
       'Kilimanjaro Lemosho route', 'Lemosho route 8 days', 'best Kilimanjaro route USA',
@@ -61,7 +61,7 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
     ],
   },
   marangu: {
-    title: 'Kilimanjaro Marangu Route 2026 | 5–6 Days | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Marangu Route 2026 | 5–6 Days',
     description: "The Marangu 'Coca-Cola' Route — the classic Kilimanjaro hut route. 5–6 days, hut accommodation, ideal for a first climb.",
     keywords: [
       'Kilimanjaro Marangu route', 'Marangu Coca-Cola route', 'Kilimanjaro 5 day route',
@@ -70,7 +70,7 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
     ],
   },
   rongai: {
-    title: 'Kilimanjaro Rongai Route 2026 | 6–7 Days | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Rongai Route 2026 | 6–7 Days',
     description: "The Rongai Route approaches Kilimanjaro from the north — quieter, drier, ideal in the rainy season. 6–7 days, 80% success rate.",
     keywords: [
       'Kilimanjaro Rongai route', 'Rongai route 6 days', 'north side Kilimanjaro',
@@ -79,7 +79,7 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
     ],
   },
   umbwe: {
-    title: 'Kilimanjaro Umbwe Route 2026 | Most Direct | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Umbwe Route 2026 | Most Direct',
     description: "The Umbwe Route — the steepest and most direct Kilimanjaro route. For experienced trekkers only. 6–7 days of dramatic terrain.",
     keywords: [
       'Kilimanjaro Umbwe route', 'hardest Kilimanjaro route', 'Umbwe route guide',
@@ -88,7 +88,7 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
     ],
   },
   'northern-circuit': {
-    title: 'Kilimanjaro Northern Circuit 2026 | 9–10 Days | Extreme Wilderness Adventure',
+    title: 'Kilimanjaro Northern Circuit 2026 | 9–10 Days',
     description: "The Northern Circuit — Kilimanjaro's longest route with a 95% summit success rate. 9–10 days circumnavigating the entire mountain.",
     keywords: [
       'Kilimanjaro Northern Circuit', 'longest Kilimanjaro route', 'Kilimanjaro 95% success rate',
@@ -118,7 +118,7 @@ export async function generateMetadata({ params }: RouteProps): Promise<import('
   const successRate = trd(`${route}.quickFacts.successRate` as 'machame.quickFacts.successRate')
 
   return {
-    title: `${routeName} 2026 | ${duration} | Extreme Wilderness Adventure`,
+    title: `${routeName} 2026 | ${duration}`,
     description: `${routeName} — ${nickname}. ${duration}, ${successRate}${tMeta('successSuffix')}.`,
     keywords: fallback.keywords,
     alternates,
