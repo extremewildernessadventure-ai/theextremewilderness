@@ -34,12 +34,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/images/gallery/safari-119.webp', width: 1200, height: 630, alt: 'Lions at sunset on the Masai Mara plains' }],
+      images: [{ url: '/images/gallery/safari-119.jpg', width: 1200, height: 630, alt: 'Lions at sunset on the Masai Mara plains' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('metaTitle'),
-      images: ['/images/gallery/safari-119.webp'],
+      images: ['/images/gallery/safari-119.jpg'],
     },
   }
 }

@@ -39,13 +39,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: 'EWA Safari Outfitters | Tanzania Safari & Kilimanjaro 2026',
       description: 'Book Tanzania safaris, Kilimanjaro treks & gorilla trekking with a certified local operator. Serengeti, Ngorongoro, Great Migration. 4.9/5 rated.',
-      images: [{ url: '/images/gallery/safari-119.webp', width: 1200, height: 630, alt: 'Lions at golden sunset on the Tanzania Serengeti plains' }],
+      images: [{ url: '/images/gallery/safari-119.jpg', width: 1200, height: 630, alt: 'Lions at golden sunset on the Tanzania Serengeti plains' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'EWA Safari Outfitters | Tanzania Safari 2026',
       description: 'Certified local operator for Tanzania safaris, Kilimanjaro & gorilla trekking.',
-      images: ['/images/gallery/safari-119.webp'],
+      images: ['/images/gallery/safari-119.jpg'],
     },
   }
 }

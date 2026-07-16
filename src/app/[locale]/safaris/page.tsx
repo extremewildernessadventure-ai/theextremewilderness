@@ -27,12 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/images/gallery/safari-009.webp', width: 1200, height: 630, alt: 'East Africa safari landscape at golden hour' }],
+      images: [{ url: '/images/gallery/safari-009.jpg', width: 1200, height: 630, alt: 'East Africa safari landscape at golden hour' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('metaTitle'),
-      images: ['/images/gallery/safari-009.webp'],
+      images: ['/images/gallery/safari-009.jpg'],
     },
   }
 }
@@ -538,8 +538,16 @@ export default async function SafarisPage({ params }: Props) {
       </section>
 
       {/* ── 7. CTA + NEWSLETTER ──────────────────────────────────────────────── */}
-      <section className="bg-brand py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 overflow-hidden">
+        <Image
+          src="/images/gallery/safari-009.webp"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand/80" />
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
             {/* Left — CTA */}

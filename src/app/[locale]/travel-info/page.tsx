@@ -20,12 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: 'Tanzania Travel Information | Visas, Health, Currency & Packing',
       description: 'Essential Tanzania travel information — visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari.',
-      images: [{ url: '/images/gallery/safari-118.webp', width: 1200, height: 630, alt: 'East Africa safari landscape' }],
+      images: [{ url: '/images/gallery/safari-118.jpg', width: 1200, height: 630, alt: 'East Africa safari landscape' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Tanzania Travel Information',
-      images: ['/images/gallery/safari-118.webp'],
+      images: ['/images/gallery/safari-118.jpg'],
     },
     keywords: [
       'Tanzania visa requirements',

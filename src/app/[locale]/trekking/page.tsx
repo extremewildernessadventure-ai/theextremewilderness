@@ -43,12 +43,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/images/gallery/kilimanjaro-hero.webp', width: 1200, height: 630, alt: 'Mount Kilimanjaro summit rising above the clouds' }],
+      images: [{ url: '/images/gallery/kilimanjaro-hero.jpg', width: 1200, height: 630, alt: 'Mount Kilimanjaro summit rising above the clouds' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('metaTitle'),
-      images: ['/images/gallery/kilimanjaro-hero.webp'],
+      images: ['/images/gallery/kilimanjaro-hero.jpg'],
     },
   }
 }
@@ -564,8 +564,16 @@ export default async function TrekkingPage({ params }: Props) {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand text-center">
-        <div className="max-w-xl mx-auto px-4">
+      <section className="relative py-16 text-center overflow-hidden">
+        <Image
+          src="/images/gallery/kilimanjaro-hero.webp"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand/80" />
+        <div className="relative z-10 max-w-xl mx-auto px-4">
           <h2 className="text-3xl font-semibold text-white mb-4">{t('ctaHeading')}</h2>
           <p className="text-white/70 mb-8">{t('ctaSubtitle')}</p>
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors">

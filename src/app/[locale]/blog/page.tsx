@@ -16,12 +16,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title: 'Safari Blog | Tanzania & East Africa Travel Guides',
       description: 'Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.',
-      images: [{ url: '/images/gallery/safari-114.webp', width: 1200, height: 630, alt: 'Safari vehicles on the Serengeti plains at golden hour' }],
+      images: [{ url: '/images/gallery/safari-114.jpg', width: 1200, height: 630, alt: 'Safari vehicles on the Serengeti plains at golden hour' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Safari Blog',
-      images: ['/images/gallery/safari-114.webp'],
+      images: ['/images/gallery/safari-114.jpg'],
     },
     keywords: [
       'Tanzania safari blog',

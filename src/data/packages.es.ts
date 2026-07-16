@@ -31,7 +31,7 @@ export const packages: SafariPackage[] = [
       "Tres niveles de alojamiento en la misma ruta de confianza",
       "Traslados privados y un guía dedicado durante todo el viaje",
     ],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.webp',
+    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
     gallery: [
       '/images/gallery/serengeti-lion-pride.webp',
       '/images/gallery/tarangire-elephants-baobab.webp',
@@ -166,7 +166,7 @@ export const packages: SafariPackage[] = [
       "Flamencos del lago Manyara y leones trepadores de árboles",
       "Garganta de Olduvai — la Cuna de la Humanidad",
     ],
-    heroImage: '/images/gallery/Central-Serengeti-1.webp',
+    heroImage: '/images/gallery/Central-Serengeti-1.jpg',
     gallery: [
       '/images/gallery/safari-006.webp',
       '/images/gallery/safari-007.webp',
@@ -207,7 +207,7 @@ export const packages: SafariPackage[] = [
       "Cuatro noches en la costa de Nungwi, Zanzíbar, para cerrar el viaje",
       "Todas las comidas incluidas durante el safari y la estancia en la playa",
     ],
-    heroImage: '/images/gallery/zanzibar-nungwi-aerial.webp',
+    heroImage: '/images/gallery/zanzibar-nungwi-aerial.jpg',
     gallery: [
       '/images/gallery/tarangire-elephants-baobab.webp',
       '/images/gallery/serengeti-lion-pride.webp',
@@ -371,7 +371,7 @@ export const packages: SafariPackage[] = [
       'Game drive en el Lago Manyara la última mañana antes de la salida',
       'Dos niveles de alojamiento: campamentos Reserva y lujo Soberano',
     ],
-    heroImage: '/images/gallery/safari-013.webp',
+    heroImage: '/images/gallery/safari-013.jpg',
     gallery: ['/images/gallery/safari-014.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -490,7 +490,7 @@ export const packages: SafariPackage[] = [
       "Guías de montaña y porteadores experimentados",
       "Equipo completo y seguridad garantizada",
     ],
-    heroImage: '/images/gallery/kilimanjaro.webp',
+    heroImage: '/images/gallery/kilimanjaro.jpg',
     gallery: ['/images/gallery/safari-016.webp'],
     included: [
       "Tasas del parque y de acampada",
@@ -520,7 +520,7 @@ export const packages: SafariPackage[] = [
       "Sin aglomeraciones — auténtica naturaleza salvaje",
       "La capital de los depredadores de Tanzania",
     ],
-    heroImage: '/images/gallery/safari-018.webp',
+    heroImage: '/images/gallery/safari-018.jpg',
     gallery: ['/images/gallery/safari-122.webp'],
     included: ["Tasas del parque", "Todos los game drives", "Safari en barca", "Safari a pie", "Todas las comidas", "Vuelos internos en Tanzania"],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas"],
@@ -543,7 +543,7 @@ export const packages: SafariPackage[] = [
       "Grandes felinos y paisajes de sabana de acacias",
       "Visita a un poblado cultural masái",
     ],
-    heroImage: '/images/gallery/l1.webp',
+    heroImage: '/images/gallery/l1.jpg',
     gallery: [],
     included: [
       "Todas las tasas de entrada a los parques",
@@ -609,7 +609,7 @@ export const packages: SafariPackage[] = [
       "Leones trepadores de árboles en el lago Manyara",
       "Atardeceres en el Serengeti desde su campamento",
     ],
-    heroImage: '/images/gallery/honey.webp',
+    heroImage: '/images/gallery/honey.jpg',
     gallery: [],
     included: [
       "Todas las tasas de entrada a los parques",
@@ -696,7 +696,7 @@ export const packages: SafariPackage[] = [
       "Stone Town — Patrimonio de la Humanidad por la UNESCO",
       "Fauna y playa en un solo viaje inolvidable",
     ],
-    heroImage: '/images/gallery/Crown-Jewels-safari.webp',
+    heroImage: '/images/gallery/Crown-Jewels-safari.jpg',
     gallery: [],
     included: [
       "Todas las tasas de entrada a los parques",
@@ -775,7 +775,7 @@ export const packages: SafariPackage[] = [
       "Un día completo en el cráter del Ngorongoro para cerrar el viaje con un tono completamente distinto",
       "Salidas en grupos reducidos, hechas a medida según tus fechas, no fechas de grupo fijas",
     ],
-    heroImage: '/images/gallery/Migration-southern-serengeti1.webp',
+    heroImage: '/images/gallery/Migration-southern-serengeti1.jpg',
     gallery: [],
     included: [
       "Todas las tasas de parques, concesiones y áreas de conservación",
@@ -953,7 +953,7 @@ export const packages: SafariPackage[] = [
       "Manadas de elefantes de Tarangire y paisajes de baobabs",
       "Fauna del Serengeti para todas las edades",
     ],
-    heroImage: '/images/gallery/family1.webp',
+    heroImage: '/images/gallery/family1.jpg',
     gallery: [],
     included: [
       "Todas las tasas de entrada a los parques",
@@ -1116,7 +1116,7 @@ export const packages: SafariPackage[] = [
       "Circuito completo del Serengeti central al Ngorongoro",
       "Tanzania fuera de lo trillado sin multitudes de turistas",
     ],
-    heroImage: '/images/gallery/safari.webp',
+    heroImage: '/images/gallery/safari.jpg',
     gallery: [],
     included: [
       "Todas las tasas del parque y la conservancy",
@@ -1232,7 +1232,7 @@ export const packages: SafariPackage[] = [
       "Los Big Five en el cráter del Ngorongoro",
       "Serengeti Norte — las escenas de migración más dramáticas del planeta",
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.webp',
+    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
     gallery: [],
     included: [
       "Todas las tasas de entrada a los parques",
@@ -1319,7 +1319,7 @@ export const packages: SafariPackage[] = [
       "Cinco días en el Serengeti",
       "Tres días en Zanzíbar — playas, cultura, Stone Town",
     ],
-    heroImage: '/images/gallery/safari.webp',
+    heroImage: '/images/gallery/safari.jpg',
     gallery: [],
     included: [
       "Todas las tasas de entrada a los parques",
@@ -1434,7 +1434,7 @@ export const packages: SafariPackage[] = [
       "Los Big Five en el cráter del Ngorongoro",
       "El norte de Tanzania completo en siete días",
     ],
-    heroImage: '/images/gallery/germs.webp',
+    heroImage: '/images/gallery/germs.jpg',
     gallery: [],
     included: [
       "Todas las tasas de entrada a los parques",
@@ -1513,7 +1513,7 @@ export const packages: SafariPackage[] = [
       "Grandes felinos del Serengeti central durante todo el año",
       "Descenso al cráter del Ngorongoro con los Big Five",
     ],
-    heroImage: '/images/gallery/ngutu.webp',
+    heroImage: '/images/gallery/ngutu.jpg',
     gallery: [],
     included: [
       "Todas las tasas del parque",
@@ -1593,7 +1593,7 @@ export const packages: SafariPackage[] = [
       "Depredadores del Serengeti central durante todo el año",
       "Descenso completo al cráter del Ngorongoro",
     ],
-    heroImage: '/images/gallery/mara1.webp',
+    heroImage: '/images/gallery/mara1.jpg',
     gallery: [],
     included: [
       "Todas las tasas del parque",
@@ -1680,7 +1680,7 @@ export const packages: SafariPackage[] = [
       "Grandes felinos del Serengeti y ñus",
       "Los Big Five del Ngorongoro",
     ],
-    heroImage: '/images/gallery/rwanda.webp',
+    heroImage: '/images/gallery/rwanda.jpg',
     gallery: [],
     included: [
       "Todas las tasas del parque y permisos de gorilas",
@@ -1798,7 +1798,7 @@ export const packages: SafariPackage[] = [
       "Dos días completos en el territorio de depredadores del Serengeti central",
       "Cuatro noches finales en las playas de Zanzíbar",
     ],
-    heroImage: '/images/gallery/rwanda-mountain-gorilla.webp',
+    heroImage: '/images/gallery/rwanda-mountain-gorilla.jpg',
     gallery: [
       '/images/gallery/rwanda-virunga-hills.webp',
       '/images/gallery/serengeti-lion-pride.webp',
@@ -1988,7 +1988,7 @@ export const packages: SafariPackage[] = [
       "Parque Nacional de Akagera — ecosistemas de sabana y lago",
       "Kayak en el lago Kivu y atardeceres en el paseo marítimo",
     ],
-    heroImage: '/images/gallery/golden-monkey.webp',
+    heroImage: '/images/gallery/golden-monkey.jpg',
     gallery: [],
     included: [
       "Todas las tasas del parque y permisos de primates",
@@ -2103,7 +2103,7 @@ export const packages: SafariPackage[] = [
       "Conservancy de Ol Pejeta — chimpancés y rinocerontes negros",
       "Museo Karen Blixen y Centro de Jirafas en Nairobi",
     ],
-    heroImage: '/images/gallery/kenya-destinations.webp',
+    heroImage: '/images/gallery/kenya-destinations.jpg',
     gallery: [],
     included: [
       "Todas las tasas del parque y la conservancy",
@@ -2210,7 +2210,7 @@ export const packages: SafariPackage[] = [
       "Montes Udzungwa y baño bajo la cascada de Sanje",
       "Sin aglomeraciones — auténtica experiencia en la naturaleza",
     ],
-    heroImage: '/images/gallery/dest.webp',
+    heroImage: '/images/gallery/dest.jpg',
     gallery: [],
     included: [
       "Todas las tasas de entrada a los parques",
@@ -2311,7 +2311,7 @@ export const packages: SafariPackage[] = [
       "Stone Town, Prison Island y granjas de especias",
       "Fauna del circuito sur sin ninguna de las multitudes del norte",
     ],
-    heroImage: '/images/gallery/zanzibar1.webp',
+    heroImage: '/images/gallery/zanzibar1.jpg',
     gallery: [],
     included: [
       "Todas las tasas del parque",
@@ -2419,7 +2419,7 @@ export const packages: SafariPackage[] = [
       "Lago Manyara — 'el lugar más bello de África' según Hemingway",
       "Expedición transfronteriza de fauna a través de dos países",
     ],
-    heroImage: '/images/gallery/africa-lion.webp',
+    heroImage: '/images/gallery/africa-lion.jpg',
     gallery: [],
     included: [
       "Todas las tasas del parque",
@@ -2535,7 +2535,7 @@ export const packages: SafariPackage[] = [
       "Ruaha — la naturaleza salvaje más espectacular de Tanzania",
       "Serengeti Norte y Ngorongoro para el gran final",
     ],
-    heroImage: '/images/gallery/Grand-Tanzania-Safari-lion.webp',
+    heroImage: '/images/gallery/Grand-Tanzania-Safari-lion.jpg',
     gallery: [],
     included: [
       "Todas las tasas de entrada a los parques",
@@ -2651,7 +2651,7 @@ export const packages: SafariPackage[] = [
       'Game drives en el Serengeti — leones, guepardos y la Gran Migración',
       'Leones trepadores de árboles y flamencos en el Lago Manyara',
     ],
-    heroImage: '/images/gallery/safari-001.webp',
+    heroImage: '/images/gallery/safari-001.jpg',
     gallery: [],
     included: ['Vehículo privado Toyota Land Cruiser 4x4', 'Guía-conductor privado', 'Alojamiento (4 noches)', 'Todas las tasas de parque', 'Pensión completa', 'Agua ilimitada', 'Seguro AMREF', 'Traslados aeropuerto'],
     excluded: ['Vuelos internacionales', 'Visado (~50 USD)', 'Propinas', 'Artículos personales', 'Actividades opcionales', 'Seguro de viaje'],
@@ -2744,7 +2744,7 @@ export const packages: SafariPackage[] = [
       'Leones trepadores de árboles y flamencos en el Lago Manyara',
       'Game drive matutino en el Serengeti cuando los depredadores son más activos',
     ],
-    heroImage: '/images/gallery/serengeti.webp',
+    heroImage: '/images/gallery/serengeti.jpg',
     gallery: [],
     included: ['Vehículo privado Toyota Land Cruiser 4x4', 'Guía-conductor privado', 'Alojamiento (5 noches)', 'Todas las tasas de parque', 'Pensión completa', 'Agua ilimitada', 'Seguro AMREF', 'Todos los traslados'],
     excluded: ['Vuelos internacionales', 'Visado (~50 USD)', 'Propinas', 'Artículos personales', 'Actividades opcionales', 'Seguro de viaje'],
@@ -2849,7 +2849,7 @@ export const packages: SafariPackage[] = [
       'Traslado transfronterizo — viaje terrestre Masai Mara – Serengeti',
       'Leones trepadores de árboles del Lago Manyara',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.webp',
+    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
     gallery: [],
     included: ['Alojamiento (9 noches)', 'Vehículo privado 4x4 (Tanzania)', 'Vehículo safari privado (Kenya)', 'Guía experto privado', 'Todas las tasas de parque', 'Pensión completa', 'Traslado transfronterizo', 'Todos los traslados aeropuerto', 'Seguro AMREF', 'Impuestos gubernamentales'],
     excluded: ['Vuelos internacionales', 'Visados Kenya y Tanzania (~50–100 USD cada uno)', 'Propinas', 'Artículos personales y seguro de viaje', 'Actividades opcionales'],
@@ -3008,7 +3008,7 @@ export const packages: SafariPackage[] = [
       'Descenso guiado al Cráter del Ngorongoro — todos los Big Five en un día',
       'Las legendarias manadas de elefantes de Tarangire y sus milenarios baobabs',
     ],
-    heroImage: '/images/gallery/mara1.webp',
+    heroImage: '/images/gallery/mara1.jpg',
     gallery: ['/images/gallery/kenya-destinations.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -3047,7 +3047,7 @@ export const packages: SafariPackage[] = [
     badge: 'popular',
     bestFor: ['couples', 'short-break'],
     highlights: ['Vuelo charter de ida y vuelta desde Zanzíbar — sin traslados por carretera', 'Game drives guiados en Nyerere (antiguo Selous), la mayor reserva de África', 'Safari en barco por el río Rufiji — a menudo valorado por encima de los game drives por los viajeros primerizos', 'Estancia en pensión completa en un campamento fly-in', 'Diseñado para viajeros de la playa de Zanzíbar que deseen añadir un safari sin perder más de una noche'],
-    heroImage: '/images/gallery/zanzibar1.webp',
+    heroImage: '/images/gallery/zanzibar1.jpg',
     gallery: ['/images/gallery/safari.webp'],
     pricingTiers: [{ pax: 2, trail: 1160 }, { pax: 3, trail: 1040 }, { pax: 4, trail: 975 }, { pax: 5, trail: 940 }, { pax: 6, trail: 880 }],
     included: ['Vuelo charter de ida y vuelta Zanzíbar–Nyerere–Zanzíbar', 'Todas las tasas del parque y la reserva animaliera', 'Todos los game drives en 4x4 privado', 'Safari en barco por el río Rufiji', 'Guía profesional durante todo el viaje', 'Todas las comidas según el programa', 'Alojamiento en pensión completa en el campamento'],
@@ -3070,7 +3070,7 @@ export const packages: SafariPackage[] = [
     badge: 'new',
     bestFor: ['couples', 'wildlife-enthusiasts', 'first-time'],
     highlights: ['Parque Nacional de Tarangire — manadas de elefantes bajo centenarios baobabs', 'Descenso guiado completo al Cráter del Ngorongoro (Big Five)', 'Tarde cultural con los Hadzabe — una de las últimas comunidades de cazadores-recolectores del mundo', 'Visita a los herreros Datoga en el Lago Eyasi, una tradición artesanal sin cambios desde hace siglos', 'Dos noches en el mismo lodge en Karatu — minimiza el embalaje y los desplazamientos'],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.webp',
+    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
     gallery: ['/images/gallery/safari-001.webp'],
     pricingTiers: [{ pax: 2, trail: 1820 }, { pax: 3, trail: 1455 }, { pax: 4, trail: 1395 }, { pax: 5, trail: 1310 }, { pax: 6, trail: 1250 }],
     included: ['Todas las tasas de parques y áreas de conservación', 'Experiencia cultural en el Lago Eyasi (guía Hadzabe y Datoga)', 'Todos los game drives en 4x4 privado', 'Guía profesional durante todo el viaje', 'Todas las comidas según el programa', 'Alojamiento según el itinerario', 'Traslados aeropuerto e inter-propiedades'],
@@ -3095,7 +3095,7 @@ export const packages: SafariPackage[] = [
     badge: 'new',
     bestFor: ['couples', 'wildlife-enthusiasts', 'families', 'first-time'],
     highlights: ["Parque Nacional de Hell's Gate — el único parque de Kenia que permite ciclismo y senderismo libremente entre cebras, jirafas y búfalos", 'Observación de aves en el Lago Naivasha y paisajes del Gran Valle del Rift', 'Lago Nakuru — orillas con flamencos y uno de los últimos santuarios de rinoceronte negro y blanco de Kenia', 'Dos jornadas completas en el Masai Mara (Gran Migración julio–octubre)', 'Tres niveles de alojamiento desde campamentos cómodos hasta lujo absoluto'],
-    heroImage: '/images/gallery/kenya-destinations.webp',
+    heroImage: '/images/gallery/kenya-destinations.jpg',
     gallery: ['/images/gallery/mara1.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [{ pax: 2, trail: 1950, reserve: 2850, sovereign: 4200 }, { pax: 3, trail: 1780, reserve: 2650, sovereign: 3950 }, { pax: 4, trail: 1650, reserve: 2480, sovereign: 3750 }, { pax: 5, trail: 1580, reserve: 2380, sovereign: 3600 }, { pax: 6, trail: 1520, reserve: 2290, sovereign: 3480 }],
@@ -3120,7 +3120,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'honeymoon', 'luxury'],
     highlights: ['Las manadas de elefantes de Tarangire y su antiguo bosque de baobabs', 'Dos días completos en el territorio de depredadores del Serengeti Central', 'Un descenso guiado al Cráter de Ngorongoro, Patrimonio de la Humanidad por la UNESCO', 'Cuatro noches para cerrar el viaje en la playa de Nungwi, Zanzíbar', 'Dos niveles de alojamiento, ambos pensados para un ritmo de luna de miel — sin prisas'],
-    heroImage: '/images/gallery/zanzibar-nungwi-aerial.webp',
+    heroImage: '/images/gallery/zanzibar-nungwi-aerial.jpg',
     gallery: ['/images/gallery/zanzibar-1.webp', '/images/gallery/Central-Serengeti-1.webp', '/images/gallery/ngorongoro-crater-landscape.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -3176,7 +3176,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'photography', 'luxury'],
     highlights: ['Las manadas de elefantes de Tarangire y un safari a pie guiado', 'Un descenso guiado de día completo al Cráter de Ngorongoro', 'Una parada en la Garganta de Olduvai, la cuna de la humanidad', 'Tres días completos en el territorio de cruce del Río Mara, en el norte del Serengeti', 'Dos niveles de alojamiento, pensados para maximizar sus probabilidades de presenciar un cruce'],
-    heroImage: '/images/gallery/Wildebeest-Migration.webp',
+    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
     gallery: ['/images/gallery/mara-river-crossing.webp', '/images/gallery/olduvai-gorge.webp', '/images/gallery/ngorongoro-crater-landscape.webp', '/images/gallery/tarangire-elephants-baobab.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [

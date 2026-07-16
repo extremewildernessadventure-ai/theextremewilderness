@@ -17,12 +17,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: 'Contact & Plan Your Safari',
       description: 'Get in touch with our Tanzania-based safari experts. We respond within 2 hours with a custom itinerary.',
-      images: [{ url: '/images/gallery/safari-014.webp', width: 1200, height: 630, alt: 'Safari in the Serengeti' }],
+      images: [{ url: '/images/gallery/safari-014.jpg', width: 1200, height: 630, alt: 'Safari in the Serengeti' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Contact',
-      images: ['/images/gallery/safari-014.webp'],
+      images: ['/images/gallery/safari-014.jpg'],
     },
     keywords: [
       'book Tanzania safari',

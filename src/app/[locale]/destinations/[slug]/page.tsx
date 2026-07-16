@@ -464,8 +464,16 @@ export default async function DestinationPage({ params }: Props) {
       )}
 
       {/* CTA */}
-      <section className="py-16 bg-brand" id="inquiry">
-        <div className="max-w-2xl mx-auto px-4 text-center">
+      <section className="relative py-16 overflow-hidden" id="inquiry">
+        <Image
+          src={dest.heroImage}
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand/80" />
+        <div className="relative z-10 max-w-2xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-semibold text-white mb-2">{t('planSafari', { name: dest.name.split(' ')[0] })}</h2>
           <p className="text-white/70 text-sm mb-8">{t('planDesc')}</p>
           <BookNowButton

@@ -146,6 +146,8 @@ const nextConfig: NextConfig = {
       { source: '/5-days-tanzania-safari/', destination: '/safaris/5-days-highlights-safari', permanent: true },
       { source: '/great-wildebeest-migration-8-days-the-great-northern-migration', destination: '/safaris/8-days-great-northern-migration', permanent: true },
       { source: '/great-wildebeest-migration-8-days-the-great-northern-migration/', destination: '/safaris/8-days-great-northern-migration', permanent: true },
+      { source: '/wildebeest-migration-8-days-flight-to-migration', destination: '/safaris/8-days-great-northern-migration', permanent: true },
+      { source: '/wildebeest-migration-8-days-flight-to-migration/', destination: '/safaris/8-days-great-northern-migration', permanent: true },
 
       // Other WordPress pages
       { source: '/tanzania-travel-info', destination: '/travel-info', permanent: true },

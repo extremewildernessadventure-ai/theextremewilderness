@@ -48,12 +48,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/images/gallery/gorilla.webp', width: 1200, height: 630, alt: 'Mountain gorilla in the Volcanoes National Park, Rwanda' }],
+      images: [{ url: '/images/gallery/gorilla.jpg', width: 1200, height: 630, alt: 'Mountain gorilla in the Volcanoes National Park, Rwanda' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('metaTitle'),
-      images: ['/images/gallery/gorilla.webp'],
+      images: ['/images/gallery/gorilla.jpg'],
     },
   }
 }

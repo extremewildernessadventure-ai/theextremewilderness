@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/images/gallery/safari-119.webp',
+        url: '/images/gallery/safari-119.jpg',
         width: 1200,
         height: 630,
         alt: 'Lions at golden sunset on the Tanzania Serengeti plains',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'EWA Safari Outfitters | Tanzania Safari',
     description: 'Custom Tanzania safaris born in the wilderness.',
-    images: ['/images/gallery/safari-119.webp'],
+    images: ['/images/gallery/safari-119.jpg'],
   },
   robots: { index: true, follow: true },
   verification: {

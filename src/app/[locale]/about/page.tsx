@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/images/gallery/elephants.webp', width: 1200, height: 630, alt: 'Serengeti at sunrise with elephants' }],
+      images: [{ url: '/images/gallery/elephants.jpg', width: 1200, height: 630, alt: 'Serengeti at sunrise with elephants' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('metaTitle'),
-      images: ['/images/gallery/elephants.webp'],
+      images: ['/images/gallery/elephants.jpg'],
     },
   }
 }
@@ -286,8 +286,16 @@ export default async function AboutPage({ params }: Props) {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section className="bg-brand py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        <Image
+          src="/images/gallery/elephants.webp"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand/80" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">{t('letsStartPlanning')}</p>

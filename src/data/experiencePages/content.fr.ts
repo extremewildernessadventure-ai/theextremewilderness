@@ -10,7 +10,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["safari classique Tanzanie", "safari Tanzanie", "safari 4x4 Afrique", "safari Serengeti", "safari cratère Ngorongoro", "parc national Tarangire", "safari Big Five Tanzanie", "premier safari en Afrique", "prix safari Tanzanie", "combien coûte un safari en Tanzanie", "meilleure période safari Tanzanie", "itinéraire safari Tanzanie", "circuit nord Tanzanie", "que mettre dans sa valise safari", "safari guidé privé Tanzanie", "safari en famille Tanzanie", "voyage animalier Tanzanie", "camp de toile de luxe Tanzanie", "Serengeti ou Ngorongoro", "safari organisé Tanzanie", "agence safari Tanzanie", "safari sur mesure Afrique"],
     category: 'Safari animalier',
     badge: 'Le plus populaire',
-    heroImage: '/images/gallery/safari-001.webp',
+    heroImage: '/images/gallery/safari-001.jpg',
     heroTagline: 'Les plus grands spectacles animaliers du monde, à travers le Serengeti, le cratère du Ngorongoro et Tarangire.',
     gallery: [
       { src: '/images/gallery/serengeti-lion-pride.webp', alt: "Troupe de lions au repos dans les plaines du Serengeti" },
@@ -116,7 +116,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["safari Grande Migration", "migration des gnous Tanzanie", "migration Serengeti", "traversée rivière Mara safari", "saison de mise bas Ndutu", "meilleure période Grande Migration", "où est la Grande Migration", "migration mois par mois", "prix safari migration", "safari Serengeti tout compris", "camp mobile Serengeti", "saison des traversées Serengeti", "circuit migration Tanzanie", "quand les gnous traversent la Mara", "route de la migration des gnous", "safari mise bas Ndutu", "safari nord du Serengeti", "safari migration 8 jours", "saison de vêlage gnous", "safari Kenya Tanzanie migration", "voir la migration des gnous", "grande migration Serengeti dates"],
     category: 'Safari migration',
     badge: 'Saisonnier',
-    heroImage: '/images/gallery/Wildebeest-Migration.webp',
+    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
     heroTagline: 'Le plus grand spectacle animalier de la planète — calé sur la semaine exacte où les troupeaux se déplacent.',
     gallery: [
       { src: '/images/gallery/mara-river-crossing.webp', alt: "Gnous traversant la rivière Mara" },
@@ -217,7 +217,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["trekking chimpanzés Tanzanie", "parc national des monts Mahale", "trek chimpanzés Mahale", "chimpanzés sauvages Afrique", "safari lac Tanganyika", "prix safari chimpanzés", "où voir des chimpanzés sauvages", "tarif trekking Mahale", "Gombe ou Mahale", "safari primates Tanzanie", "âge minimum trekking chimpanzés", "meilleure saison trekking chimpanzés", "safari fly-in ouest Tanzanie", "pistage chimpanzés Tanzanie", "snorkeling lac Tanganyika", "safari isolé Tanzanie", "difficulté trekking chimpanzés", "groupe M chimpanzés Mahale", "circuit primates Tanzanie", "habituation des chimpanzés"],
     category: "Trekking primates",
     badge: "Isolé & exclusif",
-    heroImage: '/images/gallery/Jozani-forest.webp',
+    heroImage: '/images/gallery/Jozani-forest.jpg',
     heroTagline: "Marchez dans la forêt au-dessus du lac Tanganyika pour passer une heure avec nos plus proches parents.",
     gallery: [
       { src: '/images/gallery/gombe-stream.webp', alt: "Ruisseau forestier au pays des chimpanzés de Tanzanie" },
@@ -314,7 +314,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["trekking gorilles Rwanda", "trek gorilles parc des Volcans", "safari gorilles de montagne", "prix permis gorilles Rwanda", "tarif trekking gorilles", "difficulté trekking gorilles", "meilleure période gorilles Rwanda", "âge minimum trekking gorilles", "circuit gorilles Rwanda", "trekking gorilles depuis Kigali", "Rwanda ou Ouganda gorilles", "rencontre dos argenté", "trek volcans Virunga", "singes dorés Rwanda", "randonnée Dian Fossey", "que porter trekking gorilles", "une heure avec les gorilles", "condition physique trekking gorilles", "voyage organisé Rwanda", "gorilles et safari Serengeti", "population gorilles de montagne", "réserver permis gorilles"],
     category: "Trekking gorilles",
     badge: "Inoubliable",
-    heroImage: '/images/gallery/gorilla.webp',
+    heroImage: '/images/gallery/gorilla.jpg',
     heroTagline: "Une heure avec une famille de gorilles de montagne sauvages, dans les forêts de bambous des volcans Virunga.",
     gallery: [
       { src: '/images/gallery/rwanda-mountain-gorilla.webp', alt: "Gorille de montagne au parc des Volcans, Rwanda" },
@@ -412,7 +412,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["gravir le Kilimandjaro", "voies du Kilimandjaro comparées", "Machame ou Lemosho", "prix ascension Kilimandjaro", "combien coûte le Kilimandjaro", "taux de réussite Kilimandjaro", "meilleure voie Kilimandjaro", "combien de jours pour le Kilimandjaro", "nuit de sommet Kilimandjaro", "trek Uhuru Peak", "préparation physique Kilimandjaro", "liste équipement Kilimandjaro", "mal des montagnes Kilimandjaro", "voie Lemosho 8 jours", "voie Marangu refuges", "meilleure période Kilimandjaro", "ascension guidée Kilimandjaro", "pourboires Kilimandjaro", "Kilimandjaro et safari combiné", "plus haute montagne d Afrique", "Kilimandjaro pour débutants", "Kilimandjaro sans escalade technique"],
     category: "Trekking sommet",
     badge: "Toute l'année",
-    heroImage: '/images/gallery/safari-005.webp',
+    heroImage: '/images/gallery/safari-005.jpg',
     heroTagline: "De la forêt équatoriale au sommet glaciaire — la plus haute montagne isolée du monde.",
     gallery: [
       { src: '/images/gallery/kilimanjaro-hero.webp', alt: "Sommet du Kilimandjaro au-dessus des nuages" },
@@ -520,7 +520,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["combiné safari Zanzibar", "safari et plage Tanzanie", "brousse et plage Tanzanie", "Zanzibar après safari", "itinéraire Serengeti Zanzibar", "prix combiné safari plage", "combien de jours à Zanzibar après safari", "plus belles plages Zanzibar", "Nungwi ou Paje", "visite Stone Town", "snorkeling atoll Mnemba", "lune de miel safari Zanzibar", "forfait voyage Tanzanie", "safari Zanzibar 10 jours", "vol Arusha Zanzibar", "meilleure période Zanzibar", "itinéraire deux semaines Tanzanie", "safari puis plage", "plongée Zanzibar", "vacances plage et safari Afrique", "hôtels Zanzibar avec safari", "séjour combiné Afrique de l Est"],
     category: "Plage & safari",
     badge: "Combiné best-seller",
-    heroImage: '/images/gallery/zanzibar-1.webp',
+    heroImage: '/images/gallery/zanzibar-1.jpg',
     heroTagline: "Game drives à l'aube dans le Serengeti, boutres au couchant sur l'océan Indien — un voyage, deux mondes.",
     gallery: [
       { src: '/images/gallery/zanzibar.webp', alt: "Plage de sable blanc à Zanzibar" },
@@ -616,7 +616,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["safari photo animalier", "safari photographique Tanzanie", "safari photo Afrique", "circuit photo Serengeti", "photographier les félins safari", "meilleur objectif pour safari", "conseils photo safari", "photo mise bas Ndutu", "véhicule photo privé safari", "heure dorée safari photo", "photographier la migration", "sac de calage photo safari", "prix safari photo", "meilleure saison safari photo", "voyage photo Tanzanie", "photographier une chasse de guépard", "photo léopard Serengeti", "safari pour photographes", "check-list matériel photo safari", "protection poussière appareil photo"],
     category: "Safari photo",
     badge: "Spécialisé",
-    heroImage: '/images/gallery/safari-007.webp',
+    heroImage: '/images/gallery/safari-007.jpg',
     heroTagline: "Construit autour de la lumière, de la patience et du placement — pour qui mesure un safari en images réussies, pas en observations.",
     gallery: [
       { src: '/images/gallery/serengeti-lion-pride.webp', alt: "Troupe de lions photographiée à l’heure dorée" },
@@ -712,7 +712,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["safari à pied Tanzanie", "parc national Nyerere", "safari à pied Selous", "safari pédestre Afrique", "marche avec ranger armé", "safari bateau rivière Rufiji", "fly camping Tanzanie", "safari sud Tanzanie", "safari à pied est-il sûr", "âge minimum safari à pied", "réserve de Selous safari", "safari lycaons Tanzanie", "safari bateau hippopotames", "prix safari à pied", "meilleure saison sud Tanzanie", "grands animaux à pied", "marche guidée en brousse", "forfaits safari Nyerere", "camps isolés Tanzanie", "combiné marche et bateau safari"],
     category: "Safari à pied",
     badge: "Wilderness",
-    heroImage: '/images/gallery/nyerere.webp',
+    heroImage: '/images/gallery/nyerere.jpg',
     heroTagline: "Le plus vaste paysage protégé sauvage d'Afrique, abordé de la plus ancienne des manières — à pied.",
     gallery: [
       { src: '/images/gallery/selous.webp', alt: "Paysage fluvial à Nyerere (Selous)" },
@@ -807,7 +807,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["safari privé Tanzanie", "safari de luxe Tanzanie", "camp safari usage exclusif", "safari guidé privé Afrique", "itinéraire safari sur mesure", "safari africain de luxe", "prix safari privé", "safari véhicule et guide privés", "safari haut de gamme Tanzanie", "camp de toile luxe Serengeti", "safari privé en famille", "safari multigénérationnel de luxe", "safari lune de miel de luxe", "safari célébration Afrique", "privatisation camp safari", "safari taillé sur mesure Tanzanie", "safari VIP Afrique de l Est", "safari privé ou groupe", "lodges cinq étoiles Tanzanie", "prix safari luxe par personne", "meilleur safari de luxe Tanzanie", "expériences safari exclusives"],
     category: "Safari de luxe",
     badge: "Premium",
-    heroImage: '/images/gallery/Crown-Jewels-safari.webp',
+    heroImage: '/images/gallery/Crown-Jewels-safari.jpg',
     heroTagline: "Votre itinéraire, votre rythme, votre véhicule — un safari sans partage et sans compromis.",
     gallery: [
       { src: '/images/gallery/Grand-Tanzania-Safari-lion.webp', alt: "Observation de lion en safari privé" },
@@ -904,7 +904,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["safari famille Tanzanie", "safari avec enfants", "safari africain avec enfants", "lodges safari familiaux", "âge minimum safari", "meilleur safari famille Afrique", "vacances famille Tanzanie", "programme junior ranger safari", "prix safari famille", "safari avec jeunes enfants", "safari avec adolescents", "safari multigénérationnel", "safari vacances scolaires", "safari famille et Zanzibar", "camps safari adaptés enfants", "un safari est-il sûr pour les enfants", "itinéraire safari famille", "véhicule privé safari famille", "activités enfants safari", "meilleur âge premier safari"],
     category: "Safari famille",
     badge: "Favori des familles",
-    heroImage: '/images/gallery/family1.webp',
+    heroImage: '/images/gallery/family1.jpg',
     heroTagline: "Rythmé pour les enfants, planifié pour les parents — le voyage auquel votre famille comparera tous les autres.",
     gallery: [
       { src: '/images/gallery/safari-021.webp', alt: "Scène de game drive adaptée aux familles" },
@@ -1000,7 +1000,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["safari parc national Ruaha", "safari parc national Katavi", "safari Tanzanie isolée", "circuit sud Tanzanie", "lions de Ruaha", "lycaons Ruaha", "hippopotames Katavi saison sèche", "safari hors des sentiers battus", "safari sans foule Tanzanie", "safari fly-in sud Tanzanie", "prix safari Ruaha", "meilleure période Ruaha", "Ruaha ou Serengeti", "forfaits safari Katavi", "paysage baobabs safari", "parcs secrets Tanzanie", "deuxième safari en Afrique", "combiné Ruaha Katavi", "camps de brousse Tanzanie", "plus grand parc national Tanzanie"],
     category: "Hors des sentiers battus",
     badge: "Isolé",
-    heroImage: '/images/gallery/safari-013.webp',
+    heroImage: '/images/gallery/safari-013.jpg',
     heroTagline: "Des parcs immenses, des troupes de lions énormes, et des journées entières sans croiser un autre véhicule.",
     gallery: [
       { src: '/images/gallery/Ruaha-National-Park.webp', alt: "Pays des baobabs au parc national de Ruaha" },
@@ -1095,7 +1095,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["montgolfière Serengeti", "safari montgolfière Tanzanie", "prix vol montgolfière Serengeti", "tarif safari montgolfière", "montgolfière safari ça vaut le coup", "vol montgolfière lever de soleil", "petit-déjeuner champagne safari", "âge minimum montgolfière safari", "survoler la migration en ballon", "Serengeti vu du ciel", "sécurité montgolfière safari", "réserver montgolfière Serengeti", "limite de poids montgolfière", "que porter vol montgolfière", "montgolfière en Afrique", "durée vol montgolfière safari", "vol à l aube Serengeti", "safari aérien Tanzanie", "annulation vol montgolfière", "montgolfière lune de miel safari"],
     category: "Safari aérien",
     badge: "Extension",
-    heroImage: '/images/gallery/migr1.webp',
+    heroImage: '/images/gallery/migr1.jpg',
     heroTagline: "Une heure silencieuse au-dessus du Serengeti aux premières lueurs — puis champagne dans l'herbe, là où vous atterrissez.",
     gallery: [
       { src: '/images/gallery/serengeti.webp', alt: "Les plaines du Serengeti jusqu’à l’horizon" },
@@ -1191,7 +1191,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["safari lune de miel", "lune de miel Tanzanie", "voyage de noces safari", "voyage de noces Tanzanie", "lune de miel safari et plage", "lune de miel safari Afrique", "meilleure lune de miel safari Afrique", "safari lune de miel de luxe", "prix lune de miel safari", "budget voyage de noces Tanzanie", "lune de miel Zanzibar", "forfait lune de miel Zanzibar", "lune de miel Serengeti", "lodge romantique safari", "camp de toile romantique", "itinéraire lune de miel safari", "lune de miel safari Zanzibar", "safari lune de miel 9 jours", "safari privé lune de miel", "lune de miel brousse et plage", "lune de miel Ngorongoro", "plage Nungwi lune de miel", "meilleure période lune de miel safari", "lune de miel safari ou Maldives", "petit budget lune de miel safari", "mini lune de miel safari", "liste de mariage voyage safari", "voyage anniversaire de mariage safari", "itinéraire voyage de noces Afrique", "organiser sa lune de miel safari"],
     category: "Safari lune de miel",
     badge: "Romance",
-    heroImage: '/images/gallery/honey.webp',
+    heroImage: '/images/gallery/honey.jpg',
     heroTagline: "Lever de soleil sur le Serengeti, coucher sur l'océan Indien — une lune de miel en deux actes.",
     gallery: [
       { src: '/images/gallery/zanzibar1.webp', alt: "Plage de Zanzibar au coucher du soleil pour deux" },
@@ -1302,7 +1302,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["safari culturel Tanzanie", "visite tribu Hadzabe", "tour culturel lac Eyasi", "forgerons Datoga", "visite village maasaï", "tourisme culturel éthique Afrique", "rencontre chasseurs-cueilleurs", "visite boma maasaï", "prix safari culturel", "expérience chasse Hadzabe", "visite gorges d Olduvai", "tourisme communautaire Tanzanie", "tourisme tribal respectueux", "tour des tribus de Tanzanie", "safari culture et faune", "lac Eyasi Hadzabe Datoga", "expérience culture maasaï", "voyage patrimoine Tanzanie", "cultures indigènes Tanzanie", "tour culturel avec game drives"],
     category: "Safari culturel",
     badge: "Authentique",
-    heroImage: '/images/gallery/maa1.webp',
+    heroImage: '/images/gallery/maa1.jpg',
     heroTagline: "Les peuples qui partagent cette terre avec la faune depuis le plus longtemps — rencontrés avec respect, selon leurs termes.",
     gallery: [
       { src: '/images/gallery/olduvai-gorge.webp', alt: "Gorges d’Olduvai, berceau de l’humanité" },
@@ -1397,7 +1397,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["safari fly-in Tanzanie", "safari fly-in Serengeti", "vols de brousse Tanzanie", "safari en avion Afrique", "safari sans longues routes", "safari aérien Tanzanie", "safari avion léger", "prix safari fly-in", "vol Arusha Serengeti", "limite bagages safari 15 kg", "fly-in ou route safari", "pistes d atterrissage Serengeti", "safari court Tanzanie", "safari Serengeti 5 jours", "safari fly-in depuis Zanzibar", "vols Kogatende", "vols Ndutu", "safari gain de temps", "safari express depuis Zanzibar", "avion de brousse Tanzanie"],
     category: "Safari fly-in",
     badge: "Gain de temps",
-    heroImage: '/images/gallery/Central-Serengeti-1.webp',
+    heroImage: '/images/gallery/Central-Serengeti-1.jpg',
     heroTagline: "Sautez l'autoroute, atterrissez au milieu de l'action — chaque heure gagnée devient du temps de safari.",
     gallery: [
       { src: '/images/gallery/serengeti.webp', alt: "Plaines du Serengeti sur la route aérienne" },
@@ -1492,7 +1492,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     keywords: ["safari ornithologique Tanzanie", "observation des oiseaux Tanzanie", "voyage ornithologique Afrique de l Est", "oiseaux endémiques Tanzanie", "flamants lac Manyara", "oiseaux du Serengeti", "safari photo oiseaux", "ornithologie Tarangire", "meilleure période observation oiseaux Tanzanie", "migrateurs paléarctiques Afrique", "safari oiseaux et grands animaux", "inséparable de Fischer", "francolin à poitrine grise", "guide ornithologue Tanzanie", "oiseaux safari bateau Nyerere", "ornithologie miombo Ruaha", "liste oiseaux Tanzanie", "prix safari ornithologique", "séjour ornithologique Afrique", "combien d espèces d oiseaux en Tanzanie"],
     category: "Safari ornithologique",
     badge: "Spécialisé",
-    heroImage: '/images/gallery/nakuru.webp',
+    heroImage: '/images/gallery/nakuru.jpg',
     heroTagline: "Plus de 1 000 espèces recensées — un safari au rythme de ceux qui observent, pas de ceux qui sont observés.",
     gallery: [
       { src: '/images/gallery/safari-028.webp', alt: "Avifaune le long d’un circuit safari tanzanien" },

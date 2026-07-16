@@ -11,7 +11,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["classic game drive safari", "Tanzania safari", "game drive Tanzania", "Serengeti safari guide", "Ngorongoro Crater safari", "Tarangire National Park safari", "Big Five safari Tanzania", "first safari in Africa", "Tanzania safari cost", "how much does a Tanzania safari cost", "best time for safari in Tanzania", "Tanzania safari itinerary", "northern circuit Tanzania safari", "safari packing list", "4x4 safari East Africa", "African safari for beginners", "Tanzania wildlife tour", "private guided safari Tanzania", "safari with kids Tanzania", "luxury tented camp Tanzania", "Serengeti vs Ngorongoro", "Tanzania national parks safari"],
     category: 'Wildlife Safari',
     badge: 'Most Popular',
-    heroImage: '/images/gallery/safari-001.webp',
+    heroImage: '/images/gallery/safari-001.jpg',
     heroTagline: "Witness the world's greatest wildlife spectacles across Serengeti, Ngorongoro Crater and Tarangire.",
     gallery: [
       { src: '/images/gallery/serengeti-lion-pride.webp', alt: "Lion pride resting on the Serengeti plains" },
@@ -117,7 +117,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["great migration safari", "wildebeest migration Tanzania", "Serengeti migration", "Mara river crossing safari", "calving season Ndutu", "best time to see the great migration", "where is the great migration now", "great migration month by month", "migration safari cost", "Serengeti safari packages", "mobile camp Serengeti", "river crossing season Serengeti", "Tanzania migration tours", "when do wildebeest cross the Mara river", "great wildebeest migration route", "Ndutu calving safari", "northern Serengeti safari", "8 day migration safari", "wildebeest calving season", "Serengeti national park migration", "migration safari best month", "Kenya Tanzania migration"],
     category: 'Migration Safari',
     badge: 'Seasonal',
-    heroImage: '/images/gallery/Wildebeest-Migration.webp',
+    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
     heroTagline: "Earth's greatest wildlife show — timed to the exact week the herds are moving.",
     gallery: [
       { src: '/images/gallery/mara-river-crossing.webp', alt: "Wildebeest crossing the Mara River" },
@@ -218,7 +218,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["chimpanzee trekking Tanzania", "Mahale Mountains National Park", "chimp trekking Mahale", "wild chimpanzees Africa", "Lake Tanganyika safari", "chimpanzee safari cost", "where to see chimpanzees in the wild", "Mahale chimp trekking price", "Gombe vs Mahale", "primate safari Tanzania", "chimpanzee trekking age limit", "best time for chimpanzee trekking", "fly-in safari western Tanzania", "chimpanzee tracking Tanzania", "Lake Tanganyika snorkeling", "remote safari Tanzania", "chimpanzee trekking difficulty", "M group chimpanzees Mahale", "Tanzania primate tours", "chimpanzee habituation"],
     category: 'Primate Trekking',
     badge: 'Remote & Exclusive',
-    heroImage: '/images/gallery/Jozani-forest.webp',
+    heroImage: '/images/gallery/Jozani-forest.jpg',
     heroTagline: 'Trek through forest above Lake Tanganyika to sit an hour with our closest living relatives.',
     gallery: [
       { src: '/images/gallery/gombe-stream.webp', alt: "Forest stream in western Tanzania chimpanzee country" },
@@ -315,7 +315,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["gorilla trekking Rwanda", "Volcanoes National Park gorilla trek", "mountain gorilla safari", "gorilla permit Rwanda cost", "gorilla trekking price", "how hard is gorilla trekking", "best time for gorilla trekking Rwanda", "gorilla trekking age limit", "Rwanda gorilla tour packages", "gorilla trekking from Kigali", "Rwanda vs Uganda gorilla trekking", "silverback gorilla encounter", "Virunga mountains trek", "golden monkey tracking Rwanda", "Dian Fossey hike", "what to wear gorilla trekking", "one hour with gorillas", "gorilla trekking fitness level", "Rwanda safari packages", "gorilla trekking and Serengeti safari", "mountain gorilla population", "gorilla permits availability"],
     category: 'Gorilla Trekking',
     badge: 'Life-changing',
-    heroImage: '/images/gallery/gorilla.webp',
+    heroImage: '/images/gallery/gorilla.jpg',
     heroTagline: 'One hour with a wild mountain gorilla family in the bamboo forests of the Virunga volcanoes.',
     gallery: [
       { src: '/images/gallery/rwanda-mountain-gorilla.webp', alt: "Mountain gorilla in Volcanoes National Park, Rwanda" },
@@ -413,7 +413,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["climb Kilimanjaro", "Kilimanjaro routes compared", "Machame vs Lemosho", "Kilimanjaro cost", "how much does it cost to climb Kilimanjaro", "Kilimanjaro success rate", "best route up Kilimanjaro", "how long does it take to climb Kilimanjaro", "Kilimanjaro summit night", "Uhuru Peak trek", "Kilimanjaro training plan", "Kilimanjaro packing list", "Kilimanjaro altitude sickness", "Lemosho route 8 days", "Marangu route huts", "best time to climb Kilimanjaro", "Kilimanjaro guided climb", "Kilimanjaro tipping guide", "Kilimanjaro and safari combo", "highest mountain in Africa climb", "Kilimanjaro for beginners", "Kilimanjaro no technical climbing"],
     category: 'Summit Trekking',
     badge: 'Year-round',
-    heroImage: '/images/gallery/safari-005.webp',
+    heroImage: '/images/gallery/safari-005.jpg',
     heroTagline: 'From equatorial rainforest to glacial summit — the highest free-standing mountain on Earth.',
     gallery: [
       { src: '/images/gallery/kilimanjaro-hero.webp', alt: "Kilimanjaro summit above the clouds" },
@@ -521,7 +521,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["safari and Zanzibar package", "Tanzania safari and beach holiday", "bush and beach Tanzania", "Zanzibar after safari", "Serengeti and Zanzibar itinerary", "safari beach combo cost", "how many days in Zanzibar after safari", "best Zanzibar beaches", "Nungwi or Paje", "Stone Town tour", "Mnemba Atoll snorkeling", "Zanzibar honeymoon safari", "Tanzania holiday packages", "10 day safari and Zanzibar", "flight Arusha to Zanzibar", "Zanzibar best time to visit", "Tanzania two week itinerary", "safari then beach", "Zanzibar diving holiday", "east Africa beach and safari", "Zanzibar resorts with safari", "safari and island holiday"],
     category: 'Beach & Safari',
     badge: 'Bestseller Combo',
-    heroImage: '/images/gallery/zanzibar-1.webp',
+    heroImage: '/images/gallery/zanzibar-1.jpg',
     heroTagline: 'Dawn game drives in the Serengeti, sunset dhows on the Indian Ocean — one trip, two worlds.',
     gallery: [
       { src: '/images/gallery/zanzibar.webp', alt: "White-sand beach on Zanzibar" },
@@ -617,7 +617,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["wildlife photography safari", "photography safari Tanzania", "photo safari Africa", "Serengeti photography tour", "big cat photography safari", "best camera lens for safari", "safari photography tips", "Ndutu calving season photography", "private photography vehicle safari", "golden hour safari photography", "migration photography safari", "bean bag camera support safari", "photography safari cost", "best time for a photo safari", "Tanzania photo tours", "cheetah hunt photography", "leopard photography Serengeti", "safari for photographers", "camera gear checklist safari", "dust protection camera safari"],
     category: 'Photography Safari',
     badge: 'Specialist',
-    heroImage: '/images/gallery/safari-007.webp',
+    heroImage: '/images/gallery/safari-007.jpg',
     heroTagline: 'Built around light, patience and position — for travelers who measure a safari in keepers, not sightings.',
     gallery: [
       { src: '/images/gallery/serengeti-lion-pride.webp', alt: "Lion pride photographed at golden hour" },
@@ -713,7 +713,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["walking safari Tanzania", "Nyerere National Park safari", "Selous walking safari", "safari on foot Africa", "armed ranger bush walk", "Rufiji river boat safari", "fly camping Tanzania", "southern Tanzania safari", "is a walking safari safe", "walking safari age limit", "Selous game reserve safari", "wild dog safari Tanzania", "boat safari hippos crocodiles", "walking safari cost", "best time for southern Tanzania", "big game on foot", "guided bush walk Tanzania", "Nyerere safari packages", "remote safari camps Tanzania", "walking and boat safari combo"],
     category: 'Walking Safari',
     badge: 'Wilderness',
-    heroImage: '/images/gallery/nyerere.webp',
+    heroImage: '/images/gallery/nyerere.jpg',
     heroTagline: "Africa's largest wild protected landscape, met the oldest way there is — on foot.",
     gallery: [
       { src: '/images/gallery/selous.webp', alt: "Riverine landscape in Nyerere (Selous)" },
@@ -808,7 +808,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["private safari Tanzania", "luxury safari Tanzania", "exclusive use safari camp", "private guided safari Africa", "bespoke safari itinerary", "luxury African safari packages", "private safari cost", "private vehicle and guide safari", "high end safari Tanzania", "luxury tented camp Serengeti", "private family safari", "multigenerational luxury safari", "luxury honeymoon safari", "celebration safari Africa", "safari camp buyout", "tailor made safari Tanzania", "VIP safari East Africa", "private safari vs group safari", "five star safari lodges Tanzania", "luxury safari cost per person", "best luxury safari Tanzania", "exclusive safari experiences"],
     category: 'Luxury Safari',
     badge: 'Premium',
-    heroImage: '/images/gallery/Crown-Jewels-safari.webp',
+    heroImage: '/images/gallery/Crown-Jewels-safari.jpg',
     heroTagline: 'Your itinerary, your pace, your vehicle — a safari with nothing shared and nothing compromised.',
     gallery: [
       { src: '/images/gallery/Grand-Tanzania-Safari-lion.webp', alt: "Lion sighting on a private Tanzania safari" },
@@ -905,7 +905,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["family safari Tanzania", "safari with kids", "African safari with children", "family friendly safari lodges", "safari minimum age", "best family safari in Africa", "Tanzania family holiday", "junior ranger safari program", "family safari cost", "safari with young children", "safari with teenagers", "multigenerational family safari", "school holiday safari", "family safari and Zanzibar", "kid friendly safari camps", "is a safari safe for kids", "family safari itinerary", "private family safari vehicle", "safari activities for children", "best age for first safari"],
     category: 'Family Safari',
     badge: 'Family Favourite',
-    heroImage: '/images/gallery/family1.webp',
+    heroImage: '/images/gallery/family1.jpg',
     heroTagline: 'Paced for children, planned for parents — the trip your family will measure every other trip against.',
     gallery: [
       { src: '/images/gallery/safari-021.webp', alt: "Family-friendly game drive scene" },
@@ -1001,7 +1001,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["Ruaha National Park safari", "Katavi National Park safari", "remote Tanzania safari", "southern circuit Tanzania", "Ruaha lions", "wild dogs Ruaha", "Katavi hippos dry season", "off the beaten path safari Africa", "uncrowded safari Tanzania", "fly-in safari southern Tanzania", "Ruaha safari cost", "best time to visit Ruaha", "Ruaha vs Serengeti", "Katavi safari packages", "baobab landscape safari", "Tanzania hidden parks", "second safari in Africa", "Ruaha and Katavi combination", "wilderness safari camps Tanzania", "largest national park Tanzania"],
     category: 'Off the Beaten Track',
     badge: 'Remote',
-    heroImage: '/images/gallery/safari-013.webp',
+    heroImage: '/images/gallery/safari-013.jpg',
     heroTagline: "Vast parks, enormous lion prides, and days on end without seeing another vehicle.",
     gallery: [
       { src: '/images/gallery/Ruaha-National-Park.webp', alt: "Baobab country in Ruaha National Park" },
@@ -1096,7 +1096,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["hot air balloon safari Serengeti", "balloon safari Tanzania", "Serengeti balloon ride cost", "balloon safari price", "is a balloon safari worth it", "sunrise balloon flight Serengeti", "champagne breakfast safari", "balloon safari age limit", "balloon flight over the migration", "Serengeti from above", "balloon safari safety", "booking a Serengeti balloon", "balloon safari weight limit", "what to wear balloon safari", "hot air balloon Africa", "balloon safari duration", "dawn balloon flight Serengeti", "aerial safari Tanzania", "balloon safari cancellation", "honeymoon balloon safari"],
     category: 'Aerial Safari',
     badge: 'Add-on',
-    heroImage: '/images/gallery/migr1.webp',
+    heroImage: '/images/gallery/migr1.jpg',
     heroTagline: 'One silent hour above the Serengeti at first light — then champagne in the grass where you land.',
     gallery: [
       { src: '/images/gallery/serengeti.webp', alt: "The Serengeti plains stretching to the horizon" },
@@ -1192,7 +1192,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["honeymoon safari", "Tanzania honeymoon safari", "safari honeymoon packages", "honeymoon safari and beach", "African safari honeymoon", "best honeymoon safari in Africa", "luxury honeymoon safari", "honeymoon safari cost", "all inclusive safari honeymoon", "Zanzibar honeymoon package", "Serengeti honeymoon", "honeymoon in Tanzania", "romantic safari lodge", "romantic tented camp honeymoon", "honeymoon safari itinerary", "safari and Zanzibar honeymoon", "9 day honeymoon safari", "private safari honeymoon", "bush and beach honeymoon", "honeymoon safari Ngorongoro", "Nungwi beach honeymoon", "best time for a honeymoon safari", "safari honeymoon vs Maldives", "honeymoon safari budget", "minimoon safari", "honeymoon registry safari fund", "anniversary safari trip", "East Africa honeymoon itinerary", "honeymoon safari deals", "safari honeymoon planning"],
     category: 'Honeymoon Safari',
     badge: 'Romance',
-    heroImage: '/images/gallery/honey.webp',
+    heroImage: '/images/gallery/honey.jpg',
     heroTagline: 'Sunrise over the Serengeti, sunset over the Indian Ocean — a honeymoon with two acts.',
     gallery: [
       { src: '/images/gallery/zanzibar1.webp', alt: "Zanzibar beach at sunset for two" },
@@ -1303,7 +1303,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["Tanzania cultural safari", "Hadzabe tribe tour", "Lake Eyasi cultural tour", "Datoga blacksmiths visit", "Maasai village visit", "ethical cultural tourism Africa", "hunter gatherer tribe visit", "Maasai boma tour", "cultural safari cost", "Hadzabe hunting experience", "Olduvai Gorge tour", "community based tourism Tanzania", "respectful tribal tourism", "Tanzania tribes tour", "culture and wildlife safari", "Lake Eyasi Hadzabe and Datoga", "Maasai culture experience", "Tanzania heritage tour", "indigenous culture Tanzania", "cultural tour with game drives"],
     category: 'Cultural Safari',
     badge: 'Authentic',
-    heroImage: '/images/gallery/maa1.webp',
+    heroImage: '/images/gallery/maa1.jpg',
     heroTagline: 'The people who have shared this land with the wildlife the longest — met respectfully, on their terms.',
     gallery: [
       { src: '/images/gallery/olduvai-gorge.webp', alt: "Olduvai Gorge, cradle of mankind" },
@@ -1398,7 +1398,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["fly-in safari Tanzania", "Serengeti fly-in safari", "bush flights Tanzania", "flying safari Africa", "safari without long drives", "Tanzania air safari", "light aircraft safari", "fly in safari cost", "Arusha to Serengeti flight", "safari luggage limit 15kg", "fly in vs drive safari", "Serengeti airstrips", "short safari Tanzania", "5 day Serengeti safari", "fly in safari from Zanzibar", "Kogatende flights", "Ndutu flights", "time efficient safari", "quick safari from Zanzibar", "bush plane safari Tanzania"],
     category: 'Fly-In Safari',
     badge: 'Time-Efficient',
-    heroImage: '/images/gallery/Central-Serengeti-1.webp',
+    heroImage: '/images/gallery/Central-Serengeti-1.jpg',
     heroTagline: 'Skip the highway, land on the airstrip in the middle of the action — every saved hour becomes game time.',
     gallery: [
       { src: '/images/gallery/serengeti.webp', alt: "Serengeti plains from the air route" },
@@ -1493,7 +1493,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     keywords: ["Tanzania birding safari", "birdwatching Tanzania", "birding tours East Africa", "Tanzania endemic birds", "Lake Manyara flamingos", "Serengeti birds", "bird photography safari", "birding Tarangire swamps", "best time for birdwatching Tanzania", "palearctic migrants Africa", "birding and big game safari", "Fischer's lovebird", "grey-breasted spurfowl", "specialist birding guide Tanzania", "Nyerere boat safari birds", "miombo birding Ruaha", "Tanzania bird checklist", "birding safari cost", "birding holiday Africa", "how many bird species in Tanzania"],
     category: 'Birding Safari',
     badge: 'Specialist',
-    heroImage: '/images/gallery/nakuru.webp',
+    heroImage: '/images/gallery/nakuru.jpg',
     heroTagline: 'Over 1,000 recorded species — a safari paced for the watchers, not the watched.',
     gallery: [
       { src: '/images/gallery/safari-028.webp', alt: "Birdlife along a Tanzania safari route" },

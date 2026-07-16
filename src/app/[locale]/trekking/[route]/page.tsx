@@ -130,12 +130,12 @@ export async function generateMetadata({ params }: RouteProps): Promise<import('
 const ROUTE_SLUGS = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const
 
 const ROUTE_HERO_IMAGES: Record<string, { src: string; alt: string }> = {
-  machame:           { src: '/images/gallery/kilimanjaro-card-machame.webp',          alt: 'Mount Kilimanjaro rising above the savanna, framed by acacia trees' },
-  lemosho:           { src: '/images/gallery/kilimanjaro-card-lemosho.webp',           alt: 'Wide scenic view of Kilimanjaro emerging above the clouds' },
-  marangu:           { src: '/images/gallery/kilimanjaro-card-marangu.webp',           alt: 'Aerial view of the Kilimanjaro summit breaking through the clouds' },
-  rongai:            { src: '/images/gallery/kilimanjaro-card-rongai.webp',            alt: 'A dirt trail leading toward Mount Kilimanjaro on the Rongai route' },
-  umbwe:             { src: '/images/gallery/kilimanjaro-card-umbwe.webp',             alt: 'Climbers ascending toward the summit at sunrise' },
-  'northern-circuit':{ src: '/images/gallery/kilimanjaro-card-northern-circuit.webp', alt: 'A rocky, snow-covered ridge rising above a sea of clouds' },
+  machame:           { src: '/images/gallery/kilimanjaro-card-machame.jpg',          alt: 'Mount Kilimanjaro rising above the savanna, framed by acacia trees' },
+  lemosho:           { src: '/images/gallery/kilimanjaro-card-lemosho.jpg',           alt: 'Wide scenic view of Kilimanjaro emerging above the clouds' },
+  marangu:           { src: '/images/gallery/kilimanjaro-card-marangu.jpg',           alt: 'Aerial view of the Kilimanjaro summit breaking through the clouds' },
+  rongai:            { src: '/images/gallery/kilimanjaro-card-rongai.jpg',            alt: 'A dirt trail leading toward Mount Kilimanjaro on the Rongai route' },
+  umbwe:             { src: '/images/gallery/kilimanjaro-card-umbwe.jpg',             alt: 'Climbers ascending toward the summit at sunrise' },
+  'northern-circuit':{ src: '/images/gallery/kilimanjaro-card-northern-circuit.jpg', alt: 'A rocky, snow-covered ridge rising above a sea of clouds' },
 }
 
 // Real expedition photos from the company's own climbs ("Mlimani The Extreme").
@@ -796,8 +796,16 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-brand text-center">
-        <div className="max-w-xl mx-auto px-4">
+      <section className="relative py-16 text-center overflow-hidden">
+        <Image
+          src={heroImage.src}
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand/80" />
+        <div className="relative z-10 max-w-xl mx-auto px-4">
           <h2 className="text-3xl font-semibold text-white mb-4">{t('ctaHeading')}</h2>
           <p className="text-white/70 mb-8">{t('ctaSubtitle')}</p>
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors">
