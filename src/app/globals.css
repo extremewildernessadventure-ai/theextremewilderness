@@ -107,6 +107,15 @@ button, a {
 .price-slider-track input[type="range"]::-webkit-slider-runnable-track {
   background: transparent;
 }
+/* Gold thumbs when the slider sits on the dark-green filter panel */
+.filter-panel-dark .price-slider-track input[type="range"]::-webkit-slider-thumb {
+  background: var(--color-gold);
+  border-color: var(--color-brand);
+}
+.filter-panel-dark .price-slider-track input[type="range"]::-moz-range-thumb {
+  background: var(--color-gold);
+  border-color: var(--color-brand);
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

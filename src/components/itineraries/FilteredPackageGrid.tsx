@@ -124,12 +124,12 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
   return (
     <div>
       {/* ── Filter Panel ── */}
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 mb-8">
+      <div className="filter-panel-dark bg-brand rounded-2xl border border-white/10 shadow-sm p-6 mb-8">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10">
 
           {/* Duration */}
           <div>
-            <p className="text-[10px] font-black text-text-muted uppercase tracking-[0.15em] mb-3">
+            <p className="text-[10px] font-black text-gold uppercase tracking-[0.15em] mb-3">
               {labels.durationLabel}
             </p>
             <div className="space-y-2.5">
@@ -139,17 +139,17 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
                   <span
                     className={`w-4 h-4 rounded flex items-center justify-center border transition-all flex-shrink-0 ${
                       durFilters.has(key)
-                        ? 'bg-brand border-brand'
-                        : 'bg-white border-gray-300 group-hover:border-brand'
+                        ? 'bg-gold border-gold'
+                        : 'bg-transparent border-gold/50 group-hover:border-gold'
                     }`}
                   >
                     {durFilters.has(key) && (
-                      <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 12 12" stroke="currentColor" strokeWidth={2.5}>
+                      <svg className="w-2.5 h-2.5 text-brand" fill="none" viewBox="0 0 12 12" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2 6l3 3 5-5" />
                       </svg>
                     )}
                   </span>
-                  <span className="text-sm text-brand group-hover:text-gold transition-colors">{label}</span>
+                  <span className="text-sm text-gold group-hover:text-white transition-colors">{label}</span>
                 </label>
               ))}
             </div>
@@ -157,19 +157,19 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
 
           {/* Price Range */}
           <div>
-            <p className="text-[10px] font-black text-text-muted uppercase tracking-[0.15em] mb-3">
+            <p className="text-[10px] font-black text-gold uppercase tracking-[0.15em] mb-3">
               {labels.filterByPrice}
             </p>
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm font-bold text-brand">${priceMin.toLocaleString()}</span>
-              <span className="text-xs text-text-muted">–</span>
-              <span className="text-sm font-bold text-brand">${priceMax.toLocaleString()}</span>
+              <span className="text-sm font-bold text-gold">${priceMin.toLocaleString()}</span>
+              <span className="text-xs text-white/50">–</span>
+              <span className="text-sm font-bold text-gold">${priceMax.toLocaleString()}</span>
             </div>
             {/* Dual-handle slider */}
             <div className="price-slider-track">
-              <div className="absolute left-0 right-0 h-1.5 bg-gray-200 rounded-full" />
+              <div className="absolute left-0 right-0 h-1.5 bg-white/20 rounded-full" />
               <div
-                className="absolute h-1.5 bg-brand rounded-full"
+                className="absolute h-1.5 bg-gold rounded-full"
                 style={{ left: `${sliderPercMin}%`, right: `${100 - sliderPercMax}%` }}
               />
               <input
@@ -199,7 +199,7 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
 
           {/* Destination */}
           <div>
-            <p className="text-[10px] font-black text-text-muted uppercase tracking-[0.15em] mb-3">
+            <p className="text-[10px] font-black text-gold uppercase tracking-[0.15em] mb-3">
               {labels.countryLabel}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -210,8 +210,8 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
                   onClick={() => { setCountry(key); resetVisible() }}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all ${
                     country === key
-                      ? 'bg-brand text-white border-brand shadow-sm'
-                      : 'bg-white text-brand border-brand/20 hover:border-brand hover:bg-brand/5'
+                      ? 'bg-gold text-brand border-gold shadow-sm'
+                      : 'bg-transparent text-gold border-gold/40 hover:border-gold hover:bg-gold/10'
                   }`}
                 >
                   {label}
