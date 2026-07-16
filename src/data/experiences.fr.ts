@@ -2,7 +2,7 @@ import type { Experience } from './experiences'
 
 export const experiences: Experience[] = [
   {
-    slug: '/safaris',
+    slug: '/experiences/classic-game-drive-safari',
     category: 'Safari Faune Sauvage',
     title: 'Safari en Véhicule Classique',
     tagline: 'Témoin des plus grands spectacles de faune sauvage au monde',
@@ -17,7 +17,7 @@ export const experiences: Experience[] = [
     landscape: true,
   },
   {
-    slug: '/destinations/serengeti',
+    slug: '/experiences/the-great-migration',
     category: 'Safari Migration',
     title: 'La Grande Migration',
     tagline: "Le plus grand spectacle animalier de la Terre — au bon moment",
@@ -26,13 +26,13 @@ export const experiences: Experience[] = [
     image: '/images/gallery/Wildebeest-Migration.webp',
     durationLabel: '6 – 10 jours',
     highlights: ['Traversées de la rivière Mara au pic', 'Plaines de mise bas de Ndutu', 'Options camp mobile privé', 'Guide mensuel de la migration'],
-    priceFrom: '$3 200',
+    priceFrom: '$4 100',
     badge: 'Saisonnier',
     badgeColor: 'bg-brand-secondary text-white',
     landscape: true,
   },
   {
-    slug: '/destinations/mahale',
+    slug: '/experiences/chimpanzee-trekking-mahale',
     category: 'Trekking Primates',
     title: 'Trekking Chimpanzés — Mahale',
     tagline: 'Partez dans la jungle, rencontrez nos plus proches cousins',
@@ -47,7 +47,7 @@ export const experiences: Experience[] = [
     landscape: false,
   },
   {
-    slug: '/rwanda/volcanoes',
+    slug: '/experiences/mountain-gorilla-experience-rwanda',
     category: 'Trekking Gorilles',
     title: 'Expérience Gorilles des Montagnes — Rwanda',
     tagline: 'Une rencontre face à face qui change tout',
@@ -62,7 +62,7 @@ export const experiences: Experience[] = [
     landscape: false,
   },
   {
-    slug: '/trekking/kilimanjaro',
+    slug: '/experiences/kilimanjaro-roof-of-africa',
     category: 'Trekking au Sommet',
     title: 'Kilimandjaro — Toit de l\'Afrique',
     tagline: 'De la jungle équatoriale au sommet arctique',
@@ -77,7 +77,7 @@ export const experiences: Experience[] = [
     landscape: true,
   },
   {
-    slug: '/destinations/zanzibar',
+    slug: '/experiences/safari-zanzibar-combo',
     category: 'Plage & Safari',
     title: 'Safari & Zanzibar Combiné',
     tagline: 'De la brousse à la plage — l\'évasion ultime en Afrique de l\'Est',
@@ -92,7 +92,7 @@ export const experiences: Experience[] = [
     landscape: true,
   },
   {
-    slug: '/safaris?type=photography',
+    slug: '/experiences/wildlife-photography-safari',
     category: 'Safari Photo',
     title: 'Safari Photo Faune Sauvage',
     tagline: 'Photographiez avec intention. Revenez avec des images extraordinaires.',
@@ -107,7 +107,7 @@ export const experiences: Experience[] = [
     landscape: true,
   },
   {
-    slug: '/destinations/nyerere',
+    slug: '/experiences/walking-safari-nyerere',
     category: 'Safari Pédestre',
     title: 'Safari Pédestre — Nyerere',
     tagline: 'Posez vos pieds sur le sol africain. Sentez tout changer.',
@@ -122,7 +122,7 @@ export const experiences: Experience[] = [
     landscape: false,
   },
   {
-    slug: '/safaris?type=luxury',
+    slug: '/experiences/exclusive-private-safari',
     category: 'Safari de Luxe',
     title: 'Safari Privé Exclusif',
     tagline: 'Votre itinéraire. Votre rythme. Sans compromis.',
@@ -137,7 +137,7 @@ export const experiences: Experience[] = [
     landscape: true,
   },
   {
-    slug: '/safaris?type=family',
+    slug: '/experiences/family-safari',
     category: 'Safari Famille',
     title: 'Safari Famille — Pensé pour les Enfants',
     tagline: 'L\'aventure qui devient une légende familiale',
@@ -152,7 +152,7 @@ export const experiences: Experience[] = [
     landscape: true,
   },
   {
-    slug: '/destinations/ruaha',
+    slug: '/experiences/ruaha-katavi-true-wilderness',
     category: 'Hors des Sentiers Battus',
     title: 'Ruaha & Katavi — Vraie Nature Sauvage',
     tagline: "Là où la terre n'a pas changé depuis mille ans",
@@ -167,7 +167,7 @@ export const experiences: Experience[] = [
     landscape: false,
   },
   {
-    slug: '/safaris?type=hotairballoon',
+    slug: '/experiences/hot-air-balloon-safari',
     category: 'Safari Aérien',
     title: 'Safari en Montgolfière',
     tagline: 'Volez au-dessus du Serengeti aux premières lueurs du jour',
@@ -182,7 +182,7 @@ export const experiences: Experience[] = [
     landscape: true,
   },
   {
-    slug: '/safaris/9-day-honeymoon-safari-zanzibar',
+    slug: '/experiences/honeymoon-safari',
     category: 'Safari Lune de Miel',
     title: 'Lune de Miel Parfaite : Safari & Zanzibar',
     tagline: "La brousse le jour, la plage le soir — la lune de miel pour laquelle l'Afrique de l'Est est faite",
@@ -197,7 +197,7 @@ export const experiences: Experience[] = [
     landscape: true,
   },
   {
-    slug: '/safaris/4-day-tarangire-ngorongoro-lake-eyasi',
+    slug: '/experiences/cultural-experience',
     category: 'Safari Culturel',
     title: 'Expérience Tarangire, Ngorongoro & Hadzabe',
     tagline: 'Faune et culture, à parts égales',
@@ -212,7 +212,7 @@ export const experiences: Experience[] = [
     landscape: true,
   },
   {
-    slug: '/safaris/5-day-serengeti-fly-in',
+    slug: '/experiences/fly-in-safari',
     category: 'Safari Fly-In',
     title: 'Safari Fly-In au Serengeti',
     tagline: "Évitez la route. Atterrissez au cœur de l'action.",
@@ -227,7 +227,7 @@ export const experiences: Experience[] = [
     landscape: true,
   },
   {
-    slug: '/contact',
+    slug: '/experiences/birding-safari',
     category: 'Safari Ornithologique',
     title: 'Safari Ornithologique en Tanzanie',
     tagline: 'Plus de 1 000 espèces. Une autre façon de voir la nature sauvage.',

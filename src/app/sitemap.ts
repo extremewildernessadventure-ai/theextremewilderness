@@ -73,6 +73,25 @@ export const BLOG_SLUGS = [
   'the-maasai-tribe',
 ]
 
+export const EXPERIENCE_SLUGS = [
+  'classic-game-drive-safari',
+  'the-great-migration',
+  'chimpanzee-trekking-mahale',
+  'mountain-gorilla-experience-rwanda',
+  'kilimanjaro-roof-of-africa',
+  'safari-zanzibar-combo',
+  'wildlife-photography-safari',
+  'walking-safari-nyerere',
+  'exclusive-private-safari',
+  'family-safari',
+  'ruaha-katavi-true-wilderness',
+  'hot-air-balloon-safari',
+  'honeymoon-safari',
+  'cultural-experience',
+  'fly-in-safari',
+  'birding-safari',
+]
+
 export const STATIC_PAGES = [
   '', '/safaris', '/destinations', '/trekking', '/experiences',
   '/kenya', '/rwanda', '/about', '/contact', '/blog', '/travel-info', '/plan', '/privacy', '/terms',
@@ -162,6 +181,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: {
           languages: Object.fromEntries(
             LOCALES.map((l) => [l, localeUrl(l, `/trekking/${route}`)])
+          ),
+        },
+      })
+    }
+  }
+
+  // Experience pages × locales
+  for (const slug of EXPERIENCE_SLUGS) {
+    for (const locale of LOCALES) {
+      entries.push({
+        url: localeUrl(locale, `/experiences/${slug}`),
+        lastModified: now,
+        changeFrequency: 'monthly',
+        priority: 0.7,
+        alternates: {
+          languages: Object.fromEntries(
+            LOCALES.map((l) => [l, localeUrl(l, `/experiences/${slug}`)])
           ),
         },
       })
