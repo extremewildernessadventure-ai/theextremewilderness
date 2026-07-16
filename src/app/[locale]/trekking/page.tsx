@@ -8,7 +8,6 @@ import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
-import MountainVideoCard from '@/components/trekking/MountainVideoCard'
 import ExperienceGallery from '@/components/experiences/ExperienceGallery'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
@@ -321,21 +320,6 @@ export default async function TrekkingPage({ params }: Props) {
             images={MLIMANI_SHOWCASE.map((n) => ({ src: mlimaniPhoto(n), alt: t(mlimaniCapKey(n)) }))}
             labels={{ close: tForms('closeLabel'), prev: tExp('galleryPrev'), next: tExp('galleryNext') }}
           />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 items-start">
-            <MountainVideoCard
-              src="/Video/mlimani-01.mp4"
-              poster="/Video/mlimani-01-poster.webp"
-              label={t('fromMountainVideo1')}
-              orientation="landscape"
-            />
-            <MountainVideoCard
-              src="/Video/mlimani-02.mp4"
-              poster="/Video/mlimani-02-poster.webp"
-              label={t('fromMountainVideo2')}
-              orientation="portrait"
-            />
-          </div>
         </div>
       </section>
 
