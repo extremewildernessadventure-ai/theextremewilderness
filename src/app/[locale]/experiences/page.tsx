@@ -9,6 +9,10 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 import type { Experience } from '@/data/experiences'
 import { buildAlternates } from '@/lib/site'
 
+function anchorId(slug: string): string {
+  return slug.replace('/experiences/', '')
+}
+
 type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -51,16 +55,7 @@ export default async function ExperiencesPage({ params }: Props) {
   const experiences = getExperiences(locale)
   const t = await getTranslations('experiences')
 
-  const experienceTypes = [
-    { icon: '🦁', label: t('expType0') },
-    { icon: '🦍', label: t('expType1') },
-    { icon: '🏔️', label: t('expType2') },
-    { icon: '🌊', label: t('expType3') },
-    { icon: '📷', label: t('expType4') },
-    { icon: '🚶', label: t('expType5') },
-    { icon: '✈️', label: t('expType6') },
-    { icon: '👨‍👩‍👧', label: t('expType7') },
-  ]
+  const experienceTypeIcons = ['🦁', '🦓', '🐵', '🦍', '🏔️', '🌊', '📷', '🚶', '💎', '👨‍👩‍👧', '🌍', '🎈', '💍', '🏺', '✈️', '🦜']
   const steps = [
     { step: '01', title: t('step1Title'), desc: t('step1Desc') },
     { step: '02', title: t('step2Title'), desc: t('step2Desc') },
@@ -97,12 +92,16 @@ export default async function ExperiencesPage({ params }: Props) {
             {t('heroSubtitle')}
           </p>
 
-          {/* Quick type pills */}
+          {/* Quick type pills — jump to the matching card below */}
           <div className="flex flex-wrap gap-2 mt-8">
-            {experienceTypes.map((t) => (
-              <span key={t.label} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs font-medium">
-                {t.label}
-              </span>
+            {experiences.map((exp, i) => (
+              <a
+                key={exp.slug}
+                href={`#${anchorId(exp.slug)}`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs font-medium hover:bg-white/25 transition-colors"
+              >
+                <span aria-hidden="true">{experienceTypeIcons[i]}</span> {exp.category}
+              </a>
             ))}
           </div>
         </div>
@@ -173,7 +172,7 @@ export default async function ExperiencesPage({ params }: Props) {
 
           <div className="space-y-6 pb-16">
             {experiences.map((exp, i) => (
-              <ExperienceCard key={exp.slug + i} exp={exp} flip={i % 2 === 1} locationLabel={t('cardLocation')} fromLabel={t('fromLabel')} perPersonLabel={t('perPersonLabel')} priceOnRequestLabel={t('priceOnRequest')} exploreButton={t('exploreButton')} />
+              <ExperienceCard key={exp.slug + i} exp={exp} id={anchorId(exp.slug)} flip={i % 2 === 1} locationLabel={t('cardLocation')} fromLabel={t('fromLabel')} perPersonLabel={t('perPersonLabel')} priceOnRequestLabel={t('priceOnRequest')} exploreButton={t('exploreButton')} />
             ))}
           </div>
         </div>
@@ -282,9 +281,9 @@ export default async function ExperiencesPage({ params }: Props) {
   )
 }
 
-function ExperienceCard({ exp, flip, locationLabel, fromLabel, perPersonLabel, priceOnRequestLabel, exploreButton }: { exp: Experience; flip: boolean; locationLabel: string; fromLabel: string; perPersonLabel: string; priceOnRequestLabel: string; exploreButton: string }) {
+function ExperienceCard({ exp, id, flip, locationLabel, fromLabel, perPersonLabel, priceOnRequestLabel, exploreButton }: { exp: Experience; id: string; flip: boolean; locationLabel: string; fromLabel: string; perPersonLabel: string; priceOnRequestLabel: string; exploreButton: string }) {
   return (
-    <div className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col lg:flex-row ${flip ? 'lg:flex-row-reverse' : ''}`}>
+    <div id={id} className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col lg:flex-row scroll-mt-24 ${flip ? 'lg:flex-row-reverse' : ''}`}>
       {/* Image */}
       <div className="relative lg:w-[45%] flex-shrink-0 overflow-hidden" style={{ minHeight: 320 }}>
         <Image

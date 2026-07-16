@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import * as d3 from "d3-geo";
 import rewind from "@mapbox/geojson-rewind";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { REGION_INFO } from "@/data/regionInfo.mjs";
 import regionPhotos from "@/data/region-photos.json";
@@ -47,11 +48,7 @@ const PALETTE = {
   gold: "#D4A853",
 };
 
-const COUNTRIES = {
-  tanzania: { label: "Tanzania" },
-  kenya: { label: "Kenya" },
-  rwanda: { label: "Rwanda" },
-};
+const COUNTRY_KEYS = ["tanzania", "kenya", "rwanda"];
 
 // Fallback copy for standalone use (e.g. outside MapSection, which passes its
 // own translated `countryDescriptions` prop pulled from the `home` namespace).
@@ -86,7 +83,7 @@ function useProjectedPaths(geojson, width, height) {
   }, [geojson, width, height]);
 }
 
-function StampCard({ name, text, photoUrl, onClose }) {
+function StampCard({ name, text, photoUrl, onClose, fieldNoteLabel, closeLabel }) {
   return (
     <div
       style={{
@@ -115,7 +112,7 @@ function StampCard({ name, text, photoUrl, onClose }) {
       />
       <button
         onClick={onClose}
-        aria-label="Close"
+        aria-label={closeLabel}
         style={{
           position: "absolute",
           top: 10,
@@ -158,7 +155,7 @@ function StampCard({ name, text, photoUrl, onClose }) {
             marginBottom: 6,
           }}
         >
-          Field Note
+          {fieldNoteLabel}
         </div>
         <h3
           style={{
@@ -178,10 +175,10 @@ function StampCard({ name, text, photoUrl, onClose }) {
   );
 }
 
-function Legend() {
+function Legend({ flagshipLabel, hiddenGemLabel }) {
   const items = [
-    { color: PALETTE.brandGreen, label: "Flagship destination" },
-    { color: PALETTE.gold, label: "Hidden gem" },
+    { color: PALETTE.brandGreen, label: flagshipLabel },
+    { color: PALETTE.gold, label: hiddenGemLabel },
   ];
   return (
     <div
@@ -217,6 +214,14 @@ export default function EastAfricaRegionExplorer({
   showHeader = true,
   countryDescriptions = DEFAULT_COUNTRY_DESCRIPTIONS,
 } = {}) {
+  const t = useTranslations("home");
+  const tNav = useTranslations("nav");
+  const tCommon = useTranslations("common");
+  const countryLabels = {
+    tanzania: tNav("tanzania"),
+    kenya: tNav("kenya"),
+    rwanda: tNav("rwanda"),
+  };
   const [country, setCountry] = useState("tanzania");
   const [activeId, setActiveId] = useState(null);
   const [hoveredId, setHoveredId] = useState(null);
@@ -259,7 +264,7 @@ export default function EastAfricaRegionExplorer({
           color: PALETTE.charcoal,
         }}
       >
-        <p>Loading map…</p>
+        <p>{t("mapLoading")}</p>
       </div>
     );
   }
@@ -286,7 +291,7 @@ export default function EastAfricaRegionExplorer({
                 marginBottom: 6,
               }}
             >
-              Where to go
+              {t("mapWhereToGo")}
             </div>
             <h1
               style={{
@@ -296,13 +301,13 @@ export default function EastAfricaRegionExplorer({
                 margin: "0 0 24px 0",
               }}
             >
-              Explore East Africa by region
+              {t("exploreByRegion")}
             </h1>
           </>
         )}
 
         <div style={{ display: "flex", gap: 10, marginBottom: 28 }}>
-          {Object.keys(COUNTRIES).map((key) => (
+          {COUNTRY_KEYS.map((key) => (
             <button
               key={key}
               onClick={() => handleCountryChange(key)}
@@ -318,7 +323,7 @@ export default function EastAfricaRegionExplorer({
                 cursor: "pointer",
               }}
             >
-              {COUNTRIES[key].label}
+              {countryLabels[key]}
             </button>
           ))}
         </div>
@@ -339,7 +344,7 @@ export default function EastAfricaRegionExplorer({
               marginBottom: 6,
             }}
           >
-            {COUNTRIES[country].label}
+            {countryLabels[country]}
           </div>
           <p style={{ fontSize: 14, lineHeight: 1.6, color: PALETTE.charcoal, margin: 0 }}>
             {countryDescriptions[country]}
@@ -396,7 +401,10 @@ export default function EastAfricaRegionExplorer({
                 );
               })}
             </svg>
-            <Legend />
+            <Legend
+              flagshipLabel={t("mapFlagshipDestination")}
+              hiddenGemLabel={t("mapHiddenGem")}
+            />
           </div>
 
           <div>
@@ -406,6 +414,8 @@ export default function EastAfricaRegionExplorer({
                 text={REGION_INFO[active.id]?.text}
                 photoUrl={regionPhotos[active.id]}
                 onClose={() => setActiveId(null)}
+                fieldNoteLabel={t("mapFieldNoteLabel")}
+                closeLabel={t("mapCloseLabel")}
               />
             ) : hoveredId ? (
               <div
@@ -427,7 +437,7 @@ export default function EastAfricaRegionExplorer({
                   {hoveredId}
                 </h3>
                 <p style={{ color: "#7A6F5D", fontSize: 14, margin: 0 }}>
-                  Click to see what it's known for.
+                  {t("mapClickHint")}
                 </p>
               </div>
             ) : (
@@ -441,8 +451,7 @@ export default function EastAfricaRegionExplorer({
                   lineHeight: 1.6,
                 }}
               >
-                Tap any region on the map to see what it's known for — every
-                region, flagship or hidden gem, has a story.
+                {t("mapTapHint")}
               </div>
             )}
 
@@ -451,13 +460,13 @@ export default function EastAfricaRegionExplorer({
                 href="/destinations"
                 className="flex-1 inline-flex items-center justify-center px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
               >
-                All Destinations
+                {tCommon("allDestinations")}
               </Link>
               <Link
                 href="/safaris"
                 className="flex-1 inline-flex items-center justify-center px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
               >
-                All Safaris
+                {tCommon("allSafaris")}
               </Link>
             </div>
           </div>
