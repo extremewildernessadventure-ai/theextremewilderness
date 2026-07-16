@@ -5,7 +5,7 @@ import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import {
   ArrowRight, Check, ChevronDown, Clock, MapPin, Mountain, Plane,
-  ShieldCheck, Star, Sun, Ticket, Users, X,
+  ShieldCheck, Star, Sun, Ticket, TrendingUp, Users, X,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
@@ -65,6 +65,7 @@ const QUICK_FACT_ICONS: Record<QuickFactIcon, LucideIcon> = {
   plane: Plane,
   altitude: Mountain,
   permit: Ticket,
+  success: TrendingUp,
 }
 
 const SEASON_STYLES: Record<'peak' | 'green' | 'low', string> = {
@@ -355,13 +356,6 @@ export default async function ExperienceDetailPage({ params }: Props) {
     legendLow: t('legendLow'),
   }
 
-  const stats = [
-    { n: '4.9/5', l: th('averageRating') },
-    { n: '200+', l: th('happyGuests') },
-    { n: '100%', l: th('bigFiveSightings') },
-    { n: '5+', l: t('stat2Label') },
-  ]
-
   const reviewIdx = REVIEW_MAP[page.slug] ?? [1, 3]
   const reviews = reviewIdx.map((i) => ({
     ...REVIEWERS[i],
@@ -411,14 +405,18 @@ export default async function ExperienceDetailPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Stat strip */}
+      {/* Stat strip — this experience's own quick facts, not site-wide stats */}
       <div className="bg-brand-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap gap-x-10 gap-y-2">
-          {stats.map(({ n, l }) => (
-            <div key={l} className="flex items-center gap-2 text-sm text-white/80">
-              <span className="text-gold font-bold">{n}</span> {l}
-            </div>
-          ))}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap gap-x-8 gap-y-2">
+          {page.quickFacts.map((fact) => {
+            const Icon = QUICK_FACT_ICONS[fact.icon]
+            return (
+              <div key={fact.text} className="flex items-center gap-2 text-sm text-white/80">
+                <Icon className="w-4 h-4 text-gold flex-shrink-0" />
+                {fact.text}
+              </div>
+            )
+          })}
         </div>
       </div>
 

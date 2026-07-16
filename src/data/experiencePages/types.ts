@@ -41,6 +41,7 @@ export type QuickFactIcon =
   | 'plane'
   | 'altitude'
   | 'permit'
+  | 'success'
 
 export interface ExperienceQuickFact {
   icon: QuickFactIcon

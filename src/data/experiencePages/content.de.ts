@@ -427,7 +427,7 @@ export const experiencePagesDe: ExperiencePage[] = [
     quickFacts: [
       { icon: 'duration', text: "6 – 9 Tage am Berg" },
       { icon: 'altitude', text: "Uhuru Peak — 5.895 m" },
-      { icon: 'guide', text: "KINAPA-zertifizierte Guides & komplette Crew" },
+      { icon: 'success', text: "Lemosho-Route — 90–95 % Gipfelerfolg" },
       { icon: 'season', text: "Jan – Mär & Jun – Okt bevorzugt" },
     ],
     sections: [
