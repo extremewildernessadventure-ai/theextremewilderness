@@ -2580,6 +2580,8 @@
     "priceOnRequest": "Precio a consultar",
     "exploreButton": "Explorar",
     "galleryHeading": "Galería de fotos",
+    "galleryPrev": "Foto anterior",
+    "galleryNext": "Foto siguiente",
     "reviewsHeading": "Lo que dicen nuestros viajeros",
     "trustCertified": "Certificado",
     "whatsappPrefill": "¡Hola! Me interesa la experiencia {title}. ¿Podrían darme más información?",

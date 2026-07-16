@@ -12,6 +12,7 @@ import Badge from '@/components/shared/Badge'
 import BookNowButton from '@/components/booking/BookNowButton'
 import TrustBar from '@/components/home/TrustBar'
 import PdfLeadModal from '@/components/trekking/PdfLeadModal'
+import ExperienceGallery from '@/components/experiences/ExperienceGallery'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { getPackage } from '@/data/packages.i18n'
 import { getExperiencePage, getExperiencePages, experiencePageSlugs } from '@/data/experiencePages/content.i18n'
@@ -291,6 +292,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
   const tc = await getTranslations('common')
   const th = await getTranslations('home')
   const tContact = await getTranslations('contact')
+  const tf = await getTranslations('forms')
 
   const priceNumber = Number(page.priceFrom.replace(/[^0-9.]/g, '')) || undefined
   const relatedPackages = page.relatedPackageSlugs
@@ -442,26 +444,10 @@ export default async function ExperienceDetailPage({ params }: Props) {
             {page.gallery && page.gallery.length > 0 && (
               <div className="mt-12">
                 <h2 className="text-2xl md:text-3xl font-bold text-brand mb-5">{t('galleryHeading')}</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 auto-rows-[120px] md:auto-rows-[140px]">
-                  {page.gallery.map((img, i) => (
-                    <div
-                      key={img.src}
-                      className={`relative rounded-xl overflow-hidden group ${i === 0 ? 'col-span-2 row-span-2' : ''}`}
-                    >
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        sizes={i === 0 ? '(max-width: 768px) 100vw, 450px' : '(max-width: 768px) 50vw, 225px'}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-brand/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden />
-                      <p className="absolute left-3 bottom-2.5 right-3 text-white text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity z-10">
-                        {img.alt}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <ExperienceGallery
+                  images={page.gallery}
+                  labels={{ close: tf('closeLabel'), prev: t('galleryPrev'), next: t('galleryNext') }}
+                />
               </div>
             )}
 
@@ -634,7 +620,10 @@ export default async function ExperienceDetailPage({ params }: Props) {
       </div>
 
       {/* Final CTA */}
-      <section className="bg-brand-dark py-16 text-center px-4">
+      <section className="relative bg-brand-dark py-16 text-center px-4 overflow-hidden">
+        <Image src={page.heroImage} alt="" fill className="object-cover" sizes="100vw" aria-hidden />
+        <div className="absolute inset-0 bg-brand-dark/80" aria-hidden />
+        <div className="relative z-10">
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">{page.ctaHeading}</h2>
         <p className="text-white/70 max-w-xl mx-auto mb-7">{page.ctaText}</p>
         <div className="flex flex-wrap items-center justify-center gap-4">
@@ -648,6 +637,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
           <Link href="/contact" className="inline-flex items-center gap-2 text-white/90 hover:text-white font-semibold text-sm transition-colors">
             {tc('contactUs')} <ArrowRight size={15} className="text-gold" />
           </Link>
+        </div>
         </div>
       </section>
 

@@ -2738,6 +2738,8 @@
     "priceOnRequest": "Price on request",
     "exploreButton": "Explore",
     "galleryHeading": "Photo gallery",
+    "galleryPrev": "Previous photo",
+    "galleryNext": "Next photo",
     "reviewsHeading": "What our guests say",
     "trustCertified": "Certified",
     "whatsappPrefill": "Hello! I am interested in the {title}. Could you share more details?",

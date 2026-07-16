@@ -2624,6 +2624,8 @@
     "priceOnRequest": "Prix sur demande",
     "exploreButton": "Explorer",
     "galleryHeading": "Galerie photo",
+    "galleryPrev": "Photo précédente",
+    "galleryNext": "Photo suivante",
     "reviewsHeading": "Ce que disent nos voyageurs",
     "trustCertified": "Certifié",
     "whatsappPrefill": "Bonjour ! Je suis intéressé(e) par l’expérience {title}. Pourriez-vous m’en dire plus ?",
