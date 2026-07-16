@@ -187,14 +187,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // Experience pages × locales
+  // Experience pages × locales (honeymoon is the flagship SEO page)
   for (const slug of EXPERIENCE_SLUGS) {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, `/experiences/${slug}`),
         lastModified: now,
         changeFrequency: 'monthly',
-        priority: 0.7,
+        priority: slug === 'honeymoon-safari' ? 0.9 : 0.7,
         alternates: {
           languages: Object.fromEntries(
             LOCALES.map((l) => [l, localeUrl(l, `/experiences/${slug}`)])

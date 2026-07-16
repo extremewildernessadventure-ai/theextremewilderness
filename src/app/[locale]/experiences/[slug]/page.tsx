@@ -28,6 +28,8 @@ export async function generateStaticParams() {
   )
 }
 
+const OG_LOCALES: Record<string, string> = { en: 'en_US', fr: 'fr_FR', es: 'es_ES', de: 'de_DE' }
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params
   const page = getExperiencePage(slug, locale)
@@ -40,6 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
+      locale: OG_LOCALES[locale] ?? 'en_US',
       images: [{ url: page.heroImage, width: 1200, height: 630, alt: page.title }],
     },
     twitter: {
@@ -276,6 +279,16 @@ export default async function ExperienceDetailPage({ params }: Props) {
       : {}),
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'EWA Safari Outfitters', item: localeUrl(locale, '/') },
+      { '@type': 'ListItem', position: 2, name: t('breadcrumbSection'), item: localeUrl(locale, '/experiences') },
+      { '@type': 'ListItem', position: 3, name: page.title, item: localeUrl(locale, `/experiences/${page.slug}`) },
+    ],
+  }
+
   const faqSchema = page.faq.length > 0 ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -304,6 +317,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {faqSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       )}
