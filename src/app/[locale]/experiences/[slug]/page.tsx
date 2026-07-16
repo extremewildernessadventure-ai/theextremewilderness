@@ -5,12 +5,13 @@ import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import {
   ArrowRight, Check, ChevronDown, Clock, MapPin, Mountain, Plane,
-  ShieldCheck, Sun, Ticket, Users, X,
+  ShieldCheck, Star, Sun, Ticket, Users, X,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import BookNowButton from '@/components/booking/BookNowButton'
 import TrustBar from '@/components/home/TrustBar'
+import PdfLeadModal from '@/components/trekking/PdfLeadModal'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { getPackage } from '@/data/packages.i18n'
 import { getExperiencePage, getExperiencePages, experiencePageSlugs } from '@/data/experiencePages/content.i18n'
@@ -69,6 +70,49 @@ const SEASON_STYLES: Record<'peak' | 'green' | 'low', string> = {
   peak: 'bg-gold text-brand',
   green: 'bg-brand-secondary text-white',
   low: 'bg-gold-dark text-white',
+}
+
+const WHATSAPP_SVG = (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+  </svg>
+)
+
+// Real guest reviews from the home-page testimonials (messages `home` namespace,
+// rev0–rev11). Names/ratings mirror src/components/home/Testimonials.tsx — never
+// invent reviews; only map existing ones to the most relevant experience.
+const REVIEWERS: { name: string; rating: number }[] = [
+  { name: 'James Kowalski', rating: 5 },
+  { name: 'Erick Edwin', rating: 5 },
+  { name: 'Lauren', rating: 5 },
+  { name: 'Renard', rating: 5 },
+  { name: 'Abimbola', rating: 5 },
+  { name: 'Ruaika', rating: 5 },
+  { name: 'Cindy', rating: 5 },
+  { name: 'Sarah & Michael Thompson', rating: 5 },
+  { name: 'Yangmeng', rating: 5 },
+  { name: 'Alessandra & Aimo', rating: 5 },
+  { name: 'Marie & François Dupont', rating: 5 },
+  { name: 'Christina', rating: 4 },
+]
+
+const REVIEW_MAP: Record<string, [number, number]> = {
+  'classic-game-drive-safari': [1, 2],
+  'the-great-migration': [7, 0],
+  'chimpanzee-trekking-mahale': [5, 4],
+  'mountain-gorilla-experience-rwanda': [9, 6],
+  'kilimanjaro-roof-of-africa': [3, 11],
+  'safari-zanzibar-combo': [10, 2],
+  'wildlife-photography-safari': [7, 5],
+  'walking-safari-nyerere': [4, 6],
+  'exclusive-private-safari': [9, 0],
+  'family-safari': [8, 3],
+  'ruaha-katavi-true-wilderness': [0, 4],
+  'hot-air-balloon-safari': [0, 6],
+  'honeymoon-safari': [10, 9],
+  'cultural-experience': [2, 5],
+  'fly-in-safari': [3, 7],
+  'birding-safari': [5, 11],
 }
 
 /** Renders **bold** and *italic* markers used in the approved page copy. */
@@ -245,6 +289,8 @@ export default async function ExperienceDetailPage({ params }: Props) {
 
   const t = await getTranslations('experiences')
   const tc = await getTranslations('common')
+  const th = await getTranslations('home')
+  const tContact = await getTranslations('contact')
 
   const priceNumber = Number(page.priceFrom.replace(/[^0-9.]/g, '')) || undefined
   const relatedPackages = page.relatedPackageSlugs
@@ -308,11 +354,20 @@ export default async function ExperienceDetailPage({ params }: Props) {
   }
 
   const stats = [
-    { n: '200+', l: t('stat1Label') },
+    { n: '4.9/5', l: th('averageRating') },
+    { n: '200+', l: th('happyGuests') },
+    { n: '100%', l: th('bigFiveSightings') },
     { n: '5+', l: t('stat2Label') },
-    { n: '20+', l: t('stat3Label') },
-    { n: '98%', l: t('stat4Label') },
   ]
+
+  const reviewIdx = REVIEW_MAP[page.slug] ?? [1, 3]
+  const reviews = reviewIdx.map((i) => ({
+    ...REVIEWERS[i],
+    text: th(`rev${i}Text`),
+    trip: th(`rev${i}Trip`),
+  }))
+
+  const whatsappHref = `https://wa.me/255747999070?text=${encodeURIComponent(t('whatsappPrefill', { title: page.title }))}`
 
   return (
     <>
@@ -372,7 +427,60 @@ export default async function ExperienceDetailPage({ params }: Props) {
           <article className="lg:col-span-2 min-w-0">
             <p className="text-xs font-semibold uppercase tracking-widest text-gold-label mb-6">{t('completeGuide')}</p>
             <div className="prose-spacing">
-              {page.sections.map((section, idx) => renderSection(section, idx, chrome))}
+              {page.sections.map((section, idx) =>
+                idx === 0 && section.type === 'p' ? (
+                  <p key={idx} className="text-lg text-gray-800 font-medium leading-relaxed mb-6">
+                    {renderInline(section.text)}
+                  </p>
+                ) : (
+                  renderSection(section, idx, chrome)
+                )
+              )}
+            </div>
+
+            {/* Gallery */}
+            {page.gallery && page.gallery.length > 0 && (
+              <div className="mt-12">
+                <h2 className="text-2xl md:text-3xl font-bold text-brand mb-5">{t('galleryHeading')}</h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 auto-rows-[120px] md:auto-rows-[140px]">
+                  {page.gallery.map((img, i) => (
+                    <div
+                      key={img.src}
+                      className={`relative rounded-xl overflow-hidden group ${i === 0 ? 'col-span-2 row-span-2' : ''}`}
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes={i === 0 ? '(max-width: 768px) 100vw, 450px' : '(max-width: 768px) 50vw, 225px'}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden />
+                      <p className="absolute left-3 bottom-2.5 right-3 text-white text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        {img.alt}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Guest reviews */}
+            <div className="mt-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-brand mb-5">{t('reviewsHeading')}</h2>
+              <div className="grid sm:grid-cols-2 gap-5">
+                {reviews.map((r) => (
+                  <div key={r.name} className="bg-white border border-gray-100 rounded-2xl p-6">
+                    <div className="flex gap-0.5 mb-3" aria-label={`${r.rating}/5`}>
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star key={i} size={14} className={i < r.rating ? 'fill-gold text-gold' : 'text-gray-200'} />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 italic leading-relaxed text-sm mb-4">&ldquo;{r.text}&rdquo;</p>
+                    <p className="text-xs font-semibold text-gold-label">{r.name} — {r.trip}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* FAQ */}
@@ -414,6 +522,15 @@ export default async function ExperienceDetailPage({ params }: Props) {
                 duration={page.durationLabel}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
               />
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 w-full flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-colors text-sm"
+              >
+                {WHATSAPP_SVG}
+                {tContact('whatsappUs')}
+              </a>
               <div className="mt-5 pt-5 border-t border-gray-100 space-y-3">
                 {page.quickFacts.map((fact) => {
                   const Icon = QUICK_FACT_ICONS[fact.icon]
@@ -427,6 +544,40 @@ export default async function ExperienceDetailPage({ params }: Props) {
                   )
                 })}
               </div>
+              <div className="mt-5 pt-4 border-t border-gray-100 flex divide-x divide-gray-100 text-center">
+                {[
+                  { v: '4.9', l: 'TripAdvisor' },
+                  { v: 'TATO', l: t('trustCertified') },
+                  { v: '200+', l: th('happyGuests') },
+                ].map(({ v, l }) => (
+                  <div key={l} className="flex-1 px-1">
+                    <p className="font-bold text-brand text-sm">{v}</p>
+                    <p className="text-[10px] uppercase tracking-wide text-gold-label mt-0.5">{l}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Full itinerary by email (lead capture) */}
+            <div className="bg-brand rounded-2xl p-5">
+              <p className="text-gold text-[10px] font-bold uppercase tracking-widest mb-1">{t('itineraryCardBadge')}</p>
+              <h4 className="text-white font-bold text-base leading-snug mb-2">{t('itineraryCardTitle')}</h4>
+              <p className="text-white/65 text-xs leading-relaxed mb-4">{t('itineraryCardText')}</p>
+              <PdfLeadModal
+                triggerLabel={t('itineraryCardButton')}
+                triggerClassName="w-full flex items-center justify-center gap-2 px-5 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
+                image={page.heroImage}
+                imageAlt={page.title}
+                badge={t('itineraryCardBadge')}
+                panelTitle={page.title}
+                bullets={[t('itineraryBullet1'), t('itineraryBullet2'), t('itineraryBullet3'), t('itineraryBullet4')]}
+                socialProof={t('itinerarySocialProof')}
+                heading={t('itineraryModalTitle')}
+                subheading={t('itineraryModalSubtitle')}
+                submitLabel={t('itinerarySubmitLabel')}
+                successTitle={t('itinerarySuccessTitle')}
+                context={page.title}
+              />
             </div>
 
             {/* Related experiences */}

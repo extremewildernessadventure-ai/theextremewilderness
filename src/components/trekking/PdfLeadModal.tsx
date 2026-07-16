@@ -8,13 +8,29 @@ import { useTranslations } from 'next-intl'
 interface Props {
   triggerLabel: string
   triggerClassName?: string
+  /** Optional overrides — defaults keep the original Kilimanjaro guide behaviour. */
+  image?: string
+  imageAlt?: string
+  badge?: string
+  panelTitle?: string
+  bullets?: string[]
+  socialProof?: string
+  heading?: string
+  subheading?: string
+  submitLabel?: string
+  successTitle?: string
+  /** Sent to the API so the team knows which itinerary/guide was requested. */
+  context?: string
 }
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 const BULLETS = ['bullet1', 'bullet2', 'bullet3', 'bullet4'] as const
 
-export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) {
+export default function PdfLeadModal({
+  triggerLabel, triggerClassName, image, imageAlt, badge, panelTitle,
+  bullets, socialProof, heading, subheading, submitLabel, successTitle, context,
+}: Props) {
   const t = useTranslations('pdfLead')
   const tf = useTranslations('forms')
 
@@ -66,7 +82,7 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
       const res = await fetch('/api/pdf-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), website }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), website, context }),
       })
       if (!res.ok) throw new Error()
       setStatus('success')
@@ -120,8 +136,8 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
                 ══════════════════════════════════ */}
             <div className="relative sm:w-[42%] h-44 sm:h-auto flex-shrink-0 overflow-hidden">
               <Image
-                src="/images/gallery/kilimanjarosasa.webp"
-                alt={t('imageAlt')}
+                src={image ?? '/images/gallery/kilimanjarosasa.webp'}
+                alt={imageAlt ?? t('imageAlt')}
                 fill
                 className="object-cover"
                 sizes="(max-width: 640px) 100vw, 360px"
@@ -133,7 +149,7 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
               {/* FREE GUIDE ribbon */}
               <div className="absolute top-0 left-0 overflow-hidden w-32 h-32 pointer-events-none">
                 <div className="absolute top-6 -left-8 w-36 bg-gold text-brand text-[9px] font-black uppercase tracking-[0.14em] text-center py-1.5 -rotate-45 shadow-lg">
-                  {t('badge')}
+                  {badge ?? t('badge')}
                 </div>
               </div>
 
@@ -143,23 +159,23 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
                   {t('imagePanelBrand')}
                 </p>
                 <h2 className="text-white font-black text-[22px] leading-tight mb-5">
-                  {t('imagePanelTitle')}
+                  {panelTitle ?? t('imagePanelTitle')}
                 </h2>
 
                 <ul className="space-y-2.5">
-                  {BULLETS.map((key) => (
-                    <li key={key} className="flex items-center gap-2.5">
+                  {(bullets ?? BULLETS.map((key) => t(key))).map((text) => (
+                    <li key={text} className="flex items-center gap-2.5">
                       <span className="w-5 h-5 rounded-full bg-gold/15 border border-gold/35 flex items-center justify-center flex-shrink-0">
                         <CheckCircle className="w-3 h-3 text-gold" />
                       </span>
-                      <span className="text-white/85 text-[13px]">{t(key)}</span>
+                      <span className="text-white/85 text-[13px]">{text}</span>
                     </li>
                   ))}
                 </ul>
 
                 <div className="mt-6 pt-5 border-t border-white/15">
                   <p className="text-white/50 text-[11px]">
-                    {t('socialProof')}
+                    {socialProof ?? t('socialProof')}
                   </p>
                 </div>
               </div>
@@ -176,7 +192,7 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
                   <div className="w-20 h-20 rounded-full bg-green-50 border-2 border-green-100 flex items-center justify-center mb-5">
                     <CheckCircle className="w-10 h-10 text-green-500" />
                   </div>
-                  <h3 className="text-2xl font-black text-brand mb-2">{t('successTitle')}</h3>
+                  <h3 className="text-2xl font-black text-brand mb-2">{successTitle ?? t('successTitle')}</h3>
                   <p className="text-text-muted text-sm leading-relaxed mb-2">
                     {t('successDesc')}{' '}
                     <strong className="text-brand">{email}</strong>
@@ -199,10 +215,10 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
                     <input type="text" name="website" tabIndex={-1} value={website} onChange={(e) => setWebsite(e.target.value)} autoComplete="off" />
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-black text-brand leading-tight mb-1.5">
-                    {t('modalTitle')}
+                    {heading ?? t('modalTitle')}
                   </h3>
                   <p className="text-text-muted text-sm leading-relaxed mb-7">
-                    {t('modalSubtitle')}
+                    {subheading ?? t('modalSubtitle')}
                   </p>
 
                   <div className="space-y-5">
@@ -286,7 +302,7 @@ export default function PdfLeadModal({ triggerLabel, triggerClassName }: Props) 
                       </>
                     ) : (
                       <>
-                        {t('submitLabel')}
+                        {submitLabel ?? t('submitLabel')}
                         <ArrowRight className="w-4 h-4" />
                       </>
                     )}

@@ -8,8 +8,8 @@ const FROM = process.env.RESEND_FROM ?? 'EWA Guide <noreply@theextremewilderness
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, phone, website } = await req.json() as {
-      name?: string; email?: string; phone?: string; website?: string
+    const { name, email, phone, website, context } = await req.json() as {
+      name?: string; email?: string; phone?: string; website?: string; context?: string
     }
 
     if (website) return NextResponse.json({ success: true })
@@ -21,6 +21,9 @@ export async function POST(req: NextRequest) {
     const trimName  = name.trim()
     const trimEmail = email.trim()
     const trimPhone = phone?.trim() ?? ''
+    // Client-supplied — escape before embedding in the HTML email.
+    const trimContext = (context?.trim() ?? '').slice(0, 120)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
     // Add to newsletter audience for follow-up emails
     if (AUDIENCE_ID) {
@@ -39,7 +42,7 @@ export async function POST(req: NextRequest) {
       from: FROM,
       to:   TO,
       replyTo: trimEmail,
-      subject: `📥 New PDF Lead: ${trimName}`,
+      subject: trimContext ? `📥 Itinerary request — ${trimContext}: ${trimName}` : `📥 New PDF Lead: ${trimName}`,
       html: `<!DOCTYPE html>
 <html>
 <body style="margin:0;padding:24px;background:#f0f7f2;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
@@ -47,7 +50,7 @@ export async function POST(req: NextRequest) {
 
     <div style="background:#1C3A2A;padding:26px 28px">
       <p style="margin:0 0 4px;color:#D4A853;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em">
-        New Kilimanjaro Guide Lead
+        ${trimContext ? `Itinerary Request &mdash; ${trimContext}` : 'New Kilimanjaro Guide Lead'}
       </p>
       <h1 style="margin:0;color:#fff;font-size:22px;font-weight:800">${trimName}</h1>
       <p style="margin:6px 0 0;color:rgba(255,255,255,0.6);font-size:13px">
@@ -72,7 +75,9 @@ export async function POST(req: NextRequest) {
 
     <div style="padding:16px 28px 20px;background:#f9fafb;border-top:1px solid #e5e7eb">
       <p style="margin:0;font-size:12px;color:#9ca3af">
-        Requested the free Kilimanjaro Trekking Guide PDF &mdash; follow up within 24 hrs for best conversion.
+        ${trimContext
+          ? `Requested the full &ldquo;${trimContext}&rdquo; itinerary by email &mdash; reply with the day-by-day plan within 24 hrs.`
+          : 'Requested the free Kilimanjaro Trekking Guide PDF &mdash; follow up within 24 hrs for best conversion.'}
       </p>
     </div>
   </div>

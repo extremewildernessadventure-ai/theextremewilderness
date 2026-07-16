@@ -47,6 +47,11 @@ export interface ExperienceQuickFact {
   text: string
 }
 
+export interface ExperienceGalleryImage {
+  src: string
+  alt: string
+}
+
 export interface ExperiencePage {
   slug: string
   title: string
@@ -57,6 +62,8 @@ export interface ExperiencePage {
   badge?: string
   heroImage: string
   heroTagline: string
+  /** 5 images: first renders large (2x2), remaining four as tiles. Alts are localized. */
+  gallery?: ExperienceGalleryImage[]
   /** Display price like '$2,450' — empty string renders "price on request". */
   priceFrom: string
   priceSub: string
