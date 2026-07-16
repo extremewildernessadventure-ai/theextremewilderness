@@ -8,8 +8,11 @@ import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
+import MountainVideoCard from '@/components/trekking/MountainVideoCard'
+import ExperienceGallery from '@/components/experiences/ExperienceGallery'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
+import { mlimaniPhoto, mlimaniCapKey, MLIMANI_SHOWCASE } from '@/data/mlimaniGallery'
 import { buildAlternates } from '@/lib/site'
 
 const ROUTE_SLUGS = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const
@@ -61,6 +64,8 @@ export default async function TrekkingPage({ params }: Props) {
   const t = await getTranslations('trekking')
   const trd = await getTranslations('trekkingRouteDetail')
   const tc = await getTranslations('common')
+  const tForms = await getTranslations('forms')
+  const tExp = await getTranslations('experiences')
   const featuredPost = getBlogPostMeta('kilimanjaro-climbing-guide', locale)
 
   const GEAR_CATEGORIES = [
@@ -300,6 +305,40 @@ export default async function TrekkingPage({ params }: Props) {
         </div>
       </section>
 
+      {/* From the Mountain — real photos & footage from our own climbs */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
+              {t('fromMountainEyebrow')}
+            </span>
+            <h2 className="text-2xl lg:text-3xl font-semibold text-brand">{t('fromMountainHeading')}</h2>
+            <p className="text-text-muted mt-3 max-w-2xl text-sm leading-relaxed">{t('fromMountainSub')}</p>
+          </div>
+
+          <ExperienceGallery
+            variant="portrait"
+            images={MLIMANI_SHOWCASE.map((n) => ({ src: mlimaniPhoto(n), alt: t(mlimaniCapKey(n)) }))}
+            labels={{ close: tForms('closeLabel'), prev: tExp('galleryPrev'), next: tExp('galleryNext') }}
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 items-start">
+            <MountainVideoCard
+              src="/Video/mlimani-01.mp4"
+              poster="/Video/mlimani-01-poster.webp"
+              label={t('fromMountainVideo1')}
+              orientation="landscape"
+            />
+            <MountainVideoCard
+              src="/Video/mlimani-02.mp4"
+              poster="/Video/mlimani-02-poster.webp"
+              label={t('fromMountainVideo2')}
+              orientation="portrait"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Blog suggestion + PDF download row */}
       <section className="py-12 bg-light-green">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -310,7 +349,7 @@ export default async function TrekkingPage({ params }: Props) {
                 title={featuredPost.title}
                 excerpt={featuredPost.excerpt}
                 category={featuredPost.category}
-                image="/images/gallery/kilimanjaro1.webp"
+                image="/images/gallery/mlimani/mlimani-kili-23.webp"
                 readTime={featuredPost.readTime}
                 readLabel={tc('readMore')}
               />

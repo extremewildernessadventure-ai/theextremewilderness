@@ -7,7 +7,7 @@ import {
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import RouteImageGallery from '@/components/trekking/RouteImageGallery'
+import ExperienceGallery from '@/components/experiences/ExperienceGallery'
 import RoutePricingButton from '@/components/trekking/RoutePricingButton'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
@@ -15,6 +15,7 @@ import BookNowButton from '@/components/booking/BookNowButton'
 import LemoshoMultiItinerary from '@/components/trekking/LemoshoMultiItinerary'
 import MachameMultiItinerary from '@/components/trekking/MachameMultiItinerary'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
+import { mlimaniPhoto, mlimaniCapKey } from '@/data/mlimaniGallery'
 import { buildAlternates } from '@/lib/site'
 
 interface RouteProps {
@@ -137,49 +138,15 @@ const ROUTE_HERO_IMAGES: Record<string, { src: string; alt: string }> = {
   'northern-circuit':{ src: '/images/gallery/kilimanjaro-card-northern-circuit.webp', alt: 'A rocky, snow-covered ridge rising above a sea of clouds' },
 }
 
-const ROUTE_GALLERY_IMAGES: Record<string, string[]> = {
-  machame: [
-    '/images/gallery/kilimanjaro-card-machame.webp',
-    '/images/gallery/elephants.webp',
-    '/images/gallery/IMG-20260610-WA0069.webp',
-    '/images/gallery/kilimanjaro-hero.webp',
-    '/images/gallery/kilimanjarosasa.webp',
-  ],
-  lemosho: [
-    '/images/gallery/kilimanjaro-card-lemosho.webp',
-    '/images/gallery/africa-lion.webp',
-    '/images/gallery/IMG-20260610-WA0079.webp',
-    '/images/gallery/kilimanjaro.webp',
-    '/images/gallery/kilimanjaro1.webp',
-  ],
-  marangu: [
-    '/images/gallery/kilimanjaro-card-marangu.webp',
-    '/images/gallery/golden-monkey.webp',
-    '/images/gallery/IMG-20260610-WA0069.webp',
-    '/images/gallery/kilimanjaro1.webp',
-    '/images/gallery/kilimanjaro%20(6).webp',
-  ],
-  rongai: [
-    '/images/gallery/kilimanjaro-card-rongai.webp',
-    '/images/gallery/tarangire-elephants-baobab.webp',
-    '/images/gallery/IMG-20260610-WA0079.webp',
-    '/images/gallery/kilimanjaro-hero.webp',
-    '/images/gallery/kilimanjaro.webp',
-  ],
-  umbwe: [
-    '/images/gallery/kilimanjaro-card-umbwe.webp',
-    '/images/gallery/zebras.webp',
-    '/images/gallery/honey.webp',
-    '/images/gallery/kilimanjaro1.webp',
-    '/images/gallery/kilimanjarosasa.webp',
-  ],
-  'northern-circuit': [
-    '/images/gallery/kilimanjaro-card-northern-circuit.webp',
-    '/images/gallery/Grand-Tanzania-Safari-lion.webp',
-    '/images/gallery/IMG-20260610-WA0069.webp',
-    '/images/gallery/kilimanjaro-hero.webp',
-    '/images/gallery/kilimanjaro.webp',
-  ],
+// Real expedition photos from the company's own climbs ("Mlimani The Extreme").
+// Overlap between routes is intentional.
+const ROUTE_GALLERY_PHOTOS: Record<string, number[]> = {
+  machame: [19, 37, 38, 2, 40, 6, 4, 21],
+  lemosho: [1, 32, 17, 27, 33, 7, 5, 35],
+  marangu: [18, 10, 28, 25, 24, 34, 20, 3],
+  rongai: [13, 29, 31, 26, 8, 36, 9, 22],
+  umbwe: [30, 40, 39, 15, 2, 5, 36, 21],
+  'northern-circuit': [16, 27, 17, 33, 29, 7, 23, 35],
 }
 
 function isRouteWithDetailContent(route: string): route is RouteWithDetailContent {
@@ -190,8 +157,10 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
   const { route, locale = 'en' } = await params
   setRequestLocale(locale)
   const heroImage = ROUTE_HERO_IMAGES[route] ?? ROUTE_HERO_IMAGES.machame
-  const galleryImages = ROUTE_GALLERY_IMAGES[route] ?? ROUTE_GALLERY_IMAGES.machame
+  const galleryPhotoIds = ROUTE_GALLERY_PHOTOS[route] ?? ROUTE_GALLERY_PHOTOS.machame
   const t = await getTranslations('trekking')
+  const tForms = await getTranslations('forms')
+  const tExp = await getTranslations('experiences')
   const trd = await getTranslations('trekkingRouteDetail')
   const tc = await getTranslations('common')
   const featuredPost = getBlogPostMeta('kilimanjaro-climbing-guide', locale)
@@ -416,10 +385,14 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                 ))}
               </div>
 
-              {/* 5-image gallery */}
-              <RouteImageGallery
-                images={galleryImages}
-                altPrefix={routeContent.quickFacts.routeName}
+              {/* Expedition photo gallery — real photos from our own climbs */}
+              <ExperienceGallery
+                variant="portrait"
+                images={galleryPhotoIds.map((n) => ({
+                  src: mlimaniPhoto(n),
+                  alt: `${routeContent.quickFacts.routeName} — ${t(mlimaniCapKey(n))}`,
+                }))}
+                labels={{ close: tForms('closeLabel'), prev: tExp('galleryPrev'), next: tExp('galleryNext') }}
               />
 
               {/* Lemosho: tabbed multi-itinerary component */}
@@ -679,7 +652,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                       title={featuredPost.title}
                       excerpt={featuredPost.excerpt}
                       category={featuredPost.category}
-                      image="/images/gallery/kilimanjaro1.webp"
+                      image="/images/gallery/mlimani/mlimani-kili-23.webp"
                       readTime={featuredPost.readTime}
                       readLabel={tc('readMore')}
                     />

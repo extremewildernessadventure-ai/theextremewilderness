@@ -136,7 +136,7 @@ export default function PdfLeadModal({
                 ══════════════════════════════════ */}
             <div className="relative sm:w-[42%] h-44 sm:h-auto flex-shrink-0 overflow-hidden">
               <Image
-                src={image ?? '/images/gallery/kilimanjarosasa.webp'}
+                src={image ?? '/images/gallery/mlimani/mlimani-kili-03.webp'}
                 alt={imageAlt ?? t('imageAlt')}
                 fill
                 className="object-cover"

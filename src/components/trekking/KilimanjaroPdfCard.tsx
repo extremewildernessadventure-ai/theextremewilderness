@@ -10,7 +10,7 @@ export default async function KilimanjaroPdfCard() {
       {/* ── Image panel ── */}
       <div className="relative sm:w-52 h-56 sm:h-auto flex-shrink-0">
         <Image
-          src="/images/gallery/kilimanjarosasa.webp"
+          src="/images/gallery/mlimani/mlimani-kili-03.webp"
           alt="Kilimanjaro Trekking Guide"
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"

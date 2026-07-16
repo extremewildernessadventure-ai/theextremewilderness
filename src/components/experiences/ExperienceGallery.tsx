@@ -12,9 +12,11 @@ interface Props {
     prev: string
     next: string
   }
+  /** 'featured' (default): 4-col grid with a large 2x2 first tile. 'portrait': uniform 3:4 tiles — suits phone photos. */
+  variant?: 'featured' | 'portrait'
 }
 
-export default function ExperienceGallery({ images, labels }: Props) {
+export default function ExperienceGallery({ images, labels, variant = 'featured' }: Props) {
   const [current, setCurrent] = useState<number | null>(null)
 
   const close = useCallback(() => setCurrent(null), [])
@@ -45,20 +47,34 @@ export default function ExperienceGallery({ images, labels }: Props) {
   return (
     <>
       {/* ── Tile grid ── */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 auto-rows-[120px] md:auto-rows-[140px]">
+      <div
+        className={
+          variant === 'portrait'
+            ? 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5'
+            : 'grid grid-cols-2 md:grid-cols-4 gap-2.5 auto-rows-[120px] md:auto-rows-[140px]'
+        }
+      >
         {images.map((img, i) => (
           <button
             key={img.src}
             type="button"
             onClick={() => setCurrent(i)}
-            className={`relative rounded-xl overflow-hidden group cursor-zoom-in ${i === 0 ? 'col-span-2 row-span-2' : ''}`}
+            className={`relative rounded-xl overflow-hidden group cursor-zoom-in ${
+              variant === 'portrait' ? 'aspect-[3/4]' : i === 0 ? 'col-span-2 row-span-2' : ''
+            }`}
           >
             <Image
               src={img.src}
               alt={img.alt}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-500"
-              sizes={i === 0 ? '(max-width: 768px) 100vw, 450px' : '(max-width: 768px) 50vw, 225px'}
+              sizes={
+                variant === 'portrait'
+                  ? '(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw'
+                  : i === 0
+                    ? '(max-width: 768px) 100vw, 450px'
+                    : '(max-width: 768px) 50vw, 225px'
+              }
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden />
             <span className="absolute left-3 bottom-2.5 right-3 text-white text-xs font-semibold text-left opacity-0 group-hover:opacity-100 transition-opacity z-10">
