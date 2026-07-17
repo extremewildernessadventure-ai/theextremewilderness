@@ -4653,6 +4653,8 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
+    metaTitle: 'Authentic, Exclusive Kenya Safari | Amboseli, Samburu & Masai Mara | The Extreme Wilderness',
+    metaDescription: "A 9-day private Kenya safari through Amboseli, Samburu, and the Masai Mara's quiet south-west — exclusive-use camps, two dedicated guides, and genuine cultural immersion. Tailor-made by a locally owned East Africa safari operator.",
     overview: [
       "Kenya rewards travelers who go quiet and go private — and this itinerary is built entirely around that idea. Nine days, three landscapes, and nothing shared with anyone outside your own group: exclusive-use camps pitched in Amboseli's shadow of Kilimanjaro, a culturally rich stay in Samburu's dry northern country, and a private corner of the Masai Mara most visitors never reach.",
       "This isn't a checklist safari. It's three deliberately different Kenyas, each given enough time to actually settle into: the big tuskers and Kilimanjaro backdrops of Amboseli, the singing wells and living Samburu culture of the north, and the wildlife density of the Mara's under-visited south-western corner. The same trusted guiding team travels with you throughout, so the experience — and the trust — builds across the whole trip rather than resetting at every stop.",
@@ -4830,6 +4832,8 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
+    metaTitle: 'Classic Kenya Safari | Masai Mara, Rift Valley & Amboseli | The Extreme Wilderness',
+    metaDescription: "A 7-day classic Kenya safari through the Masai Mara, a Rift Valley soda lake, and Amboseli's Kilimanjaro backdrop — private, well-paced, and tailor-made by a locally owned East Africa safari operator.",
     overview: [
       'There\'s a reason this route keeps getting called "classic" — it\'s the itinerary that actually earns the word. Seven days, three landscapes, and every one of them a genuinely different face of Kenya: the plains drama of the Masai Mara, the still, birdlife-rich shoreline of a Rift Valley soda lake, and the elephant-and-Kilimanjaro postcard scenery of Amboseli to close things out.',
       "This isn't a rushed, box-ticking circuit. It's built with real time in each place — two full days in the Mara for the wildlife density this reserve is famous for, a quiet pause at a Rift Valley lake to slow the pace and watch flamingos work the shoreline, then two more days in Amboseli where the elephants seem to pose deliberately in front of Africa's tallest mountain. Whether this is your first Kenya safari or your fifth, it's the itinerary built to remind you why people fall for this country in the first place.",

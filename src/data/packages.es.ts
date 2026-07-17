@@ -3777,6 +3777,8 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
+    metaTitle: 'Safari Auténtico y Exclusivo en Kenia | Amboseli, Samburu y Masai Mara | The Extreme Wilderness',
+    metaDescription: 'Un safari privado de 9 días por Kenia a través de Amboseli, Samburu y el tranquilo suroeste del Masai Mara — campamentos exclusivos, dos guías dedicados y una auténtica inmersión cultural. Diseñado a medida por un operador de safaris de África Oriental de propiedad local.',
     overview: [
       "Kenia recompensa a los viajeros que buscan tranquilidad y privacidad — y este itinerario está construido enteramente en torno a esa idea. Nueve días, tres paisajes, y nada compartido con nadie fuera de su propio grupo: campamentos de uso exclusivo instalados a la sombra del Kilimanjaro en Amboseli, una estancia culturalmente rica en el árido norte de Samburu, y un rincón privado del Masai Mara al que la mayoría de los visitantes nunca llega.",
       "Esto no es un safari de lista de verificación. Son tres Kenias deliberadamente distintas, cada una con el tiempo suficiente para instalarse realmente en ella: los grandes colmillos y los telones de fondo del Kilimanjaro en Amboseli, los pozos cantores y la cultura samburu viva del norte, y la densidad de fauna del rincón suroccidental poco visitado del Mara. El mismo equipo de guías de confianza viaja con usted durante todo el recorrido, de modo que la experiencia — y la confianza — se construye a lo largo de todo el viaje en lugar de reiniciarse en cada parada.",
@@ -3954,6 +3956,8 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
+    metaTitle: 'Safari Clásico de Kenia | Masai Mara, Valle del Rift y Amboseli | The Extreme Wilderness',
+    metaDescription: 'Un safari clásico de 7 días por Kenia a través del Masai Mara, un lago de soda del Valle del Rift y el telón de fondo del Kilimanjaro en Amboseli — privado, bien planificado y hecho a medida por un operador de safaris de África Oriental de propiedad local.',
     overview: [
       'Hay una razón por la que a esta ruta la siguen llamando "clásica" — es el itinerario que realmente se gana la palabra. Siete días, tres paisajes, y cada uno de ellos una cara genuinamente distinta de Kenia: el drama de las llanuras del Masai Mara, la orilla tranquila y rica en aves de un lago sódico del Valle del Rift, y el paisaje de postal de elefantes y el Kilimanjaro de Amboseli para cerrar el recorrido.',
       "Este no es un circuito apresurado de marcar casillas. Está construido con tiempo real en cada lugar — dos días completos en el Mara por la densidad de fauna por la que esta reserva es famosa, una pausa tranquila en un lago del Valle del Rift para bajar el ritmo y observar a los flamencos trabajar la orilla, y luego dos días más en Amboseli, donde los elefantes parecen posar deliberadamente frente a la montaña más alta de África. Ya sea su primer safari en Kenia o el quinto, este es el itinerario construido para recordarle por qué la gente se enamora de este país desde el principio.",

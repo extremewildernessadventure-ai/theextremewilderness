@@ -3670,6 +3670,8 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
+    metaTitle: 'Safari Kenya Authentique et Exclusif | Amboseli, Samburu & Masai Mara | The Extreme Wilderness',
+    metaDescription: "Un safari privé de 9 jours au Kenya à travers Amboseli, Samburu et le sud-ouest tranquille du Masai Mara — camps exclusifs, deux guides dédiés et une immersion culturelle authentique. Sur mesure, conçu par un opérateur de safaris est-africain à propriété locale.",
     overview: [
       "Le Kenya récompense les voyageurs qui privilégient la discrétion et l'exclusivité — et cet itinéraire est entièrement construit autour de cette idée. Neuf jours, trois paysages, et rien de partagé avec quiconque en dehors de votre propre groupe : des camps à usage exclusif installés à Amboseli dans l'ombre du Kilimandjaro, un séjour d'une grande richesse culturelle dans le pays sec du nord de Samburu, et un coin privé du Masai Mara que la plupart des visiteurs n'atteignent jamais.",
       "Ce n'est pas un safari à cocher sur une liste. Ce sont trois Kenya délibérément différents, chacun disposant d'assez de temps pour véritablement s'y installer : les grands porteurs d'ivoire et les toiles de fond du Kilimandjaro à Amboseli, les puits chantants et la culture Samburu vivante du nord, et la densité de faune du coin sud-ouest peu visité du Mara. La même équipe de guidage de confiance vous accompagne tout au long du voyage, de sorte que l'expérience — et la confiance — se construit sur l'ensemble du séjour plutôt que de repartir de zéro à chaque étape.",
@@ -3768,6 +3770,8 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
+    metaTitle: 'Safari Classique au Kenya | Masai Mara, Vallée du Rift & Amboseli | The Extreme Wilderness',
+    metaDescription: "Un safari classique de 7 jours au Kenya à travers le Masai Mara, un lac de soude de la Vallée du Rift et la toile de fond du Kilimandjaro à Amboseli — privé, bien rythmé et sur mesure, conçu par un opérateur de safaris est-africain à propriété locale.",
     overview: [
       "Il y a une raison pour laquelle cet itinéraire continue d'être qualifié de « classique » — c'est le circuit qui mérite réellement ce mot. Sept jours, trois paysages, chacun révélant un visage réellement différent du Kenya : le drame des plaines du Masai Mara, le rivage calme et riche en oiseaux d'un lac de soude de la Vallée du Rift, et le décor de carte postale d'Amboseli, entre éléphants et Kilimandjaro, pour conclure le voyage.",
       "Ce n'est pas un circuit précipité où l'on coche des cases. Il est construit avec un véritable temps passé à chaque endroit — deux journées complètes dans le Mara pour la densité de faune qui a fait la réputation de cette réserve, une pause tranquille sur un lac de la Vallée du Rift pour ralentir le rythme et observer les flamants roses le long du rivage, puis deux jours supplémentaires à Amboseli, où les éléphants semblent poser délibérément devant la plus haute montagne d'Afrique. Que ce soit votre premier safari au Kenya ou votre cinquième, c'est l'itinéraire conçu pour vous rappeler pourquoi ce pays se fait aimer à ce point.",

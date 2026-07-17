@@ -3562,6 +3562,8 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
+    metaTitle: 'Authentische, exklusive Kenia-Safari | Amboseli, Samburu & Masai Mara | The Extreme Wilderness',
+    metaDescription: 'Eine 9-tägige private Kenia-Safari durch Amboseli, Samburu und den ruhigen Südwesten der Masai Mara — exklusive Camps, zwei erfahrene Guides und echte kulturelle Begegnungen. Maßgeschneidert von einem lokal geführten Reiseveranstalter für Ostafrika.',
     overview: [
       "Kenia belohnt Reisende, die auf Ruhe und Privatsphäre setzen — und genau um diese Idee ist dieser Reiseplan herum aufgebaut. Neun Tage, drei Landschaften, und nichts, was Sie mit einer anderen Gruppe teilen: exklusiv genutzte Camps im Schatten des Kilimandscharo in Amboseli, ein kulturell reicher Aufenthalt im trockenen Norden Samburus und eine private Ecke der Masai Mara, die die meisten Besucher nie erreichen.",
       "Dies ist keine Abhak-Safari. Es sind drei bewusst unterschiedliche Seiten Kenias, jede mit genug Zeit, um wirklich anzukommen: die großen Elefantenbullen und Kilimandscharo-Kulissen Amboselis, die singenden Brunnen und die lebendige Samburu-Kultur des Nordens, und die Wilddichte der wenig besuchten südwestlichen Ecke der Mara. Dasselbe vertraute Guiding-Team begleitet Sie während der gesamten Reise, sodass sich das Erlebnis — und das Vertrauen — über die ganze Reise hinweg aufbaut, statt sich an jeder Station neu einzuspielen.",
@@ -3944,6 +3946,8 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
+    metaTitle: 'Klassische Kenia-Safari | Masai Mara, Rift Valley & Amboseli | The Extreme Wilderness',
+    metaDescription: 'Eine 7-tägige klassische Kenia-Safari durch die Masai Mara, einen Sodasee im Rift Valley und die Kilimandscharo-Kulisse von Amboseli — privat, gut getaktet und maßgeschneidert von einem lokal geführten Ostafrika-Reiseveranstalter.',
     overview: [
       'Es gibt einen Grund, warum diese Route immer wieder „klassisch" genannt wird — es ist der Reiseplan, der sich das Wort tatsächlich verdient. Sieben Tage, drei Landschaften, und jede von ihnen ein wirklich anderes Gesicht Kenias: die Ebenendramatik der Masai Mara, das stille, vogelreiche Ufer eines Soda-Sees im Rift Valley, und die Postkartenkulisse aus Elefanten und Kilimandscharo in Amboseli zum Abschluss.',
       "Dies ist kein gehetzter Rundkurs zum Abhaken. Er ist mit echter Zeit an jedem Ort aufgebaut — zwei volle Tage in der Mara für die Wilddichte, für die dieses Reservat berühmt ist, eine ruhige Pause an einem Rift-Valley-See, um das Tempo zu drosseln und Flamingos am Ufer zu beobachten, dann zwei weitere Tage in Amboseli, wo die Elefanten scheinbar bewusst vor Afrikas höchstem Berg posieren. Ob dies Ihre erste oder Ihre fünfte Kenia-Safari ist — dies ist der Reiseplan, der Sie daran erinnert, warum sich Menschen überhaupt erst in dieses Land verlieben.",
