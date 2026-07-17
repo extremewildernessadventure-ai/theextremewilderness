@@ -702,7 +702,7 @@ export const experiencePagesEn: ExperiencePage[] = [
     ],
     ctaHeading: 'Ready to shoot with intention?',
     ctaText: "Tell us what you shoot and what you're hoping to bring home — we'll build the vehicle, route and season around it, with a tailored itinerary in your inbox within 24 hours.",
-    relatedPackageSlugs: ['7-days-flight-ndutu', '5-day-serengeti-fly-in', '7-day-serengeti-ngorongoro'],
+    relatedPackageSlugs: ['tanzania-photographic-safari', '7-days-flight-ndutu', '5-day-serengeti-fly-in', '7-day-serengeti-ngorongoro'],
     relatedExperienceSlugs: ['the-great-migration', 'hot-air-balloon-safari', 'exclusive-private-safari', 'birding-safari'],
   },
   {

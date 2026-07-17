@@ -1585,7 +1585,12 @@
     "familySize": "Family Size",
     "familyOf": "Family of {count}",
     "familyTierLuxury": "Luxury",
-    "familyTierUltraLuxury": "Ultra-Luxury"
+    "familyTierUltraLuxury": "Ultra-Luxury",
+    "bestTimeToTravel": "Best time to travel",
+    "itineraryAtAGlance": "Itinerary at a Glance",
+    "day": "Day",
+    "location": "Location",
+    "focus": "Focus"
   },
   "destination": {
     "about": "About {name}",

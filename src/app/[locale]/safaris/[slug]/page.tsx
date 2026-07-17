@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { Clock, Users, Check, X, ChevronDown } from 'lucide-react'
+import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import BookNowButton from '@/components/booking/BookNowButton'
 import TrustBar from '@/components/home/TrustBar'
@@ -236,19 +236,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params
   const pkg = getPackage(slug, locale)
   if (!pkg) return {}
+  const title = pkg.metaTitle ?? `${pkg.name} | Tanzania Safari`
+  const description = pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights starting from $${pkg.priceFrom.toLocaleString()}/person. ${pkg.highlights[0]}.`
   return {
     alternates: buildAlternates(locale, `/safaris/${slug}`),
-    title: `${pkg.name} | Tanzania Safari`,
-    description: `${pkg.name} — ${pkg.duration} nights starting from $${pkg.priceFrom.toLocaleString()}/person. ${pkg.highlights[0]}.`,
+    title,
+    description,
     keywords: SAFARI_KEYWORDS[slug] ?? DEFAULT_SAFARI_KEYWORDS,
     openGraph: {
-      title: pkg.name,
-      description: `${pkg.duration} nights from $${pkg.priceFrom.toLocaleString()}/person. ${pkg.highlights[0]}.`,
+      title: pkg.metaTitle ?? pkg.name,
+      description,
       images: [{ url: pkg.heroImage, width: 1200, height: 630, alt: pkg.name }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: pkg.name,
+      title: pkg.metaTitle ?? pkg.name,
       images: [pkg.heroImage],
     },
   }
@@ -272,7 +274,7 @@ export default async function SafariPackagePage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Trip',
     name: pkg.name,
-    description: `${pkg.name} — ${pkg.duration} nights, starting from $${pkg.priceFrom.toLocaleString()} per person. ${pkg.highlights[0]}.`,
+    description: pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights, starting from $${pkg.priceFrom.toLocaleString()} per person. ${pkg.highlights[0]}.`,
     image: `${SITE_URL}${pkg.heroImage}`,
     provider: {
       '@type': 'Organization',
@@ -346,6 +348,15 @@ export default async function SafariPackagePage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Main content */}
           <div className="lg:col-span-2 space-y-10">
+            {/* Overview */}
+            {pkg.overview && pkg.overview.length > 0 && (
+              <div className="space-y-3">
+                {pkg.overview.map((para, i) => (
+                  <p key={i} className="text-sm text-text-muted leading-relaxed">{para}</p>
+                ))}
+              </div>
+            )}
+
             {/* Quick info */}
             <div className="flex flex-wrap gap-5 text-sm">
               <div className="flex items-center gap-2 text-text-muted">
@@ -356,6 +367,18 @@ export default async function SafariPackagePage({ params }: Props) {
                 <Users className="w-4 h-4 text-gold" />
                 <span>{t('groupsOf')} <strong className="text-brand">{pkg.groupSize.min}–{pkg.groupSize.max}</strong></span>
               </div>
+              {pkg.bestTimeToTravel && (
+                <div className="flex items-center gap-2 text-text-muted">
+                  <Calendar className="w-4 h-4 text-gold" />
+                  <span><strong className="text-brand">{t('bestTimeToTravel')}:</strong> {pkg.bestTimeToTravel}</span>
+                </div>
+              )}
+              {pkg.tagline && (
+                <div className="flex items-center gap-2 text-text-muted">
+                  <ShieldCheck className="w-4 h-4 text-gold" />
+                  <span>{pkg.tagline}</span>
+                </div>
+              )}
             </div>
 
             {/* Highlights */}
@@ -371,10 +394,64 @@ export default async function SafariPackagePage({ params }: Props) {
               </ul>
             </div>
 
+            {/* Why This Itinerary Is Different */}
+            {pkg.whyDifferent && (
+              <div>
+                <h2 className="text-xl font-semibold text-brand mb-4">{pkg.whyDifferent.heading}</h2>
+                <div className="space-y-3">
+                  {pkg.whyDifferent.paragraphs.map((para, i) => (
+                    <p key={i} className="text-sm text-text-muted leading-relaxed">{para}</p>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Destination / Photography Highlights */}
+            {pkg.destinationHighlights && pkg.destinationHighlights.items.length > 0 && (
+              <div>
+                <h2 className="text-xl font-semibold text-brand mb-4">{pkg.destinationHighlights.heading}</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {pkg.destinationHighlights.items.map((item) => (
+                    <div key={item.title} className="bg-light-green rounded-xl p-4">
+                      <p className="font-semibold text-brand text-sm mb-1.5">{item.title}</p>
+                      <p className="text-sm text-text-muted leading-relaxed">{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Itinerary */}
             {pkg.itinerary.length > 0 && (
               <div>
                 <h2 className="text-xl font-semibold text-brand mb-5">{t('dayByDayItinerary')}</h2>
+
+                {pkg.itinerary.some((d) => d.location) && (
+                  <div className="mb-6">
+                    <p className="text-xs font-bold text-text-muted uppercase tracking-wide mb-2">{t('itineraryAtAGlance')}</p>
+                    <div className="overflow-x-auto rounded-xl border border-gray-100">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="bg-light-green text-left text-text-muted text-xs uppercase tracking-wide">
+                            <th className="px-4 py-2.5 font-semibold">{t('day')}</th>
+                            <th className="px-4 py-2.5 font-semibold">{t('location')}</th>
+                            <th className="px-4 py-2.5 font-semibold">{t('focus')}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {pkg.itinerary.map((day) => (
+                            <tr key={day.day} className="border-t border-gray-100">
+                              <td className="px-4 py-2.5 text-brand font-semibold whitespace-nowrap">{day.day}</td>
+                              <td className="px-4 py-2.5 text-text-muted">{day.location ?? '—'}</td>
+                              <td className="px-4 py-2.5 text-text-muted">{day.title}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+
                 <div className="space-y-3">
                   {pkg.itinerary.map((day) => (
                     <details key={day.day} className="group border border-gray-100 rounded-xl overflow-hidden">
