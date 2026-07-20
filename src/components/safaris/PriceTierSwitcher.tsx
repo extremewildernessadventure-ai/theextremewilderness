@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import type { PricingTierRow } from '@/data/packages'
 
@@ -8,12 +8,21 @@ const TIERS = ['trail', 'reserve', 'sovereign'] as const
 type Tier = (typeof TIERS)[number]
 type Season = 'high' | 'low'
 
+export interface PriceSelection {
+  seasonLabel?: string
+  pax?: number
+  tierLabel?: string
+  price: number
+}
+
 export default function PriceTierSwitcher({
   rows,
   provisional,
+  onChange,
 }: {
   rows: PricingTierRow[]
   provisional?: boolean
+  onChange?: (selection: PriceSelection) => void
 }) {
   const t = useTranslations('safari')
 
@@ -31,6 +40,16 @@ export default function PriceTierSwitcher({
 
   const row = seasonRows.find((r) => r.pax === pax) ?? seasonRows[0]
   const price = row[tier] ?? 0
+
+  useEffect(() => {
+    onChange?.({
+      seasonLabel: seasons.length > 1 ? (season === 'high' ? t('highSeason') : t('lowSeason')) : undefined,
+      pax,
+      tierLabel: t(`tier${tier.charAt(0).toUpperCase()}${tier.slice(1)}`),
+      price,
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [season, pax, tier, price])
 
   return (
     <div className="bg-light-green rounded-2xl p-6">

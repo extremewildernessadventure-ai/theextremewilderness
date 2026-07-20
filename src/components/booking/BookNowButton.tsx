@@ -19,6 +19,10 @@ export default function BookNowButton({
   priceFrom,
   duration,
   route,
+  season,
+  tier,
+  travelers,
+  restrictTripType,
 }: Props) {
   const t = useTranslations('common')
   const { openBooking } = useBooking()
@@ -27,7 +31,7 @@ export default function BookNowButton({
   return (
     <button
       type="button"
-      onClick={() => openBooking({ packageName, packageType, priceFrom, duration, route })}
+      onClick={() => openBooking({ packageName, packageType, priceFrom, duration, route, season, tier, travelers, restrictTripType })}
       className={
         className ??
         'inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm'

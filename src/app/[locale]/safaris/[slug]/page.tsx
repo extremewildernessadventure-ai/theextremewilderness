@@ -5,10 +5,8 @@ import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
-import BookNowButton from '@/components/booking/BookNowButton'
 import TrustBar from '@/components/home/TrustBar'
-import PriceTierSwitcher from '@/components/safaris/PriceTierSwitcher'
-import FamilyPriceSwitcher from '@/components/safaris/FamilyPriceSwitcher'
+import SafariBookingSidebar from '@/components/safaris/SafariBookingSidebar'
 import AmenityStay from '@/components/safaris/AmenityStay'
 import RelatedSafaris from '@/components/safaris/RelatedSafaris'
 import { packages } from '@/data/packages'
@@ -264,6 +262,14 @@ export default async function SafariPackagePage({ params }: Props) {
 
   const t = await getTranslations('safari')
   const tc = await getTranslations('common')
+  const tf = await getTranslations('forms')
+
+  const TRIP_TYPE_LABEL: Record<typeof pkg.type, string> = {
+    wildlife: tf('tripTypes.wildlifeSafari'),
+    trekking: tf('tripTypes.kilimanjaroTrek'),
+    beach: tf('tripTypes.beachSafariCombo'),
+    combination: tf('tripTypes.multiCountry'),
+  }
 
   const featuredPost = getBlogPostMeta(
     SAFARI_BLOG_MAP[pkg.slug] ?? DEFAULT_BLOG_SLUG,
@@ -357,41 +363,44 @@ export default async function SafariPackagePage({ params }: Props) {
               </div>
             )}
 
-            {/* Quick info */}
-            <div className="flex flex-wrap gap-5 text-sm">
-              <div className="flex items-center gap-2 text-text-muted">
-                <Clock className="w-4 h-4 text-gold" />
-                <span><strong className="text-brand">{pkg.duration} {tc('nights')}</strong> {t('duration')}</span>
-              </div>
-              <div className="flex items-center gap-2 text-text-muted">
-                <Users className="w-4 h-4 text-gold" />
-                <span>{t('groupsOf')} <strong className="text-brand">{pkg.groupSize.min}–{pkg.groupSize.max}</strong></span>
-              </div>
-              {pkg.bestTimeToTravel && (
+            {/* Quick info + Highlights */}
+            <div className="bg-light-green rounded-xl p-5">
+              {/* Quick info */}
+              <div className="flex flex-wrap gap-5 text-sm">
                 <div className="flex items-center gap-2 text-text-muted">
-                  <Calendar className="w-4 h-4 text-gold" />
-                  <span><strong className="text-brand">{t('bestTimeToTravel')}:</strong> {pkg.bestTimeToTravel}</span>
+                  <Clock className="w-4 h-4 text-gold" />
+                  <span><strong className="text-brand">{pkg.duration} {tc('nights')}</strong> {t('duration')}</span>
                 </div>
-              )}
-              {pkg.tagline && (
                 <div className="flex items-center gap-2 text-text-muted">
-                  <ShieldCheck className="w-4 h-4 text-gold" />
-                  <span>{pkg.tagline}</span>
+                  <Users className="w-4 h-4 text-gold" />
+                  <span>{t('groupsOf')} <strong className="text-brand">{pkg.groupSize.min}–{pkg.groupSize.max}</strong></span>
                 </div>
-              )}
-            </div>
+                {pkg.bestTimeToTravel && (
+                  <div className="flex items-center gap-2 text-text-muted">
+                    <Calendar className="w-4 h-4 text-gold" />
+                    <span><strong className="text-brand">{t('bestTimeToTravel')}:</strong> {pkg.bestTimeToTravel}</span>
+                  </div>
+                )}
+                {pkg.tagline && (
+                  <div className="flex items-center gap-2 text-text-muted">
+                    <ShieldCheck className="w-4 h-4 text-gold" />
+                    <span>{pkg.tagline}</span>
+                  </div>
+                )}
+              </div>
 
-            {/* Highlights */}
-            <div>
-              <h2 className="text-xl font-semibold text-brand mb-4">{t('packageHighlights')}</h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {pkg.highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-2 text-sm text-text-muted">
-                    <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
-                    {h}
-                  </li>
-                ))}
-              </ul>
+              {/* Highlights */}
+              <div className="mt-5">
+                <h2 className="text-xl font-semibold text-brand mb-4">{t('packageHighlights')}</h2>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {pkg.highlights.map((h) => (
+                    <li key={h} className="flex items-start gap-2 text-sm text-text-muted">
+                      <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* Why This Itinerary Is Different */}
@@ -513,7 +522,7 @@ export default async function SafariPackagePage({ params }: Props) {
             )}
 
             {/* Included / Excluded */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="bg-light-green rounded-xl p-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
                   <Check className="w-4 h-4 text-green-500" /> {t('included')}
@@ -623,32 +632,22 @@ export default async function SafariPackagePage({ params }: Props) {
           {/* Sidebar */}
           <div>
             <div className="sticky top-24 space-y-4">
-              {pkg.familyPricing && pkg.familyPricing.length > 0 ? (
-                <FamilyPriceSwitcher rows={pkg.familyPricing} />
-              ) : pkg.pricingTiers && pkg.pricingTiers.length > 0 ? (
-                <PriceTierSwitcher rows={pkg.pricingTiers} provisional={pkg.pricingTiersProvisional} />
-              ) : (
-                <div className="bg-light-green rounded-2xl p-6 text-center">
-                  <div className="text-3xl font-bold text-brand">${pkg.priceFrom.toLocaleString()}</div>
-                  <div className="text-text-muted text-xs mt-1">{tc('perPerson')} · {pkg.duration} {tc('nights')}</div>
-                </div>
-              )}
-              <div className="bg-brand rounded-2xl p-6 text-center space-y-4">
-                <div>
-                  <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-1">{t('freeNoCommitment')}</p>
-                  <h3 className="text-white font-bold text-lg">{t('bookThisPackage')}</h3>
-                  <p className="text-white/60 text-xs mt-1">{t('responseNote')}</p>
-                </div>
-                <BookNowButton
-                  label={t('sendEnquiry')}
-                  packageName={pkg.name}
-                  packageType={pkg.type}
-                  priceFrom={`$${pkg.priceFrom.toLocaleString()}`}
-                  duration={`${pkg.duration} ${tc('nights')}`}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
-                />
-                <p className="text-white/60 text-xs">{t('noPayment')}</p>
-              </div>
+              <SafariBookingSidebar
+                packageName={pkg.name}
+                tripTypeLabel={TRIP_TYPE_LABEL[pkg.type]}
+                priceFrom={pkg.priceFrom}
+                duration={pkg.duration}
+                nightsLabel={tc('nights')}
+                perPersonLabel={tc('perPerson')}
+                pricingTiers={pkg.pricingTiers}
+                pricingTiersProvisional={pkg.pricingTiersProvisional}
+                familyPricing={pkg.familyPricing}
+                sendEnquiryLabel={t('sendEnquiry')}
+                freeNoCommitmentLabel={t('freeNoCommitment')}
+                bookThisPackageLabel={t('bookThisPackage')}
+                responseNoteLabel={t('responseNote')}
+                noPaymentLabel={t('noPayment')}
+              />
 
               {/* Featured blog post */}
               {featuredPost && (

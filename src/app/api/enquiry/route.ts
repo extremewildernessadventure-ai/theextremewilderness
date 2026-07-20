@@ -55,6 +55,8 @@ function buildHtml(d: Record<string, unknown>) {
     row('Package',  str(d.packageName)),
     row('Type',     str(d.packageType)),
     row('Duration', str(d.duration)),
+    row('Season',   str(d.season)),
+    row('Tier',     str(d.tier)),
     row('From',     str(d.priceFrom)),
   ].join('') : ''
 

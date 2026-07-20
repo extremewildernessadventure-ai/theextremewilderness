@@ -1,13 +1,20 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import type { FamilyPricingRow } from '@/data/packages'
+import type { PriceSelection } from './PriceTierSwitcher'
 
 const TIERS = ['luxury', 'ultraLuxury'] as const
 type Tier = (typeof TIERS)[number]
 
-export default function FamilyPriceSwitcher({ rows }: { rows: FamilyPricingRow[] }) {
+export default function FamilyPriceSwitcher({
+  rows,
+  onChange,
+}: {
+  rows: FamilyPricingRow[]
+  onChange?: (selection: PriceSelection) => void
+}) {
   const t = useTranslations('safari')
 
   const seasons = Array.from(new Set(rows.map((r) => r.season)))
@@ -19,6 +26,16 @@ export default function FamilyPriceSwitcher({ rows }: { rows: FamilyPricingRow[]
 
   const row = rows.find((r) => r.season === season && r.familySize === familySize) ?? rows[0]
   const price = row[tier]
+
+  useEffect(() => {
+    onChange?.({
+      seasonLabel: season === 'high' ? t('highSeason') : t('lowSeason'),
+      pax: familySize,
+      tierLabel: tier === 'luxury' ? t('familyTierLuxury') : t('familyTierUltraLuxury'),
+      price,
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [season, familySize, tier, price])
 
   return (
     <div className="bg-light-green rounded-2xl p-6">

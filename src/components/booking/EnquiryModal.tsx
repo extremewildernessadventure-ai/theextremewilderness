@@ -187,6 +187,7 @@ export default function EnquiryModal() {
 
   useEffect(() => {
     if (bookingInfo?.packageType) setTripType(bookingInfo.packageType)
+    if (bookingInfo?.travelers) setAdults(bookingInfo.travelers)
     if (scrollRef.current) scrollRef.current.scrollTop = 0
     setSubmitted(false)
   }, [bookingInfo, isOpen])
@@ -273,6 +274,8 @@ export default function EnquiryModal() {
           packageType: bookingInfo?.packageType,
           duration: bookingInfo?.duration,
           priceFrom: bookingInfo?.priceFrom,
+          season: bookingInfo?.season,
+          tier: bookingInfo?.tier,
           source: 'booking_modal',
           website,
         }),
@@ -343,8 +346,13 @@ export default function EnquiryModal() {
               <div className="flex-1 min-w-0">
                 <div className="text-white font-semibold text-sm truncate">{bookingInfo.packageName}</div>
                 <div className="text-white/60 text-xs">
-                  {[bookingInfo.packageType, bookingInfo.duration, bookingInfo.priceFrom && `${tc('from')} ${bookingInfo.priceFrom}`]
-                    .filter(Boolean).join(' · ')}
+                  {[
+                    bookingInfo.packageType,
+                    bookingInfo.duration,
+                    bookingInfo.season,
+                    bookingInfo.tier,
+                    bookingInfo.priceFrom && `${tc('from')} ${bookingInfo.priceFrom}`,
+                  ].filter(Boolean).join(' · ')}
                 </div>
               </div>
               <span className="text-[10px] font-bold text-brand bg-gold px-2 py-0.5 rounded-full uppercase tracking-wide flex-shrink-0">
@@ -476,9 +484,20 @@ export default function EnquiryModal() {
                 <div className="mb-3">
                   <Label>{t('tripLabel')}</Label>
                   <SelectWrapper>
-                    <select value={tripType} onChange={(e) => setTripType(e.target.value)} className={selectCls}>
-                      <option value="">{t('selectTripType')}</option>
-                      {TRIP_TYPES.map((type) => <option key={type}>{type}</option>)}
+                    <select
+                      value={tripType}
+                      onChange={(e) => setTripType(e.target.value)}
+                      disabled={!!bookingInfo?.restrictTripType}
+                      className={selectCls + (bookingInfo?.restrictTripType ? ' bg-gray-50 text-gray-500' : '')}
+                    >
+                      {bookingInfo?.restrictTripType ? (
+                        <option>{bookingInfo.packageType}</option>
+                      ) : (
+                        <>
+                          <option value="">{t('selectTripType')}</option>
+                          {TRIP_TYPES.map((type) => <option key={type}>{type}</option>)}
+                        </>
+                      )}
                     </select>
                   </SelectWrapper>
                 </div>

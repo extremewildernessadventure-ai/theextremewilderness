@@ -8,6 +8,10 @@ export interface BookingInfo {
   priceFrom?: string
   duration?: string
   route?: string
+  season?: string
+  tier?: string
+  travelers?: number
+  restrictTripType?: boolean
 }
 
 interface BookingContextValue {
