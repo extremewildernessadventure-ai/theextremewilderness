@@ -356,7 +356,7 @@ export default async function SafariPackagePage({ params }: Props) {
           <div className="lg:col-span-2 space-y-10">
             {/* Overview */}
             {pkg.overview && pkg.overview.length > 0 && (
-              <div className="space-y-3">
+              <div className="bg-light-green border border-brand/10 rounded-xl p-5 space-y-3">
                 {pkg.overview.map((para, i) => (
                   <p key={i} className="text-sm text-text-muted leading-relaxed">{para}</p>
                 ))}
@@ -364,7 +364,7 @@ export default async function SafariPackagePage({ params }: Props) {
             )}
 
             {/* Quick info + Highlights */}
-            <div className="bg-light-green rounded-xl p-5">
+            <div className="bg-light-green border border-brand/10 rounded-xl p-5">
               {/* Quick info */}
               <div className="flex flex-wrap gap-5 text-sm">
                 <div className="flex items-center gap-2 text-text-muted">
@@ -405,7 +405,7 @@ export default async function SafariPackagePage({ params }: Props) {
 
             {/* Why This Itinerary Is Different */}
             {pkg.whyDifferent && (
-              <div>
+              <div className="bg-light-green border border-brand/10 rounded-xl p-5">
                 <h2 className="text-xl font-semibold text-brand mb-4">{pkg.whyDifferent.heading}</h2>
                 <div className="space-y-3">
                   {pkg.whyDifferent.paragraphs.map((para, i) => (
@@ -421,7 +421,7 @@ export default async function SafariPackagePage({ params }: Props) {
                 <h2 className="text-xl font-semibold text-brand mb-4">{pkg.destinationHighlights.heading}</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {pkg.destinationHighlights.items.map((item) => (
-                    <div key={item.title} className="bg-light-green rounded-xl p-4">
+                    <div key={item.title} className="bg-light-green border border-brand/10 rounded-xl p-4">
                       <p className="font-semibold text-brand text-sm mb-1.5">{item.title}</p>
                       <p className="text-sm text-text-muted leading-relaxed">{item.text}</p>
                     </div>
@@ -522,7 +522,7 @@ export default async function SafariPackagePage({ params }: Props) {
             )}
 
             {/* Included / Excluded */}
-            <div className="bg-light-green rounded-xl p-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="bg-light-green border border-brand/10 rounded-xl p-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
                   <Check className="w-4 h-4 text-green-500" /> {t('included')}
@@ -596,7 +596,7 @@ export default async function SafariPackagePage({ params }: Props) {
             </div>
 
             {pkg.notes && pkg.notes.length > 0 && (
-              <div className="bg-light-green rounded-xl p-5">
+              <div className="bg-light-green border border-brand/10 rounded-xl p-5">
                 <h3 className="font-semibold text-brand text-sm mb-2">{t('pleaseNote')}</h3>
                 <ul className="space-y-1">
                   {pkg.notes.map((note) => (

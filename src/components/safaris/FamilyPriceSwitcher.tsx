@@ -38,7 +38,7 @@ export default function FamilyPriceSwitcher({
   }, [season, familySize, tier, price])
 
   return (
-    <div className="bg-light-green rounded-2xl p-6">
+    <div className="bg-light-green border border-brand/10 rounded-2xl p-6">
       <div className="mb-4">
         <p className="text-text-muted text-xs uppercase tracking-wide mb-2">{t('season')}</p>
         <div className="grid grid-cols-2 gap-1.5">
