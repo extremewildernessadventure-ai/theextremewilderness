@@ -180,6 +180,11 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [],
   },
   {
@@ -502,6 +507,12 @@ export const packages: SafariPackage[] = [
       "Equipo de rescate",
     ],
     excluded: ["Vuelos internacionales", "Equipo de senderismo personal", "Seguro de viaje", "Propinas", "Hotel antes/después"],
+    notes: [
+      'Las tarifas se cobran por excursionista, sobre una base de acampada; no se aplica suplemento individual.',
+      'El equipo de senderismo personal (botas, capas de abrigo, saco de dormir) no está incluido — hay una lista de equipo disponible bajo petición.',
+      'Las tarifas y la disponibilidad pueden variar según la fecha exacta del viaje dentro de la temporada de ascenso.',
+      'Las tasas del Parque Nacional del Kilimanjaro las fija la Autoridad de Parques Nacionales de Tanzania (TANAPA) y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [],
   },
   {
@@ -524,6 +535,12 @@ export const packages: SafariPackage[] = [
     gallery: ['/images/gallery/safari-122.webp'],
     included: ["Tasas del parque", "Todos los game drives", "Safari en barca", "Safari a pie", "Todas las comidas", "Vuelos internos en Tanzania"],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'Tamaño mínimo de grupo de 2 personas para que los vuelos internos sean viables.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [],
   },
   {
@@ -554,6 +571,12 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas", "Gastos personales"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'Tamaño mínimo de grupo de 2 personas para que el vuelo chárter a Seronera sea viable.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -652,7 +675,11 @@ export const packages: SafariPackage[] = [
       'La cena de la noche de llegada (el Día 1 es solo alojamiento y desayuno — la bienvenida con champán corre por nuestra cuenta; la cena en Arusha es fácil de organizar bajo petición)',
     ],
     notes: [
-      'Basado en dos personas compartiendo. Un depósito del 30% asegura sus fechas, con el saldo restante a pagar 60 días antes del vuelo.',
+      'Precio para dos personas; este itinerario está diseñado exclusivamente para parejas.',
+      'Se pueden añadir unos días en Zanzíbar o en las laderas bajas del Kilimanjaro antes o después del safari — pregunte por las opciones de extensión al consultarnos.',
+      'Un depósito del 30% asegura sus fechas, con el saldo restante a pagar 60 días antes del vuelo.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
     ],
     faq: [
       {
@@ -825,9 +852,11 @@ export const packages: SafariPackage[] = [
     },
     excludedCategorized: ['Vuelos internacionales', 'Tasas de visado', 'Seguro de viaje', 'Propinas', 'Almuerzo y cena en Zanzíbar'],
     notes: [
-      'Precio por persona, en habitación doble/twin (2 pax), costo NETO con un margen del 25% aplicado. Las cifras de temporada baja y alta reflejan las tarifas de los lodges en temporada baja y en temporada alta.',
+      'Tarifas por persona, en habitación doble.',
+      'Las selecciones de alojamiento del nivel Wilderness Sovereign están sujetas a disponibilidad y se confirman al reservar.',
       'Un depósito del 30% asegura su reserva, con el saldo restante a pagar 60 días antes de la salida.',
-      'La tarifa del Gran Meliá Arusha aún no está registrada en el costeo original — confirmen la tarifa vigente antes de reservar el nivel Wilderness Sovereign.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
     ],
     faq: [
       {
@@ -1005,7 +1034,9 @@ export const packages: SafariPackage[] = [
     notes: [
       "Este itinerario está fijado a la temporada de crías (finales de enero–marzo); no existe una tarifa separada de temporada baja/alta, ya que el safari solo opera durante esta ventana.",
       "Un depósito del 30% asegura tu reserva, con el saldo restante a pagar 60 días antes de la salida.",
-      "El tamaño exacto del grupo reducido, la selección final de alojamientos y si el tramo Ndutu–Ngorongoro se realiza por carretera o mediante un segundo vuelo chárter aún están por confirmarse — consulta los detalles actuales con nuestro equipo antes de reservar.",
+      "La selección final de alojamientos y si el tramo Ndutu–Ngorongoro se realiza por carretera o mediante un segundo vuelo chárter se confirmarán al reservar.",
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
     ],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1362,9 +1393,11 @@ export const packages: SafariPackage[] = [
     included: ["Todas las tasas de parques y conservancies", "Todos los game drives y la caminata de un día a la Meseta de Shira (ranger armado y guía de montaña incluidos)", "Tasas de experiencias culturales", "Un guía profesional durante todo el recorrido", "Todas las comidas según se indica cada día", "Alojamiento en el nivel elegido", "Todos los traslados de aeropuerto e interdestino"],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas", "Gastos personales"],
     notes: [
-      "Precio por persona, en habitación doble (2 pax), costo NETO con un margen del 25% aplicado.",
+      "Tarifas por persona, en habitación doble.",
       "Ambos niveles incluyen la tasa de la caminata a la Meseta de Shira, la entrada, caminata y tasas de ranger del Parque Nacional de Arusha, y las tasas de parque confirmadas en cada parada (Ngorongoro, Lago Manyara, Tarangire y Serengeti) — no solo el alojamiento.",
-      "Queda un vacío de alojamiento por confirmar: Arusha Coffee Lodge, la propiedad Wilderness Sovereign para la noche del Día 4 en Arusha, aún no tiene una tarifa confirmada, por lo que las cifras de Sovereign anteriores se afinarán más una vez se tenga esa información.",
+      "Las selecciones de alojamiento del nivel Wilderness Sovereign están sujetas a disponibilidad y se confirman al reservar.",
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
     ],
     faq: [
       {
@@ -1582,6 +1615,12 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'Los cruces del río Mara son más fiables entre julio y octubre y no se pueden garantizar en una fecha concreta.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -1670,6 +1709,12 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas", "Almuerzos y cenas en Zanzíbar"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'El alojamiento en Zanzíbar incluye solo el desayuno; el almuerzo y la cena allí corren por su cuenta.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -1784,6 +1829,12 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'La noche en Ngorongoro se pasa en la localidad de altura de Karatu en lugar de directamente en el borde del cráter.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -1864,6 +1915,13 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'Tamaño mínimo de grupo de 2 personas para que el vuelo chárter doméstico sea viable.',
+      'Este itinerario está programado para la temporada de crías de Ndutu (enero–marzo); las observaciones exactas de fauna están sujetas a variaciones naturales.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -1944,6 +2002,13 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'Tamaño mínimo de grupo de 2 personas para que el vuelo chárter doméstico sea viable.',
+      'Los cruces del río Mara son más fiables entre julio y octubre y no se pueden garantizar en una fecha concreta.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2031,6 +2096,12 @@ export const packages: SafariPackage[] = [
       "Vuelos domésticos en Tanzania",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'El trekking de gorilas es un encuentro fijo de una hora con la familia, y el seguimiento de monos dorados es una actividad aparte — ambos permisos los asigna con antelación el Rwanda Development Board.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques y áreas de conservación de Ruanda y Tanzania las fijan los respectivos gobiernos y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2338,6 +2409,12 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'El senderismo de gorilas, el seguimiento de chimpancés y el seguimiento de monos dorados son actividades limitadas y sujetas a permiso, asignadas con antelación por el Rwanda Development Board.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y de conservación de Ruanda las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2453,6 +2530,12 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas", "Actividades opcionales"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'El paseo a caballo y las visitas culturales a manyattas Samburu mencionadas en el itinerario son actividades opcionales con coste adicional, sujetas a disponibilidad.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y conservancies de Kenia las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2560,6 +2643,12 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'La excursión en barca al atardecer del día 1 es opcional, y el traslado de regreso del día 10 (por carretera o avioneta) se confirma al reservar.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2662,6 +2751,12 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas", "Almuerzos y cenas en Zanzíbar"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'El alojamiento en Zanzíbar incluye solo el desayuno; el almuerzo y la cena allí corren por su cuenta.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2770,6 +2865,12 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado de Kenia y Tanzania", "Seguro de viaje", "Propinas"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'El cruce de la frontera Kenia-Tanzania en este itinerario se realiza en avioneta en lugar de por carretera.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques de Tanzania y Kenia las fijan los respectivos gobiernos y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2886,6 +2987,12 @@ export const packages: SafariPackage[] = [
       "Traslados desde/hacia el aeropuerto",
     ],
     excluded: ["Vuelos internacionales", "Tasas de visado", "Seguro de viaje", "Propinas"],
+    notes: [
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'El traslado a mitad de itinerario desde el circuito sur hasta el norte del Serengeti se realiza en vuelo chárter doméstico.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -3483,7 +3590,7 @@ export const packages: SafariPackage[] = [
       'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje.',
       'Las tasas de los parques nacionales y áreas de conservación de Tanzania las establece el gobierno y pueden cambiar sin previo aviso.',
       'Se requiere un depósito del 30 % para confirmar la reserva; el saldo vence 60 días antes de la salida.',
-      'El vuelo Arusha–Zanzíbar y la tarifa de Siringiti Serengeti Camp mostrados son estimaciones pendientes de confirmación final — confirme los costos exactos con nuestro equipo antes de reservar.',
+      'Las tarifas del vuelo doméstico y del lodge se confirman en el momento de la reserva.',
     ],
     faq: [
       { q: '¿Este viaje es realmente solo para parejas, o pueden unirse familiares y amigos?', a: 'Está pensado para dos personas, pero ambos niveles funcionan bien para pequeños grupos de familiares o amigos que celebran juntos — las tarifas anteriores se escalan hasta 6 personas.' },
@@ -3539,7 +3646,7 @@ export const packages: SafariPackage[] = [
       'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje.',
       'Las tasas de los parques nacionales y áreas de conservación de Tanzania las establece el gobierno y pueden cambiar sin previo aviso.',
       'Se requiere un depósito del 30 % para confirmar la reserva; el saldo vence 60 días antes de la salida.',
-      'Las tarifas Wilderness Sovereign para 3–4 personas reflejan precios agrupados de "Game Package" en tres de las cinco propiedades y no escalan de forma lineal con el tamaño del grupo — confirme su cotización exacta con nuestro equipo. La tarifa Wilderness Trail de Conserve Safari Tarangire también está pendiente de confirmación final.',
+      'Las tarifas de grupo Wilderness Sovereign para 3–4 personas se calculan sobre una base de paquete agrupado y se confirman en el momento de la reserva.',
     ],
     faq: [
       { q: '¿Cuál es la mejor época para ver los cruces del Río Mara?', a: 'Los cruces suelen ocurrir de julio a octubre, cuando la migración atraviesa el norte del Serengeti, aunque el momento exacto varía cada año según las lluvias. Nada está garantizado en un día concreto — precisamente por eso este itinerario incluye tres días completos en la zona de cruce en lugar de uno solo.' },
@@ -3613,9 +3720,11 @@ export const packages: SafariPackage[] = [
     included: ['Todas las tasas de parques, concesiones y áreas de conservación', 'Vehículo, guía y combustible para cada día de game drive', 'Traslados desde/hacia el aeropuerto', 'Agua potable', 'Alojamiento del guía', 'Cobertura de evacuación médica de emergencia'],
     excluded: ['Vuelos internacionales', 'Tasas de visado', 'Seguro de viaje', 'Propinas', 'Alquiler de cámara/objetivos'],
     notes: [
-      'Precio por persona, en habitación doble/twin (2 personas), costo NETO con un margen del 25 % aplicado. Las cifras de temporada baja y alta reflejan las tarifas de los lodges en temporada baja y en temporada alta.',
+      'Tarifas por persona, en habitación doble/twin.',
       'Un depósito del 30 % asegura su reserva, con el saldo restante a pagar 60 días antes de la salida.',
-      'El tramo del norte del Serengeti de este itinerario es, tal como está diseñado, efectivamente un producto de temporada de migración: Mara Under Canvas y el Migration Camp de Siringit (sede de Kogatende) solo operan en el norte mientras la migración está allí (aproximadamente de junio a octubre) — fuera de esa ventana, la migración, y estos campamentos, se trasladan hacia el sur, hacia Ndutu. No existe una tarifa de "temporada baja" independiente para el propio emplazamiento del norte; una salida genuina en temporada baja requeriría redirigir este tramo hacia una propiedad del sur del Serengeti/Ndutu, en lugar de una simple sustitución de tarifa.',
+      'Este itinerario está construido en torno a los campamentos de migración del norte del Serengeti, disponibles aproximadamente de junio a octubre; una salida en temporada baja utilizaría un itinerario diferente basado en Ndutu.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y áreas de conservación de Tanzania las fija el gobierno y están sujetas a cambios sin previo aviso.',
     ],
     faq: [
       {
@@ -3819,7 +3928,10 @@ export const packages: SafariPackage[] = [
     included: ['Pensión completa durante todo el recorrido', 'Un guía de safari profesional dedicado durante todo el itinerario', 'Todas las tasas de entrada a parques y reservas', 'Game drives diurnos y nocturnos', 'Caminatas guiadas por el monte', 'Actividades culturales en Samburu', 'Recepción y asistencia en el Aeropuerto Internacional Jomo Kenyatta', 'Todos los traslados de aeropuerto y pista de aterrizaje', 'Cobertura de evacuación médica de emergencia'],
     excluded: ['Bebidas premium', 'Actividades más allá de las indicadas anteriormente', 'Vuelos internacionales y tasas de visado', 'Propinas'],
     notes: [
-      "Las tarifas se basan en las tarifas de alojamiento confirmadas de nuestro socio de lodges en Kenia, las tasas confirmadas de la Reserva Nacional del Masai Mara ($100 por persona/noche en temporada baja, $200 por persona/noche en temporada alta) y las tasas del Parque Nacional Amboseli ($95 por persona/noche, fijas durante todo el año), una estimación de trabajo para la tasa de la Reserva Nacional de Samburu ($85 por persona/noche, obtenida de forma independiente y pendiente de confirmación frente a una tabla de tarifas oficial), y una estimación del hotel de aeropuerto en Nairobi basada en las tarifas minoristas actuales (una tarifa corporativa negociada probablemente la reduciría). Los costos de vehículo y guía se trasladan actualmente desde nuestras tarifas de Tanzania como marcador de posición, a la espera de cifras confirmadas para Kenia.",
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'Las tasas del Masai Mara y Amboseli aumentan en temporada alta (julio–diciembre), lo cual se refleja en las tarifas de temporada alta.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y conservancies de Kenia las fija el gobierno y están sujetas a cambios sin previo aviso.',
     ],
     faq: [
       {
@@ -3991,9 +4103,10 @@ export const packages: SafariPackage[] = [
     included: ['Pensión completa durante todo el recorrido', 'Un guía de safari profesional dedicado durante todo el itinerario', 'Todas las tasas de entrada a parques y reservas', 'Game drives diurnos', 'Logística de aeropuerto y traslados', 'Cobertura de evacuación médica de emergencia'],
     excluded: ['Bebidas premium', 'Actividades más allá de las indicadas', 'Vuelos internacionales y tasas de visado', 'Propinas'],
     notes: [
-      'Las tarifas se basan en las tarifas de alojamiento confirmadas de nuestro socio de lodges en Kenia, las tasas confirmadas de la Reserva Nacional del Masai Mara ($100 por persona/noche en temporada baja, $200 por persona/noche en temporada alta) y las tasas del Parque Nacional Amboseli ($95 por persona/noche, fijas durante todo el año), y una estimación del hotel de aeropuerto en Nairobi basada en las tarifas minoristas actuales.',
-      'Una sustitución señalada: nuestro actual socio de lodges en Kenia no tiene ninguna propiedad en un lago del Valle del Rift con nombre propio como Elementaita — este itinerario utiliza la propiedad de lago comparable más cercana en su portafolio, y la parada exacta en el lago se puede ajustar una vez que se confirme un socio de alojamiento específico para ese tramo. La tasa de entrada al parque del propio lago del Valle del Rift aún no está confirmada.',
-      'Los costos de vehículo y guía se trasladan actualmente desde nuestras tarifas de Tanzania como marcador de posición, a la espera de cifras confirmadas para Kenia.',
+      'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
+      'La parada en el lago del Valle del Rift se selecciona entre los lodges asociados comparables disponibles y puede variar según la fecha.',
+      'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje dentro de la temporada.',
+      'Las tasas de los parques nacionales y conservancies de Kenia las fija el gobierno y están sujetas a cambios sin previo aviso.',
     ],
     faq: [
       {

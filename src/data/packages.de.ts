@@ -180,6 +180,11 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [],
   },
   {
@@ -502,6 +507,12 @@ export const packages: SafariPackage[] = [
       "Rettungsausrüstung",
     ],
     excluded: ["Internationale Flüge", "Persönliche Wanderausrüstung", "Reiseversicherung", "Trinkgelder", "Hotel vor/nach der Tour"],
+    notes: [
+      'Die Preise gelten pro Bergsteiger auf Camping-Basis; es fällt kein Einzelzimmerzuschlag an.',
+      'Persönliche Wanderausrüstung (Stiefel, warme Schichten, Schlafsack) ist nicht enthalten – eine Packliste ist auf Anfrage erhältlich.',
+      'Preise und Verfügbarkeit können je nach genauem Reisedatum innerhalb der Besteigungssaison variieren.',
+      'Die Gebühren für den Kilimandscharo-Nationalpark werden von der tansanischen Nationalparkbehörde (TANAPA) festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [],
   },
   {
@@ -524,6 +535,12 @@ export const packages: SafariPackage[] = [
     gallery: ['/images/gallery/safari-122.webp'],
     included: ["Parkgebühren", "Alle Game Drives", "Bootsafari", "Fußsafari", "Alle Mahlzeiten", "Inlandsflüge in Tansania"],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Mindestgruppengröße von 2 Personen, damit die Inlandsflüge durchführbar sind.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [],
   },
   {
@@ -554,6 +571,12 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder", "Persönliche Ausgaben"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Mindestgruppengröße von 2 Personen, damit der Charterflug nach Seronera durchführbar ist.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -652,7 +675,11 @@ export const packages: SafariPackage[] = [
       'Abendessen am Ankunftsabend (Tag 1 ist Übernachtung mit Frühstück — der Champagner-Empfang geht auf uns; ein Abendessen in Arusha lässt sich auf Anfrage problemlos arrangieren)',
     ],
     notes: [
-      'Basierend auf zwei Personen im Doppelzimmer. Eine Anzahlung von 30 % sichert Ihre Reisetermine, der Restbetrag ist 60 Tage vor Abflug fällig.',
+      'Preis für zwei Personen; diese Reiseroute ist ausschließlich für Paare konzipiert.',
+      'Ein paar Tage auf Sansibar oder an den unteren Hängen des Kilimandscharo können vor oder nach der Safari angehängt werden – fragen Sie bei Ihrer Anfrage nach Verlängerungsoptionen.',
+      'Eine Anzahlung von 30 % sichert Ihre Reisetermine, der Restbetrag ist 60 Tage vor Abflug fällig.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
     ],
     faq: [
       {
@@ -825,9 +852,11 @@ export const packages: SafariPackage[] = [
     },
     excludedCategorized: ['Internationale Flüge', 'Visagebühren', 'Reiseversicherung', 'Trinkgelder', 'Mittag- und Abendessen auf Sansibar'],
     notes: [
-      'Preise pro Person, im Doppelzimmer (2 Pax), NETT-Kalkulation mit 25 % Marge. Die Nieder- und Hochsaison-Werte spiegeln die jeweiligen Lodge-Tarife wider.',
+      'Preise pro Person, im Doppelzimmer.',
+      'Die Unterkunftsauswahl der Stufe Wilderness Sovereign unterliegt der Verfügbarkeit und wird bei der Buchung bestätigt.',
       'Eine Anzahlung von 30 % sichert Ihre Buchung, der Restbetrag ist 60 Tage vor Abreise fällig.',
-      'Der Tarif für das Gran Meliá Arusha liegt in der Quellkalkulation noch nicht vor — bitte den aktuellen Preis bestätigen, bevor die Stufe Wilderness Sovereign gebucht wird.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
     ],
     faq: [
       {
@@ -995,7 +1024,9 @@ export const packages: SafariPackage[] = [
     notes: [
       'Dieser Reiseplan ist fest an die Kälberzeit gebunden (Ende Januar–März, z. B. eine Abreise im Februar) — es gibt keinen separaten Nebensaison-Preis, da die Safari selbst nur in diesem Zeitfenster stattfindet.',
       'Eine Anzahlung von 30 % sichert Ihre Buchung, der Restbetrag ist 60 Tage vor Abreise fällig.',
-      'Die genaue Kleingruppengröße, die endgültige Lodge-Auswahl und ob die Strecke Ndutu–Ngorongoro auf dem Landweg oder per zweitem Charterflug zurückgelegt wird, werden noch bestätigt — bitte erfragen Sie aktuelle Details bei unserem Team vor der Buchung.',
+      'Die endgültige Lodge-Auswahl und ob die Strecke Ndutu–Ngorongoro auf dem Landweg oder per zweitem Charterflug zurückgelegt wird, werden bei der Buchung bestätigt.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
     ],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1352,9 +1383,11 @@ export const packages: SafariPackage[] = [
     included: ['Alle Park- und Schutzgebietsgebühren', 'Alle Game Drives und die Shira-Plateau-Tageswanderung (bewaffneter Ranger und Bergführer inbegriffen)', 'Gebühren für kulturelle Erlebnisse', 'Ein professioneller Guide während der gesamten Reise', 'Alle Mahlzeiten wie pro Tag angegeben', 'Unterkunft in der von Ihnen gewählten Stufe', 'Alle Flughafen- und Zwischenziel-Transfers'],
     excluded: ['Internationale Flüge', 'Visagebühren', 'Reiseversicherung', 'Trinkgelder', 'Persönliche Ausgaben'],
     notes: [
-      'Preise pro Person, im Doppelzimmer (2 Pax), NETT-Kalkulation mit 25 % Marge.',
+      'Preise pro Person, im Doppelzimmer.',
       'Beide Stufen beinhalten die Gebühr für die Shira-Plateau-Tageswanderung, die Eintritts-, Wander- und Rangergebühren des Arusha-Nationalparks sowie bestätigte Parkgebühren an jeder Station (Ngorongoro, Lake Manyara, Tarangire und Serengeti) — nicht nur die Unterkunft.',
-      'Eine Unterkunftslücke bleibt bestehen: Für die Arusha Coffee Lodge, die Wilderness-Sovereign-Unterkunft für die Arusha-Nacht an Tag 4, liegt noch kein bestätigter Preis vor, sodass sich die oben genannten Sovereign-Werte weiter festigen werden, sobald dieser vorliegt.',
+      'Die Unterkunftsauswahl der Stufe Wilderness Sovereign unterliegt der Verfügbarkeit und wird bei der Buchung bestätigt.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
     ],
     faq: [
       {
@@ -1572,6 +1605,12 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Flussüberquerungen am Mara sind zwischen Juli und Oktober am zuverlässigsten und können für ein bestimmtes Datum nicht garantiert werden.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -1660,6 +1699,12 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder", "Mittag- und Abendessen auf Sansibar"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Die Unterkunft auf Sansibar umfasst nur das Frühstück; Mittag- und Abendessen dort gehen zu Ihren eigenen Lasten.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -1774,6 +1819,12 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Die Nacht am Ngorongoro wird im Hochlandstädtchen Karatu verbracht, nicht direkt am Kraterrand.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -1854,6 +1905,13 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Mindestgruppengröße von 2 Personen, damit der Inlands-Charterflug durchführbar ist.',
+      'Diese Reiseroute ist auf die Ndutu-Kälberzeit (Januar–März) abgestimmt; genaue Tierbeobachtungen unterliegen natürlichen Schwankungen.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -1934,6 +1992,13 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Mindestgruppengröße von 2 Personen, damit der Inlands-Charterflug durchführbar ist.',
+      'Flussüberquerungen am Mara sind zwischen Juli und Oktober am zuverlässigsten und können für ein bestimmtes Datum nicht garantiert werden.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2021,6 +2086,12 @@ export const packages: SafariPackage[] = [
       "Inlandsflüge in Tansania",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Das Gorilla-Trekking ist eine feste einstündige Begegnung mit der Familie, und das Goldaffen-Tracking ist eine separate Aktivität — beide Genehmigungen werden im Voraus vom Rwanda Development Board vergeben.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Park- und Naturschutzgebühren von Ruanda und Tansania werden von den jeweiligen Regierungen festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2328,6 +2399,12 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Gorilla-Trekking, Schimpansen-Tracking und Goldaffen-Tracking sind jeweils begrenzte, genehmigungspflichtige Aktivitäten, die im Voraus vom Rwanda Development Board vergeben werden.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Park- und Naturschutzgebühren Ruandas werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2443,6 +2520,12 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder", "Optionale Aktivitäten"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Die im Reiseplan erwähnten Ausritte und kulturellen Besuche in Samburu-Manyattas sind optionale Zusatzleistungen gegen Aufpreis, vorbehaltlich Verfügbarkeit.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für kenianische Nationalparks und Conservancies werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2550,6 +2633,12 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Die Sonnenuntergangs-Bootsfahrt an Tag 1 ist optional, und der Rücktransfer an Tag 10 (per Straße oder Kleinflugzeug) wird bei der Buchung bestätigt.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2652,6 +2741,12 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder", "Mittag- und Abendessen auf Sansibar"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Die Unterkunft auf Sansibar umfasst nur das Frühstück; Mittag- und Abendessen dort gehen zu Ihren eigenen Lasten.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2760,6 +2855,12 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Kenia- und Tansania-Visagebühren", "Reiseversicherung", "Trinkgelder"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Der Grenzübertritt zwischen Kenia und Tansania erfolgt bei dieser Reiseroute per Kleinflugzeug statt auf dem Landweg.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Parkgebühren für Tansania und Kenia werden von den jeweiligen Regierungen festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2876,6 +2977,12 @@ export const packages: SafariPackage[] = [
       "Flughafentransfers",
     ],
     excluded: ["Internationale Flüge", "Visagebühren", "Reiseversicherung", "Trinkgelder"],
+    notes: [
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Der Transfer in der Mitte der Reiseroute vom südlichen Rundkurs in die Nord-Serengeti erfolgt per Inlands-Charterflug.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -3473,7 +3580,7 @@ export const packages: SafariPackage[] = [
       'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum variieren.',
       'Die Gebühren für Nationalparks und Schutzgebiete in Tansania werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
       'Eine Anzahlung von 30 % ist zur Buchungsbestätigung erforderlich; der Restbetrag ist 60 Tage vor Abreise fällig.',
-      'Der Flug Arusha–Sansibar und der Preis für das Siringiti Serengeti Camp sind Schätzungen, die noch endgültig bestätigt werden müssen — bitte bestätigen Sie die genauen Kosten vor der Buchung mit unserem Team.',
+      'Die Preise für den Inlandsflug und die Lodge werden zum Zeitpunkt der Buchung bestätigt.',
     ],
     faq: [
       { q: 'Ist diese Reise wirklich nur für Paare, oder können auch Familie und Freunde mitkommen?', a: 'Sie ist für zwei Personen konzipiert, aber beide Stufen eignen sich gut für kleine Gruppen von Familie oder Freunden, die gemeinsam feiern — die obigen Preise skalieren bis zu 6 Personen.' },
@@ -3529,7 +3636,7 @@ export const packages: SafariPackage[] = [
       'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum variieren.',
       'Die Gebühren für Nationalparks und Schutzgebiete in Tansania werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
       'Eine Anzahlung von 30 % ist zur Buchungsbestätigung erforderlich; der Restbetrag ist 60 Tage vor Abreise fällig.',
-      'Die Wilderness-Sovereign-Preise für 3–4 Personen spiegeln gebündelte "Game Package"-Preise in drei von fünf Unterkünften wider und skalieren nicht linear mit der Gruppengröße — bestätigen Sie Ihr genaues Angebot mit unserem Team. Der Wilderness-Trail-Preis von Conserve Safari Tarangire steht ebenfalls noch zur endgültigen Bestätigung an.',
+      'Die Wilderness-Sovereign-Gruppenpreise für 3–4 Personen werden auf gebündelter Paketbasis berechnet und bei der Buchung bestätigt.',
     ],
     faq: [
       { q: 'Wann ist die beste Zeit, um die Mara-Flussüberquerungen zu sehen?', a: 'Überquerungen finden typischerweise von Juli bis Oktober statt, wenn die Migration durch das nördliche Serengeti zieht, obwohl der genaue Zeitpunkt je nach Niederschlag von Jahr zu Jahr variiert. An einem einzelnen Tag ist nichts garantiert — genau deshalb sind in diesem Reiseplan drei volle Tage im Überquerungsgebiet statt nur einem vorgesehen.' },
@@ -3604,7 +3711,10 @@ export const packages: SafariPackage[] = [
     included: ['Vollpension-Unterkunft während der gesamten Reise', 'Ein fester professioneller Safari-Guide für den gesamten Reiseplan', 'Alle Park- und Reservatsgebühren', 'Tag- und Nacht-Game-Drives', 'Geführte Buschwanderungen', 'Kulturelle Aktivitäten in Samburu', 'Empfang und Betreuung am internationalen Jomo-Kenyatta-Flughafen', 'Alle Flughafen- und Landebahn-Transfers', 'Versicherungsschutz für medizinische Notfallevakuierung'],
     excluded: ['Premium-Getränke', 'Aktivitäten über die oben genannten hinaus', 'Internationale Flüge und Visagebühren', 'Trinkgelder'],
     notes: [
-      "Die Preise basieren auf bestätigten Unterkunftstarifen unseres kenianischen Lodge-Partners, bestätigten Gebühren des Masai-Mara-Nationalreservats (100 $/Person/Nacht Nebensaison, 200 $/Person/Nacht Hauptsaison) und des Amboseli-Nationalparks (95 $/Person/Nacht, ganzjährig einheitlich), einer Arbeitsschätzung für die Gebühr des Samburu-Nationalreservats (85 $/Person/Nacht, unabhängig ermittelt und noch zur Bestätigung anhand einer offiziellen Tarifliste ausstehend), sowie einer Schätzung für ein Flughafenhotel in Nairobi auf Basis aktueller Einzelhandelspreise (ein ausgehandelter Firmentarif würde diesen wahrscheinlich senken). Fahrzeug- und Guide-Kosten werden derzeit als Platzhalter aus unseren Tansania-Tarifen übernommen, bis bestätigte Kenia-Zahlen vorliegen.",
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Die Gebühren für Masai Mara und Amboseli steigen in der Hauptsaison (Juli–Dezember), was sich in den Hauptsaisonpreisen widerspiegelt.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für kenianische Nationalparks und Conservancies werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
     ],
     faq: [
       {
@@ -3782,9 +3892,11 @@ export const packages: SafariPackage[] = [
     included: ['Alle Park-, Concession- und Schutzgebietsgebühren', 'Fahrzeug, Guide und Treibstoff für jeden Game-Drive-Tag', 'Flughafentransfers', 'Trinkwasser', 'Unterkunft für den Guide', 'Versicherungsschutz für medizinische Notfallevakuierung'],
     excluded: ['Internationale Flüge', 'Visagebühren', 'Reiseversicherung', 'Trinkgelder', 'Kamera-/Objektivverleih'],
     notes: [
-      'Kalkuliert pro Person, Doppelbelegung (2 Pax), NETT-Kalkulation mit 25 % Marge. Die Nieder- und Hochsaison-Werte spiegeln die entsprechenden Lodge-Tarife wider.',
+      'Preise pro Person, im Doppelzimmer.',
       'Eine Anzahlung von 30 % sichert Ihre Buchung, der Restbetrag ist 60 Tage vor Abreise fällig.',
-      'Der Nord-Serengeti-Abschnitt dieses Reiseplans ist konzeptionell im Wesentlichen ein Migrationssaison-Produkt: Mara Under Canvas und das Migration Camp von Siringit (Standort Kogatende) sind nur im Norden in Betrieb, solange sich die Migration dort aufhält (etwa Juni–Oktober) — außerhalb dieses Zeitfensters verlagern sich sowohl die Migration als auch diese Camps nach Süden in Richtung Ndutu. Für den nördlichen Standort selbst gibt es keinen separaten „Nebensaison"-Tarif; eine echte Nebensaison-Abreise würde erfordern, dass dieser Abschnitt zu einer Unterkunft im Süd-Serengeti/Ndutu umgeleitet wird, statt einfach den Tarif auszutauschen.',
+      'Diese Reiseroute ist um die Migrationscamps in der Nord-Serengeti aufgebaut, die etwa von Juni bis Oktober verfügbar sind; eine Nebensaison-Abreise würde eine andere, auf Ndutu basierende Routenführung verwenden.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für tansanische Nationalparks und Schutzgebiete werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
     ],
     faq: [
       {
@@ -3981,9 +4093,10 @@ export const packages: SafariPackage[] = [
     included: ['Vollpension-Unterkunft während der gesamten Reise', 'Ein fester professioneller Safari-Guide für den gesamten Reiseplan', 'Alle Park- und Reservatseintrittsgebühren', 'Tägliche Game Drives', 'Flughafen- und Transferlogistik', 'Versicherungsschutz für medizinische Notfallevakuierung'],
     excluded: ['Premium-Getränke', 'Aktivitäten über die aufgeführten hinaus', 'Internationale Flüge und Visagebühren', 'Trinkgelder'],
     notes: [
-      'Die Preise basieren auf bestätigten Unterkunftstarifen unseres kenianischen Lodge-Partners, bestätigten Gebühren des Masai-Mara-Nationalreservats (100 $/Person/Nacht Nebensaison, 200 $/Person/Nacht Hauptsaison) und des Amboseli-Nationalparks (95 $/Person/Nacht, ganzjährig einheitlich), sowie einer Schätzung für ein Flughafenhotel in Nairobi auf Basis aktueller Einzelhandelspreise.',
-      "Eine gekennzeichnete Ersetzung: Unser derzeitiger kenianischer Lodge-Partner verfügt über keine Unterkunft an einem namentlich genannten Rift-Valley-See wie Elementaita — dieser Reiseplan nutzt die nächstvergleichbare Seeunterkunft aus dessen Portfolio, und der genaue Seestopp kann angepasst werden, sobald ein konkreter Unterkunftspartner für diesen Abschnitt bestätigt ist. Die eigene Parkeintrittsgebühr des Rift-Valley-Sees ist noch nicht bestätigt.",
-      'Fahrzeug- und Guide-Kosten werden derzeit als Platzhalter aus unseren Tansania-Tarifen übernommen, bis bestätigte Kenia-Zahlen vorliegen.',
+      'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
+      'Der Rift-Valley-See-Stopp wird aus verfügbaren vergleichbaren Lodge-Partnern ausgewählt und kann je nach Datum variieren.',
+      'Unterkunft und Preise unterliegen der Verfügbarkeit und können je nach genauem Reisedatum innerhalb der Saison variieren.',
+      'Die Gebühren für kenianische Nationalparks und Conservancies werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.',
     ],
     faq: [
       {

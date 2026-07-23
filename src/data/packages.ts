@@ -293,6 +293,11 @@ export const packages: SafariPackage[] = [
       'Airport transfers',
     ],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [],
   },
   {
@@ -616,6 +621,12 @@ export const packages: SafariPackage[] = [
       'Rescue equipment',
     ],
     excluded: ['International flights', 'Personal trekking gear', 'Travel insurance', 'Tips', 'Hotel before/after'],
+    notes: [
+      'Rates are priced per trekker on a camping basis; no single supplement applies.',
+      'Personal trekking gear (boots, warm layers, sleeping bag) is not included — a packing checklist is available on request.',
+      'Rates and availability may vary by exact travel date within the climbing season.',
+      'Kilimanjaro National Park fees are set by the Tanzania National Parks Authority (TANAPA) and are subject to change without notice.',
+    ],
     itinerary: [],
   },
   {
@@ -638,6 +649,12 @@ export const packages: SafariPackage[] = [
     gallery: ['/images/gallery/safari-122.webp'],
     included: ['Park fees', 'All game drives', 'Boat safari', 'Walking safari', 'All meals', 'Flights within Tanzania'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Minimum group size 2 persons for the domestic flight legs to be viable.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [],
   },
   {
@@ -661,6 +678,12 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park entrance fees', 'All game drives in 4x4 Land Cruiser', 'Professional English-speaking guide', 'All meals', 'Accommodation as per itinerary', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Personal expenses'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Minimum group size 2 persons for the fly-in charter to Seronera to be viable.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -763,7 +786,11 @@ export const packages: SafariPackage[] = [
       'Dinner on your arrival night (Day 1 is bed & breakfast — the champagne welcome is on us; dinner in Arusha is easy to arrange on request)',
     ],
     notes: [
-      'Based on two people sharing. A 30% deposit secures your dates, with the balance due 60 days before you fly.',
+      'Priced for two people sharing; this itinerary is designed exclusively for couples.',
+      "A few days on Zanzibar or Kilimanjaro's lower slopes can be added before or after the safari — ask for extension options when you enquire.",
+      'A 30% deposit secures your dates, with the balance due 60 days before you fly.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
     ],
     faq: [
       {
@@ -936,9 +963,11 @@ export const packages: SafariPackage[] = [
     },
     excludedCategorized: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Lunch and dinner in Zanzibar'],
     notes: [
-      'Priced per person, twin share (2 pax), NETT costing with 25% margin applied. Low and high figures reflect low-season and peak-season lodge rates.',
+      'Rates shown are per person, twin share.',
+      'Wilderness Sovereign tier lodge selections are subject to availability and confirmation at booking.',
       'A 30% deposit secures your booking, with the balance due 60 days before departure.',
-      'The Gran Meliá Arusha rate is not yet on file in the source costing — confirm current rate before booking the Wilderness Sovereign tier.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
     ],
     faq: [
       {
@@ -1106,7 +1135,9 @@ export const packages: SafariPackage[] = [
     notes: [
       'This itinerary is fixed to calving season (late January–March, e.g. a February departure) — there is no separate low-season rate, since the safari itself only runs during this window.',
       'A 30% deposit secures your booking, with the balance due 60 days before departure.',
-      'Exact small-group size cap, final lodge selection, and whether the Ndutu–Ngorongoro leg runs by road or a second charter flight are being confirmed — please check current details with our team before booking.',
+      'Final lodge selection and whether the Ndutu–Ngorongoro leg runs by road or a second charter flight will be confirmed at booking.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
     ],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1457,9 +1488,11 @@ export const packages: SafariPackage[] = [
     included: ['All park and conservancy fees', 'All game drives and the Shira Plateau day hike (armed ranger and mountain guide included)', 'Cultural experience fees', 'A professional guide throughout', 'All meals as noted per day', 'Accommodation at your chosen tier', 'All airport and inter-destination transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Personal expenses'],
     notes: [
-      'Priced per person, twin share (2 pax), NETT costing with 25% margin applied.',
+      'Rates shown are per person, twin share.',
       "Both tiers include the Shira Plateau day hike fee, Arusha National Park's entrance, walking, and ranger fees, and confirmed park fees at every stop (Ngorongoro, Lake Manyara, Tarangire, and Serengeti) — not just accommodation.",
-      "One accommodation gap remains: Arusha Coffee Lodge, the Wilderness Sovereign property for the Day 4 Arusha night, doesn't yet have a confirmed rate, so the Sovereign figures above will firm up further once that's in hand.",
+      'Wilderness Sovereign lodge selections are subject to availability and confirmation at booking.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
     ],
     faq: [
       {
@@ -1670,6 +1703,12 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park entrance fees', 'All game drives in 4x4 Land Cruiser', 'Professional guide', 'All meals', 'Accommodation as per itinerary', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Mara River crossings are most reliable between July and October and cannot be guaranteed on any specific date.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -1757,6 +1796,12 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park entrance fees', 'All game drives', 'Zanzibar hotel (beach front)', 'All meals on safari', 'Breakfast in Zanzibar', 'Domestic and inter-island flights', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Lunch and dinner in Zanzibar'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Zanzibar accommodation is breakfast-only; lunch and dinner there are at your own expense.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -1875,6 +1920,12 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park entrance fees', 'All game drives in 4x4 Land Cruiser', 'Professional guide', 'All meals', 'Accommodation as per itinerary', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'The Ngorongoro night is spent in the highland town of Karatu rather than directly on the crater rim.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -1953,6 +2004,13 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park fees', 'Domestic charter flight', 'All game drives', 'Professional guide', 'All meals', 'Accommodation', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Minimum group size 2 persons for the domestic charter flight to be viable.',
+      'This itinerary is timed for the Ndutu calving season (January–March); exact wildlife sightings are subject to natural variation.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2031,6 +2089,13 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park fees', 'Domestic charter flight', 'All game drives', 'Professional guide', 'All meals', 'Accommodation', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Minimum group size 2 persons for the domestic charter flight to be viable.',
+      'Mara River crossings are most reliable between July and October and cannot be guaranteed on any specific date.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2117,6 +2182,12 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park and gorilla permit fees', 'All game drives', 'Professional guide', 'All meals', 'Accommodation', 'Airport transfers', 'Domestic flights Tanzania'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Gorilla trekking is a fixed one-hour encounter with the family, and golden monkey tracking is a separate activity — both permits are allocated in advance by the Rwanda Development Board.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Rwanda and Tanzania park/conservation fees are set by the respective governments and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2430,6 +2501,12 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park and primate permit fees', 'All game drives and boat rides', 'Professional guide', 'All meals', 'Accommodation', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Gorilla, chimpanzee, and golden monkey trekking are each limited, permit-based activities allocated in advance by the Rwanda Development Board.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Rwanda National Park and conservation fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2549,6 +2626,12 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park and conservancy fees', 'All game drives', 'Professional guide', 'All meals', 'Accommodation', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Optional activities'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Horseback riding and Samburu manyatta cultural visits mentioned in the itinerary are optional add-ons at extra cost, subject to availability.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Kenya National Park and conservancy fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2659,6 +2742,12 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park entrance fees', 'All game drives and boat safaris', 'Professional guide', 'All meals', 'Accommodation', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'The Day 1 sunset boat excursion is optional, and the Day 10 return transfer (by road or light aircraft) is confirmed at booking.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2762,6 +2851,12 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park fees', 'All game drives and boat safaris', 'Zanzibar hotel (beach front)', 'All meals on safari', 'Breakfast in Zanzibar', 'Domestic and inter-island flights', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Lunch and dinner in Zanzibar'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Zanzibar accommodation is breakfast-only; lunch and dinner there are at your own expense.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2872,6 +2967,12 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park fees', 'All game drives', 'Professional guide', 'All meals', 'Accommodation', 'Cross-border transfers', 'Airport transfers'],
     excluded: ['International flights', 'Kenya and Tanzania visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'The Kenya–Tanzania border crossing on this itinerary is by light aircraft rather than by road.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania and Kenya park fees are set by the respective governments and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -2991,6 +3092,12 @@ export const packages: SafariPackage[] = [
     gallery: [],
     included: ['All park entrance fees', 'All game drives and boat safaris', 'Domestic flights within Tanzania', 'Professional guide', 'All meals', 'Accommodation', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
+    notes: [
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'The mid-itinerary transfer from the southern circuit to the northern Serengeti is by domestic charter flight.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
+    ],
     itinerary: [
       {
         day: 1,
@@ -4109,7 +4216,7 @@ export const packages: SafariPackage[] = [
       'Accommodation and rates are subject to availability and may vary by exact travel date.',
       'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
       '30% deposit required to confirm booking; balance due 60 days before departure.',
-      'The Arusha–Zanzibar flight and Siringiti Serengeti Camp rate shown are estimates pending final confirmation — please confirm exact costs with our team before booking.',
+      'Domestic flight and lodge rates are confirmed at the time of booking.',
     ],
     faq: [
       {
@@ -4298,7 +4405,7 @@ export const packages: SafariPackage[] = [
       'Accommodation and rates are subject to availability and may vary by exact travel date.',
       'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
       '30% deposit required to confirm booking; balance due 60 days before departure.',
-      "Wilderness Sovereign rates for 3–4 guests reflect bundled \"Game Package\" pricing at three of five properties and do not scale linearly with group size — confirm your exact quote with our team. Conserve Safari Tarangire's Wilderness Trail rate is also pending final confirmation.",
+      'Wilderness Sovereign group rates for 3–4 guests are calculated on a bundled package basis and are confirmed at the time of booking.',
     ],
     faq: [
       {
@@ -4489,9 +4596,11 @@ export const packages: SafariPackage[] = [
     included: ['All park, concession, and conservation area fees', 'Vehicle, guide, and fuel for every game-drive day', 'Airport transfers', 'Drinking water', 'Guide accommodation', 'Emergency medical evacuation cover'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Camera/lens rental'],
     notes: [
-      'Priced per person, twin share (2 pax), NETT costing with 25% margin applied. Low and high figures reflect low-season and peak-season lodge rates.',
+      'Rates shown are per person, twin share.',
       'A 30% deposit secures your booking, with the balance due 60 days before departure.',
-      'This itinerary\'s Northern Serengeti leg is effectively a migration-season product as designed: Mara Under Canvas and Siringit\'s Migration Camp (Kogatende site) only operate in the north while the migration is there (roughly June–October) — outside that window the migration, and these camps, relocate south toward Ndutu. There is no separate "low season" rate for the northern site itself; a genuine low-season departure would need this leg re-routed to a South Serengeti/Ndutu property instead of a simple rate substitution.',
+      'This itinerary is built around the Northern Serengeti migration camps, available roughly June to October; a low-season departure would use a different Ndutu-based routing.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Tanzania National Park and conservation area fees are set by the government and subject to change without notice.',
     ],
     faq: [
       {
@@ -4695,7 +4804,10 @@ export const packages: SafariPackage[] = [
     included: ['Full-board accommodation throughout', 'A dedicated professional safari guide for the entire itinerary', 'All park and reserve entrance fees', 'Day and night game drives', 'Guided bush walks', 'Cultural activities in Samburu', 'Meet-and-assist at Jomo Kenyatta International Airport', 'All airport and airstrip transfers', 'Emergency medical evacuation cover'],
     excluded: ['Premium drinks', 'Activities beyond those listed above', 'International flights and visa fees', 'Gratuities'],
     notes: [
-      "Rates are driven by confirmed accommodation rates from our Kenya lodge partner, confirmed Masai Mara National Reserve fees ($100pp/night low season, $200pp/night high season) and Amboseli National Park fees ($95pp/night, flat year-round), a working estimate for the Samburu National Reserve fee ($85pp/night, sourced independently and pending confirmation against an official rate card), and a Nairobi airport-hotel estimate based on current retail rates (a negotiated corporate rate would likely bring this down). Vehicle and guide costs are currently carried forward from our Tanzania rates as a placeholder pending confirmed Kenya figures.",
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'Masai Mara and Amboseli park fees increase during peak season (July–December), which is reflected in high-season pricing.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Kenya National Park and conservancy fees are set by the government and subject to change without notice.',
     ],
     faq: [
       {
@@ -4867,9 +4979,10 @@ export const packages: SafariPackage[] = [
     included: ['Full-board accommodation throughout', 'A dedicated professional safari guide for the entire itinerary', 'All park and reserve entrance fees', 'Day game drives', 'Airport and transfer logistics', 'Emergency medical evacuation cover'],
     excluded: ['Premium drinks', 'Activities beyond those listed', 'International flights and visa fees', 'Gratuities'],
     notes: [
-      'Rates are driven by confirmed accommodation rates from our Kenya lodge partner, confirmed Masai Mara National Reserve fees ($100pp/night low season, $200pp/night high season) and Amboseli National Park fees ($95pp/night, flat year-round), and a Nairobi airport-hotel estimate based on current retail rates.',
-      'One flagged substitution: our current Kenya lodge partner has no property at a named Rift Valley lake such as Elementaita — this itinerary uses the nearest comparable lake property in their portfolio, and the exact lake stop can be adjusted once a specific accommodation partner is confirmed for that leg. The Rift Valley lake\'s own park entrance fee is not yet confirmed.',
-      'Vehicle and guide costs are currently carried forward from our Tanzania rates as a placeholder pending confirmed Kenya figures.',
+      'Rates shown are per person sharing a double/twin room; single supplements apply on request.',
+      'The Rift Valley lake stop is selected from available comparable lodge partners and may vary by date.',
+      'Accommodation and rates are subject to availability and may vary by exact travel date within the season.',
+      'Kenya National Park and conservancy fees are set by the government and subject to change without notice.',
     ],
     faq: [
       {
