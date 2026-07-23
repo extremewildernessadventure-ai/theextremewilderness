@@ -426,6 +426,42 @@ const articles: Record<string, SectionType[]> = {
     "text": "Ruanda und Tansania sind natürliche Partner in einer Ostafrika-Reiseroute. Kigali ist direkt mit dem Internationalen Flughafen Kilimanjaro (JRO) in der Nähe von Arusha verbunden, und viele Reisende kombinieren zwei bis drei Tage Gorilla-Trekking in Ruanda mit einer fünf- bis achttägigen Tansania-Safari. Der Kontrast ist bemerkenswert – die intime Begegnung mit einer Gorillafamilie im Wald, gefolgt von den weiten offenen Ebenen der Serengeti und dem Spektakel der Großen Migration."
   },
   {
+    "type": "h2",
+    "text": "Gorilla-Trekking Ruanda: Häufig gestellte Fragen (Erfahrungen, Alternativen und Empfehlungen)"
+  },
+  {
+    "type": "h3",
+    "text": "Ist Gorilla-Trekking in Ruanda für Anfänger geeignet?"
+  },
+  {
+    "type": "p",
+    "text": "Ja. Es ist keine vorherige Trekkingerfahrung erforderlich, und eine moderate Fitness reicht für die meisten Gorillafamilien aus. Die Hauptanpassung für Anfänger betrifft die Höhenlage und das unebene Gelände, nicht die technische Schwierigkeit. Teilen Sie Ihrem Reiseveranstalter mit, dass Sie zum ersten Mal dabei sind – üblicherweise wird Ihnen dann eine sanftere Familie in niedrigerer Höhenlage wie die Amahoro zugewiesen, und ein Träger (am Ausgangspunkt erhältlich) nimmt Ihnen den Großteil der körperlichen Anstrengung ab."
+  },
+  {
+    "type": "h3",
+    "text": "Gibt es günstigere Alternativen zu Ruanda für Gorilla-Trekking?"
+  },
+  {
+    "type": "p",
+    "text": "Uganda ist die wichtigste Alternative, mit Genehmigungen für etwa 800 US-Dollar gegenüber 1.500 US-Dollar in Ruanda – etwa der halbe Preis. Der Kompromiss besteht in längeren, steileren Wanderungen im undurchdringlichen Bwindi-Wald sowie einer längeren Anfahrt von Entebbe zum Park. Die Demokratische Republik Kongo bietet die günstigsten Genehmigungen der drei Länder, wird aber angesichts der aktuellen Sicherheitslage im Osten des Landes nicht empfohlen. Für die meisten Reisenden erkauft der höhere Preis Ruandas eine einfachere Logistik, moderate Trekkinglängen und eine besser ausgebaute Infrastruktur."
+  },
+  {
+    "type": "h3",
+    "text": "Was berichten frühere Besucher über Gorilla-Trekking in Ruanda?"
+  },
+  {
+    "type": "p",
+    "text": "Der überwiegende Tenor in den Erfahrungsberichten von Besuchern ist, dass Gorilla-Trekking die Erwartungen übertrifft – selbst bei Reisenden, die die Genehmigung für 1.500 US-Dollar zuvor schwer zu rechtfertigen fanden. Das häufigste Lob gilt den Rangern und Fährtenlesern, der gut organisierten Logistik und der emotionalen Wirkung der Begegnung selbst, weniger einem einzelnen logistischen Detail. Kritik bezieht sich, wo vorhanden, eher auf eine unterschätzte Schwierigkeit der Wanderung als auf das Erlebnis selbst."
+  },
+  {
+    "type": "h3",
+    "text": "Was empfehlen Sie Erstbesuchern beim Gorilla-Trekking?"
+  },
+  {
+    "type": "p",
+    "text": "Buchen Sie mindestens neun bis zwölf Monate im Voraus für Reisen zwischen Juni und August, fragen Sie bei Bedenken hinsichtlich Ihrer Fitness nach einer Familie in niedrigerer Höhenlage wie den Amahoro, engagieren Sie unabhängig von Ihrem Fitnesslevel einen Träger am Ausgangspunkt, und kombinieren Sie die Wanderung mit zwei bis drei Nächten davor oder danach, um nicht direkt von einem Flug in eine anstrengende Wanderung zu hetzen."
+  },
+  {
     "type": "callout",
     "text": "Gorilla-Trekking in Ruanda ist eines der wenigen Wildtiererlebnisse der Welt, bei dem jeder, der es macht – unabhängig von Persönlichkeit, Interessen oder bisheriger Reiseerfahrung – verändert zurückkehrt. Die Genehmigung für 1.500 US-Dollar erscheint teuer, bis man drei Meter von einem Berggorilla entfernt sitzt und erkennt, dass man etwas betrachtet, das es in fünfzig Jahren ohne die soeben geleisteten Einnahmen vielleicht nicht mehr geben wird."
   }
@@ -1478,6 +1514,34 @@ const articles: Record<string, SectionType[]> = {
     "type": "tip",
     "title": "Das Beste aus beiden Welten",
     "text": "Eine kombinierte Tansania-Kenia-Reiseroute – Serengeti und Ngorongoro gefolgt von einer Mara-Conservancy – ist die überzeugendste Option für Ostafrika. Die Serengeti bietet Ihnen Größe, Vielfalt und die wandernden Herden; die Mara-Conservancy bietet Ihnen Offroad-Nachtfahrten und ein intimes privates Wildgebiet. Planen Sie insgesamt 10–14 Tage ein."
+  },
+  {
+    "type": "h2",
+    "text": "Serengeti vs. Masai Mara: Häufig gestellte Fragen (Vergleich)"
+  },
+  {
+    "type": "h3",
+    "text": "Was ist besser für eine erste Safari in Afrika – Serengeti oder Masai Mara?"
+  },
+  {
+    "type": "p",
+    "text": "Für eine einzelne, nicht kombinierte erste Safari ist die Serengeti die insgesamt stärkere Wahl: Sie bietet eine längere praktikable Reisesaison (praktisch ganzjährig gegenüber der Spitzenzeit der Mara von Juli bis September), mehr Raum und lässt sich problemlos mit dem Ngorongoro-Krater für Big-Five-Sichtungen in einer Reise kombinieren. Die Conservancies der Masai Mara sind die bessere Wahl, wenn Ihnen Offroad-Fahrten, Nachtfahrten und Wandersafaris wichtiger sind als Größe und Vielfalt."
+  },
+  {
+    "type": "h3",
+    "text": "Kann man Serengeti und Masai Mara in einer Reise besuchen?"
+  },
+  {
+    "type": "p",
+    "text": "Ja, allerdings erfordert dies das Überqueren einer internationalen Grenze und wird meist als zwei getrennte Etappen statt als eine durchgehende Fahrt durchgeführt. Eine typische kombinierte Reiseroute fliegt zwischen einer Landepiste in der Serengeti und der Mara über Nairobi oder einen Direktcharter, mit drei bis vier Nächten auf jeder Seite. Zehn bis vierzehn Tage insgesamt sind für eine kombinierte Reise realistisch, die sich nicht gehetzt anfühlt."
+  },
+  {
+    "type": "h3",
+    "text": "Bieten die Masai Mara oder die Serengeti das bessere Preis-Leistungs-Verhältnis?"
+  },
+  {
+    "type": "p",
+    "text": "Camp- und Lodge-Preise sind auf beiden Seiten der Grenze in der jeweiligen Qualitätsstufe weitgehend vergleichbar. Die privaten Conservancies der Mara berechnen in der Regel eine Conservancy-Gebühr zusätzlich zur Unterkunft, die auf tansanischer Seite durch die Nationalparkgebühren ersetzt wird – die Nettokosten fallen am Ende ähnlich aus. Der größere Kostentreiber ist die Saison, nicht das Land: Die Mara-Überquerungssaison von Juli bis September verlangt auf beiden Seiten der Grenze Premiumpreise."
   },
   {
     "type": "callout",

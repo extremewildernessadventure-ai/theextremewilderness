@@ -1,5 +1,10 @@
 import type { MetadataRoute } from 'next'
 import { localeUrl } from '@/lib/site'
+import { blogPosts } from '@/data/blog/index'
+
+// Bumped only when the underlying data files actually change, so unrelated
+// pages don't get a fresh lastModified on every deploy.
+const CONTENT_LAST_UPDATED = new Date('2025-07-16')
 
 const LOCALES = ['en', 'fr', 'es', 'de'] as const
 
@@ -116,14 +121,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   const entries: MetadataRoute.Sitemap = []
-  const now = new Date()
 
   // Static pages × locales
   for (const { path, priority, changeFrequency } of staticPages) {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, path),
-        lastModified: now,
+        lastModified: CONTENT_LAST_UPDATED,
         changeFrequency,
         priority,
         alternates: {
@@ -141,7 +145,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, `/safaris/${slug}`),
-        lastModified: now,
+        lastModified: CONTENT_LAST_UPDATED,
         changeFrequency: 'monthly',
         priority: 0.8,
         alternates: {
@@ -158,7 +162,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, `/destinations/${slug}`),
-        lastModified: now,
+        lastModified: CONTENT_LAST_UPDATED,
         changeFrequency: 'monthly',
         priority: 0.7,
         alternates: {
@@ -175,7 +179,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, `/trekking/${route}`),
-        lastModified: now,
+        lastModified: CONTENT_LAST_UPDATED,
         changeFrequency: 'monthly',
         priority: 0.7,
         alternates: {
@@ -192,7 +196,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, `/experiences/${slug}`),
-        lastModified: now,
+        lastModified: CONTENT_LAST_UPDATED,
         changeFrequency: 'monthly',
         priority: slug === 'honeymoon-safari' ? 0.9 : 0.7,
         alternates: {
@@ -206,10 +210,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog posts × locales
   for (const slug of BLOG_SLUGS) {
+    const postDate = blogPosts.find((p) => p.slug === slug)?.date
+    const lastModified = postDate ? new Date(postDate) : CONTENT_LAST_UPDATED
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, `/blog/${slug}`),
-        lastModified: now,
+        lastModified,
         changeFrequency: 'monthly',
         priority: 0.6,
         alternates: {
