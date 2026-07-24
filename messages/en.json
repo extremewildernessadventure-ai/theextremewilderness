@@ -1593,6 +1593,8 @@
     "focus": "Focus"
   },
   "destination": {
+    "metaTitle": "{name} Safari",
+    "metaDescription": "Plan your {name} safari with Tanzania's leading local operator. {tagline}.",
     "about": "About {name}",
     "highlights": "Highlights",
     "wildlifeYouMaySee": "Wildlife You May See",
@@ -2200,6 +2202,24 @@
     "blog": "Blog"
   },
   "blog": {
+    "metaTitle": "Safari Blog | Tanzania & East Africa Travel Guides",
+    "metaDescription": "Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.",
+    "metaKeywords": [
+      "Tanzania safari blog",
+      "Africa safari travel guide",
+      "Kilimanjaro trekking guide",
+      "East Africa wildlife blog",
+      "Tanzania travel tips",
+      "safari planning advice",
+      "gorilla trekking guide Rwanda",
+      "Africa wildlife articles",
+      "Serengeti travel guide",
+      "Tanzania tourism blog",
+      "Africa travel blog",
+      "safari photography tips",
+      "best time Africa safari",
+      "Tanzania travel information"
+    ],
     "title": "Safari Stories & Travel Guides",
     "fromTheBush": "From the Bush",
     "readMore": "Read more →",
@@ -2214,6 +2234,7 @@
     "featuredBadge": "Featured",
     "noPostsInCategory": "No posts in this category yet.",
     "read": "Read",
+    "updated": "Updated",
     "basedInArusha": "Based in Arusha, Tanzania",
     "readyToExperience": "Ready to Experience It First-Hand?",
     "customItinerariesText": "Our expert team creates custom itineraries for every budget and timeframe. Get your personalised quote within 24 hours.",
@@ -2231,6 +2252,20 @@
     "packageSummary": "{days} days · from ${price}"
   },
   "destinations": {
+    "metaTitle": "Tanzania Safari Destinations | Serengeti, Ngorongoro & More",
+    "metaDescription": "Explore Tanzania's finest safari destinations across three circuits. Serengeti's Great Migration, Ngorongoro Crater's Big Five, Tarangire's elephant herds, southern wilderness, and western chimpanzee parks. Expert-guided from Arusha.",
+    "metaKeywords": [
+      "Tanzania safari destinations",
+      "Serengeti National Park",
+      "Ngorongoro Crater",
+      "Tarangire National Park",
+      "Ruaha National Park",
+      "Nyerere National Park",
+      "Zanzibar island",
+      "Tanzania circuits",
+      "northern circuit Tanzania",
+      "southern circuit Tanzania"
+    ],
     "heroEyebrow": "Tanzania Safari Destinations",
     "heroTitle": "Wild Tanzania.",
     "heroTitleGold": "Three Epic Circuits.",
@@ -2760,6 +2795,23 @@
     ]
   },
   "experiences": {
+    "metaTitle": "Safari Experiences East Africa | Walking Safaris, Hot Air Balloon, Photography",
+    "metaDescription": "From Great Migration game drives to gorilla trekking, hot air balloon safaris, photography safaris, and walking safaris. Discover every way to explore East Africa.",
+    "metaKeywords": [
+      "walking safari Tanzania",
+      "hot air balloon safari Serengeti",
+      "photography safari Africa",
+      "night game drive Tanzania",
+      "gorilla trekking experience",
+      "Kilimanjaro trek experience",
+      "cultural safari Tanzania",
+      "East Africa safari experiences",
+      "Tanzania adventure safari",
+      "bush dinner Tanzania",
+      "sunset game drive Africa",
+      "Tanzania safari experiences 2026",
+      "unique Africa experiences"
+    ],
     "heroEyebrow": "East Africa",
     "heroTitle": "Wilderness",
     "heroTitleGold": "Experiences",

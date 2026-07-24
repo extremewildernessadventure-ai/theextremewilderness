@@ -1479,6 +1479,8 @@
     "focus": "Focus"
   },
   "destination": {
+    "metaTitle": "Safari {name}",
+    "metaDescription": "Organisez votre safari à {name} avec l'opérateur local leader en Tanzanie. {tagline}.",
     "about": "À propos de {name}",
     "highlights": "Points forts",
     "wildlifeYouMaySee": "Faune que vous pourrez observer",
@@ -2086,6 +2088,24 @@
     "blog": "Blog"
   },
   "blog": {
+    "metaTitle": "Blog Safari | Guides de Voyage Tanzanie et Afrique de l'Est",
+    "metaDescription": "Guides d'experts sur le safari en Tanzanie, conseils pour le Kilimandjaro et articles sur la faune, rédigés par notre équipe locale à Arusha.",
+    "metaKeywords": [
+      "blog safari Tanzanie",
+      "guide de voyage safari Afrique",
+      "guide trek Kilimandjaro",
+      "blog faune Afrique de l'Est",
+      "conseils voyage Tanzanie",
+      "conseils planification safari",
+      "guide trek gorilles Rwanda",
+      "articles faune Afrique",
+      "guide voyage Serengeti",
+      "blog tourisme Tanzanie",
+      "blog voyage Afrique",
+      "conseils photo safari",
+      "meilleure période safari Afrique",
+      "informations voyage Tanzanie"
+    ],
     "title": "Histoires de safari & guides de voyage",
     "fromTheBush": "Du bush",
     "readMore": "Lire la suite →",
@@ -2100,6 +2120,7 @@
     "featuredBadge": "À la une",
     "noPostsInCategory": "Aucun article dans cette catégorie pour l'instant.",
     "read": "Lire",
+    "updated": "Mis à jour",
     "basedInArusha": "Basé à Arusha, Tanzanie",
     "readyToExperience": "Prêt à le vivre en personne ?",
     "customItinerariesText": "Notre équipe d'experts crée des itinéraires sur mesure pour tous les budgets. Obtenez votre devis personnalisé dans les 24 heures.",
@@ -2117,6 +2138,20 @@
     "packageSummary": "{days} jours · à partir de ${price}"
   },
   "destinations": {
+    "metaTitle": "Destinations Safari en Tanzanie | Serengeti, Ngorongoro et Plus",
+    "metaDescription": "Découvrez les plus belles destinations safari de Tanzanie à travers trois circuits. La Grande Migration du Serengeti, les Big Five du cratère du Ngorongoro, les troupeaux d'éléphants de Tarangire, la wilderness du sud et les forêts de chimpanzés de l'ouest. Guidé par des experts depuis Arusha.",
+    "metaKeywords": [
+      "destinations safari Tanzanie",
+      "parc national du Serengeti",
+      "cratère du Ngorongoro",
+      "parc national de Tarangire",
+      "parc national de Ruaha",
+      "parc national de Nyerere",
+      "île de Zanzibar",
+      "circuits Tanzanie",
+      "circuit nord Tanzanie",
+      "circuit sud Tanzanie"
+    ],
     "heroEyebrow": "Destinations Safari en Tanzanie",
     "heroTitle": "Tanzanie Sauvage.",
     "heroTitleGold": "Trois Circuits Épiques.",
@@ -2646,6 +2681,23 @@
     ]
   },
   "experiences": {
+    "metaTitle": "Expériences Safari en Afrique de l'Est | Safaris à Pied, Montgolfière, Photo",
+    "metaDescription": "Des game drives de la Grande Migration au trek des gorilles, en passant par les safaris en montgolfière, les safaris photo et les safaris à pied. Découvrez toutes les façons d'explorer l'Afrique de l'Est.",
+    "metaKeywords": [
+      "safari à pied Tanzanie",
+      "safari en montgolfière Serengeti",
+      "safari photo Afrique",
+      "safari de nuit Tanzanie",
+      "trek des gorilles",
+      "trek du Kilimandjaro",
+      "safari culturel Tanzanie",
+      "expériences safari Afrique de l'Est",
+      "safari aventure Tanzanie",
+      "dîner en brousse Tanzanie",
+      "safari coucher de soleil Afrique",
+      "expériences safari Tanzanie 2026",
+      "expériences uniques en Afrique"
+    ],
     "heroEyebrow": "Afrique de l'Est",
     "heroTitle": "Expériences",
     "heroTitleGold": "Sauvages",

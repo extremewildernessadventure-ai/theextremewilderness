@@ -3,7 +3,7 @@ import type { Destination } from './destinations'
 export const destinations: Destination[] = [
   {
     slug: 'serengeti',
-    name: 'Serengeti National Park',
+    name: 'Parc National du Serengeti',
     region: 'northern',
     country: 'tanzania',
     heroImage: '/images/gallery/safari-118.jpg',
@@ -41,7 +41,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'ngorongoro',
-    name: 'Ngorongoro Crater',
+    name: 'Cratère du Ngorongoro',
     region: 'northern',
     country: 'tanzania',
     heroImage: '/images/gallery/safari-135.jpg',
@@ -79,7 +79,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'tarangire',
-    name: 'Tarangire National Park',
+    name: 'Parc National de Tarangire',
     region: 'tarangire',
     country: 'tanzania',
     heroImage: '/images/gallery/tarangire-1.jpg',
@@ -115,7 +115,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'manyara',
-    name: 'Lake Manyara National Park',
+    name: 'Parc National du Lac Manyara',
     region: 'tarangire',
     country: 'tanzania',
     heroImage: '/images/gallery/safari-126.jpg',
@@ -140,7 +140,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'zanzibar',
-    name: 'Zanzibar Island',
+    name: 'Île de Zanzibar',
     region: 'zanzibar',
     country: 'tanzania',
     heroImage: '/images/gallery/zanzibar-1.jpg',
@@ -177,7 +177,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'arusha',
-    name: 'Arusha & Kilimanjaro',
+    name: 'Arusha et Kilimandjaro',
     region: 'arusha',
     country: 'tanzania',
     heroImage: '/images/gallery/kilimanjaro1.jpg',
@@ -202,7 +202,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'ruaha',
-    name: 'Ruaha National Park',
+    name: 'Parc National de Ruaha',
     region: 'southern',
     country: 'tanzania',
     heroImage: '/images/gallery/safari-128.jpg',
@@ -228,7 +228,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'nyerere',
-    name: 'Nyerere (Selous) National Park',
+    name: 'Parc National de Nyerere (Selous)',
     region: 'southern',
     country: 'tanzania',
     heroImage: '/images/gallery/selous.jpg',
@@ -253,7 +253,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'mahale',
-    name: 'Mahale Mountains',
+    name: 'Monts Mahale',
     region: 'western',
     country: 'tanzania',
     heroImage: '/images/gallery/safari-113.jpg',
@@ -279,7 +279,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'katavi',
-    name: 'Katavi National Park',
+    name: 'Parc National de Katavi',
     region: 'western',
     country: 'tanzania',
     heroImage: '/images/gallery/safari-130.jpg',
@@ -304,7 +304,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'gombe',
-    name: 'Gombe Stream National Park',
+    name: 'Parc National de Gombe Stream',
     region: 'western',
     country: 'tanzania',
     heroImage: '/images/gallery/gombe-stream.jpg',
@@ -331,7 +331,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'lake-victoria',
-    name: 'Lake Victoria',
+    name: 'Lac Victoria',
     region: 'western',
     country: 'tanzania',
     heroImage: '/images/gallery/safari-123.jpg',
@@ -394,7 +394,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'volcanoes',
-    name: 'Volcanoes National Park',
+    name: 'Parc National des Volcans',
     region: 'northern',
     country: 'rwanda',
     heroImage: '/images/gallery/safari-113.jpg',
@@ -432,7 +432,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'amboseli',
-    name: 'Amboseli National Park',
+    name: "Parc National d'Amboseli",
     region: 'northern',
     country: 'kenya',
     heroImage: '/images/gallery/amboseli.jpg',
@@ -457,7 +457,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'kenyan-coast',
-    name: 'Kenyan Coast',
+    name: 'Côte Kényane',
     region: 'northern',
     country: 'kenya',
     heroImage: '/images/gallery/zanzibar.jpg',
@@ -481,7 +481,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'lake-nakuru',
-    name: 'Lake Nakuru National Park',
+    name: 'Parc National du Lac Nakuru',
     region: 'northern',
     country: 'kenya',
     heroImage: '/images/gallery/nakuru.jpg',
@@ -506,7 +506,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'ol-pejeta',
-    name: 'Ol Pejeta Conservancy',
+    name: "Conservancy d'Ol Pejeta",
     region: 'northern',
     country: 'kenya',
     heroImage: '/images/gallery/pejeta.jpg',
@@ -531,7 +531,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'samburu',
-    name: 'Samburu National Reserve',
+    name: 'Réserve Nationale de Samburu',
     region: 'northern',
     country: 'kenya',
     heroImage: '/images/gallery/samburu.jpg',
@@ -556,7 +556,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'tsavo',
-    name: 'Tsavo East and West National Parks',
+    name: 'Parcs Nationaux de Tsavo Est et Ouest',
     region: 'northern',
     country: 'kenya',
     heroImage: '/images/gallery/tsavo.jpg',
@@ -581,7 +581,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'akagera',
-    name: 'Akagera National Park',
+    name: "Parc National de l'Akagera",
     region: 'northern',
     country: 'rwanda',
     heroImage: '/images/gallery/akagera.jpg',
@@ -630,7 +630,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'lake-kivu',
-    name: 'Lake Kivu',
+    name: 'Lac Kivu',
     region: 'northern',
     country: 'rwanda',
     heroImage: '/images/gallery/lake-kivu.jpg',
@@ -654,7 +654,7 @@ export const destinations: Destination[] = [
   },
   {
     slug: 'nyungwe',
-    name: 'Nyungwe Forest National Park',
+    name: 'Parc National de la Forêt de Nyungwe',
     region: 'northern',
     country: 'rwanda',
     heroImage: '/images/gallery/nyungwe.jpg',

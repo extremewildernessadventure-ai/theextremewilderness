@@ -142,23 +142,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params
   const dest = getDestination(slug, locale)
   if (!dest) return {}
+  const t = await getTranslations({ locale, namespace: 'destination' })
+  const title = t('metaTitle', { name: dest.name })
+  const description = t('metaDescription', { name: dest.name, tagline: dest.tagline })
   return {
     alternates: buildAlternates(locale, `/destinations/${slug}`),
-    title: `${dest.name} Safari | EWA Safari Outfitters Tanzania`,
-    description: `Plan your ${dest.name} safari with Tanzania's leading local operator. ${dest.tagline}.`,
+    title,
+    description,
     keywords: DEST_KEYWORDS[slug] ?? [
       `${dest.name} safari`, `${dest.name} tour`, `${dest.name} Tanzania`,
       `visit ${dest.name}`, `${dest.name} wildlife`, `${dest.name} 2026`,
       'Tanzania safari', 'East Africa safari', 'Tanzania tour operator', 'Africa safari holiday',
     ],
     openGraph: {
-      title: `${dest.name} Safari`,
-      description: `Plan your ${dest.name} safari. ${dest.tagline}.`,
+      title,
+      description,
       images: [{ url: dest.heroImage, width: 1200, height: 630, alt: dest.name }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${dest.name} Safari`,
+      title,
       images: [dest.heroImage],
     },
   }

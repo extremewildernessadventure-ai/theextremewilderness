@@ -1435,6 +1435,8 @@
     "focus": "Schwerpunkt"
   },
   "destination": {
+    "metaTitle": "{name} Safari",
+    "metaDescription": "Planen Sie Ihre {name}-Safari mit Tansanias führendem lokalen Reiseveranstalter. {tagline}.",
     "about": "Über {name}",
     "highlights": "Höhepunkte",
     "wildlifeYouMaySee": "Wildtiere, die Sie sehen können",
@@ -2042,6 +2044,24 @@
     "blog": "Blog"
   },
   "blog": {
+    "metaTitle": "Safari-Blog | Reiseführer Tansania & Ostafrika",
+    "metaDescription": "Fachkundige Tansania-Safari-Guides, Kilimandscharo-Tipps und Wildtier-Artikel von unserem lokalen Team in Arusha.",
+    "metaKeywords": [
+      "Tansania Safari Blog",
+      "Afrika Safari Reiseführer",
+      "Kilimandscharo Trekking Guide",
+      "Ostafrika Wildtier Blog",
+      "Tansania Reisetipps",
+      "Safari Planungstipps",
+      "Gorilla-Trekking-Guide Ruanda",
+      "Afrika Wildtier Artikel",
+      "Serengeti Reiseführer",
+      "Tansania Tourismus Blog",
+      "Afrika Reiseblog",
+      "Safari Fotografie Tipps",
+      "beste Reisezeit Afrika Safari",
+      "Tansania Reiseinformationen"
+    ],
     "title": "Safari-Geschichten & Reiseführer",
     "fromTheBush": "Aus der Wildnis",
     "readMore": "Weiterlesen →",
@@ -2056,6 +2076,7 @@
     "featuredBadge": "Empfohlen",
     "noPostsInCategory": "Noch keine Beiträge in dieser Kategorie.",
     "read": "Lesen",
+    "updated": "Aktualisiert",
     "basedInArusha": "Standort: Arusha, Tansania",
     "readyToExperience": "Bereit, es hautnah zu erleben?",
     "customItinerariesText": "Unser Expertenteam erstellt individuelle Reisepläne für jedes Budget. Erhalten Sie Ihr persönliches Angebot innerhalb von 24 Stunden.",
@@ -2073,6 +2094,20 @@
     "packageSummary": "{days} Tage · ab ${price}"
   },
   "destinations": {
+    "metaTitle": "Tansania Safari-Reiseziele | Serengeti, Ngorongoro & Mehr",
+    "metaDescription": "Entdecken Sie Tansanias schönste Safari-Reiseziele in drei Rundreisen. Die Große Migration der Serengeti, die Big Five des Ngorongoro-Kraters, die Elefantenherden von Tarangire, die südliche Wildnis und die Schimpansenwälder im Westen. Fachkundig geführt ab Arusha.",
+    "metaKeywords": [
+      "Tansania Safari Reiseziele",
+      "Serengeti Nationalpark",
+      "Ngorongoro-Krater",
+      "Tarangire-Nationalpark",
+      "Ruaha-Nationalpark",
+      "Nyerere-Nationalpark",
+      "Insel Sansibar",
+      "Tansania Rundreisen",
+      "nördliche Rundreise Tansania",
+      "südliche Rundreise Tansania"
+    ],
     "heroEyebrow": "Tansania Safari-Reiseziele",
     "heroTitle": "Wildes Tansania.",
     "heroTitleGold": "Drei epische Routen.",
@@ -2602,6 +2637,23 @@
     ]
   },
   "experiences": {
+    "metaTitle": "Safari-Erlebnisse Ostafrika | Walking Safaris, Heißluftballon, Fotografie",
+    "metaDescription": "Von Game Drives zur Großen Migration über Gorilla-Trekking bis hin zu Heißluftballon-Safaris, Fotosafaris und Walking Safaris. Entdecken Sie alle Möglichkeiten, Ostafrika zu erleben.",
+    "metaKeywords": [
+      "Walking Safari Tansania",
+      "Heißluftballon-Safari Serengeti",
+      "Fotosafari Afrika",
+      "Nacht-Game-Drive Tansania",
+      "Gorilla-Trekking-Erlebnis",
+      "Kilimandscharo-Trekking-Erlebnis",
+      "Kultursafari Tansania",
+      "Ostafrika Safari-Erlebnisse",
+      "Tansania Abenteuersafari",
+      "Buschessen Tansania",
+      "Sonnenuntergangs-Game-Drive Afrika",
+      "Tansania Safari-Erlebnisse 2026",
+      "einzigartige Afrika-Erlebnisse"
+    ],
     "heroEyebrow": "Ostafrika",
     "heroTitle": "Wildnis",
     "heroTitleGold": "Erlebnisse",

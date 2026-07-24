@@ -180,8 +180,8 @@ export default async function BlogArticlePage({ params }: Props) {
     image: `${SITE_URL}${post.heroImage}`,
     author: { '@type': 'Organization', name: 'EWA Safari Outfitters' },
     publisher: { '@type': 'Organization', name: 'EWA Safari Outfitters', logo: { '@type': 'ImageObject', url: `${SITE_URL}/EWA%20logo.webp` } },
-    datePublished: post.date,
-    dateModified: post.date,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.lastUpdated ?? post.date).toISOString(),
   }
 
   return (
@@ -202,7 +202,7 @@ export default async function BlogArticlePage({ params }: Props) {
           ]} />
           <div className="flex flex-wrap gap-3 items-center mb-4">
             <span className="bg-brand text-white text-xs font-semibold px-3 py-1 rounded-full">{post.category}</span>
-            <span className="flex items-center gap-1 text-white/60 text-sm"><Calendar size={13} />{post.date}</span>
+            <span className="flex items-center gap-1 text-white/60 text-sm"><Calendar size={13} />{post.lastUpdated ? `${t('updated')} ${post.lastUpdated}` : post.date}</span>
             <span className="flex items-center gap-1 text-white/60 text-sm"><Clock size={13} />{post.readTime}</span>
           </div>
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white leading-tight max-w-4xl">{post.title}</h1>

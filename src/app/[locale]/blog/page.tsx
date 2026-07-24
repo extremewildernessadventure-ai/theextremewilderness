@@ -9,36 +9,24 @@ import { buildAlternates } from '@/lib/site'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'blog' })
+  const title = t('metaTitle')
+  const description = t('metaDescription')
   return {
     alternates: buildAlternates(locale, '/blog'),
-    title: 'Safari Blog | Tanzania & East Africa Travel Guides',
-    description: 'Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.',
+    title,
+    description,
     openGraph: {
-      title: 'Safari Blog | Tanzania & East Africa Travel Guides',
-      description: 'Expert Tanzania safari guides, Kilimanjaro tips, and wildlife articles from our local team in Arusha.',
+      title,
+      description,
       images: [{ url: '/images/gallery/safari-114.jpg', width: 1200, height: 630, alt: 'Safari vehicles on the Serengeti plains at golden hour' }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Safari Blog',
+      title,
       images: ['/images/gallery/safari-114.jpg'],
     },
-    keywords: [
-      'Tanzania safari blog',
-      'Africa safari travel guide',
-      'Kilimanjaro trekking guide',
-      'East Africa wildlife blog',
-      'Tanzania travel tips',
-      'safari planning advice',
-      'gorilla trekking guide Rwanda',
-      'Africa wildlife articles',
-      'Serengeti travel guide',
-      'Tanzania tourism blog',
-      'Africa travel blog',
-      'safari photography tips',
-      'best time Africa safari',
-      'Tanzania travel information',
-    ],
+    keywords: t.raw('metaKeywords') as string[],
   }
 }
 

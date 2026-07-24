@@ -210,7 +210,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog posts × locales
   for (const slug of BLOG_SLUGS) {
-    const postDate = blogPosts.find((p) => p.slug === slug)?.date
+    const post = blogPosts.find((p) => p.slug === slug)
+    const postDate = post?.lastUpdated ?? post?.date
     const lastModified = postDate ? new Date(postDate) : CONTENT_LAST_UPDATED
     for (const locale of LOCALES) {
       entries.push({
