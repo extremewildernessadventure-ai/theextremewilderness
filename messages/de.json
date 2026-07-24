@@ -1389,6 +1389,8 @@
     "rev11Trip": "Tansania-Safari"
   },
   "safari": {
+    "travelerReviewHeading": "Das Sagen Unsere Reisenden",
+    "verifiedTraveler": "Verifizierter Reisender",
     "heroTitle": "Safari-Pakete",
     "heroDesc": "Jede Safari ist maßgeschneidert — das sind Ausgangspunkte. Erzählen Sie uns Ihren Traum und wir gestalten etwas nur für Sie.",
     "heroImageAlt": "Safarifahrzeuge in der Serengeti-Ebene",

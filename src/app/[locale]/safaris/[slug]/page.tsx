@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck } from 'lucide-react'
+import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck, Star } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import TrustBar from '@/components/home/TrustBar'
 import SafariBookingSidebar from '@/components/safaris/SafariBookingSidebar'
@@ -220,6 +220,17 @@ const SAFARI_BLOG_MAP: Record<string, string> = {
 }
 const DEFAULT_BLOG_SLUG = 'tanzania-safari-cost'
 
+// Real, verified guest reviews (also displayed in the homepage Testimonials
+// carousel) mapped to the specific package their itinerary matches — only
+// wired up where the reviewer's stated duration and destinations line up
+// with a real package, so the schema and on-page quote stay accurate.
+const PACKAGE_REVIEWS: Record<string, { key: 0 | 1 | 7 | 10; name: string; countryKey: 'countryUS' | 'countryUK' | 'countryFR'; rating: number }> = {
+  '10-day-northern-circuit':         { key: 0,  name: 'James Kowalski',              countryKey: 'countryUS', rating: 5 },
+  '5-day-serengeti-fly-in':          { key: 1,  name: 'Erick Edwin',                 countryKey: 'countryUS', rating: 5 },
+  '7-day-serengeti-ngorongoro':      { key: 7,  name: 'Sarah & Michael Thompson',    countryKey: 'countryUK', rating: 5 },
+  '9-day-honeymoon-safari-zanzibar': { key: 10, name: 'Marie & François Dupont',     countryKey: 'countryFR', rating: 5 },
+}
+
 interface Props {
   params: Promise<{ locale: string; slug: string }>
 }
@@ -276,6 +287,16 @@ export default async function SafariPackagePage({ params }: Props) {
     locale
   )
 
+  const packageReview = PACKAGE_REVIEWS[pkg.slug]
+  const th = packageReview ? await getTranslations({ locale, namespace: 'home' }) : null
+  const reviewText = packageReview && th
+    ? (packageReview.key === 0 ? th('rev0Text')
+      : packageReview.key === 1 ? th('rev1Text')
+      : packageReview.key === 7 ? th('rev7Text')
+      : th('rev10Text'))
+    : null
+  const reviewCountry = packageReview && th ? th(packageReview.countryKey) : null
+
   const touristTripSchema = {
     '@context': 'https://schema.org',
     '@type': 'Trip',
@@ -298,6 +319,14 @@ export default async function SafariPackagePage({ params }: Props) {
       '@type': 'ItemList',
       numberOfItems: pkg.duration,
     },
+    ...(packageReview && reviewText ? {
+      review: {
+        '@type': 'Review',
+        reviewRating: { '@type': 'Rating', ratingValue: packageReview.rating, bestRating: 5 },
+        author: { '@type': 'Person', name: packageReview.name },
+        reviewBody: reviewText,
+      },
+    } : {}),
   }
 
   const faqSchema = pkg.faq && pkg.faq.length > 0 ? {
@@ -605,6 +634,27 @@ export default async function SafariPackagePage({ params }: Props) {
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+
+            {/* Traveler review */}
+            {packageReview && reviewText && (
+              <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
+                <h3 className="font-semibold text-brand text-sm mb-3">{t('travelerReviewHeading')}</h3>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className="flex gap-0.5">
+                    {Array.from({ length: packageReview.rating }).map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-gold text-gold" />
+                    ))}
+                  </div>
+                  <span className="text-[10px] bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full border border-green-200 flex-shrink-0">
+                    {t('verifiedTraveler')}
+                  </span>
+                </div>
+                <blockquote className="italic text-sm leading-relaxed text-text-muted mb-3">
+                  &ldquo;{reviewText}&rdquo;
+                </blockquote>
+                <p className="text-sm font-semibold text-brand">{packageReview.name} · {reviewCountry}</p>
               </div>
             )}
 

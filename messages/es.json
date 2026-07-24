@@ -1389,6 +1389,8 @@
     "rev11Trip": "Safari por Tanzania"
   },
   "safari": {
+    "travelerReviewHeading": "Lo Que Dicen los Viajeros",
+    "verifiedTraveler": "Viajero Verificado",
     "heroTitle": "Paquetes Safari",
     "heroDesc": "Cada safari está hecho a medida — estos son puntos de partida. Cuéntanos tu sueño y crearemos algo solo para ti.",
     "heroImageAlt": "Vehículos de safari en las llanuras del Serengeti",

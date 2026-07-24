@@ -149,16 +149,25 @@ export default async function Footer() {
             <h2 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('memberships')}</h2>
             <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
               {[
-                { src: '/Boards%20affiliated/Google%20reviews.png', alt: 'Google Reviews' },
+                { src: '/Boards%20affiliated/Google%20reviews.png', alt: 'Google Reviews', href: 'https://www.google.com/maps/place/?q=place_id:ChIJnbSLRs8dNxgRpv1ntQKpCWs' },
                 { src: '/Boards%20affiliated/Tanapa.png', alt: 'TANAPA' },
-                { src: '/Boards%20affiliated/TripAdvisor.png', alt: 'TripAdvisor' },
+                { src: '/Boards%20affiliated/TripAdvisor.png', alt: 'TripAdvisor', href: 'https://www.tripadvisor.com/Attraction_Review-g297913-d24114818-Reviews-Extreme_Wilderness_Adventure-Arusha_Arusha_Region.html' },
                 { src: '/Boards%20affiliated/safari-bookings.png', alt: 'Safari Bookings' },
                 { src: '/Boards%20affiliated/tanzania-tourist-board.png', alt: 'Tanzania Tourist Board' },
-              ].map(({ src, alt }) => (
-                <div key={alt} className="relative h-14 w-14 flex-shrink-0">
-                  <Image src={src} alt={alt} fill className="object-contain opacity-80 hover:opacity-100 transition-opacity" />
-                </div>
-              ))}
+              ].map(({ src, alt, href }) => {
+                const badge = (
+                  <div className="relative h-14 w-14 flex-shrink-0">
+                    <Image src={src} alt={alt} fill className="object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                  </div>
+                )
+                return href ? (
+                  <a key={alt} href={href} target="_blank" rel="noopener noreferrer" aria-label={alt}>
+                    {badge}
+                  </a>
+                ) : (
+                  <div key={alt}>{badge}</div>
+                )
+              })}
             </div>
           </div>
 
