@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import EastAfricaRegionExplorer from '@/components/map/EastAfricaRegionExplorer'
+import Reveal from '@/components/motion/Reveal'
 
 export default function MapSection() {
   const t = useTranslations('home')
@@ -16,7 +17,7 @@ export default function MapSection() {
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center mb-10">
+        <Reveal className="text-center mb-10">
           <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
             {t('destinationMaps')}
           </span>
@@ -26,7 +27,7 @@ export default function MapSection() {
           <p className="text-text-muted max-w-lg mx-auto text-sm">
             {t('exploreByRegionDesc')}
           </p>
-        </div>
+        </Reveal>
 
         <EastAfricaRegionExplorer showHeader={false} countryDescriptions={countryDescriptions} />
       </div>

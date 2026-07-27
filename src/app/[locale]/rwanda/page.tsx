@@ -8,6 +8,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { buildAlternates } from '@/lib/site'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -188,7 +190,7 @@ export default async function RwandaPage({ params }: Props) {
       </section>
 
       <section className="bg-brand py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3 lg:grid-cols-6 gap-6 text-center">
             {whyRwanda.map((item, i) => (
               <div key={item.label} className="flex flex-col items-center gap-1">
@@ -197,11 +199,11 @@ export default async function RwandaPage({ params }: Props) {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('introEyebrow')}
@@ -213,12 +215,12 @@ export default async function RwandaPage({ params }: Props) {
               {t('introBody')}
             </p>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* 2×2 Overview Grid */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
             {/* Box 1 — Rwanda Destinations */}
@@ -333,12 +335,12 @@ export default async function RwandaPage({ params }: Props) {
             </div>
 
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <section className="bg-light-green py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-brand rounded-2xl p-6 lg:p-8">
+          <Reveal className="bg-brand rounded-2xl p-6 lg:p-8">
             <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6">
               <div className="flex-1">
                 <h3 className="text-white font-bold text-xl mb-2">
@@ -365,13 +367,13 @@ export default async function RwandaPage({ params }: Props) {
                 arrow
               />
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section id="destinations" className="py-20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <Reveal className="text-center mb-14">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('destSectionEyebrow')}
             </span>
@@ -381,13 +383,13 @@ export default async function RwandaPage({ params }: Props) {
             <p className="text-text-muted max-w-xl mx-auto text-sm">
               {t('destSectionSubtitle')}
             </p>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {destinations.map((dest) => {
               const isFeatured = dest.slug === RWANDA_FEATURED_SLUG
               return (
-                <div key={dest.id} className={isFeatured ? 'sm:col-span-2' : ''}>
+                <RevealItem key={dest.id} className={isFeatured ? 'sm:col-span-2' : ''}>
                   <DestinationCard
                     slug={dest.slug}
                     name={dest.name}
@@ -401,16 +403,16 @@ export default async function RwandaPage({ params }: Props) {
                     featured={isFeatured}
                     labels={{ from: tc('from'), featuredBadge: tc('featuredDestination') }}
                   />
-                </div>
+                </RevealItem>
               )
             })}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       <section className="py-20 bg-light-green">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('seasonEyebrow')}
             </span>
@@ -418,23 +420,23 @@ export default async function RwandaPage({ params }: Props) {
             <p className="text-text-muted max-w-lg mx-auto text-sm">
               {t('seasonSubtitle')}
             </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {seasons.map((s, i) => (
-              <div key={s.months} className={`rounded-2xl border p-5 ${s.color}`}>
+              <RevealItem key={s.months} className={`rounded-2xl border p-5 ${s.color}`}>
                 <p className="font-bold text-brand text-base mb-1">{s.months}</p>
                 <p className={`text-xs font-semibold uppercase tracking-wide mb-3 ${s.labelColor}`}>{seasonLabels[i]}</p>
                 <p className="text-xs text-text-muted leading-relaxed">{s.tip}</p>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
+            <Reveal>
               <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
                 {t('comboEyebrow')}
               </span>
@@ -473,12 +475,9 @@ export default async function RwandaPage({ params }: Props) {
                   {t('tanzaniaDestinations')} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-            </div>
+            </Reveal>
 
-            <div
-              className="relative rounded-3xl overflow-hidden shadow-xl bg-[#f5f0e8] border border-brand/10"
-              style={{ aspectRatio: '14/10' }}
-            >
+            <Reveal delay={0.15} className="relative rounded-3xl overflow-hidden shadow-xl bg-[#f5f0e8] border border-brand/10 aspect-[14/10]">
               <Image
                 src="/Maps/Rwanda%20major%20destinations%20travel%20map.png"
                 alt={t('mapImageAlt')}
@@ -492,13 +491,13 @@ export default async function RwandaPage({ params }: Props) {
                   {t('mapCaption')}
                 </span>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       <section className="py-16 bg-brand-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Mountain className="w-10 h-10 text-gold mx-auto mb-4" />
           <h2 className="text-2xl lg:text-3xl font-semibold text-white mb-3">
             {t('conservationHeading')}
@@ -520,7 +519,7 @@ export default async function RwandaPage({ params }: Props) {
               </span>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <section className="py-20">
@@ -530,7 +529,7 @@ export default async function RwandaPage({ params }: Props) {
               className="absolute inset-0 opacity-10"
               style={{ backgroundImage: "url('/images/gallery/rwanda.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
             />
-            <div className="relative z-10">
+            <Reveal className="relative z-10">
               <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
                 {t('ctaEyebrow')}
               </span>
@@ -559,7 +558,7 @@ export default async function RwandaPage({ params }: Props) {
                 <Users className="inline w-3 h-3 mr-1" />
                 {t('footerDisclaimer')}
               </p>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

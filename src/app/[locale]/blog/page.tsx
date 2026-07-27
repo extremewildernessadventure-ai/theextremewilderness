@@ -6,6 +6,8 @@ import { getBlogPosts, getBlogCategories } from '@/data/blog/index.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { buildAlternates } from '@/lib/site'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
@@ -70,7 +72,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
 
       <section className="py-16 bg-light-green">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-2 mb-10">
+          <Reveal className="flex flex-wrap gap-2 mb-10">
             {categories.map((cat, i) => {
               const isAll = i === 0
               const isActive = isAll ? !activeCategory : activeCategory === cat
@@ -87,48 +89,52 @@ export default async function BlogPage({ params, searchParams }: Props) {
                 </Link>
               )
             })}
-          </div>
+          </Reveal>
 
           {!featured ? (
             <p className="text-text-muted text-center py-16">{t('noPostsInCategory')}</p>
           ) : (
             <>
-              <Link href={`/blog/${featured.slug}`} className="group block mb-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white rounded-3xl overflow-hidden hover:shadow-xl transition-all">
-                  <div className="relative h-60 lg:h-auto min-h-[280px]">
-                    <Image src={featured.heroImage} alt={featured.heroImageAlt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 1024px) 100vw, 50vw" />
-                  </div>
-                  <div className="p-8 flex flex-col justify-center">
-                    <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{featured.category} &middot; {t('featuredBadge')}</span>
-                    <h2 className="text-2xl font-semibold text-brand mb-3 group-hover:text-brand-secondary transition-colors">{featured.title}</h2>
-                    <p className="text-text-muted text-sm leading-relaxed mb-5">{featured.excerpt}</p>
-                    <div className="flex items-center justify-between text-xs text-text-muted">
-                      <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{featured.date}</span>
-                      <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{featured.readTime}</span>
+              <Reveal className="mb-8">
+                <Link href={`/blog/${featured.slug}`} className="group block">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white rounded-3xl overflow-hidden hover:shadow-xl transition-all">
+                    <div className="relative h-60 lg:h-auto min-h-[280px]">
+                      <Image src={featured.heroImage} alt={featured.heroImageAlt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 1024px) 100vw, 50vw" />
+                    </div>
+                    <div className="p-8 flex flex-col justify-center">
+                      <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{featured.category} &middot; {t('featuredBadge')}</span>
+                      <h2 className="text-2xl font-semibold text-brand mb-3 group-hover:text-brand-secondary transition-colors">{featured.title}</h2>
+                      <p className="text-text-muted text-sm leading-relaxed mb-5">{featured.excerpt}</p>
+                      <div className="flex items-center justify-between text-xs text-text-muted">
+                        <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{featured.date}</span>
+                        <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{featured.readTime}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </Reveal>
 
               {rest.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                   {rest.map((post) => (
-                    <Link key={post.slug} href={`/blog/${post.slug}`} className="group bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all hover:-translate-y-0.5">
-                      <div className="relative h-44">
-                        <Image src={post.heroImage} alt={post.heroImageAlt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                      </div>
-                      <div className="p-5">
-                        <span className="text-gold text-[10px] font-semibold uppercase tracking-widest">{post.category}</span>
-                        <h3 className="font-semibold text-brand text-sm mt-1 mb-2 leading-snug group-hover:text-brand-secondary transition-colors">{post.title}</h3>
-                        <p className="text-text-muted text-xs leading-relaxed line-clamp-2 mb-3">{post.excerpt}</p>
-                        <div className="flex items-center justify-between text-xs text-text-muted">
-                          <span>{post.date}</span>
-                          <span className="flex items-center gap-1 text-brand font-semibold">{t('read')} <ArrowRight className="w-3 h-3" /></span>
+                    <RevealItem key={post.slug}>
+                      <Link href={`/blog/${post.slug}`} className="group bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all hover:-translate-y-0.5 block">
+                        <div className="relative h-44">
+                          <Image src={post.heroImage} alt={post.heroImageAlt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                         </div>
-                      </div>
-                    </Link>
+                        <div className="p-5">
+                          <span className="text-gold text-[10px] font-semibold uppercase tracking-widest">{post.category}</span>
+                          <h3 className="font-semibold text-brand text-sm mt-1 mb-2 leading-snug group-hover:text-brand-secondary transition-colors">{post.title}</h3>
+                          <p className="text-text-muted text-xs leading-relaxed line-clamp-2 mb-3">{post.excerpt}</p>
+                          <div className="flex items-center justify-between text-xs text-text-muted">
+                            <span>{post.date}</span>
+                            <span className="flex items-center gap-1 text-brand font-semibold">{t('read')} <ArrowRight className="w-3 h-3" /></span>
+                          </div>
+                        </div>
+                      </Link>
+                    </RevealItem>
                   ))}
-                </div>
+                </RevealGroup>
               )}
             </>
           )}

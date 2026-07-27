@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, Mail } from 'lucide-react'
 import NewsletterForm from './NewsletterForm'
+import Reveal from '@/components/motion/Reveal'
 
 const IgIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
@@ -34,7 +35,7 @@ export default function CtaBanner() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          <div className="text-center lg:text-left">
+          <Reveal className="text-center lg:text-left">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-4">
               {t('readyToGo')}
             </span>
@@ -59,9 +60,9 @@ export default function CtaBanner() {
               </Link>
             </div>
             <p className="text-white/60 text-xs mt-6">{t('responseTimeNote')}</p>
-          </div>
+          </Reveal>
 
-          <div className="lg:border-l lg:border-white/10 lg:pl-16">
+          <Reveal delay={0.15} className="lg:border-l lg:border-white/10 lg:pl-16">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
                 <Mail className="w-4 h-4 text-gold" />
@@ -99,7 +100,7 @@ export default function CtaBanner() {
                 <FbIcon /> Facebook
               </a>
             </div>
-          </div>
+          </Reveal>
 
         </div>
       </div>

@@ -2,6 +2,8 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { Calendar, Clock, ArrowRight } from 'lucide-react'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 export default function BlogPreview() {
   const t = useTranslations('home')
@@ -40,7 +42,7 @@ export default function BlogPreview() {
   return (
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-10">
+        <Reveal className="flex items-end justify-between mb-10">
           <div>
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('fromTheBush')}
@@ -55,12 +57,12 @@ export default function BlogPreview() {
           >
             {tc('viewAll')} <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
+            <RevealItem key={post.slug}>
             <Link
-              key={post.slug}
               href={`/blog/${post.slug}`}
               className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 flex flex-col"
             >
@@ -101,8 +103,9 @@ export default function BlogPreview() {
                 </div>
               </div>
             </Link>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
 
         <div className="text-center mt-8 sm:hidden">
           <Link

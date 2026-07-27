@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Star, Users, Globe, Award, ChevronLeft, ChevronRight, MapPin } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
+import Reveal from '@/components/motion/Reveal'
 
 const COUNTRY_KEYS: Record<string, 'countryUS' | 'countryCA' | 'countryUK' | 'countryFR' | 'countryIT' | 'countryCN'> = {
   'United States':  'countryUS',
@@ -95,7 +96,7 @@ export default function Testimonials() {
         .tew-slide-prev { animation: tew-slide-left  0.38s ease-out both; }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-10">
@@ -219,7 +220,7 @@ export default function Testimonials() {
           <BookNowButton label={tc('planMySafari')} arrow />
         </div>
 
-      </div>
+      </Reveal>
     </section>
   )
 }

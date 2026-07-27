@@ -5,6 +5,8 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { ArrowRight } from 'lucide-react'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 interface DestItem {
   name: string
@@ -112,7 +114,7 @@ export default function DestinationCards() {
   return (
     <section className="py-20 bg-light-green">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-10">
+        <Reveal className="flex items-end justify-between mb-10">
           <div>
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('topDestinations')}
@@ -127,10 +129,10 @@ export default function DestinationCards() {
           >
             {tc('allDestinations')} <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
+        </Reveal>
 
         {/* ── Mobile carousel (< 640px) ── */}
-        <div className="sm:hidden">
+        <Reveal className="sm:hidden">
           <div
             className="overflow-hidden rounded-2xl border-[3px] border-gold"
             onTouchStart={onTouchStart}
@@ -165,16 +167,16 @@ export default function DestinationCards() {
               </button>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* ── Desktop grid ── */}
-        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <RevealGroup className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {featured.map((dest) => (
-            <div key={dest.name} className="rounded-2xl border-[3px] border-gold">
+            <RevealItem key={dest.name} className="rounded-2xl border-[3px] border-gold">
               <DestCard dest={dest} exploreLabel={exploreLabel} />
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
 
         <div className="text-center mt-8 sm:hidden">
           <Link

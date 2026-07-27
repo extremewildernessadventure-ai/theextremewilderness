@@ -4,6 +4,8 @@ import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { buildAlternates } from '@/lib/site'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 import {
   ArrowRight, MapPin, Star, Users, Award,
   Globe, Shield, Clock, Leaf,
@@ -128,7 +130,7 @@ export default async function AboutPage({ params }: Props) {
 
       {/* ── Stats band ───────────────────────────────────────────────────── */}
       <section className="bg-brand border-t border-white/10 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-white/10">
             {stats.map(({ value, label, sub, icon: Icon }) => (
               <div key={label} className="flex flex-col items-center text-center px-6 py-4">
@@ -139,14 +141,14 @@ export default async function AboutPage({ params }: Props) {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ── Our Story ────────────────────────────────────────────────────── */}
       <section id="why-us" className="bg-light-green py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
-            <div>
+            <Reveal>
               <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">{t('whyLocalMatters')}</p>
               <h2 className="text-3xl lg:text-4xl font-bold text-brand mb-6 leading-tight">
                 {t('whyChooseLocal')}
@@ -161,8 +163,8 @@ export default async function AboutPage({ params }: Props) {
               <p className="text-text-muted leading-relaxed mb-5">{t('localDesc2')}</p>
               <p className="text-text-muted leading-relaxed mb-5">{t('localDesc3')}</p>
               <p className="text-text-muted leading-relaxed">{t('localDesc4')}</p>
-            </div>
-            <div className="relative">
+            </Reveal>
+            <Reveal delay={0.15} className="relative">
               <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                 <Image src="/images/gallery/kilimanjaro1.webp" alt={t('storyImageAlt')} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand/40 to-transparent" />
@@ -178,7 +180,7 @@ export default async function AboutPage({ params }: Props) {
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -186,45 +188,45 @@ export default async function AboutPage({ params }: Props) {
       {/* ── What Makes Us Different ──────────────────────────────────────── */}
       <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">{t('ourDifference')}</p>
             <h2 className="text-3xl lg:text-4xl font-bold text-brand">{t('whatMakesDifferent')}</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map(({ icon: Icon, title, body }) => (
-              <div key={title} className="bg-gray-50 rounded-2xl p-7 border border-gray-100 hover:border-brand/30 hover:shadow-md hover:-translate-y-0.5 transition-all">
+              <RevealItem key={title} className="bg-gray-50 rounded-2xl p-7 border border-gray-100 hover:border-brand/30 hover:shadow-md hover:-translate-y-0.5 transition-all">
                 <div className="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-5">
                   <Icon className="w-6 h-6 text-brand" />
                 </div>
                 <h3 className="text-brand font-bold text-lg mb-2">{title}</h3>
                 <p className="text-text-muted text-sm leading-relaxed">{body}</p>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* ── Gallery strip ────────────────────────────────────────────────── */}
-      <div className="grid grid-cols-3 lg:grid-cols-6">
+      <RevealGroup className="grid grid-cols-3 lg:grid-cols-6">
         {galleryImages.map((src, i) => (
-          <div key={i} className="relative aspect-square overflow-hidden group">
+          <RevealItem key={i} className="relative aspect-square overflow-hidden group">
             <Image src={src} alt={t('safariMoment')} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 1024px) 33vw, 16vw" />
             <div className="absolute inset-0 bg-brand/20 group-hover:bg-transparent transition-colors" />
-          </div>
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
 
       {/* ── Team ─────────────────────────────────────────────────────────── */}
       <section id="guides" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">{t('thePeople')}</p>
             <h2 className="text-3xl lg:text-4xl font-bold text-brand mb-3">{t('meetTheTeam')}</h2>
             <p className="text-text-muted max-w-xl mx-auto text-sm leading-relaxed">{t('teamDesc')}</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {team.map(({ image, name, role, bio }) => (
-              <div key={name} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all text-center group">
+              <RevealItem key={name} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all text-center group">
                 <div className="flex justify-center mb-5">
                   <div className="w-32 h-32 rounded-full overflow-hidden ring-4 ring-gold/30 group-hover:ring-gold/60 transition-all flex-shrink-0">
                     <Image src={image} alt={name} width={128} height={128} className="w-full h-full object-cover object-top" />
@@ -233,21 +235,21 @@ export default async function AboutPage({ params }: Props) {
                 <span className="inline-flex px-3 py-1 bg-gold/10 text-gold text-xs font-bold rounded-full uppercase tracking-wider mb-3">{role}</span>
                 <h3 className="text-brand font-bold text-xl mb-3">{name}</h3>
                 <p className="text-text-muted text-sm leading-relaxed">{bio}</p>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* ── Office Location ──────────────────────────────────────────────── */}
       <section className="bg-light-green py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
+          <Reveal className="mb-10">
             <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">{t('ourLocation')}</p>
             <h2 className="text-3xl lg:text-4xl font-bold text-brand">{t('findOurOffice')}</h2>
-          </div>
+          </Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            <div className="bg-brand rounded-2xl p-8 lg:p-10 flex flex-col min-h-[400px]">
+            <Reveal className="bg-brand rounded-2xl p-8 lg:p-10 flex flex-col min-h-[400px]">
               <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
                 <MapPin className="w-7 h-7 text-gold" />
               </div>
@@ -271,8 +273,8 @@ export default async function AboutPage({ params }: Props) {
                   {t('getDirections')} <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
-            </div>
-            <div className="rounded-2xl overflow-hidden shadow-sm min-h-[400px] ring-1 ring-black/5">
+            </Reveal>
+            <Reveal delay={0.15} className="rounded-2xl overflow-hidden shadow-sm min-h-[400px] ring-1 ring-black/5">
               <iframe
                 src="https://maps.google.com/maps?q=-3.3649565,36.6889837&t=&z=17&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-full min-h-[400px] border-0"
@@ -280,7 +282,7 @@ export default async function AboutPage({ params }: Props) {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="EWA Safari Outfitters office location"
               />
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -297,7 +299,7 @@ export default async function AboutPage({ params }: Props) {
         <div className="absolute inset-0 bg-brand/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <Reveal>
               <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">{t('letsStartPlanning')}</p>
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-5 leading-tight">{t('readyToPlan')}</h2>
               <p className="text-white/70 leading-relaxed mb-8 text-base">{t('ctaDesc')}</p>
@@ -309,8 +311,8 @@ export default async function AboutPage({ params }: Props) {
                   {t('contactUs')}
                 </Link>
               </div>
-            </div>
-            <div className="bg-white/10 border border-white/20 rounded-2xl p-8">
+            </Reveal>
+            <Reveal delay={0.15} className="bg-white/10 border border-white/20 rounded-2xl p-8">
               <p className="text-white font-bold text-lg mb-6">{t('reachUsDirectly')}</p>
               <div className="space-y-4 mb-8">
                 <a href="mailto:info@theextremewilderness.com" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
@@ -342,7 +344,7 @@ export default async function AboutPage({ params }: Props) {
                 </div>
               </div>
               <p className="text-white/60 text-xs">{t('responseNote')}</p>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

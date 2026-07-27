@@ -1,5 +1,7 @@
 import { useTranslations } from 'next-intl'
 import { MapPin, Users, Star, Shield } from 'lucide-react'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 export default function WhyChooseUs() {
   const t = useTranslations('home')
@@ -14,7 +16,7 @@ export default function WhyChooseUs() {
   return (
     <section className="py-20 bg-light-green">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
+        <Reveal className="text-center mb-14">
           <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
             {t('whyTravelWithUs')}
           </span>
@@ -22,11 +24,11 @@ export default function WhyChooseUs() {
             {t('ourDifference')}
           </h2>
           <p className="text-text-muted max-w-xl mx-auto">{t('weAreTanzania')}</p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {reasons.map(({ Icon, title, description }) => (
-            <div
+            <RevealItem
               key={title}
               className="group p-7 rounded-2xl border border-gray-100 hover:border-brand hover:shadow-lg transition-all duration-200 bg-white"
             >
@@ -35,9 +37,9 @@ export default function WhyChooseUs() {
               </div>
               <h3 className="font-semibold text-brand text-lg mb-2">{title}</h3>
               <p className="text-text-muted text-sm leading-relaxed">{description}</p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   )

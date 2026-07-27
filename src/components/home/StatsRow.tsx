@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
+import Reveal from '@/components/motion/Reveal'
 
 function useCountUp(target: number, duration = 1800, started: boolean) {
   const [count, setCount] = useState(0)
@@ -51,7 +52,7 @@ export default function StatsRow() {
   const t = useTranslations('home')
 
   const stats = [
-    { value: 200, suffix: '+', label: t('safarisDelivered') },
+    { value: 50, suffix: '+', label: t('safarisDelivered') },
     { value: 5, suffix: '+', label: t('yearsExperience') },
     { value: 20, suffix: '+', label: t('tanzaniaRegions') },
     { value: 98, suffix: '%', label: t('satisfactionRate') },
@@ -59,13 +60,13 @@ export default function StatsRow() {
 
   return (
     <section className="border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-gray-100">
           {stats.map((s) => (
             <StatCard key={s.label} {...s} />
           ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

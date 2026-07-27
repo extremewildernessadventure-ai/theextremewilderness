@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck, Star } from 'lucide-react'
+import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck, Star, MapPin, DollarSign } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import TrustBar from '@/components/home/TrustBar'
 import SafariBookingSidebar from '@/components/safaris/SafariBookingSidebar'
@@ -16,6 +16,7 @@ import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import { routing } from '@/i18n/routing'
 import { SITE_URL, localeUrl, buildAlternates } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
+import Reveal from '@/components/motion/Reveal'
 
 
 const SAFARI_KEYWORDS: Record<string, string[]> = {
@@ -382,54 +383,79 @@ export default async function SafariPackagePage({ params }: Props) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Main content */}
-          <div className="lg:col-span-2 space-y-10">
+          <Reveal className="lg:col-span-2 space-y-10">
             {/* Overview */}
             {pkg.overview && pkg.overview.length > 0 && (
               <div className="bg-light-green border border-brand/10 rounded-xl p-5 space-y-3">
+                <h2 className="text-xl font-semibold text-brand mb-1">{t('overview')}</h2>
                 {pkg.overview.map((para, i) => (
-                  <p key={i} className="text-sm text-text-muted leading-relaxed">{para}</p>
+                  <p key={i} className="text-base text-text-muted leading-relaxed">{para}</p>
                 ))}
               </div>
             )}
 
-            {/* Quick info + Highlights */}
-            <div className="bg-light-green border border-brand/10 rounded-xl p-5">
-              {/* Quick info */}
-              <div className="flex flex-wrap gap-5 text-sm">
-                <div className="flex items-center gap-2 text-text-muted">
-                  <Clock className="w-4 h-4 text-gold" />
-                  <span><strong className="text-brand">{pkg.duration} {tc('nights')}</strong> {t('duration')}</span>
-                </div>
-                <div className="flex items-center gap-2 text-text-muted">
-                  <Users className="w-4 h-4 text-gold" />
-                  <span>{t('groupsOf')} <strong className="text-brand">{pkg.groupSize.min}–{pkg.groupSize.max}</strong></span>
-                </div>
-                {pkg.bestTimeToTravel && (
-                  <div className="flex items-center gap-2 text-text-muted">
-                    <Calendar className="w-4 h-4 text-gold" />
-                    <span><strong className="text-brand">{t('bestTimeToTravel')}:</strong> {pkg.bestTimeToTravel}</span>
+            {/* At a Glance + Tour Highlights */}
+            <div className="bg-light-green border border-brand/10 rounded-xl p-5 space-y-6">
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* At a Glance */}
+                <div>
+                  <h2 className="text-lg font-semibold text-brand mb-4">{t('atAGlance')}</h2>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="bg-white rounded-lg border border-gray-100 p-3">
+                      <DollarSign className="w-4 h-4 text-gold mb-1.5" />
+                      <p className="font-bold text-brand text-base leading-tight">${pkg.priceFrom.toLocaleString()}</p>
+                      <p className="text-xs text-text-muted">{tc('from')} · {tc('perPerson')}</p>
+                    </div>
+                    <div className="bg-white rounded-lg border border-gray-100 p-3">
+                      <MapPin className="w-4 h-4 text-gold mb-1.5" />
+                      <p className="font-bold text-brand text-base leading-tight line-clamp-2">
+                        {pkg.destinations.map((d) => d.charAt(0).toUpperCase() + d.slice(1)).join(', ')}
+                      </p>
+                      <p className="text-xs text-text-muted">{t('destinationsLabel')}</p>
+                    </div>
+                    <div className="bg-white rounded-lg border border-gray-100 p-3">
+                      <Clock className="w-4 h-4 text-gold mb-1.5" />
+                      <p className="font-bold text-brand text-base leading-tight">{pkg.duration} {tc('nights')}</p>
+                      <p className="text-xs text-text-muted">{t('duration')}</p>
+                    </div>
+                    <div className="bg-white rounded-lg border border-gray-100 p-3">
+                      <Users className="w-4 h-4 text-gold mb-1.5" />
+                      <p className="font-bold text-brand text-base leading-tight">{pkg.groupSize.min}–{pkg.groupSize.max}</p>
+                      <p className="text-xs text-text-muted">{t('groupSizeLabel')}</p>
+                    </div>
                   </div>
-                )}
-                {pkg.tagline && (
-                  <div className="flex items-center gap-2 text-text-muted">
-                    <ShieldCheck className="w-4 h-4 text-gold" />
-                    <span>{pkg.tagline}</span>
-                  </div>
-                )}
+                </div>
+
+                {/* Tour Highlights */}
+                <div>
+                  <h2 className="text-lg font-semibold text-brand mb-4">{t('packageHighlights')}</h2>
+                  <ul className="space-y-2">
+                    {pkg.highlights.map((h) => (
+                      <li key={h} className="flex items-start gap-2 text-base text-text-muted">
+                        <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              {/* Highlights */}
-              <div className="mt-5">
-                <h2 className="text-xl font-semibold text-brand mb-4">{t('packageHighlights')}</h2>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {pkg.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-2 text-sm text-text-muted">
-                      <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
-                      {h}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {(pkg.bestTimeToTravel || pkg.tagline) && (
+                <div className="flex flex-wrap gap-5 text-base pt-5 border-t border-brand/10">
+                  {pkg.bestTimeToTravel && (
+                    <div className="flex items-center gap-2 text-text-muted">
+                      <Calendar className="w-4 h-4 text-gold" />
+                      <span><strong className="text-brand">{t('bestTimeToTravel')}:</strong> {pkg.bestTimeToTravel}</span>
+                    </div>
+                  )}
+                  {pkg.tagline && (
+                    <div className="flex items-center gap-2 text-text-muted">
+                      <ShieldCheck className="w-4 h-4 text-gold" />
+                      <span>{pkg.tagline}</span>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Why This Itinerary Is Different */}
@@ -438,7 +464,7 @@ export default async function SafariPackagePage({ params }: Props) {
                 <h2 className="text-xl font-semibold text-brand mb-4">{pkg.whyDifferent.heading}</h2>
                 <div className="space-y-3">
                   {pkg.whyDifferent.paragraphs.map((para, i) => (
-                    <p key={i} className="text-sm text-text-muted leading-relaxed">{para}</p>
+                    <p key={i} className="text-base text-text-muted leading-relaxed">{para}</p>
                   ))}
                 </div>
               </div>
@@ -451,8 +477,8 @@ export default async function SafariPackagePage({ params }: Props) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {pkg.destinationHighlights.items.map((item) => (
                     <div key={item.title} className="bg-light-green border border-brand/10 rounded-xl p-4">
-                      <p className="font-semibold text-brand text-sm mb-1.5">{item.title}</p>
-                      <p className="text-sm text-text-muted leading-relaxed">{item.text}</p>
+                      <p className="font-semibold text-brand mb-1.5">{item.title}</p>
+                      <p className="text-base text-text-muted leading-relaxed">{item.text}</p>
                     </div>
                   ))}
                 </div>
@@ -468,7 +494,7 @@ export default async function SafariPackagePage({ params }: Props) {
                   <div className="mb-6">
                     <p className="text-xs font-bold text-text-muted uppercase tracking-wide mb-2">{t('itineraryAtAGlance')}</p>
                     <div className="overflow-x-auto rounded-xl border border-gray-100">
-                      <table className="w-full text-sm">
+                      <table className="w-full text-base">
                         <thead>
                           <tr className="bg-light-green text-left text-text-muted text-xs uppercase tracking-wide">
                             <th className="px-4 py-2.5 font-semibold">{t('day')}</th>
@@ -498,19 +524,19 @@ export default async function SafariPackagePage({ params }: Props) {
                           <span className="w-8 h-8 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
                             {day.day}
                           </span>
-                          <span className="font-medium text-brand text-sm">{day.title}</span>
+                          <span className="font-medium text-brand text-base">{day.title}</span>
                         </div>
                         <ChevronDown className="w-4 h-4 text-text-muted group-open:rotate-180 transition-transform" />
                       </summary>
                       <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
-                        <p className="text-sm text-text-muted leading-relaxed mb-3">{day.description}</p>
+                        <p className="text-base text-text-muted leading-relaxed mb-3">{day.description}</p>
 
                         {day.insiderFact && (
                           <div className="border-l-2 border-gold pl-3 mb-3">
                             <p className="text-[10px] font-bold uppercase tracking-wide text-gold-label mb-0.5">
                               {t('insiderFact')}
                             </p>
-                            <p className="text-xs text-text-muted leading-relaxed">{day.insiderFact}</p>
+                            <p className="text-base text-text-muted leading-relaxed">{day.insiderFact}</p>
                           </div>
                         )}
 
@@ -539,7 +565,7 @@ export default async function SafariPackagePage({ params }: Props) {
                           </div>
                         ) : null}
 
-                        <div className="flex flex-wrap gap-4 text-xs text-text-muted">
+                        <div className="flex flex-wrap gap-4 text-base text-text-muted">
                           <span>{day.accommodation}</span>
                           <span>{day.meals}</span>
                         </div>
@@ -563,7 +589,7 @@ export default async function SafariPackagePage({ params }: Props) {
                         <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('transfers')}</p>
                         <ul className="space-y-1.5">
                           {pkg.includedCategorized.transfers.map((item) => (
-                            <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                            <li key={item} className="text-base text-text-muted flex items-start gap-2">
                               <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
                               {item}
                             </li>
@@ -576,7 +602,7 @@ export default async function SafariPackagePage({ params }: Props) {
                         <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('accommodationMeals')}</p>
                         <ul className="space-y-1.5">
                           {pkg.includedCategorized.accommodationMeals.map((item) => (
-                            <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                            <li key={item} className="text-base text-text-muted flex items-start gap-2">
                               <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
                               {item}
                             </li>
@@ -589,7 +615,7 @@ export default async function SafariPackagePage({ params }: Props) {
                         <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('guidingGameDrives')}</p>
                         <ul className="space-y-1.5">
                           {pkg.includedCategorized.guidingGameDrives.map((item) => (
-                            <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                            <li key={item} className="text-base text-text-muted flex items-start gap-2">
                               <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
                               {item}
                             </li>
@@ -601,7 +627,7 @@ export default async function SafariPackagePage({ params }: Props) {
                 ) : (
                   <ul className="space-y-1.5">
                     {pkg.included.map((item) => (
-                      <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                      <li key={item} className="text-base text-text-muted flex items-start gap-2">
                         <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
                         {item}
                       </li>
@@ -615,7 +641,7 @@ export default async function SafariPackagePage({ params }: Props) {
                 </h3>
                 <ul className="space-y-1.5">
                   {(pkg.excludedCategorized ?? pkg.excluded).map((item) => (
-                    <li key={item} className="text-sm text-text-muted flex items-start gap-2">
+                    <li key={item} className="text-base text-text-muted flex items-start gap-2">
                       <X className="w-3.5 h-3.5 text-red-400 mt-0.5 flex-shrink-0" />
                       {item}
                     </li>
@@ -626,10 +652,10 @@ export default async function SafariPackagePage({ params }: Props) {
 
             {pkg.notes && pkg.notes.length > 0 && (
               <div className="bg-light-green border border-brand/10 rounded-xl p-5">
-                <h3 className="font-semibold text-brand text-sm mb-2">{t('pleaseNote')}</h3>
+                <h3 className="font-semibold text-brand mb-2">{t('pleaseNote')}</h3>
                 <ul className="space-y-1">
                   {pkg.notes.map((note) => (
-                    <li key={note} className="text-xs text-text-muted leading-relaxed">
+                    <li key={note} className="text-base text-text-muted leading-relaxed">
                       {note}
                     </li>
                   ))}
@@ -640,7 +666,7 @@ export default async function SafariPackagePage({ params }: Props) {
             {/* Traveler review */}
             {packageReview && reviewText && (
               <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
-                <h3 className="font-semibold text-brand text-sm mb-3">{t('travelerReviewHeading')}</h3>
+                <h3 className="font-semibold text-brand mb-3">{t('travelerReviewHeading')}</h3>
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <div className="flex gap-0.5">
                     {Array.from({ length: packageReview.rating }).map((_, i) => (
@@ -651,10 +677,10 @@ export default async function SafariPackagePage({ params }: Props) {
                     {t('verifiedTraveler')}
                   </span>
                 </div>
-                <blockquote className="italic text-sm leading-relaxed text-text-muted mb-3">
+                <blockquote className="italic text-base leading-relaxed text-text-muted mb-3">
                   &ldquo;{reviewText}&rdquo;
                 </blockquote>
-                <p className="text-sm font-semibold text-brand">{packageReview.name} · {reviewCountry}</p>
+                <p className="text-base font-semibold text-brand">{packageReview.name} · {reviewCountry}</p>
               </div>
             )}
 
@@ -666,21 +692,21 @@ export default async function SafariPackagePage({ params }: Props) {
                   {pkg.faq.map((item, i) => (
                     <details key={i} className="group border border-gray-100 rounded-xl overflow-hidden">
                       <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
-                        <span className="font-medium text-brand text-sm pr-4">{item.q}</span>
+                        <span className="font-medium text-brand text-base pr-4">{item.q}</span>
                         <ChevronDown className="w-4 h-4 text-text-muted flex-shrink-0 group-open:rotate-180 transition-transform" />
                       </summary>
                       <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
-                        <p className="text-sm text-text-muted leading-relaxed">{item.a}</p>
+                        <p className="text-base text-text-muted leading-relaxed">{item.a}</p>
                       </div>
                     </details>
                   ))}
                 </div>
               </div>
             )}
-          </div>
+          </Reveal>
 
           {/* Sidebar */}
-          <div>
+          <Reveal delay={0.15}>
             <div className="sticky top-24 space-y-4">
               <SafariBookingSidebar
                 packageName={pkg.name}
@@ -717,7 +743,7 @@ export default async function SafariPackagePage({ params }: Props) {
                 </div>
               )}
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
 

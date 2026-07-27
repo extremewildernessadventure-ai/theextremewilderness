@@ -14,6 +14,7 @@ import { routing } from '@/i18n/routing'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { SITE_URL, buildAlternates } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
+import Reveal from '@/components/motion/Reveal'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
@@ -215,7 +216,8 @@ export default async function BlogArticlePage({ params }: Props) {
           <div className="grid lg:grid-cols-[1fr_360px] gap-14 items-start">
 
             {/* ── Main content ── */}
-            <article className="min-w-0">
+            <Reveal className="min-w-0">
+            <article>
               <p className="text-lg text-gray-600 leading-relaxed mb-10 pb-8 border-b border-gray-100 font-medium">
                 {post.excerpt}
               </p>
@@ -236,9 +238,11 @@ export default async function BlogArticlePage({ params }: Props) {
                 />
               </div>
             </article>
+            </Reveal>
 
             {/* ── Sidebar ── */}
-            <aside className="space-y-6 lg:sticky lg:top-24">
+            <Reveal delay={0.15} className="space-y-6 lg:sticky lg:top-24">
+            <aside>
 
               {/* Plan Your Trip */}
               <div className="bg-brand rounded-2xl overflow-hidden">
@@ -347,6 +351,7 @@ export default async function BlogArticlePage({ params }: Props) {
               </div>
 
             </aside>
+            </Reveal>
           </div>
         </div>
       </section>

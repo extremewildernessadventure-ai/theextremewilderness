@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, Calendar, Heart, SlidersHorizontal, MapPinned } from 'lucide-react'
+import Reveal from '@/components/motion/Reveal'
 
 export default function PlanBuilderSection() {
   const t = useTranslations('planBuilder')
@@ -14,7 +15,7 @@ export default function PlanBuilderSection() {
 
   return (
     <section className="py-20">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <Reveal className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
           {t('heroCta')}
         </span>
@@ -44,7 +45,7 @@ export default function PlanBuilderSection() {
         >
           {t('entryCard.cta')} <ArrowRight className="w-4 h-4" />
         </Link>
-      </div>
+      </Reveal>
     </section>
   )
 }

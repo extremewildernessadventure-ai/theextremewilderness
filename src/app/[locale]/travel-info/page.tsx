@@ -7,6 +7,7 @@ import {
   Shirt, ShieldCheck, Phone, Syringe, Sun,
 } from 'lucide-react'
 import { buildAlternates } from '@/lib/site'
+import Reveal from '@/components/motion/Reveal'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -155,7 +156,7 @@ export default async function TravelInfoPage({ params }: Props) {
 
       {/* Quick Facts Band */}
       <section className="bg-brand border-t border-white/10 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {quickFacts.map(({ label, value }) => (
               <div key={label} className="flex gap-3 items-start">
@@ -167,7 +168,7 @@ export default async function TravelInfoPage({ params }: Props) {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Jump Nav */}
@@ -196,7 +197,7 @@ export default async function TravelInfoPage({ params }: Props) {
           className={`py-20 lg:py-28 ${idx % 2 === 0 ? 'bg-white' : 'bg-light-green'}`}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto lg:mx-0">
+            <Reveal className="max-w-3xl mx-auto lg:mx-0">
 
               {/* Section header */}
               <div className="flex items-center gap-4 mb-10">
@@ -256,7 +257,7 @@ export default async function TravelInfoPage({ params }: Props) {
                   ))}
                 </ul>
               )}
-            </div>
+            </Reveal>
           </div>
         </section>
       ))}
@@ -264,7 +265,7 @@ export default async function TravelInfoPage({ params }: Props) {
       {/* Sun + Best Time callout */}
       <section className="bg-white py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-brand rounded-3xl p-10 lg:p-14 flex flex-col lg:flex-row items-start lg:items-center gap-8">
+          <Reveal className="bg-brand rounded-3xl p-10 lg:p-14 flex flex-col lg:flex-row items-start lg:items-center gap-8">
             <div className="w-14 h-14 bg-gold/20 rounded-2xl flex items-center justify-center shrink-0">
               <Sun className="w-7 h-7 text-gold" />
             </div>
@@ -280,14 +281,14 @@ export default async function TravelInfoPage({ params }: Props) {
               {t('ctaButton')}
               <ArrowRight className="w-4 h-4" />
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Emergency contact */}
       <section className="bg-light-green py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center">
+          <Reveal className="max-w-2xl mx-auto text-center">
             <div className="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mx-auto mb-5">
               <Phone className="w-6 h-6 text-brand" />
             </div>
@@ -309,7 +310,7 @@ export default async function TravelInfoPage({ params }: Props) {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 

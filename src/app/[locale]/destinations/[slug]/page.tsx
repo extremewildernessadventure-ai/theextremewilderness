@@ -14,6 +14,8 @@ import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import { routing } from '@/i18n/routing'
 import { SITE_URL, localeUrl, buildAlternates } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 
 const DEST_KEYWORDS: Record<string, string[]> = {
@@ -253,7 +255,7 @@ export default async function DestinationPage({ params }: Props) {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2">
+            <Reveal className="lg:col-span-2">
               <h2 className="text-2xl font-semibold text-brand mb-4">{t('about', { name: dest.name })}</h2>
               <div className="space-y-4 mb-6">
                 {descriptionParagraphs.map((para, i) => (
@@ -263,7 +265,7 @@ export default async function DestinationPage({ params }: Props) {
               <h3 className="font-semibold text-brand mb-3">{t('highlights')}</h3>
               <ul className="space-y-2 mb-8">
                 {dest.highlights.map((h) => (
-                  <li key={h} className="flex items-start gap-2 text-sm text-text-muted">
+                  <li key={h} className="flex items-start gap-2 text-base text-text-muted">
                     <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
                     {h}
                   </li>
@@ -275,13 +277,13 @@ export default async function DestinationPage({ params }: Props) {
                   <span key={w} className="px-3 py-1 bg-light-green text-brand text-xs rounded-full font-medium">{w}</span>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
-            <div>
+            <Reveal delay={0.15}>
               <div className="bg-light-green rounded-2xl p-6 space-y-5">
                 <h3 className="font-semibold text-brand mb-4">{t('keyFacts')}</h3>
                 {dest.parkSize && (
-                  <div className="flex items-center gap-3 text-sm">
+                  <div className="flex items-center gap-3 text-base">
                     <Ruler className="w-4 h-4 text-gold" />
                     <div>
                       <div className="font-medium text-brand">{t('parkSize')}</div>
@@ -290,7 +292,7 @@ export default async function DestinationPage({ params }: Props) {
                   </div>
                 )}
                 {dest.distanceFromArusha && (
-                  <div className="flex items-center gap-3 text-sm">
+                  <div className="flex items-center gap-3 text-base">
                     <MapPin className="w-4 h-4 text-gold" />
                     <div>
                       <div className="font-medium text-brand">{t('fromArusha')}</div>
@@ -298,7 +300,7 @@ export default async function DestinationPage({ params }: Props) {
                     </div>
                   </div>
                 )}
-                <div className="text-sm">
+                <div className="text-base">
                   <div className="flex items-center gap-3 mb-3">
                     <Calendar className="w-4 h-4 text-gold" />
                     <div className="font-medium text-brand">{t('bestMonths')}</div>
@@ -323,21 +325,21 @@ export default async function DestinationPage({ params }: Props) {
               {dest.gettingThere && (
                 <div className="mt-5 bg-light-green rounded-2xl p-6 space-y-4">
                   <h3 className="font-semibold text-brand mb-1">{t('gettingThereHeading')}</h3>
-                  <div className="flex items-center gap-3 text-sm">
+                  <div className="flex items-center gap-3 text-base">
                     <Plane className="w-4 h-4 text-gold flex-shrink-0" />
                     <div>
                       <div className="font-medium text-brand">{t('nearestAirport')}</div>
                       <div className="text-text-muted">{dest.gettingThere.airport}</div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 text-sm">
+                  <div className="flex items-center gap-3 text-base">
                     <Clock className="w-4 h-4 text-gold flex-shrink-0" />
                     <div>
                       <div className="font-medium text-brand">{t('transferLabel')}</div>
                       <div className="text-text-muted">{dest.gettingThere.transferTime}</div>
                     </div>
                   </div>
-                  <p className="text-text-muted text-xs leading-relaxed pt-1 border-t border-brand/10">
+                  <p className="text-text-muted text-base leading-relaxed pt-1 border-t border-brand/10">
                     {dest.gettingThere.transferNotes}
                   </p>
                 </div>
@@ -371,8 +373,8 @@ export default async function DestinationPage({ params }: Props) {
                   />
                 ) : (
                   <div className="bg-light-green rounded-2xl p-6 text-center">
-                    <h3 className="font-semibold text-brand text-sm mb-2">{t('genericGuideHeading')}</h3>
-                    <p className="text-text-muted text-xs leading-relaxed mb-4">{t('genericGuideBody')}</p>
+                    <h3 className="font-semibold text-brand mb-2">{t('genericGuideHeading')}</h3>
+                    <p className="text-text-muted text-base leading-relaxed mb-4">{t('genericGuideBody')}</p>
                     <Link href="/blog" className="inline-flex items-center gap-1.5 text-sm text-brand font-semibold hover:text-gold transition-colors">
                       {t('exploreGuides')} <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
@@ -390,7 +392,7 @@ export default async function DestinationPage({ params }: Props) {
                   className="block w-full py-2.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl text-sm transition-colors"
                 />
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -399,25 +401,29 @@ export default async function DestinationPage({ params }: Props) {
       {destPackages.length > 0 && (
         <section className="py-16 bg-light-green">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-semibold text-brand mb-8">
-              {t('safariPackagesIncluding', { name: dest.name.split(' ')[0] })}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <Reveal className="mb-8">
+              <h2 className="text-2xl font-semibold text-brand">
+                {t('safariPackagesIncluding', { name: dest.name.split(' ')[0] })}
+              </h2>
+            </Reveal>
+            <RevealGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {destPackages.map((pkg) => (
-                <Link key={pkg.slug} href={`/safaris/${pkg.slug}`} className="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all group">
-                  <div className="relative h-44">
-                    <Image src={pkg.heroImage} alt={pkg.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-brand mb-1 text-sm">{pkg.name}</h3>
-                    <p className="text-text-muted text-xs mb-3">{pkg.duration} {tc('nights')} · {t('nightsFrom')} ${pkg.priceFrom.toLocaleString()}/{tc('perPerson')}</p>
-                    <span className="flex items-center gap-1 text-xs text-brand font-semibold">
-                      {tc('viewPackage')} <ArrowRight className="w-3 h-3" />
-                    </span>
-                  </div>
-                </Link>
+                <RevealItem key={pkg.slug}>
+                  <Link href={`/safaris/${pkg.slug}`} className="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all group block">
+                    <div className="relative h-44">
+                      <Image src={pkg.heroImage} alt={pkg.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-brand mb-1 text-sm">{pkg.name}</h3>
+                      <p className="text-text-muted text-xs mb-3">{pkg.duration} {tc('nights')} · {t('nightsFrom')} ${pkg.priceFrom.toLocaleString()}/{tc('perPerson')}</p>
+                      <span className="flex items-center gap-1 text-xs text-brand font-semibold">
+                        {tc('viewPackage')} <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </Link>
+                </RevealItem>
               ))}
-            </div>
+            </RevealGroup>
           </div>
         </section>
       )}
@@ -425,10 +431,10 @@ export default async function DestinationPage({ params }: Props) {
       {/* FAQ */}
       {dest.faq && dest.faq.length > 0 && (
         <section className="py-16 bg-light-green">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-semibold text-brand mb-8 text-center">{t('faqHeading')}</h2>
             <FaqAccordion faqs={dest.faq} />
-          </div>
+          </Reveal>
         </section>
       )}
 
@@ -436,32 +442,35 @@ export default async function DestinationPage({ params }: Props) {
       {nearby.length > 0 && (
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-semibold text-brand mb-8">{t('alsoConsider')}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            <Reveal className="mb-8">
+              <h2 className="text-2xl font-semibold text-brand">{t('alsoConsider')}</h2>
+            </Reveal>
+            <RevealGroup className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {nearby.map((d) => (
-                <Link
-                  key={d.slug}
-                  href={`/destinations/${d.slug}`}
-                  className="group relative flex items-end rounded-2xl overflow-hidden min-h-[240px] block"
-                >
-                  <Image
-                    src={d.heroImage}
-                    alt={d.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand/95 via-brand/50 to-transparent" />
-                  <div className="relative z-10 p-6 w-full">
-                    <h3 className="font-bold text-white text-lg leading-snug mb-1">{d.name}</h3>
-                    <p className="text-white/70 text-xs leading-relaxed mb-3">{d.tagline}</p>
-                    <span className="flex items-center gap-1.5 text-white text-xs font-semibold group-hover:text-gold transition-colors">
-                      {tc('details')} <ArrowRight className="w-3 h-3" />
-                    </span>
-                  </div>
-                </Link>
+                <RevealItem key={d.slug}>
+                  <Link
+                    href={`/destinations/${d.slug}`}
+                    className="group relative flex items-end rounded-2xl overflow-hidden min-h-[240px] block"
+                  >
+                    <Image
+                      src={d.heroImage}
+                      alt={d.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 640px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand/95 via-brand/50 to-transparent" />
+                    <div className="relative z-10 p-6 w-full">
+                      <h3 className="font-bold text-white text-lg leading-snug mb-1">{d.name}</h3>
+                      <p className="text-white/70 text-xs leading-relaxed mb-3">{d.tagline}</p>
+                      <span className="flex items-center gap-1.5 text-white text-xs font-semibold group-hover:text-gold transition-colors">
+                        {tc('details')} <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </Link>
+                </RevealItem>
               ))}
-            </div>
+            </RevealGroup>
           </div>
         </section>
       )}
@@ -476,9 +485,9 @@ export default async function DestinationPage({ params }: Props) {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-brand/80" />
-        <div className="relative z-10 max-w-2xl mx-auto px-4 text-center">
+        <Reveal className="relative z-10 max-w-2xl mx-auto px-4 text-center">
           <h2 className="text-2xl font-semibold text-white mb-2">{t('planSafari', { name: dest.name.split(' ')[0] })}</h2>
-          <p className="text-white/70 text-sm mb-8">{t('planDesc')}</p>
+          <p className="text-white/70 text-base mb-8">{t('planDesc')}</p>
           <BookNowButton
             label={t('requestQuote')}
             packageName={dest.name}
@@ -486,7 +495,7 @@ export default async function DestinationPage({ params }: Props) {
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
           />
           <p className="text-white/70 text-xs mt-4">{t('noPaymentNote')}</p>
-        </div>
+        </Reveal>
       </section>
     </>
   )

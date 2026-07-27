@@ -17,6 +17,8 @@ import MachameMultiItinerary from '@/components/trekking/MachameMultiItinerary'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import { mlimaniPhoto, mlimaniCapKey } from '@/data/mlimaniGallery'
 import { buildAlternates } from '@/lib/site'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 interface RouteProps {
   params: Promise<{ locale?: string; route: string }>
@@ -371,7 +373,8 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-14">
 
             {/* ── Main content ──────────────────────────────────────── */}
-            <main className="lg:col-span-2 space-y-12">
+            <Reveal className="lg:col-span-2 space-y-12">
+            <main>
 
               {/* Overview / intro */}
               <div>
@@ -615,9 +618,11 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                 </>
               )}
             </main>
+            </Reveal>
 
             {/* ── Sidebar ───────────────────────────────────────────── */}
-            <aside className="lg:col-span-1">
+            <Reveal delay={0.15} className="lg:col-span-1">
+            <aside>
               <div className="sticky top-24 space-y-6">
 
                 {/* Book CTA card */}
@@ -685,6 +690,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
 
               </div>
             </aside>
+            </Reveal>
           </div>
         </div>
       )}
@@ -695,14 +701,14 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
       {/* Your Summit Kit */}
       <section className="py-20 bg-brand">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
+          <Reveal className="mb-12">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{t('summitKitEyebrow')}</span>
             <h2 className="text-3xl font-semibold text-white">{t('packHeading')}</h2>
             <p className="text-white/70 text-sm mt-2">{t('packSubtitle')}</p>
-          </div>
-          <div className="space-y-8">
+          </Reveal>
+          <RevealGroup className="space-y-8">
             {GEAR_CATEGORIES.map(({ label, items }) => (
-              <div key={label} className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8">
+              <RevealItem key={label} className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8">
                 <div className="sm:w-44 flex-shrink-0 border-l-2 border-gold pl-3">
                   <p className="text-white/60 text-xs font-bold uppercase tracking-widest leading-tight">{label}</p>
                 </div>
@@ -720,30 +726,30 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                     </div>
                   ))}
                 </div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
-          <div className="mt-12 bg-white/8 border border-white/15 rounded-2xl p-6 flex items-start gap-4">
+          </RevealGroup>
+          <Reveal className="mt-12 bg-white/8 border border-white/15 rounded-2xl p-6 flex items-start gap-4">
             <span className="text-xl flex-shrink-0">💡</span>
             <div>
               <p className="text-white font-semibold text-sm mb-1">{t('proTipLabel')}</p>
               <p className="text-white/75 text-sm leading-relaxed">{t('proTipText')}</p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* When to Summit */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{t('sumIntelEyebrow')}</span>
             <h2 className="text-3xl font-semibold text-brand">{t('whenToSummitHeading')}</h2>
             <p className="text-text-muted text-sm mt-3 max-w-lg mx-auto">{t('whenToSummitSubtitle')}</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {SEASONS.map(({ label, months, desc, bullets, chips, style, warning }) => (
-              <div
+              <RevealItem
                 key={label}
                 className={`rounded-3xl p-8 flex flex-col ${
                   style === 'prime'  ? 'bg-brand border-2 border-gold shadow-xl' :
@@ -780,18 +786,18 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                     <p className="text-xs text-amber-800 leading-relaxed">{warning}</p>
                   </div>
                 )}
-              </div>
+              </RevealItem>
             ))}
-          </div>
-          <div className="flex flex-wrap justify-center gap-2">
+          </RevealGroup>
+          <RevealGroup className="flex flex-wrap justify-center gap-2">
             {MONTH_CHIPS.map(({ name, type }) => (
-              <span key={name} className={`px-3 py-1 rounded-full text-xs font-semibold border ${
+              <RevealItem key={name} className={`px-3 py-1 rounded-full text-xs font-semibold border ${
                 type === 'prime' ? 'bg-gold/15 text-brand border-gold/40' :
                 type === 'good'  ? 'bg-brand/10 text-brand border-brand/20' :
                                    'bg-gray-100 text-gray-600 border-gray-200'
-              }`}>{name}</span>
+              }`}>{name}</RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
@@ -805,13 +811,13 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-brand/80" />
-        <div className="relative z-10 max-w-xl mx-auto px-4">
+        <Reveal className="relative z-10 max-w-xl mx-auto px-4">
           <h2 className="text-3xl font-semibold text-white mb-4">{t('ctaHeading')}</h2>
           <p className="text-white/70 mb-8">{t('ctaSubtitle')}</p>
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors">
             {t('ctaButton')} <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
+        </Reveal>
       </section>
     </>
   )

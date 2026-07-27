@@ -19,6 +19,8 @@ import { getExperiencePage, getExperiencePages, experiencePageSlugs } from '@/da
 import type { ExperienceSection, QuickFactIcon } from '@/data/experiencePages/types'
 import { routing } from '@/i18n/routing'
 import { SITE_URL, localeUrl, buildAlternates } from '@/lib/site'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
@@ -407,24 +409,25 @@ export default async function ExperienceDetailPage({ params }: Props) {
 
       {/* Stat strip — this experience's own quick facts, not site-wide stats */}
       <div className="bg-brand-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap gap-x-8 gap-y-2">
+        <RevealGroup className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap gap-x-8 gap-y-2">
           {page.quickFacts.map((fact) => {
             const Icon = QUICK_FACT_ICONS[fact.icon]
             return (
-              <div key={fact.text} className="flex items-center gap-2 text-sm text-white/80">
+              <RevealItem key={fact.text} className="flex items-center gap-2 text-sm text-white/80">
                 <Icon className="w-4 h-4 text-gold flex-shrink-0" />
                 {fact.text}
-              </div>
+              </RevealItem>
             )
           })}
-        </div>
+        </RevealGroup>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
 
           {/* Main content */}
-          <article className="lg:col-span-2 min-w-0">
+          <Reveal className="lg:col-span-2 min-w-0">
+          <article>
             <p className="text-xs font-semibold uppercase tracking-widest text-gold-label mb-6">{t('completeGuide')}</p>
             <div className="prose-spacing">
               {page.sections.map((section, idx) =>
@@ -452,9 +455,9 @@ export default async function ExperienceDetailPage({ params }: Props) {
             {/* Guest reviews */}
             <div className="mt-12">
               <h2 className="text-2xl md:text-3xl font-bold text-brand mb-5">{t('reviewsHeading')}</h2>
-              <div className="grid sm:grid-cols-2 gap-5">
+              <RevealGroup className="grid sm:grid-cols-2 gap-5">
                 {reviews.map((r) => (
-                  <div key={r.name} className="bg-white border border-gray-100 rounded-2xl p-6">
+                  <RevealItem key={r.name} className="bg-white border border-gray-100 rounded-2xl p-6">
                     <div className="flex gap-0.5 mb-3" aria-label={`${r.rating}/5`}>
                       {Array.from({ length: 5 }).map((_, i) => (
                         <Star key={i} size={14} className={i < r.rating ? 'fill-gold text-gold' : 'text-gray-200'} />
@@ -462,9 +465,9 @@ export default async function ExperienceDetailPage({ params }: Props) {
                     </div>
                     <p className="text-gray-700 italic leading-relaxed text-sm mb-4">&ldquo;{r.text}&rdquo;</p>
                     <p className="text-xs font-semibold text-gold-label">{r.name} — {r.trip}</p>
-                  </div>
+                  </RevealItem>
                 ))}
-              </div>
+              </RevealGroup>
             </div>
 
             {/* FAQ */}
@@ -487,9 +490,11 @@ export default async function ExperienceDetailPage({ params }: Props) {
               </div>
             )}
           </article>
+          </Reveal>
 
           {/* Sidebar */}
-          <aside className="space-y-5 lg:sticky lg:top-24">
+          <Reveal delay={0.15} className="space-y-5 lg:sticky lg:top-24">
+          <aside>
             {/* Price / enquiry card */}
             <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
               <p className="text-[11px] font-semibold uppercase tracking-wide text-gold-label">{t('fromLabel')}</p>
@@ -589,30 +594,35 @@ export default async function ExperienceDetailPage({ params }: Props) {
               </Link>
             </div>
           </aside>
+          </Reveal>
         </div>
 
         {/* Popular safaris with this experience */}
         {relatedPackages.length > 0 && (
           <section className="mt-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-brand mb-6">{t('popularSafarisHeading')}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Reveal className="mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-brand">{t('popularSafarisHeading')}</h2>
+            </Reveal>
+            <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedPackages.map((pkg) => (
-                <Link key={pkg.slug} href={`/safaris/${pkg.slug}`} className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
-                  <div className="relative h-44">
-                    <Image src={pkg.heroImage} alt={pkg.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 100vw, 33vw" />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-semibold text-brand leading-snug">{pkg.name}</h3>
-                    <p className="text-xs text-text-muted mt-1.5">
-                      {t('packageMeta', { days: pkg.duration, price: `$${pkg.priceFrom.toLocaleString()}` })}
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand mt-3 group-hover:gap-2 transition-all">
-                      {t('viewButton')} <ArrowRight size={14} className="text-gold" />
-                    </span>
-                  </div>
-                </Link>
+                <RevealItem key={pkg.slug}>
+                  <Link href={`/safaris/${pkg.slug}`} className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow block">
+                    <div className="relative h-44">
+                      <Image src={pkg.heroImage} alt={pkg.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 100vw, 33vw" />
+                    </div>
+                    <div className="p-5">
+                      <h3 className="font-semibold text-brand leading-snug">{pkg.name}</h3>
+                      <p className="text-xs text-text-muted mt-1.5">
+                        {t('packageMeta', { days: pkg.duration, price: `$${pkg.priceFrom.toLocaleString()}` })}
+                      </p>
+                      <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand mt-3 group-hover:gap-2 transition-all">
+                        {t('viewButton')} <ArrowRight size={14} className="text-gold" />
+                      </span>
+                    </div>
+                  </Link>
+                </RevealItem>
               ))}
-            </div>
+            </RevealGroup>
           </section>
         )}
       </div>
@@ -621,7 +631,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
       <section className="relative bg-brand-dark py-16 text-center px-4 overflow-hidden">
         <Image src={page.heroImage} alt="" fill className="object-cover" sizes="100vw" aria-hidden />
         <div className="absolute inset-0 bg-brand-dark/80" aria-hidden />
-        <div className="relative z-10">
+        <Reveal className="relative z-10">
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">{page.ctaHeading}</h2>
         <p className="text-white/70 max-w-xl mx-auto mb-7">{page.ctaText}</p>
         <div className="flex flex-wrap items-center justify-center gap-4">
@@ -636,7 +646,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
             {tc('contactUs')} <ArrowRight size={15} className="text-gold" />
           </Link>
         </div>
-        </div>
+        </Reveal>
       </section>
 
       <TrustBar />

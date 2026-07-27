@@ -5,6 +5,7 @@ import { buildAlternates } from '@/lib/site'
 import HeroSection from '@/components/home/HeroSection'
 import TrustBar from '@/components/home/TrustBar'
 import StatsRow from '@/components/home/StatsRow'
+import OurStorySection from '@/components/home/OurStorySection'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
 import PlanBuilderSection from '@/components/home/PlanBuilderSection'
 import TravelByMonth from '@/components/home/TravelByMonth'
@@ -59,6 +60,7 @@ export default async function HomePage({ params }: Props) {
       <TrustBar />
       <StatsRow />
       <MapSection />
+      <OurStorySection />
       <DestinationCards />
       <FeaturedPackages />
       <WhyChooseUs />

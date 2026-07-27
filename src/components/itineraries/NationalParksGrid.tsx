@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 interface Park {
   name: string
@@ -41,11 +43,13 @@ function CountryBlock({ label, parks, accent }: { label: string; parks: Park[]; 
         <span className={`w-1 h-8 rounded-full ${accent}`} />
         <h3 className="text-brand font-bold text-xl">{label}</h3>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+      <RevealGroup className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {parks.map((p) => (
-          <ParkCard key={p.name} park={p} />
+          <RevealItem key={p.name}>
+            <ParkCard park={p} />
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
     </div>
   )
 }
@@ -57,14 +61,14 @@ export default function NationalParksGrid({
     <section className="py-24 bg-light-green">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center mb-14">
+        <Reveal className="text-center mb-14">
           <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">
             {eyebrow}
           </span>
           <h2 className="text-brand font-semibold text-3xl lg:text-4xl mt-2">
             {heading}
           </h2>
-        </div>
+        </Reveal>
 
         <div className="space-y-14">
           <CountryBlock label={tanzaniaLabel} parks={tanzaniaParks} accent="bg-brand" />

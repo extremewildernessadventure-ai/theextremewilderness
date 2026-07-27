@@ -13,6 +13,8 @@ import NationalParksGrid from '@/components/itineraries/NationalParksGrid'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { buildAlternates } from '@/lib/site'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -184,7 +186,7 @@ export default async function SafarisPage({ params }: Props) {
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-x-8 gap-y-3 text-white/75 text-sm">
+          <div className="flex flex-wrap gap-x-8 gap-y-3 text-white/75 text-base">
             {tBullets.map((text) => (
               <span key={text} className="flex items-center gap-2">
                 <span className="text-gold text-[10px]">✦</span>
@@ -197,7 +199,7 @@ export default async function SafarisPage({ params }: Props) {
 
       {/* ── 2. STATS STRIP ───────────────────────────────────────────────────── */}
       <section className="bg-brand py-10 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             {tStats.map(({ value, label }) => (
               <div key={label} className="flex flex-col items-center gap-1">
@@ -206,14 +208,14 @@ export default async function SafarisPage({ params }: Props) {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* ── 2b. PLAN BUILDER ENTRY POINT ─────────────────────────────────────── */}
       <section className="py-14">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <PlanBuilderEntryCard />
-        </div>
+        </Reveal>
       </section>
 
       {/* ── 3. SIGNATURE EDITIONS ────────────────────────────────────────────── */}
@@ -221,92 +223,95 @@ export default async function SafarisPage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Section header */}
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
               <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('signatureEditionsEyebrow')}</span>
               <h2 className="font-semibold text-brand mt-2" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
                 {t('signatureEditionsHeading')}
               </h2>
             </div>
-            <p className="text-text-muted text-sm max-w-sm leading-relaxed sm:text-right">
+            <p className="text-text-muted text-base max-w-sm leading-relaxed sm:text-right">
               {t('signatureEditionsSubtitle')}
             </p>
-          </div>
+          </Reveal>
 
           {/* Featured card — full width */}
-          <Link
-            href={editions[0].slug}
-            className="group relative flex rounded-3xl overflow-hidden mb-4"
-            style={{ minHeight: 460 }}
-          >
-            <Image
-              src={editions[0].image}
-              alt={editions[0].label}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+          <Reveal className="mb-4">
+            <Link
+              href={editions[0].slug}
+              className="group relative flex rounded-3xl overflow-hidden"
+              style={{ minHeight: 460 }}
+            >
+              <Image
+                src={editions[0].image}
+                alt={editions[0].label}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
 
-            <div className="absolute top-6 left-6">
-              <span className="px-3 py-1 bg-gold text-brand text-xs font-bold uppercase rounded-full">
-                {editions[0].badge}
-              </span>
-            </div>
-
-            <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-              <div>
-                <p className="text-white/60 text-[10px] font-semibold uppercase tracking-widest mb-2">
-                  {editions[0].subtitle}
-                </p>
-                <h3 className="text-white text-3xl sm:text-4xl font-semibold mb-2">{editions[0].label}</h3>
-                <p className="text-white/65 text-sm">{editions[0].destinations}</p>
-              </div>
-              <div className="flex-shrink-0 sm:text-right">
-                <p className="text-white/70 text-xs mb-1">{editions[0].duration} {t('durationSuffix')}</p>
-                <p className="text-gold text-2xl font-bold">${editions[0].priceFrom.toLocaleString()}</p>
-                <span className="mt-3 inline-flex items-center gap-1.5 text-white/80 text-sm font-semibold group-hover:text-gold transition-colors">
-                  {t('exploreJourney')} <ArrowRight className="w-4 h-4" />
+              <div className="absolute top-6 left-6">
+                <span className="px-3 py-1 bg-gold text-brand text-xs font-bold uppercase rounded-full">
+                  {editions[0].badge}
                 </span>
               </div>
-            </div>
-          </Link>
+
+              <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                <div>
+                  <p className="text-white/60 text-[10px] font-semibold uppercase tracking-widest mb-2">
+                    {editions[0].subtitle}
+                  </p>
+                  <h3 className="text-white text-3xl sm:text-4xl font-semibold mb-2">{editions[0].label}</h3>
+                  <p className="text-white/65 text-base">{editions[0].destinations}</p>
+                </div>
+                <div className="flex-shrink-0 sm:text-right">
+                  <p className="text-white/70 text-xs mb-1">{editions[0].duration} {t('durationSuffix')}</p>
+                  <p className="text-gold text-2xl font-bold">${editions[0].priceFrom.toLocaleString()}</p>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-white/80 text-sm font-semibold group-hover:text-gold transition-colors">
+                    {t('exploreJourney')} <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </Reveal>
 
           {/* 3 smaller cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {editions.slice(1).map((ed) => (
-              <Link
-                key={ed.label}
-                href={ed.slug}
-                className="group relative flex rounded-2xl overflow-hidden"
-                style={{ minHeight: 340 }}
-              >
-                <Image
-                  src={ed.image}
-                  alt={ed.label}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <RevealItem key={ed.label}>
+                <Link
+                  href={ed.slug}
+                  className="group relative flex rounded-2xl overflow-hidden"
+                  style={{ minHeight: 340 }}
+                >
+                  <Image
+                    src={ed.image}
+                    alt={ed.label}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                <div className="absolute top-4 right-4">
-                  <span className="px-2.5 py-1 bg-gold text-brand text-[10px] font-bold uppercase rounded-full">
-                    {ed.badge}
-                  </span>
-                </div>
+                  <div className="absolute top-4 right-4">
+                    <span className="px-2.5 py-1 bg-gold text-brand text-[10px] font-bold uppercase rounded-full">
+                      {ed.badge}
+                    </span>
+                  </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <p className="text-white/70 text-[10px] font-semibold uppercase tracking-widest mb-1">{ed.duration}</p>
-                  <h3 className="text-white text-lg font-semibold mb-1">{ed.label}</h3>
-                  <p className="text-white/60 text-xs mb-3">{ed.destinations}</p>
-                  <span className="inline-flex items-center gap-1 text-gold text-sm font-semibold group-hover:gap-2 transition-all">
-                    {t('fromPrefix')} ${ed.priceFrom.toLocaleString()} <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </Link>
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <p className="text-white/70 text-[10px] font-semibold uppercase tracking-widest mb-1">{ed.duration}</p>
+                    <h3 className="text-white text-lg font-semibold mb-1">{ed.label}</h3>
+                    <p className="text-white/60 text-xs mb-3">{ed.destinations}</p>
+                    <span className="inline-flex items-center gap-1 text-gold text-sm font-semibold group-hover:gap-2 transition-all">
+                      {t('fromPrefix')} ${ed.priceFrom.toLocaleString()} <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
@@ -314,13 +319,13 @@ export default async function SafarisPage({ params }: Props) {
       <section className="bg-light-green py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-center mb-10">
+          <Reveal className="text-center mb-10">
             <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('completeCollectionEyebrow')}</span>
             <h2 className="text-brand font-semibold text-3xl lg:text-4xl mt-2">{t('completeCollectionHeading')}</h2>
-            <p className="text-text-muted mt-3 max-w-lg mx-auto text-sm leading-relaxed">
+            <p className="text-text-muted mt-3 max-w-lg mx-auto text-base leading-relaxed">
               {t('completeCollectionSubtitle')}
             </p>
-          </div>
+          </Reveal>
 
           <FilteredPackageGrid
             packages={[
@@ -388,17 +393,17 @@ export default async function SafarisPage({ params }: Props) {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <Reveal className="text-center mb-16">
             <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('processEyebrow')}</span>
             <h2 className="text-white font-semibold text-3xl lg:text-4xl mt-2">{t('processHeading')}</h2>
-            <p className="text-white/60 mt-3 max-w-md mx-auto text-sm leading-relaxed">
+            <p className="text-white/60 mt-3 max-w-md mx-auto text-base leading-relaxed">
               {t('processSubtitle')}
             </p>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+          <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
             {tSteps.map((step, i) => (
-              <div key={step.num} className="relative">
+              <RevealItem key={step.num} className="relative">
                 {/* Connector line */}
                 {i < tSteps.length - 1 && (
                   <div className="hidden lg:block absolute top-6 left-12 right-0 h-px bg-white/15" />
@@ -407,10 +412,10 @@ export default async function SafarisPage({ params }: Props) {
                   {step.num}
                 </div>
                 <h3 className="text-white font-semibold text-lg mb-3">{step.title}</h3>
-                <p className="text-white/75 text-sm leading-relaxed">{step.desc}</p>
-              </div>
+                <p className="text-white/75 text-base leading-relaxed">{step.desc}</p>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
 
           <div className="text-center mt-14">
             <BookNowButton
@@ -427,12 +432,12 @@ export default async function SafarisPage({ params }: Props) {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="text-center mb-14">
+          <Reveal className="text-center mb-14">
             <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('planningGuideEyebrow')}</span>
             <h2 className="text-brand font-semibold text-3xl lg:text-4xl mt-2">{t('planningGuideHeading')}</h2>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             {/* Card A — When to Go */}
             <div className="bg-light-green rounded-3xl p-8">
@@ -442,7 +447,7 @@ export default async function SafarisPage({ params }: Props) {
                 </div>
                 <h3 className="text-brand font-semibold text-lg">{t('whenToGoTitle')}</h3>
               </div>
-              <p className="text-text-muted text-sm leading-relaxed mb-6">
+              <p className="text-text-muted text-base leading-relaxed mb-6">
                 {t('whenToGoText')}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -478,7 +483,7 @@ export default async function SafarisPage({ params }: Props) {
               </div>
               <ul className="space-y-3">
                 {tIncluded.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/75 text-sm">
+                  <li key={item} className="flex items-start gap-3 text-white/75 text-base">
                     <span className="text-gold flex-shrink-0 mt-0.5">✓</span>
                     {item}
                   </li>
@@ -497,8 +502,8 @@ export default async function SafarisPage({ params }: Props) {
               <div className="space-y-5">
                 {tFaqs.map((faq) => (
                   <div key={faq.q} className="border-b border-brand/10 pb-5 last:border-0 last:pb-0">
-                    <p className="text-brand font-semibold text-sm mb-1.5">{faq.q}</p>
-                    <p className="text-text-muted text-sm leading-relaxed">{faq.a}</p>
+                    <p className="text-brand font-semibold text-base mb-1.5">{faq.q}</p>
+                    <p className="text-text-muted text-base leading-relaxed">{faq.a}</p>
                   </div>
                 ))}
               </div>
@@ -514,7 +519,7 @@ export default async function SafarisPage({ params }: Props) {
               </div>
               <ul className="space-y-4">
                 {tGettingHereTips.map((tip) => (
-                  <li key={tip} className="flex items-start gap-3 text-text-muted text-sm">
+                  <li key={tip} className="flex items-start gap-3 text-text-muted text-base">
                     <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-1.5" />
                     {tip}
                   </li>
@@ -522,19 +527,19 @@ export default async function SafarisPage({ params }: Props) {
               </ul>
             </div>
 
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── 6b. FAQ ──────────────────────────────────────────────────────────── */}
       <section className="py-24 bg-light-green">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('faqEyebrow')}</span>
             <h2 className="text-brand font-semibold text-3xl lg:text-4xl mt-2">{t('faqHeading')}</h2>
           </div>
           <FaqAccordion faqs={tFaqs} />
-        </div>
+        </Reveal>
       </section>
 
       {/* ── 7. CTA + NEWSLETTER ──────────────────────────────────────────────── */}
@@ -551,7 +556,7 @@ export default async function SafarisPage({ params }: Props) {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
             {/* Left — CTA */}
-            <div>
+            <Reveal>
               <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('ctaEyebrow')}</span>
               <h2 className="text-white font-semibold mt-2 mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
                 {t('ctaHeading')}<br />
@@ -567,16 +572,16 @@ export default async function SafarisPage({ params }: Props) {
                 className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg text-base"
               />
               <p className="text-white/35 text-xs mt-4">{t('noCommitment')}</p>
-            </div>
+            </Reveal>
 
             {/* Right — Newsletter */}
-            <div className="bg-white/[0.07] backdrop-blur-sm rounded-2xl border border-white/15 p-8">
+            <Reveal delay={0.15} className="bg-white/[0.07] backdrop-blur-sm rounded-2xl border border-white/15 p-8">
               <h3 className="text-white text-xl font-semibold mb-1">{t('newsletterHeading')}</h3>
-              <p className="text-white/75 text-sm mb-6 leading-relaxed">
+              <p className="text-white/75 text-base mb-6 leading-relaxed">
                 {t('newsletterText')}
               </p>
               <NewsletterForm dark={true} />
-            </div>
+            </Reveal>
 
           </div>
         </div>

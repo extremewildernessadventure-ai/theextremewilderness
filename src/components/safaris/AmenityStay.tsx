@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Wifi, Waves, Sparkles, UtensilsCrossed, Trees, Mountain, Bath, Leaf, Binoculars, BadgeCheck } from 'lucide-react'
 import type { TierStay } from '@/data/packages'
 
@@ -18,8 +19,12 @@ export default function AmenityStay({ label, stay }: { label: string; stay: Tier
   return (
     <div className="rounded-xl overflow-hidden border border-gray-100 bg-white">
       <div className="relative aspect-video w-full bg-light-green">
-        {/* eslint-disable-next-line @next/next/no-img-element -- temporary hotlinked placeholder from the property's own site, swap for next/image once real/licensed photos are hosted locally */}
-        <img src={stay.image} alt={stay.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+        {stay.image.startsWith('/') ? (
+          <Image src={stay.image} alt={stay.name} fill loading="lazy" className="object-cover" sizes="(max-width: 768px) 50vw, 256px" />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element -- a small number of properties' photos couldn't be fetched during rehosting (dead/unreachable source); kept as a plain <img> fallback until a working photo is sourced
+          <img src={stay.image} alt={stay.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+        )}
       </div>
       <div className="p-2.5">
         <p className="text-[10px] font-bold uppercase tracking-wide text-gold-label">{label}</p>

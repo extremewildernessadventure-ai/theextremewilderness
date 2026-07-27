@@ -13,6 +13,8 @@ import BookNowButton from '@/components/booking/BookNowButton'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import { mlimaniPhoto, mlimaniCapKey, MLIMANI_SHOWCASE } from '@/data/mlimaniGallery'
 import { buildAlternates } from '@/lib/site'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 const ROUTE_SLUGS = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const
 const ROUTE_BADGE_KEYS: Record<string, string | null> = {
@@ -246,74 +248,77 @@ export default async function TrekkingPage({ params }: Props) {
       {/* Why Kilimanjaro */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-12">
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-12">
             {[
               { value: t('stat1Value'), label: t('stat1Label'), sub: t('stat1Sub') },
               { value: t('stat2Value'), label: t('stat2Label'), sub: t('stat2Sub') },
               { value: t('stat3Value'), label: t('stat3Label'), sub: t('stat3Sub') },
             ].map(({ value, label, sub }) => (
-              <div key={label} className="p-6 bg-light-green rounded-2xl">
+              <RevealItem key={label} className="p-6 bg-light-green rounded-2xl">
                 <div className="text-3xl font-bold text-brand mb-1">{value}</div>
                 <div className="font-medium text-brand text-sm">{label}</div>
                 <div className="text-text-muted text-xs">{sub}</div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
 
-          <h2 className="text-2xl font-semibold text-brand mb-8">{t('chooseRouteHeading')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Reveal className="mb-8">
+            <h2 className="text-2xl font-semibold text-brand">{t('chooseRouteHeading')}</h2>
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {routes.map((route) => (
-              <Link
-                key={route.name}
-                href={route.href}
-                className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-0.5 flex flex-col"
-              >
-                <div className="relative h-44">
-                  <Image src={route.image} alt={route.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
-                  {route.badge && (
-                    <div className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-brand text-[10px] font-bold uppercase tracking-wider rounded-full">
-                      {route.badge}
+              <RevealItem key={route.name}>
+                <Link
+                  href={route.href}
+                  className="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-0.5 flex flex-col"
+                >
+                  <div className="relative h-44">
+                    <Image src={route.image} alt={route.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                    {route.badge && (
+                      <div className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-brand text-[10px] font-bold uppercase tracking-wider rounded-full">
+                        {route.badge}
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-5 flex flex-col flex-1">
+                    <div className="mb-3">
+                      <h3 className="font-semibold text-brand text-lg leading-tight">{route.name}</h3>
+                      <p className="text-white/75 text-xs font-medium mt-0.5">{route.nickname}</p>
                     </div>
-                  )}
-                </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <div className="mb-3">
-                    <h3 className="font-semibold text-brand text-lg leading-tight">{route.name}</h3>
-                    <p className="text-white/75 text-xs font-medium mt-0.5">{route.nickname}</p>
-                  </div>
-                  <p className="text-text-muted text-sm mb-4 leading-relaxed flex-1">{route.desc}</p>
-                  <div className="flex flex-wrap gap-3 text-xs text-text-muted mb-4">
-                    <span>{route.days}</span>
-                    <span>{route.difficulty}</span>
-                    <span>{route.successRate}{t('successSuffix')}</span>
-                  </div>
-                  <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                    <div>
-                      <span className="text-xs text-text-muted">{t('fromLabel')}</span>
-                      <span className="font-bold text-brand">${route.priceFrom.toLocaleString()}</span>
-                      <span className="text-xs text-text-muted">{t('personLabel')}</span>
+                    <p className="text-text-muted text-sm mb-4 leading-relaxed flex-1">{route.desc}</p>
+                    <div className="flex flex-wrap gap-3 text-xs text-text-muted mb-4">
+                      <span>{route.days}</span>
+                      <span>{route.difficulty}</span>
+                      <span>{route.successRate}{t('successSuffix')}</span>
                     </div>
-                    <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">
-                      {t('viewRoute')} <ArrowRight className="w-3.5 h-3.5" />
-                    </span>
+                    <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                      <div>
+                        <span className="text-xs text-text-muted">{t('fromLabel')}</span>
+                        <span className="font-bold text-brand">${route.priceFrom.toLocaleString()}</span>
+                        <span className="text-xs text-text-muted">{t('personLabel')}</span>
+                      </div>
+                      <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">
+                        {t('viewRoute')} <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* From the Mountain — real photos & footage from our own climbs */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
+          <Reveal className="mb-10">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('fromMountainEyebrow')}
             </span>
             <h2 className="text-2xl lg:text-3xl font-semibold text-brand">{t('fromMountainHeading')}</h2>
             <p className="text-text-muted mt-3 max-w-2xl text-sm leading-relaxed">{t('fromMountainSub')}</p>
-          </div>
+          </Reveal>
 
           <ExperienceGallery
             variant="portrait"
@@ -325,7 +330,7 @@ export default async function TrekkingPage({ params }: Props) {
 
       {/* Blog suggestion + PDF download row */}
       <section className="py-12 bg-light-green">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {featuredPost && (
               <BlogSuggestionCard
@@ -340,7 +345,7 @@ export default async function TrekkingPage({ params }: Props) {
             )}
             <KilimanjaroPdfCard />
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <KiliRouteMap />
@@ -349,18 +354,18 @@ export default async function TrekkingPage({ params }: Props) {
       <section className="py-20 bg-brand">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="mb-12">
+          <Reveal className="mb-12">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{t('summitKitEyebrow')}</span>
             <h2 className="text-3xl font-semibold text-white">{t('packHeading')}</h2>
             <p className="text-white/70 text-sm mt-2">
               {t('packSubtitle')}
             </p>
-          </div>
+          </Reveal>
 
           {/* Category rows */}
-          <div className="space-y-8">
+          <RevealGroup className="space-y-8">
             {GEAR_CATEGORIES.map(({ label, items }) => (
-              <div key={label} className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8">
+              <RevealItem key={label} className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8">
                 {/* Category label */}
                 <div className="sm:w-44 flex-shrink-0 border-l-2 border-gold pl-3">
                   <p className="text-white/60 text-xs font-bold uppercase tracking-widest leading-tight">{label}</p>
@@ -380,12 +385,12 @@ export default async function TrekkingPage({ params }: Props) {
                     </div>
                   ))}
                 </div>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
 
           {/* Pro tip */}
-          <div className="mt-12 bg-white/8 border border-white/15 rounded-2xl p-6 flex items-start gap-4">
+          <Reveal className="mt-12 bg-white/8 border border-white/15 rounded-2xl p-6 flex items-start gap-4">
             <span className="text-xl flex-shrink-0">💡</span>
             <div>
               <p className="text-white font-semibold text-sm mb-1">{t('proTipLabel')}</p>
@@ -393,7 +398,7 @@ export default async function TrekkingPage({ params }: Props) {
                 {t('proTipText')}
               </p>
             </div>
-          </div>
+          </Reveal>
 
         </div>
       </section>
@@ -401,18 +406,18 @@ export default async function TrekkingPage({ params }: Props) {
       {/* When to Summit */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{t('sumIntelEyebrow')}</span>
             <h2 className="text-3xl font-semibold text-brand">{t('whenToSummitHeading')}</h2>
             <p className="text-text-muted text-sm mt-3 max-w-lg mx-auto">
               {t('whenToSummitSubtitle')}
             </p>
-          </div>
+          </Reveal>
 
           {/* Three season cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {SEASONS.map(({ label, months, desc, bullets, chips, style, warning }) => (
-              <div
+              <RevealItem
                 key={label}
                 className={`rounded-3xl p-8 flex flex-col ${
                   style === 'prime'
@@ -464,29 +469,29 @@ export default async function TrekkingPage({ params }: Props) {
                     <p className="text-xs text-amber-800 leading-relaxed">{warning}</p>
                   </div>
                 )}
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
 
           {/* Quick-reference month strip */}
-          <div className="flex flex-wrap justify-center gap-2">
+          <RevealGroup className="flex flex-wrap justify-center gap-2">
             {MONTH_CHIPS.map(({ name, type }) => (
-              <span key={name} className={`px-3 py-1 rounded-full text-xs font-semibold border ${
+              <RevealItem key={name} className={`px-3 py-1 rounded-full text-xs font-semibold border ${
                 type === 'prime'
                   ? 'bg-gold/15 text-brand border-gold/40'
                   : type === 'good'
                   ? 'bg-brand/10 text-brand border-brand/20'
                   : 'bg-gray-100 text-gray-600 border-gray-200'
-              }`}>{name}</span>
+              }`}>{name}</RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Expedition Notes */}
       <section className="py-20 bg-light-green">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+          <Reveal className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
             <div>
               <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{t('expeditionEyebrow')}</span>
               <h2 className="text-3xl font-semibold text-brand">{t('beforeClimbHeading')}</h2>
@@ -497,69 +502,72 @@ export default async function TrekkingPage({ params }: Props) {
             <Link href="/blog" className="flex-shrink-0 flex items-center gap-1.5 text-brand font-semibold text-sm hover:text-gold transition-colors">
               {t('browseAllArticles')} <ArrowRight className="w-4 h-4" />
             </Link>
-          </div>
+          </Reveal>
 
           {/* Featured article — full-width hero card */}
-          <Link
-            href={ARTICLES[0].href}
-            className="group relative rounded-3xl overflow-hidden flex items-end mb-6 block"
-            style={{ minHeight: 360 }}
-          >
-            <Image
-              src={ARTICLES[0].image}
-              alt={ARTICLES[0].title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-              sizes="100vw"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/40 to-transparent" />
-            <div className="relative z-10 p-8 md:p-10">
-              <span className="inline-block px-3 py-1 bg-gold text-brand text-[10px] font-bold uppercase tracking-widest rounded-full mb-4">
-                {ARTICLES[0].category}
-              </span>
-              <h3 className="text-white font-bold text-2xl md:text-3xl leading-tight mb-3 max-w-2xl">
-                {ARTICLES[0].title}
-              </h3>
-              <p className="text-white/65 text-sm mb-5 max-w-xl hidden sm:block">{ARTICLES[0].desc}</p>
-              <span className="inline-flex items-center gap-2 text-gold font-semibold text-sm group-hover:gap-3 transition-all">
-                {t('readTheGuide')} <ArrowRight className="w-4 h-4" />
-              </span>
-            </div>
-          </Link>
+          <Reveal className="mb-6">
+            <Link
+              href={ARTICLES[0].href}
+              className="group relative rounded-3xl overflow-hidden flex items-end block"
+              style={{ minHeight: 360 }}
+            >
+              <Image
+                src={ARTICLES[0].image}
+                alt={ARTICLES[0].title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="100vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/40 to-transparent" />
+              <div className="relative z-10 p-8 md:p-10">
+                <span className="inline-block px-3 py-1 bg-gold text-brand text-[10px] font-bold uppercase tracking-widest rounded-full mb-4">
+                  {ARTICLES[0].category}
+                </span>
+                <h3 className="text-white font-bold text-2xl md:text-3xl leading-tight mb-3 max-w-2xl">
+                  {ARTICLES[0].title}
+                </h3>
+                <p className="text-white/65 text-sm mb-5 max-w-xl hidden sm:block">{ARTICLES[0].desc}</p>
+                <span className="inline-flex items-center gap-2 text-gold font-semibold text-sm group-hover:gap-3 transition-all">
+                  {t('readTheGuide')} <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
+          </Reveal>
 
           {/* Three supporting cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {ARTICLES.slice(1).map(({ category, title, readTime, href, image }) => (
-              <Link
-                key={title}
-                href={href}
-                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg hover:border-brand/20 transition-all flex flex-col"
-              >
-                <div className="relative h-44 overflow-hidden">
-                  <Image
-                    src={image}
-                    alt={title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <span className="inline-block px-2.5 py-0.5 bg-gold/10 text-gold-label text-[10px] font-bold uppercase tracking-wider rounded-full mb-3 self-start">
-                    {category}
-                  </span>
-                  <h3 className="font-bold text-brand text-sm leading-snug mb-auto">{title}</h3>
-                  <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
-                    <span className="text-xs text-text-muted">{readTime}</span>
-                    <span className="flex items-center gap-1 text-brand text-xs font-semibold group-hover:text-gold transition-colors">
-                      {t('readLabel')} <ArrowRight className="w-3 h-3" />
-                    </span>
+              <RevealItem key={title}>
+                <Link
+                  href={href}
+                  className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg hover:border-brand/20 transition-all flex flex-col"
+                >
+                  <div className="relative h-44 overflow-hidden">
+                    <Image
+                      src={image}
+                      alt={title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
                   </div>
-                </div>
-              </Link>
+                  <div className="p-5 flex flex-col flex-1">
+                    <span className="inline-block px-2.5 py-0.5 bg-gold/10 text-gold-label text-[10px] font-bold uppercase tracking-wider rounded-full mb-3 self-start">
+                      {category}
+                    </span>
+                    <h3 className="font-bold text-brand text-sm leading-snug mb-auto">{title}</h3>
+                    <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
+                      <span className="text-xs text-text-muted">{readTime}</span>
+                      <span className="flex items-center gap-1 text-brand text-xs font-semibold group-hover:text-gold transition-colors">
+                        {t('readLabel')} <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
@@ -573,13 +581,13 @@ export default async function TrekkingPage({ params }: Props) {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-brand/80" />
-        <div className="relative z-10 max-w-xl mx-auto px-4">
+        <Reveal className="relative z-10 max-w-xl mx-auto px-4">
           <h2 className="text-3xl font-semibold text-white mb-4">{t('ctaHeading')}</h2>
           <p className="text-white/70 mb-8">{t('ctaSubtitle')}</p>
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors">
             {t('ctaButton')} <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
+        </Reveal>
       </section>
     </>
   )

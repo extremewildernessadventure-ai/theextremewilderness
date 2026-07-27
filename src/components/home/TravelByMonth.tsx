@@ -1,4 +1,6 @@
 import { useTranslations } from 'next-intl'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 function ratingLabel(r: number, t: (key: string) => string) {
   if (r >= 5) return t('peak')
@@ -64,7 +66,7 @@ export default function TravelByMonth() {
     <section className="py-20 bg-light-green">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
             {t('planTiming')}
           </span>
@@ -74,14 +76,14 @@ export default function TravelByMonth() {
           <p className="text-text-muted max-w-xl mx-auto text-sm">
             {t('timingDesc')}
           </p>
-        </div>
+        </Reveal>
 
         {/* Month grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-12">
+        <RevealGroup className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-12">
           {months.map((month, i) => {
             const isCurrentMonth = i === currentMonthIndex
             return (
-              <div key={month.name}>
+              <RevealItem key={month.name}>
                 <div className="relative">
                   {isCurrentMonth && (
                     <div className="absolute -inset-0.5 rounded-xl ring-2 ring-gold animate-pulse motion-reduce:animate-none pointer-events-none" />
@@ -132,13 +134,13 @@ export default function TravelByMonth() {
                     </span>
                   </div>
                 )}
-              </div>
+              </RevealItem>
             )
           })}
-        </div>
+        </RevealGroup>
 
         {/* Trackers — side by side on larger screens */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
           {/* Great Migration tracker */}
           <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
@@ -266,7 +268,7 @@ export default function TravelByMonth() {
             </div>
           </div>
 
-        </div>
+        </Reveal>
       </div>
     </section>
   )

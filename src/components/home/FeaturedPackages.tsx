@@ -7,6 +7,8 @@ import { useTranslations } from 'next-intl'
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import { packages } from '@/data/packages'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 function PackageCard({ pkg, tc }: { pkg: (typeof packages)[number]; tc: ReturnType<typeof useTranslations> }) {
   return (
@@ -121,7 +123,7 @@ export default function FeaturedPackages() {
   return (
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-10">
+        <Reveal className="flex items-end justify-between mb-10">
           <div>
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('safariPackages')}
@@ -136,10 +138,10 @@ export default function FeaturedPackages() {
           >
             {tc('allPackages')} <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
+        </Reveal>
 
         {/* Mobile carousel */}
-        <div className="md:hidden">
+        <Reveal className="md:hidden">
           <div
             className="overflow-hidden rounded-2xl"
             onTouchStart={onTouchStart}
@@ -172,14 +174,16 @@ export default function FeaturedPackages() {
               </button>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* Desktop grid */}
-        <div className="hidden md:grid md:grid-cols-2 gap-6">
+        <RevealGroup className="hidden md:grid md:grid-cols-2 gap-6">
           {featured.map((pkg) => (
-            <PackageCard key={pkg.slug} pkg={pkg} tc={tc} />
+            <RevealItem key={pkg.slug}>
+              <PackageCard pkg={pkg} tc={tc} />
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
 
         <div className="text-center mt-8">
           <Link

@@ -5,6 +5,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Mail, Phone, MapPin, Star, Award, MessageCircle } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
 import { buildAlternates } from '@/lib/site'
+import Reveal from '@/components/motion/Reveal'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -98,7 +99,7 @@ export default async function ContactPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-10 items-start">
 
             {/* ── Left column ─────────────────────────────────────────────── */}
-            <div className="space-y-6 lg:sticky lg:top-24">
+            <Reveal className="space-y-6 lg:sticky lg:top-24">
 
               {/* Company info */}
               <div>
@@ -162,12 +163,12 @@ export default async function ContactPage({ params }: Props) {
                 <p className="text-brand font-bold text-sm">{t('tripAdvisorRating')}</p>
                 <p className="text-text-muted text-xs mt-0.5">{t('tripAdvisorSub')}</p>
               </div>
-            </div>
+            </Reveal>
 
             {/* ── Right column — form ─────────────────────────────────────── */}
-            <div>
+            <Reveal delay={0.15}>
               <ContactForm />
-            </div>
+            </Reveal>
 
           </div>
         </div>

@@ -8,6 +8,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { buildAlternates } from '@/lib/site'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 const CIRCUIT_FEATURED: Record<string, string> = {
   northern: 'serengeti',
@@ -226,7 +228,7 @@ export default async function DestinationsPage({ params }: Props) {
 
       {/* Stats strip */}
       <section className="bg-brand py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3 lg:grid-cols-6 gap-6 text-center">
             {tanzaniaStats.map((item, i) => (
               <div key={item.stat} className="flex flex-col items-center gap-1">
@@ -235,12 +237,12 @@ export default async function DestinationsPage({ params }: Props) {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Intro */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('introEyebrow')}
@@ -252,12 +254,12 @@ export default async function DestinationsPage({ params }: Props) {
               {t('introBody')}
             </p>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* 2×2 Overview Grid */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
             {/* Box 1 — Three Circuits */}
@@ -366,7 +368,7 @@ export default async function DestinationsPage({ params }: Props) {
             </div>
 
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Three circuits */}
@@ -374,18 +376,18 @@ export default async function DestinationsPage({ params }: Props) {
         <section key={circuit.id} id={circuit.id} className="py-20 bg-light-green scroll-mt-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Circuit header badge */}
-            <div className={`inline-flex items-center gap-3 rounded-2xl border px-5 py-3 mb-10 ${circuit.color}`}>
+            <Reveal className={`inline-flex items-center gap-3 rounded-2xl border px-5 py-3 mb-10 ${circuit.color}`}>
               <div>
                 <p className={`text-xs font-bold uppercase tracking-widest ${circuit.labelColor}`}>{circuit.label}</p>
                 <p className="text-brand/70 text-sm">{circuit.tagline}</p>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {circuit.destinations.map((dest) => {
                 const isFeatured = dest.slug === CIRCUIT_FEATURED[circuit.id]
                 return (
-                  <div key={dest.id} className={isFeatured ? 'sm:col-span-2' : ''}>
+                  <RevealItem key={dest.id} className={isFeatured ? 'sm:col-span-2' : ''}>
                     <DestinationCard
                       slug={dest.slug}
                       name={dest.name}
@@ -399,10 +401,10 @@ export default async function DestinationsPage({ params }: Props) {
                       featured={isFeatured}
                       labels={{ from: tc('from'), featuredBadge: tc('featuredDestination') }}
                     />
-                  </div>
+                  </RevealItem>
                 )
               })}
-            </div>
+            </RevealGroup>
           </div>
         </section>
       ))}
@@ -410,65 +412,66 @@ export default async function DestinationsPage({ params }: Props) {
       {/* Zanzibar + Arusha extras */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('extrasEyebrow')}
             </span>
             <h2 className="text-3xl font-semibold text-brand mb-3">{t('extrasHeading')}</h2>
-            <p className="text-text-muted max-w-lg mx-auto text-sm">
+            <p className="text-text-muted max-w-lg mx-auto text-base">
               {t('extrasSubtitle')}
             </p>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-6">
+          </Reveal>
+          <RevealGroup className="grid sm:grid-cols-2 gap-6">
             {extras.map((extra) => (
-              <DestinationCard
-                key={extra.id}
-                slug={extra.slug}
-                name={extra.name}
-                regionLabel={extra.regionLabel}
-                description={extra.firstParagraph}
-                image={extra.image}
-                wildlife={extra.wildlife}
-                bestTime=""
-                experiencesLabel={tc('experiencesCount', { count: extra.packagesCount })}
-                priceFrom={extra.priceFrom}
-                labels={{ from: tc('from'), featuredBadge: tc('featuredDestination') }}
-              />
+              <RevealItem key={extra.id}>
+                <DestinationCard
+                  slug={extra.slug}
+                  name={extra.name}
+                  regionLabel={extra.regionLabel}
+                  description={extra.firstParagraph}
+                  image={extra.image}
+                  wildlife={extra.wildlife}
+                  bestTime=""
+                  experiencesLabel={tc('experiencesCount', { count: extra.packagesCount })}
+                  priceFrom={extra.priceFrom}
+                  labels={{ from: tc('from'), featuredBadge: tc('featuredDestination') }}
+                />
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Seasonal guide */}
       <section className="py-20 bg-light-green">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <Reveal className="text-center mb-12">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('seasonEyebrow')}
             </span>
             <h2 className="text-3xl font-semibold text-brand mb-3">{t('seasonHeading')}</h2>
-            <p className="text-text-muted max-w-lg mx-auto text-sm">
+            <p className="text-text-muted max-w-lg mx-auto text-base">
               {t('seasonSubtitle')}
             </p>
-          </div>
+          </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+          <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             {seasons.map((s, i) => (
-              <div key={s.months} className={`rounded-2xl border p-5 ${s.color}`}>
+              <RevealItem key={s.months} className={`rounded-2xl border p-5 ${s.color}`}>
                 <p className="font-bold text-brand text-base mb-1">{s.months}</p>
                 <p className={`text-xs font-semibold uppercase tracking-wide mb-3 ${s.labelColor}`}>{seasonLabels[i]}</p>
-                <p className="text-xs text-text-muted leading-relaxed">{s.tip}</p>
-              </div>
+                <p className="text-base text-text-muted leading-relaxed">{s.tip}</p>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
 
           {/* Migration callout */}
-          <div className="bg-brand rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row items-start lg:items-center gap-6">
+          <Reveal className="bg-brand rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row items-start lg:items-center gap-6">
             <div className="flex-1">
               <h3 className="text-white font-bold text-lg mb-2">
                 {t('migrationHeading')}
               </h3>
-              <p className="text-white/70 text-sm leading-relaxed">
+              <p className="text-white/70 text-base leading-relaxed">
                 {t('migrationDesc')}
               </p>
             </div>
@@ -479,7 +482,7 @@ export default async function DestinationsPage({ params }: Props) {
               className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors whitespace-nowrap"
               arrow
             />
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -495,7 +498,7 @@ export default async function DestinationsPage({ params }: Props) {
                 backgroundPosition: 'center',
               }}
             />
-            <div className="relative z-10">
+            <Reveal className="relative z-10">
               <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
                 {t('ctaEyebrow')}
               </span>
@@ -520,7 +523,7 @@ export default async function DestinationsPage({ params }: Props) {
                   {t('exploreKenyaToo')} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

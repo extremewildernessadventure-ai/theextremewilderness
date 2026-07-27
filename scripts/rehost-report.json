@@ -1,0 +1,423 @@
+[
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2021/09/Kitela-Lodge-Tanzania-Ngorongoro-Conservation-Area-pool-etc.jpg",
+    "name": "Kitela Lodge",
+    "localPath": "/images/lodges/kitela-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.gibbsfarm.com/wp-content/uploads/Gibbs-Farm-a-sense-of-safari-1024x683.jpg",
+    "name": "Gibb's Farm",
+    "localPath": "/images/lodges/gibb-s-farm.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://twctanzania.com/wp-content/uploads/2023/10/Tloma-Lodge-Karatu-scaled.jpg",
+    "name": "Tloma Lodge",
+    "localPath": "/images/lodges/tloma-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.elewanacollection.com/images/acl/ArushaCoffeeLodge---Restaurant-Exterior.jpg",
+    "name": "Arusha Coffee Lodge",
+    "localPath": "/images/lodges/arusha-coffee-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://twctanzania.com/wp-content/uploads/2023/10/AMP_7196.jpg",
+    "name": "Kahawa House",
+    "localPath": "/images/lodges/kahawa-house.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://serengetiqueenscamp.com/wp-content/uploads/2025/02/queen-camp_1.jpg",
+    "name": "Serengeti Queens Camp",
+    "localPath": "/images/lodges/serengeti-queens-camp.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.royalzanzibar.com/resourcefiles/gallery-images/layer-1.jpg",
+    "name": "Royal Zanzibar",
+    "localPath": "/images/lodges/royal-zanzibar.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://twctanzania.com/wp-content/uploads/2023/10/TWC2018-724-scaled.jpg",
+    "name": "Kubukubu Tented Lodge",
+    "localPath": "/images/lodges/kubukubu-tented-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/b9/13/a9/gran-melia-arusha.jpg",
+    "name": "Gran Melia, Arusha",
+    "localPath": "/images/lodges/gran-melia-arusha.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://cdn.sanity.io/images/s82b6z49/production/d9e4c8b44de77a5fb76e67f8d2e07328bfb0a009-1600x900.webp?w=900&q=70&auto=format",
+    "name": "Four Seasons Safari Lodge Serengeti",
+    "localPath": "/images/lodges/four-seasons-safari-lodge-serengeti.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://static.guestcentric.net/bin/ebb27fe9658a6e14/kilindi-zanzibar-bannersunsetpoolwide.webp",
+    "name": "Kilindi Zanzibar",
+    "localPath": "/images/lodges/kilindi-zanzibar.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/TheManoratNgorongoro-Exterior-MainEntrance.jpg",
+    "name": "The Manor at Ngorongoro",
+    "localPath": "/images/lodges/the-manor-at-ngorongoro.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://images.squarespace-cdn.com/content/v1/599f19dbbe6594169d40b462/1642068720195-0BOK8W146P8H8XR1JJCY/ATM_0220.JPG",
+    "name": "Nungwi Dreams By Mantis",
+    "localPath": "/images/lodges/nungwi-dreams-by-mantis.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://images.squarespace-cdn.com/content/v1/66b4a654ca2641199f9a1847/e0e523f8-d6e3-468f-9e38-63b75f103365/Raimonds-4_Credit-ASI-HRVPROD.jpg",
+    "name": "Zuri Kilima Siri",
+    "localPath": "/images/lodges/zuri-kilima-siri.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.africatourisminfo.com/wp-content/uploads/2025/01/Nungi-Beach.jpg",
+    "name": "Makofi Guest House",
+    "localPath": "/images/lodges/makofi-guest-house.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.siringit.co.tz/swfiles/files/Siringit-SSC-Camp-view-2025-778-1080x720.webp",
+    "name": "Siringiti Serengeti Camp",
+    "localPath": "/images/lodges/siringiti-serengeti-camp.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.siringit.co.tz/swfiles/files/Siringit-Villa-Living-2025-668-1920x1280.webp",
+    "name": "Siringiti Arusha Villa",
+    "localPath": "/images/lodges/siringiti-arusha-villa.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/banner-SerenaNgorongoro-190-1600x630.jpg",
+    "name": "Ngorongoro Serena Safari Lodge",
+    "localPath": "/images/lodges/ngorongoro-serena-safari-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/35/54/da/ngorongoro-house-living.jpg?w=700&h=-1&s=1",
+    "name": "Ngorongoro Lodge, The Rim Room (Meliá Collection)",
+    "localPath": "/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://twctanzania.com/wp-content/uploads/2023/10/fotos-vacaciones-004-2-scaled.jpg",
+    "name": "Ndutu Kati Kati Tented Camp",
+    "localPath": "/images/lodges/ndutu-kati-kati-tented-camp.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.siringit.co.tz/swfiles/files/1920x1280_Siringit2021_105.jpg?nc=1782890969",
+    "name": "Siringit Migration Camp, Ndutu Site",
+    "localPath": "/images/lodges/siringit-migration-camp-ndutu-site.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.lemalacamps.com/app/uploads/2021/09/Lemala-Mpingo-Ridge-35-scaled.jpg",
+    "name": "Lemala Mpingo Ridge",
+    "localPath": "/images/lodges/lemala-mpingo-ridge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://twctanzania.com/wp-content/uploads/2023/10/TWC_1433.jpg",
+    "name": "Kambi ya Tembo",
+    "localPath": "/images/lodges/kambi-ya-tembo.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.lemalacamps.com/app/uploads/2021/09/Lemala-Nanyukie-22-scaled-e1633857681308.jpg",
+    "name": "Lemala Nanyukie",
+    "localPath": "/images/lodges/lemala-nanyukie.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/Lake_Manyara_Tree_Lodge_lounger-area.jpg",
+    "name": "andBeyond Lake Manyara Tree Lodge",
+    "localPath": "/images/lodges/andbeyond-lake-manyara-tree-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.lemalacamps.com/app/uploads/2024/03/Lemala-Osonjoi-Lodge-2-scaled.jpg",
+    "name": "Lemala Osonjoi",
+    "localPath": "/images/lodges/lemala-osonjoi.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://karibu2024.b-cdn.net/wp-content/uploads/2025/06/Tarangire-Elephant-Springs_General_1-scaled.jpg",
+    "name": "Elephant Springs",
+    "localPath": "/images/lodges/elephant-springs.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://karibu2024.b-cdn.net/wp-content/uploads/2026/03/GGM08384-scaled.jpg",
+    "name": "Ngorongoro Lion's Paw",
+    "localPath": "/images/lodges/ngorongoro-lion-s-paw.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/bf/0e/3d/radisson-blu-hotel-convention.jpg?w=900&h=500&s=1",
+    "name": "Radisson Blu Hotel & Convention Centre, Kigali",
+    "localPath": "/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://twctanzania.com/wp-content/uploads/2023/10/DJI_0223-scaled.jpg",
+    "name": "Ngorongoro Farm House",
+    "localPath": "/images/lodges/ngorongoro-farm-house.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://twctanzania.com/wp-content/uploads/2023/10/Masek-Tented-Lodge-scaled.jpg",
+    "name": "Masek Tented Lodge",
+    "localPath": "/images/lodges/masek-tented-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://image-tc.galaxy.tf/wijpeg-8ayao0270cq4w3m7caipermwc/drone-picture.jpg?width=400",
+    "name": "Ubumwe Grande Hotel",
+    "localPath": "/images/lodges/ubumwe-grande-hotel.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.insidevolcanoesnationalpark.com/wp-content/uploads/2020/04/kinigi-guest-house-rwanda.jpg",
+    "name": "Kinigi Guest House",
+    "localPath": "/images/lodges/kinigi-guest-house.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://turkanawildlifesafaris.com/wp-content/uploads/2024/12/discover-rwanda-youth-hostel-kigali-044.jpg",
+    "name": "Discover Rwanda Youth Hostel",
+    "localPath": "/images/lodges/discover-rwanda-youth-hostel.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://twctanzania.com/wp-content/uploads/2023/08/AMP_9430.jpg",
+    "name": "Mara Mara Tented Lodge",
+    "localPath": "/images/lodges/mara-mara-tented-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/ruzizi-tented-camp-12290-1920x630.jpg",
+    "name": "Ruzizi Tented Lodge",
+    "localPath": "/images/lodges/ruzizi-tented-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/10/2032235048NH_OO_Exteriors_House_Morning_Sun_0892_MASTER.jpg",
+    "name": "One&Only Nyungwe House",
+    "localPath": "/images/lodges/one-only-nyungwe-house.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.africanmeccasafaris.com/wp-content/uploads/kisimangedacamp1.jpg",
+    "name": "Kisima Ngeda Tented Camp",
+    "localPath": "/images/lodges/kisima-ngeda-tented-camp.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/HemingwaysNairobi-Exterior-ArialView.jpg",
+    "name": "Hemingways Nairobi",
+    "localPath": "/images/lodges/hemingways-nairobi.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/10/OlTukaiLodge-edited1.jpg",
+    "name": "Ol Tukai Lodge",
+    "localPath": "/images/lodges/ol-tukai-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/lake-kivu-serena-hotel-12133-1920x630.jpg",
+    "name": "Lake Kivu Serena Hotel",
+    "localPath": "/images/lodges/lake-kivu-serena-hotel.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/Kichwa-classic-tent-andBeyond-Kichwa-Tembo.jpg",
+    "name": "Kichwa Tembo Camp",
+    "localPath": "/images/lodges/kichwa-tembo-camp.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/sweetwaters-serena-camp-2196-1920x630.jpg",
+    "name": "Sweetwaters Serena Camp",
+    "localPath": "/images/lodges/sweetwaters-serena-camp.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.wildernessdestinations.com/media/ljrloqid/bisate-wilderness-villa.jpg",
+    "name": "Bisate Lodge",
+    "localPath": "/images/lodges/bisate-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/samburu-intrepids-2185-1920x630.jpg",
+    "name": "Samburu Intrepids",
+    "localPath": "/images/lodges/samburu-intrepids.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/rufiji-river-camp-3363-1920x630.jpg",
+    "name": "Rufiji River Camp",
+    "localPath": "/images/lodges/rufiji-river-camp.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://b-cdn.springnest.com/media/img/wu/ruaha_foxes_caseypratt_loveafrica-5225e2dc7de.jpg?aspect_ratio=672%3A415&width=1344",
+    "name": "Ruaha River Lodge",
+    "localPath": "/images/lodges/ruaha-river-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2023/06/Tawi-Drone-006.jpg",
+    "name": "Tawi Lodge",
+    "localPath": "/images/lodges/tawi-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://twctanzania.com/wp-content/uploads/2023/10/Burunge-Tented-Lodge-Tarangire_1-scaled.jpg",
+    "name": "Lake Burunge Baobab Tented Lodge",
+    "localPath": "/images/lodges/lake-burunge-baobab-tented-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/Governors_Camp_tent_exterior.jpg",
+    "name": "Governors Camp",
+    "localPath": "/images/lodges/governors-camp.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/Tent-veranda-andBeyond-Serengeti-Under-Canvas.jpg",
+    "name": "&Beyond Serengeti Under Canvas",
+    "localPath": "/images/lodges/beyond-serengeti-under-canvas.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://static.wixstatic.com/media/806f4e_b2f92832be0d45a794b880d2d1ff7bd9~mv2.jpg",
+    "name": "Mikumi Wildlife Lodge",
+    "localPath": "/images/lodges/mikumi-wildlife-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.exploretanzania.nl/wp-content/uploads/2019/05/accommodatie-udzungwa-hondo-hondo00032-1920x1080.jpg",
+    "name": "Hondo Hondo Udzungwa Forest Camp",
+    "localPath": "/images/lodges/hondo-hondo-udzungwa-forest-camp.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://static.wixstatic.com/media/d56c8d_07f5f6800a1c404ca6ba2bb5fcb46b90~mv2_d_3000_1996_s_2.jpg",
+    "name": "Kirurumu Manyara Lodge",
+    "localPath": "/images/lodges/kirurumu-manyara-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/Sand_Rivers_Selous_Exterior.jpg",
+    "name": "Sand Rivers Selous",
+    "localPath": "/images/lodges/sand-rivers-selous.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://ekahotel.com/wp-content/uploads/2022/03/01-eka-hotel-nairobi-mobile.jpg",
+    "name": "Eka Hotel",
+    "localPath": "/images/lodges/eka-hotel.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.sopalodges.com/images/masai-mara/pool-and-lodge.jpg",
+    "name": "Masai Mara Sopa Lodge",
+    "localPath": "/images/lodges/masai-mara-sopa-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://wa-uploads.profitroom.com/lakenaivashasoparesort/1920x1080/17410102886499_lakenaivashasoparesort31.jpg",
+    "name": "Lake Naivasha Sopa Resort",
+    "localPath": "/images/lodges/lake-naivasha-sopa-resort.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.sopalodges.com/images/nakuru/room-balcony.jpg",
+    "name": "Lake Nakuru Sopa Lodge",
+    "localPath": "/images/lodges/lake-nakuru-sopa-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/Sarova-Lion-Hill-Game-Lodge1.jpg",
+    "name": "Sarova Lion Hill Game Lodge",
+    "localPath": "/images/lodges/sarova-lion-hill-game-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://static.guestcentric.net/bin/153019f4f24ce8ca/great-rift-valley-lodge-and-golf-resort-banners20201009_1721462.jpg",
+    "name": "Great Rift Valley Lodge & Golf Resort",
+    "localPath": "/images/lodges/great-rift-valley-lodge-golf-resort.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/Mara-Serena-Safari-Lodge1.jpg",
+    "name": "Mara Serena Safari Lodge",
+    "localPath": "/images/lodges/mara-serena-safari-lodge.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.go2africa.com/wp-content/uploads/2017/08/Angama-Mara-North-Camp-at-sunset_up6m7q.jpg",
+    "name": "Angama Mara",
+    "localPath": "/images/lodges/angama-mara.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://image-tc.galaxy.tf/wijpeg-7vnz50wnjlyv046qq03q9qllo/lush-grounds-lake-elmenteita.jpg",
+    "name": "Lake Elementaita Serena Camp",
+    "localPath": "/images/lodges/lake-elementaita-serena-camp.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.enashipai.com/wp-content/uploads/2026/04/Presidential-Villa.jpg",
+    "name": "Enashipai Resort & Spa",
+    "localPath": "/images/lodges/enashipai-resort-spa.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://d3dxr2unqqadn0.cloudfront.net/media/Plains-Majesty.jpg",
+    "name": "Serengeti Explorer",
+    "localPath": "/images/lodges/serengeti-explorer.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://www.elewanacollection.com/images/ttt/Tarangire-Treetops---accommodation---exterior-view-of-Treehouse-Suite.jpg",
+    "name": "Tarangire Treetops",
+    "localPath": "/images/lodges/tarangire-treetops.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://lapalmehotel.net/wp-content/uploads/sites/4/2023/08/lapalme-main-v2-jpg.webp",
+    "name": "La Palme Hotel",
+    "localPath": null,
+    "status": "failed",
+    "error": "fetch failed"
+  },
+  {
+    "url": "https://www.lemalacamps.com/app/uploads/2023/09/Kuria-Hills-Lodge.jpg",
+    "name": "Lemala Kuria Hills",
+    "localPath": "/images/lodges/lemala-kuria-hills.webp",
+    "status": "ok"
+  },
+  {
+    "url": "https://lakenakurulodge.com/wp-content/uploads/2024/03/Nakuru-Lodge-15-scaled.jpg",
+    "name": "Lake Nakuru Lodge",
+    "localPath": "/images/lodges/lake-nakuru-lodge.webp",
+    "status": "ok"
+  }
+]

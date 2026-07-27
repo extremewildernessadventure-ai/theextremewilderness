@@ -8,6 +8,8 @@ import { getExperiences } from '@/data/experiences.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import type { Experience } from '@/data/experiences'
 import { buildAlternates } from '@/lib/site'
+import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 function anchorId(slug: string): string {
   return slug.replace('/experiences/', '')
@@ -100,7 +102,7 @@ export default async function ExperiencesPage({ params }: Props) {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <Reveal>
               <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
                 {t('ourPhilosophyEyebrow')}
               </span>
@@ -127,10 +129,10 @@ export default async function ExperiencesPage({ params }: Props) {
                   </div>
                 ))}
               </div>
-            </div>
+            </Reveal>
 
             {/* Mosaic photos */}
-            <div className="grid grid-cols-2 gap-3">
+            <Reveal delay={0.15} className="grid grid-cols-2 gap-3">
               <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
                 <Image src="/images/gallery/safari-021.webp" alt={t('mosaicLandscapeAlt')} fill className="object-cover" sizes="30vw" />
               </div>
@@ -142,7 +144,7 @@ export default async function ExperiencesPage({ params }: Props) {
                   <Image src="/images/gallery/safari-023.webp" alt={t('mosaicBushCampAlt')} fill className="object-cover" sizes="20vw" />
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -150,44 +152,46 @@ export default async function ExperiencesPage({ params }: Props) {
       {/* ── EXPERIENCE CARDS ─────────────────────────────────────────────── */}
       <section className="bg-light-green py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center py-12">
+          <Reveal className="text-center py-12">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('browseEyebrow')}
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-brand">
               {t('browseHeading')}
             </h2>
-          </div>
+          </Reveal>
 
-          <div className="space-y-6 pb-16">
+          <RevealGroup className="space-y-6 pb-16">
             {experiences.map((exp, i) => (
-              <ExperienceCard key={exp.slug + i} exp={exp} id={anchorId(exp.slug)} flip={i % 2 === 1} locationLabel={t('cardLocation')} fromLabel={t('fromLabel')} perPersonLabel={t('perPersonLabel')} priceOnRequestLabel={t('priceOnRequest')} exploreButton={t('exploreButton')} />
+              <RevealItem key={exp.slug + i}>
+                <ExperienceCard exp={exp} id={anchorId(exp.slug)} flip={i % 2 === 1} locationLabel={t('cardLocation')} fromLabel={t('fromLabel')} perPersonLabel={t('perPersonLabel')} priceOnRequestLabel={t('priceOnRequest')} exploreButton={t('exploreButton')} />
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* ── HOW IT WORKS ─────────────────────────────────────────────────── */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <Reveal className="text-center mb-14">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{t('howItWorksEyebrow')}</span>
             <h2 className="text-3xl font-semibold text-brand">{t('howItWorksHeading')}</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          </Reveal>
+          <RevealGroup className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map(({ step, title, desc }) => (
-              <div key={step} className="relative">
+              <RevealItem key={step} className="relative">
                 <div className="text-6xl font-bold text-brand/8 mb-3 leading-none select-none">{step}</div>
                 <h3 className="font-semibold text-brand mb-2">{title}</h3>
                 <p className="text-text-muted text-sm leading-relaxed">{desc}</p>
-              </div>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* ── PHOTO STRIP ──────────────────────────────────────────────────── */}
-      <div className="flex h-64 overflow-hidden">
+      <RevealGroup className="flex h-64 overflow-hidden">
         {[
           '/images/gallery/safari-025.webp',
           '/images/gallery/safari-026.webp',
@@ -195,15 +199,15 @@ export default async function ExperiencesPage({ params }: Props) {
           '/images/gallery/safari-028.webp',
           '/images/gallery/safari-029.webp',
         ].map((src, i) => (
-          <div key={i} className="relative flex-1">
+          <RevealItem key={i} className="relative flex-1">
             <Image src={src} alt="" fill className="object-cover" sizes="20vw" />
-          </div>
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
 
       {/* ── TESTIMONIAL ──────────────────────────────────────────────────── */}
       <section className="py-20 bg-brand">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <Reveal className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center mb-6">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-5 h-5 fill-gold text-gold" />
@@ -214,7 +218,7 @@ export default async function ExperiencesPage({ params }: Props) {
           </blockquote>
           <p className="text-gold font-semibold">Sarah &amp; Tom Whitmore</p>
           <p className="text-white/50 text-sm mt-1">{t('quoteSub')}</p>
-        </div>
+        </Reveal>
       </section>
 
       {/* ── CTA / NEWSLETTER ─────────────────────────────────────────────── */}
@@ -230,7 +234,7 @@ export default async function ExperiencesPage({ params }: Props) {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left — CTA */}
-            <div>
+            <Reveal>
               <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('ctaEyebrow')}</span>
               <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
                 {t('ctaHeading')}
@@ -252,17 +256,17 @@ export default async function ExperiencesPage({ params }: Props) {
                   {t('ctaButton2')}
                 </Link>
               </div>
-            </div>
+            </Reveal>
 
             {/* Right — Newsletter */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <Reveal delay={0.15} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
               <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-2">{t('newsletterEyebrow')}</p>
               <h3 className="text-2xl font-semibold text-white mb-3">{t('newsletterHeading')}</h3>
               <p className="text-white/65 text-sm leading-relaxed mb-6">
                 {t('newsletterText')}
               </p>
               <NewsletterForm />
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
