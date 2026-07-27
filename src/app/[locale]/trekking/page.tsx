@@ -12,7 +12,7 @@ import ExperienceGallery from '@/components/experiences/ExperienceGallery'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import { mlimaniPhoto, mlimaniCapKey, MLIMANI_SHOWCASE } from '@/data/mlimaniGallery'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, localeUrl, SITE_URL } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -196,8 +196,39 @@ export default async function TrekkingPage({ params }: Props) {
 
   const minPrice = Math.min(...routes.map((r) => r.priceFrom))
 
+  const routesItemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: routes.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Trip',
+        name: r.name,
+        description: r.desc,
+        image: `${SITE_URL}${r.image}`,
+        provider: {
+          '@type': 'Organization',
+          name: 'EWA Safari Outfitters',
+          url: SITE_URL,
+        },
+        offers: {
+          '@type': 'Offer',
+          price: r.priceFrom,
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: localeUrl(locale, r.href),
+        },
+      },
+    })),
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(routesItemListSchema) }}
+      />
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden bg-brand">
         <div className="absolute inset-0">
           <Image

@@ -16,7 +16,7 @@ import LemoshoMultiItinerary from '@/components/trekking/LemoshoMultiItinerary'
 import MachameMultiItinerary from '@/components/trekking/MachameMultiItinerary'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import { mlimaniPhoto, mlimaniCapKey } from '@/data/mlimaniGallery'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, localeUrl, SITE_URL } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -119,11 +119,12 @@ export async function generateMetadata({ params }: RouteProps): Promise<import('
   const nickname = trd(`${route}.nickname` as 'machame.nickname')
   const duration = trd(`${route}.quickFacts.duration` as 'machame.quickFacts.duration')
   const successRate = trd(`${route}.quickFacts.successRate` as 'machame.quickFacts.successRate')
+  const localizedKeywords = trd.raw(`${route}.metaKeywords` as 'machame.metaKeywords') as string[]
 
   return {
     title: `${routeName} 2026 | ${duration}`,
     description: `${routeName} — ${nickname}. ${duration}, ${successRate}${tMeta('successSuffix')}.`,
-    keywords: fallback.keywords,
+    keywords: localizedKeywords ?? fallback.keywords,
     alternates,
     ...ogMeta,
   }
@@ -306,8 +307,54 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
     { name: 'Nov', type: 'avoid' }, { name: 'Dec', type: 'good' },
   ]
 
+  const routeFaq = route === 'lemosho' ? lemoshoExtras?.faq : route === 'machame' ? machameExtras?.faq : null
+
+  const tripSchema = routeContent ? {
+    '@context': 'https://schema.org',
+    '@type': 'Trip',
+    name: routeContent.quickFacts.routeName,
+    description: locale === 'en'
+      ? (ROUTE_META[route] ?? ROUTE_META.machame).description
+      : `${routeContent.quickFacts.routeName} — ${routeContent.nickname}. ${routeContent.quickFacts.duration}, ${routeContent.quickFacts.successRate}${t('successSuffix')}.`,
+    image: `${SITE_URL}${heroImage.src}`,
+    provider: {
+      '@type': 'Organization',
+      name: 'EWA Safari Outfitters',
+      url: SITE_URL,
+    },
+    offers: {
+      '@type': 'Offer',
+      price: routeContent.pricing.group,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      url: localeUrl(locale, `/trekking/${route}`),
+    },
+  } : null
+
+  const faqSchema = routeFaq && routeFaq.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: routeFaq.map((item: { q: string; a: string }) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  } : null
+
   return (
     <>
+      {tripSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }}
+        />
+      )}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden bg-brand">
         <div className="absolute inset-0">
