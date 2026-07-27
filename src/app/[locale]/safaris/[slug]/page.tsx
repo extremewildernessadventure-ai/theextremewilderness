@@ -21,9 +21,9 @@ import Reveal from '@/components/motion/Reveal'
 
 const SAFARI_KEYWORDS: Record<string, string[]> = {
   '7-day-serengeti-ngorongoro': [
-    'Serengeti Ngorongoro safari', '7 day Tanzania safari', 'Tanzania safari 2026',
-    'Great Migration safari', 'Ngorongoro Crater big five', 'Tanzania northern circuit',
-    'Serengeti safari package', 'Africa wildlife safari', 'Tanzania safari holiday', 'book Tanzania safari',
+    'Northern Circuit Tanzania safari', 'Serengeti Ngorongoro safari', '7 day Tanzania safari',
+    'luxury Tanzania safari', 'private guided Tanzania safari', 'Tarangire Serengeti Ngorongoro',
+    'Tanzania safari 2026', 'Great Migration safari', 'boutique Tanzania safari', 'book Tanzania safari',
   ],
   '10-day-northern-circuit': [
     '10 day Tanzania safari', 'northern circuit Tanzania', 'ultimate Tanzania safari',
@@ -51,9 +51,9 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'Tanzania hidden safari', 'Selous safari Tanzania', 'Tanzania remote safari', 'Ruaha safari package',
   ],
   '5-days-highlights-safari': [
-    '5 day Tanzania safari', 'Tanzania safari highlights', 'short Africa safari',
-    'Tanzania quick safari', 'Serengeti Ngorongoro 5 days', 'mini Tanzania safari',
-    'Tanzania safari 5 nights', 'budget Tanzania safari', 'Africa safari 5 days', 'Tanzania safari short trip',
+    '5 day Tanzania safari', 'luxury Serengeti Ngorongoro safari', 'private guided Tanzania safari',
+    'fly-in Serengeti safari', 'boutique Tanzania safari', 'Tanzania safari 5 nights',
+    'premium Africa safari', 'Serengeti Ngorongoro fly-in safari', 'tailor-made Tanzania safari', 'private safari Tanzania',
   ],
   '8-days-honeymoon-safari': [
     'honeymoon safari Tanzania', 'Tanzania romantic safari', 'Africa honeymoon package',
