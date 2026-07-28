@@ -2425,5 +2425,237 @@
     "mapCulturalRegion": "文化地区",
     "mapLowActivity": "低活动量",
     "ctaBody": "我们的团队生于阿鲁沙、立足阿鲁沙——这些是我们的主场公园。我们熟悉每条路、每个季节、每个营地。让我们围绕您想看的一切设计行程。"
+  },
+  "kenya": {
+    "heroEyebrow": "肯尼亚游猎",
+    "heroTitle": "狂野肯尼亚。",
+    "heroTitleGold": "非凡邂逅。",
+    "heroSubtitle": "从动物大迁徙震天的蹄声到安博塞利的温柔巨兽——肯尼亚提供非洲最具标志性的野生动物奇观、古老的文化和纯净的印度洋海滩。",
+    "heroImageAlt": "马赛马拉平原日落时分的狮群",
+    "planMyKenyaSafari": "规划我的肯尼亚游猎",
+    "exploreDestinations": "探索目的地",
+    "statMammalsMara": "马拉的哺乳动物物种",
+    "statBirds": "记录在案的鸟类物种",
+    "statRhinos": "最后的北方白犀牛",
+    "statElephants": "野生大象",
+    "statParks": "国家公园与保护区",
+    "statRanking": "全球游猎目的地",
+    "introEyebrow": "为什么选择肯尼亚",
+    "introHeading": "非洲游猎的发源地",
+    "box1Eyebrow": "7个世界级目的地",
+    "box1Heading": "肯尼亚的野性之地一览",
+    "box2Eyebrow": "我们的承诺",
+    "box2Heading": "为什么通过EWA Safari Outfitters预订",
+    "box3Eyebrow": "纪录",
+    "box3Heading": "数字中的肯尼亚",
+    "box4Eyebrow": "流程",
+    "box4Heading": "如何预订您的游猎",
+    "startPlanningFree": "开始规划——完全免费",
+    "destSectionEyebrow": "7个世界级目的地",
+    "destSectionHeading": "肯尼亚必访的野性之地",
+    "destSectionSubtitle": "每个目的地都提供地球上其他地方无法比拟的体验。与坦桑尼亚结合，它们构成终极东非游猎环线。",
+    "wildlifeLabel": "野生动物",
+    "activitiesLabel": "活动",
+    "bestTimePrefix": "最佳：",
+    "fromPrice": "{price}/人 起",
+    "freeConsultation": "免费咨询 · 无需承诺",
+    "seasonEyebrow": "规划您的行程",
+    "seasonHeading": "肯尼亚游猎的最佳时间",
+    "seasonSubtitle": "肯尼亚是全年皆宜的目的地，但把行程安排在大迁徙渡河或旱季，能最大化您与野生动物的邂逅。",
+    "season1Label": "短旱季",
+    "season2Label": "长雨季",
+    "season3Label": "高峰季",
+    "season4Label": "短雨季",
+    "migrationCalloutHeading": "动物大迁徙——自然界最伟大的演出",
+    "planMigrationSafari": "规划迁徙游猎",
+    "comboEyebrow": "终极体验",
+    "comboHeading": "肯尼亚 + 坦桑尼亚：",
+    "comboHeadingGold": "完整的东非游猎",
+    "designCombinedSafari": "设计我的组合游猎",
+    "tanzaniaDestinations": "坦桑尼亚目的地",
+    "birdingHeading": "肯尼亚：非洲首屈一指的观鸟目的地",
+    "ctaEyebrow": "准备好前往肯尼亚了吗？",
+    "ctaHeading": "一起规划您的肯尼亚游猎",
+    "exploreTanzaniaToo": "也探索一下坦桑尼亚",
+    "destExtra": {
+      "masai-mara": {
+        "badge": "最受欢迎",
+        "bestTime": "7月 – 10月",
+        "bestTimeLabel": "迁徙季",
+        "duration": "3–5天",
+        "priceFrom": "$320",
+        "activities": [
+          "游猎巡游",
+          "热气球游猎",
+          "马赛文化村",
+          "观鸟",
+          "丛林漫步",
+          "夜间巡游"
+        ]
+      },
+      "amboseli": {
+        "badge": "标志性景观",
+        "bestTime": "6月 – 10月 & 1月 – 2月",
+        "bestTimeLabel": "旱季",
+        "duration": "2–4天",
+        "priceFrom": "$280",
+        "activities": [
+          "大象追踪",
+          "游猎巡游",
+          "马赛村落探访",
+          "观鸟",
+          "摄影游猎",
+          "日落巡游"
+        ]
+      },
+      "samburu": {
+        "badge": "珍稀物种",
+        "bestTime": "6月 – 10月 & 1月 – 3月",
+        "bestTimeLabel": "旱季",
+        "duration": "2–3天",
+        "priceFrom": "$290",
+        "activities": [
+          "专项游猎巡游",
+          "桑布鲁文化之旅",
+          "骑骆驼",
+          "河边漫步",
+          "观鸟",
+          "日落丛林晚餐"
+        ]
+      },
+      "tsavo": {
+        "badge": "狂野偏远",
+        "bestTime": "6月 – 10月 & 1月 – 2月",
+        "bestTimeLabel": "旱季",
+        "duration": "3–5天",
+        "priceFrom": "$260",
+        "activities": [
+          "游猎巡游",
+          "姆兹马泉漫步",
+          "卢加德瀑布探访",
+          "夜间游猎巡游",
+          "观鸟",
+          "豪华帐篷营地"
+        ]
+      },
+      "ol-pejeta": {
+        "badge": "保护事业标杆",
+        "bestTime": "全年",
+        "bestTimeLabel": "全年开放",
+        "duration": "2–3天",
+        "priceFrom": "$350",
+        "activities": [
+          "徒步追踪犀牛",
+          "狮子追踪",
+          "黑猩猩保护区探访",
+          "夜间游猎巡游",
+          "保护事业讲座",
+          "丛林晚餐"
+        ]
+      },
+      "lake-nakuru": {
+        "badge": "UNESCO遗址",
+        "bestTime": "6月 – 3月",
+        "bestTimeLabel": "最佳观火烈鸟",
+        "duration": "1–2天",
+        "priceFrom": "$220",
+        "activities": [
+          "火烈鸟观赏",
+          "犀牛追踪",
+          "观鸟",
+          "游猎巡游",
+          "悬崖观景点",
+          "摄影之旅"
+        ]
+      },
+      "kenyan-coast": {
+        "badge": "海滩与海洋",
+        "bestTime": "12月 – 3月 & 6月 – 10月",
+        "bestTimeLabel": "旱季",
+        "duration": "3–7天",
+        "priceFrom": "$190",
+        "activities": [
+          "浮潜与深潜",
+          "独桅帆船出海",
+          "风筝冲浪",
+          "海龟监测",
+          "拉穆文化之旅",
+          "深海海钓"
+        ]
+      }
+    },
+    "box1ChipDesc": {
+      "masai-mara": "动物大迁徙 · 大型猫科 · 马赛文化",
+      "amboseli": "象群 · 乞力马扎罗景观",
+      "samburu": "桑布鲁特有五种 · 偏远北部",
+      "tsavo": "肯尼亚最大公园 · 红色大象",
+      "ol-pejeta": "最后的白犀牛 · 黑猩猩",
+      "lake-nakuru": "火烈鸟 · 裂谷悬崖",
+      "kenyan-coast": "印度洋 · 斯瓦希里文化"
+    },
+    "box3Stats": [
+      {
+        "label": "迁徙中的角马",
+        "sub": "地球上最大的陆地迁徙"
+      },
+      {
+        "label": "最后的北方白犀牛",
+        "sub": "生活在奥佩杰塔保护区"
+      },
+      {
+        "label": "平方公里察沃公园群",
+        "sub": "肯尼亚最大的保护区"
+      },
+      {
+        "label": "纳库鲁湖的火烈鸟",
+        "sub": "最壮观的鸟类奇观"
+      },
+      {
+        "label": "马拉的哺乳动物物种",
+        "sub": "非洲最高的大型猫科密度"
+      },
+      {
+        "label": "记录在案的鸟类物种",
+        "sub": "非洲首屈一指的观鸟国度"
+      }
+    ],
+    "season1Tip": "绝佳的动物观赏——草短，动物聚集在水源旁。安博塞利和桑布鲁的好时节。",
+    "season2Tip": "葱郁的绿色景观和新生动物。游客更少，价格更优。马拉依然精彩。",
+    "season3Tip": "大迁徙渡河（7月–9月）。全肯尼亚野生动物最佳。请提前6–12个月预订。",
+    "season4Tip": "候鸟抵达。风景绽放。高性价比，人流适中。",
+    "heroSubtitleBody": "从动物大迁徙震天的蹄声到安博塞利的温柔巨兽——肯尼亚提供非洲最具标志性的野生动物奇观、古老的文化和纯净的印度洋海滩。",
+    "introBody": "一个多世纪以来，肯尼亚一直激励着游猎旅行者——理由充分。这里是地球上最伟大的野生动物奇观（动物大迁徙）的故乡，是地球上最后两头北方白犀牛的家园，拥有非洲最出色的豪华旅馆和美得非凡的海岸线。在EWA Safari Outfitters，我们设计的肯尼亚游猎超越表面——将标志性保护区与隐世瑰宝、保护体验和深度文化邂逅相结合，让旅程在您归家后依然余韵悠长。",
+    "migrationCalloutBody": "超过150万头角马和50万匹斑马在坦桑尼亚的塞伦盖蒂和肯尼亚的马赛马拉之间进行史诗般的顺时针环游，追随着雨水和新鲜的草场。马拉河渡河——成千上万的动物冲进鳄鱼出没的河水——发生在7月至10月。将肯尼亚和坦桑尼亚结合，即可全年体验完整的迁徙。",
+    "comboBody": "肯尼亚和坦桑尼亚共享大裂谷、塞伦盖蒂-马拉生态系统和乞力马扎罗的山影。它们共同构成世界顶级游猎环线。在EWA Safari Outfitters，我们专长于跨境行程，无缝结合两国精华——马赛马拉渡河、塞伦盖蒂平原、恩戈罗恩戈罗火山口、安博塞利大象和桑给巴尔海滩——尽在一次难忘旅程中。",
+    "comboBullet1": "从塞伦盖蒂到马赛马拉追随迁徙",
+    "comboBullet2": "登顶乞力马扎罗后飞往安博塞利观赏大象",
+    "comboBullet3": "将恩戈罗恩戈罗火山口与桑布鲁珍稀物种结合",
+    "comboBullet4": "在桑给巴尔或迪亚尼海滩为印度洋度假画上句号",
+    "mapCaption": "肯尼亚 — 主要目的地",
+    "mapImageAlt": "肯尼亚主要目的地地图",
+    "birdingBody": "凭借超过1,100种记录在案的鸟类——包括珍稀的鲸头鹳、杰克逊氏巧织雀和蓝盔犀鸟——肯尼亚是观鸟者的天堂。纳库鲁湖的火烈鸟、桑布鲁的索马里鸵鸟和马赛马拉的猛禽只是开始。",
+    "birdingBadge1": "纳库鲁湖火烈鸟",
+    "birdingBadge2": "桑布鲁旱地物种",
+    "birdingBadge3": "马赛马拉猛禽",
+    "birdingBadge4": "阿伯德尔森林鸟类",
+    "birdingBadge5": "裂谷特色鸟种",
+    "birdingBadge6": "海岸海洋鸟类",
+    "ctaBody": "我们的专业团队——生于东非、立足东非——将设计契合您兴趣、时间和预算的行程。没有两次游猎是相同的。",
+    "footerDisclaimer": "私人团 · 独行旅客 · 蜜月 · 家庭游猎——一律欢迎",
+    "bookSafariButton": "预订{destName}游猎",
+    "metaTitle": "肯尼亚游猎套餐 2026 | 马赛马拉、安博塞利与动物大迁徙",
+    "metaDescription": "预订肯尼亚游猎套餐——马赛马拉动物大迁徙、安博塞利象群、桑布鲁珍稀物种。肯坦组合游猎每人$1,200起。TATO认证。",
+    "metaKeywords": [
+      "肯尼亚游猎套餐",
+      "马赛马拉游猎 2026",
+      "马赛马拉动物大迁徙",
+      "肯尼亚游猎旅游运营商",
+      "安博塞利国家公园游猎",
+      "桑布鲁国家公园",
+      "肯尼亚坦桑尼亚游猎组合",
+      "马赛马拉最佳时间",
+      "肯尼亚游猎假期",
+      "豪华肯尼亚游猎"
+    ]
   }
 }
