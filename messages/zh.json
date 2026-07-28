@@ -1129,5 +1129,183 @@
         "group": 2237
       }
     }
+  },
+  "planBuilder": {
+    "heroCta": "定制您的专属游猎",
+    "aiAdvisor": {
+      "title": "咨询我们的游猎AI",
+      "subtitle": "用您自己的话描述梦想中的旅程——我们的AI会将它与我们真实的坦桑尼亚、肯尼亚和卢旺达行程比对，为您指出真正可预订的选择。",
+      "placeholder": "例如\"我想在10天内看大猩猩和五大兽\"",
+      "examplePrompt1": "10天内大猩猩+五大兽",
+      "examplePrompt2": "以海滩收尾的蜜月游猎",
+      "examplePrompt3": "野生动物摄影的最佳行程",
+      "submitButton": "提问",
+      "thinkingLabel": "思考中…",
+      "errorTitle": "出了点问题",
+      "errorMessage": "暂时无法连接到我们的游猎AI——请重试，或直接使用下方的引导式规划器。",
+      "retryButton": "重试",
+      "rateLimitMessage": "您提问的频率有点高！请稍等一分钟再试。",
+      "noMatchTitle": "我们目前的产品中没有完全符合该需求的选择",
+      "noMatchMessage": "请在下方告诉我们的团队更多信息，我们将为您量身设计。",
+      "resultsHeading": "已匹配到真实行程",
+      "wizardCta": "用引导式规划器细化"
+    },
+    "entryCard": {
+      "title": "不知道从哪里开始？",
+      "subtitle": "90秒定制您的专属游猎——告诉我们您的日期、兴趣和风格，即可查看真实匹配行程和透明价格。",
+      "cta": "打造您的游猎"
+    },
+    "progress": {
+      "ariaLabel": "游猎定制步骤",
+      "step1": "行程基本信息",
+      "step2": "兴趣",
+      "step3": "风格与节奏",
+      "step4": "您的匹配结果"
+    },
+    "step1": {
+      "title": "告诉我们您的行程基本信息",
+      "subtitle": "任何问题都不嫌模糊——我们会围绕您的回答塑造一切。",
+      "travelersLabel": "谁来旅行？",
+      "travelers": {
+        "solo": "单人",
+        "couple": "情侣",
+        "family": "家人或朋友",
+        "group": "小团体"
+      },
+      "customGroupLabel": "更大的团体？请输入人数",
+      "monthLabel": "旅行月份",
+      "yearLabel": "年份",
+      "seasonPrime": "黄金季节——最佳的动物观赏和河流迁徙。",
+      "seasonGood": "不错的平季月份——精彩的野生动物，更少的人群。",
+      "seasonRain": "雨季——葱郁的景观、候鸟，以及更清静的营地。",
+      "durationLabel": "行程时长 — {days}天",
+      "durationMin": "{days}天",
+      "customDurationLabel": "或输入确切天数",
+      "nextButton": "下一步"
+    },
+    "step2": {
+      "title": "东非最吸引您的是什么？",
+      "subtitle": "想选几个都可以——我们据此为您的匹配加权。",
+      "tags": {
+        "migration": "动物大迁徙",
+        "bigfive": "五大兽",
+        "gorilla": "大猩猩徒步",
+        "beach": "桑给巴尔海滩",
+        "trekking": "乞力马扎罗 / 徒步",
+        "honeymoon": "蜜月",
+        "family": "适合家庭",
+        "photography": "摄影",
+        "remote": "人迹罕至"
+      },
+      "backButton": "返回",
+      "nextButton": "下一步"
+    },
+    "step3": {
+      "title": "风格与节奏",
+      "subtitle": "每个行程都是起点——我们围绕您来塑造它。",
+      "comfortLabel": "舒适级别",
+      "styles": {
+        "comfort": "舒适",
+        "luxury": "豪华",
+        "ultra": "顶级豪华"
+      },
+      "perDayRange": "每天约${min}–${max}",
+      "paceLabel": "节奏",
+      "paces": {
+        "relaxed": {
+          "label": "悠闲",
+          "desc": "更少的公园，更长的停留"
+        },
+        "classic": {
+          "label": "经典环线",
+          "desc": "每2–3晚移动一次"
+        }
+      },
+      "backButton": "返回",
+      "nextButton": "查看我的匹配"
+    },
+    "results": {
+      "title": "为您匹配的行程",
+      "closestMatch": "最接近的匹配",
+      "daysLabel": "天",
+      "whyLine": "因为您在{month} {year}出行并选择了{interests}，我们将此行程列为最符合您日期的选择之一。",
+      "generalFit": "您的日期和团队规模",
+      "paxWarning": "此套餐最多为{max}位旅行者设计——我们会根据您的团队规模进行调整。",
+      "fromLabel": "起价",
+      "approxNote": "约价，最终报价以美元计",
+      "viewLabel": "查看行程",
+      "priceDetailsLabel": "费用包含 / 不含",
+      "includedLabel": "包含",
+      "notIncludedLabel": "不含",
+      "noMatchTitle": "我们目前的产品中没有完全契合的选择——而这正是量身定制的意义所在。",
+      "noMatchMessage": "以下是我们最接近的选项。告诉我们更多信息，我们驻阿鲁沙的团队将从零开始为您设计。",
+      "currencyLabel": "货币：",
+      "trust1": "TripAdvisor评分4.9/5",
+      "trust2": "200+位认证客人",
+      "trust3": "TATO认证 · TANAPA认证向导",
+      "backButton": "修改我的回答"
+    },
+    "handoff": {
+      "title": "准备好与真人交流了吗？",
+      "subtitle": "自2022年起在阿鲁沙本地经营。仅提供私人向导——绝无拼团。",
+      "whatsappButton": "在WhatsApp上继续",
+      "whatsappMessage": "您好！我一直在使用\"打造您的游猎\"定制器。时长：{days}天 · 月份：{month} {year} · 旅行者：{pax} · 兴趣：{interests} · 风格：{style} · 节奏：{pace} · 最接近的匹配：{topMatch}。能帮我进一步推进吗？",
+      "noMatchLabel": "尚无高度匹配",
+      "emailSuccess": "已发送——我们将在24小时内回复。",
+      "namePlaceholder": "您的姓名",
+      "emailPlaceholder": "您的邮箱",
+      "sending": "发送中…",
+      "emailButton": "把这份摘要发给我",
+      "emailError": "出了点问题——请改用WhatsApp。",
+      "orTalk": "更想直接聊一聊？",
+      "talkButton": "联系我们的团队"
+    }
+  },
+  "nav": {
+    "destinations": "目的地",
+    "safaris": "游猎",
+    "experiences": "体验",
+    "trekking": "徒步",
+    "about": "关于我们",
+    "cta": "规划我的游猎",
+    "tanzania": "坦桑尼亚",
+    "kenya": "肯尼亚",
+    "rwanda": "卢旺达",
+    "tanzaniaDesc": "塞伦盖蒂 · 恩戈罗恩戈罗 · 桑给巴尔",
+    "kenyaDesc": "马赛马拉 · 安博塞利 · 察沃",
+    "rwandaDesc": "火山国家公园 · 大猩猩徒步"
+  },
+  "footer": {
+    "tagline": "旷野呼唤你回家的地方。生于坦桑尼亚、本地经营，自2022年起打造定制游猎。",
+    "destinations": "目的地",
+    "safariPackages": "游猎套餐",
+    "company": "公司",
+    "memberships": "会员与认证",
+    "copyright": "© {year} EWA Safari Outfitters。保留所有权利。",
+    "privacy": "隐私政策",
+    "terms": "条款",
+    "destSerengeti": "塞伦盖蒂国家公园",
+    "destNgorongoro": "恩戈罗恩戈罗火山口",
+    "destTarangire": "塔兰吉雷国家公园",
+    "destZanzibar": "桑给巴尔岛",
+    "destMasaiMara": "肯尼亚马赛马拉",
+    "destGorilla": "卢旺达大猩猩徒步",
+    "safariSerengetiNgorongoro": "塞伦盖蒂与恩戈罗恩戈罗7天",
+    "safariNorthernCircuit": "北方环线10天",
+    "safariZanzibar": "游猎与桑给巴尔海滩",
+    "safariMachame": "乞力马扎罗马查梅路线",
+    "safariSouthern": "南方环线",
+    "companyAbout": "关于我们",
+    "companyWhyUs": "为什么选择我们",
+    "companyGuides": "我们的向导",
+    "companyBlog": "博客",
+    "companyContact": "联系我们",
+    "location": "坦桑尼亚阿鲁沙",
+    "trustGuests": "200+位认证客人",
+    "trustFiveStar": "五星好评",
+    "trustCountries": "服务国家",
+    "trustBigFive": "五大兽目击",
+    "trustQuote": "没有什么能让我们为大迁徙的宏大规模做好心理准备。EWA的表现超乎言语。",
+    "trustQuoteAuthor": "— Sarah & Michael T.，英国"
   }
 }
