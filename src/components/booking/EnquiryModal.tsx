@@ -6,6 +6,7 @@ import {
   Users, Wallet, Bed, MessageSquare, ChevronDown, Mountain, Tent,
 } from 'lucide-react'
 import { useBooking } from '@/context/BookingContext'
+import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { trackFormFillConversion } from '@/lib/analytics'
 
@@ -183,13 +184,19 @@ export default function EnquiryModal() {
   const [submitted, setSubmitted]   = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({})
+  const [submitError, setSubmitError] = useState('')
   const [website, setWebsite] = useState('')
 
   useEffect(() => {
-    if (bookingInfo?.packageType) setTripType(bookingInfo.packageType)
+    if (bookingInfo?.packageType && (bookingInfo.restrictTripType || TRIP_TYPES.includes(bookingInfo.packageType))) {
+      setTripType(bookingInfo.packageType)
+    }
     if (bookingInfo?.travelers) setAdults(bookingInfo.travelers)
     if (scrollRef.current) scrollRef.current.scrollTop = 0
     setSubmitted(false)
+    setFieldErrors({})
+    setSubmitError('')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bookingInfo, isOpen])
 
   useEffect(() => {
@@ -259,6 +266,7 @@ export default function EnquiryModal() {
     e.preventDefault()
     if (!firstName || !lastName || !privacyAgreed) return
     if (!validateFields()) return
+    setSubmitError('')
     setSubmitting(true)
     try {
       const res = await fetch('/api/enquiry', {
@@ -289,6 +297,7 @@ export default function EnquiryModal() {
       }, 3500)
     } catch {
       // Keep modal open so user can try again
+      setSubmitError(t('submitError'))
     } finally {
       setSubmitting(false)
     }
@@ -682,15 +691,18 @@ export default function EnquiryModal() {
               <label htmlFor="privacy" className="text-xs text-gray-500 cursor-pointer leading-tight">
                 {t.rich('bySubmitting', {
                   privacyLink: (chunks) => (
-                    <a href="/privacy" className="text-brand underline hover:text-gold">{chunks}</a>
+                    <Link href="/privacy" className="text-brand underline hover:text-gold">{chunks}</Link>
                   ),
                 })}
               </label>
             </div>
+            {submitError && (
+              <p role="alert" className="mb-3 text-xs text-red-500 text-center">{submitError}</p>
+            )}
             <button
               type="submit"
               form="booking-form"
-              disabled={submitting || !privacyAgreed || !firstName || !lastName || !email || (contactPref !== 'email' && !phone) || Object.keys(fieldErrors).length > 0}
+              disabled={submitting || !privacyAgreed || !firstName || !lastName || !email || (contactPref !== 'email' && !phone) || Object.values(fieldErrors).some(Boolean)}
               className="w-full flex items-center justify-center gap-2.5 py-3.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all text-sm"
             >
               {submitting ? (

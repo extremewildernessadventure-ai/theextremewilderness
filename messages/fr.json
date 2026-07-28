@@ -1255,10 +1255,10 @@
     "step4DescKenya": "Votre guide privé vous accueille à l'aéroport. De là, le Kenya se déploie exactement comme vous l'aviez imaginé.",
     "step4DescRwanda": "Votre guide privé vous accueille à l'aéroport. De là, le Rwanda se déploie exactement comme vous l'aviez imaginé.",
     "packageTypes": {
-      "kiliTrek": "Trek du Kilimandjaro",
+      "kiliTrek": "Ascension du Kilimandjaro",
       "safari": "Safari",
       "tanzaniaSafari": "Safari en Tanzanie",
-      "wildlifeSafari": "Safari faune sauvage",
+      "wildlifeSafari": "Safari Animalier",
       "rwandaSafari": "Safari au Rwanda",
       "rwandaGorillaSafari": "Safari gorilles au Rwanda",
       "kenyaSafari": "Safari au Kenya",
@@ -2089,6 +2089,7 @@
     "questionPlaceholder": "Parlez-nous de votre voyage de rêve — faune souhaitée, niveau de forme, occasions spéciales, préférences alimentaires ou autre...",
     "bySubmitting": "En soumettant ce formulaire, j’accepte la <privacyLink>Politique de confidentialité</privacyLink> et consens à être contacté(e) par EWA Safari Outfitters.",
     "sendingEnquiry": "Envoi de votre demande…",
+    "submitError": "Une erreur est survenue lors de l'envoi de votre demande. Veuillez réessayer ou nous écrire à info@theextremewilderness.com",
     "noPayment": "⏱ Temps de réponse moyen : moins de 2 heures · Sans paiement ni engagement",
     "successTitle": "Demande envoyée !",
     "successMessage": "Merci, {name} ! Notre équipe vous contactera via {method} dans les 2 heures.",
@@ -3393,6 +3394,15 @@
     "successTitle": "Guide en route !",
     "successDesc": "Nous vous l'envoyons à",
     "successHint": "Vérifiez votre boîte de réception — et les spams au cas où.",
+    "emailSubject": "Votre guide gratuit de trekking au Kilimandjaro — EWA Safari Outfitters",
+    "emailGreeting": "Bonjour {name},",
+    "emailIntro": "Merci de votre intérêt pour l'ascension du Kilimandjaro ! Votre guide gratuit est prêt — les 6 itinéraires comparés, la liste complète d'équipement, les meilleures saisons et nos conseils pour atteindre le sommet.",
+    "emailCta": "Consulter votre guide",
+    "emailOutro": "Des questions ou prêt à planifier votre ascension ? Répondez simplement à cet e-mail — notre équipe répond généralement en moins de 2 heures.",
+    "emailSignoff": "À bientôt sur la montagne,",
+    "emailTeam": "L'équipe EWA Safari Outfitters",
+    "emailItinerarySubject": "Votre demande d'itinéraire — EWA Safari Outfitters",
+    "emailItineraryIntro": "Merci d'avoir demandé l'itinéraire {context}. Notre équipe prépare votre programme détaillé jour par jour et vous l'enverra à cette adresse sous 24 heures.",
     "viewLabel": "Voir le Guide Maintenant"
   }
 }

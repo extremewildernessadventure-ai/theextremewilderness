@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { X, ArrowRight, Shield, CheckCircle } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 interface Props {
   triggerLabel: string
@@ -33,6 +33,7 @@ export default function PdfLeadModal({
 }: Props) {
   const t = useTranslations('pdfLead')
   const tf = useTranslations('forms')
+  const locale = useLocale()
 
   const [open, setOpen] = useState(false)
   const [name, setName]   = useState('')
@@ -82,7 +83,7 @@ export default function PdfLeadModal({
       const res = await fetch('/api/pdf-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), website, context }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), website, context, locale }),
       })
       if (!res.ok) throw new Error()
       setStatus('success')
@@ -203,7 +204,7 @@ export default function PdfLeadModal({
                     onClick={close}
                     className="flex items-center gap-2.5 px-7 py-3.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-colors text-sm shadow-lg shadow-brand/20"
                   >
-                    Close
+                    {tf('closeLabel')}
                   </button>
                 </div>
 

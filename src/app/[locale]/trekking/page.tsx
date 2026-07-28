@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import { ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
   Droplets, Pill, HeartPulse, Zap, Package, ShieldCheck } from 'lucide-react'
@@ -259,6 +259,14 @@ export default async function TrekkingPage({ params }: Props) {
               <p className="text-white/70 text-lg">
                 {t('heroTagline')}
               </p>
+              <BookNowButton
+                packageName={tc('packageTypes.kiliTrek')}
+                packageType={tc('packageTypes.kiliTrek')}
+                priceFrom={`$${minPrice.toLocaleString()}`}
+                restrictTripType
+                label={t('ctaButton')}
+                className="lg:hidden mt-6 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
+              />
             </div>
 
             {/* Right glass CTA */}
@@ -268,6 +276,10 @@ export default async function TrekkingPage({ params }: Props) {
               <p className="text-white/50 text-xs mt-1 mb-5">{trd('labels.perPerson')}</p>
               <p className="text-white/60 text-xs mb-5">{t('stat3Value')} · {t('stat2Value')}</p>
               <BookNowButton
+                packageName={tc('packageTypes.kiliTrek')}
+                packageType={tc('packageTypes.kiliTrek')}
+                priceFrom={`$${minPrice.toLocaleString()}`}
+                restrictTripType
                 label={t('ctaButton')}
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
               />

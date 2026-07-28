@@ -1,6 +1,7 @@
 'use client'
 
 import { useBooking } from '@/context/BookingContext'
+import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 
 export default function BookingModal() {
@@ -16,12 +17,12 @@ export default function BookingModal() {
       >
         {tc('planMySafari')} →
       </button>
-      <a
+      <Link
         href="/destinations"
         className="inline-flex items-center gap-2 px-8 py-4 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors text-base"
       >
         {t('exploreDest')}
-      </a>
+      </Link>
     </div>
   )
 }

@@ -178,6 +178,7 @@ export default function KiliRouteMap({ route }: { route?: string } = {}) {
                     packageType: tc('packageTypes.kiliTrek'),
                     priceFrom: `$${active.priceFrom.toLocaleString()}`,
                     duration: active.days,
+                    restrictTripType: true,
                   })}
                   className="flex items-center gap-2 px-5 py-2.5 bg-gold hover:bg-gold-dark text-brand font-bold text-sm rounded-xl transition-colors"
                 >

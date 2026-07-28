@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import {
   ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
@@ -405,6 +405,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                   packageType={tc('packageTypes.kiliTrek')}
                   priceFrom={`$${routeContent.pricing.group.toLocaleString()}`}
                   duration={routeContent.quickFacts.duration}
+                  restrictTripType
                   label={trd('labels.bookThisRoute')}
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                 />
@@ -689,6 +690,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                     packageType={tc('packageTypes.kiliTrek')}
                     priceFrom={`$${routeContent.pricing.group.toLocaleString()}`}
                     duration={routeContent.quickFacts.duration}
+                    restrictTripType
                     label={trd('labels.bookThisRoute')}
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                   />
@@ -724,7 +726,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                       return (
                         <Link
                           key={slug}
-                          href={`/${locale}/trekking/${slug}`}
+                          href={`/trekking/${slug}`}
                           className="flex items-center justify-between w-full px-4 py-2.5 rounded-full border border-brand/15 bg-light-green/40 text-brand hover:bg-brand hover:border-brand hover:text-white transition-all duration-200 group"
                         >
                           <span className="text-sm font-semibold">{t(`route${idx + 1}Name` as 'route1Name')}</span>

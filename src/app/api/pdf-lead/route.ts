@@ -1,16 +1,20 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
+import { localeUrl } from '@/lib/site'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID ?? ''
 const TO = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
 const FROM = process.env.RESEND_FROM ?? 'EWA Guide <noreply@theextremewilderness.com>'
 
+const LOCALES = ['en', 'fr', 'es', 'de'] as const
+
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, phone, website, context } = await req.json() as {
-      name?: string; email?: string; phone?: string; website?: string; context?: string
+    const { name, email, phone, website, context, locale: rawLocale } = await req.json() as {
+      name?: string; email?: string; phone?: string; website?: string; context?: string; locale?: string
     }
+    const locale = LOCALES.includes(rawLocale as typeof LOCALES[number]) ? rawLocale! : 'en'
 
     if (website) return NextResponse.json({ success: true })
 
@@ -88,6 +92,47 @@ export async function POST(req: NextRequest) {
     if (error) {
       console.error('Resend error:', error)
       return NextResponse.json({ error: 'Email failed' }, { status: 500 })
+    }
+
+    // Send the visitor the guide (or itinerary confirmation), localized.
+    // The lead is already captured above, so a failure here is logged but not fatal.
+    try {
+      const m = (await import(`../../../../messages/${locale}.json`)).default.pdfLead as Record<string, string>
+      const guideUrl = localeUrl(locale, '/trekking/pdf')
+      const escName = trimName.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      const isItinerary = Boolean(trimContext)
+      const intro = isItinerary
+        ? m.emailItineraryIntro.replace('{context}', trimContext)
+        : m.emailIntro
+      const { error: visitorError } = await resend.emails.send({
+        from: FROM,
+        to: trimEmail,
+        replyTo: TO,
+        subject: isItinerary ? m.emailItinerarySubject : m.emailSubject,
+        html: `<!DOCTYPE html>
+<html>
+<body style="margin:0;padding:24px;background:#f0f7f2;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
+  <div style="max-width:520px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08)">
+    <div style="background:#1C3A2A;padding:26px 28px">
+      <p style="margin:0 0 4px;color:#D4A853;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em">EWA Safari Outfitters</p>
+      <h1 style="margin:0;color:#fff;font-size:22px;font-weight:800">${isItinerary ? m.emailItinerarySubject : m.emailSubject}</h1>
+    </div>
+    <div style="padding:28px">
+      <p style="margin:0 0 14px;font-size:15px;color:#1a1a1a">${m.emailGreeting.replace('{name}', escName)}</p>
+      <p style="margin:0 0 22px;font-size:14px;line-height:1.6;color:#374151">${intro}</p>
+      ${isItinerary ? '' : `<p style="margin:0 0 22px;text-align:center">
+        <a href="${guideUrl}" style="display:inline-block;background:#D4A853;color:#1C3A2A;font-weight:800;font-size:14px;padding:14px 28px;border-radius:12px;text-decoration:none">${m.emailCta}</a>
+      </p>`}
+      <p style="margin:0 0 22px;font-size:14px;line-height:1.6;color:#374151">${m.emailOutro}</p>
+      <p style="margin:0;font-size:14px;color:#374151">${m.emailSignoff}<br><strong style="color:#1C3A2A">${m.emailTeam}</strong></p>
+    </div>
+  </div>
+</body>
+</html>`,
+      })
+      if (visitorError) console.error('Resend visitor-email error:', visitorError)
+    } catch (visitorErr) {
+      console.error('Visitor guide email failed:', visitorErr)
     }
 
     return NextResponse.json({ success: true })

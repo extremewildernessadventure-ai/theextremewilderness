@@ -24,6 +24,7 @@ export default function RoutePricingButton({ routeName, tier: _tier, price, dura
           packageType: tc('packageTypes.kiliTrek'),
           priceFrom: `$${price.toLocaleString()}`,
           duration,
+          restrictTripType: true,
         })
       }
       className="mt-4 w-full flex items-center justify-center gap-1.5 py-2.5 px-4 bg-gold hover:bg-gold-dark text-brand text-xs font-bold rounded-lg transition-colors"
