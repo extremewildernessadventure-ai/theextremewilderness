@@ -10,7 +10,6 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
   const [name, setName]     = useState('')
   const [email, setEmail]   = useState('')
   const [status, setStatus] = useState<Status>('idle')
-  const [website, setWebsite] = useState('')
 
   const inputCls = dark
     ? 'w-full px-4 py-3 rounded-xl bg-white/15 border border-white/20 text-white placeholder-white/40 text-sm focus:outline-none focus:border-gold'
@@ -28,7 +27,7 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
       const res = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, website }),
+        body: JSON.stringify({ name, email }),
       })
       setStatus(res.ok ? 'success' : 'error')
     } catch {
@@ -45,11 +44,7 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
   }
 
   return (
-    <form className="space-y-3" onSubmit={handleSubmit} style={{ position: 'relative' }}>
-      {/* honeypot */}
-      <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
-        <input type="text" name="website" tabIndex={-1} value={website} onChange={(e) => setWebsite(e.target.value)} autoComplete="off" />
-      </div>
+    <form className="space-y-3" onSubmit={handleSubmit}>
       <label htmlFor="nl-name" className="sr-only">{tf('yourNamePlaceholder')}</label>
       <input
         id="nl-name"

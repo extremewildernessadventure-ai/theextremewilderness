@@ -8,10 +8,7 @@ const TO   = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json() as Record<string, unknown>
-    const { fullName, email, phone, subject, message, website } = body
-
-    // Honeypot — bots fill hidden fields
-    if (website) return NextResponse.json({ success: true }) // silent discard
+    const { fullName, email, phone, subject, message } = body
 
     // Required fields
     if (!fullName || !email || !message) {

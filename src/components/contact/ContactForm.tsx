@@ -31,7 +31,6 @@ export default function ContactForm() {
     phone: '',
     subject: '',
     message: '',
-    website: '', // honeypot — humans leave this blank
   })
   const [privacy, setPrivacy] = useState(false)
 
@@ -87,18 +86,6 @@ export default function ContactForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-5">
-
-        {/* Honeypot — hidden from real users, bots fill it */}
-        <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
-          <input
-            name="website"
-            type="text"
-            value={form.website}
-            onChange={handleChange}
-            tabIndex={-1}
-            autoComplete="off"
-          />
-        </div>
 
         {/* Full Name */}
         <div>

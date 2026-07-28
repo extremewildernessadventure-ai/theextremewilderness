@@ -11,12 +11,10 @@ const LOCALES = ['en', 'fr', 'es', 'de'] as const
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, phone, website, context, locale: rawLocale } = await req.json() as {
-      name?: string; email?: string; phone?: string; website?: string; context?: string; locale?: string
+    const { name, email, phone, context, locale: rawLocale } = await req.json() as {
+      name?: string; email?: string; phone?: string; context?: string; locale?: string
     }
     const locale = LOCALES.includes(rawLocale as typeof LOCALES[number]) ? rawLocale! : 'en'
-
-    if (website) return NextResponse.json({ success: true })
 
     if (!name?.trim() || !email?.trim()) {
       return NextResponse.json({ error: 'Name and email are required' }, { status: 400 })

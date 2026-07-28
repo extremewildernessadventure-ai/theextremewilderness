@@ -75,9 +75,7 @@ function buildHtml(d: Record<string, unknown>) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json() as Record<string, unknown>
-    const { name, email, website } = body
-
-    if (website) return NextResponse.json({ success: true })
+    const { name, email } = body
 
     if (!name || !email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
