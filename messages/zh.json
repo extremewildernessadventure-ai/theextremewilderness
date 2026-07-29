@@ -1693,7 +1693,8 @@
     "itineraryAtAGlance": "行程一览",
     "day": "第",
     "location": "地点",
-    "focus": "重点"
+    "focus": "重点",
+    "breadcrumbLabel": "游猎套餐"
   },
   "destination": {
     "metaTitle": "{name}游猎",
@@ -1723,7 +1724,8 @@
     "exploreGuides": "探索指南",
     "gettingThereHeading": "如何抵达",
     "nearestAirport": "最近机场",
-    "transferLabel": "接送时间"
+    "transferLabel": "接送时间",
+    "breadcrumbLabel": "目的地"
   },
   "trekking": {
     "heroTitle": "乞力马扎罗",
@@ -2113,7 +2115,8 @@
       "非洲游猎公司",
       "非洲最佳游猎运营商"
     ],
-    "ogImageAlt": "日出时分的塞伦盖蒂与象群"
+    "ogImageAlt": "日出时分的塞伦盖蒂与象群",
+    "breadcrumbLabel": "关于我们"
   },
   "forms": {
     "firstName": "名字 *",
@@ -2362,7 +2365,8 @@
     "haveAQuestion": "有问题吗？",
     "arushaResponds": "我们驻阿鲁沙的团队将在24小时内回复——没有推销压力。",
     "packageSummary": "{days}天 · ${price}起",
-    "ogImageAlt": "黄金时刻塞伦盖蒂平原上的游猎车队"
+    "ogImageAlt": "黄金时刻塞伦盖蒂平原上的游猎车队",
+    "breadcrumbLabel": "博客"
   },
   "destinations": {
     "metaTitle": "坦桑尼亚游猎目的地 | 塞伦盖蒂、恩戈罗恩戈罗及更多",
@@ -2456,7 +2460,20 @@
     "regionSouthern": "南方环线",
     "regionWestern": "西部环线",
     "regionZanzibar": "桑给巴尔海岸",
-    "regionArusha": "阿鲁沙门户"
+    "regionArusha": "阿鲁沙门户",
+    "breadcrumbLabel": "目的地",
+    "box3Stat1Label": "参与大迁徙的角马",
+    "box3Stat1Sub": "地球上规模最大的陆地动物迁徙",
+    "box3Stat2Label": "全球狮子种群",
+    "box3Stat2Sub": "集中于鲁阿哈与塞伦盖蒂",
+    "box3Stat3Label": "平方公里 尼耶雷雷国家公园",
+    "box3Stat3Sub": "非洲最大的保护区",
+    "box3Stat4Label": "恩戈罗恩戈罗火山口内的动物",
+    "box3Stat4Sub": "非洲密度最高",
+    "box3Stat5Label": "贡贝黑猩猩研究历史",
+    "box3Stat5Sub": "珍·古道尔延续至今的传承",
+    "box3Stat6Label": "记录在案的鸟类物种",
+    "box3Stat6Sub": "非洲首屈一指的观鸟胜地"
   },
   "kenya": {
     "heroEyebrow": "肯尼亚游猎",
@@ -2699,7 +2716,8 @@
     "season1Months": "1月 – 2月",
     "season2Months": "3月 – 5月",
     "season3Months": "6月 – 10月",
-    "season4Months": "11月 – 12月"
+    "season4Months": "11月 – 12月",
+    "breadcrumbLabel": "肯尼亚"
   },
   "rwanda": {
     "heroEyebrow": "卢旺达游猎",
@@ -2934,7 +2952,8 @@
     "season1Months": "6月 – 9月",
     "season2Months": "10月 – 11月",
     "season3Months": "12月 – 2月",
-    "season4Months": "3月 – 5月"
+    "season4Months": "3月 – 5月",
+    "breadcrumbLabel": "卢旺达"
   },
   "experiences": {
     "metaTitle": "东非游猎体验 | 徒步游猎、热气球、摄影",
@@ -3226,7 +3245,8 @@
       "坦桑尼亚游猎套餐优惠",
       "非洲旅行计划"
     ],
-    "ogImageAlt": "黄金时刻的东非游猎风光"
+    "ogImageAlt": "黄金时刻的东非游猎风光",
+    "breadcrumbLabel": "游猎套餐"
   },
   "privacy": {
     "heroTitle1": "隐私",
@@ -3319,7 +3339,8 @@
     "s11p1": "我们实施适当的技术和组织措施，保护您的个人数据免遭未经授权的访问、披露、更改或销毁。",
     "s11tip": "我们的网站对所有数据传输使用HTTPS加密。支付数据由符合PCI-DSS标准的处理商处理——我们从不查看或存储卡号。",
     "s12p1": "我们可能不时更新本隐私政策。本页顶部的生效日期将反映最近的修订。我们建议您定期查看本页面。变更发布后继续使用我们的网站即表示接受更新后的政策。",
-    "s13p1": "如果您对本隐私政策或我们如何处理您的数据有任何疑问，请联系我们——我们力求在2个工作日内回复。"
+    "s13p1": "如果您对本隐私政策或我们如何处理您的数据有任何疑问，请联系我们——我们力求在2个工作日内回复。",
+    "breadcrumbLabel": "隐私政策"
   },
   "terms": {
     "heroTitle1": "条款与",
@@ -3442,7 +3463,8 @@
     "s13p1": "这些条款受坦桑尼亚联合共和国法律管辖并据其解释。因这些条款产生的任何争议应首先通过善意协商解决。",
     "s13callout": "如协商未果，争议应提交坦桑尼亚阿鲁沙仲裁。",
     "s14p1": "您的个人数据按照我们的隐私政策处理，该政策通过引用纳入这些条款。",
-    "s15p1": "如在预订前后对这些条款有任何疑问，请联系我们："
+    "s15p1": "如在预订前后对这些条款有任何疑问，请联系我们：",
+    "breadcrumbLabel": "条款与条件"
   },
   "travelInfo": {
     "heroEyebrow": "出发之前",
@@ -3533,7 +3555,8 @@
     "metaTitle": "坦桑尼亚旅行资讯 | 签证、健康、货币与打包",
     "metaDescription": "坦桑尼亚旅行必备资讯——最佳游览时间、签证要求、健康与疫苗接种、货币、着装规范，以及游猎或乞力马扎罗徒步的打包建议。",
     "ogDescription": "坦桑尼亚旅行必备资讯——签证要求、健康与疫苗接种、货币、着装规范及游猎打包建议。",
-    "twitterTitle": "坦桑尼亚旅行资讯"
+    "twitterTitle": "坦桑尼亚旅行资讯",
+    "breadcrumbLabel": "旅行资讯"
   },
   "notFound": {
     "title": "迷失在旷野",

@@ -1535,7 +1535,8 @@
     "itineraryAtAGlance": "Reiseroute auf einen Blick",
     "day": "Tag",
     "location": "Ort",
-    "focus": "Schwerpunkt"
+    "focus": "Schwerpunkt",
+    "breadcrumbLabel": "Safari-Pakete"
   },
   "destination": {
     "metaTitle": "{name} Safari",
@@ -1565,7 +1566,8 @@
     "exploreGuides": "Reiseführer Entdecken",
     "gettingThereHeading": "Anreise",
     "nearestAirport": "Nächster Flughafen",
-    "transferLabel": "Transferzeit"
+    "transferLabel": "Transferzeit",
+    "breadcrumbLabel": "Reiseziele"
   },
   "trekking": {
     "heroTitle": "Kilimandscharo",
@@ -1955,7 +1957,8 @@
       "afrikanisches Safari-Unternehmen",
       "bester Safari-Anbieter Afrikas"
     ],
-    "ogImageAlt": "Serengeti bei Sonnenaufgang mit Elefanten"
+    "ogImageAlt": "Serengeti bei Sonnenaufgang mit Elefanten",
+    "breadcrumbLabel": "Über uns"
   },
   "forms": {
     "firstName": "Vorname *",
@@ -2204,7 +2207,8 @@
     "haveAQuestion": "Haben Sie eine Frage?",
     "arushaResponds": "Unser Team in Arusha antwortet innerhalb von 24 Stunden — kein Verkaufsdruck.",
     "packageSummary": "{days} Tage · ab ${price}",
-    "ogImageAlt": "Safarifahrzeuge auf den Serengeti-Ebenen zur goldenen Stunde"
+    "ogImageAlt": "Safarifahrzeuge auf den Serengeti-Ebenen zur goldenen Stunde",
+    "breadcrumbLabel": "Blog"
   },
   "destinations": {
     "metaTitle": "Tansania Safari-Reiseziele | Serengeti, Ngorongoro & Mehr",
@@ -2298,7 +2302,20 @@
     "regionSouthern": "Südliche Rundreise",
     "regionWestern": "Westliche Rundreise",
     "regionZanzibar": "Sansibar-Küste",
-    "regionArusha": "Tor zu Arusha"
+    "regionArusha": "Tor zu Arusha",
+    "breadcrumbLabel": "Reiseziele",
+    "box3Stat1Label": "Gnus in der Großen Migration",
+    "box3Stat1Sub": "Die größte Landmigration der Erde",
+    "box3Stat2Label": "Weltweite Löwenpopulation",
+    "box3Stat2Sub": "Konzentriert in Ruaha & Serengeti",
+    "box3Stat3Label": "km² Nyerere-Nationalpark",
+    "box3Stat3Sub": "Afrikas größtes Schutzgebiet",
+    "box3Stat4Label": "Tiere im Ngorongoro-Krater",
+    "box3Stat4Sub": "Höchste Dichte in Afrika",
+    "box3Stat5Label": "Schimpansenforschung in Gombe",
+    "box3Stat5Sub": "Jane Goodalls fortwährendes Vermächtnis",
+    "box3Stat6Label": "Erfasste Vogelarten",
+    "box3Stat6Sub": "Afrikas führende Nation für Vogelbeobachtung"
   },
   "kenya": {
     "heroEyebrow": "Kenia Safaris",
@@ -2541,7 +2558,8 @@
     "season1Months": "Jan – Feb",
     "season2Months": "Mär – Mai",
     "season3Months": "Jun – Okt",
-    "season4Months": "Nov – Dez"
+    "season4Months": "Nov – Dez",
+    "breadcrumbLabel": "Kenia"
   },
   "rwanda": {
     "heroEyebrow": "Ruanda Safaris",
@@ -2776,7 +2794,8 @@
     "season1Months": "Jun – Sep",
     "season2Months": "Okt – Nov",
     "season3Months": "Dez – Feb",
-    "season4Months": "Mär – Mai"
+    "season4Months": "Mär – Mai",
+    "breadcrumbLabel": "Ruanda"
   },
   "experiences": {
     "metaTitle": "Safari-Erlebnisse Ostafrika | Walking Safaris, Heißluftballon, Fotografie",
@@ -3068,7 +3087,8 @@
       "Tansania Safari-Pakete",
       "Afrika Reiseplan"
     ],
-    "ogImageAlt": "Safari-Landschaft in Ostafrika zur goldenen Stunde"
+    "ogImageAlt": "Safari-Landschaft in Ostafrika zur goldenen Stunde",
+    "breadcrumbLabel": "Safari-Pakete"
   },
   "privacy": {
     "heroTitle1": "Datenschutz-",
@@ -3161,7 +3181,8 @@
     "s11p1": "Wir implementieren geeignete technische und organisatorische Maßnahmen, um Ihre persönlichen Daten vor unbefugtem Zugriff, Offenlegung, Änderung oder Zerstörung zu schützen.",
     "s11tip": "Unsere Website verwendet HTTPS-Verschlüsselung für alle Datenübertragungen. Zahlungsdaten werden von PCI-DSS-konformen Prozessoren verarbeitet — wir sehen oder speichern niemals Kartennummern.",
     "s12p1": "Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren. Das Datum oben auf dieser Seite wird die neueste Überarbeitung widerspiegeln. Wir empfehlen Ihnen, diese Seite regelmäßig zu überprüfen. Die weitere Nutzung unserer Website nach der Veröffentlichung von Änderungen stellt eine Annahme der aktualisierten Richtlinie dar.",
-    "s13p1": "Wenn Sie Fragen zu dieser Datenschutzrichtlinie oder zur Handhabung Ihrer Daten haben, kontaktieren Sie uns bitte — wir streben an, innerhalb von 2 Werktagen zu antworten."
+    "s13p1": "Wenn Sie Fragen zu dieser Datenschutzrichtlinie oder zur Handhabung Ihrer Daten haben, kontaktieren Sie uns bitte — wir streben an, innerhalb von 2 Werktagen zu antworten.",
+    "breadcrumbLabel": "Datenschutzrichtlinie"
   },
   "terms": {
     "heroTitle1": "Allgemeine",
@@ -3284,7 +3305,8 @@
     "s13p1": "Diese AGB unterliegen den Gesetzen der Vereinigten Republik Tansania und sind entsprechend auszulegen. Etwaige Streitigkeiten aus diesen AGB werden zunächst Verhandlungen in gutem Glauben unterzogen.",
     "s13callout": "Wenn durch Verhandlungen nicht gelöst, werden Streitigkeiten in Arusha, Tansania, einem Schiedsverfahren unterzogen.",
     "s14p1": "Ihre persönlichen Daten werden gemäß unserer Datenschutzrichtlinie verarbeitet, die durch Verweis in diese AGB aufgenommen wird.",
-    "s15p1": "Bei Fragen zu diesen AGB vor oder nach einer Buchung kontaktieren Sie uns bitte:"
+    "s15p1": "Bei Fragen zu diesen AGB vor oder nach einer Buchung kontaktieren Sie uns bitte:",
+    "breadcrumbLabel": "Allgemeine Geschäftsbedingungen"
   },
   "travelInfo": {
     "heroEyebrow": "Bevor Sie reisen",
@@ -3375,7 +3397,8 @@
     "metaTitle": "Reiseinformationen Tansania | Visa, Gesundheit, Währung & Packen",
     "metaDescription": "Wichtige Reiseinformationen für Tansania — beste Reisezeit, Visabestimmungen, Gesundheit und Impfungen, Währung, Kleiderordnung und Packtipps für Ihre Safari oder Kilimandscharo-Besteigung.",
     "ogDescription": "Wichtige Reiseinformationen für Tansania — Visabestimmungen, Gesundheit und Impfungen, Währung, Kleiderordnung und Packtipps für Ihre Safari.",
-    "twitterTitle": "Reiseinformationen Tansania"
+    "twitterTitle": "Reiseinformationen Tansania",
+    "breadcrumbLabel": "Reiseinformationen"
   },
   "notFound": {
     "title": "Verirrt in der Wildnis",

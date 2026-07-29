@@ -196,7 +196,7 @@ export default async function DestinationsPage({ params }: Props) {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: 'Destinations' },
+            { label: t('breadcrumbLabel') },
           ]} />
           <div className="max-w-2xl">
             <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
@@ -318,12 +318,12 @@ export default async function DestinationsPage({ params }: Props) {
               <h3 className="text-2xl font-bold text-brand mb-6">{t('box3Heading')}</h3>
               <div className="grid grid-cols-2 gap-5 flex-1">
                 {[
-                  { stat: '1.5M', label: 'Wildebeest in the Great Migration', sub: 'Largest land migration on Earth' },
-                  { stat: '10%', label: "World's lion population", sub: 'Concentrated in Ruaha & Serengeti' },
-                  { stat: '54,600', label: 'km² Nyerere NP', sub: "Africa's largest protected area" },
-                  { stat: '25,000+', label: 'Animals in Ngorongoro Crater', sub: 'Highest density in Africa' },
-                  { stat: '60 yrs', label: 'Of chimp research at Gombe', sub: "Jane Goodall's ongoing legacy" },
-                  { stat: '1,100+', label: 'Bird species recorded', sub: "Africa's premier birding nation" },
+                  { stat: '1.5M', label: t('box3Stat1Label'), sub: t('box3Stat1Sub') },
+                  { stat: '10%', label: t('box3Stat2Label'), sub: t('box3Stat2Sub') },
+                  { stat: '54,600', label: t('box3Stat3Label'), sub: t('box3Stat3Sub') },
+                  { stat: '25,000+', label: t('box3Stat4Label'), sub: t('box3Stat4Sub') },
+                  { stat: '60 yrs', label: t('box3Stat5Label'), sub: t('box3Stat5Sub') },
+                  { stat: '1,100+', label: t('box3Stat6Label'), sub: t('box3Stat6Sub') },
                 ].map((item) => (
                   <div key={item.stat} className="bg-white rounded-2xl px-4 py-3 border border-brand/5">
                     <p className="text-gold-label font-bold text-xl leading-none">{item.stat}</p>

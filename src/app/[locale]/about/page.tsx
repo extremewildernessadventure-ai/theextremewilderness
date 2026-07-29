@@ -94,7 +94,7 @@ export default async function AboutPage({ params }: Props) {
         <div className="relative z-10 flex flex-col justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 pt-32 pb-16 lg:py-32">
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: 'About Us' },
+            { label: t('breadcrumbLabel') },
           ]} />
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">{t('ourStory')}</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">

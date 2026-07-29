@@ -1621,7 +1621,8 @@
     "itineraryAtAGlance": "Itinerary at a Glance",
     "day": "Day",
     "location": "Location",
-    "focus": "Focus"
+    "focus": "Focus",
+    "breadcrumbLabel": "Safari Packages"
   },
   "destination": {
     "metaTitle": "{name} Safari",
@@ -1651,7 +1652,8 @@
     "exploreGuides": "Explore Guides",
     "gettingThereHeading": "Getting There",
     "nearestAirport": "Nearest Airport",
-    "transferLabel": "Transfer Time"
+    "transferLabel": "Transfer Time",
+    "breadcrumbLabel": "Destinations"
   },
   "trekking": {
     "heroTitle": "Kilimanjaro",
@@ -2041,7 +2043,8 @@
       "African safari company",
       "best safari operator Africa"
     ],
-    "ogImageAlt": "Serengeti at sunrise with elephants"
+    "ogImageAlt": "Serengeti at sunrise with elephants",
+    "breadcrumbLabel": "About Us"
   },
   "forms": {
     "firstName": "First Name *",
@@ -2290,7 +2293,8 @@
     "haveAQuestion": "Have a question?",
     "arushaResponds": "Our Arusha-based team responds within 24 hours — no sales pressure.",
     "packageSummary": "{days} days · from ${price}",
-    "ogImageAlt": "Safari vehicles on the Serengeti plains at golden hour"
+    "ogImageAlt": "Safari vehicles on the Serengeti plains at golden hour",
+    "breadcrumbLabel": "Blog"
   },
   "destinations": {
     "metaTitle": "Tanzania Safari Destinations | Serengeti, Ngorongoro & More",
@@ -2384,7 +2388,20 @@
     "regionSouthern": "Southern Circuit",
     "regionWestern": "Western Circuit",
     "regionZanzibar": "Zanzibar Coast",
-    "regionArusha": "Arusha Gateway"
+    "regionArusha": "Arusha Gateway",
+    "breadcrumbLabel": "Destinations",
+    "box3Stat1Label": "Wildebeest in the Great Migration",
+    "box3Stat1Sub": "Largest land migration on Earth",
+    "box3Stat2Label": "World's lion population",
+    "box3Stat2Sub": "Concentrated in Ruaha & Serengeti",
+    "box3Stat3Label": "km² Nyerere NP",
+    "box3Stat3Sub": "Africa's largest protected area",
+    "box3Stat4Label": "Animals in Ngorongoro Crater",
+    "box3Stat4Sub": "Highest density in Africa",
+    "box3Stat5Label": "Of chimp research at Gombe",
+    "box3Stat5Sub": "Jane Goodall's ongoing legacy",
+    "box3Stat6Label": "Bird species recorded",
+    "box3Stat6Sub": "Africa's premier birding nation"
   },
   "kenya": {
     "heroEyebrow": "Kenya Safaris",
@@ -2627,7 +2644,8 @@
     "season1Months": "Jan – Feb",
     "season2Months": "Mar – May",
     "season3Months": "Jun – Oct",
-    "season4Months": "Nov – Dec"
+    "season4Months": "Nov – Dec",
+    "breadcrumbLabel": "Kenya"
   },
   "rwanda": {
     "heroEyebrow": "Rwanda Safaris",
@@ -2862,7 +2880,8 @@
     "season1Months": "Jun – Sep",
     "season2Months": "Oct – Nov",
     "season3Months": "Dec – Feb",
-    "season4Months": "Mar – May"
+    "season4Months": "Mar – May",
+    "breadcrumbLabel": "Rwanda"
   },
   "experiences": {
     "metaTitle": "Safari Experiences East Africa | Walking Safaris, Hot Air Balloon, Photography",
@@ -3154,7 +3173,8 @@
       "Tanzania safari package deals",
       "Africa travel plan"
     ],
-    "ogImageAlt": "East Africa safari landscape at golden hour"
+    "ogImageAlt": "East Africa safari landscape at golden hour",
+    "breadcrumbLabel": "Safari Packages"
   },
   "privacy": {
     "heroTitle1": "Privacy",
@@ -3247,7 +3267,8 @@
     "s11p1": "We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, disclosure, alteration, or destruction.",
     "s11tip": "Our website uses HTTPS encryption for all data transmissions. Payment data is handled by PCI-DSS compliant processors — we never see or store card numbers.",
     "s12p1": "We may update this Privacy Policy from time to time. The effective date at the top of this page will reflect the most recent revision. We encourage you to review this page periodically. Continued use of our website after changes are posted constitutes acceptance of the updated policy.",
-    "s13p1": "If you have any questions about this Privacy Policy or how we handle your data, please contact us — we aim to respond within 2 working days."
+    "s13p1": "If you have any questions about this Privacy Policy or how we handle your data, please contact us — we aim to respond within 2 working days.",
+    "breadcrumbLabel": "Privacy Policy"
   },
   "terms": {
     "heroTitle1": "Terms &",
@@ -3370,7 +3391,8 @@
     "s13p1": "These Terms shall be governed by and construed in accordance with the laws of the United Republic of Tanzania. Any disputes arising from these Terms shall first be subject to good-faith negotiation.",
     "s13callout": "If unresolved through negotiation, disputes shall be referred to arbitration in Arusha, Tanzania.",
     "s14p1": "Your personal data is handled in accordance with our Privacy Policy, which is incorporated into these Terms by reference.",
-    "s15p1": "For any questions about these Terms before or after making a booking, please contact us:"
+    "s15p1": "For any questions about these Terms before or after making a booking, please contact us:",
+    "breadcrumbLabel": "Terms & Conditions"
   },
   "travelInfo": {
     "heroEyebrow": "Before You Go",
@@ -3461,7 +3483,8 @@
     "metaTitle": "Tanzania Travel Information | Visas, Health, Currency & Packing",
     "metaDescription": "Essential Tanzania travel information — best time to visit, visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari or Kilimanjaro trek.",
     "ogDescription": "Essential Tanzania travel information — visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari.",
-    "twitterTitle": "Tanzania Travel Information"
+    "twitterTitle": "Tanzania Travel Information",
+    "breadcrumbLabel": "Travel Information"
   },
   "notFound": {
     "title": "Lost in the Wilderness",

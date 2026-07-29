@@ -103,12 +103,12 @@ export default async function RwandaPage({ params }: Props) {
   })
 
   const whyRwanda = [
-    { icon: '🦍', stat: '~1,000', label: 'Mountain Gorillas on Earth' },
-    { icon: '🐒', stat: '12', label: 'Primate Species in Nyungwe' },
-    { icon: '🐦', stat: '700+', label: 'Bird Species Recorded' },
-    { icon: '🌿', stat: '1,068', label: 'Plant Species in Nyungwe' },
-    { icon: '🏔️', stat: '4,507 m', label: "Mt Karisimbi Summit" },
-    { icon: '🌍', stat: '#1', label: "Africa's Cleanest Capital" },
+    { icon: '🦍', stat: '~1,000', label: t('statGorillas') },
+    { icon: '🐒', stat: '12', label: t('statPrimates') },
+    { icon: '🐦', stat: '700+', label: t('statBirds') },
+    { icon: '🌿', stat: '1,068', label: t('statPlants') },
+    { icon: '🏔️', stat: '4,507 m', label: t('statPeak') },
+    { icon: '🌍', stat: '#1', label: t('statCapital') },
   ]
 
   const seasons = [
@@ -159,7 +159,7 @@ export default async function RwandaPage({ params }: Props) {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: 'Rwanda' },
+            { label: t('breadcrumbLabel') },
           ]} />
           <div className="max-w-2xl">
             <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>

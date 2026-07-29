@@ -123,7 +123,7 @@ export default async function KenyaPage({ params }: Props) {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: 'Kenya' },
+            { label: t('breadcrumbLabel') },
           ]} />
           <div className="max-w-2xl">
             <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>

@@ -1535,7 +1535,8 @@
     "itineraryAtAGlance": "Itinerario de un vistazo",
     "day": "Día",
     "location": "Ubicación",
-    "focus": "Enfoque"
+    "focus": "Enfoque",
+    "breadcrumbLabel": "Paquetes de safari"
   },
   "destination": {
     "metaTitle": "Safari en {name}",
@@ -1565,7 +1566,8 @@
     "exploreGuides": "Explorar Guías",
     "gettingThereHeading": "Cómo Llegar",
     "nearestAirport": "Aeropuerto Más Cercano",
-    "transferLabel": "Tiempo de Traslado"
+    "transferLabel": "Tiempo de Traslado",
+    "breadcrumbLabel": "Destinos"
   },
   "trekking": {
     "heroTitle": "Kilimanjaro",
@@ -1955,7 +1957,8 @@
       "empresa de safaris africanos",
       "mejor operador de safaris de África"
     ],
-    "ogImageAlt": "El Serengeti al amanecer con elefantes"
+    "ogImageAlt": "El Serengeti al amanecer con elefantes",
+    "breadcrumbLabel": "Sobre nosotros"
   },
   "forms": {
     "firstName": "Nombre *",
@@ -2204,7 +2207,8 @@
     "haveAQuestion": "¿Tiene alguna pregunta?",
     "arushaResponds": "Nuestro equipo con sede en Arusha responde en 24 horas — sin presión comercial.",
     "packageSummary": "{days} días · desde ${price}",
-    "ogImageAlt": "Vehículos de safari en las llanuras del Serengeti durante la hora dorada"
+    "ogImageAlt": "Vehículos de safari en las llanuras del Serengeti durante la hora dorada",
+    "breadcrumbLabel": "Blog"
   },
   "destinations": {
     "metaTitle": "Destinos de Safari en Tanzania | Serengeti, Ngorongoro y Más",
@@ -2298,7 +2302,20 @@
     "regionSouthern": "Circuito Sur",
     "regionWestern": "Circuito Oeste",
     "regionZanzibar": "Costa de Zanzíbar",
-    "regionArusha": "Puerta de Arusha"
+    "regionArusha": "Puerta de Arusha",
+    "breadcrumbLabel": "Destinos",
+    "box3Stat1Label": "Ñus en la Gran Migración",
+    "box3Stat1Sub": "La mayor migración terrestre de la Tierra",
+    "box3Stat2Label": "Población mundial de leones",
+    "box3Stat2Sub": "Concentrada en Ruaha y Serengeti",
+    "box3Stat3Label": "km² en el PN Nyerere",
+    "box3Stat3Sub": "La mayor área protegida de África",
+    "box3Stat4Label": "Animales en el cráter del Ngorongoro",
+    "box3Stat4Sub": "La mayor densidad de África",
+    "box3Stat5Label": "De investigación sobre chimpancés en Gombe",
+    "box3Stat5Sub": "El legado continuo de Jane Goodall",
+    "box3Stat6Label": "Especies de aves registradas",
+    "box3Stat6Sub": "La principal nación de África para la observación de aves"
   },
   "kenya": {
     "heroEyebrow": "Safaris en Kenia",
@@ -2541,7 +2558,8 @@
     "season1Months": "Ene – Feb",
     "season2Months": "Mar – May",
     "season3Months": "Jun – Oct",
-    "season4Months": "Nov – Dic"
+    "season4Months": "Nov – Dic",
+    "breadcrumbLabel": "Kenia"
   },
   "rwanda": {
     "heroEyebrow": "Safaris en Ruanda",
@@ -2776,7 +2794,8 @@
     "season1Months": "Jun – Sep",
     "season2Months": "Oct – Nov",
     "season3Months": "Dic – Feb",
-    "season4Months": "Mar – May"
+    "season4Months": "Mar – May",
+    "breadcrumbLabel": "Ruanda"
   },
   "experiences": {
     "metaTitle": "Experiencias de Safari en África Oriental | Safaris a Pie, Globo Aerostático, Fotografía",
@@ -3068,7 +3087,8 @@
       "paquetes de safari en Tanzania",
       "plan de viaje por África"
     ],
-    "ogImageAlt": "Paisaje de safari en África Oriental durante la hora dorada"
+    "ogImageAlt": "Paisaje de safari en África Oriental durante la hora dorada",
+    "breadcrumbLabel": "Paquetes de safari"
   },
   "privacy": {
     "heroTitle1": "Política de",
@@ -3161,7 +3181,8 @@
     "s11p1": "Implementamos medidas técnicas y organizativas apropiadas para proteger sus datos personales contra el acceso no autorizado, la divulgación, la alteración o la destrucción.",
     "s11tip": "Nuestro sitio web usa encriptación HTTPS para todas las transmisiones de datos. Los datos de pago son manejados por procesadores compatibles con PCI-DSS — nunca vemos ni almacenamos números de tarjeta.",
     "s12p1": "Podemos actualizar esta Política de Privacidad de vez en cuando. La fecha efectiva en la parte superior de esta página reflejará la revisión más reciente. Le animamos a revisar esta página periódicamente. El uso continuado de nuestro sitio web después de publicar los cambios constituye la aceptación de la política actualizada.",
-    "s13p1": "Si tiene alguna pregunta sobre esta Política de Privacidad o cómo manejamos sus datos, contáctenos — nuestro objetivo es responder dentro de 2 días hábiles."
+    "s13p1": "Si tiene alguna pregunta sobre esta Política de Privacidad o cómo manejamos sus datos, contáctenos — nuestro objetivo es responder dentro de 2 días hábiles.",
+    "breadcrumbLabel": "Política de privacidad"
   },
   "terms": {
     "heroTitle1": "Términos y",
@@ -3284,7 +3305,8 @@
     "s13p1": "Estos Términos se regirán e interpretarán de acuerdo con las leyes de la República Unida de Tanzania. Las disputas que surjan de estos Términos estarán sujetas primero a negociación de buena fe.",
     "s13callout": "Si no se resuelve mediante negociación, las disputas serán referidas a arbitraje en Arusha, Tanzania.",
     "s14p1": "Sus datos personales se manejan de acuerdo con nuestra Política de Privacidad, que se incorpora a estos Términos por referencia.",
-    "s15p1": "Para cualquier pregunta sobre estos Términos antes o después de realizar una reserva, contáctenos:"
+    "s15p1": "Para cualquier pregunta sobre estos Términos antes o después de realizar una reserva, contáctenos:",
+    "breadcrumbLabel": "Términos y condiciones"
   },
   "travelInfo": {
     "heroEyebrow": "Antes de partir",
@@ -3375,7 +3397,8 @@
     "metaTitle": "Información de viaje a Tanzania | Visados, salud, moneda y equipaje",
     "metaDescription": "Información esencial de viaje a Tanzania — mejor época para visitar, requisitos de visado, salud y vacunas, moneda, código de vestimenta y consejos de equipaje para su safari o trekking al Kilimanjaro.",
     "ogDescription": "Información esencial de viaje a Tanzania — requisitos de visado, salud y vacunas, moneda, código de vestimenta y consejos de equipaje para su safari.",
-    "twitterTitle": "Información de viaje a Tanzania"
+    "twitterTitle": "Información de viaje a Tanzania",
+    "breadcrumbLabel": "Información de viaje"
   },
   "notFound": {
     "title": "Perdido en la Naturaleza Salvaje",

@@ -1579,7 +1579,8 @@
     "itineraryAtAGlance": "Itinéraire en un coup d'œil",
     "day": "Jour",
     "location": "Lieu",
-    "focus": "Focus"
+    "focus": "Focus",
+    "breadcrumbLabel": "Forfaits safari"
   },
   "destination": {
     "metaTitle": "Safari {name}",
@@ -1609,7 +1610,8 @@
     "exploreGuides": "Découvrir les Guides",
     "gettingThereHeading": "Comment s'y Rendre",
     "nearestAirport": "Aéroport le Plus Proche",
-    "transferLabel": "Temps de Trajet"
+    "transferLabel": "Temps de Trajet",
+    "breadcrumbLabel": "Destinations"
   },
   "trekking": {
     "heroTitle": "Kilimandjaro",
@@ -1999,7 +2001,8 @@
       "entreprise de safari africain",
       "meilleur opérateur de safari en Afrique"
     ],
-    "ogImageAlt": "Le Serengeti au lever du soleil avec des éléphants"
+    "ogImageAlt": "Le Serengeti au lever du soleil avec des éléphants",
+    "breadcrumbLabel": "À propos de nous"
   },
   "forms": {
     "firstName": "Prénom *",
@@ -2248,7 +2251,8 @@
     "haveAQuestion": "Une question ?",
     "arushaResponds": "Notre équipe basée à Arusha répond dans les 24 heures — sans pression commerciale.",
     "packageSummary": "{days} jours · à partir de ${price}",
-    "ogImageAlt": "Véhicules de safari sur les plaines du Serengeti à l'heure dorée"
+    "ogImageAlt": "Véhicules de safari sur les plaines du Serengeti à l'heure dorée",
+    "breadcrumbLabel": "Blog"
   },
   "destinations": {
     "metaTitle": "Destinations Safari en Tanzanie | Serengeti, Ngorongoro et Plus",
@@ -2342,7 +2346,20 @@
     "regionSouthern": "Circuit du Sud",
     "regionWestern": "Circuit de l'Ouest",
     "regionZanzibar": "Côte de Zanzibar",
-    "regionArusha": "Porte d'Arusha"
+    "regionArusha": "Porte d'Arusha",
+    "breadcrumbLabel": "Destinations",
+    "box3Stat1Label": "Gnous dans la Grande Migration",
+    "box3Stat1Sub": "La plus grande migration terrestre sur Terre",
+    "box3Stat2Label": "Population mondiale de lions",
+    "box3Stat2Sub": "Concentrée à Ruaha et au Serengeti",
+    "box3Stat3Label": "km² au parc national de Nyerere",
+    "box3Stat3Sub": "La plus grande zone protégée d'Afrique",
+    "box3Stat4Label": "Animaux dans le cratère du Ngorongoro",
+    "box3Stat4Sub": "La plus forte densité d'Afrique",
+    "box3Stat5Label": "De recherche sur les chimpanzés à Gombe",
+    "box3Stat5Sub": "L'héritage vivant de Jane Goodall",
+    "box3Stat6Label": "Espèces d'oiseaux recensées",
+    "box3Stat6Sub": "La première nation d'Afrique pour l'observation des oiseaux"
   },
   "kenya": {
     "heroEyebrow": "Safaris au Kenya",
@@ -2585,7 +2602,8 @@
     "season1Months": "Jan – Fév",
     "season2Months": "Mar – Mai",
     "season3Months": "Juin – Oct",
-    "season4Months": "Nov – Déc"
+    "season4Months": "Nov – Déc",
+    "breadcrumbLabel": "Kenya"
   },
   "rwanda": {
     "heroEyebrow": "Safaris au Rwanda",
@@ -2820,7 +2838,8 @@
     "season1Months": "Juin – Sept",
     "season2Months": "Oct – Nov",
     "season3Months": "Déc – Fév",
-    "season4Months": "Mar – Mai"
+    "season4Months": "Mar – Mai",
+    "breadcrumbLabel": "Rwanda"
   },
   "experiences": {
     "metaTitle": "Expériences Safari en Afrique de l'Est | Safaris à Pied, Montgolfière, Photo",
@@ -3112,7 +3131,8 @@
       "forfaits safari Tanzanie",
       "plan de voyage en Afrique"
     ],
-    "ogImageAlt": "Paysage de safari en Afrique de l'Est à l'heure dorée"
+    "ogImageAlt": "Paysage de safari en Afrique de l'Est à l'heure dorée",
+    "breadcrumbLabel": "Forfaits safari"
   },
   "privacy": {
     "heroTitle1": "Politique de",
@@ -3205,7 +3225,8 @@
     "s11p1": "Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données personnelles contre tout accès non autorisé, divulgation, altération ou destruction.",
     "s11tip": "Notre site web utilise le chiffrement HTTPS pour toutes les transmissions de données. Les données de paiement sont gérées par des processeurs conformes PCI-DSS — nous ne voyons ni ne stockons jamais les numéros de carte.",
     "s12p1": "Nous pouvons mettre à jour cette politique de confidentialité de temps en temps. La date d'entrée en vigueur en haut de cette page reflétera la révision la plus récente. Nous vous encourageons à consulter cette page périodiquement. L'utilisation continue de notre site web après la publication des modifications constitue une acceptation de la politique mise à jour.",
-    "s13p1": "Si vous avez des questions sur cette politique de confidentialité ou sur la façon dont nous traitons vos données, veuillez nous contacter — nous visons à répondre dans les 2 jours ouvrables."
+    "s13p1": "Si vous avez des questions sur cette politique de confidentialité ou sur la façon dont nous traitons vos données, veuillez nous contacter — nous visons à répondre dans les 2 jours ouvrables.",
+    "breadcrumbLabel": "Politique de confidentialité"
   },
   "terms": {
     "heroTitle1": "Conditions",
@@ -3328,7 +3349,8 @@
     "s13p1": "Ces Conditions sont régies par et interprétées conformément aux lois de la République-Unie de Tanzanie. Tout litige découlant de ces Conditions sera d'abord soumis à une négociation de bonne foi.",
     "s13callout": "Si non résolu par négociation, les litiges seront soumis à arbitrage à Arusha, Tanzanie.",
     "s14p1": "Vos données personnelles sont traitées conformément à notre Politique de confidentialité, qui est incorporée dans ces Conditions par référence.",
-    "s15p1": "Pour toute question sur ces Conditions avant ou après avoir effectué une réservation, veuillez nous contacter :"
+    "s15p1": "Pour toute question sur ces Conditions avant ou après avoir effectué une réservation, veuillez nous contacter :",
+    "breadcrumbLabel": "Conditions générales"
   },
   "travelInfo": {
     "heroEyebrow": "Avant votre départ",
@@ -3419,7 +3441,8 @@
     "metaTitle": "Informations de voyage en Tanzanie | Visas, santé, devise et bagages",
     "metaDescription": "Informations essentielles pour voyager en Tanzanie — meilleure période pour visiter, exigences de visa, santé et vaccinations, devise, code vestimentaire et conseils de bagages pour votre safari ou trekking au Kilimandjaro.",
     "ogDescription": "Informations essentielles pour voyager en Tanzanie — exigences de visa, santé et vaccinations, devise, code vestimentaire et conseils de bagages pour votre safari.",
-    "twitterTitle": "Informations de voyage en Tanzanie"
+    "twitterTitle": "Informations de voyage en Tanzanie",
+    "breadcrumbLabel": "Informations de voyage"
   },
   "notFound": {
     "title": "Perdu dans la Nature Sauvage",

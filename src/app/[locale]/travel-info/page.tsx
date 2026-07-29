@@ -144,7 +144,7 @@ export default async function TravelInfoPage({ params }: Props) {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: 'Travel Information' },
+            { label: t('breadcrumbLabel') },
           ]} />
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 max-w-3xl">

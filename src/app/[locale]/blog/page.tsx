@@ -57,7 +57,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: 'Blog' },
+            { label: t('breadcrumbLabel') },
           ]} />
           <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-4">
             {t.rich('heroTitle', {

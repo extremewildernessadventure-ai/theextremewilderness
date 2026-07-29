@@ -1719,7 +1719,8 @@
     "itineraryAtAGlance": "行程一覽",
     "day": "第",
     "location": "地點",
-    "focus": "重點"
+    "focus": "重點",
+    "breadcrumbLabel": "獵遊套餐"
   },
   "destination": {
     "metaTitle": "{name}獵遊",
@@ -1749,7 +1750,8 @@
     "exploreGuides": "探索指南",
     "gettingThereHeading": "如何抵達",
     "nearestAirport": "最近機場",
-    "transferLabel": "接送時間"
+    "transferLabel": "接送時間",
+    "breadcrumbLabel": "目的地"
   },
   "trekking": {
     "heroTitle": "吉力馬札羅",
@@ -2139,7 +2141,8 @@
       "非洲獵遊公司",
       "非洲最佳獵遊運營商"
     ],
-    "ogImageAlt": "日出時分的塞倫蓋提與象群"
+    "ogImageAlt": "日出時分的塞倫蓋提與象群",
+    "breadcrumbLabel": "關於我們"
   },
   "forms": {
     "firstName": "名字 *",
@@ -2388,7 +2391,8 @@
     "haveAQuestion": "有問題嗎？",
     "arushaResponds": "我們駐阿魯沙的團隊將在24小時內回覆——沒有推銷壓力。",
     "packageSummary": "{days}天 · ${price}起",
-    "ogImageAlt": "黃金時刻塞倫蓋提平原上的獵遊車隊"
+    "ogImageAlt": "黃金時刻塞倫蓋提平原上的獵遊車隊",
+    "breadcrumbLabel": "部落格"
   },
   "destinations": {
     "metaTitle": "坦尚尼亞獵遊目的地 | 塞倫蓋蒂、恩戈羅恩戈羅及更多",
@@ -2482,7 +2486,20 @@
     "regionSouthern": "南方環線",
     "regionWestern": "西部環線",
     "regionZanzibar": "尚吉巴海岸",
-    "regionArusha": "阿魯沙門戶"
+    "regionArusha": "阿魯沙門戶",
+    "breadcrumbLabel": "目的地",
+    "box3Stat1Label": "參與大遷徙的角馬",
+    "box3Stat1Sub": "地球上規模最大的陸地動物遷徙",
+    "box3Stat2Label": "全球獅子種群",
+    "box3Stat2Sub": "集中於魯阿哈與塞倫蓋提",
+    "box3Stat3Label": "平方公里 尼耶雷雷國家公園",
+    "box3Stat3Sub": "非洲最大的保護區",
+    "box3Stat4Label": "恩戈羅恩戈羅火山口內的動物",
+    "box3Stat4Sub": "非洲密度最高",
+    "box3Stat5Label": "貢貝黑猩猩研究歷史",
+    "box3Stat5Sub": "珍·古德爾延續至今的傳承",
+    "box3Stat6Label": "記錄在案的鳥類物種",
+    "box3Stat6Sub": "非洲首屈一指的觀鳥勝地"
   },
   "kenya": {
     "heroEyebrow": "肯亞獵遊",
@@ -2725,7 +2742,8 @@
     "season1Months": "1月 – 2月",
     "season2Months": "3月 – 5月",
     "season3Months": "6月 – 10月",
-    "season4Months": "11月 – 12月"
+    "season4Months": "11月 – 12月",
+    "breadcrumbLabel": "肯亞"
   },
   "rwanda": {
     "heroEyebrow": "盧安達獵遊",
@@ -2960,7 +2978,8 @@
     "season1Months": "6月 – 9月",
     "season2Months": "10月 – 11月",
     "season3Months": "12月 – 2月",
-    "season4Months": "3月 – 5月"
+    "season4Months": "3月 – 5月",
+    "breadcrumbLabel": "盧安達"
   },
   "experiences": {
     "metaTitle": "東非獵遊體驗 | 健行獵遊、熱氣球、攝影",
@@ -3252,7 +3271,8 @@
       "坦尚尼亞獵遊套餐優惠",
       "非洲旅行計劃"
     ],
-    "ogImageAlt": "黃金時刻的東非獵遊風光"
+    "ogImageAlt": "黃金時刻的東非獵遊風光",
+    "breadcrumbLabel": "獵遊套餐"
   },
   "privacy": {
     "heroTitle1": "隱私",
@@ -3345,7 +3365,8 @@
     "s11p1": "我們實施適當的技術和組織措施，保護您的個人資料免遭未經授權的訪問、披露、更改或銷燬。",
     "s11tip": "我們的網站對所有資料傳輸使用HTTPS加密。支付資料由符合PCI-DSS標準的處理商處理——我們從不檢視或儲存卡號。",
     "s12p1": "我們可能不時更新本隱私政策。本頁頂部的生效日期將反映最近的修訂。我們建議您定期檢視本頁面。變更釋出後繼續使用我們的網站即表示接受更新後的政策。",
-    "s13p1": "如果您對本隱私政策或我們如何處理您的資料有任何疑問，請聯絡我們——我們力求在2個工作日內回覆。"
+    "s13p1": "如果您對本隱私政策或我們如何處理您的資料有任何疑問，請聯絡我們——我們力求在2個工作日內回覆。",
+    "breadcrumbLabel": "隱私政策"
   },
   "terms": {
     "heroTitle1": "條款與",
@@ -3468,7 +3489,8 @@
     "s13p1": "這些條款受坦尚尼亞聯合共和國法律管轄並據其解釋。因這些條款產生的任何爭議應首先通過善意協商解決。",
     "s13callout": "如協商未果，爭議應提交坦尚尼亞阿魯沙仲裁。",
     "s14p1": "您的個人資料按照我們的隱私政策處理，該政策通過引用納入這些條款。",
-    "s15p1": "如在預訂前後對這些條款有任何疑問，請聯絡我們："
+    "s15p1": "如在預訂前後對這些條款有任何疑問，請聯絡我們：",
+    "breadcrumbLabel": "條款與條件"
   },
   "travelInfo": {
     "heroEyebrow": "出發之前",
@@ -3559,7 +3581,8 @@
     "metaTitle": "坦尚尼亞旅行資訊 | 簽證、健康、貨幣與打包",
     "metaDescription": "坦尚尼亞旅行必備資訊——最佳遊覽時間、簽證要求、健康與疫苗接種、貨幣、著裝規範，以及獵遊或吉力馬札羅健行的打包建議。",
     "ogDescription": "坦尚尼亞旅行必備資訊——簽證要求、健康與疫苗接種、貨幣、著裝規範及獵遊打包建議。",
-    "twitterTitle": "坦尚尼亞旅行資訊"
+    "twitterTitle": "坦尚尼亞旅行資訊",
+    "breadcrumbLabel": "旅行資訊"
   },
   "notFound": {
     "title": "迷失在曠野",

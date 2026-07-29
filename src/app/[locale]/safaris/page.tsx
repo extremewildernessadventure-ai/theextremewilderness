@@ -158,7 +158,7 @@ export default async function SafarisPage({ params }: Props) {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: 'Safari Packages' },
+            { label: t('breadcrumbLabel') },
           ]} />
           <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroPill')}</p>
 

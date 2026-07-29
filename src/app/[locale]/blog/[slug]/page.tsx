@@ -198,7 +198,7 @@ export default async function BlogArticlePage({ params }: Props) {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: 'Blog', href: `/${locale}/blog` },
+            { label: t('breadcrumbLabel'), href: `/${locale}/blog` },
             { label: post.title },
           ]} />
           <div className="flex flex-wrap gap-3 items-center mb-4">

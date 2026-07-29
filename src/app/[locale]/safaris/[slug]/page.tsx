@@ -359,7 +359,7 @@ export default async function SafariPackagePage({ params }: Props) {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: 'Safari Packages', href: `/${locale}/safaris` },
+            { label: t('breadcrumbLabel'), href: `/${locale}/safaris` },
             { label: pkg.name },
           ]} />
           <div className="flex items-start justify-between flex-wrap gap-4">
