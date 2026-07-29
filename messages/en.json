@@ -272,7 +272,8 @@
         }
       ],
       "tabLabels": { "6": "6-Day Machame", "7": "7-Day Machame" },
-      "routeNameByDuration": { "6": "Machame Route — 6-Day", "7": "Machame Route — 7-Day" }
+      "routeNameByDuration": { "6": "Machame Route — 6-Day", "7": "Machame Route — 7-Day" },
+      "heroImageAlt": "Mount Kilimanjaro rising above the savanna, framed by acacia trees"
     },
     "lemosho": {
       "nickname": "The Connoisseur's Choice",
@@ -583,7 +584,8 @@
         }
       ],
       "tabLabels": { "6": "6-Day Lemosho", "7": "7-Day Lemosho", "8": "8-Day Lemosho" },
-      "routeNameByDuration": { "6": "Lemosho Route — 6-Day", "7": "Lemosho Route — 7-Day", "8": "Lemosho Route — 8-Day" }
+      "routeNameByDuration": { "6": "Lemosho Route — 6-Day", "7": "Lemosho Route — 7-Day", "8": "Lemosho Route — 8-Day" },
+      "heroImageAlt": "Wide scenic view of Kilimanjaro emerging above the clouds"
     },
     "rongai": {
       "nickname": "The Northern Approach",
@@ -701,7 +703,8 @@
         "solo": 2595,
         "small": 2395,
         "group": 2250
-      }
+      },
+      "heroImageAlt": "A dirt trail leading toward Mount Kilimanjaro on the Rongai route"
     },
     "marangu": {
       "nickname": "The Classic Route",
@@ -805,7 +808,8 @@
         "solo": 2295,
         "small": 2095,
         "group": 1950
-      }
+      },
+      "heroImageAlt": "Aerial view of the Kilimanjaro summit breaking through the clouds"
     },
     "umbwe": {
       "nickname": "The Most Direct Route",
@@ -923,7 +927,8 @@
         "solo": 1880,
         "small": 1880,
         "group": 1880
-      }
+      },
+      "heroImageAlt": "Climbers ascending toward the summit at sunrise"
     },
     "northern-circuit": {
       "nickname": "The Grand Traverse",
@@ -1055,7 +1060,8 @@
         "solo": 2237,
         "small": 2237,
         "group": 2237
-      }
+      },
+      "heroImageAlt": "A rocky, snow-covered ridge rising above a sea of clouds"
     }
   },
   "planBuilder": {
@@ -1187,7 +1193,9 @@
       "emailError": "Something went wrong — please try WhatsApp instead.",
       "orTalk": "Prefer to just talk it through?",
       "talkButton": "Speak to our team"
-    }
+    },
+    "metaTitle": "AI Safari Planner | Craft Your Safari",
+    "metaDescription": "Ask our AI Safari Advisor anything about Tanzania, Kenya or Rwanda, then fine-tune with our 90-second guided planner — see real matched itineraries with transparent pricing, no invented tours."
   },
   "nav": {
     "destinations": "Destinations",
@@ -1554,7 +1562,14 @@
     "ourStoryP3": "Join us as we embark on your ultimate adventure, Spiral down the remarkable, bowl-like Ngorngoro crater, ascend the beautiful snowcapped summit of Africa in Kilimanjaro, Let your soul fill with awe as you drive through the Serengeti's lush green grass plains, And finally raise your glass, celebrate and reminisce on your adventure standing the pristine zanzibari sands.",
     "ourStoryP4": "This is what we are about, Adventure Beyond Your Wildest Imaginations.",
     "ourStorySignature": "M.A. Mawolle",
-    "ourStoryImageAlt": "Rhinos gathered at a watering hole in the Tanzanian wilderness"
+    "ourStoryImageAlt": "Rhinos gathered at a watering hole in the Tanzanian wilderness",
+    "metaTitle": "EWA Safari Outfitters | Tanzania Safari & Kilimanjaro Trekking 2026",
+    "metaDescription": "Book Tanzania safaris, Kilimanjaro treks, gorilla trekking Rwanda and Kenya safaris with a certified local operator. Serengeti, Ngorongoro, Great Migration. 4.9/5 rated.",
+    "ogTitle": "EWA Safari Outfitters | Tanzania Safari & Kilimanjaro 2026",
+    "ogDescription": "Book Tanzania safaris, Kilimanjaro treks & gorilla trekking with a certified local operator. Serengeti, Ngorongoro, Great Migration. 4.9/5 rated.",
+    "twitterTitle": "EWA Safari Outfitters | Tanzania Safari 2026",
+    "twitterDescription": "Certified local operator for Tanzania safaris, Kilimanjaro & gorilla trekking.",
+    "ogImageAlt": "Lions at golden sunset on the Tanzania Serengeti plains"
   },
   "safari": {
     "travelerReviewHeading": "What Travelers Say",
@@ -1907,7 +1922,8 @@
       "Kilimanjaro guided trek",
       "Tanzania mountain climbing",
       "Uhuru Peak Tanzania"
-    ]
+    ],
+    "heroImageAlt": "Mount Kilimanjaro summit rising above the clouds"
   },
   "contact": {
     "getInTouch": "Get In Touch",
@@ -1937,7 +1953,10 @@
     "tagline": "Tanzania Safari & Trekking Specialists",
     "callUsLabel": "Call Us — +255 747 999 070",
     "whatsappUs": "WhatsApp Us",
-    "heroImageAlt": "Safari in the Serengeti"
+    "heroImageAlt": "Safari in the Serengeti",
+    "metaTitle": "Contact & Plan Your Safari",
+    "metaDescription": "Get in touch with our Tanzania-based safari experts. We respond within 2 hours with a custom itinerary.",
+    "twitterTitle": "Contact"
   },
   "about": {
     "ourStory": "Our Story",
@@ -2021,7 +2040,8 @@
       "Tanzania safari 2026",
       "African safari company",
       "best safari operator Africa"
-    ]
+    ],
+    "ogImageAlt": "Serengeti at sunrise with elephants"
   },
   "forms": {
     "firstName": "First Name *",
@@ -2269,7 +2289,8 @@
     "topics": "Topics",
     "haveAQuestion": "Have a question?",
     "arushaResponds": "Our Arusha-based team responds within 24 hours — no sales pressure.",
-    "packageSummary": "{days} days · from ${price}"
+    "packageSummary": "{days} days · from ${price}",
+    "ogImageAlt": "Safari vehicles on the Serengeti plains at golden hour"
   },
   "destinations": {
     "metaTitle": "Tanzania Safari Destinations | Serengeti, Ngorongoro & More",
@@ -2357,7 +2378,13 @@
     "mapCulturalRegion": "Cultural region",
     "mapLowActivity": "Low activity",
     "heroImageAlt": "Lions at golden sunset on the Tanzania Serengeti plains",
-    "ctaBody": "Our team is born and based in Arusha — these are our home parks. We know every road, every season, every camp. Let us design an itinerary built around what you want to see."
+    "ctaBody": "Our team is born and based in Arusha — these are our home parks. We know every road, every season, every camp. Let us design an itinerary built around what you want to see.",
+    "regionNorthern": "Northern Circuit",
+    "regionTarangire": "Tarangire Region",
+    "regionSouthern": "Southern Circuit",
+    "regionWestern": "Western Circuit",
+    "regionZanzibar": "Zanzibar Coast",
+    "regionArusha": "Arusha Gateway"
   },
   "kenya": {
     "heroEyebrow": "Kenya Safaris",
@@ -2589,7 +2616,14 @@
       "best time Masai Mara",
       "Kenyan safari holidays",
       "luxury Kenya safari"
-    ]
+    ],
+    "regionSouthernKenya": "Southern Kenya",
+    "regionNorthernKenya": "Northern Kenya",
+    "regionSouthWestKenya": "South-West Kenya",
+    "regionCentralKenya": "Central Kenya",
+    "regionKenyanCoast": "Kenyan Coast",
+    "regionFallback": "Kenya",
+    "ogImageAlt": "Lions at sunset on the Masai Mara plains"
   },
   "rwanda": {
     "heroEyebrow": "Rwanda Safaris",
@@ -2813,7 +2847,14 @@
       "Rwanda gorilla tour operator",
       "gorilla trekking cost Rwanda",
       "East Africa gorilla safari"
-    ]
+    ],
+    "regionNorthernRwanda": "Northern Rwanda",
+    "regionSouthWestRwanda": "South-West Rwanda",
+    "regionEasternRwanda": "Eastern Rwanda",
+    "regionWesternRwanda": "Western Rwanda",
+    "regionCapital": "Capital",
+    "regionFallback": "Rwanda",
+    "ogImageAlt": "Mountain gorilla in the Volcanoes National Park, Rwanda"
   },
   "experiences": {
     "metaTitle": "Safari Experiences East Africa | Walking Safaris, Hot Air Balloon, Photography",
@@ -2920,7 +2961,8 @@
     "expType6": "Balloon Flights",
     "expType7": "Family Safaris",
     "quoteText": "We didn't just see Africa. We felt it. The guides at EWA Safari Outfitters gave us something we couldn't have found anywhere else — a genuine, unhurried, deeply personal experience of the wild.",
-    "quoteSub": "12-day Serengeti & Zanzibar — March 2025"
+    "quoteSub": "12-day Serengeti & Zanzibar — March 2025",
+    "ogImageAlt": "East Africa safari landscape"
   },
   "itineraries": {
     "heroPill": "East Africa · Tanzania · Kenya · Rwanda",
@@ -3103,7 +3145,8 @@
       "custom Tanzania itinerary",
       "Tanzania safari package deals",
       "Africa travel plan"
-    ]
+    ],
+    "ogImageAlt": "East Africa safari landscape at golden hour"
   },
   "privacy": {
     "heroTitle1": "Privacy",
@@ -3405,7 +3448,12 @@
     "contactHeading": "Have More Questions?",
     "contactSubtitle": "Our team in Arusha is available seven days a week to answer pre-travel questions about health requirements, visa applications, what to pack, and anything else you need to know before your trip.",
     "contactBtn1": "Contact Us",
-    "contactBtn2": "View Safaris"
+    "contactBtn2": "View Safaris",
+    "ogImageAlt": "East Africa safari landscape",
+    "metaTitle": "Tanzania Travel Information | Visas, Health, Currency & Packing",
+    "metaDescription": "Essential Tanzania travel information — best time to visit, visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari or Kilimanjaro trek.",
+    "ogDescription": "Essential Tanzania travel information — visa requirements, health and vaccinations, currency, dress code, and packing tips for your safari.",
+    "twitterTitle": "Tanzania Travel Information"
   },
   "notFound": {
     "title": "Lost in the Wilderness",

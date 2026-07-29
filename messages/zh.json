@@ -284,7 +284,8 @@
         }
       ],
       "tabLabels": { "6": "6天马查梅", "7": "7天马查梅" },
-      "routeNameByDuration": { "6": "马查梅路线 — 6天", "7": "马查梅路线 — 7天" }
+      "routeNameByDuration": { "6": "马查梅路线 — 6天", "7": "马查梅路线 — 7天" },
+      "heroImageAlt": "金合欢掩映下拔地而起于稀树草原之上的乞力马扎罗山"
     },
     "lemosho": {
       "nickname": "行家之选",
@@ -607,7 +608,8 @@
         }
       ],
       "tabLabels": { "6": "6天莱莫肖", "7": "7天莱莫肖", "8": "8天莱莫肖" },
-      "routeNameByDuration": { "6": "莱莫肖路线 — 6天", "7": "莱莫肖路线 — 7天", "8": "莱莫肖路线 — 8天" }
+      "routeNameByDuration": { "6": "莱莫肖路线 — 6天", "7": "莱莫肖路线 — 7天", "8": "莱莫肖路线 — 8天" },
+      "heroImageAlt": "乞力马扎罗山破云而出的壮阔全景"
     },
     "rongai": {
       "nickname": "北方进山线",
@@ -737,7 +739,8 @@
         "solo": 2595,
         "small": 2395,
         "group": 2250
-      }
+      },
+      "heroImageAlt": "隆盖路线上通向乞力马扎罗山的土路"
     },
     "marangu": {
       "nickname": "经典路线",
@@ -853,7 +856,8 @@
         "solo": 2295,
         "small": 2095,
         "group": 1950
-      }
+      },
+      "heroImageAlt": "乞力马扎罗峰顶破云而出的航拍景象"
     },
     "umbwe": {
       "nickname": "最直接的路线",
@@ -983,7 +987,8 @@
         "solo": 1880,
         "small": 1880,
         "group": 1880
-      }
+      },
+      "heroImageAlt": "日出时分向峰顶攀登的登山者"
     },
     "northern-circuit": {
       "nickname": "大环线",
@@ -1127,7 +1132,8 @@
         "solo": 2237,
         "small": 2237,
         "group": 2237
-      }
+      },
+      "heroImageAlt": "高耸于云海之上的多岩积雪山脊"
     }
   },
   "planBuilder": {
@@ -1259,7 +1265,9 @@
       "emailError": "出了点问题——请改用WhatsApp。",
       "orTalk": "更想直接聊一聊？",
       "talkButton": "联系我们的团队"
-    }
+    },
+    "metaTitle": "AI游猎规划师 | 打造您的专属游猎",
+    "metaDescription": "向我们的AI游猎顾问咨询关于坦桑尼亚、肯尼亚或卢旺达的任何问题，再通过90秒引导式规划器精细调整——查看真实匹配的行程与透明价格，绝无虚构行程。"
   },
   "nav": {
     "destinations": "目的地",
@@ -1626,7 +1634,14 @@
     "ourStoryP3": "加入我们，开启您的终极冒险。盘旋而下走进碗状的非凡恩戈罗恩戈罗火山口，登上乞力马扎罗美丽的非洲雪顶，驾车穿越塞伦盖蒂葱郁的绿色草原让灵魂充满敬畏，最后站在桑给巴尔纯净的沙滩上举杯庆祝、回味您的冒险。",
     "ourStoryP4": "这就是我们的追求：超越您最狂野想象的冒险。",
     "ourStorySignature": "M.A. Mawolle",
-    "ourStoryImageAlt": "犀牛聚集在坦桑尼亚荒野的水坑边"
+    "ourStoryImageAlt": "犀牛聚集在坦桑尼亚荒野的水坑边",
+    "metaTitle": "EWA Safari Outfitters | 坦桑尼亚游猎与乞力马扎罗徒步 2026",
+    "metaDescription": "与认证本地运营商预订坦桑尼亚游猎、乞力马扎罗徒步、卢旺达大猩猩徒步及肯尼亚游猎。塞伦盖蒂、恩戈罗恩戈罗、动物大迁徙。评分4.9/5。",
+    "ogTitle": "EWA Safari Outfitters | 坦桑尼亚游猎与乞力马扎罗 2026",
+    "ogDescription": "与认证本地运营商预订坦桑尼亚游猎、乞力马扎罗徒步及大猩猩徒步。塞伦盖蒂、恩戈罗恩戈罗、动物大迁徙。评分4.9/5。",
+    "twitterTitle": "EWA Safari Outfitters | 坦桑尼亚游猎 2026",
+    "twitterDescription": "坦桑尼亚游猎、乞力马扎罗及大猩猩徒步的认证本地运营商。",
+    "ogImageAlt": "坦桑尼亚塞伦盖蒂平原金色日落下的狮子"
   },
   "safari": {
     "travelerReviewHeading": "旅行者怎么说",
@@ -1979,7 +1994,8 @@
       "乞力马扎罗向导徒步",
       "坦桑尼亚登山",
       "乌呼鲁峰坦桑尼亚"
-    ]
+    ],
+    "heroImageAlt": "云海之上的乞力马扎罗峰顶"
   },
   "contact": {
     "getInTouch": "联系我们",
@@ -2009,7 +2025,10 @@
     "tagline": "坦桑尼亚游猎与徒步专家",
     "callUsLabel": "致电我们 — +255 747 999 070",
     "whatsappUs": "WhatsApp联系我们",
-    "heroImageAlt": "塞伦盖蒂游猎"
+    "heroImageAlt": "塞伦盖蒂游猎",
+    "metaTitle": "联系我们并规划您的游猎",
+    "metaDescription": "联系我们坦桑尼亚本地的游猎专家。我们将在2小时内回复量身定制的行程。",
+    "twitterTitle": "联系我们"
   },
   "about": {
     "ourStory": "我们的故事",
@@ -2093,7 +2112,8 @@
       "坦桑尼亚游猎 2026",
       "非洲游猎公司",
       "非洲最佳游猎运营商"
-    ]
+    ],
+    "ogImageAlt": "日出时分的塞伦盖蒂与象群"
   },
   "forms": {
     "firstName": "名字 *",
@@ -2341,7 +2361,8 @@
     "topics": "话题",
     "haveAQuestion": "有问题吗？",
     "arushaResponds": "我们驻阿鲁沙的团队将在24小时内回复——没有推销压力。",
-    "packageSummary": "{days}天 · ${price}起"
+    "packageSummary": "{days}天 · ${price}起",
+    "ogImageAlt": "黄金时刻塞伦盖蒂平原上的游猎车队"
   },
   "destinations": {
     "metaTitle": "坦桑尼亚游猎目的地 | 塞伦盖蒂、恩戈罗恩戈罗及更多",
@@ -2429,7 +2450,13 @@
     "mapCulturalRegion": "文化地区",
     "mapLowActivity": "低活动量",
     "heroImageAlt": "坦桑尼亚塞伦盖蒂平原金色日落下的狮子",
-    "ctaBody": "我们的团队生于阿鲁沙、立足阿鲁沙——这些是我们的主场公园。我们熟悉每条路、每个季节、每个营地。让我们围绕您想看的一切设计行程。"
+    "ctaBody": "我们的团队生于阿鲁沙、立足阿鲁沙——这些是我们的主场公园。我们熟悉每条路、每个季节、每个营地。让我们围绕您想看的一切设计行程。",
+    "regionNorthern": "北方环线",
+    "regionTarangire": "塔兰吉雷地区",
+    "regionSouthern": "南方环线",
+    "regionWestern": "西部环线",
+    "regionZanzibar": "桑给巴尔海岸",
+    "regionArusha": "阿鲁沙门户"
   },
   "kenya": {
     "heroEyebrow": "肯尼亚游猎",
@@ -2661,7 +2688,14 @@
       "马赛马拉最佳时间",
       "肯尼亚游猎假期",
       "豪华肯尼亚游猎"
-    ]
+    ],
+    "regionSouthernKenya": "肯尼亚南部",
+    "regionNorthernKenya": "肯尼亚北部",
+    "regionSouthWestKenya": "肯尼亚西南部",
+    "regionCentralKenya": "肯尼亚中部",
+    "regionKenyanCoast": "肯尼亚海岸",
+    "regionFallback": "肯尼亚",
+    "ogImageAlt": "马赛马拉平原日落下的狮子"
   },
   "rwanda": {
     "heroEyebrow": "卢旺达游猎",
@@ -2885,7 +2919,14 @@
       "卢旺达大猩猩旅游运营商",
       "卢旺达大猩猩徒步费用",
       "东非大猩猩游猎"
-    ]
+    ],
+    "regionNorthernRwanda": "卢旺达北部",
+    "regionSouthWestRwanda": "卢旺达西南部",
+    "regionEasternRwanda": "卢旺达东部",
+    "regionWesternRwanda": "卢旺达西部",
+    "regionCapital": "首都",
+    "regionFallback": "卢旺达",
+    "ogImageAlt": "卢旺达火山国家公园的山地大猩猩"
   },
   "experiences": {
     "metaTitle": "东非游猎体验 | 徒步游猎、热气球、摄影",
@@ -2992,7 +3033,8 @@
     "expType6": "热气球飞行",
     "expType7": "家庭游猎",
     "quoteText": "我们不只是看到了非洲。我们感受到了它。EWA Safari Outfitters的向导给了我们在别处找不到的东西——一段真实、从容、深度个人化的荒野体验。",
-    "quoteSub": "塞伦盖蒂与桑给巴尔12天 — 2025年3月"
+    "quoteSub": "塞伦盖蒂与桑给巴尔12天 — 2025年3月",
+    "ogImageAlt": "东非游猎风光"
   },
   "itineraries": {
     "heroPill": "东非 · 坦桑尼亚 · 肯尼亚 · 卢旺达",
@@ -3175,7 +3217,8 @@
       "定制坦桑尼亚行程",
       "坦桑尼亚游猎套餐优惠",
       "非洲旅行计划"
-    ]
+    ],
+    "ogImageAlt": "黄金时刻的东非游猎风光"
   },
   "privacy": {
     "heroTitle1": "隐私",
@@ -3477,7 +3520,12 @@
     "contactHeading": "还有更多问题？",
     "contactSubtitle": "我们在阿鲁沙的团队每周七天可解答行前问题——健康要求、签证申请、打包事项以及出行前需要了解的任何其他信息。",
     "contactBtn1": "联系我们",
-    "contactBtn2": "查看游猎"
+    "contactBtn2": "查看游猎",
+    "ogImageAlt": "东非游猎风光",
+    "metaTitle": "坦桑尼亚旅行资讯 | 签证、健康、货币与打包",
+    "metaDescription": "坦桑尼亚旅行必备资讯——最佳游览时间、签证要求、健康与疫苗接种、货币、着装规范，以及游猎或乞力马扎罗徒步的打包建议。",
+    "ogDescription": "坦桑尼亚旅行必备资讯——签证要求、健康与疫苗接种、货币、着装规范及游猎打包建议。",
+    "twitterTitle": "坦桑尼亚旅行资讯"
   },
   "notFound": {
     "title": "迷失在旷野",

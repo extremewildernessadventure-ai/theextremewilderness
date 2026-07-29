@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title,
       description,
-      images: [{ url: '/images/gallery/safari-114.jpg', width: 1200, height: 630, alt: 'Safari vehicles on the Serengeti plains at golden hour' }],
+      images: [{ url: '/images/gallery/safari-114.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',

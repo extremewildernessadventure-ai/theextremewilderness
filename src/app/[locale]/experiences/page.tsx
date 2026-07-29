@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      images: [{ url: '/images/gallery/safari-118.jpg', width: 1200, height: 630, alt: 'East Africa safari landscape' }],
+      images: [{ url: '/images/gallery/safari-118.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',

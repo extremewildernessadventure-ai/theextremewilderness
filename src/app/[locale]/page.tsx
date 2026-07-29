@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { setRequestLocale } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { buildAlternates } from '@/lib/site'
 import HeroSection from '@/components/home/HeroSection'
 import TrustBar from '@/components/home/TrustBar'
@@ -21,10 +21,11 @@ type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'home' })
   return {
     alternates: buildAlternates(locale, '/'),
-    title: { absolute: 'EWA Safari Outfitters | Tanzania Safari & Kilimanjaro Trekking 2026' },
-    description: 'Book Tanzania safaris, Kilimanjaro treks, gorilla trekking Rwanda and Kenya safaris with a certified local operator. Serengeti, Ngorongoro, Great Migration. 4.9/5 rated.',
+    title: { absolute: t('metaTitle') },
+    description: t('metaDescription'),
     keywords: [
       'Tanzania safari',
       'Tanzania safari 2026',
@@ -38,14 +39,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'Ngorongoro Crater safari',
     ],
     openGraph: {
-      title: 'EWA Safari Outfitters | Tanzania Safari & Kilimanjaro 2026',
-      description: 'Book Tanzania safaris, Kilimanjaro treks & gorilla trekking with a certified local operator. Serengeti, Ngorongoro, Great Migration. 4.9/5 rated.',
-      images: [{ url: '/images/gallery/safari-119.jpg', width: 1200, height: 630, alt: 'Lions at golden sunset on the Tanzania Serengeti plains' }],
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      images: [{ url: '/images/gallery/safari-119.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'EWA Safari Outfitters | Tanzania Safari 2026',
-      description: 'Certified local operator for Tanzania safaris, Kilimanjaro & gorilla trekking.',
+      title: t('twitterTitle'),
+      description: t('twitterDescription'),
       images: ['/images/gallery/safari-119.jpg'],
     },
   }

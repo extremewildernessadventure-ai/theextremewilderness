@@ -105,15 +105,19 @@ export async function generateMetadata({ params }: RouteProps): Promise<import('
   const { locale, route } = await params
   const fallback = ROUTE_META[route] ?? ROUTE_META.machame
   const hero = ROUTE_HERO_IMAGES[route]
-  const ogImage = hero ? [{ url: hero.src, width: 1200, height: 630, alt: hero.alt }] : undefined
+  const alternates = buildAlternates(locale || 'en', `/trekking/${route}`)
+
+  const hasDetail = Boolean(locale && isRouteWithDetailContent(route))
+  const trd = hasDetail ? await getTranslations({ locale: locale!, namespace: 'trekkingRouteDetail' }) : null
+  const heroAlt = hero ? (trd ? trd(`${route}.heroImageAlt` as 'machame.heroImageAlt') : hero.alt) : undefined
+
+  const ogImage = hero ? [{ url: hero.src, width: 1200, height: 630, alt: heroAlt }] : undefined
   const ogMeta = {
     openGraph: { images: ogImage },
     twitter: { card: 'summary_large_image' as const, images: hero ? [hero.src] : undefined },
   }
-  const alternates = buildAlternates(locale || 'en', `/trekking/${route}`)
-  if (!locale || locale === 'en' || !isRouteWithDetailContent(route)) return { ...fallback, ...ogMeta, alternates }
+  if (!locale || locale === 'en' || !trd) return { ...fallback, ...ogMeta, alternates }
 
-  const trd = await getTranslations({ locale, namespace: 'trekkingRouteDetail' })
   const tMeta = await getTranslations({ locale, namespace: 'trekking' })
   const routeName = trd(`${route}.quickFacts.routeName` as 'machame.quickFacts.routeName')
   const nickname = trd(`${route}.nickname` as 'machame.nickname')

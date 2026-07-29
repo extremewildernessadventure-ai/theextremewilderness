@@ -13,14 +13,14 @@ import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
 const KENYA_FEATURED_SLUG = 'masai-mara'
 
-const KENYA_DEST_REGION: Record<string, string> = {
-  'masai-mara': 'Southern Kenya',
-  amboseli: 'Southern Kenya',
-  samburu: 'Northern Kenya',
-  tsavo: 'South-West Kenya',
-  'ol-pejeta': 'Central Kenya',
-  'lake-nakuru': 'Central Kenya',
-  'kenyan-coast': 'Kenyan Coast',
+const KENYA_DEST_REGION_KEYS: Record<string, 'regionSouthernKenya' | 'regionNorthernKenya' | 'regionSouthWestKenya' | 'regionCentralKenya' | 'regionKenyanCoast'> = {
+  'masai-mara': 'regionSouthernKenya',
+  amboseli: 'regionSouthernKenya',
+  samburu: 'regionNorthernKenya',
+  tsavo: 'regionSouthWestKenya',
+  'ol-pejeta': 'regionCentralKenya',
+  'lake-nakuru': 'regionCentralKenya',
+  'kenyan-coast': 'regionKenyanCoast',
 }
 
 type Props = { params: Promise<{ locale: string }> }
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/images/gallery/safari-119.jpg', width: 1200, height: 630, alt: 'Lions at sunset on the Masai Mara plains' }],
+      images: [{ url: '/images/gallery/safari-119.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -87,7 +87,7 @@ export default async function KenyaPage({ params }: Props) {
       image: d.heroImage,
       overview: d.description,
       firstParagraph: d.description.split('\n\n')[0],
-      regionLabel: KENYA_DEST_REGION[d.slug] ?? 'Kenya',
+      regionLabel: KENYA_DEST_REGION_KEYS[d.slug] ? t(KENYA_DEST_REGION_KEYS[d.slug]) : t('regionFallback'),
       packagesCount: d.packages.length,
       highlights: d.highlights,
       wildlife: d.wildlife,

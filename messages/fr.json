@@ -284,7 +284,8 @@
         }
       ],
       "tabLabels": { "6": "Machame 6 jours", "7": "Machame 7 jours" },
-      "routeNameByDuration": { "6": "Route Machame — 6 jours", "7": "Route Machame — 7 jours" }
+      "routeNameByDuration": { "6": "Route Machame — 6 jours", "7": "Route Machame — 7 jours" },
+      "heroImageAlt": "Le Kilimandjaro s'élevant au-dessus de la savane, encadré par des acacias"
     },
     "lemosho": {
       "nickname": "Le choix du connaisseur",
@@ -493,7 +494,8 @@
         { "q": "Puis-je combiner une ascension avec un safari ou une extension à Zanzibar ?", "a": "Oui — de nombreux grimpeurs ajoutent un safari ou un séjour balnéaire avant ou après leur trek." }
       ],
       "tabLabels": { "6": "Lemosho 6 jours", "7": "Lemosho 7 jours", "8": "Lemosho 8 jours" },
-      "routeNameByDuration": { "6": "Route Lemosho — 6 jours", "7": "Route Lemosho — 7 jours", "8": "Route Lemosho — 8 jours" }
+      "routeNameByDuration": { "6": "Route Lemosho — 6 jours", "7": "Route Lemosho — 7 jours", "8": "Route Lemosho — 8 jours" },
+      "heroImageAlt": "Vue panoramique du Kilimandjaro émergeant des nuages"
     },
     "rongai": {
       "nickname": "L'approche nordique",
@@ -623,7 +625,8 @@
         "solo": 2595,
         "small": 2395,
         "group": 2250
-      }
+      },
+      "heroImageAlt": "Un sentier de terre menant vers le Kilimandjaro sur l'itinéraire Rongai"
     },
     "marangu": {
       "nickname": "L'itinéraire classique",
@@ -739,7 +742,8 @@
         "solo": 2295,
         "small": 2095,
         "group": 1950
-      }
+      },
+      "heroImageAlt": "Vue aérienne du sommet du Kilimandjaro perçant les nuages"
     },
     "umbwe": {
       "nickname": "L'itinéraire le plus direct",
@@ -869,7 +873,8 @@
         "solo": 1880,
         "small": 1880,
         "group": 1880
-      }
+      },
+      "heroImageAlt": "Des alpinistes gravissant le sommet au lever du soleil"
     },
     "northern-circuit": {
       "nickname": "La Grande Traversée",
@@ -1013,7 +1018,8 @@
         "solo": 2237,
         "small": 2237,
         "group": 2237
-      }
+      },
+      "heroImageAlt": "Une crête rocheuse enneigée s'élevant au-dessus d'une mer de nuages"
     }
   },
   "planBuilder": {
@@ -1145,7 +1151,9 @@
       "emailError": "Une erreur s'est produite — essayez plutôt WhatsApp.",
       "orTalk": "Vous préférez simplement en discuter ?",
       "talkButton": "Parler à notre équipe"
-    }
+    },
+    "metaTitle": "Planificateur de safari IA | Créez votre safari",
+    "metaDescription": "Posez toutes vos questions à notre conseiller safari IA sur la Tanzanie, le Kenya ou le Rwanda, puis affinez avec notre planificateur guidé de 90 secondes — découvrez de vrais itinéraires correspondants avec des prix transparents, aucun circuit inventé."
   },
   "nav": {
     "destinations": "Destinations",
@@ -1512,7 +1520,14 @@
     "ourStoryP3": "Rejoignez-nous pour vivre l'aventure ultime : plongez dans le remarquable cratère du Ngorongoro en forme de bol, gravissez le magnifique sommet enneigé de l'Afrique, le Kilimandjaro, laissez votre âme s'émerveiller en traversant les vastes plaines herbeuses et verdoyantes du Serengeti, et enfin, levez votre verre, célébrez et repensez à votre aventure sur les sables immaculés de Zanzibar.",
     "ourStoryP4": "Voilà qui nous sommes : l'Aventure au-delà de vos rêves les plus fous.",
     "ourStorySignature": "M.A. Mawolle",
-    "ourStoryImageAlt": "Des rhinocéros rassemblés autour d'un point d'eau dans la nature sauvage tanzanienne"
+    "ourStoryImageAlt": "Des rhinocéros rassemblés autour d'un point d'eau dans la nature sauvage tanzanienne",
+    "metaTitle": "EWA Safari Outfitters | Safari en Tanzanie et trekking au Kilimandjaro 2026",
+    "metaDescription": "Réservez votre safari en Tanzanie, trekking au Kilimandjaro, trekking des gorilles au Rwanda et safari au Kenya avec un opérateur local certifié. Serengeti, Ngorongoro, Grande Migration. Noté 4,9/5.",
+    "ogTitle": "EWA Safari Outfitters | Safari en Tanzanie et Kilimandjaro 2026",
+    "ogDescription": "Réservez votre safari en Tanzanie, trekking au Kilimandjaro et trekking des gorilles avec un opérateur local certifié. Serengeti, Ngorongoro, Grande Migration. Noté 4,9/5.",
+    "twitterTitle": "EWA Safari Outfitters | Safari en Tanzanie 2026",
+    "twitterDescription": "Opérateur local certifié pour safaris en Tanzanie, Kilimandjaro et trekking des gorilles.",
+    "ogImageAlt": "Lions au coucher du soleil doré sur les plaines du Serengeti en Tanzanie"
   },
   "safari": {
     "travelerReviewHeading": "Ce Que Disent les Voyageurs",
@@ -1865,7 +1880,8 @@
       "trek guidé Kilimandjaro",
       "ascension en Tanzanie",
       "Pic Uhuru Tanzanie"
-    ]
+    ],
+    "heroImageAlt": "Le sommet du Kilimandjaro s'élevant au-dessus des nuages"
   },
   "contact": {
     "getInTouch": "Nous contacter",
@@ -1895,7 +1911,10 @@
     "tagline": "Spécialistes des safaris et treks en Tanzanie",
     "callUsLabel": "Appelez-nous — +255 747 999 070",
     "whatsappUs": "Contactez-nous sur WhatsApp",
-    "heroImageAlt": "Safari dans le Serengeti"
+    "heroImageAlt": "Safari dans le Serengeti",
+    "metaTitle": "Contactez-nous et planifiez votre safari",
+    "metaDescription": "Contactez nos experts safari basés en Tanzanie. Nous répondons en moins de 2 heures avec un itinéraire personnalisé.",
+    "twitterTitle": "Contact"
   },
   "about": {
     "ourStory": "Notre histoire",
@@ -1979,7 +1998,8 @@
       "safari en Tanzanie 2026",
       "entreprise de safari africain",
       "meilleur opérateur de safari en Afrique"
-    ]
+    ],
+    "ogImageAlt": "Le Serengeti au lever du soleil avec des éléphants"
   },
   "forms": {
     "firstName": "Prénom *",
@@ -2227,7 +2247,8 @@
     "topics": "Sujets",
     "haveAQuestion": "Une question ?",
     "arushaResponds": "Notre équipe basée à Arusha répond dans les 24 heures — sans pression commerciale.",
-    "packageSummary": "{days} jours · à partir de ${price}"
+    "packageSummary": "{days} jours · à partir de ${price}",
+    "ogImageAlt": "Véhicules de safari sur les plaines du Serengeti à l'heure dorée"
   },
   "destinations": {
     "metaTitle": "Destinations Safari en Tanzanie | Serengeti, Ngorongoro et Plus",
@@ -2315,7 +2336,13 @@
     "mapCulturalRegion": "Région culturelle",
     "mapLowActivity": "Faible activité",
     "heroImageAlt": "Lions au coucher du soleil doré sur les plaines du Serengeti en Tanzanie",
-    "ctaBody": "Notre équipe est née et basée à Arusha — ce sont nos parcs de cœur. Nous connaissons chaque route, chaque saison, chaque camp. Laissez-nous concevoir un itinéraire construit autour de ce que vous voulez voir."
+    "ctaBody": "Notre équipe est née et basée à Arusha — ce sont nos parcs de cœur. Nous connaissons chaque route, chaque saison, chaque camp. Laissez-nous concevoir un itinéraire construit autour de ce que vous voulez voir.",
+    "regionNorthern": "Circuit du Nord",
+    "regionTarangire": "Région de Tarangire",
+    "regionSouthern": "Circuit du Sud",
+    "regionWestern": "Circuit de l'Ouest",
+    "regionZanzibar": "Côte de Zanzibar",
+    "regionArusha": "Porte d'Arusha"
   },
   "kenya": {
     "heroEyebrow": "Safaris au Kenya",
@@ -2547,7 +2574,14 @@
       "meilleure période Masai Mara",
       "vacances safari Kenya",
       "safari de luxe Kenya"
-    ]
+    ],
+    "regionSouthernKenya": "Kenya du Sud",
+    "regionNorthernKenya": "Kenya du Nord",
+    "regionSouthWestKenya": "Kenya du Sud-Ouest",
+    "regionCentralKenya": "Kenya Central",
+    "regionKenyanCoast": "Côte kényane",
+    "regionFallback": "Kenya",
+    "ogImageAlt": "Lions au coucher du soleil sur les plaines du Masai Mara"
   },
   "rwanda": {
     "heroEyebrow": "Safaris au Rwanda",
@@ -2771,7 +2805,14 @@
       "opérateur trekking gorilles Rwanda",
       "coût trekking gorilles Rwanda",
       "safari gorilles Afrique de l'Est"
-    ]
+    ],
+    "regionNorthernRwanda": "Rwanda du Nord",
+    "regionSouthWestRwanda": "Rwanda du Sud-Ouest",
+    "regionEasternRwanda": "Rwanda de l'Est",
+    "regionWesternRwanda": "Rwanda de l'Ouest",
+    "regionCapital": "Capitale",
+    "regionFallback": "Rwanda",
+    "ogImageAlt": "Gorille de montagne dans le parc national des Volcans, Rwanda"
   },
   "experiences": {
     "metaTitle": "Expériences Safari en Afrique de l'Est | Safaris à Pied, Montgolfière, Photo",
@@ -2878,7 +2919,8 @@
     "expType6": "Vols en Montgolfière",
     "expType7": "Safaris Famille",
     "quoteText": "Nous n'avons pas seulement vu l'Afrique. Nous l'avons ressentie. Les guides de EWA Safari Outfitters nous ont offert quelque chose que nous n'aurions trouvé nulle part ailleurs — une expérience authentique, sans précipitation et profondément personnelle de la nature sauvage.",
-    "quoteSub": "Serengeti et Zanzibar — 12 jours — Mars 2025"
+    "quoteSub": "Serengeti et Zanzibar — 12 jours — Mars 2025",
+    "ogImageAlt": "Paysage de safari en Afrique de l'Est"
   },
   "itineraries": {
     "heroPill": "Afrique de l'Est · Tanzanie · Kenya · Rwanda",
@@ -3061,7 +3103,8 @@
       "itinéraire personnalisé Tanzanie",
       "forfaits safari Tanzanie",
       "plan de voyage en Afrique"
-    ]
+    ],
+    "ogImageAlt": "Paysage de safari en Afrique de l'Est à l'heure dorée"
   },
   "privacy": {
     "heroTitle1": "Politique de",
@@ -3363,7 +3406,12 @@
     "contactHeading": "Vous avez d'autres questions ?",
     "contactSubtitle": "Notre équipe à Arusha est disponible sept jours sur sept pour répondre aux questions avant le voyage concernant les exigences sanitaires, les demandes de visa, quoi emporter et tout ce que vous devez savoir avant votre voyage.",
     "contactBtn1": "Nous contacter",
-    "contactBtn2": "Voir les safaris"
+    "contactBtn2": "Voir les safaris",
+    "ogImageAlt": "Paysage de safari en Afrique de l'Est",
+    "metaTitle": "Informations de voyage en Tanzanie | Visas, santé, devise et bagages",
+    "metaDescription": "Informations essentielles pour voyager en Tanzanie — meilleure période pour visiter, exigences de visa, santé et vaccinations, devise, code vestimentaire et conseils de bagages pour votre safari ou trekking au Kilimandjaro.",
+    "ogDescription": "Informations essentielles pour voyager en Tanzanie — exigences de visa, santé et vaccinations, devise, code vestimentaire et conseils de bagages pour votre safari.",
+    "twitterTitle": "Informations de voyage en Tanzanie"
   },
   "notFound": {
     "title": "Perdu dans la Nature Sauvage",

@@ -294,7 +294,8 @@
       "routeNameByDuration": {
         "6": "馬查梅路線 — 6天",
         "7": "馬查梅路線 — 7天"
-      }
+      },
+      "heroImageAlt": "金合歡掩映下拔地而起於稀樹草原之上的吉力馬札羅山"
     },
     "lemosho": {
       "nickname": "行家之選",
@@ -633,7 +634,8 @@
         "6": "萊莫肖路線 — 6天",
         "7": "萊莫肖路線 — 7天",
         "8": "萊莫肖路線 — 8天"
-      }
+      },
+      "heroImageAlt": "吉力馬札羅山破雲而出的壯闊全景"
     },
     "rongai": {
       "nickname": "北方進山線",
@@ -763,7 +765,8 @@
         "solo": 2595,
         "small": 2395,
         "group": 2250
-      }
+      },
+      "heroImageAlt": "隆蓋路線上通向吉力馬札羅山的土路"
     },
     "marangu": {
       "nickname": "經典路線",
@@ -879,7 +882,8 @@
         "solo": 2295,
         "small": 2095,
         "group": 1950
-      }
+      },
+      "heroImageAlt": "吉力馬札羅峰頂破雲而出的空拍景象"
     },
     "umbwe": {
       "nickname": "最直接的路線",
@@ -1009,7 +1013,8 @@
         "solo": 1880,
         "small": 1880,
         "group": 1880
-      }
+      },
+      "heroImageAlt": "日出時分向峰頂攀登的登山者"
     },
     "northern-circuit": {
       "nickname": "大環線",
@@ -1153,7 +1158,8 @@
         "solo": 2237,
         "small": 2237,
         "group": 2237
-      }
+      },
+      "heroImageAlt": "高聳於雲海之上的多岩積雪山脊"
     }
   },
   "planBuilder": {
@@ -1285,7 +1291,9 @@
       "emailError": "出了點問題——請改用WhatsApp。",
       "orTalk": "更想直接聊一聊？",
       "talkButton": "聯絡我們的團隊"
-    }
+    },
+    "metaTitle": "AI獵遊規劃師 | 打造您的專屬獵遊",
+    "metaDescription": "向我們的AI獵遊顧問諮詢關於坦尚尼亞、肯亞或盧安達的任何問題，再透過90秒引導式規劃器精細調整——檢視真實匹配的行程與透明價格，絕無虛構行程。"
   },
   "nav": {
     "destinations": "目的地",
@@ -1652,7 +1660,14 @@
     "ourStoryP3": "加入我們，開啟您的終極冒險。盤旋而下走進碗狀的非凡恩戈羅恩戈羅火山口，登上吉力馬札羅美麗的非洲雪頂，駕車穿越塞倫蓋蒂蔥鬱的綠色草原讓靈魂充滿敬畏，最後站在尚吉巴純淨的沙灘上舉杯慶祝、回味您的冒險。",
     "ourStoryP4": "這就是我們的追求：超越您最狂野想像的冒險。",
     "ourStorySignature": "M.A. Mawolle",
-    "ourStoryImageAlt": "犀牛聚集在坦尚尼亞荒野的水坑邊"
+    "ourStoryImageAlt": "犀牛聚集在坦尚尼亞荒野的水坑邊",
+    "metaTitle": "EWA Safari Outfitters | 坦尚尼亞獵遊與吉力馬札羅健行 2026",
+    "metaDescription": "與認證本地業者預訂坦尚尼亞獵遊、吉力馬札羅健行、盧安達大猩猩健行及肯亞獵遊。塞倫蓋提、恩戈羅恩戈羅、動物大遷徙。評分4.9/5。",
+    "ogTitle": "EWA Safari Outfitters | 坦尚尼亞獵遊與吉力馬札羅 2026",
+    "ogDescription": "與認證本地業者預訂坦尚尼亞獵遊、吉力馬札羅健行及大猩猩健行。塞倫蓋提、恩戈羅恩戈羅、動物大遷徙。評分4.9/5。",
+    "twitterTitle": "EWA Safari Outfitters | 坦尚尼亞獵遊 2026",
+    "twitterDescription": "坦尚尼亞獵遊、吉力馬札羅及大猩猩健行的認證本地業者。",
+    "ogImageAlt": "坦尚尼亞塞倫蓋提平原金色日落下的獅子"
   },
   "safari": {
     "travelerReviewHeading": "旅行者怎麼說",
@@ -2005,7 +2020,8 @@
       "吉力馬札羅嚮導健行",
       "坦尚尼亞登山",
       "烏呼魯峰坦尚尼亞"
-    ]
+    ],
+    "heroImageAlt": "雲海之上的吉力馬札羅峰頂"
   },
   "contact": {
     "getInTouch": "聯絡我們",
@@ -2035,7 +2051,10 @@
     "tagline": "坦尚尼亞獵遊與健行專家",
     "callUsLabel": "致電我們 — +255 747 999 070",
     "whatsappUs": "WhatsApp聯絡我們",
-    "heroImageAlt": "塞倫蓋提獵遊"
+    "heroImageAlt": "塞倫蓋提獵遊",
+    "metaTitle": "聯絡我們並規劃您的獵遊",
+    "metaDescription": "聯絡我們坦尚尼亞本地的獵遊專家。我們將在2小時內回覆量身定制的行程。",
+    "twitterTitle": "聯絡我們"
   },
   "about": {
     "ourStory": "我們的故事",
@@ -2119,7 +2138,8 @@
       "坦尚尼亞獵遊 2026",
       "非洲獵遊公司",
       "非洲最佳獵遊運營商"
-    ]
+    ],
+    "ogImageAlt": "日出時分的塞倫蓋提與象群"
   },
   "forms": {
     "firstName": "名字 *",
@@ -2367,7 +2387,8 @@
     "topics": "話題",
     "haveAQuestion": "有問題嗎？",
     "arushaResponds": "我們駐阿魯沙的團隊將在24小時內回覆——沒有推銷壓力。",
-    "packageSummary": "{days}天 · ${price}起"
+    "packageSummary": "{days}天 · ${price}起",
+    "ogImageAlt": "黃金時刻塞倫蓋提平原上的獵遊車隊"
   },
   "destinations": {
     "metaTitle": "坦尚尼亞獵遊目的地 | 塞倫蓋蒂、恩戈羅恩戈羅及更多",
@@ -2455,7 +2476,13 @@
     "mapCulturalRegion": "文化地區",
     "mapLowActivity": "低活動量",
     "heroImageAlt": "坦尚尼亞塞倫蓋提平原金色日落下的獅子",
-    "ctaBody": "我們的團隊生於阿魯沙、立足阿魯沙——這些是我們的主場公園。我們熟悉每條路、每個季節、每個營地。讓我們圍繞您想看的一切設計行程。"
+    "ctaBody": "我們的團隊生於阿魯沙、立足阿魯沙——這些是我們的主場公園。我們熟悉每條路、每個季節、每個營地。讓我們圍繞您想看的一切設計行程。",
+    "regionNorthern": "北方環線",
+    "regionTarangire": "塔蘭吉雷地區",
+    "regionSouthern": "南方環線",
+    "regionWestern": "西部環線",
+    "regionZanzibar": "尚吉巴海岸",
+    "regionArusha": "阿魯沙門戶"
   },
   "kenya": {
     "heroEyebrow": "肯亞獵遊",
@@ -2687,7 +2714,14 @@
       "馬賽馬拉最佳時間",
       "肯亞獵遊假期",
       "豪華肯亞獵遊"
-    ]
+    ],
+    "regionSouthernKenya": "肯亞南部",
+    "regionNorthernKenya": "肯亞北部",
+    "regionSouthWestKenya": "肯亞西南部",
+    "regionCentralKenya": "肯亞中部",
+    "regionKenyanCoast": "肯亞海岸",
+    "regionFallback": "肯亞",
+    "ogImageAlt": "馬賽馬拉平原日落下的獅子"
   },
   "rwanda": {
     "heroEyebrow": "盧安達獵遊",
@@ -2911,7 +2945,14 @@
       "盧安達大猩猩旅遊運營商",
       "盧安達大猩猩健行費用",
       "東非大猩猩獵遊"
-    ]
+    ],
+    "regionNorthernRwanda": "盧安達北部",
+    "regionSouthWestRwanda": "盧安達西南部",
+    "regionEasternRwanda": "盧安達東部",
+    "regionWesternRwanda": "盧安達西部",
+    "regionCapital": "首都",
+    "regionFallback": "盧安達",
+    "ogImageAlt": "盧安達火山國家公園的山地大猩猩"
   },
   "experiences": {
     "metaTitle": "東非獵遊體驗 | 健行獵遊、熱氣球、攝影",
@@ -3018,7 +3059,8 @@
     "expType6": "熱氣球飛行",
     "expType7": "家庭獵遊",
     "quoteText": "我們不只是看到了非洲。我們感受到了它。EWA Safari Outfitters的嚮導給了我們在別處找不到的東西——一段真實、從容、深度個人化的荒野體驗。",
-    "quoteSub": "塞倫蓋蒂與尚吉巴12天 — 2025年3月"
+    "quoteSub": "塞倫蓋蒂與尚吉巴12天 — 2025年3月",
+    "ogImageAlt": "東非獵遊風光"
   },
   "itineraries": {
     "heroPill": "東非 · 坦尚尼亞 · 肯亞 · 盧安達",
@@ -3201,7 +3243,8 @@
       "定製坦尚尼亞行程",
       "坦尚尼亞獵遊套餐優惠",
       "非洲旅行計劃"
-    ]
+    ],
+    "ogImageAlt": "黃金時刻的東非獵遊風光"
   },
   "privacy": {
     "heroTitle1": "隱私",
@@ -3503,7 +3546,12 @@
     "contactHeading": "還有更多問題？",
     "contactSubtitle": "我們在阿魯沙的團隊每週七天可解答行前問題——健康要求、簽證申請、打包事項以及出行前需要了解的任何其他資訊。",
     "contactBtn1": "聯絡我們",
-    "contactBtn2": "檢視獵遊"
+    "contactBtn2": "檢視獵遊",
+    "ogImageAlt": "東非獵遊風光",
+    "metaTitle": "坦尚尼亞旅行資訊 | 簽證、健康、貨幣與打包",
+    "metaDescription": "坦尚尼亞旅行必備資訊——最佳遊覽時間、簽證要求、健康與疫苗接種、貨幣、著裝規範，以及獵遊或吉力馬札羅健行的打包建議。",
+    "ogDescription": "坦尚尼亞旅行必備資訊——簽證要求、健康與疫苗接種、貨幣、著裝規範及獵遊打包建議。",
+    "twitterTitle": "坦尚尼亞旅行資訊"
   },
   "notFound": {
     "title": "迷失在曠野",

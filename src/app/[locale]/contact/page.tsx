@@ -11,18 +11,19 @@ type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'contact' })
   return {
     alternates: buildAlternates(locale, '/contact'),
-    title: 'Contact & Plan Your Safari',
-    description: 'Get in touch with our Tanzania-based safari experts. We respond within 2 hours with a custom itinerary.',
+    title: t('metaTitle'),
+    description: t('metaDescription'),
     openGraph: {
-      title: 'Contact & Plan Your Safari',
-      description: 'Get in touch with our Tanzania-based safari experts. We respond within 2 hours with a custom itinerary.',
-      images: [{ url: '/images/gallery/safari-014.jpg', width: 1200, height: 630, alt: 'Safari in the Serengeti' }],
+      title: t('metaTitle'),
+      description: t('metaDescription'),
+      images: [{ url: '/images/gallery/safari-014.jpg', width: 1200, height: 630, alt: t('heroImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Contact',
+      title: t('twitterTitle'),
       images: ['/images/gallery/safari-014.jpg'],
     },
     keywords: [

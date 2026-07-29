@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/images/gallery/kilimanjaro-hero.jpg', width: 1200, height: 630, alt: 'Mount Kilimanjaro summit rising above the clouds' }],
+      images: [{ url: '/images/gallery/kilimanjaro-hero.jpg', width: 1200, height: 630, alt: t('heroImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',

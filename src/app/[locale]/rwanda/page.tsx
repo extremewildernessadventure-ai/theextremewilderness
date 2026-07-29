@@ -15,12 +15,12 @@ type Props = { params: Promise<{ locale: string }> }
 
 const RWANDA_FEATURED_SLUG = 'volcanoes'
 
-const RWANDA_DEST_REGION: Record<string, string> = {
-  volcanoes: 'Northern Rwanda',
-  nyungwe: 'South-West Rwanda',
-  akagera: 'Eastern Rwanda',
-  'lake-kivu': 'Western Rwanda',
-  kigali: 'Capital',
+const RWANDA_DEST_REGION_KEYS: Record<string, 'regionNorthernRwanda' | 'regionSouthWestRwanda' | 'regionEasternRwanda' | 'regionWesternRwanda' | 'regionCapital'> = {
+  volcanoes: 'regionNorthernRwanda',
+  nyungwe: 'regionSouthWestRwanda',
+  akagera: 'regionEasternRwanda',
+  'lake-kivu': 'regionWesternRwanda',
+  kigali: 'regionCapital',
 }
 
 const RWANDA_DEST_ORDER = ['volcanoes', 'nyungwe', 'akagera', 'lake-kivu', 'kigali'] as const
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/images/gallery/gorilla.jpg', width: 1200, height: 630, alt: 'Mountain gorilla in the Volcanoes National Park, Rwanda' }],
+      images: [{ url: '/images/gallery/gorilla.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -89,7 +89,7 @@ export default async function RwandaPage({ params }: Props) {
       image: RWANDA_DEST_IMAGES[slug],
       badge: extra.badge,
       badgeColor: RWANDA_DEST_BADGE_COLORS[slug],
-      regionLabel: RWANDA_DEST_REGION[slug] ?? 'Rwanda',
+      regionLabel: RWANDA_DEST_REGION_KEYS[slug] ? t(RWANDA_DEST_REGION_KEYS[slug]) : t('regionFallback'),
       firstParagraph: d.description.split('\n\n')[0],
       packagesCount: d.packages.length,
       highlights: d.highlights,

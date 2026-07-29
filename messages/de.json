@@ -284,7 +284,8 @@
         }
       ],
       "tabLabels": { "6": "Machame 6 Tage", "7": "Machame 7 Tage" },
-      "routeNameByDuration": { "6": "Machame-Route — 6 Tage", "7": "Machame-Route — 7 Tage" }
+      "routeNameByDuration": { "6": "Machame-Route — 6 Tage", "7": "Machame-Route — 7 Tage" },
+      "heroImageAlt": "Der Kilimandscharo erhebt sich über der Savanne, gerahmt von Akazien"
     },
     "lemosho": {
       "nickname": "Die Wahl der Kenner",
@@ -449,7 +450,8 @@
       "highlights": [ { "title": "Kathedralenspitze", "body": "Eine dramatische Felsformation, die auf dem Shira-Plateau auf 3.872 m ansteigt, über eine optionale Akklimatisierungswanderung erreichbar. Einer der besten Aussichtspunkte der gesamten Route — und eine clevere Höhenvorbereitung als Abstecher." }, { "title": "Dendrosenecio kilimanjari", "body": "Halte auf den Hochmoorabschnitten Ausschau nach diesem Riesengreiskraut — eine merkwürdige, baumartige Pflanze, die außerhalb der ostafrikanischen Hochlagen fast nirgendwo sonst auf der Erde vorkommt. Ein beliebter Fotostop auf dem Shira-Plateau." } ],
       "faq": [ { "q": "Wie wähle ich zwischen den 6-, 7- und 8-tägigen Lemosho-Itineraren?", "a": "Das hängt von deiner Höhenerfahrung und dem verfügbaren Zeitrahmen ab. Die 6-Tage-Route eignet sich am besten für Bergsteiger mit jüngster Höhenerfahrung. Die 7-Tage-Route ist unsere Standardempfehlung für die meisten Trekker. Die 8-Tage-Route bietet die höchste mögliche Erfolgsquote." }, { "q": "Ist die Lemosho schwieriger als die Machame?", "a": "Technisch nicht — das Gelände ist ähnlich, wo sich die Routen überschneiden. Der Vorteil der Lemosho liegt in einem längeren, schonenderen Akklimatisierungsprofil und weniger Trubel in den ersten Tagen." }, { "q": "Wie hoch ist die Gipfelerfolgsquote auf der Lemosho?", "a": "Sie variiert je nach Dauer: die 6-Tage-Route erreicht etwa 75–80%, die 7-Tage-Route 85–90% und die 8-Tage-Route konstant 90–95%." }, { "q": "Brauche ich Wandererfahrung für die Lemosho?", "a": "Keine technischen Kletterfertigkeiten erforderlich — es ist eine Wanderroute. Allgemeine Fitness macht die Tage angenehmer, besonders in der Gipfelnacht." }, { "q": "Was ist die beste Jahreszeit für die Lemosho?", "a": "Die Trockenzeiten — Ende Juni bis Oktober und Dezember bis Februar — bieten das stabilste Wetter und klarste Sichten." }, { "q": "Kann ich eine Besteigung mit einer Safari oder einem Sansibar-Aufenthalt verbinden?", "a": "Ja — viele Bergsteiger fügen eine Safari oder einen Strandaufenthalt vor oder nach dem Trek hinzu." } ],
       "tabLabels": { "6": "Lemosho 6 Tage", "7": "Lemosho 7 Tage", "8": "Lemosho 8 Tage" },
-      "routeNameByDuration": { "6": "Lemosho-Route – 6 Tage", "7": "Lemosho-Route – 7 Tage", "8": "Lemosho-Route – 8 Tage" }
+      "routeNameByDuration": { "6": "Lemosho-Route – 6 Tage", "7": "Lemosho-Route – 7 Tage", "8": "Lemosho-Route – 8 Tage" },
+      "heroImageAlt": "Weitläufiger Panoramablick auf den aus den Wolken auftauchenden Kilimandscharo"
     },
     "rongai": {
       "nickname": "Der nördliche Zugang",
@@ -579,7 +581,8 @@
         "solo": 2595,
         "small": 2395,
         "group": 2250
-      }
+      },
+      "heroImageAlt": "Ein Feldweg auf der Rongai-Route, der zum Kilimandscharo führt"
     },
     "marangu": {
       "nickname": "Die klassische Route",
@@ -695,7 +698,8 @@
         "solo": 2295,
         "small": 2095,
         "group": 1950
-      }
+      },
+      "heroImageAlt": "Luftaufnahme des Kilimandscharo-Gipfels, der die Wolken durchbricht"
     },
     "umbwe": {
       "nickname": "Die direkteste Route",
@@ -825,7 +829,8 @@
         "solo": 1880,
         "small": 1880,
         "group": 1880
-      }
+      },
+      "heroImageAlt": "Bergsteiger beim Aufstieg zum Gipfel bei Sonnenaufgang"
     },
     "northern-circuit": {
       "nickname": "Die große Umrundung",
@@ -969,7 +974,8 @@
         "solo": 2237,
         "small": 2237,
         "group": 2237
-      }
+      },
+      "heroImageAlt": "Ein felsiger, schneebedeckter Grat, der sich über einem Wolkenmeer erhebt"
     }
   },
   "planBuilder": {
@@ -1101,7 +1107,9 @@
       "emailError": "Etwas ist schiefgelaufen — bitte versuche es über WhatsApp.",
       "orTalk": "Möchtest du es lieber direkt besprechen?",
       "talkButton": "Mit unserem Team sprechen"
-    }
+    },
+    "metaTitle": "KI-Safari-Planer | Gestalten Sie Ihre Safari",
+    "metaDescription": "Fragen Sie unseren KI-Safari-Berater alles über Tansania, Kenia oder Ruanda und feilen Sie dann mit unserem 90-Sekunden-Planer daran — sehen Sie echte, passende Reiserouten mit transparenten Preisen, keine erfundenen Touren."
   },
   "nav": {
     "destinations": "Reiseziele",
@@ -1468,7 +1476,14 @@
     "ourStoryP3": "Begleiten Sie uns auf Ihr ultimatives Abenteuer: Steigen Sie hinab in den bemerkenswerten, schüsselförmigen Ngorongoro-Krater, erklimmen Sie den wunderschönen schneebedeckten Gipfel Afrikas, den Kilimandscharo, lassen Sie Ihre Seele beim Durchqueren der satten, grünen Graslandschaften der Serengeti von Ehrfurcht erfüllen, und heben Sie schließlich Ihr Glas, um auf den makellosen Sandstränden Sansibars Ihr Abenteuer zu feiern und in Erinnerungen zu schwelgen.",
     "ourStoryP4": "Genau dafür stehen wir: Abenteuer jenseits Ihrer kühnsten Vorstellungskraft.",
     "ourStorySignature": "M.A. Mawolle",
-    "ourStoryImageAlt": "Nashörner versammelt an einer Wasserstelle in der tansanischen Wildnis"
+    "ourStoryImageAlt": "Nashörner versammelt an einer Wasserstelle in der tansanischen Wildnis",
+    "metaTitle": "EWA Safari Outfitters | Tansania-Safari & Kilimandscharo-Trekking 2026",
+    "metaDescription": "Buchen Sie Ihre Tansania-Safari, Kilimandscharo-Trekking, Gorilla-Trekking in Ruanda und Kenia-Safari bei einem zertifizierten lokalen Anbieter. Serengeti, Ngorongoro, Große Migration. 4,9/5 Bewertung.",
+    "ogTitle": "EWA Safari Outfitters | Tansania-Safari & Kilimandscharo 2026",
+    "ogDescription": "Buchen Sie Ihre Tansania-Safari, Kilimandscharo-Trekking und Gorilla-Trekking bei einem zertifizierten lokalen Anbieter. Serengeti, Ngorongoro, Große Migration. 4,9/5 Bewertung.",
+    "twitterTitle": "EWA Safari Outfitters | Tansania-Safari 2026",
+    "twitterDescription": "Zertifizierter lokaler Anbieter für Tansania-Safaris, Kilimandscharo und Gorilla-Trekking.",
+    "ogImageAlt": "Löwen bei goldenem Sonnenuntergang auf den Serengeti-Ebenen Tansanias"
   },
   "safari": {
     "travelerReviewHeading": "Das Sagen Unsere Reisenden",
@@ -1821,7 +1836,8 @@
       "geführtes Kilimandscharo Trekking",
       "Bergsteigen Tansania",
       "Uhuru Peak Tansania"
-    ]
+    ],
+    "heroImageAlt": "Der Kilimandscharo-Gipfel erhebt sich über den Wolken"
   },
   "contact": {
     "getInTouch": "Kontakt aufnehmen",
@@ -1851,7 +1867,10 @@
     "tagline": "Spezialisten für Safaris & Trekking in Tansania",
     "callUsLabel": "Rufen Sie uns an — +255 747 999 070",
     "whatsappUs": "WhatsApp uns kontaktieren",
-    "heroImageAlt": "Safari in der Serengeti"
+    "heroImageAlt": "Safari in der Serengeti",
+    "metaTitle": "Kontakt & Safari planen",
+    "metaDescription": "Kontaktieren Sie unsere Safari-Experten mit Sitz in Tansania. Wir antworten innerhalb von 2 Stunden mit einer individuellen Reiseroute.",
+    "twitterTitle": "Kontakt"
   },
   "about": {
     "ourStory": "Unsere Geschichte",
@@ -1935,7 +1954,8 @@
       "Tansania Safari 2026",
       "afrikanisches Safari-Unternehmen",
       "bester Safari-Anbieter Afrikas"
-    ]
+    ],
+    "ogImageAlt": "Serengeti bei Sonnenaufgang mit Elefanten"
   },
   "forms": {
     "firstName": "Vorname *",
@@ -2183,7 +2203,8 @@
     "topics": "Themen",
     "haveAQuestion": "Haben Sie eine Frage?",
     "arushaResponds": "Unser Team in Arusha antwortet innerhalb von 24 Stunden — kein Verkaufsdruck.",
-    "packageSummary": "{days} Tage · ab ${price}"
+    "packageSummary": "{days} Tage · ab ${price}",
+    "ogImageAlt": "Safarifahrzeuge auf den Serengeti-Ebenen zur goldenen Stunde"
   },
   "destinations": {
     "metaTitle": "Tansania Safari-Reiseziele | Serengeti, Ngorongoro & Mehr",
@@ -2271,7 +2292,13 @@
     "mapCulturalRegion": "Kulturregion",
     "mapLowActivity": "Geringe Aktivität",
     "heroImageAlt": "Löwen bei goldenem Sonnenuntergang auf den Serengeti-Ebenen Tansanias",
-    "ctaBody": "Unser Team ist in Arusha geboren und dort ansässig — dies sind unsere Heimatparks. Wir kennen jede Straße, jede Saison, jedes Camp. Lassen Sie uns eine Reiseroute gestalten, die genau auf das ausgerichtet ist, was Sie sehen möchten."
+    "ctaBody": "Unser Team ist in Arusha geboren und dort ansässig — dies sind unsere Heimatparks. Wir kennen jede Straße, jede Saison, jedes Camp. Lassen Sie uns eine Reiseroute gestalten, die genau auf das ausgerichtet ist, was Sie sehen möchten.",
+    "regionNorthern": "Nördliche Rundreise",
+    "regionTarangire": "Tarangire-Region",
+    "regionSouthern": "Südliche Rundreise",
+    "regionWestern": "Westliche Rundreise",
+    "regionZanzibar": "Sansibar-Küste",
+    "regionArusha": "Tor zu Arusha"
   },
   "kenya": {
     "heroEyebrow": "Kenia Safaris",
@@ -2503,7 +2530,14 @@
       "beste Zeit Masai Mara",
       "kenianischer Safariurlaub",
       "Luxus-Safari Kenia"
-    ]
+    ],
+    "regionSouthernKenya": "Südkenia",
+    "regionNorthernKenya": "Nordkenia",
+    "regionSouthWestKenya": "Südwestkenia",
+    "regionCentralKenya": "Zentralkenia",
+    "regionKenyanCoast": "Kenianische Küste",
+    "regionFallback": "Kenia",
+    "ogImageAlt": "Löwen bei Sonnenuntergang auf den Masai-Mara-Ebenen"
   },
   "rwanda": {
     "heroEyebrow": "Ruanda Safaris",
@@ -2727,7 +2761,14 @@
       "Ruanda Gorilla-Reiseveranstalter",
       "Kosten Gorilla-Trekking Ruanda",
       "Ostafrika Gorilla-Safari"
-    ]
+    ],
+    "regionNorthernRwanda": "Nord-Ruanda",
+    "regionSouthWestRwanda": "Südwest-Ruanda",
+    "regionEasternRwanda": "Ost-Ruanda",
+    "regionWesternRwanda": "West-Ruanda",
+    "regionCapital": "Hauptstadt",
+    "regionFallback": "Ruanda",
+    "ogImageAlt": "Berggorilla im Volcanoes-Nationalpark, Ruanda"
   },
   "experiences": {
     "metaTitle": "Safari-Erlebnisse Ostafrika | Walking Safaris, Heißluftballon, Fotografie",
@@ -2834,7 +2875,8 @@
     "expType6": "Ballonfahrten",
     "expType7": "Familien-Safaris",
     "quoteText": "Wir haben Afrika nicht nur gesehen. Wir haben es gespürt. Die Guides von EWA Safari Outfitters haben uns etwas gegeben, das wir nirgendwo anders hätten finden können — ein echtes, ungehetztes, zutiefst persönliches Erlebnis der Wildnis.",
-    "quoteSub": "Serengeti und Sansibar — 12 Tage — März 2025"
+    "quoteSub": "Serengeti und Sansibar — 12 Tage — März 2025",
+    "ogImageAlt": "Safari-Landschaft in Ostafrika"
   },
   "itineraries": {
     "heroPill": "Ostafrika · Tansania · Kenia · Ruanda",
@@ -3017,7 +3059,8 @@
       "individuelle Tansania-Reiseroute",
       "Tansania Safari-Pakete",
       "Afrika Reiseplan"
-    ]
+    ],
+    "ogImageAlt": "Safari-Landschaft in Ostafrika zur goldenen Stunde"
   },
   "privacy": {
     "heroTitle1": "Datenschutz-",
@@ -3319,7 +3362,12 @@
     "contactHeading": "Haben Sie weitere Fragen?",
     "contactSubtitle": "Unser Team in Arusha ist sieben Tage die Woche verfügbar, um Fragen vor der Reise zu Gesundheitsanforderungen, Visumantragen, was einzupacken und allem anderen zu beantworten, was Sie vor Ihrer Reise wissen müssen.",
     "contactBtn1": "Kontaktieren Sie uns",
-    "contactBtn2": "Safaris ansehen"
+    "contactBtn2": "Safaris ansehen",
+    "ogImageAlt": "Safari-Landschaft in Ostafrika",
+    "metaTitle": "Reiseinformationen Tansania | Visa, Gesundheit, Währung & Packen",
+    "metaDescription": "Wichtige Reiseinformationen für Tansania — beste Reisezeit, Visabestimmungen, Gesundheit und Impfungen, Währung, Kleiderordnung und Packtipps für Ihre Safari oder Kilimandscharo-Besteigung.",
+    "ogDescription": "Wichtige Reiseinformationen für Tansania — Visabestimmungen, Gesundheit und Impfungen, Währung, Kleiderordnung und Packtipps für Ihre Safari.",
+    "twitterTitle": "Reiseinformationen Tansania"
   },
   "notFound": {
     "title": "Verirrt in der Wildnis",

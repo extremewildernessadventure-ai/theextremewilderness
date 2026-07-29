@@ -17,13 +17,13 @@ const CIRCUIT_FEATURED: Record<string, string> = {
   western: 'mahale',
 }
 
-const REGION_LABELS: Record<string, string> = {
-  northern: 'Northern Circuit',
-  tarangire: 'Tarangire Region',
-  southern: 'Southern Circuit',
-  western: 'Western Circuit',
-  zanzibar: 'Zanzibar Coast',
-  arusha: 'Arusha Gateway',
+const REGION_LABEL_KEYS: Record<string, 'regionNorthern' | 'regionTarangire' | 'regionSouthern' | 'regionWestern' | 'regionZanzibar' | 'regionArusha'> = {
+  northern: 'regionNorthern',
+  tarangire: 'regionTarangire',
+  southern: 'regionSouthern',
+  western: 'regionWestern',
+  zanzibar: 'regionZanzibar',
+  arusha: 'regionArusha',
 }
 
 type Props = { params: Promise<{ locale: string }> }
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      images: [{ url: '/images/gallery/safari-119.jpg', width: 1200, height: 630, alt: 'Lions at golden sunset on the Tanzania Serengeti plains' }],
+      images: [{ url: '/images/gallery/safari-119.jpg', width: 1200, height: 630, alt: t('heroImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -137,7 +137,7 @@ export default async function DestinationsPage({ params }: Props) {
         image: d.heroImage,
         overview: d.description,
         firstParagraph: d.description.split('\n\n')[0],
-        regionLabel: REGION_LABELS[d.region] ?? d.region,
+        regionLabel: REGION_LABEL_KEYS[d.region] ? t(REGION_LABEL_KEYS[d.region]) : d.region,
         packagesCount: d.packages.length,
         highlights: d.highlights,
         wildlife: d.wildlife,
@@ -155,7 +155,7 @@ export default async function DestinationsPage({ params }: Props) {
       image: dest?.heroImage ?? '',
       desc: dest?.description ?? '',
       firstParagraph: dest?.description.split('\n\n')[0] ?? '',
-      regionLabel: REGION_LABELS[dest?.region ?? ''] ?? dest?.region ?? '',
+      regionLabel: dest?.region && REGION_LABEL_KEYS[dest.region] ? t(REGION_LABEL_KEYS[dest.region]) : dest?.region ?? '',
       wildlife: dest?.wildlife ?? [],
       packagesCount: dest?.packages.length ?? 0,
       badge: EXTRA_META[slug].badge,
