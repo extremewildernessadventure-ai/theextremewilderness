@@ -1397,7 +1397,11 @@
     "packageSlides": "Слайды пакетов",
     "moreLabel": "Ещё",
     "languageSwitcher": "Переключатель языка",
-    "breadcrumbNav": "Навигационная цепочка"
+    "breadcrumbNav": "Навигационная цепочка",
+    "langBannerEyebrow": "Доступно на вашем языке",
+    "langBannerMessage": "Мы заметили, что в вашем браузере установлен язык {language}.",
+    "langBannerSwitch": "Переключить на {language}",
+    "langBannerDismiss": "Закрыть"
   },
   "home": {
     "badge": "Лучший сафари-опыт Восточной Африки",

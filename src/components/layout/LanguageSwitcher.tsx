@@ -5,16 +5,7 @@ import { Globe, ChevronDown, Check } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
-
-const LANGUAGES: Record<string, { code: string; native: string; flag: string }> = {
-  en: { code: 'EN', native: 'English', flag: '🇬🇧' },
-  fr: { code: 'FR', native: 'Français', flag: '🇫🇷' },
-  es: { code: 'ES', native: 'Español', flag: '🇪🇸' },
-  de: { code: 'DE', native: 'Deutsch', flag: '🇩🇪' },
-  ru: { code: 'RU', native: 'Русский', flag: '🇷🇺' },
-  zh: { code: 'ZH', native: '简体中文', flag: '🇨🇳' },
-  'zh-TW': { code: 'TW', native: '繁體中文', flag: '🇹🇼' },
-}
+import { LANGUAGES } from '@/lib/languages'
 
 export default function LanguageSwitcher() {
   const locale = useLocale()

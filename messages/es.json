@@ -1239,7 +1239,11 @@
     "packageSlides": "Diapositivas de paquetes",
     "moreLabel": "Más",
     "languageSwitcher": "Selector de idioma",
-    "breadcrumbNav": "Ruta de navegación"
+    "breadcrumbNav": "Ruta de navegación",
+    "langBannerEyebrow": "Disponible en su idioma",
+    "langBannerMessage": "Notamos que su navegador está configurado en {language}.",
+    "langBannerSwitch": "Cambiar a {language}",
+    "langBannerDismiss": "Descartar"
   },
   "home": {
     "badge": "La experiencia safari premium de África Oriental",

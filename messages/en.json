@@ -1325,7 +1325,11 @@
     "packageSlides": "Package slides",
     "moreLabel": "More",
     "languageSwitcher": "Language switcher",
-    "breadcrumbNav": "Breadcrumb"
+    "breadcrumbNav": "Breadcrumb",
+    "langBannerEyebrow": "Available in your language",
+    "langBannerMessage": "We noticed your browser is set to {language}.",
+    "langBannerSwitch": "Switch to {language}",
+    "langBannerDismiss": "Dismiss"
   },
   "home": {
     "badge": "East Africa's Premier Safari Experience",

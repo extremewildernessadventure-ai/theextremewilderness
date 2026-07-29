@@ -1239,7 +1239,11 @@
     "packageSlides": "Paket-Folien",
     "moreLabel": "Mehr",
     "languageSwitcher": "Sprachauswahl",
-    "breadcrumbNav": "Brotkrumen-Navigation"
+    "breadcrumbNav": "Brotkrumen-Navigation",
+    "langBannerEyebrow": "In Ihrer Sprache verfügbar",
+    "langBannerMessage": "Wir haben festgestellt, dass Ihr Browser auf {language} eingestellt ist.",
+    "langBannerSwitch": "Zu {language} wechseln",
+    "langBannerDismiss": "Schließen"
   },
   "home": {
     "badge": "Ostafrikas Premium-Safari-Erlebnis",

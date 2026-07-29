@@ -1397,7 +1397,11 @@
     "packageSlides": "套餐幻灯片",
     "moreLabel": "更多",
     "languageSwitcher": "语言切换器",
-    "breadcrumbNav": "面包屑导航"
+    "breadcrumbNav": "面包屑导航",
+    "langBannerEyebrow": "提供您的语言版本",
+    "langBannerMessage": "我们注意到您的浏览器语言设置为{language}。",
+    "langBannerSwitch": "切换至{language}",
+    "langBannerDismiss": "关闭"
   },
   "home": {
     "badge": "东非首屈一指的游猎体验",

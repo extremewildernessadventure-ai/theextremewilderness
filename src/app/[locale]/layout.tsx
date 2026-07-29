@@ -9,6 +9,7 @@ import Footer from '@/components/layout/Footer'
 import BottomNav from '@/components/layout/BottomNav'
 import Providers from '@/components/layout/Providers'
 import WhatsAppButton from '@/components/shared/WhatsAppButton'
+import LanguageSuggestionBanner from '@/components/shared/LanguageSuggestionBanner'
 
 type Props = {
   children: React.ReactNode
@@ -103,6 +104,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <Footer />
         <div className="h-16 lg:hidden" aria-hidden="true" />
         <WhatsAppButton />
+        <LanguageSuggestionBanner />
         <BottomNav />
       </Providers>
     </NextIntlClientProvider>

@@ -1283,7 +1283,11 @@
     "packageSlides": "Diapositives des forfaits",
     "moreLabel": "Plus",
     "languageSwitcher": "Sélecteur de langue",
-    "breadcrumbNav": "Fil d'Ariane"
+    "breadcrumbNav": "Fil d'Ariane",
+    "langBannerEyebrow": "Disponible dans votre langue",
+    "langBannerMessage": "Nous avons remarqué que votre navigateur est configuré en {language}.",
+    "langBannerSwitch": "Passer en {language}",
+    "langBannerDismiss": "Ignorer"
   },
   "home": {
     "badge": "L'expérience safari premium d'Afrique de l'Est",

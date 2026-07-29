@@ -1423,7 +1423,11 @@
     "packageSlides": "套餐幻燈片",
     "moreLabel": "更多",
     "languageSwitcher": "語言切換器",
-    "breadcrumbNav": "麵包屑導航"
+    "breadcrumbNav": "麵包屑導航",
+    "langBannerEyebrow": "提供您的語言版本",
+    "langBannerMessage": "我們注意到您的瀏覽器語言設定為{language}。",
+    "langBannerSwitch": "切換至{language}",
+    "langBannerDismiss": "關閉"
   },
   "home": {
     "badge": "東非首屈一指的獵遊體驗",
