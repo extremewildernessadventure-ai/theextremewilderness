@@ -1386,6 +1386,7 @@
     "nextReviews": "下一批评价",
     "reviewPages": "评价页",
     "destinationSlides": "目的地幻灯片",
+    "packageSlides": "套餐幻灯片",
     "moreLabel": "更多",
     "languageSwitcher": "语言切换器",
     "breadcrumbNav": "面包屑导航"
@@ -1959,6 +1960,7 @@
     "pdfGuideSectionGear": "打包清单",
     "pdfGuideSectionSeasons": "最佳季节",
     "pdfGuideIntro": "乞力马扎罗山（5,895米）是非洲最高峰，也是世界最高的独立山峰。不需要专业攀登技能——但准备就是一切。本指南涵盖与EWA Safari Outfitters一起规划攀登所需的一切。",
+    "kiliPdfCardAlt": "乞力马扎罗徒步指南",
     "metaTitle": "乞力马扎罗徒步与登山 坦桑尼亚 2026",
     "metaDescription": "与坦桑尼亚经验最丰富的本地向导一起攀登非洲最高峰。马查梅、莱莫肖、马兰古和隆盖路线。TANAPA认证，全套安全保障。",
     "metaKeywords": [
@@ -2006,7 +2008,8 @@
     "breadcrumbLabel": "联系我们",
     "tagline": "坦桑尼亚游猎与徒步专家",
     "callUsLabel": "致电我们 — +255 747 999 070",
-    "whatsappUs": "WhatsApp联系我们"
+    "whatsappUs": "WhatsApp联系我们",
+    "heroImageAlt": "塞伦盖蒂游猎"
   },
   "about": {
     "ourStory": "我们的故事",
@@ -2067,6 +2070,7 @@
     "ourOfficeCard": "我们的办公室",
     "companyName": "EWA Safari Outfitters",
     "getDirections": "获取路线",
+    "officeMapTitle": "EWA Safari Outfitters 办公地点",
     "team1Role": "目的地经理",
     "team1Bio": "Mike负责我们在坦桑尼亚、肯尼亚和卢旺达的整个目的地组合。他熟悉每个公园、每家旅馆和每条小路——并确保每个行程都围绕各目的地的强项打造。",
     "team2Role": "游猎向导",
@@ -2424,6 +2428,7 @@
     "mapTopSafari": "顶级游猎",
     "mapCulturalRegion": "文化地区",
     "mapLowActivity": "低活动量",
+    "heroImageAlt": "坦桑尼亚塞伦盖蒂平原金色日落下的狮子",
     "ctaBody": "我们的团队生于阿鲁沙、立足阿鲁沙——这些是我们的主场公园。我们熟悉每条路、每个季节、每个营地。让我们围绕您想看的一切设计行程。"
   },
   "kenya": {

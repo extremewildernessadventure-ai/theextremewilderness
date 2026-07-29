@@ -1412,6 +1412,7 @@
     "nextReviews": "下一批評價",
     "reviewPages": "評價頁",
     "destinationSlides": "目的地幻燈片",
+    "packageSlides": "套餐幻燈片",
     "moreLabel": "更多",
     "languageSwitcher": "語言切換器",
     "breadcrumbNav": "麵包屑導航"
@@ -1985,6 +1986,7 @@
     "pdfGuideSectionGear": "打包清單",
     "pdfGuideSectionSeasons": "最佳季節",
     "pdfGuideIntro": "吉力馬札羅山（5,895米）是非洲最高峰，也是世界最高的獨立山峰。不需要專業攀登技能——但準備就是一切。本指南涵蓋與EWA Safari Outfitters一起規劃攀登所需的一切。",
+    "kiliPdfCardAlt": "吉力馬札羅健行指南",
     "metaTitle": "吉力馬札羅健行與登山 坦尚尼亞 2026",
     "metaDescription": "與坦尚尼亞經驗最豐富的本地嚮導一起攀登非洲最高峰。馬查梅、萊莫肖、馬蘭古和隆蓋路線。TANAPA認證，全套安全保障。",
     "metaKeywords": [
@@ -2032,7 +2034,8 @@
     "breadcrumbLabel": "聯絡我們",
     "tagline": "坦尚尼亞獵遊與健行專家",
     "callUsLabel": "致電我們 — +255 747 999 070",
-    "whatsappUs": "WhatsApp聯絡我們"
+    "whatsappUs": "WhatsApp聯絡我們",
+    "heroImageAlt": "塞倫蓋提獵遊"
   },
   "about": {
     "ourStory": "我們的故事",
@@ -2093,6 +2096,7 @@
     "ourOfficeCard": "我們的辦公室",
     "companyName": "EWA Safari Outfitters",
     "getDirections": "獲取路線",
+    "officeMapTitle": "EWA Safari Outfitters 辦公地點",
     "team1Role": "目的地經理",
     "team1Bio": "Mike負責我們在坦尚尼亞、肯亞和盧安達的整個目的地組合。他熟悉每個公園、每家旅館和每條小路——並確保每個行程都圍繞各目的地的強項打造。",
     "team2Role": "獵遊嚮導",
@@ -2450,6 +2454,7 @@
     "mapTopSafari": "頂級獵遊",
     "mapCulturalRegion": "文化地區",
     "mapLowActivity": "低活動量",
+    "heroImageAlt": "坦尚尼亞塞倫蓋提平原金色日落下的獅子",
     "ctaBody": "我們的團隊生於阿魯沙、立足阿魯沙——這些是我們的主場公園。我們熟悉每條路、每個季節、每個營地。讓我們圍繞您想看的一切設計行程。"
   },
   "kenya": {

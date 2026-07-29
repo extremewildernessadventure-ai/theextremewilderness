@@ -159,7 +159,7 @@ export default function FeaturedPackages() {
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-0 mt-2" role="group" aria-label="Package slides">
+          <div className="flex justify-center items-center gap-0 mt-2" role="group" aria-label={tc('packageSlides')}>
             {featured.map((_, i) => (
               <button
                 key={i}

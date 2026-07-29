@@ -1228,6 +1228,7 @@
     "nextReviews": "Nächste Bewertungen",
     "reviewPages": "Bewertungsseiten",
     "destinationSlides": "Destination-Folien",
+    "packageSlides": "Paket-Folien",
     "moreLabel": "Mehr",
     "languageSwitcher": "Sprachauswahl",
     "breadcrumbNav": "Brotkrumen-Navigation"
@@ -1801,6 +1802,7 @@
     "pdfGuideSectionGear": "Packliste",
     "pdfGuideSectionSeasons": "Beste Reisezeiten",
     "pdfGuideIntro": "Der Kilimandscharo (5.895 m) ist Afrikas höchster Gipfel und der höchste freistehende Berg der Welt. Technische Kletterkenntnisse sind nicht erforderlich — aber Vorbereitung ist alles. Dieser Guide deckt alles ab, was Sie für die Planung Ihrer Besteigung mit EWA Safari Outfitters benötigen.",
+    "kiliPdfCardAlt": "Kilimandscharo-Trekking-Guide",
     "metaTitle": "Kilimandscharo-Trekking & Bergsteigen Tansania 2026",
     "metaDescription": "Besteigen Sie Afrikas höchsten Gipfel mit Tansanias erfahrensten einheimischen Guides. Routen Machame, Lemosho, Marangu und Rongai. TANAPA-zertifiziert, mit vollständiger Sicherheitsunterstützung.",
     "metaKeywords": [
@@ -1848,7 +1850,8 @@
     "breadcrumbLabel": "Kontakt",
     "tagline": "Spezialisten für Safaris & Trekking in Tansania",
     "callUsLabel": "Rufen Sie uns an — +255 747 999 070",
-    "whatsappUs": "WhatsApp uns kontaktieren"
+    "whatsappUs": "WhatsApp uns kontaktieren",
+    "heroImageAlt": "Safari in der Serengeti"
   },
   "about": {
     "ourStory": "Unsere Geschichte",
@@ -1909,6 +1912,7 @@
     "ourOfficeCard": "Unser Büro",
     "companyName": "EWA Safari Outfitters",
     "getDirections": "Route anzeigen",
+    "officeMapTitle": "Bürostandort von EWA Safari Outfitters",
     "team1Role": "Leiter Reiseziele",
     "team1Bio": "Mike betreut unser gesamtes Zielgebiets-Portfolio in Tansania, Kenia und Ruanda. Er kennt jeden Park, jede Lodge und jede Nebenstraße — und sorgt dafür, dass jede Reiseroute um die Stärken jedes Ziels herum gestaltet wird.",
     "team2Role": "Safari-Guide",
@@ -2266,6 +2270,7 @@
     "mapTopSafari": "Top-Safari",
     "mapCulturalRegion": "Kulturregion",
     "mapLowActivity": "Geringe Aktivität",
+    "heroImageAlt": "Löwen bei goldenem Sonnenuntergang auf den Serengeti-Ebenen Tansanias",
     "ctaBody": "Unser Team ist in Arusha geboren und dort ansässig — dies sind unsere Heimatparks. Wir kennen jede Straße, jede Saison, jedes Camp. Lassen Sie uns eine Reiseroute gestalten, die genau auf das ausgerichtet ist, was Sie sehen möchten."
   },
   "kenya": {

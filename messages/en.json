@@ -1314,6 +1314,7 @@
     "nextReviews": "Next reviews",
     "reviewPages": "Review pages",
     "destinationSlides": "Destination slides",
+    "packageSlides": "Package slides",
     "moreLabel": "More",
     "languageSwitcher": "Language switcher",
     "breadcrumbNav": "Breadcrumb"
@@ -1887,6 +1888,7 @@
     "pdfGuideSectionGear": "Packing List",
     "pdfGuideSectionSeasons": "Best Seasons",
     "pdfGuideIntro": "Mount Kilimanjaro (5,895 m) is Africa's highest peak and the world's tallest free-standing mountain. No technical climbing skills are required — but preparation is everything. This guide covers everything you need to plan your climb with EWA Safari Outfitters.",
+    "kiliPdfCardAlt": "Kilimanjaro Trekking Guide",
     "metaTitle": "Kilimanjaro Trekking & Mountain Climbing Tanzania 2026",
     "metaDescription": "Climb Africa's highest peak with Tanzania's most experienced local guides. Machame, Lemosho, Marangu and Rongai routes. TANAPA certified, full safety backup.",
     "metaKeywords": [
@@ -1934,7 +1936,8 @@
     "breadcrumbLabel": "Contact",
     "tagline": "Tanzania Safari & Trekking Specialists",
     "callUsLabel": "Call Us — +255 747 999 070",
-    "whatsappUs": "WhatsApp Us"
+    "whatsappUs": "WhatsApp Us",
+    "heroImageAlt": "Safari in the Serengeti"
   },
   "about": {
     "ourStory": "Our Story",
@@ -1995,6 +1998,7 @@
     "ourOfficeCard": "Our Office",
     "companyName": "EWA Safari Outfitters",
     "getDirections": "Get Directions",
+    "officeMapTitle": "EWA Safari Outfitters office location",
     "team1Role": "Destinations Manager",
     "team1Bio": "Mike oversees our entire destination portfolio across Tanzania, Kenya, and Rwanda. He knows every park, lodge, and back road — and makes sure every itinerary is built around what each destination does best.",
     "team2Role": "Safari Guide",
@@ -2352,6 +2356,7 @@
     "mapTopSafari": "Top safari",
     "mapCulturalRegion": "Cultural region",
     "mapLowActivity": "Low activity",
+    "heroImageAlt": "Lions at golden sunset on the Tanzania Serengeti plains",
     "ctaBody": "Our team is born and based in Arusha — these are our home parks. We know every road, every season, every camp. Let us design an itinerary built around what you want to see."
   },
   "kenya": {

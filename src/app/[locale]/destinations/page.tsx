@@ -185,7 +185,7 @@ export default async function DestinationsPage({ params }: Props) {
         <div className="absolute inset-0">
           <Image
             src="/images/gallery/safari-119.webp"
-            alt="Lions at golden sunset on the Tanzania Serengeti plains"
+            alt={t('heroImageAlt')}
             fill
             className="object-cover object-center"
             priority

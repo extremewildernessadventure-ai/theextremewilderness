@@ -1272,6 +1272,7 @@
     "nextReviews": "Avis suivants",
     "reviewPages": "Pages d'avis",
     "destinationSlides": "Diapositives des destinations",
+    "packageSlides": "Diapositives des forfaits",
     "moreLabel": "Plus",
     "languageSwitcher": "Sélecteur de langue",
     "breadcrumbNav": "Fil d'Ariane"
@@ -1845,6 +1846,7 @@
     "pdfGuideSectionGear": "Liste d'équipement",
     "pdfGuideSectionSeasons": "Meilleures saisons",
     "pdfGuideIntro": "Le mont Kilimandjaro (5 895 m) est le plus haut sommet d'Afrique et la plus haute montagne autoportante du monde. Aucune compétence en escalade technique n'est requise — mais la préparation est essentielle. Ce guide couvre tout ce dont vous avez besoin pour planifier votre ascension avec EWA Safari Outfitters.",
+    "kiliPdfCardAlt": "Guide de trekking du Kilimandjaro",
     "metaTitle": "Trekking au Kilimandjaro et Ascension en Tanzanie 2026",
     "metaDescription": "Gravissez le plus haut sommet d'Afrique avec les guides locaux les plus expérimentés de Tanzanie. Itinéraires Machame, Lemosho, Marangu et Rongai. Certifié TANAPA, avec sécurité complète.",
     "metaKeywords": [
@@ -1892,7 +1894,8 @@
     "breadcrumbLabel": "Contact",
     "tagline": "Spécialistes des safaris et treks en Tanzanie",
     "callUsLabel": "Appelez-nous — +255 747 999 070",
-    "whatsappUs": "Contactez-nous sur WhatsApp"
+    "whatsappUs": "Contactez-nous sur WhatsApp",
+    "heroImageAlt": "Safari dans le Serengeti"
   },
   "about": {
     "ourStory": "Notre histoire",
@@ -1953,6 +1956,7 @@
     "ourOfficeCard": "Notre bureau",
     "companyName": "EWA Safari Outfitters",
     "getDirections": "Obtenir l'itinéraire",
+    "officeMapTitle": "Emplacement du bureau d'EWA Safari Outfitters",
     "team1Role": "Responsable des Destinations",
     "team1Bio": "Mike supervise l'ensemble de notre portefeuille de destinations en Tanzanie, au Kenya et au Rwanda. Il connaît chaque parc, chaque lodge et chaque route secondaire — et veille à ce que chaque itinéraire soit conçu autour des points forts de chaque destination.",
     "team2Role": "Guide de Safari",
@@ -2310,6 +2314,7 @@
     "mapTopSafari": "Safari premium",
     "mapCulturalRegion": "Région culturelle",
     "mapLowActivity": "Faible activité",
+    "heroImageAlt": "Lions au coucher du soleil doré sur les plaines du Serengeti en Tanzanie",
     "ctaBody": "Notre équipe est née et basée à Arusha — ce sont nos parcs de cœur. Nous connaissons chaque route, chaque saison, chaque camp. Laissez-nous concevoir un itinéraire construit autour de ce que vous voulez voir."
   },
   "kenya": {

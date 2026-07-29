@@ -1228,6 +1228,7 @@
     "nextReviews": "Reseñas siguientes",
     "reviewPages": "Páginas de reseñas",
     "destinationSlides": "Diapositivas de destinos",
+    "packageSlides": "Diapositivas de paquetes",
     "moreLabel": "Más",
     "languageSwitcher": "Selector de idioma",
     "breadcrumbNav": "Ruta de navegación"
@@ -1801,6 +1802,7 @@
     "pdfGuideSectionGear": "Lista de equipamiento",
     "pdfGuideSectionSeasons": "Mejores temporadas",
     "pdfGuideIntro": "El monte Kilimanjaro (5.895 m) es el pico más alto de África y la montaña más alta de pie libre del mundo. No se requieren habilidades técnicas de escalada — pero la preparación lo es todo. Esta guía cubre todo lo que necesitas para planificar tu ascenso con EWA Safari Outfitters.",
+    "kiliPdfCardAlt": "Guía de trekking del Kilimanjaro",
     "metaTitle": "Trekking al Kilimanjaro y Escalada de Montaña en Tanzania 2026",
     "metaDescription": "Escala el pico más alto de África con los guías locales más experimentados de Tanzania. Rutas Machame, Lemosho, Marangu y Rongai. Certificados por TANAPA, con respaldo de seguridad completo.",
     "metaKeywords": [
@@ -1848,7 +1850,8 @@
     "breadcrumbLabel": "Contacto",
     "tagline": "Especialistas en safaris y trekking en Tanzania",
     "callUsLabel": "Llámanos — +255 747 999 070",
-    "whatsappUs": "Escríbenos por WhatsApp"
+    "whatsappUs": "Escríbenos por WhatsApp",
+    "heroImageAlt": "Safari en el Serengeti"
   },
   "about": {
     "ourStory": "Nuestra historia",
@@ -1909,6 +1912,7 @@
     "ourOfficeCard": "Nuestra oficina",
     "companyName": "EWA Safari Outfitters",
     "getDirections": "Cómo llegar",
+    "officeMapTitle": "Ubicación de la oficina de EWA Safari Outfitters",
     "team1Role": "Gerente de Destinos",
     "team1Bio": "Mike supervisa toda nuestra cartera de destinos en Tanzania, Kenia y Ruanda. Conoce cada parque, cada lodge y cada camino secundario — y se asegura de que cada itinerario esté diseñado en torno a lo mejor de cada destino.",
     "team2Role": "Guía de Safari",
@@ -2266,6 +2270,7 @@
     "mapTopSafari": "Safari premium",
     "mapCulturalRegion": "Región cultural",
     "mapLowActivity": "Baja actividad",
+    "heroImageAlt": "Leones al atardecer dorado en las llanuras del Serengeti, Tanzania",
     "ctaBody": "Nuestro equipo nació y vive en Arusha — estos son nuestros parques de casa. Conocemos cada camino, cada temporada, cada campamento. Déjanos diseñar un itinerario construido en torno a lo que quieres ver."
   },
   "kenya": {

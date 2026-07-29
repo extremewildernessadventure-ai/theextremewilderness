@@ -280,7 +280,7 @@ export default async function AboutPage({ params }: Props) {
                 className="w-full h-full min-h-[400px] border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="EWA Safari Outfitters office location"
+                title={t('officeMapTitle')}
               />
             </Reveal>
           </div>
