@@ -30,6 +30,7 @@ interface Props {
     filterKenya: string
     filterRwanda: string
     filterCombined: string
+    filterTanzaniaRwanda: string
     days: string
     max: string
     pax: string
@@ -41,21 +42,31 @@ interface Props {
   }
 }
 
-const KENYA_DESTS = ['masai-mara', 'amboseli', 'samburu', 'tsavo', 'nakuru']
-const TZ_DESTS = ['serengeti', 'ngorongoro', 'tarangire', 'manyara', 'zanzibar', 'arusha', 'ruaha', 'nyerere']
+// Kept in sync with each destination's `country` field in src/data/destinations.ts —
+// a slug missing here silently mis-buckets any package that relies on it.
+const KENYA_DESTS = ['masai-mara', 'amboseli', 'samburu', 'tsavo', 'lake-nakuru', 'ol-pejeta', 'kenyan-coast']
+const TZ_DESTS = ['serengeti', 'ngorongoro', 'tarangire', 'manyara', 'zanzibar', 'arusha', 'ruaha', 'nyerere', 'mahale', 'katavi', 'gombe', 'lake-victoria']
 const RWANDA_DESTS = ['volcanoes', 'akagera', 'kigali', 'lake-kivu', 'nyungwe']
 const PAGE_SIZE = 6
 const STEP = 100
 
 type DurBucket = '2-5' | '6-9' | '10+'
-type CountryKey = 'all' | 'tanzania' | 'kenya' | 'rwanda' | 'combined'
+// 'tanzania-kenya' / 'tanzania-rwanda' are precise two-country buckets — 'combined'
+// is a catch-all for any other multi-country mix (e.g. Kenya+Rwanda) that has no
+// dedicated filter button today, so it never gets bucketed together with a pair
+// it doesn't actually match.
+type CountryKey = 'all' | 'tanzania' | 'kenya' | 'rwanda' | 'tanzania-kenya' | 'tanzania-rwanda' | 'combined'
 
-function pkgCountry(dests: string[]): 'tanzania' | 'kenya' | 'rwanda' | 'combined' {
+function pkgCountry(dests: string[]): CountryKey {
   const hasK = dests.some((d) => KENYA_DESTS.includes(d))
   const hasT = dests.some((d) => TZ_DESTS.includes(d))
   const hasR = dests.some((d) => RWANDA_DESTS.includes(d))
   const count = [hasK, hasT, hasR].filter(Boolean).length
-  if (count > 1) return 'combined'
+  if (count > 1) {
+    if (hasT && hasK && !hasR) return 'tanzania-kenya'
+    if (hasT && hasR && !hasK) return 'tanzania-rwanda'
+    return 'combined'
+  }
   if (hasK) return 'kenya'
   if (hasR) return 'rwanda'
   return 'tanzania'
@@ -109,12 +120,18 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
     { key: '10+', label: labels.dur10plus },
   ]
 
+  // Combo buttons only appear when a package actually matches them — avoids a
+  // filter that claims one country pair but silently includes another (the bug
+  // this replaced: a single "combined" bucket lumped Tanzania+Kenya together
+  // with Tanzania+Rwanda under a "Tanzania + Kenya" label).
+  const hasCombo = (key: CountryKey) => packages.some((p) => pkgCountry(p.destinations) === key)
   const countries: { key: CountryKey; label: string }[] = [
     { key: 'all', label: labels.filterAll },
     { key: 'tanzania', label: labels.filterTanzania },
     { key: 'kenya', label: labels.filterKenya },
     { key: 'rwanda', label: labels.filterRwanda },
-    { key: 'combined', label: labels.filterCombined },
+    ...(hasCombo('tanzania-kenya') ? [{ key: 'tanzania-kenya' as const, label: labels.filterCombined }] : []),
+    ...(hasCombo('tanzania-rwanda') ? [{ key: 'tanzania-rwanda' as const, label: labels.filterTanzaniaRwanda }] : []),
   ]
 
   const showingText = labels.showingOf

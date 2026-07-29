@@ -363,6 +363,7 @@ export default async function SafarisPage({ params }: Props) {
               filterKenya:    t('filterKenya'),
               filterRwanda:   t('filterRwanda'),
               filterCombined: t('filterCombined'),
+              filterTanzaniaRwanda: t('filterTanzaniaRwanda'),
               days:           t('daysLabel'),
               max:            t('maxLabel'),
               pax:            t('paxLabel'),
