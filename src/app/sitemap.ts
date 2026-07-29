@@ -6,7 +6,7 @@ import { blogPosts } from '@/data/blog/index'
 // pages don't get a fresh lastModified on every deploy.
 const CONTENT_LAST_UPDATED = new Date('2025-07-16')
 
-const LOCALES = ['en', 'fr', 'es', 'de'] as const
+const LOCALES = ['en', 'fr', 'es', 'de', 'ru', 'zh', 'zh-TW'] as const
 
 export const SAFARI_SLUGS = [
   '7-day-serengeti-ngorongoro',

@@ -11,6 +11,9 @@ const LANGUAGES: Record<string, { code: string; native: string; flag: string }> 
   fr: { code: 'FR', native: 'Français', flag: '🇫🇷' },
   es: { code: 'ES', native: 'Español', flag: '🇪🇸' },
   de: { code: 'DE', native: 'Deutsch', flag: '🇩🇪' },
+  ru: { code: 'RU', native: 'Русский', flag: '🇷🇺' },
+  zh: { code: 'ZH', native: '简体中文', flag: '🇨🇳' },
+  'zh-TW': { code: 'TW', native: '繁體中文', flag: '🇹🇼' },
 }
 
 export default function LanguageSwitcher() {

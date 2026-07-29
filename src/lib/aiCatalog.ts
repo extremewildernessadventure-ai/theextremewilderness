@@ -56,6 +56,9 @@ const LOCALE_LANGUAGE: Record<string, string> = {
   de: 'German',
   es: 'Spanish',
   fr: 'French',
+  ru: 'Russian',
+  zh: 'Simplified Chinese',
+  'zh-TW': 'Traditional Chinese',
 }
 
 export const RESULTS_SENTINEL = '<<<RESULTS>>>'

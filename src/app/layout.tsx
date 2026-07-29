@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/site'
 
 const geist = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin'],
+  subsets: ['latin', 'cyrillic'],
 })
 
 export const viewport: Viewport = {

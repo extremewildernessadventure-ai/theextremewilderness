@@ -16,7 +16,7 @@ type Props = {
 }
 
 const OG_LOCALE: Record<string, string> = {
-  en: 'en_US', fr: 'fr_FR', es: 'es_ES', de: 'de_DE',
+  en: 'en_US', fr: 'fr_FR', es: 'es_ES', de: 'de_DE', ru: 'ru_RU', zh: 'zh_CN', 'zh-TW': 'zh_TW',
 }
 
 // Canonical/hreflang alternates are set per-page (via buildAlternates in
@@ -39,7 +39,7 @@ export function generateStaticParams() {
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params
 
-  if (!routing.locales.includes(locale as 'en' | 'fr' | 'es' | 'de')) {
+  if (!routing.locales.includes(locale as 'en' | 'fr' | 'es' | 'de' | 'ru' | 'zh' | 'zh-TW')) {
     notFound()
   }
 

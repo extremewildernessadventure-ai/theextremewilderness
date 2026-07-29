@@ -32,7 +32,7 @@ export async function generateStaticParams() {
   )
 }
 
-const OG_LOCALES: Record<string, string> = { en: 'en_US', fr: 'fr_FR', es: 'es_ES', de: 'de_DE' }
+const OG_LOCALES: Record<string, string> = { en: 'en_US', fr: 'fr_FR', es: 'es_ES', de: 'de_DE', ru: 'ru_RU', zh: 'zh_CN', 'zh-TW': 'zh_TW' }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params

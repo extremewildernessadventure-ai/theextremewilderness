@@ -25,6 +25,15 @@ body {
   -webkit-user-select: none;
 }
 
+/* Geist has no Han glyphs — fall back to platform-native CJK fonts for zh/zh-TW */
+:lang(zh) {
+  font-family: var(--font-geist-sans), 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+}
+
+:lang(zh-TW) {
+  font-family: var(--font-geist-sans), 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+}
+
 input, textarea, select, [contenteditable] {
   user-select: text;
   -webkit-user-select: text;

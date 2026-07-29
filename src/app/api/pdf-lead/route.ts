@@ -7,7 +7,7 @@ const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID ?? ''
 const TO = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
 const FROM = process.env.RESEND_FROM ?? 'EWA Guide <noreply@theextremewilderness.com>'
 
-const LOCALES = ['en', 'fr', 'es', 'de'] as const
+const LOCALES = ['en', 'fr', 'es', 'de', 'ru', 'zh', 'zh-TW'] as const
 
 export async function POST(req: NextRequest) {
   try {
