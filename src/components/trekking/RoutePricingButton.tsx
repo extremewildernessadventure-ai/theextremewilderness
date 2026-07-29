@@ -22,7 +22,7 @@ export default function RoutePricingButton({ routeName, tier: _tier, price, dura
         openBooking({
           packageName: routeName,
           packageType: tc('packageTypes.kiliTrek'),
-          priceFrom: `$${price.toLocaleString()}`,
+          priceFrom: `$${price.toLocaleString('en-US')}`,
           duration,
           restrictTripType: true,
         })

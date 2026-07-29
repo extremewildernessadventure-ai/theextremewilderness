@@ -109,7 +109,7 @@ export default function PriceTierSwitcher({
       </div>
 
       <div className="text-center pt-2 border-t border-brand/10">
-        <div className="text-3xl font-bold text-brand">${price.toLocaleString()}</div>
+        <div className="text-3xl font-bold text-brand">${price.toLocaleString('en-US')}</div>
         <div className="text-text-muted text-xs mt-1">{t('perPerson')}</div>
         {provisional && (
           <p className="text-gold-label text-[11px] mt-2 leading-snug">{t('provisionalPricing')}</p>

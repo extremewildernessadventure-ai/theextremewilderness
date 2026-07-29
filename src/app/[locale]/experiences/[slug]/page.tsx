@@ -613,7 +613,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
                     <div className="p-5">
                       <h3 className="font-semibold text-brand leading-snug">{pkg.name}</h3>
                       <p className="text-xs text-text-muted mt-1.5">
-                        {t('packageMeta', { days: pkg.duration, price: `$${pkg.priceFrom.toLocaleString()}` })}
+                        {t('packageMeta', { days: pkg.duration, price: `$${pkg.priceFrom.toLocaleString('en-US')}` })}
                       </p>
                       <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand mt-3 group-hover:gap-2 transition-all">
                         {t('viewButton')} <ArrowRight size={14} className="text-gold" />

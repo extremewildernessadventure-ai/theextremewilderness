@@ -262,7 +262,7 @@ export default async function TrekkingPage({ params }: Props) {
               <BookNowButton
                 packageName={tc('packageTypes.kiliTrek')}
                 packageType={tc('packageTypes.kiliTrek')}
-                priceFrom={`$${minPrice.toLocaleString()}`}
+                priceFrom={`$${minPrice.toLocaleString('en-US')}`}
                 restrictTripType
                 label={t('ctaButton')}
                 className="lg:hidden mt-6 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
@@ -272,13 +272,13 @@ export default async function TrekkingPage({ params }: Props) {
             {/* Right glass CTA */}
             <div className="hidden lg:flex flex-col bg-white/10 backdrop-blur-md rounded-2xl px-6 py-6 border border-white/20 min-w-[200px] text-center flex-shrink-0">
               <p className="text-white/60 text-xs uppercase tracking-wide mb-1">{trd('labels.from')}</p>
-              <p className="text-gold font-bold text-4xl leading-none">${minPrice.toLocaleString()}</p>
+              <p className="text-gold font-bold text-4xl leading-none">${minPrice.toLocaleString('en-US')}</p>
               <p className="text-white/50 text-xs mt-1 mb-5">{trd('labels.perPerson')}</p>
               <p className="text-white/60 text-xs mb-5">{t('stat3Value')} · {t('stat2Value')}</p>
               <BookNowButton
                 packageName={tc('packageTypes.kiliTrek')}
                 packageType={tc('packageTypes.kiliTrek')}
-                priceFrom={`$${minPrice.toLocaleString()}`}
+                priceFrom={`$${minPrice.toLocaleString('en-US')}`}
                 restrictTripType
                 label={t('ctaButton')}
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
@@ -337,7 +337,7 @@ export default async function TrekkingPage({ params }: Props) {
                     <div className="flex items-center justify-between pt-3 border-t border-gray-100">
                       <div>
                         <span className="text-xs text-text-muted">{t('fromLabel')}</span>
-                        <span className="font-bold text-brand">${route.priceFrom.toLocaleString()}</span>
+                        <span className="font-bold text-brand">${route.priceFrom.toLocaleString('en-US')}</span>
                         <span className="text-xs text-text-muted">{t('personLabel')}</span>
                       </div>
                       <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">

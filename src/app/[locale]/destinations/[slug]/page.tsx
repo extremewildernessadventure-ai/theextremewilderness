@@ -415,7 +415,7 @@ export default async function DestinationPage({ params }: Props) {
                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-brand mb-1 text-sm">{pkg.name}</h3>
-                      <p className="text-text-muted text-xs mb-3">{pkg.duration} {tc('nights')} · {t('nightsFrom')} ${pkg.priceFrom.toLocaleString()}/{tc('perPerson')}</p>
+                      <p className="text-text-muted text-xs mb-3">{pkg.duration} {tc('nights')} · {t('nightsFrom')} ${pkg.priceFrom.toLocaleString('en-US')}/{tc('perPerson')}</p>
                       <span className="flex items-center gap-1 text-xs text-brand font-semibold">
                         {tc('viewPackage')} <ArrowRight className="w-3 h-3" />
                       </span>

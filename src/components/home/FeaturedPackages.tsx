@@ -71,7 +71,7 @@ function PackageCard({ pkg, tc }: { pkg: (typeof packages)[number]; tc: ReturnTy
         <div className="flex items-center justify-between pt-3 border-t border-gray-100">
           <div>
             <span className="text-xs text-text-muted">{tc('from')}</span>
-            <span className="ml-1 text-brand font-bold text-lg">${pkg.priceFrom.toLocaleString()}</span>
+            <span className="ml-1 text-brand font-bold text-lg">${pkg.priceFrom.toLocaleString('en-US')}</span>
             <span className="text-xs text-text-muted"> / {tc('perPerson').split(' ')[0]}</span>
           </div>
           <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">

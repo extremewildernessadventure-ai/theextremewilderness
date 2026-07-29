@@ -247,7 +247,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pkg = getPackage(slug, locale)
   if (!pkg) return {}
   const title = pkg.metaTitle ?? `${pkg.name} | Tanzania Safari`
-  const description = pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights starting from $${pkg.priceFrom.toLocaleString()}/person. ${pkg.highlights[0]}.`
+  const description = pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights starting from $${pkg.priceFrom.toLocaleString('en-US')}/person. ${pkg.highlights[0]}.`
   return {
     alternates: buildAlternates(locale, `/safaris/${slug}`),
     title,
@@ -302,7 +302,7 @@ export default async function SafariPackagePage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Trip',
     name: pkg.name,
-    description: pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights, starting from $${pkg.priceFrom.toLocaleString()} per person. ${pkg.highlights[0]}.`,
+    description: pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights, starting from $${pkg.priceFrom.toLocaleString('en-US')} per person. ${pkg.highlights[0]}.`,
     image: `${SITE_URL}${pkg.heroImage}`,
     provider: {
       '@type': 'Organization',
@@ -373,7 +373,7 @@ export default async function SafariPackagePage({ params }: Props) {
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl px-5 py-3 text-center border border-white/20">
               <div className="text-white/70 text-xs uppercase tracking-wide">{tc('from')}</div>
-              <div className="text-white font-bold text-2xl">${pkg.priceFrom.toLocaleString()}</div>
+              <div className="text-white font-bold text-2xl">${pkg.priceFrom.toLocaleString('en-US')}</div>
               <div className="text-white/60 text-xs">{tc('perPerson')}</div>
             </div>
           </div>
@@ -403,7 +403,7 @@ export default async function SafariPackagePage({ params }: Props) {
                   <div className="grid grid-cols-2 gap-3">
                     <div className="bg-white rounded-lg border border-gray-100 p-3">
                       <DollarSign className="w-4 h-4 text-gold mb-1.5" />
-                      <p className="font-bold text-brand text-base leading-tight">${pkg.priceFrom.toLocaleString()}</p>
+                      <p className="font-bold text-brand text-base leading-tight">${pkg.priceFrom.toLocaleString('en-US')}</p>
                       <p className="text-xs text-text-muted">{tc('from')} · {tc('perPerson')}</p>
                     </div>
                     <div className="bg-white rounded-lg border border-gray-100 p-3">

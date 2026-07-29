@@ -201,7 +201,7 @@ export default function MachameMultiItinerary({
           ] as const).map((tier) => (
             <div key={tier.key} className="bg-brand rounded-2xl p-6 text-center">
               <p className="text-white/70 text-xs uppercase tracking-wide mb-2">{tier.label}</p>
-              <p className="text-gold text-2xl font-bold">${tier.price.toLocaleString()}</p>
+              <p className="text-gold text-2xl font-bold">${tier.price.toLocaleString('en-US')}</p>
               <p className="text-white/50 text-xs mt-1">{labels.perPerson}</p>
               <RoutePricingButton
                 routeName={routeNames[active]}

@@ -138,7 +138,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
                   <td className="px-3 py-2 text-gray-700">{r.duration}</td>
                   <td className="px-3 py-2 text-gray-700">{r.difficulty}</td>
                   <td className="px-3 py-2 text-gray-700">{r.successRate}</td>
-                  <td className="px-3 py-2 text-right font-semibold text-gray-900">${r.priceGroup.toLocaleString()}</td>
+                  <td className="px-3 py-2 text-right font-semibold text-gray-900">${r.priceGroup.toLocaleString('en-US')}</td>
                 </tr>
               ))}
             </tbody>

@@ -168,7 +168,7 @@ export default function KiliRouteMap({ route }: { route?: string } = {}) {
               <div className="flex items-center justify-between pt-4 border-t border-white/10">
                 <div>
                   <span className="text-white/50 text-xs">{t('startingFrom')} </span>
-                  <span className="text-gold font-bold text-lg">${active.priceFrom.toLocaleString()}</span>
+                  <span className="text-gold font-bold text-lg">${active.priceFrom.toLocaleString('en-US')}</span>
                   <span className="text-white/50 text-xs"> {t('perPerson')}</span>
                 </div>
                 <button
@@ -176,7 +176,7 @@ export default function KiliRouteMap({ route }: { route?: string } = {}) {
                   onClick={() => openBooking({
                     packageName: active.name,
                     packageType: tc('packageTypes.kiliTrek'),
-                    priceFrom: `$${active.priceFrom.toLocaleString()}`,
+                    priceFrom: `$${active.priceFrom.toLocaleString('en-US')}`,
                     duration: active.days,
                     restrictTripType: true,
                   })}

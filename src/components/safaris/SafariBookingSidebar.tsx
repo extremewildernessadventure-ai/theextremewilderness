@@ -49,7 +49,7 @@ export default function SafariBookingSidebar({
         <PriceTierSwitcher rows={pricingTiers} provisional={pricingTiersProvisional} onChange={setSelection} />
       ) : (
         <div className="bg-light-green border border-brand/10 rounded-2xl p-6 text-center">
-          <div className="text-3xl font-bold text-brand">${priceFrom.toLocaleString()}</div>
+          <div className="text-3xl font-bold text-brand">${priceFrom.toLocaleString('en-US')}</div>
           <div className="text-text-muted text-xs mt-1">{perPersonLabel} · {duration} {nightsLabel}</div>
         </div>
       )}
@@ -64,7 +64,7 @@ export default function SafariBookingSidebar({
           packageName={packageName}
           packageType={tripTypeLabel}
           restrictTripType
-          priceFrom={`$${selection.price.toLocaleString()}`}
+          priceFrom={`$${selection.price.toLocaleString('en-US')}`}
           duration={`${duration} ${nightsLabel}`}
           season={selection.seasonLabel}
           tier={selection.tierLabel}

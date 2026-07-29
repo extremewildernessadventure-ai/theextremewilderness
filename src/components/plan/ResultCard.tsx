@@ -75,7 +75,7 @@ export default function ResultCard({
         <div>
           <span className="text-text-muted text-xs">{t('fromLabel')} </span>
           <span className="text-brand font-bold text-lg">
-            {CURRENCY_SYMBOL[currency]}{price.toLocaleString()}
+            {CURRENCY_SYMBOL[currency]}{price.toLocaleString('en-US')}
           </span>
           <span className="text-text-muted text-xs">/pp</span>
           {currency !== 'USD' && <p className="text-[10px] text-text-muted">{t('approxNote')}</p>}

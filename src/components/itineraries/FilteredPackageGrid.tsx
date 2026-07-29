@@ -178,9 +178,9 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
               {labels.filterByPrice}
             </p>
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm font-bold text-gold">${priceMin.toLocaleString()}</span>
+              <span className="text-sm font-bold text-gold">${priceMin.toLocaleString('en-US')}</span>
               <span className="text-xs text-white/50">–</span>
-              <span className="text-sm font-bold text-gold">${priceMax.toLocaleString()}</span>
+              <span className="text-sm font-bold text-gold">${priceMax.toLocaleString('en-US')}</span>
             </div>
             {/* Dual-handle slider */}
             <div className="price-slider-track">
@@ -294,7 +294,7 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
                   <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
                     <div>
                       <span className="text-text-muted text-xs">{labels.from} </span>
-                      <span className="text-brand font-bold text-lg">${pkg.priceFrom.toLocaleString()}</span>
+                      <span className="text-brand font-bold text-lg">${pkg.priceFrom.toLocaleString('en-US')}</span>
                       <span className="text-text-muted text-xs">/pp</span>
                     </div>
                     <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">

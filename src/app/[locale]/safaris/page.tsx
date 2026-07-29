@@ -267,7 +267,7 @@ export default async function SafarisPage({ params }: Props) {
                 </div>
                 <div className="flex-shrink-0 sm:text-right">
                   <p className="text-white/70 text-xs mb-1">{editions[0].duration} {t('durationSuffix')}</p>
-                  <p className="text-gold text-2xl font-bold">${editions[0].priceFrom.toLocaleString()}</p>
+                  <p className="text-gold text-2xl font-bold">${editions[0].priceFrom.toLocaleString('en-US')}</p>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-white/80 text-sm font-semibold group-hover:text-gold transition-colors">
                     {t('exploreJourney')} <ArrowRight className="w-4 h-4" />
                   </span>
@@ -305,7 +305,7 @@ export default async function SafarisPage({ params }: Props) {
                     <h3 className="text-white text-lg font-semibold mb-1">{ed.label}</h3>
                     <p className="text-white/60 text-xs mb-3">{ed.destinations}</p>
                     <span className="inline-flex items-center gap-1 text-gold text-sm font-semibold group-hover:gap-2 transition-all">
-                      {t('fromPrefix')} ${ed.priceFrom.toLocaleString()} <ArrowRight className="w-3.5 h-3.5" />
+                      {t('fromPrefix')} ${ed.priceFrom.toLocaleString('en-US')} <ArrowRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </Link>
@@ -650,7 +650,7 @@ function PackageCard({
         <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
           <div>
             <span className="text-text-muted text-xs">{fromLabel} </span>
-            <span className="text-brand font-bold text-lg">${priceFrom.toLocaleString()}</span>
+            <span className="text-brand font-bold text-lg">${priceFrom.toLocaleString('en-US')}</span>
             <span className="text-text-muted text-xs">/pp</span>
           </div>
           <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">

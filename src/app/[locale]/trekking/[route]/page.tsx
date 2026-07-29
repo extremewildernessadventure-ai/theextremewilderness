@@ -398,7 +398,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
             {routeContent && (
               <div className="hidden lg:flex flex-col bg-white/10 backdrop-blur-md rounded-2xl px-6 py-6 border border-white/20 min-w-[200px] text-center flex-shrink-0">
                 <p className="text-white/60 text-xs uppercase tracking-wide mb-1">{trd('labels.from')}</p>
-                <p className="text-gold font-bold text-4xl leading-none">${routeContent.pricing.group.toLocaleString()}</p>
+                <p className="text-gold font-bold text-4xl leading-none">${routeContent.pricing.group.toLocaleString('en-US')}</p>
                 <p className="text-white/50 text-xs mt-1 mb-4">{trd('labels.perPerson')}</p>
                 <div className="space-y-1 mb-5">
                   <p className="text-white/70 text-xs">{routeContent.quickFacts.duration}</p>
@@ -407,7 +407,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                 <BookNowButton
                   packageName={routeContent.quickFacts.routeName}
                   packageType={tc('packageTypes.kiliTrek')}
-                  priceFrom={`$${routeContent.pricing.group.toLocaleString()}`}
+                  priceFrom={`$${routeContent.pricing.group.toLocaleString('en-US')}`}
                   duration={routeContent.quickFacts.duration}
                   restrictTripType
                   label={trd('labels.bookThisRoute')}
@@ -654,7 +654,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                       ] as const).map((tier) => (
                         <div key={tier.label} className="bg-brand rounded-2xl p-6 text-center">
                           <p className="text-white/70 text-xs uppercase tracking-wide mb-2">{tier.label}</p>
-                          <p className="text-gold text-2xl font-bold">${tier.price.toLocaleString()}</p>
+                          <p className="text-gold text-2xl font-bold">${tier.price.toLocaleString('en-US')}</p>
                           <p className="text-white/50 text-xs mt-1">{trd('labels.perPerson')}</p>
                           <RoutePricingButton
                             routeName={routeContent!.quickFacts.routeName}
@@ -680,7 +680,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                 {/* Book CTA card */}
                 <div className="bg-brand rounded-2xl p-6">
                   <p className="text-white/60 text-xs uppercase tracking-wide mb-1">{trd('labels.from')}</p>
-                  <p className="text-gold font-bold text-3xl leading-none">${routeContent.pricing.group.toLocaleString()}</p>
+                  <p className="text-gold font-bold text-3xl leading-none">${routeContent.pricing.group.toLocaleString('en-US')}</p>
                   <p className="text-white/50 text-xs mt-1 mb-4">{trd('labels.perPerson')}</p>
                   <div className="flex items-center gap-2 flex-wrap mb-5">
                     <span className="text-white/60 text-xs">{routeContent.quickFacts.duration}</span>
@@ -692,7 +692,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                   <BookNowButton
                     packageName={routeContent.quickFacts.routeName}
                     packageType={tc('packageTypes.kiliTrek')}
-                    priceFrom={`$${routeContent.pricing.group.toLocaleString()}`}
+                    priceFrom={`$${routeContent.pricing.group.toLocaleString('en-US')}`}
                     duration={routeContent.quickFacts.duration}
                     restrictTripType
                     label={trd('labels.bookThisRoute')}

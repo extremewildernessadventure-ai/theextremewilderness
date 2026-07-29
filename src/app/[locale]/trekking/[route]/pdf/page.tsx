@@ -185,7 +185,7 @@ export default async function PdfPage({ params }: Props) {
             ]).map((tier) => (
               <div key={tier.label} className="bg-gray-900 rounded-lg p-4 text-center">
                 <p className="text-gray-400 text-xs uppercase tracking-wide mb-1">{tier.label}</p>
-                <p className="text-white text-xl font-bold">${tier.price.toLocaleString()}</p>
+                <p className="text-white text-xl font-bold">${tier.price.toLocaleString('en-US')}</p>
                 <p className="text-gray-500 text-xs mt-0.5">{trd('labels.perPerson')}</p>
               </div>
             ))}

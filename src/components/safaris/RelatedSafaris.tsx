@@ -68,7 +68,7 @@ export default function RelatedSafaris({ current, all }: { current: SafariPackag
                     {p.duration} {tc('nights')}
                   </p>
                   <p className="text-gold font-bold text-lg mt-3">
-                    ${p.priceFrom.toLocaleString()}{' '}
+                    ${p.priceFrom.toLocaleString('en-US')}{' '}
                     <span className="text-text-muted font-normal text-sm">{tc('perPerson')}</span>
                   </p>
                 </div>

@@ -41,7 +41,7 @@ function StatCard({ value, suffix, label }: { value: number; suffix: string; lab
   return (
     <div ref={ref} className="text-center py-8 px-4">
       <div className="text-4xl lg:text-5xl font-bold text-brand mb-1">
-        {count.toLocaleString()}{suffix}
+        {count.toLocaleString('en-US')}{suffix}
       </div>
       <div className="text-text-muted text-sm font-medium uppercase tracking-wide">{label}</div>
     </div>
