@@ -1,6 +1,9 @@
 import type { MetadataRoute } from 'next'
 import { localeUrl } from '@/lib/site'
 import { blogPosts } from '@/data/blog/index'
+import { packages } from '@/data/packages'
+import { destinations } from '@/data/destinations'
+import { experiencePagesEn } from '@/data/experiencePages/content.en'
 
 // Bumped only when the underlying data files actually change, so unrelated
 // pages don't get a fresh lastModified on every deploy.
@@ -8,94 +11,19 @@ const CONTENT_LAST_UPDATED = new Date('2025-07-16')
 
 const LOCALES = ['en', 'fr', 'es', 'de', 'ru', 'zh', 'zh-TW'] as const
 
-export const SAFARI_SLUGS = [
-  '7-day-serengeti-ngorongoro',
-  '10-day-northern-circuit',
-  '10-day-safari-zanzibar',
-  '5-day-serengeti-fly-in',
-  'kilimanjaro-machame-7day',
-  '7-day-southern-circuit',
-  '5-days-highlights-safari',
-  '8-days-honeymoon-safari',
-  '7-days-crown-jewels',
-  '7-days-migration-southern',
-  '10-days-luxury-family',
-  '12-days-wild-wilderness',
-  '8-days-great-northern-migration',
-  'ultimate-tanzania-safari',
-  '7-days-gems-of-north',
-  '7-days-flight-ndutu',
-  '8-days-flight-migration',
-  '11-days-rwanda-tanzania',
-  '12-days-rwanda-tanzania-zanzibar',
-  '12-days-rwanda-primates',
-  '11-days-kenya-undisputed',
-  '10-days-southern-secrets',
-  '11-days-southern-spice',
-  '12-days-tanzania-kenya',
-  '12-days-grand-safari',
-  '5-day-comfort-tanzania-safari',
-  '6-day-comfort-tanzania-safari',
-  'kenya-tanzania-highlights-safari',
-  '10-day-kenya-tanzania-safari',
-  '2-day-selous-safari-from-zanzibar',
-  '4-day-tarangire-ngorongoro-lake-eyasi',
-  '5-day-kenya-safari',
-]
+// Derived directly from the source data files rather than hand-maintained —
+// a hardcoded copy of these slugs previously drifted silently out of sync
+// (6 real packages had no sitemap entry at all, in any locale, until this
+// was caught) whenever a package/destination/experience was added without
+// remembering to also update this file.
+export const SAFARI_SLUGS = packages.map((p) => p.slug)
+export const DESTINATION_SLUGS = destinations.map((d) => d.slug)
+export const EXPERIENCE_SLUGS = experiencePagesEn.map((p) => p.slug)
+export const BLOG_SLUGS = blogPosts.map((p) => p.slug)
 
-export const DESTINATION_SLUGS = [
-  'serengeti', 'ngorongoro', 'tarangire', 'manyara', 'zanzibar', 'arusha',
-  'ruaha', 'nyerere', 'mahale', 'katavi', 'gombe', 'lake-victoria',
-  'masai-mara', 'volcanoes', 'amboseli', 'kenyan-coast', 'lake-nakuru',
-  'ol-pejeta', 'samburu', 'tsavo', 'akagera', 'kigali', 'lake-kivu', 'nyungwe',
-]
-
+// The 6 standard Kilimanjaro routes are a fixed set defined by the mountain
+// itself, not a growing content catalog — genuinely safe to hardcode.
 export const TREKKING_ROUTES = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit']
-
-export const BLOG_SLUGS = [
-  'great-migration-guide',
-  'tanzania-safari-cost',
-  'best-time-to-visit-serengeti',
-  'gorilla-trekking-rwanda',
-  'kilimanjaro-climbing-guide',
-  'tanzania-vs-kenya-safari',
-  'safari-packing-list',
-  'big-five-africa-tanzania',
-  'zanzibar-travel-guide',
-  'safari-honeymoon-tanzania',
-  'family-safari-africa',
-  'ngorongoro-crater-guide',
-  'serengeti-vs-masai-mara',
-  '7-day-tanzania-safari-itinerary',
-  'budget-safari-tanzania',
-  'chimpanzee-trekking-tanzania',
-  'luxury-safari-tanzania',
-  'safari-photography-tips',
-  'ruaha-national-park-guide',
-  'tanzania-vs-south-africa-safari',
-  'mountain-biking-arusha',
-  'zanzibar-experience',
-  'the-maasai-tribe',
-]
-
-export const EXPERIENCE_SLUGS = [
-  'classic-game-drive-safari',
-  'the-great-migration',
-  'chimpanzee-trekking-mahale',
-  'mountain-gorilla-experience-rwanda',
-  'kilimanjaro-roof-of-africa',
-  'safari-zanzibar-combo',
-  'wildlife-photography-safari',
-  'walking-safari-nyerere',
-  'exclusive-private-safari',
-  'family-safari',
-  'ruaha-katavi-true-wilderness',
-  'hot-air-balloon-safari',
-  'honeymoon-safari',
-  'cultural-experience',
-  'fly-in-safari',
-  'birding-safari',
-]
 
 export const STATIC_PAGES = [
   '', '/safaris', '/destinations', '/trekking', '/experiences',
