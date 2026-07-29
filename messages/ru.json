@@ -2695,7 +2695,11 @@
     "regionCentralKenya": "Центральная Кения",
     "regionKenyanCoast": "Побережье Кении",
     "regionFallback": "Кения",
-    "ogImageAlt": "Львы на закате на равнинах Масаи-Мара"
+    "ogImageAlt": "Львы на закате на равнинах Масаи-Мара",
+    "season1Months": "Янв – фев",
+    "season2Months": "Мар – май",
+    "season3Months": "Июн – окт",
+    "season4Months": "Ноя – дек"
   },
   "rwanda": {
     "heroEyebrow": "Сафари в Руанде",
@@ -2926,7 +2930,11 @@
     "regionWesternRwanda": "Западная Руанда",
     "regionCapital": "Столица",
     "regionFallback": "Руанда",
-    "ogImageAlt": "Горная горилла в национальном парке Вулканов, Руанда"
+    "ogImageAlt": "Горная горилла в национальном парке Вулканов, Руанда",
+    "season1Months": "Июн – сен",
+    "season2Months": "Окт – ноя",
+    "season3Months": "Дек – фев",
+    "season4Months": "Мар – май"
   },
   "experiences": {
     "metaTitle": "Сафари-впечатления Восточной Африки | Пешие сафари, воздушные шары, фотография",

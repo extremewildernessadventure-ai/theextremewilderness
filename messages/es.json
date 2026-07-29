@@ -2537,7 +2537,11 @@
     "regionCentralKenya": "Kenia Central",
     "regionKenyanCoast": "Costa de Kenia",
     "regionFallback": "Kenia",
-    "ogImageAlt": "Leones al atardecer en las llanuras del Masai Mara"
+    "ogImageAlt": "Leones al atardecer en las llanuras del Masai Mara",
+    "season1Months": "Ene – Feb",
+    "season2Months": "Mar – May",
+    "season3Months": "Jun – Oct",
+    "season4Months": "Nov – Dic"
   },
   "rwanda": {
     "heroEyebrow": "Safaris en Ruanda",
@@ -2768,7 +2772,11 @@
     "regionWesternRwanda": "Ruanda del Oeste",
     "regionCapital": "Capital",
     "regionFallback": "Ruanda",
-    "ogImageAlt": "Gorila de montaña en el Parque Nacional de los Volcanes, Ruanda"
+    "ogImageAlt": "Gorila de montaña en el Parque Nacional de los Volcanes, Ruanda",
+    "season1Months": "Jun – Sep",
+    "season2Months": "Oct – Nov",
+    "season3Months": "Dic – Feb",
+    "season4Months": "Mar – May"
   },
   "experiences": {
     "metaTitle": "Experiencias de Safari en África Oriental | Safaris a Pie, Globo Aerostático, Fotografía",

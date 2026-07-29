@@ -2721,7 +2721,11 @@
     "regionCentralKenya": "肯亞中部",
     "regionKenyanCoast": "肯亞海岸",
     "regionFallback": "肯亞",
-    "ogImageAlt": "馬賽馬拉平原日落下的獅子"
+    "ogImageAlt": "馬賽馬拉平原日落下的獅子",
+    "season1Months": "1月 – 2月",
+    "season2Months": "3月 – 5月",
+    "season3Months": "6月 – 10月",
+    "season4Months": "11月 – 12月"
   },
   "rwanda": {
     "heroEyebrow": "盧安達獵遊",
@@ -2952,7 +2956,11 @@
     "regionWesternRwanda": "盧安達西部",
     "regionCapital": "首都",
     "regionFallback": "盧安達",
-    "ogImageAlt": "盧安達火山國家公園的山地大猩猩"
+    "ogImageAlt": "盧安達火山國家公園的山地大猩猩",
+    "season1Months": "6月 – 9月",
+    "season2Months": "10月 – 11月",
+    "season3Months": "12月 – 2月",
+    "season4Months": "3月 – 5月"
   },
   "experiences": {
     "metaTitle": "東非獵遊體驗 | 健行獵遊、熱氣球、攝影",

@@ -2581,7 +2581,11 @@
     "regionCentralKenya": "Kenya Central",
     "regionKenyanCoast": "Côte kényane",
     "regionFallback": "Kenya",
-    "ogImageAlt": "Lions au coucher du soleil sur les plaines du Masai Mara"
+    "ogImageAlt": "Lions au coucher du soleil sur les plaines du Masai Mara",
+    "season1Months": "Jan – Fév",
+    "season2Months": "Mar – Mai",
+    "season3Months": "Juin – Oct",
+    "season4Months": "Nov – Déc"
   },
   "rwanda": {
     "heroEyebrow": "Safaris au Rwanda",
@@ -2812,7 +2816,11 @@
     "regionWesternRwanda": "Rwanda de l'Ouest",
     "regionCapital": "Capitale",
     "regionFallback": "Rwanda",
-    "ogImageAlt": "Gorille de montagne dans le parc national des Volcans, Rwanda"
+    "ogImageAlt": "Gorille de montagne dans le parc national des Volcans, Rwanda",
+    "season1Months": "Juin – Sept",
+    "season2Months": "Oct – Nov",
+    "season3Months": "Déc – Fév",
+    "season4Months": "Mar – Mai"
   },
   "experiences": {
     "metaTitle": "Expériences Safari en Afrique de l'Est | Safaris à Pied, Montgolfière, Photo",

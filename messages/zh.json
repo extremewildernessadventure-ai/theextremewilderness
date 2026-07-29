@@ -2695,7 +2695,11 @@
     "regionCentralKenya": "肯尼亚中部",
     "regionKenyanCoast": "肯尼亚海岸",
     "regionFallback": "肯尼亚",
-    "ogImageAlt": "马赛马拉平原日落下的狮子"
+    "ogImageAlt": "马赛马拉平原日落下的狮子",
+    "season1Months": "1月 – 2月",
+    "season2Months": "3月 – 5月",
+    "season3Months": "6月 – 10月",
+    "season4Months": "11月 – 12月"
   },
   "rwanda": {
     "heroEyebrow": "卢旺达游猎",
@@ -2926,7 +2930,11 @@
     "regionWesternRwanda": "卢旺达西部",
     "regionCapital": "首都",
     "regionFallback": "卢旺达",
-    "ogImageAlt": "卢旺达火山国家公园的山地大猩猩"
+    "ogImageAlt": "卢旺达火山国家公园的山地大猩猩",
+    "season1Months": "6月 – 9月",
+    "season2Months": "10月 – 11月",
+    "season3Months": "12月 – 2月",
+    "season4Months": "3月 – 5月"
   },
   "experiences": {
     "metaTitle": "东非游猎体验 | 徒步游猎、热气球、摄影",

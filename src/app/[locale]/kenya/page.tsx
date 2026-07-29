@@ -99,10 +99,10 @@ export default async function KenyaPage({ params }: Props) {
   const seasonLabels = [t('season1Label'), t('season2Label'), t('season3Label'), t('season4Label')]
 
   const seasons = [
-    { months: 'Jan – Feb', color: 'bg-amber-50 border-amber-200', labelColor: 'text-amber-700', tip: t('season1Tip') },
-    { months: 'Mar – May', color: 'bg-blue-50 border-blue-200', labelColor: 'text-blue-700', tip: t('season2Tip') },
-    { months: 'Jun – Oct', color: 'bg-green-50 border-green-200', labelColor: 'text-brand', tip: t('season3Tip') },
-    { months: 'Nov – Dec', color: 'bg-sky-50 border-sky-200', labelColor: 'text-sky-700', tip: t('season4Tip') },
+    { months: t('season1Months'), color: 'bg-amber-50 border-amber-200', labelColor: 'text-amber-700', tip: t('season1Tip') },
+    { months: t('season2Months'), color: 'bg-blue-50 border-blue-200', labelColor: 'text-blue-700', tip: t('season2Tip') },
+    { months: t('season3Months'), color: 'bg-green-50 border-green-200', labelColor: 'text-brand', tip: t('season3Tip') },
+    { months: t('season4Months'), color: 'bg-sky-50 border-sky-200', labelColor: 'text-sky-700', tip: t('season4Tip') },
   ]
 
   return (

@@ -113,28 +113,28 @@ export default async function RwandaPage({ params }: Props) {
 
   const seasons = [
     {
-      months: 'Jun – Sep',
+      months: t('season1Months'),
       label: seasonLabels[0],
       color: 'bg-amber-50 border-amber-200',
       labelColor: 'text-amber-700',
       tip: t('season1Tip'),
     },
     {
-      months: 'Oct – Nov',
+      months: t('season2Months'),
       label: seasonLabels[1],
       color: 'bg-blue-50 border-blue-200',
       labelColor: 'text-blue-700',
       tip: t('season2Tip'),
     },
     {
-      months: 'Dec – Feb',
+      months: t('season3Months'),
       label: seasonLabels[2],
       color: 'bg-green-50 border-green-200',
       labelColor: 'text-brand',
       tip: t('season3Tip'),
     },
     {
-      months: 'Mar – May',
+      months: t('season4Months'),
       label: seasonLabels[3],
       color: 'bg-sky-50 border-sky-200',
       labelColor: 'text-sky-700',

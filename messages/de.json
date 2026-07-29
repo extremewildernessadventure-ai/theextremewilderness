@@ -2537,7 +2537,11 @@
     "regionCentralKenya": "Zentralkenia",
     "regionKenyanCoast": "Kenianische Küste",
     "regionFallback": "Kenia",
-    "ogImageAlt": "Löwen bei Sonnenuntergang auf den Masai-Mara-Ebenen"
+    "ogImageAlt": "Löwen bei Sonnenuntergang auf den Masai-Mara-Ebenen",
+    "season1Months": "Jan – Feb",
+    "season2Months": "Mär – Mai",
+    "season3Months": "Jun – Okt",
+    "season4Months": "Nov – Dez"
   },
   "rwanda": {
     "heroEyebrow": "Ruanda Safaris",
@@ -2768,7 +2772,11 @@
     "regionWesternRwanda": "West-Ruanda",
     "regionCapital": "Hauptstadt",
     "regionFallback": "Ruanda",
-    "ogImageAlt": "Berggorilla im Volcanoes-Nationalpark, Ruanda"
+    "ogImageAlt": "Berggorilla im Volcanoes-Nationalpark, Ruanda",
+    "season1Months": "Jun – Sep",
+    "season2Months": "Okt – Nov",
+    "season3Months": "Dez – Feb",
+    "season4Months": "Mär – Mai"
   },
   "experiences": {
     "metaTitle": "Safari-Erlebnisse Ostafrika | Walking Safaris, Heißluftballon, Fotografie",

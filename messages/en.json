@@ -2623,7 +2623,11 @@
     "regionCentralKenya": "Central Kenya",
     "regionKenyanCoast": "Kenyan Coast",
     "regionFallback": "Kenya",
-    "ogImageAlt": "Lions at sunset on the Masai Mara plains"
+    "ogImageAlt": "Lions at sunset on the Masai Mara plains",
+    "season1Months": "Jan – Feb",
+    "season2Months": "Mar – May",
+    "season3Months": "Jun – Oct",
+    "season4Months": "Nov – Dec"
   },
   "rwanda": {
     "heroEyebrow": "Rwanda Safaris",
@@ -2854,7 +2858,11 @@
     "regionWesternRwanda": "Western Rwanda",
     "regionCapital": "Capital",
     "regionFallback": "Rwanda",
-    "ogImageAlt": "Mountain gorilla in the Volcanoes National Park, Rwanda"
+    "ogImageAlt": "Mountain gorilla in the Volcanoes National Park, Rwanda",
+    "season1Months": "Jun – Sep",
+    "season2Months": "Oct – Nov",
+    "season3Months": "Dec – Feb",
+    "season4Months": "Mar – May"
   },
   "experiences": {
     "metaTitle": "Safari Experiences East Africa | Walking Safaris, Hot Air Balloon, Photography",
