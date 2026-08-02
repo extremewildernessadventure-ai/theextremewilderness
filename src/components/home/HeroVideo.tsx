@@ -6,17 +6,15 @@ import { useEffect, useRef } from 'react'
 // <source> tags in the initial HTML makes the browser's preload scanner
 // fetch the ~1MB+ video immediately (autoplay overrides preload="none" in
 // most browsers), competing for bandwidth with the fonts/CSS/JS that gate
-// text paint. Sources are attached lazily instead, and only on viewports
-// wide enough that this is a desktop pointer — on mobile the ~1MB+ decode
-// and network transfer directly inflates Total Blocking Time even when
-// deferred to idle, so mobile just keeps the static poster.
+// text paint. Sources are attached lazily instead, deferred to idle time
+// on every viewport (including mobile) so the video still plays without
+// competing with the initial paint.
 export default function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
-    if (!window.matchMedia('(min-width: 768px)').matches) return
 
     const load = () => {
       const webm = document.createElement('source')
