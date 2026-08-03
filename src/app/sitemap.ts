@@ -27,7 +27,7 @@ export const TREKKING_ROUTES = ['machame', 'lemosho', 'marangu', 'rongai', 'umbw
 
 export const STATIC_PAGES = [
   '', '/safaris', '/destinations', '/trekking', '/experiences',
-  '/kenya', '/rwanda', '/about', '/contact', '/blog', '/travel-info', '/plan', '/privacy', '/terms',
+  '/kenya', '/rwanda', '/about', '/contact', '/blog', '/travel-info', '/plan', '/trade-partners', '/privacy', '/terms',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -44,6 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/blog', priority: 0.7, changeFrequency: 'weekly' as const },
     { path: '/travel-info', priority: 0.6, changeFrequency: 'monthly' as const },
     { path: '/plan', priority: 0.6, changeFrequency: 'monthly' as const },
+    { path: '/trade-partners', priority: 0.5, changeFrequency: 'monthly' as const },
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
   ]

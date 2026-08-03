@@ -48,6 +48,7 @@ export default async function Footer() {
     { label: t('companyWhyUs'), href: '/about#why-us' },
     { label: t('companyGuides'), href: '/about#guides' },
     { label: t('companyBlog'), href: '/blog' },
+    { label: t('companyTrade'), href: '/trade-partners' },
     { label: t('companyContact'), href: '/contact' },
   ] as const
 
