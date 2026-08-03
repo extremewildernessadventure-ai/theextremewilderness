@@ -19,9 +19,9 @@
 
   background: var(--ivory);
   color: var(--ink);
-  font-family: var(--font-jost), 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
-  font-weight: 300;
-  font-size: 16.5px;
+  font-family: var(--font-geist-sans), 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
@@ -30,16 +30,15 @@
 .tradePage h2,
 .tradePage h3,
 .tradePage h4 {
-  font-family: var(--font-cormorant), 'Noto Serif SC', 'Noto Serif TC', serif;
-  font-weight: 500;
-  letter-spacing: 0.005em;
+  font-family: inherit;
+  font-weight: 700;
   color: var(--ink);
 }
 
 .tradePage em {
   font-style: italic;
   color: var(--gold);
-  font-family: var(--font-cormorant), 'Noto Serif SC', 'Noto Serif TC', serif;
+  font-family: var(--font-geist-sans), 'Noto Serif SC', 'Noto Serif TC', serif;
 }
 
 .tradePage a {
@@ -54,12 +53,11 @@
 }
 
 .eyebrow {
-  font-family: var(--font-jost), sans-serif;
   font-size: 12px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--gold);
-  font-weight: 500;
+  font-weight: 600;
 }
 .eyebrow.onDark { color: var(--gold-light); }
 
@@ -79,9 +77,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-cormorant), serif;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.02em;
   flex-shrink: 0;
 }
@@ -90,9 +87,8 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-jost), sans-serif;
   font-size: 12.5px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 15px 30px;
@@ -112,11 +108,20 @@
 /* ---------- HERO ---------- */
 .hero {
   position: relative;
-  background: linear-gradient(180deg, var(--ink) 0%, var(--forest) 100%);
   color: var(--ivory);
   overflow: hidden;
   padding: 130px 0 110px;
   text-align: center;
+}
+.heroImg {
+  object-fit: cover;
+  z-index: 0;
+}
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(35, 39, 28, 0.88) 0%, rgba(51, 59, 41, 0.92) 100%);
 }
 .horizon {
   position: absolute;
@@ -124,10 +129,11 @@
   width: 100%;
   height: auto;
   opacity: 0.55;
+  z-index: 2;
 }
 .heroInner {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 720px;
   margin: 0 auto;
 }
@@ -139,14 +145,14 @@
   font-size: 20px;
 }
 .hero h1 {
-  font-size: 52px;
-  line-height: 1.15;
-  font-weight: 500;
+  font-size: 60px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: #FBF7EC;
   margin-bottom: 16px;
 }
 .sub {
-  font-family: var(--font-cormorant), serif;
   font-style: italic;
   font-size: 21px;
   color: var(--gold-light);
@@ -159,7 +165,7 @@
   color: var(--text-muted-light);
   max-width: 560px;
   margin: 0 auto 44px;
-  font-weight: 300;
+  font-weight: 400;
 }
 .heroCtas {
   display: flex;
@@ -186,8 +192,8 @@
 .jumpNavInner a {
   padding: 8px 16px;
   border-radius: 8px;
-  font-family: var(--font-jost), sans-serif;
   font-size: 12.5px;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -204,10 +210,11 @@
   text-align: center;
 }
 .sectionHead h2 {
-  font-size: 38px;
+  font-size: 36px;
   margin-top: 16px;
   line-height: 1.2;
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 .sectionHead p {
   margin-top: 20px;
@@ -263,8 +270,8 @@
 .aboutVisual .cap {
   position: absolute;
   bottom: 32px; left: 32px; right: 32px;
-  font-family: var(--font-jost), sans-serif;
   font-size: 11px;
+  font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(246, 241, 227, 0.75);
@@ -272,13 +279,13 @@
 .aboutCopy h2 { font-size: 36px; margin-bottom: 6px; }
 .aboutCopy .rule { margin-top: 8px; margin-bottom: 28px; }
 .aboutCopy p {
-  font-size: 16.5px;
+  font-size: 16px;
   color: var(--text-muted);
   margin-bottom: 20px;
-  line-height: 1.85;
+  line-height: 1.75;
 }
 .aboutCopy p:last-child { margin-bottom: 0; }
-.aboutCopy strong { color: var(--ink); font-weight: 500; }
+.aboutCopy strong { color: var(--ink); font-weight: 600; }
 
 /* ---------- WHY GRID ---------- */
 .whyGrid {
@@ -288,8 +295,8 @@
 }
 .whyCard { text-align: center; }
 .whyCard .rule { margin: 20px auto; }
-.whyCard h3 { font-size: 21px; margin-bottom: 12px; font-weight: 500; }
-.whyCard p { color: var(--text-muted); font-size: 14.5px; line-height: 1.75; }
+.whyCard h3 { font-size: 20px; margin-bottom: 12px; font-weight: 700; }
+.whyCard p { color: var(--text-muted); font-size: 14.5px; line-height: 1.7; }
 
 /* ---------- TRADE KIT ---------- */
 .kit {
@@ -308,18 +315,17 @@
   align-items: baseline;
 }
 .kitItem h4 {
-  font-family: var(--font-cormorant), serif;
-  font-size: 19px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
   color: #FBF7EC;
 }
-.kitItem p { font-size: 15px; color: var(--text-muted-light); line-height: 1.75; }
+.kitItem p { font-size: 15px; color: var(--text-muted-light); line-height: 1.7; }
 .kitNote {
   text-align: center;
   margin-top: 40px;
-  font-family: var(--font-cormorant), serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--gold-light);
 }
 
@@ -338,19 +344,19 @@
 }
 .tier:first-child { border-left: none; }
 .tier .kicker {
-  font-family: var(--font-jost), sans-serif;
   font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 16px;
 }
-.tier h3 { font-size: 26px; margin-bottom: 14px; font-weight: 500; }
-.tier p { font-size: 15px; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; }
+.tier h3 { font-size: 24px; margin-bottom: 14px; font-weight: 700; }
+.tier p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
 .tier .fit {
-  font-family: var(--font-cormorant), serif;
   font-style: italic;
-  font-size: 15px;
+  font-size: 14.5px;
+  font-weight: 500;
   color: var(--clay);
 }
 
@@ -364,8 +370,8 @@
 }
 .glanceItem { padding: 26px 0; border-bottom: 1px solid var(--line); }
 .glanceItem .term {
-  font-family: var(--font-jost), sans-serif;
   font-size: 11.5px;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gold);
@@ -373,8 +379,8 @@
   display: block;
 }
 .glanceItem .desc {
-  font-family: var(--font-cormorant), serif;
-  font-size: 20px;
+  font-size: 19px;
+  font-weight: 600;
   color: var(--ink);
   line-height: 1.5;
 }
@@ -384,8 +390,8 @@
 .enquiryIntro { text-align: center; margin-bottom: 54px; }
 .enquiryIntro .contact {
   margin-top: 22px;
-  font-family: var(--font-cormorant), serif;
-  font-size: 19px;
+  font-size: 18px;
+  font-weight: 600;
   color: var(--gold-light);
 }
 
@@ -398,8 +404,8 @@
 .enquiryForm .fieldFull { grid-column: 1 / -1; }
 .field label {
   display: block;
-  font-family: var(--font-jost), sans-serif;
   font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-muted-light);
@@ -414,8 +420,7 @@
   border-bottom: 1px solid var(--line-dark);
   color: var(--ivory);
   padding: 8px 2px 12px;
-  font-family: var(--font-jost), sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 15.5px;
   border-radius: 0;
 }
@@ -436,7 +441,6 @@
   color: var(--text-muted-light);
   margin-top: 18px;
   font-style: italic;
-  font-family: var(--font-cormorant), serif;
 }
 
 .formError {
@@ -454,7 +458,8 @@
   padding: 40px 0;
 }
 .formSuccess h3 {
-  font-size: 26px;
+  font-size: 24px;
+  font-weight: 700;
   color: #FBF7EC;
   margin-bottom: 12px;
 }
@@ -477,15 +482,15 @@
 .gfCol:first-child { border-left: none; padding-left: 0; }
 .gfCol:last-child { padding-right: 0; }
 .gfCol .kicker {
-  font-family: var(--font-jost), sans-serif;
   font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 14px;
 }
-.gfCol h3 { font-size: 28px; margin-bottom: 20px; font-weight: 500; }
-.gfCol p { font-size: 15.5px; color: var(--text-muted); line-height: 1.85; margin-bottom: 18px; }
+.gfCol h3 { font-size: 26px; margin-bottom: 20px; font-weight: 700; }
+.gfCol p { font-size: 15.5px; color: var(--text-muted); line-height: 1.75; margin-bottom: 18px; }
 .gfCol p:last-of-type { margin-bottom: 26px; }
 .gfPoints {
   list-style: none;
@@ -495,8 +500,8 @@
   padding-left: 0;
 }
 .gfPoints li {
-  font-family: var(--font-cormorant), serif;
-  font-size: 17px;
+  font-size: 16px;
+  font-weight: 500;
   color: var(--ink);
   padding: 8px 0;
   display: flex;
@@ -506,14 +511,13 @@
 .gfPoints li::before {
   content: "—";
   color: var(--gold);
-  font-family: var(--font-jost), sans-serif;
   flex-shrink: 0;
 }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 980px) {
   .wrap { padding-left: 24px; padding-right: 24px; }
-  .hero h1 { font-size: 36px; }
+  .hero h1 { font-size: 38px; }
   .about { grid-template-columns: 1fr; gap: 44px; }
   .whyGrid { grid-template-columns: 1fr 1fr; gap: 36px; }
   .tiers { grid-template-columns: 1fr; }

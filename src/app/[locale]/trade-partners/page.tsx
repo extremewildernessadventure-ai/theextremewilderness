@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Cormorant_Garamond, Jost } from 'next/font/google'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
@@ -8,19 +7,6 @@ import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 import TradePartnerForm from '@/components/trade-partners/TradePartnerForm'
 import { buildAlternates } from '@/lib/site'
 import styles from './page.module.css'
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
-  variable: '--font-cormorant',
-})
-
-const jost = Jost({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-jost',
-})
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -91,10 +77,19 @@ export default async function TradePartnersPage({ params }: Props) {
   ]
 
   return (
-    <div className={`${cormorant.variable} ${jost.variable} ${styles.tradePage}`}>
+    <div className={styles.tradePage}>
 
       {/* Hero */}
       <section className={styles.hero}>
+        <Image
+          src="/images/gallery/Serengeti-National-park.webp"
+          alt=""
+          fill
+          priority
+          className={styles.heroImg}
+          sizes="100vw"
+        />
+        <div className={styles.heroScrim} />
         <svg className={styles.horizon} viewBox="0 0 1200 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0,160 C150,120 250,150 340,130 C400,118 430,95 470,100 C510,105 520,140 560,140 C610,140 630,90 660,90 C690,90 700,130 740,132 C820,136 900,110 980,120 C1060,130 1120,150 1200,140 L1200,200 L0,200 Z" fill="#1B1F15" opacity="0.9" />
           <line x1="470" y1="100" x2="470" y2="60" stroke="#C9A54B" strokeWidth="1" opacity="0.4" />
