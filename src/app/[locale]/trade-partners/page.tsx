@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Cormorant_Garamond, Jost } from 'next/font/google'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
@@ -131,6 +132,14 @@ export default async function TradePartnersPage({ params }: Props) {
         <div className={styles.wrap}>
           <Reveal className={styles.about}>
             <div className={styles.aboutVisual}>
+              <Image
+                src="/images/gallery/safari-113.webp"
+                alt={t('aboutVisualCap')}
+                fill
+                className={styles.aboutVisualImg}
+                sizes="(max-width: 980px) 100vw, 45vw"
+              />
+              <div className={styles.aboutVisualScrim} />
               <span className={styles.cap}>{t('aboutVisualCap')}</span>
             </div>
             <div className={styles.aboutCopy}>
