@@ -439,8 +439,8 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 xl:gap-14">
 
             {/* ── Main content ──────────────────────────────────────── */}
-            <Reveal className="lg:col-span-2 space-y-12">
-            <main>
+            <Reveal className="lg:col-span-2">
+            <main className="space-y-12">
 
               {/* Overview / intro */}
               <div>

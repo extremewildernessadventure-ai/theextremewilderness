@@ -65,6 +65,21 @@ export default function BottomNav() {
 
   useEffect(() => { setMoreOpen(false) }, [pathname])
 
+  // Tawk's widget forces itself to an extremely high z-index (see the
+  // tawk-reposition script in the root layout), so it floats above this
+  // sheet regardless of stacking order here — hide it for the duration.
+  useEffect(() => {
+    const w = window as typeof window & { Tawk_API?: { hideWidget?: () => void; showWidget?: () => void } }
+    const ring = document.getElementById('tawk-pulse-ring')
+    if (moreOpen) {
+      w.Tawk_API?.hideWidget?.()
+      if (ring) ring.style.display = 'none'
+    } else {
+      w.Tawk_API?.showWidget?.()
+      if (ring) ring.style.display = ''
+    }
+  }, [moreOpen])
+
   return (
     <>
       <style>{`

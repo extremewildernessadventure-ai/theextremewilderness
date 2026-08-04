@@ -197,10 +197,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     // frames on this site, so any frame we can reach here
                     // is safe to title directly (we can't edit the embed).
                     if (!frame.title) frame.title = 'Chat with us';
-                    if (!doc.querySelector('.tawk-min-container')) continue;
-                    if (window.getComputedStyle(frame).position === 'fixed') {
+                    if (window.getComputedStyle(frame).position !== 'fixed') continue;
+                    if (doc.querySelector('.tawk-min-container')) {
+                      // On the very first tick this iframe can already be
+                      // position:fixed before Tawk has populated
+                      // .tawk-min-container inside it, so an earlier pass
+                      // may have mistaken it for a small proactive bubble
+                      // (below) and hidden it — undo that once we can
+                      // positively identify it as the real launcher.
+                      frame.style.removeProperty('display');
                       frame.style.setProperty('bottom', targetBottom, 'important');
                       ensurePulseRing(frame);
+                      continue;
+                    }
+                    // Tawk also renders proactive greeting bubbles/stickers
+                    // (e.g. the "Need a hand?" teaser, the "We Are Here!"
+                    // sticker) as their own small fixed iframes, positioned
+                    // assuming the launcher sits at Tawk's default offset.
+                    // Once we move the launcher, those teasers overlap/clip
+                    // against it and the bottom nav instead of repositioning
+                    // to match — hide them rather than guess a new offset.
+                    // Height-gated so a genuinely opened chat window (much
+                    // taller) is never touched.
+                    var rect = frame.getBoundingClientRect();
+                    if (rect.height > 0 && rect.height < 150) {
+                      frame.style.setProperty('display', 'none', 'important');
                     }
                   }
                 }
