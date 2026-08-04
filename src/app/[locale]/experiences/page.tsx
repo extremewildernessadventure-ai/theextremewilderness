@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ExperiencesPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const experiences = getExperiences(locale)
+  const experiences = await getExperiences(locale)
   const t = await getTranslations('experiences')
 
   const experienceTypeIcons = ['🦁', '🦓', '🐵', '🦍', '🏔️', '🌊', '📷', '🚶', '💎', '👨‍👩‍👧', '🌍', '🎈', '💍', '🏺', '✈️', '🦜']

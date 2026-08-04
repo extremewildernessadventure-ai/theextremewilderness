@@ -19,6 +19,8 @@ interface BookingContextValue {
   bookingInfo: BookingInfo | null
   openBooking: (info?: BookingInfo) => void
   closeBooking: () => void
+  pageBookingInfo: BookingInfo | null
+  setPageBookingInfo: (info: BookingInfo | null) => void
 }
 
 const BookingContext = createContext<BookingContextValue | null>(null)
@@ -26,6 +28,7 @@ const BookingContext = createContext<BookingContextValue | null>(null)
 export function BookingProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false)
   const [bookingInfo, setBookingInfo] = useState<BookingInfo | null>(null)
+  const [pageBookingInfo, setPageBookingInfo] = useState<BookingInfo | null>(null)
 
   const openBooking = (info?: BookingInfo) => {
     setBookingInfo(info ?? null)
@@ -35,7 +38,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
   const closeBooking = () => setIsOpen(false)
 
   return (
-    <BookingContext.Provider value={{ isOpen, bookingInfo, openBooking, closeBooking }}>
+    <BookingContext.Provider value={{ isOpen, bookingInfo, openBooking, closeBooking, pageBookingInfo, setPageBookingInfo }}>
       {children}
     </BookingContext.Provider>
   )

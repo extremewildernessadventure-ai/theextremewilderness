@@ -45,3 +45,14 @@ next-env.d.ts
 /scripts/compress-images.mjs
 
 .vercel
+
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+
+# generated per-locale data assets (regenerated from src/data on every build)
+/public/locale-data/

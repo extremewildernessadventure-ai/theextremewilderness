@@ -1,6 +1,6 @@
 import type { SectionType } from './types'
 
-const articles: Record<string, SectionType[]> = {
+export const articles: Record<string, SectionType[]> = {
 
 'great-migration-guide': [
   { type: 'p', text: '每年，超过150万头角马、50万匹斑马和20万只汤氏瞪羚沿着一条巨大的环线穿越塞伦盖蒂-马拉生态系统——完全由雨水、青草和一种古老的生存本能驱动。迁徙没有一个确定的开始日期，也没有游行路线。它是一场持续、混乱、令人敬畏的移动，从未真正停止过，而理解它的节律，是见证它最戏剧性时刻的关键。' },

@@ -68,7 +68,7 @@ export default async function RwandaPage({ params }: Props) {
   const statLabels = [t('statGorillas'), t('statPrimates'), t('statBirds'), t('statPlants'), t('statPeak'), t('statCapital')]
   const seasonLabels = [t('season1Label'), t('season2Label'), t('season3Label'), t('season4Label')]
 
-  const destByCountry = getDestinations(locale)
+  const destByCountry = await getDestinations(locale)
 
   const destExtra = t.raw('destExtra') as Record<string, { badge: string; size: string; bestTime: string; duration: string; activities: string[] }>
   const box1ChipDesc = t.raw('box1ChipDesc') as Record<string, string>

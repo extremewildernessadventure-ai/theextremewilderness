@@ -9,6 +9,7 @@ import { getDestination, getDestinations } from '@/data/destinations.i18n'
 import { getPackages } from '@/data/packages.i18n'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import BookNowButton from '@/components/booking/BookNowButton'
+import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import { routing } from '@/i18n/routing'
@@ -142,7 +143,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params
-  const dest = getDestination(slug, locale)
+  const dest = await getDestination(slug, locale)
   if (!dest) return {}
   const t = await getTranslations({ locale, namespace: 'destination' })
   const title = t('metaTitle', { name: dest.name })
@@ -172,14 +173,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function DestinationPage({ params }: Props) {
   const { slug, locale } = await params
   setRequestLocale(locale)
-  const dest = getDestination(slug, locale)
+  const dest = await getDestination(slug, locale)
   if (!dest) notFound()
 
   const t = await getTranslations('destination')
   const tc = await getTranslations('common')
 
-  const allPackages = getPackages(locale)
-  const allDestinations = getDestinations(locale)
+  const allPackages = await getPackages(locale)
+  const allDestinations = await getDestinations(locale)
   const destPackages = allPackages.filter((p) => p.destinations.includes(dest.slug))
   const nearby = allDestinations
     .filter((d) => d.country === dest.country && d.slug !== dest.slug)
@@ -211,7 +212,7 @@ export default async function DestinationPage({ params }: Props) {
   } : null
 
   const descriptionParagraphs = dest.description.split('\n\n')
-  const guidePost = dest.guideSlug ? getBlogPostMeta(dest.guideSlug, locale) : undefined
+  const guidePost = dest.guideSlug ? await getBlogPostMeta(dest.guideSlug, locale) : undefined
 
   const { lat, lng } = dest.coordinates
   const mapBbox = `${lng - 0.2},${lat - 0.15},${lng + 0.2},${lat + 0.15}`
@@ -250,6 +251,14 @@ export default async function DestinationPage({ params }: Props) {
           <p className="text-gold text-lg font-medium">{dest.tagline}</p>
         </div>
       </section>
+
+      <MobileEnquireBanner
+        eyebrow={dest.tagline}
+        title={dest.name}
+        label={t('getFreeQuote')}
+        packageName={dest.name}
+        packageType={tc('packageTypes.wildlifeSafari')}
+      />
 
       {/* Overview */}
       <section className="py-16 bg-white">

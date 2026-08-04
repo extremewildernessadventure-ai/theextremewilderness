@@ -1,24 +1,16 @@
 import { experiencePagesEn } from './content.en'
-import { experiencePagesFr } from './content.fr'
-import { experiencePagesEs } from './content.es'
-import { experiencePagesDe } from './content.de'
-import { experiencePagesRu } from './content.ru'
-import { experiencePagesZh } from './content.zh'
-import { experiencePagesZh as experiencePagesZhTW } from './content.zh-TW'
+import { fetchLocaleData, normalizeLocale } from '@/lib/localeData'
 import type { ExperiencePage } from './types'
 
-export function getExperiencePages(locale: string): ExperiencePage[] {
-  if (locale === 'fr') return experiencePagesFr
-  if (locale === 'es') return experiencePagesEs
-  if (locale === 'de') return experiencePagesDe
-  if (locale === 'ru') return experiencePagesRu
-  if (locale === 'zh') return experiencePagesZh
-  if (locale === 'zh-TW') return experiencePagesZhTW
-  return experiencePagesEn
+export async function getExperiencePages(locale: string): Promise<ExperiencePage[]> {
+  return fetchLocaleData<ExperiencePage[]>(`experience-pages/${normalizeLocale(locale)}.json`)
 }
 
-export function getExperiencePage(slug: string, locale: string): ExperiencePage | undefined {
-  return getExperiencePages(locale).find((p) => p.slug === slug)
+export async function getExperiencePage(slug: string, locale: string): Promise<ExperiencePage | undefined> {
+  const pages = await getExperiencePages(locale)
+  return pages.find((p) => p.slug === slug)
 }
 
+// Slugs are identical across locales, so this stays a lightweight, single-locale,
+// build-time-only import — used only by generateStaticParams.
 export const experiencePageSlugs = experiencePagesEn.map((p) => p.slug)

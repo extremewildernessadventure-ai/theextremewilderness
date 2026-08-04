@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PlanPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const packages = getPackages(locale)
+  const packages = await getPackages(locale)
   const fxRates = await getFxRates()
 
   return (

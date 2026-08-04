@@ -1,6 +1,6 @@
 import type { SectionType } from './types'
 
-const articles: Record<string, SectionType[]> = {
+export const articles: Record<string, SectionType[]> = {
 
 'great-migration-guide': [
   { type: 'p', text: 'Jedes Jahr ziehen mehr als 1,5 Millionen Gnus, 500.000 Zebras und 200.000 Thomson-Gazellen in einem riesigen Kreislauf durch das Serengeti-Mara-Ökosystem – angetrieben ausschließlich durch Regen, Gras und einen uralten Überlebensinstinkt. Es gibt keinen einzelnen Tag, an dem die Migration beginnt. Es gibt keine festgelegte Route. Es ist eine kontinuierliche, chaotische und faszinierende Bewegung, die nie ganz zur Ruhe kommt – und das Verständnis ihres Rhythmus ist der Schlüssel dazu, sie in ihrem dramatischsten Moment zu erleben.' },

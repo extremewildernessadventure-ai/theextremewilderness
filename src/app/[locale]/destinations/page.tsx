@@ -118,7 +118,7 @@ export default async function DestinationsPage({ params }: Props) {
   setRequestLocale(locale)
   const t = await getTranslations('destinations')
   const tc = await getTranslations('common')
-  const allDestinations = getDestinations(locale)
+  const allDestinations = await getDestinations(locale)
   const tanzaniaDestinations = allDestinations.filter(d => d.country === 'tanzania')
 
   const circuits = CIRCUIT_META.map(meta => ({

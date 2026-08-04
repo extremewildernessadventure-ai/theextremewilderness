@@ -1,18 +1,7 @@
-import { getArticleContent as getContentEn } from './articles'
-import { getArticleContent as getContentFr } from './articles.fr'
-import { getArticleContent as getContentEs } from './articles.es'
-import { getArticleContent as getContentDe } from './articles.de'
-import { getArticleContent as getContentRu } from './articles.ru'
-import { getArticleContent as getContentZh } from './articles.zh'
-import { getArticleContent as getContentZhTW } from './articles.zh-TW'
+import { fetchLocaleData, normalizeLocale } from '@/lib/localeData'
 import type { SectionType } from './types'
 
-export function getLocalizedArticleContent(slug: string, locale: string): SectionType[] | undefined {
-  if (locale === 'fr') return getContentFr(slug)
-  if (locale === 'es') return getContentEs(slug)
-  if (locale === 'de') return getContentDe(slug)
-  if (locale === 'ru') return getContentRu(slug)
-  if (locale === 'zh') return getContentZh(slug)
-  if (locale === 'zh-TW') return getContentZhTW(slug)
-  return getContentEn(slug)
+export async function getLocalizedArticleContent(slug: string, locale: string): Promise<SectionType[] | undefined> {
+  const articles = await fetchLocaleData<Record<string, SectionType[]>>(`articles/${normalizeLocale(locale)}.json`)
+  return articles[slug]
 }

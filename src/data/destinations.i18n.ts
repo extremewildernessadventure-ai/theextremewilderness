@@ -1,22 +1,11 @@
-import { destinations as destinationsEn } from './destinations'
-import { destinations as destinationsFr } from './destinations.fr'
-import { destinations as destinationsEs } from './destinations.es'
-import { destinations as destinationsDe } from './destinations.de'
-import { destinations as destinationsRu } from './destinations.ru'
-import { destinations as destinationsZh } from './destinations.zh'
-import { destinations as destinationsZhTW } from './destinations.zh-TW'
+import { fetchLocaleData, normalizeLocale } from '@/lib/localeData'
 import type { Destination } from './destinations'
 
-export function getDestinations(locale: string): Destination[] {
-  if (locale === 'fr') return destinationsFr
-  if (locale === 'es') return destinationsEs
-  if (locale === 'de') return destinationsDe
-  if (locale === 'ru') return destinationsRu
-  if (locale === 'zh') return destinationsZh
-  if (locale === 'zh-TW') return destinationsZhTW
-  return destinationsEn
+export async function getDestinations(locale: string): Promise<Destination[]> {
+  return fetchLocaleData<Destination[]>(`destinations/${normalizeLocale(locale)}.json`)
 }
 
-export function getDestination(slug: string, locale: string): Destination | undefined {
-  return getDestinations(locale).find((d) => d.slug === slug)
+export async function getDestination(slug: string, locale: string): Promise<Destination | undefined> {
+  const destinations = await getDestinations(locale)
+  return destinations.find((d) => d.slug === slug)
 }

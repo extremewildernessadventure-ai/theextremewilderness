@@ -12,6 +12,7 @@ import RoutePricingButton from '@/components/trekking/RoutePricingButton'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import KilimanjaroPdfCard from '@/components/trekking/KilimanjaroPdfCard'
 import BookNowButton from '@/components/booking/BookNowButton'
+import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
 import LemoshoMultiItinerary from '@/components/trekking/LemoshoMultiItinerary'
 import MachameMultiItinerary from '@/components/trekking/MachameMultiItinerary'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
@@ -170,7 +171,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
   const tExp = await getTranslations('experiences')
   const trd = await getTranslations('trekkingRouteDetail')
   const tc = await getTranslations('common')
-  const featuredPost = getBlogPostMeta('kilimanjaro-climbing-guide', locale)
+  const featuredPost = await getBlogPostMeta('kilimanjaro-climbing-guide', locale)
 
   let routeContent: RouteDetailContent | null = null
 
@@ -418,6 +419,19 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
           </div>
         </div>
       </section>
+
+      {routeContent && (
+        <MobileEnquireBanner
+          eyebrow={`${trd('labels.from')} $${routeContent.pricing.group.toLocaleString('en-US')}`}
+          title={routeContent.quickFacts.routeName}
+          label={trd('labels.bookThisRoute')}
+          packageName={routeContent.quickFacts.routeName}
+          packageType={tc('packageTypes.kiliTrek')}
+          priceFrom={`$${routeContent.pricing.group.toLocaleString('en-US')}`}
+          duration={routeContent.quickFacts.duration}
+          restrictTripType
+        />
+      )}
 
       {/* ── Two-column layout: main content + sidebar ────────────────── */}
       {routeContent && (

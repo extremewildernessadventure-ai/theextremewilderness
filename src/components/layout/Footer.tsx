@@ -216,7 +216,6 @@ export default async function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 py-6 flex flex-col items-center gap-3 text-sm text-white/70 sm:flex-row sm:justify-between">
           <p>{t('copyright', { year: new Date().getFullYear() })}</p>
-          <p className="text-xs">Developed by <a href="https://matowodev.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">MatowoDev</a></p>
           <div className="flex items-center gap-5">
             <Link href="/privacy" className="hover:text-white transition-colors">{t('privacy')}</Link>
             <Link href="/terms" className="hover:text-white transition-colors">{t('terms')}</Link>

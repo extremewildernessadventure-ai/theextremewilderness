@@ -7,6 +7,7 @@ import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck, Star, MapPi
 import Badge from '@/components/shared/Badge'
 import TrustBar from '@/components/home/TrustBar'
 import SafariBookingSidebar from '@/components/safaris/SafariBookingSidebar'
+import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
 import AmenityStay from '@/components/safaris/AmenityStay'
 import RelatedSafaris from '@/components/safaris/RelatedSafaris'
 import { packages } from '@/data/packages'
@@ -244,7 +245,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params
-  const pkg = getPackage(slug, locale)
+  const pkg = await getPackage(slug, locale)
   if (!pkg) return {}
   const title = pkg.metaTitle ?? `${pkg.name} | Tanzania Safari`
   const description = pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights starting from $${pkg.priceFrom.toLocaleString('en-US')}/person. ${pkg.highlights[0]}.`
@@ -269,7 +270,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function SafariPackagePage({ params }: Props) {
   const { slug, locale } = await params
   setRequestLocale(locale)
-  const pkg = getPackage(slug, locale)
+  const pkg = await getPackage(slug, locale)
   if (!pkg) notFound()
 
   const t = await getTranslations('safari')
@@ -283,7 +284,7 @@ export default async function SafariPackagePage({ params }: Props) {
     combination: tf('tripTypes.multiCountry'),
   }
 
-  const featuredPost = getBlogPostMeta(
+  const featuredPost = await getBlogPostMeta(
     SAFARI_BLOG_MAP[pkg.slug] ?? DEFAULT_BLOG_SLUG,
     locale
   )
@@ -340,6 +341,8 @@ export default async function SafariPackagePage({ params }: Props) {
     })),
   } : null
 
+  const allPackages = await getPackages(locale)
+
   return (
     <>
       <script
@@ -379,6 +382,17 @@ export default async function SafariPackagePage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      <MobileEnquireBanner
+        eyebrow={`${tc('from')} $${pkg.priceFrom.toLocaleString('en-US')}`}
+        title={pkg.name}
+        label={t('sendEnquiry')}
+        packageName={pkg.name}
+        packageType={TRIP_TYPE_LABEL[pkg.type]}
+        restrictTripType
+        priceFrom={`$${pkg.priceFrom.toLocaleString('en-US')}`}
+        duration={`${pkg.duration} ${tc('nights')}`}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -747,7 +761,7 @@ export default async function SafariPackagePage({ params }: Props) {
         </div>
       </div>
 
-      <RelatedSafaris current={pkg} all={getPackages(locale)} />
+      <RelatedSafaris current={pkg} all={allPackages} />
       <TrustBar />
     </>
   )

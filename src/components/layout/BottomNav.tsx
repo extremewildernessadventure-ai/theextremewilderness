@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Link, usePathname } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
+import { useBooking } from '@/context/BookingContext'
 import {
   Home,
   Compass,
@@ -37,6 +38,7 @@ export default function BottomNav() {
   const tc = useTranslations('common')
   const [moreOpen, setMoreOpen] = useState(false)
   const pathname = usePathname()
+  const { pageBookingInfo, openBooking } = useBooking()
 
   const destItems = [
     { label: t('destinations'), href: '/destinations' as const, Icon: MapPin },
@@ -97,15 +99,26 @@ export default function BottomNav() {
             </div>
 
             {/* Plan My Safari CTA */}
-            <Link
-              href="/contact"
-              onClick={close}
-              className="flex items-center justify-center gap-2 w-full py-3.5 mb-5 bg-gold hover:bg-gold-dark text-brand font-bold text-sm rounded-xl transition-colors"
-            >
-              <CalendarDays className="w-4 h-4" />
-              Plan My Safari
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            {pageBookingInfo ? (
+              <button
+                onClick={() => { close(); openBooking(pageBookingInfo) }}
+                className="flex items-center justify-center gap-2 w-full py-3.5 mb-5 bg-gold hover:bg-gold-dark text-brand font-bold text-sm rounded-xl transition-colors"
+              >
+                <CalendarDays className="w-4 h-4" />
+                Plan My Safari
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            ) : (
+              <Link
+                href="/contact"
+                onClick={close}
+                className="flex items-center justify-center gap-2 w-full py-3.5 mb-5 bg-gold hover:bg-gold-dark text-brand font-bold text-sm rounded-xl transition-colors"
+              >
+                <CalendarDays className="w-4 h-4" />
+                Plan My Safari
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            )}
 
             <p className="text-white/60 text-[10px] font-semibold uppercase tracking-widest mb-2">{t('destinations')}</p>
             <div className="grid grid-cols-2 gap-3 mb-4">
@@ -179,17 +192,29 @@ export default function BottomNav() {
           <span>{t('trekking')}</span>
         </Link>
 
-        <Link
-          href="/contact"
-          className={`flex-1 flex flex-col items-center justify-center gap-1 text-[10px] font-medium transition-colors ${
-            isActive('/contact') ? 'text-gold' : 'text-white/75'
-          }`}
-        >
-          <div className="bg-gold rounded-full p-1.5">
-            <CalendarDays className="w-4 h-4 text-brand" />
-          </div>
-          <span>{t('plan')}</span>
-        </Link>
+        {pageBookingInfo ? (
+          <button
+            onClick={() => openBooking(pageBookingInfo)}
+            className="flex-1 flex flex-col items-center justify-center gap-1 text-[10px] font-medium transition-colors text-white/75"
+          >
+            <div className="bg-gold rounded-full p-1.5">
+              <CalendarDays className="w-4 h-4 text-brand" />
+            </div>
+            <span>{t('plan')}</span>
+          </button>
+        ) : (
+          <Link
+            href="/contact"
+            className={`flex-1 flex flex-col items-center justify-center gap-1 text-[10px] font-medium transition-colors ${
+              isActive('/contact') ? 'text-gold' : 'text-white/75'
+            }`}
+          >
+            <div className="bg-gold rounded-full p-1.5">
+              <CalendarDays className="w-4 h-4 text-brand" />
+            </div>
+            <span>{t('plan')}</span>
+          </Link>
+        )}
 
         <button
           onClick={() => setMoreOpen((o) => !o)}

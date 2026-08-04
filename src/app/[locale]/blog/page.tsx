@@ -40,8 +40,8 @@ type Props = {
 export default async function BlogPage({ params, searchParams }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const allPosts = getBlogPosts(locale)
-  const categories = getBlogCategories(locale)
+  const allPosts = await getBlogPosts(locale)
+  const categories = await getBlogCategories(locale)
   const t = await getTranslations('blog')
 
   const { category } = await searchParams

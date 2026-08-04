@@ -70,7 +70,7 @@ export default async function KenyaPage({ params }: Props) {
   setRequestLocale(locale)
   const t = await getTranslations('kenya')
   const tc = await getTranslations('common')
-  const allDestinations = getDestinations(locale)
+  const allDestinations = await getDestinations(locale)
 
   const destExtra = t.raw('destExtra') as Record<string, { badge: string; bestTime: string; bestTimeLabel: string; duration: string; priceFrom: string; activities: string[] }>
   const box1ChipDesc = t.raw('box1ChipDesc') as Record<string, string>

@@ -67,7 +67,7 @@ export default async function TrekkingPage({ params }: Props) {
   const tc = await getTranslations('common')
   const tForms = await getTranslations('forms')
   const tExp = await getTranslations('experiences')
-  const featuredPost = getBlogPostMeta('kilimanjaro-climbing-guide', locale)
+  const featuredPost = await getBlogPostMeta('kilimanjaro-climbing-guide', locale)
 
   const GEAR_CATEGORIES = [
     {

@@ -10,6 +10,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import BookNowButton from '@/components/booking/BookNowButton'
+import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
 import TrustBar from '@/components/home/TrustBar'
 import PdfLeadModal from '@/components/trekking/PdfLeadModal'
 import ExperienceGallery from '@/components/experiences/ExperienceGallery'
@@ -36,7 +37,7 @@ const OG_LOCALES: Record<string, string> = { en: 'en_US', fr: 'fr_FR', es: 'es_E
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params
-  const page = getExperiencePage(slug, locale)
+  const page = await getExperiencePage(slug, locale)
   if (!page) return {}
   return {
     alternates: buildAlternates(locale, `/experiences/${slug}`),
@@ -288,7 +289,7 @@ function renderSection(section: ExperienceSection, idx: number, chrome: { includ
 export default async function ExperienceDetailPage({ params }: Props) {
   const { slug, locale } = await params
   setRequestLocale(locale)
-  const page = getExperiencePage(slug, locale)
+  const page = await getExperiencePage(slug, locale)
   if (!page) notFound()
 
   const t = await getTranslations('experiences')
@@ -298,10 +299,10 @@ export default async function ExperienceDetailPage({ params }: Props) {
   const tf = await getTranslations('forms')
 
   const priceNumber = Number(page.priceFrom.replace(/[^0-9.]/g, '')) || undefined
-  const relatedPackages = page.relatedPackageSlugs
-    .map((s) => getPackage(s, locale))
+  const relatedPackagesRaw = await Promise.all(page.relatedPackageSlugs.map((s) => getPackage(s, locale)))
+  const relatedPackages = relatedPackagesRaw
     .filter((p): p is NonNullable<typeof p> => Boolean(p))
-  const allExperiences = getExperiencePages(locale)
+  const allExperiences = await getExperiencePages(locale)
   const relatedExperiences = page.relatedExperienceSlugs
     .map((s) => allExperiences.find((p) => p.slug === s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p))
@@ -422,6 +423,16 @@ export default async function ExperienceDetailPage({ params }: Props) {
         </RevealGroup>
       </div>
 
+      <MobileEnquireBanner
+        eyebrow={page.priceFrom ? `${t('fromLabel')} ${page.priceFrom}` : t('priceOnRequest')}
+        title={page.title}
+        label={t('planButton')}
+        packageName={page.title}
+        packageType={page.category}
+        priceFrom={page.priceFrom || undefined}
+        duration={page.durationLabel}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
 
@@ -493,8 +504,8 @@ export default async function ExperienceDetailPage({ params }: Props) {
           </Reveal>
 
           {/* Sidebar */}
-          <Reveal delay={0.15} className="space-y-5 lg:sticky lg:top-24">
-          <aside>
+          <Reveal delay={0.15} className="lg:sticky lg:top-24">
+          <aside className="space-y-5">
             {/* Price / enquiry card */}
             <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
               <p className="text-[11px] font-semibold uppercase tracking-wide text-gold-label">{t('fromLabel')}</p>

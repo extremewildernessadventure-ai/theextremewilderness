@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react'],
   },
   images: {
+    unoptimized: true,
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     remotePatterns: [
@@ -184,3 +185,11 @@ const nextConfig: NextConfig = {
 }
 
 export default withNextIntl(nextConfig)
+
+// Dev-only: sets up a local proxy so getCloudflareContext()/bindings work under
+// `next dev`. Skipped during `next build` — nothing needs it there (see
+// src/lib/localeData.ts, which reads generated JSON straight off disk while
+// NEXT_PHASE=phase-production-build instead), and it's needless overhead.
+if (process.env.NODE_ENV !== 'production') {
+  import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());
+}

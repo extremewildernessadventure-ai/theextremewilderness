@@ -1,32 +1,21 @@
-import { blogPosts as blogPostsEn, categories as categoriesEn } from './index'
-import { blogPosts as blogPostsFr, categories as categoriesFr } from './index.fr'
-import { blogPosts as blogPostsEs, categories as categoriesEs } from './index.es'
-import { blogPosts as blogPostsDe, categories as categoriesDe } from './index.de'
-import { blogPosts as blogPostsRu, categories as categoriesRu } from './index.ru'
-import { blogPosts as blogPostsZh, categories as categoriesZh } from './index.zh'
-import { blogPosts as blogPostsZhTW, categories as categoriesZhTW } from './index.zh-TW'
+import { fetchLocaleData, normalizeLocale } from '@/lib/localeData'
 import type { PostMeta } from './index'
 
-export function getBlogPosts(locale: string): PostMeta[] {
-  if (locale === 'fr') return blogPostsFr
-  if (locale === 'es') return blogPostsEs
-  if (locale === 'de') return blogPostsDe
-  if (locale === 'ru') return blogPostsRu
-  if (locale === 'zh') return blogPostsZh
-  if (locale === 'zh-TW') return blogPostsZhTW
-  return blogPostsEn
+type BlogData = { posts: PostMeta[]; categories: string[] }
+
+async function getBlogData(locale: string): Promise<BlogData> {
+  return fetchLocaleData<BlogData>(`blog-posts/${normalizeLocale(locale)}.json`)
 }
 
-export function getBlogPostMeta(slug: string, locale: string): PostMeta | undefined {
-  return getBlogPosts(locale).find((p) => p.slug === slug)
+export async function getBlogPosts(locale: string): Promise<PostMeta[]> {
+  return (await getBlogData(locale)).posts
 }
 
-export function getBlogCategories(locale: string): string[] {
-  if (locale === 'fr') return categoriesFr
-  if (locale === 'es') return categoriesEs
-  if (locale === 'de') return categoriesDe
-  if (locale === 'ru') return categoriesRu
-  if (locale === 'zh') return categoriesZh
-  if (locale === 'zh-TW') return categoriesZhTW
-  return categoriesEn
+export async function getBlogPostMeta(slug: string, locale: string): Promise<PostMeta | undefined> {
+  const posts = await getBlogPosts(locale)
+  return posts.find((p) => p.slug === slug)
+}
+
+export async function getBlogCategories(locale: string): Promise<string[]> {
+  return (await getBlogData(locale)).categories
 }

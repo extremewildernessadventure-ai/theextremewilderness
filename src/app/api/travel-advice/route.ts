@@ -193,8 +193,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'AI service unavailable' }, { status: 500 })
     }
 
-    const packages = getPackages(locale)
-    const destinations = getDestinations(locale)
+    const packages = await getPackages(locale)
+    const destinations = await getDestinations(locale)
     const catalog = buildCatalog(packages, destinations, packageTags)
     const validPackageSlugs = new Set(packages.map((p) => p.slug))
     const systemPrompt = buildSystemPrompt(catalog, locale)

@@ -56,7 +56,7 @@ const EXTRA_META = [
 export default async function SafarisPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const packages = getPackages(locale)
+  const packages = await getPackages(locale)
   const t = await getTranslations('itineraries')
   const tc = await getTranslations('common')
 

@@ -8,6 +8,7 @@ import { getBlogPosts, getBlogPostMeta } from '@/data/blog/index.i18n'
 import { getLocalizedArticleContent } from '@/data/blog/articles.i18n'
 import type { SectionType } from '@/data/blog/types'
 import BookNowButton from '@/components/booking/BookNowButton'
+import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
 import { getPackages, getPackage } from '@/data/packages.i18n'
 import { getDestinations, getDestination } from '@/data/destinations.i18n'
 import { routing } from '@/i18n/routing'
@@ -28,7 +29,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params
-  const post = getBlogPostMeta(slug, locale)
+  const post = await getBlogPostMeta(slug, locale)
   if (!post) return {}
   return {
     alternates: buildAlternates(locale, `/blog/${slug}`),
@@ -157,21 +158,21 @@ export default async function BlogArticlePage({ params }: Props) {
   const { slug, locale } = await params
   setRequestLocale(locale)
   const [post, t, tCommon] = await Promise.all([
-    Promise.resolve(getBlogPostMeta(slug, locale)),
+    getBlogPostMeta(slug, locale),
     getTranslations('blog'),
     getTranslations('common'),
   ])
   if (!post) notFound()
 
-  const content = getLocalizedArticleContent(slug, locale)
+  const content = await getLocalizedArticleContent(slug, locale)
   if (!content) notFound()
 
-  const allPosts = getBlogPosts(locale)
+  const allPosts = await getBlogPosts(locale)
   const related = allPosts.filter((p) => p.slug !== slug && p.category === post.category).slice(0, 3)
 
   const links = articleLinks[slug] ?? { packageSlugs: [], destSlugs: [] }
-  const linkedPackages = links.packageSlugs.map(s => getPackage(s, locale)).filter(Boolean)
-  const linkedDestinations = links.destSlugs.map(s => getDestination(s, locale)).filter(Boolean)
+  const linkedPackages = (await Promise.all(links.packageSlugs.map(s => getPackage(s, locale)))).filter(Boolean)
+  const linkedDestinations = (await Promise.all(links.destSlugs.map(s => getDestination(s, locale)))).filter(Boolean)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -210,6 +211,14 @@ export default async function BlogArticlePage({ params }: Props) {
         </div>
       </section>
 
+      <MobileEnquireBanner
+        eyebrow={post.category}
+        title={post.title}
+        label={t('getFreeQuote')}
+        packageName={post.title}
+        packageType={tCommon('packageTypes.safari')}
+      />
+
       {/* Article body */}
       <section className="bg-white py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -241,8 +250,8 @@ export default async function BlogArticlePage({ params }: Props) {
             </Reveal>
 
             {/* ── Sidebar ── */}
-            <Reveal delay={0.15} className="space-y-6 lg:sticky lg:top-24">
-            <aside>
+            <Reveal delay={0.15} className="lg:sticky lg:top-24">
+            <aside className="space-y-6">
 
               {/* Plan Your Trip */}
               <div className="bg-brand rounded-2xl overflow-hidden">

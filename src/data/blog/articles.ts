@@ -1,6 +1,6 @@
 import type { SectionType } from './types'
 
-const articles: Record<string, SectionType[]> = {
+export const articles: Record<string, SectionType[]> = {
 
 'great-migration-guide': [
   { type: 'p', text: "Every year, more than 1.5 million wildebeest, 500,000 zebra, and 200,000 Thomson's gazelle move in a massive loop across the Serengeti-Mara ecosystem — driven entirely by rain, grass, and an ancient instinct to survive. There is no single day the migration starts. There is no parade route. It is a continuous, chaotic, awe-inspiring movement that never truly stops, and understanding its rhythm is the key to witnessing it at its most dramatic." },

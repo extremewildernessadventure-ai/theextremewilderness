@@ -1,6 +1,6 @@
 import type { SectionType } from './types'
 
-const articles: Record<string, SectionType[]> = {
+export const articles: Record<string, SectionType[]> = {
 
 'great-migration-guide': [
   { type: 'p', text: 'Cada año, más de 1,5 millones de ñus, 500.000 cebras y 200.000 gacelas de Thomson recorren un enorme circuito por el ecosistema Serengueti-Mara, impulsados únicamente por la lluvia, la hierba y un instinto ancestral de supervivencia. No hay un único día en que comience la migración. No hay una ruta establecida. Es un movimiento continuo, caótico y fascinante que nunca se detiene del todo, y entender su ritmo es la clave para presenciarlo en su momento más dramático.' },
