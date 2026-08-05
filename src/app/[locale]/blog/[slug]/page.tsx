@@ -68,7 +68,7 @@ const articleLinks: Record<string, { packageSlugs: string[]; destSlugs: string[]
   'serengeti-vs-masai-mara':        { packageSlugs: ['5-day-serengeti-fly-in', '7-day-serengeti-ngorongoro'], destSlugs: ['serengeti', 'masai-mara'] },
   '7-day-tanzania-safari-itinerary':{ packageSlugs: ['7-day-serengeti-ngorongoro', '10-day-northern-circuit'], destSlugs: ['tarangire', 'serengeti', 'ngorongoro'] },
   'budget-safari-tanzania':         { packageSlugs: ['7-day-serengeti-ngorongoro', '10-day-northern-circuit'], destSlugs: ['serengeti', 'tarangire', 'manyara'] },
-  'chimpanzee-trekking-tanzania':   { packageSlugs: ['7-day-southern-circuit'], destSlugs: ['gombe', 'mahale', 'nyerere'] },
+  'chimpanzee-trekking-tanzania':   { packageSlugs: ['5-day-gombe-chimpanzee-trekking', '7-day-southern-circuit'], destSlugs: ['gombe', 'mahale', 'nyerere'] },
   'luxury-safari-tanzania':         { packageSlugs: ['5-day-serengeti-fly-in', '10-day-safari-zanzibar'], destSlugs: ['serengeti', 'zanzibar', 'ruaha'] },
   'safari-photography-tips':        { packageSlugs: ['5-day-serengeti-fly-in', '7-day-serengeti-ngorongoro'], destSlugs: ['serengeti', 'ngorongoro'] },
   'ruaha-national-park-guide':      { packageSlugs: ['7-day-southern-circuit'], destSlugs: ['ruaha', 'nyerere', 'mahale'] },

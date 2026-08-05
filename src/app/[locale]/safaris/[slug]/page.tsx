@@ -184,6 +184,14 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
   ],
 }
 
+// Per-package hero image crop override — most hero photos are fine with the
+// default center crop, but a few (e.g. subjects positioned toward the top
+// of the source frame) need a different object-position to avoid cropping
+// out the actual subject on the short/wide hero banner.
+const HERO_IMAGE_POSITION: Record<string, string> = {
+  '5-day-gombe-chimpanzee-trekking': 'object-top',
+}
+
 const DEFAULT_SAFARI_KEYWORDS = [
   'Tanzania safari', 'East Africa safari', 'Africa wildlife safari', 'book Tanzania safari',
   'Tanzania safari package', 'Tanzania tour operator', 'Africa safari holiday',
@@ -380,7 +388,14 @@ export default async function SafariPackagePage({ params }: Props) {
       )}
       {/* Hero */}
       <section className="relative h-[55vh] min-h-80 bg-brand flex items-end">
-        <Image src={pkg.heroImage} alt={pkg.name} fill className="object-cover" priority sizes="100vw" />
+        <Image
+          src={pkg.heroImage}
+          alt={pkg.name}
+          fill
+          className={`object-cover ${HERO_IMAGE_POSITION[slug] ?? ''}`}
+          priority
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/20 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
           <Breadcrumb items={breadcrumbItems} />

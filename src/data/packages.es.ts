@@ -40,7 +40,7 @@ export const packages: SafariPackage[] = [
       "Fácilmente combinable con Kenia o Ruanda, o ampliable con una extensión de playa — este itinerario funciona de forma independiente o como una etapa de un viaje más largo por África Oriental",
       "Todos los niveles de confort representados — desde lo sencillo y cuidado hasta lo verdaderamente exclusivo, sin cambiar un solo día de la ruta",
     ],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
+    heroImage: '/images/gallery/ngorongoro-crater-flamingos.webp',
     gallery: [
       '/images/gallery/serengeti-lion-pride.webp',
       '/images/gallery/tarangire-elephants-baobab.webp',
@@ -423,7 +423,7 @@ export const packages: SafariPackage[] = [
       'Game drive en el Lago Manyara la última mañana antes de la salida',
       'Dos niveles de alojamiento: campamentos Reserva y lujo Soberano',
     ],
-    heroImage: '/images/gallery/safari-013.jpg',
+    heroImage: '/images/gallery/lion-cub-resting.webp',
     gallery: ['/images/gallery/safari-014.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1678,7 +1678,7 @@ export const packages: SafariPackage[] = [
       "Recorre el circuito norte completo de Tanzania — Manyara, Tarangire, Ngorongoro y Serengeti — a un ritmo cómodo",
       'Viaja de forma privada y a medida, con tu nivel de alojamiento adaptado a tu estilo, desde confortable hasta elevado',
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/elephants-grazing-pair.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1904,7 +1904,7 @@ export const packages: SafariPackage[] = [
       "Un vuelo en avioneta de salida desde la pista de Kogatende, terminando el viaje mirando hacia las llanuras que acaba de cruzar por carretera",
       "Todos los niveles de confort representados, desde lo sencillo y directo hasta lo genuinamente exclusivo, sin cambiar un solo día de la ruta",
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/wildebeest-calf-migration.webp',
     gallery: ['/images/gallery/mara-river-crossing.webp', '/images/gallery/maasai-mara.webp', '/images/gallery/tarangire-elephants-baobab.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -2080,7 +2080,7 @@ export const packages: SafariPackage[] = [
       "Cinco días en el Serengeti",
       "Tres días en Zanzíbar — playas, cultura, Stone Town",
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/lion-portrait.webp',
     gallery: [],
     included: [
       "Todas las tasas de entrada a los parques",
@@ -2385,7 +2385,7 @@ export const packages: SafariPackage[] = [
       "Depredadores del Serengeti central durante todo el año",
       "Descenso completo al cráter del Ngorongoro",
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/impala-close-up.webp',
     gallery: [],
     included: [
       "Todas las tasas del parque",
@@ -3551,7 +3551,7 @@ export const packages: SafariPackage[] = [
       "Conservancy de Ol Pejeta — chimpancés y rinocerontes negros",
       "Museo Karen Blixen y Centro de Jirafas en Nairobi",
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lion-and-cub.webp',
     gallery: [],
     included: [
       "Todas las tasas del parque y la conservancy",
@@ -3779,7 +3779,7 @@ export const packages: SafariPackage[] = [
       "Stone Town, Prison Island y granjas de especias",
       "Fauna del circuito sur sin ninguna de las multitudes del norte",
     ],
-    heroImage: '/images/gallery/zanzibar1.jpg',
+    heroImage: '/images/gallery/elephant-acacia-southern.webp',
     gallery: [],
     included: [
       "Todas las tasas del parque",
@@ -4355,7 +4355,7 @@ export const packages: SafariPackage[] = [
       'Traslado transfronterizo — viaje terrestre Masai Mara – Serengeti',
       'Leones trepadores de árboles del Lago Manyara',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/zebras-grazing.webp',
     gallery: [],
     included: ['Alojamiento (9 noches)', 'Vehículo privado 4x4 (Tanzania)', 'Vehículo safari privado (Kenya)', 'Guía experto privado', 'Todas las tasas de parque', 'Pensión completa', 'Traslado transfronterizo', 'Todos los traslados aeropuerto', 'Seguro AMREF', 'Impuestos gubernamentales'],
     excluded: ['Vuelos internacionales', 'Visados Kenya y Tanzania (~50–100 USD cada uno)', 'Propinas', 'Artículos personales y seguro de viaje', 'Actividades opcionales'],
@@ -4518,7 +4518,7 @@ export const packages: SafariPackage[] = [
       'Descenso guiado al Cráter del Ngorongoro — todos los Big Five en un día',
       'Las legendarias manadas de elefantes de Tarangire y sus milenarios baobabs',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/lion-face-on.webp',
     gallery: ['/images/gallery/kenya-destinations.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -4561,7 +4561,7 @@ export const packages: SafariPackage[] = [
       "Un vuelo chárter de ida y vuelta cubre el traslado en ambas direcciones, llevándolo a la reserva de caza más grande de África para un safari en barco por el río Rufiji durante la tarde, pasando por pozas de hipopótamos y cruces de elefantes — una experiencia que muchos visitantes primerizos valoran incluso por encima de los game drives —, seguido de una salida a primera hora de la mañana siguiente, cuando los depredadores están más activos, antes de volar de regreso a Zanzíbar a tiempo para recuperar su tarde en la arena. Está pensado específicamente para viajeros de playa que quieren un safari genuino, no diluido, en el margen de tiempo más ajustado posible.",
     ],
     highlights: ['Vuelo charter de ida y vuelta desde Zanzíbar — sin traslados por carretera', 'Game drives guiados en Nyerere (antiguo Selous), la mayor reserva de África', 'Safari en barco por el río Rufiji — a menudo valorado por encima de los game drives por los viajeros primerizos', 'Estancia en pensión completa en un campamento fly-in', 'Diseñado para viajeros de la playa de Zanzíbar que deseen añadir un safari sin perder más de una noche'],
-    heroImage: '/images/gallery/zanzibar1.jpg',
+    heroImage: '/images/gallery/selous-hippo-pool.webp',
     gallery: ['/images/gallery/safari.webp'],
     pricingTiers: [{ pax: 2, trail: 1160 }, { pax: 3, trail: 1040 }, { pax: 4, trail: 975 }, { pax: 5, trail: 940 }, { pax: 6, trail: 880 }],
     included: ['Vuelo charter de ida y vuelta Zanzíbar–Nyerere–Zanzíbar', 'Todas las tasas del parque y la reserva animaliera', 'Todos los game drives en 4x4 privado', 'Safari en barco por el río Rufiji', 'Guía profesional durante todo el viaje', 'Todas las comidas según el programa', 'Alojamiento en pensión completa en el campamento'],
@@ -4588,7 +4588,7 @@ export const packages: SafariPackage[] = [
       "Comienza con un game drive por la tarde a través del paisaje de Tarangire salpicado de baobabs y sus manadas de elefantes, y luego se dirige al sur, al lago Eyasi, donde se unirá a una partida de caza hadzabe por el monte y visitará a herreros datoga que aún forjan herramientas a mano. Un descenso de día completo al cráter de Ngorongoro entrega los Cinco Grandes, incluida una de las pocas poblaciones fiables de rinoceronte negro del país, antes del regreso a Arusha. Pasará dos noches consecutivas en el mismo alojamiento en Karatu, lo que significa menos equipaje que hacer y más tiempo para mirar realmente lo que tiene delante — una introducción compacta y bien equilibrada tanto a la fauna de Tanzania como a su cultura viva.",
     ],
     highlights: ['Parque Nacional de Tarangire — manadas de elefantes bajo centenarios baobabs', 'Descenso guiado completo al Cráter del Ngorongoro (Big Five)', 'Tarde cultural con los Hadzabe — una de las últimas comunidades de cazadores-recolectores del mundo', 'Visita a los herreros Datoga en el Lago Eyasi, una tradición artesanal sin cambios desde hace siglos', 'Dos noches en el mismo lodge en Karatu — minimiza el embalaje y los desplazamientos'],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
+    heroImage: '/images/gallery/ngorongoro-crater-vehicle.webp',
     gallery: ['/images/gallery/safari-001.webp'],
     pricingTiers: [{ pax: 2, trail: 1820 }, { pax: 3, trail: 1455 }, { pax: 4, trail: 1395 }, { pax: 5, trail: 1310 }, { pax: 6, trail: 1250 }],
     included: ['Todas las tasas de parques y áreas de conservación', 'Experiencia cultural en el Lago Eyasi (guía Hadzabe y Datoga)', 'Todos los game drives en 4x4 privado', 'Guía profesional durante todo el viaje', 'Todas las comidas según el programa', 'Alojamiento según el itinerario', 'Traslados aeropuerto e inter-propiedades'],
@@ -4617,7 +4617,7 @@ export const packages: SafariPackage[] = [
       "El Parque Nacional de Hell's Gate — uno de los pocos parques de Kenia donde se puede caminar o pedalear libremente entre la fauna — abre el viaje, seguido de la vida de aves del lago Naivasha y el paisaje del Valle del Rift, y luego el lago Nakuru, uno de los últimos bastiones del país tanto para el rinoceronte negro como el blanco, junto a sus famosas bandadas de flamencos. La segunda mitad del viaje son dos días completos en el Masái Mara, el escenario emblemático de fauna de Kenia y, de julio a octubre, el escenario de los cruces de río de la Gran Migración. Disponible en tres niveles de alojamiento, desde campamentos confortables hasta el ultra lujo, es una ruta de cinco días diseñada para sentirse variada, no apresurada.",
     ],
     highlights: ["Parque Nacional de Hell's Gate — el único parque de Kenia que permite ciclismo y senderismo libremente entre cebras, jirafas y búfalos", 'Observación de aves en el Lago Naivasha y paisajes del Gran Valle del Rift', 'Lago Nakuru — orillas con flamencos y uno de los últimos santuarios de rinoceronte negro y blanco de Kenia', 'Dos jornadas completas en el Masai Mara (Gran Migración julio–octubre)', 'Tres niveles de alojamiento desde campamentos cómodos hasta lujo absoluto'],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lioness-on-rock.webp',
     gallery: ['/images/gallery/mara1.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [{ pax: 2, trail: 1950, reserve: 2850, sovereign: 4200 }, { pax: 3, trail: 1780, reserve: 2650, sovereign: 3950 }, { pax: 4, trail: 1650, reserve: 2480, sovereign: 3750 }, { pax: 5, trail: 1580, reserve: 2380, sovereign: 3600 }, { pax: 6, trail: 1520, reserve: 2290, sovereign: 3480 }],
@@ -4706,7 +4706,7 @@ export const packages: SafariPackage[] = [
       "El desarrollo previo también importa. Comienza con las manadas de elefantes de Tarangire y un infrecuente safari a pie guiado, un descenso de día completo al cráter de Ngorongoro en busca de los Cinco Grandes, y una parada en la Garganta de Olduvai, el lugar donde se descubrieron algunos de los fósiles humanos más importantes jamás encontrados. Desde allí, la ruta sigue hacia el norte, al territorio del río Mara en el Serengeti, durante tres días consecutivos posicionados para presenciar los cruces de la Gran Migración, en lugar de la única tirada de dados que ofrecen la mayoría de los itinerarios más cortos. Ambos niveles de alojamiento, Wilderness Trail y Wilderness Sovereign, persiguen el mismo objetivo: maximizar la probabilidad de que esté en el lugar correcto cuando las manadas finalmente se decidan a cruzar el río.",
     ],
     highlights: ['Las manadas de elefantes de Tarangire y un safari a pie guiado', 'Un descenso guiado de día completo al Cráter de Ngorongoro', 'Una parada en la Garganta de Olduvai, la cuna de la humanidad', 'Tres días completos en el territorio de cruce del Río Mara, en el norte del Serengeti', 'Dos niveles de alojamiento, pensados para maximizar sus probabilidades de presenciar un cruce'],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/hartebeest-plains.webp',
     gallery: ['/images/gallery/mara-river-crossing.webp', '/images/gallery/olduvai-gorge.webp', '/images/gallery/ngorongoro-crater-landscape.webp', '/images/gallery/tarangire-elephants-baobab.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5000,7 +5000,7 @@ export const packages: SafariPackage[] = [
       "Vea los grandes colmillos de Amboseli contra el Kilimanjaro y la densidad de fauna del Mara sin las multitudes de la reserva principal",
       'Viaje con el mismo equipo de guías de confianza durante los nueve días completos, no con un conductor nuevo en cada parada',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lion-mane-closeup.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5175,7 +5175,7 @@ export const packages: SafariPackage[] = [
       "Fotografíe elefantes contra el Kilimanjaro en Amboseli, una de las escenas de safari más reconocibles de África Oriental",
       'Viaje a un ritmo cómodo y bien pautado en lugar de cambiar de lugar cada día',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/grey-crowned-crane.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [

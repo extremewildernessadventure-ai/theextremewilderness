@@ -40,7 +40,7 @@ export const packages: SafariPackage[] = [
       '可轻松与肯尼亚或卢旺达行程结合，或延伸至海滩——这条行程既可独立成行，也可作为更长东非之旅的一段',
       '涵盖各个舒适档次——从踏实周到到真正的珍稀奢华，而路线本身的每一天都不会因此改变',
     ],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
+    heroImage: '/images/gallery/ngorongoro-crater-flamingos.webp',
     gallery: [
       '/images/gallery/serengeti-lion-pride.webp',
       '/images/gallery/tarangire-elephants-baobab.webp',
@@ -429,7 +429,7 @@ export const packages: SafariPackage[] = [
       '离程前最后一个清晨的马尼亚拉湖游猎巡游',
       '两个住宿等级，从保护区营地到至尊奢华',
     ],
-    heroImage: '/images/gallery/safari-013.jpg',
+    heroImage: '/images/gallery/lion-cub-resting.webp',
     gallery: ['/images/gallery/safari-014.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1667,7 +1667,7 @@ export const packages: SafariPackage[] = [
       '以舒适的节奏游览坦桑尼亚完整的北方环线——马尼亚拉、塔兰吉雷、恩戈罗恩戈罗与塞伦盖蒂',
       '私人定制出行，住宿等级契合您的风格，从舒适到高端皆可选择',
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/elephants-grazing-pair.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1893,7 +1893,7 @@ export const packages: SafariPackage[] = [
       '从科加坦德简易机场搭乘轻型飞机离程，让旅程在俯瞰您刚刚以陆路穿越的平原中收尾',
       '涵盖各个舒适档次，从踏实直接到真正的珍稀奢华，路线本身的每一天都不会因此改变',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/wildebeest-calf-migration.webp',
     gallery: ['/images/gallery/mara-river-crossing.webp', '/images/gallery/maasai-mara.webp', '/images/gallery/tarangire-elephants-baobab.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -2069,7 +2069,7 @@ export const packages: SafariPackage[] = [
       '塞伦盖蒂五天时光',
       '桑给巴尔三天——海滩、文化、石头城',
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/lion-portrait.webp',
     gallery: [],
     included: ['所有公园门票', '所有游猎巡游', '桑给巴尔酒店（海滨）', '游猎期间所有餐食', '桑给巴尔的早餐', '国内及岛际航班', '机场转送'],
     excluded: ['国际航班', '签证费用', '旅行保险', '小费', '桑给巴尔的午餐与晚餐'],
@@ -2374,7 +2374,7 @@ export const packages: SafariPackage[] = [
       '塞伦盖蒂中部全年可见的猎食动物',
       '完整下降至恩戈罗恩戈罗火山口',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/impala-close-up.webp',
     gallery: [],
     included: ['所有公园门票', '国内包机航班', '所有游猎巡游', '专业向导', '所有餐食', '住宿', '机场转送'],
     excluded: ['国际航班', '签证费用', '旅行保险', '小费'],
@@ -3548,7 +3548,7 @@ export const packages: SafariPackage[] = [
       '奥佩杰塔保护区——黑猩猩与黑犀牛',
       '内罗毕的凯伦·布里克森博物馆与长颈鹿中心',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lion-and-cub.webp',
     gallery: [],
     included: ['所有公园及保护区门票', '所有游猎巡游', '专业向导', '所有餐食', '住宿', '机场转送'],
     excluded: ['国际航班', '签证费用', '旅行保险', '小费', '自选活动'],
@@ -3781,7 +3781,7 @@ export const packages: SafariPackage[] = [
       '石头城、监狱岛与香料农场',
       '南方环线的野生动物观赏，却没有北方的人潮拥挤',
     ],
-    heroImage: '/images/gallery/zanzibar1.jpg',
+    heroImage: '/images/gallery/elephant-acacia-southern.webp',
     gallery: [],
     included: ['所有公园门票', '所有游猎巡游及船行游猎', '桑给巴尔酒店（海滨）', '游猎期间所有餐食', '桑给巴尔的早餐', '国内及岛际航班', '机场转送'],
     excluded: ['国际航班', '签证费用', '旅行保险', '小费', '桑给巴尔的午餐与晚餐'],
@@ -4433,7 +4433,7 @@ export const packages: SafariPackage[] = [
       '跨境转送——马赛马拉至塞伦盖蒂的无缝陆路旅程',
       '马尼亚拉湖的树栖狮群——东非其他任何地方都无法见到的行为',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/zebras-grazing.webp',
     gallery: [],
     included: [
       '按所选等级安排的所有住宿（9晚）',
@@ -4634,7 +4634,7 @@ export const packages: SafariPackage[] = [
       '向导陪同下降恩戈罗恩戈罗火山口——一天之内观赏五大兽',
       '塔兰吉雷传奇般的象群与古老猴面包树',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/lion-face-on.webp',
     gallery: ['/images/gallery/kenya-destinations.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -4807,7 +4807,7 @@ export const packages: SafariPackage[] = [
       '飞入式丛林营地全食宿住宿',
       '专为桑给巴尔海滩旅行者设计，只需一晚即可加入一次大陆游猎',
     ],
-    heroImage: '/images/gallery/zanzibar1.jpg',
+    heroImage: '/images/gallery/selous-hippo-pool.webp',
     gallery: ['/images/gallery/safari.webp'],
     pricingTiers: [
       { pax: 2, trail: 1160 },
@@ -4893,7 +4893,7 @@ export const packages: SafariPackage[] = [
       '探访埃亚西湖的达托加铁匠，一门数百年未变的工艺传统',
       '在卡拉图的同一间旅馆入住两晚——减少收拾行李与转场',
     ],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
+    heroImage: '/images/gallery/ngorongoro-crater-vehicle.webp',
     gallery: ['/images/gallery/safari-001.webp'],
     pricingTiers: [
       { pax: 2, trail: 1820 },
@@ -5001,7 +5001,7 @@ export const packages: SafariPackage[] = [
       '马赛马拉两个完整的日子（大迁徙7月至10月）',
       '三个住宿等级，从舒适营地到超豪华',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lioness-on-rock.webp',
     gallery: ['/images/gallery/mara1.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5321,7 +5321,7 @@ export const packages: SafariPackage[] = [
       '塞伦盖蒂北部马拉河渡河领地三个完整的日子',
       '两个住宿等级，均围绕最大化您的渡河观赏胜算打造',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/hartebeest-plains.webp',
     gallery: ['/images/gallery/mara-river-crossing.webp', '/images/gallery/olduvai-gorge.webp', '/images/gallery/ngorongoro-crater-landscape.webp', '/images/gallery/tarangire-elephants-baobab.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5753,7 +5753,7 @@ export const packages: SafariPackage[] = [
       '在没有主保护区人潮的情况下，观赏安波塞利乞力马扎罗背景下的象牙巨兽与马拉的野生动物密度',
       '与同一支值得信赖的向导团队共度全部九天，而非每站都换一位新司机',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lion-mane-closeup.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5928,7 +5928,7 @@ export const packages: SafariPackage[] = [
       '在安波塞利拍摄以乞力马扎罗为背景的大象，这是东非最具辨识度的游猎场景之一',
       '以舒适、得宜的节奏出行，而非每天都换一个新地点',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/grey-crowned-crane.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [

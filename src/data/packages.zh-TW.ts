@@ -40,7 +40,7 @@ export const packages: SafariPackage[] = [
       '可輕鬆與肯亞或盧安達行程結合，或延伸至海灘——這條行程既可獨立成行，也可作為更長東非之旅的一段',
       '涵蓋各個舒適檔次——從踏實周到到真正的珍稀奢華，而路線本身的每一天都不會因此改變',
     ],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
+    heroImage: '/images/gallery/ngorongoro-crater-flamingos.webp',
     gallery: [
       '/images/gallery/serengeti-lion-pride.webp',
       '/images/gallery/tarangire-elephants-baobab.webp',
@@ -429,7 +429,7 @@ export const packages: SafariPackage[] = [
       '離程前最後一個清晨的馬尼亞拉湖獵遊巡遊',
       '兩個住宿等級，從保護區營地到至尊奢華',
     ],
-    heroImage: '/images/gallery/safari-013.jpg',
+    heroImage: '/images/gallery/lion-cub-resting.webp',
     gallery: ['/images/gallery/safari-014.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1667,7 +1667,7 @@ export const packages: SafariPackage[] = [
       '以舒適的節奏遊覽坦尚尼亞完整的北方環線——馬尼亞拉、塔蘭吉雷、恩戈羅恩戈羅與塞倫蓋蒂',
       '私人定製出行，住宿等級契合您的風格，從舒適到高階皆可選擇',
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/elephants-grazing-pair.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1893,7 +1893,7 @@ export const packages: SafariPackage[] = [
       '從科加坦德簡易機場搭乘輕型飛機離程，讓旅程在俯瞰您剛剛以陸路穿越的平原中收尾',
       '涵蓋各個舒適檔次，從踏實直接到真正的珍稀奢華，路線本身的每一天都不會因此改變',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/wildebeest-calf-migration.webp',
     gallery: ['/images/gallery/mara-river-crossing.webp', '/images/gallery/maasai-mara.webp', '/images/gallery/tarangire-elephants-baobab.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -2069,7 +2069,7 @@ export const packages: SafariPackage[] = [
       '塞倫蓋蒂五天時光',
       '尚吉巴三天——海灘、文化、石頭城',
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/lion-portrait.webp',
     gallery: [],
     included: ['所有公園門票', '所有獵遊巡遊', '尚吉巴飯店（海濱）', '獵遊期間所有餐食', '尚吉巴的早餐', '國內及島際航班', '機場轉送'],
     excluded: ['國際航班', '簽證費用', '旅行保險', '小費', '尚吉巴的午餐與晚餐'],
@@ -2374,7 +2374,7 @@ export const packages: SafariPackage[] = [
       '塞倫蓋蒂中部全年可見的獵食動物',
       '完整下降至恩戈羅恩戈羅火山口',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/impala-close-up.webp',
     gallery: [],
     included: ['所有公園門票', '國內包機航班', '所有獵遊巡遊', '專業嚮導', '所有餐食', '住宿', '機場轉送'],
     excluded: ['國際航班', '簽證費用', '旅行保險', '小費'],
@@ -3548,7 +3548,7 @@ export const packages: SafariPackage[] = [
       '奧佩傑塔保護區——黑猩猩與黑犀牛',
       '奈洛比的凱倫·布里克森博物館與長頸鹿中心',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lion-and-cub.webp',
     gallery: [],
     included: ['所有公園及保護區門票', '所有獵遊巡遊', '專業嚮導', '所有餐食', '住宿', '機場轉送'],
     excluded: ['國際航班', '簽證費用', '旅行保險', '小費', '自選活動'],
@@ -3781,7 +3781,7 @@ export const packages: SafariPackage[] = [
       '石頭城、監獄島與香料農場',
       '南方環線的野生動物觀賞，卻沒有北方的人潮擁擠',
     ],
-    heroImage: '/images/gallery/zanzibar1.jpg',
+    heroImage: '/images/gallery/elephant-acacia-southern.webp',
     gallery: [],
     included: ['所有公園門票', '所有獵遊巡遊及船行獵遊', '尚吉巴飯店（海濱）', '獵遊期間所有餐食', '尚吉巴的早餐', '國內及島際航班', '機場轉送'],
     excluded: ['國際航班', '簽證費用', '旅行保險', '小費', '尚吉巴的午餐與晚餐'],
@@ -4433,7 +4433,7 @@ export const packages: SafariPackage[] = [
       '跨境轉送——馬賽馬拉至塞倫蓋蒂的無縫陸路旅程',
       '馬尼亞拉湖的樹棲獅群——東非其他任何地方都無法見到的行為',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/zebras-grazing.webp',
     gallery: [],
     included: [
       '按所選等級安排的所有住宿（9晚）',
@@ -4634,7 +4634,7 @@ export const packages: SafariPackage[] = [
       '嚮導陪同下降恩戈羅恩戈羅火山口——一天之內觀賞五大獸',
       '塔蘭吉雷傳奇般的象群與古老猴麵包樹',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/lion-face-on.webp',
     gallery: ['/images/gallery/kenya-destinations.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -4807,7 +4807,7 @@ export const packages: SafariPackage[] = [
       '飛入式叢林營地全食宿住宿',
       '專為尚吉巴海灘旅行者設計，只需一晚即可加入一次大陸獵遊',
     ],
-    heroImage: '/images/gallery/zanzibar1.jpg',
+    heroImage: '/images/gallery/selous-hippo-pool.webp',
     gallery: ['/images/gallery/safari.webp'],
     pricingTiers: [
       { pax: 2, trail: 1160 },
@@ -4893,7 +4893,7 @@ export const packages: SafariPackage[] = [
       '探訪埃亞西湖的達托加鐵匠，一門數百年未變的工藝傳統',
       '在卡拉圖的同一間旅館入住兩晚——減少收拾行李與轉場',
     ],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
+    heroImage: '/images/gallery/ngorongoro-crater-vehicle.webp',
     gallery: ['/images/gallery/safari-001.webp'],
     pricingTiers: [
       { pax: 2, trail: 1820 },
@@ -5001,7 +5001,7 @@ export const packages: SafariPackage[] = [
       '馬賽馬拉兩個完整的日子（大遷徙7月至10月）',
       '三個住宿等級，從舒適營地到超豪華',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lioness-on-rock.webp',
     gallery: ['/images/gallery/mara1.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5321,7 +5321,7 @@ export const packages: SafariPackage[] = [
       '塞倫蓋蒂北部馬拉河渡河領地三個完整的日子',
       '兩個住宿等級，均圍繞最大化您的渡河觀賞勝算打造',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/hartebeest-plains.webp',
     gallery: ['/images/gallery/mara-river-crossing.webp', '/images/gallery/olduvai-gorge.webp', '/images/gallery/ngorongoro-crater-landscape.webp', '/images/gallery/tarangire-elephants-baobab.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5753,7 +5753,7 @@ export const packages: SafariPackage[] = [
       '在沒有主保護區人潮的情況下，觀賞安波塞利吉力馬札羅背景下的象牙巨獸與馬拉的野生動物密度',
       '與同一支值得信賴的嚮導團隊共度全部九天，而非每站都換一位新司機',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lion-mane-closeup.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5928,7 +5928,7 @@ export const packages: SafariPackage[] = [
       '在安波塞利拍攝以吉力馬札羅為背景的大象，這是東非最具辨識度的獵遊場景之一',
       '以舒適、得宜的節奏出行，而非每天都換一個新地點',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/grey-crowned-crane.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [

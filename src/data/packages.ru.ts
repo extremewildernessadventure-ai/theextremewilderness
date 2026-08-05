@@ -40,7 +40,7 @@ export const packages: SafariPackage[] = [
       'Легко сочетается с Кенией или Руандой и продлевается пляжем — программа работает и сама по себе, и как этап более долгого путешествия по Восточной Африке',
       'Представлены все уровни комфорта — от основательного и продуманного до по-настоящему изысканного, без изменения хотя бы одного дня маршрута',
     ],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
+    heroImage: '/images/gallery/ngorongoro-crater-flamingos.webp',
     gallery: [
       '/images/gallery/serengeti-lion-pride.webp',
       '/images/gallery/tarangire-elephants-baobab.webp',
@@ -429,7 +429,7 @@ export const packages: SafariPackage[] = [
       'Выезд по озеру Маньяра финальным утром перед отъездом',
       'Два уровня размещения — от лагерей Reserve до люкса Sovereign',
     ],
-    heroImage: '/images/gallery/safari-013.jpg',
+    heroImage: '/images/gallery/lion-cub-resting.webp',
     gallery: ['/images/gallery/safari-014.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1667,7 +1667,7 @@ export const packages: SafariPackage[] = [
       'Охватить весь северный маршрут Танзании — Маньяра, Тарангире, Нгоронгоро и Серенгети — в комфортном темпе',
       'Путешествовать приватно и по индивидуальной программе, с категорией проживания под ваш стиль — от комфортной до возвышенной',
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/elephants-grazing-pair.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1893,7 +1893,7 @@ export const packages: SafariPackage[] = [
       'Полёт на лёгком самолёте со взлётной полосы Когатенде, завершающий поездку взглядом сверху на равнины, которые вы только что пересекли по земле',
       'Представлен любой уровень комфорта — от простого и незатейливого до по-настоящему изысканного, — без изменения хотя бы одного дня маршрута',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/wildebeest-calf-migration.webp',
     gallery: ['/images/gallery/mara-river-crossing.webp', '/images/gallery/maasai-mara.webp', '/images/gallery/tarangire-elephants-baobab.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -2069,7 +2069,7 @@ export const packages: SafariPackage[] = [
       'Пять дней в Серенгети',
       'Три дня на Занзибаре — пляжи, культура, Стоун-Таун',
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/lion-portrait.webp',
     gallery: [],
     included: ['Все сборы за вход в парки', 'Все сафари', 'Отель на Занзибаре (на берегу моря)', 'Всё питание на сафари', 'Завтрак на Занзибаре', 'Внутренние и межостровные перелёты', 'Трансферы из/в аэропорт'],
     excluded: ['Международные перелёты', 'Визовые сборы', 'Страхование путешествий', 'Чаевые', 'Обед и ужин на Занзибаре'],
@@ -2374,7 +2374,7 @@ export const packages: SafariPackage[] = [
       'Круглогодичные хищники Центральной Серенгети',
       'Полный спуск в кратер Нгоронгоро',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/impala-close-up.webp',
     gallery: [],
     included: ['Все сборы за парки', 'Внутренний чартерный перелёт', 'Все сафари', 'Профессиональный гид', 'Всё питание', 'Проживание', 'Трансферы из/в аэропорт'],
     excluded: ['Международные перелёты', 'Визовые сборы', 'Страхование путешествий', 'Чаевые'],
@@ -3548,7 +3548,7 @@ export const packages: SafariPackage[] = [
       'Заповедник Ол-Педжета — шимпанзе и чёрные носороги',
       'Музей Карен Бликсен и Центр жирафов в Найроби',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lion-and-cub.webp',
     gallery: [],
     included: ['Все сборы за парки и заповедники', 'Все сафари', 'Профессиональный гид', 'Всё питание', 'Проживание', 'Трансферы из/в аэропорт'],
     excluded: ['Международные перелёты', 'Визовые сборы', 'Страхование путешествий', 'Чаевые', 'Дополнительные мероприятия'],
@@ -3781,7 +3781,7 @@ export const packages: SafariPackage[] = [
       'Стоун-Таун, остров Призон и плантации специй',
       'Дикая природа южного маршрута без северных толп',
     ],
-    heroImage: '/images/gallery/zanzibar1.jpg',
+    heroImage: '/images/gallery/elephant-acacia-southern.webp',
     gallery: [],
     included: ['Все сборы за парки', 'Все сафари и лодочные сафари', 'Отель на Занзибаре (на берегу моря)', 'Всё питание на сафари', 'Завтрак на Занзибаре', 'Внутренние и межостровные перелёты', 'Трансферы из/в аэропорт'],
     excluded: ['Международные перелёты', 'Визовые сборы', 'Страхование путешествий', 'Чаевые', 'Обед и ужин на Занзибаре'],
@@ -4433,7 +4433,7 @@ export const packages: SafariPackage[] = [
       'Трансграничный трансфер — бесшовное сухопутное путешествие из Масаи-Мара в Серенгети',
       'Львы на деревьях озера Маньяра — поведение, не встречающееся больше нигде в Восточной Африке',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/zebras-grazing.webp',
     gallery: [],
     included: [
       'Всё проживание (9 ночей) согласно выбранной категории',
@@ -4634,7 +4634,7 @@ export const packages: SafariPackage[] = [
       'Спуск с гидом в кратер Нгоронгоро — Большая пятёрка за один день',
       'Легендарные стада слонов и древние баобабы Тарангире',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/lion-face-on.webp',
     gallery: ['/images/gallery/kenya-destinations.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -4807,7 +4807,7 @@ export const packages: SafariPackage[] = [
       'Проживание на полном пансионе в буш-лагере с авиадоступом',
       'Создано для пляжных путешественников Занзибара, добавляющих сафари на материке без потери более одной ночи',
     ],
-    heroImage: '/images/gallery/zanzibar1.jpg',
+    heroImage: '/images/gallery/selous-hippo-pool.webp',
     gallery: ['/images/gallery/safari.webp'],
     pricingTiers: [
       { pax: 2, trail: 1160 },
@@ -4893,7 +4893,7 @@ export const packages: SafariPackage[] = [
       'Посещение кузнецов датога у озера Эяси — ремесленная традиция, не менявшаяся веками',
       'Две ночи в одном лодже в Карату — минимум сборов и переездов',
     ],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
+    heroImage: '/images/gallery/ngorongoro-crater-vehicle.webp',
     gallery: ['/images/gallery/safari-001.webp'],
     pricingTiers: [
       { pax: 2, trail: 1820 },
@@ -5001,7 +5001,7 @@ export const packages: SafariPackage[] = [
       'Два полных дня в Масаи-Мара (Великая миграция июль–октябрь)',
       'Три категории проживания от комфортных лагерей до ультра-люкса',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lioness-on-rock.webp',
     gallery: ['/images/gallery/mara1.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5321,7 +5321,7 @@ export const packages: SafariPackage[] = [
       'Три полных дня на территории переправ через реку Мара в северной Серенгети',
       'Две категории проживания, обе построены вокруг максимизации ваших шансов на переправу',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/hartebeest-plains.webp',
     gallery: ['/images/gallery/mara-river-crossing.webp', '/images/gallery/olduvai-gorge.webp', '/images/gallery/ngorongoro-crater-landscape.webp', '/images/gallery/tarangire-elephants-baobab.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5753,7 +5753,7 @@ export const packages: SafariPackage[] = [
       'Увидьте бивненосцев Амбосели на фоне Килиманджаро и плотность дикой природы Мары без толп главного заповедника',
       'Путешествуйте с одной и той же доверенной командой гидов все девять дней, а не с новым водителем на каждой остановке',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lion-mane-closeup.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5928,7 +5928,7 @@ export const packages: SafariPackage[] = [
       'Фотографируйте слонов на фоне Килиманджаро в Амбосели, одной из самых узнаваемых сафари-сцен Восточной Африки',
       'Путешествуйте в комфортном, хорошо выстроенном ритме, а не с новой локацией каждый день',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/grey-crowned-crane.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [

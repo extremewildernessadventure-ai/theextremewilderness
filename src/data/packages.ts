@@ -142,7 +142,7 @@ export const packages: SafariPackage[] = [
       'Easily combined with Kenya or Rwanda, or extended to the beach — this itinerary works standalone or as one leg of a longer East Africa journey',
       'Every level of comfort represented — from grounded and considered to genuinely rarefied, without changing a single day of the route itself',
     ],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
+    heroImage: '/images/gallery/ngorongoro-crater-flamingos.webp',
     gallery: [
       '/images/gallery/serengeti-lion-pride.webp',
       '/images/gallery/tarangire-elephants-baobab.webp',
@@ -531,7 +531,7 @@ export const packages: SafariPackage[] = [
       'Lake Manyara game drive on the final morning before departure',
       'Two accommodation tiers from Reserve camps to Sovereign luxury',
     ],
-    heroImage: '/images/gallery/safari-013.jpg',
+    heroImage: '/images/gallery/lion-cub-resting.webp',
     gallery: ['/images/gallery/safari-014.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1769,7 +1769,7 @@ export const packages: SafariPackage[] = [
       "Cover Tanzania's full northern circuit — Manyara, Tarangire, Ngorongoro, and Serengeti — at a comfortable pace",
       'Travel privately and tailor-made, with your accommodation tier suited to your style, from comfortable to elevated',
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/elephants-grazing-pair.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -1995,7 +1995,7 @@ export const packages: SafariPackage[] = [
       'A light aircraft flight out from Kogatende airstrip, ending the trip looking down at the plains you just crossed by road',
       'Every level of comfort represented, from grounded and direct to genuinely rarefied, without changing a single day of the route',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/wildebeest-calf-migration.webp',
     gallery: ['/images/gallery/mara-river-crossing.webp', '/images/gallery/maasai-mara.webp', '/images/gallery/tarangire-elephants-baobab.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -2171,7 +2171,7 @@ export const packages: SafariPackage[] = [
       'Five days in the Serengeti',
       'Three days in Zanzibar — beaches, culture, Stone Town',
     ],
-    heroImage: '/images/gallery/safari.jpg',
+    heroImage: '/images/gallery/lion-portrait.webp',
     gallery: [],
     included: ['All park entrance fees', 'All game drives', 'Zanzibar hotel (beach front)', 'All meals on safari', 'Breakfast in Zanzibar', 'Domestic and inter-island flights', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Lunch and dinner in Zanzibar'],
@@ -2476,7 +2476,7 @@ export const packages: SafariPackage[] = [
       'Central Serengeti year-round predators',
       'Ngorongoro Crater full descent',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/impala-close-up.webp',
     gallery: [],
     included: ['All park fees', 'Domestic charter flight', 'All game drives', 'Professional guide', 'All meals', 'Accommodation', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips'],
@@ -3650,7 +3650,7 @@ export const packages: SafariPackage[] = [
       'Ol Pejeta Conservancy — chimps and black rhino',
       'Karen Blixen Museum and Giraffe Centre in Nairobi',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lion-and-cub.webp',
     gallery: [],
     included: ['All park and conservancy fees', 'All game drives', 'Professional guide', 'All meals', 'Accommodation', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Optional activities'],
@@ -3883,7 +3883,7 @@ export const packages: SafariPackage[] = [
       'Stone Town, Prison Island, and spice farms',
       'Southern circuit wildlife with none of the northern crowds',
     ],
-    heroImage: '/images/gallery/zanzibar1.jpg',
+    heroImage: '/images/gallery/elephant-acacia-southern.webp',
     gallery: [],
     included: ['All park fees', 'All game drives and boat safaris', 'Zanzibar hotel (beach front)', 'All meals on safari', 'Breakfast in Zanzibar', 'Domestic and inter-island flights', 'Airport transfers'],
     excluded: ['International flights', 'Visa fees', 'Travel insurance', 'Tips', 'Lunch and dinner in Zanzibar'],
@@ -4543,7 +4543,7 @@ export const packages: SafariPackage[] = [
       'Cross-border transfer — seamless Masai Mara to Serengeti overland journey',
       'Lake Manyara tree-climbing lions — a behaviour found nowhere else in East Africa',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/zebras-grazing.webp',
     gallery: [],
     included: [
       'All accommodation (9 nights) as per selected tier',
@@ -4747,7 +4747,7 @@ export const packages: SafariPackage[] = [
       'Guided descent into Ngorongoro Crater — the Big Five in one day',
       'Tarangire\'s legendary elephant herds and ancient baobabs',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/lion-face-on.webp',
     gallery: ['/images/gallery/kenya-destinations.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -4922,7 +4922,7 @@ export const packages: SafariPackage[] = [
       'Full-board stay in a fly-in bush camp',
       'Designed for Zanzibar beach travellers adding a mainland safari without losing more than one night',
     ],
-    heroImage: '/images/gallery/zanzibar1.jpg',
+    heroImage: '/images/gallery/selous-hippo-pool.webp',
     gallery: ['/images/gallery/safari.webp'],
     pricingTiers: [
       { pax: 2, trail: 1160 },
@@ -5010,7 +5010,7 @@ export const packages: SafariPackage[] = [
       'Visit to Datoga blacksmiths at Lake Eyasi, a craft tradition unchanged for centuries',
       'Two nights at the same lodge in Karatu — minimises packing and moving',
     ],
-    heroImage: '/images/gallery/ngorongoro-crater-landscape.jpg',
+    heroImage: '/images/gallery/ngorongoro-crater-vehicle.webp',
     gallery: ['/images/gallery/safari-001.webp'],
     pricingTiers: [
       { pax: 2, trail: 1820 },
@@ -5120,7 +5120,7 @@ export const packages: SafariPackage[] = [
       'Two full days in the Masai Mara (Great Migration July–October)',
       'Three accommodation tiers from comfortable camps to ultra-luxury',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lioness-on-rock.webp',
     gallery: ['/images/gallery/mara1.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5440,7 +5440,7 @@ export const packages: SafariPackage[] = [
       "Three full days in the northern Serengeti's Mara River crossing territory",
       'Two accommodation tiers, both built around maximizing your river-crossing odds',
     ],
-    heroImage: '/images/gallery/Wildebeest-Migration.jpg',
+    heroImage: '/images/gallery/hartebeest-plains.webp',
     gallery: ['/images/gallery/mara-river-crossing.webp', '/images/gallery/olduvai-gorge.webp', '/images/gallery/ngorongoro-crater-landscape.webp', '/images/gallery/tarangire-elephants-baobab.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -5872,7 +5872,7 @@ export const packages: SafariPackage[] = [
       "See Amboseli's tuskers against Kilimanjaro and the Mara's wildlife density without the crowds of the main reserve",
       'Travel with the same trusted guiding team for the full nine days, not a new driver at every stop',
     ],
-    heroImage: '/images/gallery/kenya-destinations.jpg',
+    heroImage: '/images/gallery/lion-mane-closeup.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [
@@ -6047,7 +6047,7 @@ export const packages: SafariPackage[] = [
       "Photograph elephants against Kilimanjaro in Amboseli, one of East Africa's most recognisable safari scenes",
       'Travel at a comfortable, well-paced rhythm rather than a new location every single day',
     ],
-    heroImage: '/images/gallery/mara1.jpg',
+    heroImage: '/images/gallery/grey-crowned-crane.webp',
     gallery: [],
     pricingTiersProvisional: true,
     pricingTiers: [
