@@ -17,7 +17,7 @@ import LemoshoMultiItinerary from '@/components/trekking/LemoshoMultiItinerary'
 import MachameMultiItinerary from '@/components/trekking/MachameMultiItinerary'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import { mlimaniPhoto, mlimaniCapKey } from '@/data/mlimaniGallery'
-import { buildAlternates, localeUrl, SITE_URL } from '@/lib/site'
+import { buildAlternates, localeUrl, SITE_URL, buildBreadcrumbSchema } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -346,6 +346,13 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
     })),
   } : null
 
+  const breadcrumbItems = [
+    { label: 'EWA Safari Outfitters', href: `/${locale}` },
+    { label: t('heroEyebrow'), href: `/${locale}/trekking` },
+    { label: routeContent?.quickFacts.routeName ?? route },
+  ]
+  const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, `/trekking/${route}`)
+
   return (
     <>
       {tripSchema && (
@@ -354,6 +361,10 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }}
         />
       )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {faqSchema && (
         <script
           type="application/ld+json"
@@ -378,11 +389,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
           <div className="flex flex-col lg:flex-row items-end justify-between gap-8">
             {/* Left — title block */}
             <div className="flex-1 min-w-0">
-              <Breadcrumb items={[
-                { label: 'EWA Safari Outfitters', href: `/${locale}` },
-                { label: t('heroEyebrow'), href: `/${locale}/trekking` },
-                { label: routeContent?.quickFacts.routeName ?? route },
-              ]} />
+              <Breadcrumb items={breadcrumbItems} />
               <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
                 {routeContent?.nickname ?? t('heroEyebrow')}
               </span>

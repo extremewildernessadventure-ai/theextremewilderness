@@ -8,7 +8,8 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react'],
   },
   images: {
-    unoptimized: true,
+    loader: 'custom',
+    loaderFile: './src/lib/cloudflareImageLoader.ts',
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     remotePatterns: [

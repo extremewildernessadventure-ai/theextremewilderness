@@ -1280,6 +1280,7 @@
     "contactUs": "Contact Us",
     "whatsAppAriaLabel": "Chat with us on WhatsApp",
     "whatsAppTooltip": "Chat on WhatsApp",
+    "tawkChatTitle": "Chat with us",
     "countryTanzania": "Tanzania",
     "countryKenya": "Kenya",
     "countryRwanda": "Rwanda",
@@ -3183,6 +3184,9 @@
     "filterTanzaniaRwanda": "Tanzania + Rwanda"
   },
   "privacy": {
+    "metaTitle": "Privacy Policy",
+    "metaDescription": "How EWA Safari Outfitters collects, uses, and protects your personal data. GDPR-compliant privacy policy for our safari booking services.",
+    "metaKeywords": ["Tanzania safari privacy policy", "EWA Safari Outfitters data protection", "GDPR safari booking", "safari company privacy policy"],
     "heroTitle1": "Privacy",
     "heroTitle2": "Policy",
     "heroSubtitle": "We are committed to protecting your personal data. This policy explains exactly what we collect, why, and how you stay in control — including your rights under GDPR.",
@@ -3277,6 +3281,9 @@
     "breadcrumbLabel": "Privacy Policy"
   },
   "terms": {
+    "metaTitle": "Terms & Conditions",
+    "metaDescription": "Terms and Conditions for booking safaris, trekking, and travel experiences with EWA Safari Outfitters. Includes cancellation policy, liability, and insurance requirements.",
+    "metaKeywords": ["Tanzania safari terms and conditions", "safari booking cancellation policy", "EWA Safari Outfitters terms", "safari travel insurance requirements"],
     "heroTitle1": "Terms &",
     "heroTitle2": "Conditions",
     "heroSubtitle": "Please read before booking. These terms govern all safaris, trekking expeditions, and travel experiences arranged by EWA Safari Outfitters.",

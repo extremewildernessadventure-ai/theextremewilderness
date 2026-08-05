@@ -390,7 +390,7 @@ export default async function SafarisPage({ params }: Props) {
       {/* ── 5. HOW WE CRAFT YOUR JOURNEY ─────────────────────────────────────── */}
       <section className="bg-brand py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.07]">
-          <Image src="/images/gallery/safari-120.webp" alt="" fill className="object-cover" />
+          <Image src="/images/gallery/safari-120.webp" alt="" fill sizes="100vw" className="object-cover" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

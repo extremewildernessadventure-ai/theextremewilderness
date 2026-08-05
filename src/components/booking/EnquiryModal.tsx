@@ -21,9 +21,9 @@ const COUNTRIES = [
   'Poland', 'Czech Republic', 'Romania', 'Hungary', 'Ukraine', 'Other',
 ]
 
-function Label({ children }: { children: React.ReactNode }) {
+function Label({ htmlFor, children }: { htmlFor?: string; children: React.ReactNode }) {
   return (
-    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
+    <label htmlFor={htmlFor} className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
       {children}
     </label>
   )
@@ -391,16 +391,18 @@ export default function EnquiryModal() {
                 <SectionHeader icon={User} title={t('personalDetails')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                   <div>
-                    <Label>{t('firstNameLabel')}</Label>
+                    <Label htmlFor="enquiry-firstName">{t('firstNameLabel')}</Label>
                     <input
+                      id="enquiry-firstName"
                       type="text" required aria-required="true" value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       placeholder="Jane" className={inputCls}
                     />
                   </div>
                   <div>
-                    <Label>{t('lastNameLabel')}</Label>
+                    <Label htmlFor="enquiry-lastName">{t('lastNameLabel')}</Label>
                     <input
+                      id="enquiry-lastName"
                       type="text" required aria-required="true" value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       placeholder="Smith" className={inputCls}
@@ -409,10 +411,11 @@ export default function EnquiryModal() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                   <div>
-                    <Label>{t('emailLabel')}</Label>
+                    <Label htmlFor="enquiry-email">{t('emailLabel')}</Label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
+                        id="enquiry-email"
                         type="email" required aria-required="true" value={email}
                         onChange={(e) => {
                           setEmail(e.target.value)
@@ -427,7 +430,7 @@ export default function EnquiryModal() {
                     )}
                   </div>
                   <div>
-                    <Label>
+                    <Label htmlFor="enquiry-phone">
                       {t('phoneLabel')}
                       {contactPref === 'email' && (
                         <span className="ml-1 text-gray-400 font-normal normal-case tracking-normal text-[11px]">
@@ -438,6 +441,7 @@ export default function EnquiryModal() {
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
+                        id="enquiry-phone"
                         type="tel"
                         required={contactPref !== 'email'}
                         aria-required={contactPref !== 'email'}
@@ -457,9 +461,9 @@ export default function EnquiryModal() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <Label>{t('gender')}</Label>
+                    <Label htmlFor="enquiry-gender">{t('gender')}</Label>
                     <SelectWrapper>
-                      <select value={gender} onChange={(e) => setGender(e.target.value)} className={selectCls}>
+                      <select id="enquiry-gender" value={gender} onChange={(e) => setGender(e.target.value)} className={selectCls}>
                         <option value="">{t('selectGender')}</option>
                         <option>{t('male')}</option>
                         <option>{t('female')}</option>
@@ -469,9 +473,9 @@ export default function EnquiryModal() {
                     </SelectWrapper>
                   </div>
                   <div>
-                    <Label>{t('countryOfResidence')}</Label>
+                    <Label htmlFor="enquiry-country">{t('countryOfResidence')}</Label>
                     <SelectWrapper>
-                      <select value={country} onChange={(e) => setCountry(e.target.value)} className={selectCls}>
+                      <select id="enquiry-country" value={country} onChange={(e) => setCountry(e.target.value)} className={selectCls}>
                         <option value="">{t('selectCountryModal')}</option>
                         {COUNTRIES.map((c) => <option key={c}>{c}</option>)}
                       </select>
@@ -484,9 +488,10 @@ export default function EnquiryModal() {
               <div>
                 <SectionHeader icon={Calendar} title={t('tripDetails')} />
                 <div className="mb-3">
-                  <Label>{t('tripLabel')}</Label>
+                  <Label htmlFor="enquiry-tripType">{t('tripLabel')}</Label>
                   <SelectWrapper>
                     <select
+                      id="enquiry-tripType"
                       value={tripType}
                       onChange={(e) => setTripType(e.target.value)}
                       disabled={!!bookingInfo?.restrictTripType}
@@ -505,8 +510,9 @@ export default function EnquiryModal() {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                   <div className="min-w-0 overflow-hidden">
-                    <Label>{t('preferredArrival')}</Label>
+                    <Label htmlFor="enquiry-arrivalDate">{t('preferredArrival')}</Label>
                     <input
+                      id="enquiry-arrivalDate"
                       type="date" value={arrivalDate}
                       onChange={(e) => setArrivalDate(e.target.value)}
                       min={new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0]}
@@ -514,8 +520,9 @@ export default function EnquiryModal() {
                     />
                   </div>
                   <div className="min-w-0 overflow-hidden">
-                    <Label>{t('preferredDeparture')}</Label>
+                    <Label htmlFor="enquiry-departureDate">{t('preferredDeparture')}</Label>
                     <input
+                      id="enquiry-departureDate"
                       type="date" value={departureDate}
                       onChange={(e) => setDepartureDate(e.target.value)}
                       min={arrivalDate || new Date(Date.now() + 14 * 86400000).toISOString().split('T')[0]}
@@ -572,6 +579,7 @@ export default function EnquiryModal() {
                         <div key={i} className="relative">
                           <SelectWrapper>
                             <select
+                              aria-label={t('childPlaceholder', { n: i + 1 })}
                               value={age}
                               onChange={(e) => {
                                 const updated = [...childAges]
@@ -596,18 +604,18 @@ export default function EnquiryModal() {
                 <SectionHeader icon={Wallet} title={t('budgetPreferences')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                   <div>
-                    <Label>{t('budgetPerPerson')}</Label>
+                    <Label htmlFor="enquiry-budget">{t('budgetPerPerson')}</Label>
                     <SelectWrapper>
-                      <select value={budget} onChange={(e) => setBudget(e.target.value)} className={selectCls}>
+                      <select id="enquiry-budget" value={budget} onChange={(e) => setBudget(e.target.value)} className={selectCls}>
                         <option value="">{t('selectBudgetModal')}</option>
                         {BUDGET_OPTIONS.map((b) => <option key={b}>{b}</option>)}
                       </select>
                     </SelectWrapper>
                   </div>
                   <div>
-                    <Label>{t('accommodationStyleModal')}</Label>
+                    <Label htmlFor="enquiry-accommodation">{t('accommodationStyleModal')}</Label>
                     <SelectWrapper>
-                      <select value={accommodation} onChange={(e) => setAccommodation(e.target.value)} className={selectCls}>
+                      <select id="enquiry-accommodation" value={accommodation} onChange={(e) => setAccommodation(e.target.value)} className={selectCls}>
                         <option value="">{t('selectStyleModal')}</option>
                         {ACCOMMODATION_OPTIONS.map((a) => <option key={a}>{a}</option>)}
                       </select>
@@ -657,8 +665,9 @@ export default function EnquiryModal() {
                   </div>
                 </div>
                 <div>
-                  <Label>{t('questionsRequests')}</Label>
+                  <Label htmlFor="enquiry-message">{t('questionsRequests')}</Label>
                   <textarea
+                    id="enquiry-message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder={t('questionPlaceholder')}

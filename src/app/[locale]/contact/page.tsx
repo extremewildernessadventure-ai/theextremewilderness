@@ -5,6 +5,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Mail, Phone, MapPin, Star, Award, MessageCircle } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
 import { buildAlternates } from '@/lib/site'
+import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import Reveal from '@/components/motion/Reveal'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -26,21 +27,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('twitterTitle'),
       images: ['/images/gallery/safari-014.jpg'],
     },
-    keywords: [
-      'book Tanzania safari',
-      'Tanzania safari enquiry',
-      'plan my safari',
-      'safari quote Tanzania',
-      'contact Tanzania tour operator',
-      'Tanzania safari booking',
-      'Africa safari booking',
-      'custom safari Tanzania',
-      'Tanzania safari consultation',
-      'East Africa travel agent',
-      'safari holiday booking',
-      'Africa tour package enquiry',
-      'Tanzania safari advisor',
-    ],
+    keywords: locale === 'en'
+      ? [
+          'book Tanzania safari',
+          'Tanzania safari enquiry',
+          'plan my safari',
+          'safari quote Tanzania',
+          'contact Tanzania tour operator',
+          'Tanzania safari booking',
+          'Africa safari booking',
+          'custom safari Tanzania',
+          'Tanzania safari consultation',
+          'East Africa travel agent',
+          'safari holiday booking',
+          'Africa tour package enquiry',
+          'Tanzania safari advisor',
+        ]
+      : CORE_KEYWORDS_BY_LOCALE[locale as keyof typeof CORE_KEYWORDS_BY_LOCALE],
   }
 }
 

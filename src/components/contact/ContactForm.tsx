@@ -89,10 +89,11 @@ export default function ContactForm() {
 
         {/* Full Name */}
         <div>
-          <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
+          <label htmlFor="contact-fullName" className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
             {t('contactForm.fullName')} <span className="text-red-400">*</span>
           </label>
           <input
+            id="contact-fullName"
             name="fullName"
             required
             value={form.fullName}
@@ -105,10 +106,11 @@ export default function ContactForm() {
         {/* Email + Phone */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
+            <label htmlFor="contact-email" className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
               {t('contactForm.emailAddress')} <span className="text-red-400">*</span>
             </label>
             <input
+              id="contact-email"
               name="email"
               type="email"
               required
@@ -119,10 +121,11 @@ export default function ContactForm() {
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
+            <label htmlFor="contact-phone" className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
               {t('contactForm.phoneWhatsapp')}
             </label>
             <input
+              id="contact-phone"
               name="phone"
               type="tel"
               value={form.phone}
@@ -135,11 +138,12 @@ export default function ContactForm() {
 
         {/* Subject */}
         <div>
-          <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
+          <label htmlFor="contact-subject" className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
             {t('contactForm.subject')} <span className="text-red-400">*</span>
           </label>
           <div className="relative">
             <select
+              id="contact-subject"
               name="subject"
               required
               value={form.subject}
@@ -157,10 +161,11 @@ export default function ContactForm() {
 
         {/* Message */}
         <div>
-          <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
+          <label htmlFor="contact-message" className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5">
             {t('contactForm.message')} <span className="text-red-400">*</span>
           </label>
           <textarea
+            id="contact-message"
             name="message"
             required
             value={form.message}

@@ -14,10 +14,12 @@ type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'terms' })
   return {
     alternates: buildAlternates(locale, '/terms'),
-    title: 'Terms & Conditions',
-    description: 'Terms and Conditions for booking safaris, trekking, and travel experiences with EWA Safari Outfitters. Includes cancellation policy, liability, and insurance requirements.',
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    keywords: t.raw('metaKeywords') as string[],
   }
 }
 

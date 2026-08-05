@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, setRequestLocale } from 'next-intl/server'
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { SITE_URL } from '@/lib/site'
@@ -18,6 +18,26 @@ type Props = {
 
 const OG_LOCALE: Record<string, string> = {
   en: 'en_US', fr: 'fr_FR', es: 'es_ES', de: 'de_DE', ru: 'ru_RU', zh: 'zh_CN', 'zh-TW': 'zh_TW',
+}
+
+// The full messages/{locale}.json catalog also holds every server-only page
+// namespace (about, blog, kenya, rwanda, travel-info, privacy, terms, ...) —
+// those are only ever read via getTranslations() in server components and
+// never touch the client, so shipping them to NextIntlClientProvider is pure
+// waste. This is the exhaustive set of namespaces any `useTranslations()`
+// call anywhere in the client tree actually reads (grep for
+// `useTranslations\(` across src/ to re-verify if a new client component
+// starts using an untracked namespace — it'll throw a missing-key error in
+// dev if this list falls out of sync).
+const CLIENT_NAMESPACES = [
+  'common', 'forms', 'nav', 'bottomNav', 'home', 'safari', 'destinations',
+  'trekking', 'trekkingRouteDetail', 'tradePartners', 'pdfLead', 'planBuilder',
+] as const
+
+function pickMessages(messages: Record<string, unknown>, namespaces: readonly string[]) {
+  return Object.fromEntries(
+    namespaces.filter((ns) => ns in messages).map((ns) => [ns, messages[ns]])
+  )
 }
 
 // Canonical/hreflang alternates are set per-page (via buildAlternates in
@@ -46,6 +66,8 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale)
   const messages = await getMessages()
+  const clientMessages = pickMessages(messages, CLIENT_NAMESPACES)
+  const tc = await getTranslations({ locale, namespace: 'common' })
 
   const orgSchema = {
     '@context': 'https://schema.org',
@@ -78,7 +100,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={clientMessages}>
       <Providers>
         {/* Root layout (above this segment) can't read `locale` without a
             Dynamic API, so it hardcodes lang="en". This corrects it
@@ -87,6 +109,13 @@ export default async function LocaleLayout({ children, params }: Props) {
         {locale !== 'en' && (
           <script
             dangerouslySetInnerHTML={{ __html: `document.documentElement.lang=${JSON.stringify(locale)}` }}
+          />
+        )}
+        {/* Read by the Tawk reposition script in the root layout, which
+            can't access the locale itself — see the comment there. */}
+        {locale !== 'en' && (
+          <script
+            dangerouslySetInnerHTML={{ __html: `window.__tawkChatTitle=${JSON.stringify(tc('tawkChatTitle'))}` }}
           />
         )}
         <script

@@ -1,0 +1,58 @@
+import type { routing } from '@/i18n/routing'
+
+type Locale = (typeof routing.locales)[number]
+
+// Genuinely market-researched core/pillar search terms per locale — NOT
+// translations of the English list. Each locale's terms reflect that
+// market's actual search phrasing (compound nouns for German, transactional
+// Cyrillic-only phrasing for Russian, separate transliteration conventions
+// for mainland vs. Taiwan Chinese, etc.) and a deliberate luxury-safari
+// weighting for zh/zh-TW per confirmed demand. These are reused as a
+// fallback layer across package/destination/home-type metadata until
+// per-entry research (Phase 3/4 of the SEO plan) replaces them with
+// long-tail terms specific to that package or destination.
+//
+// This list is intentionally not exhaustive per locale — it's the shared
+// "pillar" tier; long-tail expansion happens per-package/per-destination as
+// that research lands, not by growing this file indefinitely.
+export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
+  en: [
+    'Tanzania safari', 'Tanzania safari 2026', 'Serengeti safari', 'Kilimanjaro trekking',
+    'gorilla trekking Rwanda', 'luxury Tanzania safari', 'Tanzania safari cost',
+    'honeymoon safari Africa', 'Tanzania tour operator', 'East Africa safari',
+  ],
+  de: [
+    'Tansania Safari', 'Kilimandscharo Besteigung', 'Serengeti Safari', 'Safari Tansania Kosten',
+    'beste Reisezeit Serengeti', 'Gorillas Ruanda Trekking', 'Luxus Safari Afrika',
+    'Sansibar Rundreise', 'Safari buchen Tansania', 'Kilimandscharo Trekking Machame Route',
+    'Familiensafari Tansania', 'Flitterwochen Safari Afrika',
+  ],
+  es: [
+    'safari en Tanzania', 'safari de lujo África', 'ascensión al Kilimanjaro',
+    'gorilas Ruanda trekking', 'mejor época para safari Serengeti', 'precio safari Tanzania',
+    'safari luna de miel', 'safari Serengeti Ngorongoro', 'tour Tanzania todo incluido',
+    'safari en familia África', 'ruta Machame Kilimanjaro', 'Zanzíbar playa y safari',
+  ],
+  fr: [
+    'safari en Tanzanie', 'safari de luxe Afrique', 'ascension du Kilimandjaro',
+    'trek gorilles Rwanda', 'meilleure période safari Serengeti', 'prix safari Tanzanie',
+    'safari voyage de noces', 'safari Serengeti Ngorongoro', 'circuit Tanzanie sur mesure',
+    'safari en famille Afrique', 'voie Machame Kilimandjaro', 'Zanzibar plage et safari',
+  ],
+  ru: [
+    'сафари в Танзании', 'восхождение на Килиманджаро', 'гориллы Руанда трекинг',
+    'сафари Танзания цена', 'лучшее время для сафари Серенгети', 'треккинг сафари Танзания',
+    'роскошное сафари Африка', 'сафари медовый месяц', 'тур в Танзанию все включено',
+    'сафари Серенгети Нгоронгоро', 'маршрут Мачаме Килиманджаро', 'сафари для семьи Африка',
+  ],
+  zh: [
+    '坦桑尼亚豪华野生动物园', '乞力马扎罗山攀登', '卢旺达大猩猩徒步', '塞伦盖蒂野生动物园',
+    '非洲蜜月游猎', '坦桑尼亚旅游价格', '私人向导野生动物园', '桑给巴尔海滩度假',
+    '恩戈罗恩戈罗火山口野生动物园', '非洲奢华旅行', '马查梅路线乞力马扎罗', '家庭野生动物园非洲',
+  ],
+  'zh-TW': [
+    '坦尚尼亞豪華野生動物園', '吉力馬札羅山攀登', '盧安達大猩猩健行', '塞倫蓋提野生動物園',
+    '非洲蜜月狩獵之旅', '坦尚尼亞旅遊價格', '私人嚮導野生動物園', '尚吉巴海灘度假',
+    '恩戈羅恩戈羅火山口野生動物園', '非洲奢華旅行', '馬查美路線吉力馬札羅', '非洲家庭野生動物園',
+  ],
+}

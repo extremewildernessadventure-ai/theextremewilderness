@@ -1378,6 +1378,7 @@
     "contactUs": "聯絡我們",
     "whatsAppAriaLabel": "在WhatsApp上與我們聊天",
     "whatsAppTooltip": "在WhatsApp上聊天",
+    "tawkChatTitle": "與我們聊天",
     "countryTanzania": "坦尚尼亞",
     "countryKenya": "肯亞",
     "countryRwanda": "盧安達",
@@ -3281,6 +3282,9 @@
     "filterTanzaniaRwanda": "坦尚尼亞 + 盧安達"
   },
   "privacy": {
+    "metaTitle": "隱私政策",
+    "metaDescription": "了解EWA Safari Outfitters如何收集、使用和保護您的個人資料。符合GDPR標準的野生動物園預訂隱私政策。",
+    "metaKeywords": ["坦尚尼亞野生動物園隱私政策", "GDPR野生動物園預訂", "旅行社資料保護"],
     "heroTitle1": "隱私",
     "heroTitle2": "政策",
     "heroSubtitle": "我們致力於保護您的個人資料。本政策準確說明我們收集什麼、為什麼收集，以及您如何保持掌控——包括您在GDPR下的權利。",
@@ -3375,6 +3379,9 @@
     "breadcrumbLabel": "隱私政策"
   },
   "terms": {
+    "metaTitle": "條款與條件",
+    "metaDescription": "在EWA Safari Outfitters預訂野生動物園、健行和旅遊體驗的條款和條件。包括取消政策、責任和保險要求。",
+    "metaKeywords": ["坦尚尼亞野生動物園條款與條件", "野生動物園預訂取消政策", "EWA Safari Outfitters條款", "野生動物園旅遊保險"],
     "heroTitle1": "條款與",
     "heroTitle2": "條件",
     "heroSubtitle": "預訂前請閱讀。這些條款適用於EWA Safari Outfitters安排的所有獵遊、健行探險和旅行體驗。",

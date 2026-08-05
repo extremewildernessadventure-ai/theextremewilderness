@@ -13,7 +13,7 @@ import { getPackages, getPackage } from '@/data/packages.i18n'
 import { getDestinations, getDestination } from '@/data/destinations.i18n'
 import { routing } from '@/i18n/routing'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { SITE_URL, buildAlternates } from '@/lib/site'
+import { SITE_URL, buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
 
@@ -186,9 +186,17 @@ export default async function BlogArticlePage({ params }: Props) {
     dateModified: new Date(post.lastUpdated ?? post.date).toISOString(),
   }
 
+  const breadcrumbItems = [
+    { label: 'EWA Safari Outfitters', href: `/${locale}` },
+    { label: t('breadcrumbLabel'), href: `/${locale}/blog` },
+    { label: post.title },
+  ]
+  const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, `/blog/${slug}`)
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
       <section className="relative h-[55vh] md:h-[65vh] flex items-end">
@@ -197,11 +205,7 @@ export default async function BlogArticlePage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
-          <Breadcrumb items={[
-            { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: t('breadcrumbLabel'), href: `/${locale}/blog` },
-            { label: post.title },
-          ]} />
+          <Breadcrumb items={breadcrumbItems} />
           <div className="flex flex-wrap gap-3 items-center mb-4">
             <span className="bg-brand text-white text-xs font-semibold px-3 py-1 rounded-full">{post.category}</span>
             <span className="flex items-center gap-1 text-white/60 text-sm"><Calendar size={13} />{post.lastUpdated ? `${t('updated')} ${post.lastUpdated}` : post.date}</span>

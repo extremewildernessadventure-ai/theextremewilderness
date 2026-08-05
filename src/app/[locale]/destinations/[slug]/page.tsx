@@ -13,7 +13,8 @@ import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import { routing } from '@/i18n/routing'
-import { SITE_URL, localeUrl, buildAlternates } from '@/lib/site'
+import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
@@ -131,6 +132,11 @@ const DEST_KEYWORDS: Record<string, string[]> = {
 }
 const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
+// Per-destination, per-locale research (Phase 3/4 of the SEO plan) lands
+// here as it's completed — see the matching comment on SAFARI_KEYWORDS_BY_LOCALE
+// in safaris/[slug]/page.tsx for the same pattern.
+const DEST_KEYWORDS_BY_LOCALE: Partial<Record<string, Partial<Record<string, string[]>>>> = {}
+
 interface Props {
   params: Promise<{ locale: string; slug: string }>
 }
@@ -152,11 +158,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: buildAlternates(locale, `/destinations/${slug}`),
     title,
     description,
-    keywords: DEST_KEYWORDS[slug] ?? [
-      `${dest.name} safari`, `${dest.name} tour`, `${dest.name} Tanzania`,
-      `visit ${dest.name}`, `${dest.name} wildlife`, `${dest.name} 2026`,
-      'Tanzania safari', 'East Africa safari', 'Tanzania tour operator', 'Africa safari holiday',
-    ],
+    keywords:
+      DEST_KEYWORDS_BY_LOCALE[locale]?.[slug]
+      ?? (locale === 'en'
+        ? (DEST_KEYWORDS[slug] ?? [
+            `${dest.name} safari`, `${dest.name} tour`, `${dest.name} Tanzania`,
+            `visit ${dest.name}`, `${dest.name} wildlife`, `${dest.name} 2026`,
+            'Tanzania safari', 'East Africa safari', 'Tanzania tour operator', 'Africa safari holiday',
+          ])
+        : CORE_KEYWORDS_BY_LOCALE[locale as keyof typeof CORE_KEYWORDS_BY_LOCALE]),
     openGraph: {
       title,
       description,
@@ -218,11 +228,22 @@ export default async function DestinationPage({ params }: Props) {
   const mapBbox = `${lng - 0.2},${lat - 0.15},${lng + 0.2},${lat + 0.15}`
   const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${mapBbox}&marker=${lat},${lng}`
 
+  const breadcrumbItems = [
+    { label: 'EWA Safari Outfitters', href: `/${locale}` },
+    { label: t('breadcrumbLabel'), href: `/${locale}/destinations` },
+    { label: dest.name },
+  ]
+  const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, `/destinations/${slug}`)
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(attractionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {faqSchema && (
         <script
@@ -242,11 +263,7 @@ export default async function DestinationPage({ params }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/30 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
-          <Breadcrumb items={[
-            { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: t('breadcrumbLabel'), href: `/${locale}/destinations` },
-            { label: dest.name },
-          ]} />
+          <Breadcrumb items={breadcrumbItems} />
           <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-2">{dest.name}</h1>
           <p className="text-gold text-lg font-medium">{dest.tagline}</p>
         </div>

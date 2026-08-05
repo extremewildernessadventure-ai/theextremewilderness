@@ -56,3 +56,6 @@ next-env.d.ts
 
 # generated per-locale data assets (regenerated from src/data on every build)
 /public/locale-data/
+
+# ad-hoc lighthouse audit output (scripts/lighthouse-audit.mjs)
+/lighthouse-reports/

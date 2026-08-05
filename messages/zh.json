@@ -1352,6 +1352,7 @@
     "contactUs": "联系我们",
     "whatsAppAriaLabel": "在WhatsApp上与我们聊天",
     "whatsAppTooltip": "在WhatsApp上聊天",
+    "tawkChatTitle": "与我们聊天",
     "countryTanzania": "坦桑尼亚",
     "countryKenya": "肯尼亚",
     "countryRwanda": "卢旺达",
@@ -3255,6 +3256,9 @@
     "filterTanzaniaRwanda": "坦桑尼亚 + 卢旺达"
   },
   "privacy": {
+    "metaTitle": "隐私政策",
+    "metaDescription": "了解EWA Safari Outfitters如何收集、使用和保护您的个人数据。符合GDPR标准的野生动物园预订隐私政策。",
+    "metaKeywords": ["坦桑尼亚野生动物园隐私政策", "GDPR野生动物园预订", "旅行社数据保护"],
     "heroTitle1": "隐私",
     "heroTitle2": "政策",
     "heroSubtitle": "我们致力于保护您的个人数据。本政策准确说明我们收集什么、为什么收集，以及您如何保持掌控——包括您在GDPR下的权利。",
@@ -3349,6 +3353,9 @@
     "breadcrumbLabel": "隐私政策"
   },
   "terms": {
+    "metaTitle": "条款与条件",
+    "metaDescription": "在EWA Safari Outfitters预订野生动物园、徒步旅行和旅游体验的条款和条件。包括取消政策、责任和保险要求。",
+    "metaKeywords": ["坦桑尼亚野生动物园条款与条件", "野生动物园预订取消政策", "EWA Safari Outfitters条款", "野生动物园旅行保险"],
     "heroTitle1": "条款与",
     "heroTitle2": "条件",
     "heroSubtitle": "预订前请阅读。这些条款适用于EWA Safari Outfitters安排的所有游猎、徒步探险和旅行体验。",

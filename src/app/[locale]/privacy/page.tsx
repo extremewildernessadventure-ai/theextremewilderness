@@ -10,10 +10,12 @@ type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'privacy' })
   return {
     alternates: buildAlternates(locale, '/privacy'),
-    title: 'Privacy Policy',
-    description: 'How EWA Safari Outfitters collects, uses, and protects your personal data. GDPR-compliant privacy policy for our safari booking services.',
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    keywords: t.raw('metaKeywords') as string[],
   }
 }
 

@@ -4,6 +4,7 @@ import { packageTags } from '@/data/packageTags'
 import { getFxRates } from '@/lib/fxRates'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { SITE_URL, buildAlternates } from '@/lib/site'
+import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import PlanPageClient from '@/components/plan/PlanPageClient'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -20,18 +21,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: buildAlternates(locale, '/plan'),
     title,
     description,
-    keywords: [
-      'AI safari planner',
-      'AI travel advisor Tanzania',
-      'AI safari advisor Kenya Rwanda',
-      'plan Tanzania safari online',
-      'Tanzania Kenya Rwanda trip planner',
-      'custom safari builder',
-      'safari itinerary generator',
-      'build your own safari',
-      'East Africa safari planning tool',
-      'AI travel assistant Africa',
-    ],
+    keywords: locale === 'en'
+      ? [
+          'AI safari planner',
+          'AI travel advisor Tanzania',
+          'AI safari advisor Kenya Rwanda',
+          'plan Tanzania safari online',
+          'Tanzania Kenya Rwanda trip planner',
+          'custom safari builder',
+          'safari itinerary generator',
+          'build your own safari',
+          'East Africa safari planning tool',
+          'AI travel assistant Africa',
+        ]
+      : CORE_KEYWORDS_BY_LOCALE[locale as keyof typeof CORE_KEYWORDS_BY_LOCALE],
     openGraph: {
       title,
       description,

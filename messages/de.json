@@ -1194,6 +1194,7 @@
     "contactUs": "Kontaktieren Sie uns",
     "whatsAppAriaLabel": "Chatten Sie mit uns auf WhatsApp",
     "whatsAppTooltip": "Chat auf WhatsApp",
+    "tawkChatTitle": "Chatten Sie mit uns",
     "countryTanzania": "Tansania",
     "countryKenya": "Kenia",
     "countryRwanda": "Ruanda",
@@ -3097,6 +3098,9 @@
     "filterTanzaniaRwanda": "Tansania + Ruanda"
   },
   "privacy": {
+    "metaTitle": "Datenschutzerklärung",
+    "metaDescription": "Wie EWA Safari Outfitters Ihre personenbezogenen Daten erhebt, nutzt und schützt. DSGVO-konforme Datenschutzerklärung für unsere Safari-Buchungen.",
+    "metaKeywords": ["Datenschutzerklärung Safari Tansania", "DSGVO Safari Buchung", "Datenschutz Reiseveranstalter"],
     "heroTitle1": "Datenschutz-",
     "heroTitle2": "richtlinie",
     "heroSubtitle": "Wir sind verpflichtet, Ihre persönlichen Daten zu schützen. Diese Richtlinie erklärt genau, was wir sammeln, warum und wie Sie die Kontrolle behalten — einschließlich Ihrer Rechte unter der DSGVO.",
@@ -3191,6 +3195,9 @@
     "breadcrumbLabel": "Datenschutzrichtlinie"
   },
   "terms": {
+    "metaTitle": "Allgemeine Geschäftsbedingungen",
+    "metaDescription": "Allgemeine Geschäftsbedingungen für die Buchung von Safaris, Trekkingtouren und Reiseerlebnissen bei EWA Safari Outfitters. Enthält Stornierungsbedingungen, Haftung und Versicherungsanforderungen.",
+    "metaKeywords": ["AGB Safari Tansania", "Safari Stornierungsbedingungen", "EWA Safari Outfitters AGB", "Reiseversicherung Safari"],
     "heroTitle1": "Allgemeine",
     "heroTitle2": "Geschäftsbedingungen",
     "heroSubtitle": "Bitte vor der Buchung lesen. Diese Bedingungen regeln alle Safaris, Trekking-Expeditionen und Reiseerlebnisse, die von EWA Safari Outfitters arrangiert werden.",

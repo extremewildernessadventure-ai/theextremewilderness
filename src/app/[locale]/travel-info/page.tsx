@@ -7,6 +7,7 @@ import {
   Shirt, ShieldCheck, Phone, Syringe, Sun,
 } from 'lucide-react'
 import { buildAlternates } from '@/lib/site'
+import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import Reveal from '@/components/motion/Reveal'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -28,23 +29,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('twitterTitle'),
       images: ['/images/gallery/safari-118.jpg'],
     },
-    keywords: [
-      'Tanzania visa requirements',
-      'Tanzania travel tips',
-      'Tanzania health vaccinations',
-      'Tanzania safari packing list',
-      'best time to visit Tanzania',
-      'Tanzania weather safari',
-      'Tanzania currency',
-      'Tanzania malaria prevention',
-      'Tanzania entry requirements',
-      'Tanzania travel guide USA',
-      'Tanzania holiday guide UK',
-      'what to pack for safari',
-      'Tanzania travel insurance',
-      'Tanzania yellow fever certificate',
-      'Tanzania travel advice',
-    ],
+    keywords: locale === 'en'
+      ? [
+          'Tanzania visa requirements',
+          'Tanzania travel tips',
+          'Tanzania health vaccinations',
+          'Tanzania safari packing list',
+          'best time to visit Tanzania',
+          'Tanzania weather safari',
+          'Tanzania currency',
+          'Tanzania malaria prevention',
+          'Tanzania entry requirements',
+          'Tanzania travel guide USA',
+          'Tanzania holiday guide UK',
+          'what to pack for safari',
+          'Tanzania travel insurance',
+          'Tanzania yellow fever certificate',
+          'Tanzania travel advice',
+        ]
+      : CORE_KEYWORDS_BY_LOCALE[locale as keyof typeof CORE_KEYWORDS_BY_LOCALE],
   }
 }
 

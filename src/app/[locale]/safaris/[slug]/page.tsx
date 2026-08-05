@@ -15,7 +15,8 @@ import { getPackage, getPackages } from '@/data/packages.i18n'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import { routing } from '@/i18n/routing'
-import { SITE_URL, localeUrl, buildAlternates } from '@/lib/site'
+import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
 
@@ -189,6 +190,13 @@ const DEFAULT_SAFARI_KEYWORDS = [
   'Tanzania wildlife tour', 'safari Tanzania 2026', 'Africa safari vacation',
 ]
 
+// Per-package, per-locale research (Phase 3/4 of the SEO plan) lands here as
+// it's completed — e.g. SAFARI_KEYWORDS_BY_LOCALE.de['7-day-serengeti-ngorongoro'].
+// Until a given locale/slug has an entry, generateMetadata below falls back to
+// that locale's researched core/pillar terms (@/data/coreKeywords) rather than
+// silently serving the English SAFARI_KEYWORDS regardless of locale.
+const SAFARI_KEYWORDS_BY_LOCALE: Partial<Record<string, Partial<Record<string, string[]>>>> = {}
+
 const SAFARI_BLOG_MAP: Record<string, string> = {
   '7-day-serengeti-ngorongoro':          'best-time-to-visit-serengeti',
   '10-day-northern-circuit':             'great-migration-guide',
@@ -253,7 +261,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: buildAlternates(locale, `/safaris/${slug}`),
     title,
     description,
-    keywords: SAFARI_KEYWORDS[slug] ?? DEFAULT_SAFARI_KEYWORDS,
+    keywords:
+      SAFARI_KEYWORDS_BY_LOCALE[locale]?.[slug]
+      ?? (locale === 'en'
+        ? (SAFARI_KEYWORDS[slug] ?? DEFAULT_SAFARI_KEYWORDS)
+        : CORE_KEYWORDS_BY_LOCALE[locale as keyof typeof CORE_KEYWORDS_BY_LOCALE]),
     openGraph: {
       title: pkg.metaTitle ?? pkg.name,
       description,
@@ -343,11 +355,22 @@ export default async function SafariPackagePage({ params }: Props) {
 
   const allPackages = await getPackages(locale)
 
+  const breadcrumbItems = [
+    { label: 'EWA Safari Outfitters', href: `/${locale}` },
+    { label: t('breadcrumbLabel'), href: `/${locale}/safaris` },
+    { label: pkg.name },
+  ]
+  const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, `/safaris/${slug}`)
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(touristTripSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       {faqSchema && (
         <script
@@ -360,11 +383,7 @@ export default async function SafariPackagePage({ params }: Props) {
         <Image src={pkg.heroImage} alt={pkg.name} fill className="object-cover" priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/20 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
-          <Breadcrumb items={[
-            { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: t('breadcrumbLabel'), href: `/${locale}/safaris` },
-            { label: pkg.name },
-          ]} />
+          <Breadcrumb items={breadcrumbItems} />
           <div className="flex items-start justify-between flex-wrap gap-4">
             <div>
               {pkg.badge && (

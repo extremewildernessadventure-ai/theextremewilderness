@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, localeUrl } from '@/lib/site'
+import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import HeroSection from '@/components/home/HeroSection'
 import TrustBar from '@/components/home/TrustBar'
 import StatsRow from '@/components/home/StatsRow'
@@ -26,18 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: buildAlternates(locale, '/'),
     title: { absolute: t('metaTitle') },
     description: t('metaDescription'),
-    keywords: [
-      'Tanzania safari',
-      'Tanzania safari 2026',
-      'Serengeti safari',
-      'Kilimanjaro trekking',
-      'gorilla trekking Rwanda',
-      'Masai Mara Kenya safari',
-      'Tanzania tour operator',
-      'East Africa safari',
-      'Great Migration safari',
-      'Ngorongoro Crater safari',
-    ],
+    keywords: CORE_KEYWORDS_BY_LOCALE[locale as keyof typeof CORE_KEYWORDS_BY_LOCALE] ?? CORE_KEYWORDS_BY_LOCALE.en,
     openGraph: {
       title: t('ogTitle'),
       description: t('ogDescription'),
@@ -55,8 +45,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
+
+  // No SearchAction here — Google's guidelines require that target to be a
+  // real, working search URL, and this site has no internal search feature
+  // to point it at (a fabricated target would just be invalid structured
+  // data, not a working sitelinks searchbox).
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'EWA Safari Outfitters',
+    url: localeUrl(locale, '/'),
+    inLanguage: locale,
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       <HeroSection />
       <TrustBar />
       <StatsRow />

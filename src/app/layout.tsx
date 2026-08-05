@@ -97,7 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Script
           id="gtm-head"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -196,7 +196,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     // frame-title check. Only Tawk creates same-origin
                     // frames on this site, so any frame we can reach here
                     // is safe to title directly (we can't edit the embed).
-                    if (!frame.title) frame.title = 'Chat with us';
+                    // This script lives in the root layout, which can't read
+                    // the locale segment — window.__tawkChatTitle is set by
+                    // a small per-locale script in [locale]/layout.tsx.
+                    if (!frame.title) frame.title = window.__tawkChatTitle || 'Chat with us';
                     if (window.getComputedStyle(frame).position !== 'fixed') continue;
                     if (doc.querySelector('.tawk-min-container')) {
                       // On the very first tick this iframe can already be

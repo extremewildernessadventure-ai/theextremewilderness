@@ -29,3 +29,34 @@ export function buildAlternates(locale: string, path: string): Metadata['alterna
     },
   }
 }
+
+interface BreadcrumbTrailItem {
+  label: string
+  href?: string
+}
+
+/**
+ * Builds schema.org BreadcrumbList JSON-LD from the same {label, href?} trail
+ * data already passed to the <Breadcrumb> UI component on every content page
+ * (see @/components/ui/Breadcrumb) — reuses that trail instead of
+ * recomputing it, so the two never drift apart.
+ *
+ * <Breadcrumb>'s own `href`s are already full locale-prefixed root paths
+ * (e.g. `/de/safaris`, built by each page as `/${locale}/safaris`) since it
+ * renders with plain next/link, not the locale-aware Link from
+ * @/i18n/navigation — so those just get the site origin prepended. The last
+ * item (the current page) has no href, so it needs `currentPath` (an
+ * *unprefixed* path like `/safaris/${slug}`) run through localeUrl instead.
+ */
+export function buildBreadcrumbSchema(locale: string, items: BreadcrumbTrailItem[], currentPath: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.label,
+      item: item.href ? `${SITE_URL}${item.href}` : localeUrl(locale, currentPath),
+    })),
+  }
+}
