@@ -4634,7 +4634,7 @@ export const packages: SafariPackage[] = [
       '嚮導陪同下降恩戈羅恩戈羅火山口——一天之內觀賞五大獸',
       '塔蘭吉雷傳奇般的象群與古老猴麵包樹',
     ],
-    heroImage: '/images/gallery/lion-face-on.webp',
+    heroImage: '/images/gallery/lion-resting-shade.webp',
     gallery: ['/images/gallery/kenya-destinations.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [

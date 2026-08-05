@@ -4634,7 +4634,7 @@ export const packages: SafariPackage[] = [
       'Спуск с гидом в кратер Нгоронгоро — Большая пятёрка за один день',
       'Легендарные стада слонов и древние баобабы Тарангире',
     ],
-    heroImage: '/images/gallery/lion-face-on.webp',
+    heroImage: '/images/gallery/lion-resting-shade.webp',
     gallery: ['/images/gallery/kenya-destinations.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [

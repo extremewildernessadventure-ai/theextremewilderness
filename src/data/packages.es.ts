@@ -4518,7 +4518,7 @@ export const packages: SafariPackage[] = [
       'Descenso guiado al Cráter del Ngorongoro — todos los Big Five en un día',
       'Las legendarias manadas de elefantes de Tarangire y sus milenarios baobabs',
     ],
-    heroImage: '/images/gallery/lion-face-on.webp',
+    heroImage: '/images/gallery/lion-resting-shade.webp',
     gallery: ['/images/gallery/kenya-destinations.webp'],
     pricingTiersProvisional: true,
     pricingTiers: [
