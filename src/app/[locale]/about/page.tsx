@@ -38,9 +38,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const galleryImages = [
   '/images/gallery/Serengeti-National-park.webp',
   '/images/gallery/safari-007.webp',
-  '/images/gallery/kilimanjarosasa.webp',
+  '/images/gallery/ewa-vehicle-arusha-street.webp',
   '/images/gallery/elephants.webp',
-  '/images/gallery/safari-014.webp',
+  '/images/gallery/ewa-group-palms.webp',
   '/images/gallery/zanzibar-nungwi-aerial.webp',
 ]
 
@@ -121,10 +121,10 @@ export default async function AboutPage({ params }: Props) {
 
         <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2">
           <div className="absolute inset-y-0 left-0 w-32 z-10 bg-gradient-to-r from-brand to-transparent" />
-          <Image src="/images/gallery/elephants.webp" alt={t('heroImageAlt')} fill className="object-cover" priority sizes="50vw" />
+          <Image src="/images/gallery/ewa-guests-guide-forest.webp" alt={t('heroImageAlt')} fill className="object-cover" priority sizes="50vw" />
         </div>
         <div className="lg:hidden absolute inset-0 z-0">
-          <Image src="/images/gallery/elephants.webp" alt={t('heroImageAlt')} fill className="object-cover opacity-20" priority sizes="100vw" />
+          <Image src="/images/gallery/ewa-guests-guide-forest.webp" alt={t('heroImageAlt')} fill className="object-cover opacity-20" priority sizes="100vw" />
         </div>
       </section>
 
@@ -166,7 +166,7 @@ export default async function AboutPage({ params }: Props) {
             </Reveal>
             <Reveal delay={0.15} className="relative">
               <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
-                <Image src="/images/gallery/kilimanjaro1.webp" alt={t('storyImageAlt')} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                <Image src="/images/gallery/ewa-vehicle-bamboo-forest.webp" alt={t('storyImageAlt')} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand/40 to-transparent" />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100">
@@ -249,21 +249,29 @@ export default async function AboutPage({ params }: Props) {
             <h2 className="text-3xl lg:text-4xl font-bold text-brand">{t('findOurOffice')}</h2>
           </Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-            <Reveal className="bg-brand rounded-2xl p-8 lg:p-10 flex flex-col min-h-[400px]">
-              <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
+            <Reveal className="relative overflow-hidden rounded-2xl p-8 lg:p-10 flex flex-col min-h-[400px]">
+              <Image
+                src="/images/gallery/ewa-guests-guide-arusha.webp"
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-brand/85" />
+              <div className="relative z-10 w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6">
                 <MapPin className="w-7 h-7 text-gold" />
               </div>
-              <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-2">{t('ourOfficeCard')}</p>
-              <h3 className="text-white font-bold text-2xl leading-snug mb-6">
+              <p className="relative z-10 text-gold text-xs font-semibold uppercase tracking-widest mb-2">{t('ourOfficeCard')}</p>
+              <h3 className="relative z-10 text-white font-bold text-2xl leading-snug mb-6">
                 {t('companyName')}
               </h3>
-              <div className="border-t border-white/10 mb-6" />
-              <div className="space-y-1">
+              <div className="relative z-10 border-t border-white/10 mb-6" />
+              <div className="relative z-10 space-y-1">
                 <p className="text-white/70 text-sm">Near Kaloleni Primary School</p>
                 <p className="text-white/70 text-sm">Kaloleni, Arusha</p>
                 <p className="text-white/70 text-sm">Tanzania, East Africa</p>
               </div>
-              <div className="mt-auto pt-8">
+              <div className="relative z-10 mt-auto pt-8">
                 <a
                   href="https://www.google.com/maps/place/The+Extreme+Wilderness+Adventure/@-3.3649565,36.6889837,17z"
                   target="_blank"

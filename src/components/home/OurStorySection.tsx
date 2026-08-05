@@ -29,7 +29,7 @@ export default function OurStorySection() {
           <Reveal delay={0.15}>
             <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/gallery/rhinos-story.webp"
+                src="/images/gallery/ewa-vehicle-hero.webp"
                 alt={t('ourStoryImageAlt')}
                 fill
                 className="object-cover"
