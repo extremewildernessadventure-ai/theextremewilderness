@@ -13,12 +13,8 @@
 	},
 	"workers_dev": false,
 	"routes": [
-		{ "pattern": "www.theextremewilderness.com", "custom_domain": true }
-		// theextremewilderness.com (apex) was removed here — Cloudflare refused
-		// to attach it because a leftover DNS record (from the pre-migration
-		// Vercel setup) still exists for the bare domain. Delete that record in
-		// the DNS dashboard the domain's nameservers actually point to, then
-		// re-add: { "pattern": "theextremewilderness.com", "custom_domain": true }
+		{ "pattern": "www.theextremewilderness.com", "custom_domain": true },
+		{ "pattern": "theextremewilderness.com", "custom_domain": true }
 	],
 	"services": [
 		{
