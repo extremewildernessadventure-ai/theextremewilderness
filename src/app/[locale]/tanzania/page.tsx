@@ -1,6 +1,6 @@
 import { buildAlternates } from '@/lib/site'
 
-export { default } from '@/app/[locale]/destinations/page'
+export { default } from '@/app/[locale]/destinations/tanzania/page'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

@@ -228,9 +228,14 @@ export default async function DestinationPage({ params }: Props) {
   const mapBbox = `${lng - 0.2},${lat - 0.15},${lng + 0.2},${lat + 0.15}`
   const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${mapBbox}&marker=${lat},${lng}`
 
+  const countryHref: Record<typeof dest.country, string> = {
+    tanzania: '/destinations/tanzania',
+    kenya: '/kenya',
+    rwanda: '/rwanda',
+  }
   const breadcrumbItems = [
     { label: 'EWA Safari Outfitters', href: `/${locale}` },
-    { label: t('breadcrumbLabel'), href: `/${locale}/destinations` },
+    { label: t('breadcrumbLabel'), href: `/${locale}${countryHref[dest.country]}` },
     { label: dest.name },
   ]
   const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, `/destinations/${slug}`)

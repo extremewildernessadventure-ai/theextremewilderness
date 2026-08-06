@@ -29,6 +29,9 @@ export default async function NotFound() {
             href="/destinations"
             className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/30 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors"
           >
+            {/* Root-level page (outside [locale]) — next-intl's Link needs locale
+                context this route doesn't have, so this intentionally stays a
+                plain next/link to the unprefixed (English default) route. */}
             {t('browseDestinations')}
           </Link>
         </div>

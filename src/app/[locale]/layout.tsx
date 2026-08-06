@@ -31,7 +31,8 @@ const OG_LOCALE: Record<string, string> = {
 // dev if this list falls out of sync).
 const CLIENT_NAMESPACES = [
   'common', 'forms', 'nav', 'bottomNav', 'home', 'safari', 'destinations',
-  'trekking', 'trekkingRouteDetail', 'tradePartners', 'pdfLead', 'planBuilder',
+  'destinationsHub', 'trekking', 'trekkingRouteDetail', 'tradePartners',
+  'pdfLead', 'planBuilder',
 ] as const
 
 function pickMessages(messages: Record<string, unknown>, namespaces: readonly string[]) {

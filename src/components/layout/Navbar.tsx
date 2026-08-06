@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { Link, usePathname } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
-import { ChevronDown, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import LanguageSwitcher from './LanguageSwitcher'
 
@@ -14,22 +13,12 @@ const NO_HERO_ROUTES = ['/plan']
 
 export default function Navbar() {
   const t = useTranslations('nav')
-  const tc = useTranslations('common')
   const pathname = usePathname()
   const forceOpaque = NO_HERO_ROUTES.includes(pathname)
   const [scrolled, setScrolled] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   const navLinks = [
-    {
-      label: t('destinations'),
-      href: '/destinations' as const,
-      children: [
-        { label: t('tanzania'), href: '/tanzania' as const, flag: '🇹🇿', desc: t('tanzaniaDesc') },
-        { label: t('kenya'), href: '/kenya' as const, flag: '🇰🇪', desc: t('kenyaDesc') },
-        { label: t('rwanda'), href: '/rwanda' as const, flag: '🇷🇼', desc: t('rwandaDesc') },
-      ],
-    },
+    { label: t('destinations'), href: '/destinations' as const },
     { label: t('safaris'), href: '/safaris' as const },
     { label: t('experiences'), href: '/experiences' as const },
     { label: t('trekking'), href: '/trekking' as const },
@@ -65,60 +54,13 @@ export default function Navbar() {
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              <div
+              <Link
                 key={link.label}
-                className="relative"
-                onMouseEnter={() => link.children && setActiveDropdown(link.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                href={link.href}
+                className="flex items-center gap-1 px-4 py-2 text-white/90 hover:text-white text-sm font-medium transition-colors"
               >
-                <Link
-                  href={link.href}
-                  className="flex items-center gap-1 px-4 py-2 text-white/90 hover:text-white text-sm font-medium transition-colors"
-                >
-                  {link.label}
-                  {link.children && <ChevronDown className="w-3 h-3 opacity-70" />}
-                </Link>
-
-                {link.children && activeDropdown === link.label && (
-                  <div className="absolute top-full left-0 pt-2 min-w-[280px]">
-                    <div className="bg-brand rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
-                      <div className="px-5 py-3 border-b border-white/10">
-                        <span className="text-gold text-[10px] font-bold uppercase tracking-[0.15em]">
-                          {link.label}
-                        </span>
-                      </div>
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="flex items-center gap-4 px-5 py-4 border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors group/item"
-                        >
-                          <span className="text-2xl flex-shrink-0">{child.flag}</span>
-                          <div className="flex-1 min-w-0">
-                            <div className="text-white font-bold text-sm group-hover/item:text-gold transition-colors">
-                              {child.label}
-                            </div>
-                            {'desc' in child && (
-                              <div className="text-white/50 text-xs leading-tight mt-0.5 truncate">
-                                {(child as { desc: string }).desc}
-                              </div>
-                            )}
-                          </div>
-                          <ArrowRight className="w-3.5 h-3.5 text-white/20 group-hover/item:text-gold group-hover/item:translate-x-0.5 transition-all flex-shrink-0" />
-                        </Link>
-                      ))}
-                      <div className="px-5 py-3 border-t border-white/10">
-                        <Link
-                          href={link.href}
-                          className="inline-flex items-center gap-1.5 text-gold text-xs font-semibold hover:gap-2.5 transition-all"
-                        >
-                          {tc('viewAll')} {link.label} <ArrowRight className="w-3 h-3" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
+                {link.label}
+              </Link>
             ))}
           </nav>
 

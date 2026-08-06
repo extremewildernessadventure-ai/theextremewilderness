@@ -178,7 +178,7 @@ export default function EnquiryModal() {
   const [budget, setBudget]             = useState('')
   const [accommodation, setAccommodation] = useState('')
   const [specialReqs, setSpecialReqs]   = useState<string[]>([])
-  const [contactPref, setContactPref]   = useState('whatsapp')
+  const contactPref: string = 'whatsapp'
   const [message, setMessage]           = useState('')
   const [privacyAgreed, setPrivacyAgreed] = useState(false)
   const [submitted, setSubmitted]   = useState(false)
@@ -645,25 +645,6 @@ export default function EnquiryModal() {
               {/* ── 5. Contact & Message ─────────────────────────── */}
               <div>
                 <SectionHeader icon={MessageSquare} title={t('contactMessage')} />
-                <div className="mb-4">
-                  <Label>{t('contactVia')}</Label>
-                  <div className="flex gap-3 flex-wrap">
-                    {CONTACT_OPTIONS.map((opt) => (
-                      <button
-                        key={opt.value}
-                        type="button"
-                        onClick={() => setContactPref(opt.value)}
-                        className={`flex items-center gap-2.5 px-4 py-2.5 rounded-xl border transition-all ${
-                          contactPref === opt.value
-                            ? 'bg-brand text-white border-brand'
-                            : 'bg-white text-gray-600 border-gray-200 hover:border-brand'
-                        }`}
-                      >
-                        <span className="text-sm font-medium">{opt.emoji} {opt.label}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
                 <div>
                   <Label htmlFor="enquiry-message">{t('questionsRequests')}</Label>
                   <textarea

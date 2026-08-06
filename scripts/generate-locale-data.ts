@@ -53,6 +53,14 @@ import { blogPosts as blogPostsRu, categories as categoriesRu } from '../src/dat
 import { blogPosts as blogPostsZh, categories as categoriesZh } from '../src/data/blog/index.zh'
 import { blogPosts as blogPostsZhTW, categories as categoriesZhTW } from '../src/data/blog/index.zh-TW'
 
+import { faqCategories as faqEn } from '../src/data/faq'
+import { faqCategories as faqFr } from '../src/data/faq.fr'
+import { faqCategories as faqEs } from '../src/data/faq.es'
+import { faqCategories as faqDe } from '../src/data/faq.de'
+import { faqCategories as faqRu } from '../src/data/faq.ru'
+import { faqCategories as faqZh } from '../src/data/faq.zh'
+import { faqCategories as faqZhTW } from '../src/data/faq.zh-TW'
+
 import { articles as articlesEn } from '../src/data/blog/articles'
 import { articles as articlesFr } from '../src/data/blog/articles.fr'
 import { articles as articlesEs } from '../src/data/blog/articles.es'
@@ -96,6 +104,7 @@ writeByLocale('blog-posts', {
   'zh-TW': { posts: blogPostsZhTW, categories: categoriesZhTW },
 })
 writeByLocale('articles', { en: articlesEn, fr: articlesFr, es: articlesEs, de: articlesDe, ru: articlesRu, zh: articlesZh, 'zh-TW': articlesZhTW })
+writeByLocale('faq', { en: faqEn, fr: faqFr, es: faqEs, de: faqDe, ru: faqRu, zh: faqZh, 'zh-TW': faqZhTW })
 
 // next-intl UI message catalogs — same all-locales-bundled-together problem as
 // the datasets above (src/i18n/request.ts previously did a template-literal

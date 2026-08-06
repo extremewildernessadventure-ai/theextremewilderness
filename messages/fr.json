@@ -171,7 +171,11 @@
         "small": 2495,
         "group": 2350
       },
-      "pricing6Day": { "solo": 2395, "small": 2195, "group": 2095 },
+      "pricing6Day": {
+        "solo": 2395,
+        "small": 2195,
+        "group": 2095
+      },
       "quickFacts6Day": {
         "routeName": "Route Machame (la Route du Whisky)",
         "duration": "6 Jours / 5 Nuits",
@@ -283,8 +287,14 @@
           "a": "Oui — de nombreux grimpeurs ajoutent un safari ou une extension balnéaire avant ou après l'ascension, pour un usage efficace du voyage en Tanzanie."
         }
       ],
-      "tabLabels": { "6": "Machame 6 jours", "7": "Machame 7 jours" },
-      "routeNameByDuration": { "6": "Route Machame — 6 jours", "7": "Route Machame — 7 jours" },
+      "tabLabels": {
+        "6": "Machame 6 jours",
+        "7": "Machame 7 jours"
+      },
+      "routeNameByDuration": {
+        "6": "Route Machame — 6 jours",
+        "7": "Route Machame — 7 jours"
+      },
       "heroImageAlt": "Le Kilimandjaro s'élevant au-dessus de la savane, encadré par des acacias"
     },
     "lemosho": {
@@ -423,8 +433,16 @@
         "small": 2750,
         "group": 2595
       },
-      "pricing6Day": { "solo": 3185, "small": 2450, "group": 1911 },
-      "pricing7Day": { "solo": 3575, "small": 2750, "group": 2145 },
+      "pricing6Day": {
+        "solo": 3185,
+        "small": 2450,
+        "group": 1911
+      },
+      "pricing7Day": {
+        "solo": 3575,
+        "small": 2750,
+        "group": 2145
+      },
       "quickFacts6Day": {
         "routeName": "Route Lemosho",
         "duration": "6 jours / 5 nuits",
@@ -456,45 +474,167 @@
       "arrivalDay6Day": "Prise en charge à l'aéroport du Kilimandjaro ou d'Arusha et transfert privé vers votre hôtel à Moshi. Prévoyez d'arriver au moins un jour avant le début de votre trek — cette journée est réservée à un briefing complet, à la vérification du matériel et à la location de tout équipement de dernière minute.",
       "arrivalDay7Day": "Transfert de l'aéroport du Kilimandjaro ou d'Arusha vers votre hôtel à Moshi. Votre guide principal vous retrouve pour un briefing complet avant l'ascension — vérification du matériel, aperçu de l'itinéraire, protocole de sécurité en altitude et stratégie du sommet. Venez avec vos questions.",
       "itinerary6Day": [
-        { "day": 1, "title": "Porte Londorossi → Camp Mti Mkubwa", "meta": "Camp : Mti Mkubwa · Altitude : 2 650 m · Distance : 6 km · Durée de marche : 2–3 heures · Habitat : Forêt de montagne", "body": "Après le petit-déjeuner, route jusqu'à la porte du parc de Londorossi (environ 3 heures), puis en 4x4 jusqu'aux clairières de Lemosho avant de partir à pied jusqu'au camp Mti Mkubwa. La forêt semble véritablement intacte.", "expect": "La journée de marche la plus courte. Profitez de l'après-midi pour vous reposer et vous adapter à l'altitude." },
-        { "day": 2, "title": "Camp Mti Mkubwa → Camp Shira 2", "meta": "Camp : Shira 2 · Altitude : 3 850 m · Distance : 16 km · Durée de marche : 7–8 heures · Habitat : Lande", "body": "Le sentier s'élève dans la lande de grandes bruyères, traversant plusieurs ruisseaux et montant vers la crête de Shira, avant le camp Shira 2 dans les prairies ouvertes.", "expect": "Une montée soutenue avec un gain d'altitude significatif. Les maux de tête sont fréquents — buvez 4 litres d'eau." },
-        { "day": 3, "title": "Camp Shira 2 → Camp Barranco", "meta": "Camp : Barranco · Altitude : 4 000 m · Distance : 8 km · Durée de marche : 5–6 heures · Habitat : Semi-désert", "body": "Vers l'est sur le plateau du Shira jusqu'à la Tour de Lave à 4 650 m, puis descente au camp Barranco. Un classique « montez haut, dormez bas ».", "expect": "Le gain d'altitude jusqu'à la Tour de Lave est une préparation essentielle à la nuit du sommet." },
-        { "day": 4, "title": "Camp Barranco → Camp Barafu", "meta": "Camp : Barafu · Altitude : 4 700 m · Distance : 9 km · Temps de montée : 7–8 heures · Habitat : Désert alpin", "body": "Le Mur de Barranco mène à travers la vallée de Karanga jusqu'au camp Barafu. La journée la plus longue de l'itinéraire 6 jours, combinant ce que les itinéraires de 7 et 8 jours répartissent sur deux jours.", "expect": "La journée la plus exigeante. Avancez à votre rythme — votre acclimatation vous portera." },
-        { "day": 5, "title": "Nuit du sommet → Pic Uhuru → Camp Mweka", "meta": "Camp : Mweka · Altitude : 5 895 m sommet → 3 090 m · Distance : 5 km montée / 13 km descente · Durée : 10–14 heures", "body": "Départ entre minuit et 2h du matin vers le point Stella sur le rebord du cratère, puis le pic Uhuru. Descendez au camp Mweka pour votre dernière nuit sur la montagne.", "expect": "La journée la plus difficile et la plus extraordinaire de l'expédition." },
-        { "day": 6, "title": "Camp Mweka → Porte Mweka → Hôtel", "meta": "Fin de l'expédition · Altitude : 1 680 m · Distance : 10 km · Durée de marche : 3–4 heures · Habitat : Forêt", "body": "Descente jusqu'à la porte Mweka pour récupérer votre certificat de sommet. Notre équipe vous attend pour le retour à Moshi.", "expect": "Un dernier matin en forêt. Reposez-vous. Célébrez. Vous avez gravi le Kilimandjaro." }
+        {
+          "day": 1,
+          "title": "Porte Londorossi → Camp Mti Mkubwa",
+          "meta": "Camp : Mti Mkubwa · Altitude : 2 650 m · Distance : 6 km · Durée de marche : 2–3 heures · Habitat : Forêt de montagne",
+          "body": "Après le petit-déjeuner, route jusqu'à la porte du parc de Londorossi (environ 3 heures), puis en 4x4 jusqu'aux clairières de Lemosho avant de partir à pied jusqu'au camp Mti Mkubwa. La forêt semble véritablement intacte.",
+          "expect": "La journée de marche la plus courte. Profitez de l'après-midi pour vous reposer et vous adapter à l'altitude."
+        },
+        {
+          "day": 2,
+          "title": "Camp Mti Mkubwa → Camp Shira 2",
+          "meta": "Camp : Shira 2 · Altitude : 3 850 m · Distance : 16 km · Durée de marche : 7–8 heures · Habitat : Lande",
+          "body": "Le sentier s'élève dans la lande de grandes bruyères, traversant plusieurs ruisseaux et montant vers la crête de Shira, avant le camp Shira 2 dans les prairies ouvertes.",
+          "expect": "Une montée soutenue avec un gain d'altitude significatif. Les maux de tête sont fréquents — buvez 4 litres d'eau."
+        },
+        {
+          "day": 3,
+          "title": "Camp Shira 2 → Camp Barranco",
+          "meta": "Camp : Barranco · Altitude : 4 000 m · Distance : 8 km · Durée de marche : 5–6 heures · Habitat : Semi-désert",
+          "body": "Vers l'est sur le plateau du Shira jusqu'à la Tour de Lave à 4 650 m, puis descente au camp Barranco. Un classique « montez haut, dormez bas ».",
+          "expect": "Le gain d'altitude jusqu'à la Tour de Lave est une préparation essentielle à la nuit du sommet."
+        },
+        {
+          "day": 4,
+          "title": "Camp Barranco → Camp Barafu",
+          "meta": "Camp : Barafu · Altitude : 4 700 m · Distance : 9 km · Temps de montée : 7–8 heures · Habitat : Désert alpin",
+          "body": "Le Mur de Barranco mène à travers la vallée de Karanga jusqu'au camp Barafu. La journée la plus longue de l'itinéraire 6 jours, combinant ce que les itinéraires de 7 et 8 jours répartissent sur deux jours.",
+          "expect": "La journée la plus exigeante. Avancez à votre rythme — votre acclimatation vous portera."
+        },
+        {
+          "day": 5,
+          "title": "Nuit du sommet → Pic Uhuru → Camp Mweka",
+          "meta": "Camp : Mweka · Altitude : 5 895 m sommet → 3 090 m · Distance : 5 km montée / 13 km descente · Durée : 10–14 heures",
+          "body": "Départ entre minuit et 2h du matin vers le point Stella sur le rebord du cratère, puis le pic Uhuru. Descendez au camp Mweka pour votre dernière nuit sur la montagne.",
+          "expect": "La journée la plus difficile et la plus extraordinaire de l'expédition."
+        },
+        {
+          "day": 6,
+          "title": "Camp Mweka → Porte Mweka → Hôtel",
+          "meta": "Fin de l'expédition · Altitude : 1 680 m · Distance : 10 km · Durée de marche : 3–4 heures · Habitat : Forêt",
+          "body": "Descente jusqu'à la porte Mweka pour récupérer votre certificat de sommet. Notre équipe vous attend pour le retour à Moshi.",
+          "expect": "Un dernier matin en forêt. Reposez-vous. Célébrez. Vous avez gravi le Kilimandjaro."
+        }
       ],
       "itinerary7Day": [
-        { "day": 1, "title": "Moshi → Porte Londorossi → Camp Mti Mkubwa", "meta": "Camp : Mti Mkubwa · Altitude : 2 650 m · Distance : 6 km · Durée de marche : 2–3 heures · Habitat : Forêt de montagne", "body": "Route de Moshi jusqu'à la porte du parc de Lemosho, puis piste en 4x4 jusqu'aux clairières avant de partir à pied vers le camp Mti Mkubwa. Un début tranquille et délibéré.", "expect": "La journée de marche la plus courte — un départ volontairement progressif." },
-        { "day": 2, "title": "Camp Mti Mkubwa → Camp Shira 2", "meta": "Camp : Shira 2 · Altitude : 3 850 m · Distance : 16 km · Durée de marche : 7–8 heures · Habitat : Lande", "body": "Le sentier s'élève dans la grande lande de bruyères, traversant des ruisseaux et montant vers la crête de Shira jusqu'au camp Shira 2.", "expect": "Montée soutenue avec gain d'altitude significatif. Buvez 4 litres d'eau et mangez un dîner complet." },
-        { "day": 3, "title": "Camp Shira 2 → Camp Barranco", "meta": "Camp : Barranco · Altitude : 4 000 m · Distance : 8 km · Durée de marche : 5–6 heures · Habitat : Semi-désert", "body": "Vers l'est sur le plateau du Shira jusqu'à la Tour de Lave à 4 650 m, puis descente au camp Barranco. Acclimatation essentielle pour ce qui suit.", "expect": "Un classique « montez haut, dormez bas ». Préparation critique pour la nuit du sommet." },
-        { "day": 4, "title": "Camp Barranco → Camp Karanga", "meta": "Camp : Karanga · Altitude : 4 050 m · Distance : 5 km · Temps de montée : 3–4 heures · Habitat : Désert alpin", "body": "Le Mur de Barranco mène à la vallée de Karanga, la dernière source d'eau sur la montagne.", "expect": "Une matinée exaltante — le mur est de l'escalade facile, pas de l'alpinisme technique." },
-        { "day": 5, "title": "Camp Karanga → Camp Barafu", "meta": "Camp : Barafu · Altitude : 4 700 m · Distance : 4 km · Temps de montée : 3–4 heures · Habitat : Désert alpin", "body": "En complétant le Circuit Sud, le camp Barafu offre des vues panoramiques sur le sommet. Repos, dîner tôt et dernière préparation.", "expect": "Une courte marche puis une longue attente. Faites confiance à votre préparation." },
-        { "day": 6, "title": "Nuit du sommet → Pic Uhuru → Camp Mweka", "meta": "Camp : Mweka · Altitude : 5 895 m sommet → 3 090 m · Distance : 5 km montée / 13 km descente · Durée : 10–14 heures", "body": "Départ entre minuit et 2h du matin vers le point Stella, puis le pic Uhuru. Après avoir célébré, descendez au camp Mweka.", "expect": "La journée la plus difficile et la plus extraordinaire de l'expédition." },
-        { "day": 7, "title": "Camp Mweka → Porte Mweka → Hôtel", "meta": "Fin de l'expédition · Altitude : 1 680 m · Distance : 10 km · Durée de marche : 3–4 heures · Habitat : Forêt", "body": "Descente jusqu'à la porte Mweka pour récupérer votre certificat de sommet. Notre véhicule vous attend pour le retour vers votre hôtel à Moshi.", "expect": "Reposez-vous. Célébrez. Vous avez gravi le Kilimandjaro." }
+        {
+          "day": 1,
+          "title": "Moshi → Porte Londorossi → Camp Mti Mkubwa",
+          "meta": "Camp : Mti Mkubwa · Altitude : 2 650 m · Distance : 6 km · Durée de marche : 2–3 heures · Habitat : Forêt de montagne",
+          "body": "Route de Moshi jusqu'à la porte du parc de Lemosho, puis piste en 4x4 jusqu'aux clairières avant de partir à pied vers le camp Mti Mkubwa. Un début tranquille et délibéré.",
+          "expect": "La journée de marche la plus courte — un départ volontairement progressif."
+        },
+        {
+          "day": 2,
+          "title": "Camp Mti Mkubwa → Camp Shira 2",
+          "meta": "Camp : Shira 2 · Altitude : 3 850 m · Distance : 16 km · Durée de marche : 7–8 heures · Habitat : Lande",
+          "body": "Le sentier s'élève dans la grande lande de bruyères, traversant des ruisseaux et montant vers la crête de Shira jusqu'au camp Shira 2.",
+          "expect": "Montée soutenue avec gain d'altitude significatif. Buvez 4 litres d'eau et mangez un dîner complet."
+        },
+        {
+          "day": 3,
+          "title": "Camp Shira 2 → Camp Barranco",
+          "meta": "Camp : Barranco · Altitude : 4 000 m · Distance : 8 km · Durée de marche : 5–6 heures · Habitat : Semi-désert",
+          "body": "Vers l'est sur le plateau du Shira jusqu'à la Tour de Lave à 4 650 m, puis descente au camp Barranco. Acclimatation essentielle pour ce qui suit.",
+          "expect": "Un classique « montez haut, dormez bas ». Préparation critique pour la nuit du sommet."
+        },
+        {
+          "day": 4,
+          "title": "Camp Barranco → Camp Karanga",
+          "meta": "Camp : Karanga · Altitude : 4 050 m · Distance : 5 km · Temps de montée : 3–4 heures · Habitat : Désert alpin",
+          "body": "Le Mur de Barranco mène à la vallée de Karanga, la dernière source d'eau sur la montagne.",
+          "expect": "Une matinée exaltante — le mur est de l'escalade facile, pas de l'alpinisme technique."
+        },
+        {
+          "day": 5,
+          "title": "Camp Karanga → Camp Barafu",
+          "meta": "Camp : Barafu · Altitude : 4 700 m · Distance : 4 km · Temps de montée : 3–4 heures · Habitat : Désert alpin",
+          "body": "En complétant le Circuit Sud, le camp Barafu offre des vues panoramiques sur le sommet. Repos, dîner tôt et dernière préparation.",
+          "expect": "Une courte marche puis une longue attente. Faites confiance à votre préparation."
+        },
+        {
+          "day": 6,
+          "title": "Nuit du sommet → Pic Uhuru → Camp Mweka",
+          "meta": "Camp : Mweka · Altitude : 5 895 m sommet → 3 090 m · Distance : 5 km montée / 13 km descente · Durée : 10–14 heures",
+          "body": "Départ entre minuit et 2h du matin vers le point Stella, puis le pic Uhuru. Après avoir célébré, descendez au camp Mweka.",
+          "expect": "La journée la plus difficile et la plus extraordinaire de l'expédition."
+        },
+        {
+          "day": 7,
+          "title": "Camp Mweka → Porte Mweka → Hôtel",
+          "meta": "Fin de l'expédition · Altitude : 1 680 m · Distance : 10 km · Durée de marche : 3–4 heures · Habitat : Forêt",
+          "body": "Descente jusqu'à la porte Mweka pour récupérer votre certificat de sommet. Notre véhicule vous attend pour le retour vers votre hôtel à Moshi.",
+          "expect": "Reposez-vous. Célébrez. Vous avez gravi le Kilimandjaro."
+        }
       ],
       "choosing": {
         "intro": "Les trois itinéraires suivent le même chemin sur le versant occidental du Kilimandjaro et partagent l'attrait essentiel de la Lemosho : des paysages exceptionnels et l'un des meilleurs profils d'acclimatation de la montagne. La différence tient au rythme — et au temps que votre corps a pour s'adapter à l'altitude avant la nuit du sommet.",
         "items": [
-          { "label": "Lemosho 6 jours", "successRate": "~75–80 %", "desc": "Notre option la plus rapide, combinant les étapes Barranco–Karanga–Barafu en une seule longue journée. Idéale pour les grimpeurs ayant récemment été en haute altitude ou ayant une bonne condition physique et un calendrier serré." },
-          { "label": "Lemosho 7 jours", "successRate": "~85–90 %", "desc": "Notre option la plus populaire et notre recommandation par défaut. Conçue pour les grimpeurs ayant une expérience générale de randonnée. De nombreux premiers randonneurs la complètent avec succès." },
-          { "label": "Lemosho 8 jours", "successRate": "~90–95 %", "desc": "L'option au meilleur taux de réussite. Ajoute une journée d'acclimatation complète. Donne à votre corps le plus de temps pour s'adapter — le bon choix pour les meilleures chances d'atteindre le pic Uhuru." }
+          {
+            "label": "Lemosho 6 jours",
+            "successRate": "~75–80 %",
+            "desc": "Notre option la plus rapide, combinant les étapes Barranco–Karanga–Barafu en une seule longue journée. Idéale pour les grimpeurs ayant récemment été en haute altitude ou ayant une bonne condition physique et un calendrier serré."
+          },
+          {
+            "label": "Lemosho 7 jours",
+            "successRate": "~85–90 %",
+            "desc": "Notre option la plus populaire et notre recommandation par défaut. Conçue pour les grimpeurs ayant une expérience générale de randonnée. De nombreux premiers randonneurs la complètent avec succès."
+          },
+          {
+            "label": "Lemosho 8 jours",
+            "successRate": "~90–95 %",
+            "desc": "L'option au meilleur taux de réussite. Ajoute une journée d'acclimatation complète. Donne à votre corps le plus de temps pour s'adapter — le bon choix pour les meilleures chances d'atteindre le pic Uhuru."
+          }
         ],
         "footer": "Quel que soit votre choix, la préparation physique en amont compte plus que le nombre de jours — arriver en forme rend chaque version de cette ascension plus sûre et plus agréable."
       },
       "highlights": [
-        { "title": "Le Pic de la Cathédrale", "body": "Une formation rocheuse spectaculaire s'élevant à 3 872 m sur le plateau du Shira, accessible via une randonnée d'acclimatation facultative. L'un des meilleurs points de vue sur l'itinéraire entier — et une préparation à l'altitude intelligente." },
-        { "title": "Dendrosenecio kilimanjari", "body": "Gardez l'œil ouvert sur les tronçons de lande pour ce séneçon géant — une plante étrange en forme d'arbre que l'on ne trouve presque nulle part ailleurs en dehors des zones de haute altitude d'Afrique de l'Est. Un incontournable pour les photos." }
+        {
+          "title": "Le Pic de la Cathédrale",
+          "body": "Une formation rocheuse spectaculaire s'élevant à 3 872 m sur le plateau du Shira, accessible via une randonnée d'acclimatation facultative. L'un des meilleurs points de vue sur l'itinéraire entier — et une préparation à l'altitude intelligente."
+        },
+        {
+          "title": "Dendrosenecio kilimanjari",
+          "body": "Gardez l'œil ouvert sur les tronçons de lande pour ce séneçon géant — une plante étrange en forme d'arbre que l'on ne trouve presque nulle part ailleurs en dehors des zones de haute altitude d'Afrique de l'Est. Un incontournable pour les photos."
+        }
       ],
       "faq": [
-        { "q": "Comment choisir entre les itinéraires Lemosho de 6, 7 et 8 jours ?", "a": "Cela dépend de votre expérience en altitude et du temps disponible. Le 6 jours convient aux grimpeurs ayant récemment été en haute altitude. Le 7 jours est notre recommandation par défaut. Le 8 jours offre le meilleur taux de réussite." },
-        { "q": "La Lemosho est-elle plus difficile que la Machame ?", "a": "Pas techniquement — le terrain est similaire là où les itinéraires se superposent. L'avantage de la Lemosho est un profil d'acclimatation plus long et plus progressif, avec moins de foule dans les premiers jours." },
-        { "q": "Quel est le taux de réussite au sommet sur la Lemosho ?", "a": "Il varie selon la durée : le 6 jours atteint environ 75–80 %, le 7 jours 85–90 %, et le 8 jours régulièrement 90–95 %." },
-        { "q": "Ai-je besoin d'une expérience de randonnée préalable ?", "a": "Aucune compétence technique n'est requise — c'est un itinéraire de marche. Une bonne condition physique générale facilite les journées, notamment lors de la nuit du sommet." },
-        { "q": "Quelle est la meilleure période pour gravir la Lemosho ?", "a": "Les saisons sèches — de fin juin à octobre et de décembre à février — offrent la météo la plus stable et les meilleures vues." },
-        { "q": "Puis-je combiner une ascension avec un safari ou une extension à Zanzibar ?", "a": "Oui — de nombreux grimpeurs ajoutent un safari ou un séjour balnéaire avant ou après leur trek." }
+        {
+          "q": "Comment choisir entre les itinéraires Lemosho de 6, 7 et 8 jours ?",
+          "a": "Cela dépend de votre expérience en altitude et du temps disponible. Le 6 jours convient aux grimpeurs ayant récemment été en haute altitude. Le 7 jours est notre recommandation par défaut. Le 8 jours offre le meilleur taux de réussite."
+        },
+        {
+          "q": "La Lemosho est-elle plus difficile que la Machame ?",
+          "a": "Pas techniquement — le terrain est similaire là où les itinéraires se superposent. L'avantage de la Lemosho est un profil d'acclimatation plus long et plus progressif, avec moins de foule dans les premiers jours."
+        },
+        {
+          "q": "Quel est le taux de réussite au sommet sur la Lemosho ?",
+          "a": "Il varie selon la durée : le 6 jours atteint environ 75–80 %, le 7 jours 85–90 %, et le 8 jours régulièrement 90–95 %."
+        },
+        {
+          "q": "Ai-je besoin d'une expérience de randonnée préalable ?",
+          "a": "Aucune compétence technique n'est requise — c'est un itinéraire de marche. Une bonne condition physique générale facilite les journées, notamment lors de la nuit du sommet."
+        },
+        {
+          "q": "Quelle est la meilleure période pour gravir la Lemosho ?",
+          "a": "Les saisons sèches — de fin juin à octobre et de décembre à février — offrent la météo la plus stable et les meilleures vues."
+        },
+        {
+          "q": "Puis-je combiner une ascension avec un safari ou une extension à Zanzibar ?",
+          "a": "Oui — de nombreux grimpeurs ajoutent un safari ou un séjour balnéaire avant ou après leur trek."
+        }
       ],
-      "tabLabels": { "6": "Lemosho 6 jours", "7": "Lemosho 7 jours", "8": "Lemosho 8 jours" },
-      "routeNameByDuration": { "6": "Route Lemosho — 6 jours", "7": "Route Lemosho — 7 jours", "8": "Route Lemosho — 8 jours" },
+      "tabLabels": {
+        "6": "Lemosho 6 jours",
+        "7": "Lemosho 7 jours",
+        "8": "Lemosho 8 jours"
+      },
+      "routeNameByDuration": {
+        "6": "Route Lemosho — 6 jours",
+        "7": "Route Lemosho — 7 jours",
+        "8": "Route Lemosho — 8 jours"
+      },
       "heroImageAlt": "Vue panoramique du Kilimandjaro émergeant des nuages"
     },
     "rongai": {
@@ -1201,7 +1341,8 @@
     "trustCountries": "pays représentés",
     "trustBigFive": "observations du Big Five",
     "trustQuote": "Rien n'aurait pu nous préparer à l'ampleur de la migration. EWA a dépassé toutes nos attentes.",
-    "trustQuoteAuthor": "— Sarah & Michael T., Royaume-Uni"
+    "trustQuoteAuthor": "— Sarah & Michael T., Royaume-Uni",
+    "companyFaq": "FAQ"
   },
   "common": {
     "bookNow": "Réserver",
@@ -3144,7 +3285,11 @@
   "privacy": {
     "metaTitle": "Politique de Confidentialité",
     "metaDescription": "Comment EWA Safari Outfitters collecte, utilise et protège vos données personnelles. Politique de confidentialité conforme au RGPD pour nos services de réservation de safari.",
-    "metaKeywords": ["politique de confidentialité safari Tanzanie", "protection des données RGPD safari", "confidentialité réservation safari"],
+    "metaKeywords": [
+      "politique de confidentialité safari Tanzanie",
+      "protection des données RGPD safari",
+      "confidentialité réservation safari"
+    ],
     "heroTitle1": "Politique de",
     "heroTitle2": "Confidentialité",
     "heroSubtitle": "Nous nous engageons à protéger vos données personnelles. Cette politique explique exactement ce que nous collectons, pourquoi et comment vous gardez le contrôle — y compris vos droits dans le cadre du RGPD.",
@@ -3241,7 +3386,12 @@
   "terms": {
     "metaTitle": "Conditions Générales",
     "metaDescription": "Conditions générales pour la réservation de safaris, treks et expériences de voyage avec EWA Safari Outfitters. Comprend la politique d'annulation, la responsabilité et les exigences d'assurance.",
-    "metaKeywords": ["conditions générales safari Tanzanie", "politique d'annulation safari", "EWA Safari Outfitters conditions", "assurance voyage safari"],
+    "metaKeywords": [
+      "conditions générales safari Tanzanie",
+      "politique d'annulation safari",
+      "EWA Safari Outfitters conditions",
+      "assurance voyage safari"
+    ],
     "heroTitle1": "Conditions",
     "heroTitle2": "Générales",
     "heroSubtitle": "Veuillez lire avant de réserver. Ces conditions régissent tous les safaris, expéditions de trekking et expériences de voyage organisés par EWA Safari Outfitters.",
@@ -3464,20 +3614,17 @@
     "heroLede": "Pour les agents qui nous confient leurs clients, un safari commence bien avant le départ — avec une connaissance du terrain, une planification réfléchie et un opérateur qui répond honnêtement. Nous invitons des partenaires commerciaux sélectionnés à travailler directement avec nous en Tanzanie, au Kenya et au Rwanda.",
     "heroCtaPrimary": "Demander un Partenariat Commercial",
     "heroCtaSecondary": "En Savoir Plus",
-
     "navLabelAbout": "À Propos",
     "navLabelWorking": "Partenariat",
     "navLabelGuidesFleet": "Guides et Véhicules",
     "navLabelCollection": "Notre Collection",
     "navLabelGlance": "En Bref",
-
     "aboutEyebrow": "Bienvenue chez EWA Safari Outfitters",
     "aboutTitle": "Une Entreprise de Safari Construite Depuis ses Fondations",
     "aboutVisualCap": "Arusha, Tanzanie",
     "aboutBody1": "EWA Safari Outfitters est une entreprise de safari et d'expédition détenue localement, fondée et dirigée depuis Arusha, à l'ombre du mont Meru. Nous concevons et organisons des voyages à travers les circuits Nord et Sud de la Tanzanie, dans les réserves les plus renommées du Kenya, et parmi les hautes terres boisées du Rwanda — chaque itinéraire façonné par des années passées sur ces terres, et non assemblé derrière un bureau.",
     "aboutBody2": "Notre approche est réfléchie. Nous travaillons sur trois niveaux — Wilderness Trail, Wilderness Reserve et Wilderness Sovereign — afin que, quel que soit le budget du client, le voyage que nous construisons pour lui reflète un véritable jugement plutôt qu'un modèle standard.",
     "aboutBody3": "Pour nos partenaires commerciaux, cela signifie une entreprise de safari qui répond rapidement, qui fixe des prix honnêtes, et qui garantit chaque détail du voyage — de la première demande à la dernière nuit sous toile.",
-
     "workingTogetherEyebrow": "Travailler Ensemble",
     "workingTogetherTitle": "À Quoi Ressemble un Partenariat avec Nous",
     "workingTogetherIntro": "Vos clients posent des questions réfléchies. Un partenariat avec EWA Safari Outfitters signifie avoir des réponses réfléchies, de la part de personnes qui connaissent le terrain.",
@@ -3489,7 +3636,6 @@
     "card3Body": "Trois niveaux clairs, du moyen luxe à l'ultra-luxe, pour que le cahier des charges de chaque client trouve naturellement sa place dans notre offre.",
     "card4Title": "Une Communication Honnête",
     "card4Body": "Une proposition écrite, dans les meilleurs délais, de la part d'une personne qui connaît votre dossier — pas d'une file d'attente.",
-
     "guidesFleetEyebrow": "L'Équipe sur le Terrain",
     "guidesFleetTitle": "Des Guides Qui Connaissent le Terrain, des Véhicules Conçus pour l'Atteindre",
     "guidesFleetIntro": "Un safari ne vaut que ce que vaut la personne qui conduit et le véhicule qui vous y emmène. Nous exigeons le même niveau d'excellence pour les deux.",
@@ -3507,7 +3653,6 @@
     "fleetList1": "4x4 conçus sur mesure, rigoureusement entretenus",
     "fleetList2": "Toits ouvrants pour une observation sans obstacle",
     "fleetList3": "Équipés pour le confort lors des longs game drives",
-
     "kitEyebrow": "Pour Nos Partenaires Commerciaux",
     "kitTitle": "Ce Que Vous Recevrez en Tant que Partenaire Agréé",
     "kitIntro": "Une fois votre agence approuvée, tout ce dont vous avez besoin pour tarifer et présenter EWA Safari Outfitters vous parvient dans un kit unique et réfléchi.",
@@ -3520,7 +3665,6 @@
     "kitItem4Title": "Un Contact Dédié",
     "kitItem4Body": "Une seule personne chez EWA qui connaît votre dossier, joignable directement.",
     "kitNote": "Les détails des tarifs et des commissions sont communiqués en privé aux partenaires approuvés, et ne sont pas publiés ici.",
-
     "collectionEyebrow": "Notre Collection",
     "collectionTitle": "Trois Niveaux, une Seule Exigence de Qualité",
     "collectionIntro": "Chaque itinéraire que nous construisons s'inscrit dans l'un de nos trois niveaux, afin que le budget et les attentes du client soient adaptés dès la toute première conversation.",
@@ -3536,7 +3680,6 @@
     "tier3Name": "Wilderness Sovereign",
     "tier3Body": "Nos plus beaux camps et lodges privés — chambres d'exception, cadres d'exception, entièrement sur mesure.",
     "tier3Fit": "Pour le voyageur en quête d'ultra-luxe",
-
     "glanceEyebrow": "Avant de Nous Contacter",
     "glanceTitle": "En Bref",
     "glanceIntro": "Quelques informations essentielles, pour que votre première demande auprès de nous soit aussi réfléchie que les itinéraires que nous construisons.",
@@ -3552,12 +3695,10 @@
     "glance5Value": "Tarifs nets, communiqués en privé une fois votre partenariat approuvé",
     "glance6Label": "Ce que Nous Vous Demanderons",
     "glance6Value": "Les coordonnées de votre agence, votre type de client habituel et votre volume prévu",
-
     "enquiryEyebrow": "Débuter un Partenariat",
     "enquiryTitle": "Demander un Partenariat Commercial",
     "enquiryIntro": "Partagez quelques informations sur votre agence ci-dessous, et nous vous recontacterons pour confirmer votre statut de partenaire commercial. Une fois approuvé, votre kit commercial vous parvient par e-mail.",
     "enquiryContactLine": "info@theextremewilderness.com · +255 747 999 070",
-
     "formAgencyName": "Nom de l'Agence",
     "formAgencyNamePlaceholder": "Northbound Travel Co.",
     "formCountry": "Pays / Marché",
@@ -3580,7 +3721,6 @@
     "formSuccessBody": "Merci — nous vous recontacterons pour confirmer votre statut de partenaire commercial sous un jour ouvré.",
     "formError": "Une erreur s'est produite. Veuillez réessayer ou nous écrire directement.",
     "formNote": "Nous examinons chaque demande personnellement, et vous répondons sous quelques jours ouvrés.",
-
     "metaKeywords": [
       "partenaire commercial safari Tanzanie",
       "tarifs nets agent de voyage Tanzanie",
@@ -3642,5 +3782,146 @@
     "emailItinerarySubject": "Votre demande d'itinéraire — EWA Safari Outfitters",
     "emailItineraryIntro": "Merci d'avoir demandé l'itinéraire {context}. Notre équipe prépare votre programme détaillé jour par jour et vous l'enverra à cette adresse sous 24 heures.",
     "viewLabel": "Voir le Guide Maintenant"
+  },
+  "destinationsHub": {
+    "metaTitle": "Destinations en Afrique de l'Est | Tanzanie, Kenya & Rwanda",
+    "metaDescription": "Découvrez chaque parc national, réserve faunique et destination clé où EWA Safari Outfitters opère en Tanzanie, au Kenya et au Rwanda — organisés par circuit et région, pas par ordre alphabétique.",
+    "metaKeywords": [
+      "destinations Afrique de l'Est",
+      "safari Tanzanie Kenya Rwanda",
+      "carte des destinations safari africaines",
+      "Serengeti Masai Mara Volcans",
+      "parcs nationaux d'Afrique de l'Est"
+    ],
+    "breadcrumbLabel": "Destinations",
+    "heroEyebrow": "L'Afrique de l'Est, région par région",
+    "heroTitle": "L'Afrique de l'Est",
+    "heroTitleGold": "par région",
+    "heroLede": "Découvrez chaque parc national, réserve faunique et destination clé où EWA Safari Outfitters opère en Tanzanie, au Kenya et au Rwanda — organisés comme le territoire lui-même l'est, pas par menu.",
+    "exploreMap": "Explorer la carte",
+    "statDestinations": "Destinations",
+    "statCountries": "Pays",
+    "statCircuits": "Circuits en TZ",
+    "statMammals": "Espèces de mammifères",
+    "statBirds": "Espèces d'oiseaux",
+    "statHq": "Siège & équipe locale",
+    "statHqValue": "Arusha",
+    "mapEyebrow": "Touchez un pays pour commencer",
+    "mapHeading": "Chaque région où EWA Safari Outfitters opère",
+    "mapCopy1": "La Tanzanie, le Kenya et le Rwanda sont surlignés — touchez l'un des trois pour accéder directement à ses destinations ci-dessous. Tout autre pays sur la carte n'est qu'un repère géographique, pas un lieu où EWA Safari Outfitters organise actuellement des safaris.",
+    "mapCopy2": "Chaque région, phare ou trésor caché, a son histoire. Ci-dessous, EWA Safari Outfitters a organisé chaque pays exactement comme ses planificateurs y conçoivent les itinéraires — par circuit et par région, pas par liste alphabétique.",
+    "mapAriaLabel": "Carte de la Tanzanie, du Kenya et du Rwanda — cliquez sur un pays pour parcourir ses destinations",
+    "areasEyebrow": "Explorer par région",
+    "areasHeading": "Les destinations, organisées comme EWA Safari Outfitters les planifie",
+    "areasBody": "Sélectionnez un pays, puis ouvrez une région pour voir exactement quels parcs et réserves s'y trouvent — la même logique régionale que les planificateurs d'EWA Safari Outfitters utilisent pour construire votre itinéraire.",
+    "tzIntroHeading": "La Tanzanie sauvage — trois circuits épiques",
+    "tzIntroBody": "26 parcs nationaux et réserves répartis sur trois circuits distincts, plus Zanzibar et la porte d'entrée d'Arusha. 28 % du territoire tanzanien est sous protection — l'engagement le plus élevé de toutes les nations de safari au monde.",
+    "tzAreaZanzibarArusha": "Zanzibar & porte d'Arusha",
+    "seeAllTanzania": "Voir toutes les destinations de Tanzanie",
+    "keIntroHeading": "Le Kenya sauvage — la destination safari originelle de l'Afrique",
+    "keIntroBody": "59 parcs nationaux et réserves, berceau du plus grand spectacle animalier de la planète et refuge des deux derniers rhinocéros blancs du Nord.",
+    "seeAllKenya": "Voir toutes les destinations du Kenya",
+    "rwIntroHeading": "Le pays des mille collines",
+    "rwIntroBody": "Petit par la taille, extraordinaire par sa richesse — refuge d'environ la moitié des gorilles de montagne restants au monde.",
+    "seeAllRwanda": "Voir toutes les destinations du Rwanda",
+    "leadBandHeading": "Vous ne savez pas par où commencer ?",
+    "leadBandBody": "Créez votre propre safari en 90 secondes — indiquez à EWA Safari Outfitters vos dates, vos envies et votre style, et découvrez des itinéraires réels avec des prix transparents.",
+    "leadBandCta": "Créer votre safari",
+    "storiesEyebrow": "Carnets de terrain",
+    "storiesHeading": "Quelques histoires derrière ces lieux",
+    "storiesBody": "Chaque destination de cette page a une histoire à connaître avant de partir. En voici quatre qui influencent la façon dont EWA Safari Outfitters les intègre à ses itinéraires.",
+    "story1Kicker": "Parc national du Serengeti",
+    "story1Heading": "La terre qui s'étend à l'infini",
+    "story1Body": "Le nom Serengeti vient du mot maasaï siringet — « l'endroit où la terre s'étend à l'infini ». Créé en 1951 et classé au patrimoine mondial de l'UNESCO depuis 1981, il forme le cœur d'un écosystème ininterrompu de 30 000 km² qui s'étend jusqu'au Masai Mara, au Kenya.",
+    "story1Link": "Découvrir le Serengeti",
+    "story2Kicker": "Cratère du Ngorongoro",
+    "story2Heading": "Un volcan qui s'est effondré sur lui-même",
+    "story2Body": "Les géologues estiment que le Ngorongoro atteignait autrefois la hauteur du Kilimandjaro avant son éruption et son effondrement il y a environ 2 à 3 millions d'années, laissant la plus grande caldeira volcanique intacte et non inondée au monde — et l'une des plus fortes concentrations de faune sauvage d'Afrique.",
+    "story2Link": "Découvrir le Ngorongoro",
+    "story3Kicker": "Masai Mara, Kenya",
+    "story3Heading": "Une frontière invisible, un seul écosystème",
+    "story3Body": "Le Masai Mara est le prolongement nord du Serengeti, séparé de son homologue tanzanien uniquement par une frontière internationale que la faune ignore. Entre juillet et octobre, les traversées de la rivière Mara sont l'épisode le plus spectaculaire de la Grande Migration.",
+    "story3Link": "Découvrir le Masai Mara",
+    "story4Kicker": "Parc national des Volcans, Rwanda",
+    "story4Heading": "Là où la conservation moderne des gorilles a commencé",
+    "story4Body": "Refuge d'environ la moitié des gorilles de montagne restants au monde, le parc national des Volcans est le lieu où la primatologue Dian Fossey a établi son camp de recherche en 1967 — berceau du travail de conservation qui a depuis doublé la population de l'espèce.",
+    "story4Link": "Découvrir le parc des Volcans",
+    "compareEyebrow": "Vous hésitez entre les pays ?",
+    "compareHeading": "Tanzanie, Kenya & Rwanda — en un coup d'œil",
+    "compareBestFor": "Idéal pour",
+    "tzFact1": "Le plus de parcs & de nature sauvage — 26 parcs et réserves",
+    "tzFact2": "La plus forte conservation des terres — 28 % protégés",
+    "tzFact3": "Idéal pour combiner Serengeti, Ngorongoro & Zanzibar",
+    "tzExplore": "Explorer la Tanzanie",
+    "keFact1": "La plus forte densité de grands félins — 90+ espèces de mammifères dans le Mara",
+    "keFact2": "Traversées de rivière de la migration — juil.–oct.",
+    "keFact3": "Idéal pour les grands classiques du safari & l'observation des oiseaux",
+    "keExplore": "Explorer le Kenya",
+    "rwFact1": "Trek des gorilles de montagne — environ 1 000 gorilles sur Terre",
+    "rwFact2": "La seule population de grands singes en croissance",
+    "rwFact3": "Idéal pour une rencontre intime, une fois dans une vie",
+    "rwExplore": "Explorer le Rwanda",
+    "testimonialQuote": "Rien n'aurait pu nous préparer à l'ampleur pure de la migration. EWA a dépassé toutes nos attentes.",
+    "testimonialCite": "Sarah & Michael T., Royaume-Uni",
+    "trustRating": "4,9 / 5",
+    "trustRatingLabel": "200+ voyageurs vérifiés",
+    "trustReviews": "97 %",
+    "trustReviewsLabel": "Avis 5 étoiles",
+    "trustCountries": "40+",
+    "trustCountriesLabel": "Pays servis",
+    "trustBigFive": "100 %",
+    "trustBigFiveLabel": "Observations du Big Five",
+    "finalCtaEyebrow": "Prêt quand vous l'êtes",
+    "finalCtaHeading": "Planifions votre safari parfait en Afrique de l'Est avec EWA Safari Outfitters",
+    "finalCtaBody": "Partagez vos dates de voyage et ce qui vous inspire. EWA Safari Outfitters créera quelque chose d'extraordinaire — entièrement autour de vous, sans modèles, sans raccourcis.",
+    "finalCtaButton": "Commencer à planifier",
+    "tzAreaZanzibarArushaTagline": "Plage & camp de base",
+    "destinationsSuffix": "destinations",
+    "statMammalsValue": "90+",
+    "statBirdsValue": "1 100+",
+    "heroImageAlt": "Éléphants se saluant près d'un point d'eau en Afrique de l'Est"
+  },
+  "faqHub": {
+    "metaTitle": "FAQ Safari | Tanzanie, Kenya & Rwanda — Toutes vos questions",
+    "metaDescription": "Les réponses aux questions que se posent vraiment les voyageurs sur les safaris en Tanzanie, au Kenya et au Rwanda — coûts, meilleure période, safaris en famille, trek gorilles, Kilimandjaro, et plus encore.",
+    "ogDescription": "Des réponses concrètes sur le coût d'un safari, la meilleure période, les voyages en famille, le trek gorilles, le Kilimandjaro, et plus — par EWA Safari Outfitters.",
+    "ogImageAlt": "Véhicule de safari sur les plaines du Serengeti à l'heure dorée",
+    "twitterTitle": "FAQ Safari | EWA Safari Outfitters",
+    "breadcrumbLabel": "FAQ",
+    "heroEyebrow": "Vos questions, nos réponses",
+    "heroTitle": "Questions",
+    "heroTitleGold": "Fréquentes",
+    "heroSubtitle": "Des réponses directes aux questions que se posent vraiment les voyageurs avant de réserver un safari en Tanzanie, au Kenya ou au Rwanda — coûts, timing, voyage en famille, trek gorilles, Kilimandjaro, et plus.",
+    "sectionEyebrow": "FAQ",
+    "ctaHeading": "Vous n'avez pas trouvé votre réponse ?",
+    "ctaSubtitle": "Dites-nous ce que vous préparez et nous vous répondrons directement — généralement sous quelques heures.",
+    "ctaButton": "Nous contacter directement",
+    "sidebarFamilyHeading": "Vous préparez un safari en famille ?",
+    "sidebarFamilyBody": "Indiquez-nous l'âge de vos enfants et vos dates — nous adapterons le rythme à votre famille.",
+    "sidebarFamilyButton": "Créer mon safari en famille",
+    "sidebarBestTimeHeading": "Vous ne savez pas quand partir ?",
+    "sidebarBestTimeBody": "Communiquez-nous vos dates et nous les ferons correspondre à la migration et aux saisons.",
+    "sidebarBestTimeButton": "Vérifier mes dates de voyage",
+    "sidebarPlanningHeading": "Vous voulez un vrai devis ?",
+    "sidebarPlanningBody": "Fini les approximations — obtenez un prix transparent et sans engagement pour votre voyage.",
+    "sidebarPlanningButton": "Obtenir mon devis gratuit",
+    "sidebarTanzaniaHeading": "Prêt pour la Tanzanie ?",
+    "sidebarTanzaniaBody": "Concevons ensemble votre itinéraire Serengeti, Ngorongoro et Tarangire.",
+    "sidebarTanzaniaButton": "Créer mon safari en Tanzanie",
+    "sidebarKenyaRwandaHeading": "Vous explorez le Kenya ou le Rwanda ?",
+    "sidebarKenyaRwandaBody": "Du Masai Mara au trek gorilles — définissons votre itinéraire.",
+    "sidebarKenyaRwandaButton": "Créer mon voyage Kenya & Rwanda",
+    "sidebarKilimanjaroHeading": "Prêt à gravir le Kilimandjaro ?",
+    "sidebarKilimanjaroBody": "Nous vous orienterons vers l'itinéraire, le rythme et la saison adaptés à votre ascension.",
+    "sidebarKilimanjaroButton": "Créer mon ascension du Kilimandjaro",
+    "sidebarHoneymoonHeading": "Vous préparez un voyage spécial ?",
+    "sidebarHoneymoonBody": "Lune de miel, anniversaire, ou combiné safari et plage — concevons-le ensemble.",
+    "sidebarHoneymoonButton": "Créer mon voyage",
+    "sidebarCultureHeading": "D'autres questions ?",
+    "sidebarCultureBody": "Vaccins, visas, préparatifs — posez-nous vos questions avant de réserver.",
+    "sidebarCultureButton": "Nous contacter directement",
+    "sidebarAboutEwaHeading": "Envie de rencontrer notre équipe ?",
+    "sidebarAboutEwaBody": "Découvrez qui se cache derrière EWA Safari Outfitters, ou contactez-nous directement.",
+    "sidebarAboutEwaButton": "Nous contacter"
   }
 }

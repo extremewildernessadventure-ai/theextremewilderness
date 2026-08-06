@@ -44,10 +44,10 @@ export default async function Footer() {
   ]
 
   const company = [
-    { label: t('companyAbout'), href: '/about' },
     { label: t('companyWhyUs'), href: '/about#why-us' },
     { label: t('companyGuides'), href: '/about#guides' },
     { label: t('companyBlog'), href: '/blog' },
+    { label: t('companyFaq'), href: '/faq' },
     { label: t('companyTrade'), href: '/trade-partners' },
     { label: t('companyContact'), href: '/contact' },
   ] as const

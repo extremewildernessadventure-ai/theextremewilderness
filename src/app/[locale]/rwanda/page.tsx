@@ -469,7 +469,7 @@ export default async function RwandaPage({ params }: Props) {
                   arrow
                 />
                 <Link
-                  href="/destinations"
+                  href="/destinations/tanzania"
                   className="inline-flex items-center gap-2 px-6 py-3 border border-brand text-brand hover:bg-brand hover:text-white font-semibold rounded-xl transition-colors"
                 >
                   {t('tanzaniaDestinations')} <ArrowRight className="w-4 h-4" />
@@ -548,7 +548,7 @@ export default async function RwandaPage({ params }: Props) {
                   arrow
                 />
                 <Link
-                  href="/destinations"
+                  href="/destinations/tanzania"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors text-base"
                 >
                   {t('exploreTanzaniaToo')} <ArrowRight className="w-4 h-4" />

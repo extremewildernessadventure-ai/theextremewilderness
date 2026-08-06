@@ -159,7 +159,11 @@
         "small": 2495,
         "group": 2350
       },
-      "pricing6Day": { "solo": 2395, "small": 2195, "group": 2095 },
+      "pricing6Day": {
+        "solo": 2395,
+        "small": 2195,
+        "group": 2095
+      },
       "quickFacts6Day": {
         "routeName": "Machame Route (The Whiskey Route)",
         "duration": "6 Days / 5 Nights",
@@ -271,8 +275,14 @@
           "a": "Yes — many climbers add a safari or beach extension either before or after the climb, making efficient use of the trip to Tanzania."
         }
       ],
-      "tabLabels": { "6": "6-Day Machame", "7": "7-Day Machame" },
-      "routeNameByDuration": { "6": "Machame Route — 6-Day", "7": "Machame Route — 7-Day" },
+      "tabLabels": {
+        "6": "6-Day Machame",
+        "7": "7-Day Machame"
+      },
+      "routeNameByDuration": {
+        "6": "Machame Route — 6-Day",
+        "7": "Machame Route — 7-Day"
+      },
       "heroImageAlt": "Mount Kilimanjaro rising above the savanna, framed by acacia trees"
     },
     "lemosho": {
@@ -399,8 +409,16 @@
         "small": 2750,
         "group": 2595
       },
-      "pricing6Day": { "solo": 3185, "small": 2450, "group": 1911 },
-      "pricing7Day": { "solo": 3575, "small": 2750, "group": 2145 },
+      "pricing6Day": {
+        "solo": 3185,
+        "small": 2450,
+        "group": 1911
+      },
+      "pricing7Day": {
+        "solo": 3575,
+        "small": 2750,
+        "group": 2145
+      },
       "quickFacts6Day": {
         "routeName": "Lemosho Route",
         "duration": "6 Days / 5 Nights",
@@ -583,8 +601,16 @@
           "a": "Yes — many climbers add a safari or beach stay either before or after their trek. Since you'll already be acclimatised to Tanzania's time zone and travel rhythm, it's an efficient way to extend the trip."
         }
       ],
-      "tabLabels": { "6": "6-Day Lemosho", "7": "7-Day Lemosho", "8": "8-Day Lemosho" },
-      "routeNameByDuration": { "6": "Lemosho Route — 6-Day", "7": "Lemosho Route — 7-Day", "8": "Lemosho Route — 8-Day" },
+      "tabLabels": {
+        "6": "6-Day Lemosho",
+        "7": "7-Day Lemosho",
+        "8": "8-Day Lemosho"
+      },
+      "routeNameByDuration": {
+        "6": "Lemosho Route — 6-Day",
+        "7": "Lemosho Route — 7-Day",
+        "8": "Lemosho Route — 8-Day"
+      },
       "heroImageAlt": "Wide scenic view of Kilimanjaro emerging above the clouds"
     },
     "rongai": {
@@ -1243,7 +1269,8 @@
     "trustCountries": "countries served",
     "trustBigFive": "Big Five sightings",
     "trustQuote": "Nothing could have prepared us for the sheer scale of the migration. EWA delivered beyond words.",
-    "trustQuoteAuthor": "— Sarah & Michael T., United Kingdom"
+    "trustQuoteAuthor": "— Sarah & Michael T., United Kingdom",
+    "companyFaq": "FAQ"
   },
   "common": {
     "bookNow": "Book Now",
@@ -3186,7 +3213,12 @@
   "privacy": {
     "metaTitle": "Privacy Policy",
     "metaDescription": "How EWA Safari Outfitters collects, uses, and protects your personal data. GDPR-compliant privacy policy for our safari booking services.",
-    "metaKeywords": ["Tanzania safari privacy policy", "EWA Safari Outfitters data protection", "GDPR safari booking", "safari company privacy policy"],
+    "metaKeywords": [
+      "Tanzania safari privacy policy",
+      "EWA Safari Outfitters data protection",
+      "GDPR safari booking",
+      "safari company privacy policy"
+    ],
     "heroTitle1": "Privacy",
     "heroTitle2": "Policy",
     "heroSubtitle": "We are committed to protecting your personal data. This policy explains exactly what we collect, why, and how you stay in control — including your rights under GDPR.",
@@ -3283,7 +3315,12 @@
   "terms": {
     "metaTitle": "Terms & Conditions",
     "metaDescription": "Terms and Conditions for booking safaris, trekking, and travel experiences with EWA Safari Outfitters. Includes cancellation policy, liability, and insurance requirements.",
-    "metaKeywords": ["Tanzania safari terms and conditions", "safari booking cancellation policy", "EWA Safari Outfitters terms", "safari travel insurance requirements"],
+    "metaKeywords": [
+      "Tanzania safari terms and conditions",
+      "safari booking cancellation policy",
+      "EWA Safari Outfitters terms",
+      "safari travel insurance requirements"
+    ],
     "heroTitle1": "Terms &",
     "heroTitle2": "Conditions",
     "heroSubtitle": "Please read before booking. These terms govern all safaris, trekking expeditions, and travel experiences arranged by EWA Safari Outfitters.",
@@ -3506,20 +3543,17 @@
     "heroLede": "For the agents who trust us with their clients, a safari begins long before departure — with local knowledge, considered planning, and an operator who answers honestly. We invite select trade partners to work with us directly across Tanzania, Kenya, and Rwanda.",
     "heroCtaPrimary": "Enquire About Trade Partnership",
     "heroCtaSecondary": "Learn More",
-
     "navLabelAbout": "About",
     "navLabelWorking": "Partnership",
     "navLabelGuidesFleet": "Guides & Fleet",
     "navLabelCollection": "Our Collection",
     "navLabelGlance": "At a Glance",
-
     "aboutEyebrow": "Welcome to EWA Safari Outfitters",
     "aboutTitle": "A Safari Company Built From the Ground Up",
     "aboutVisualCap": "Arusha, Tanzania",
     "aboutBody1": "EWA Safari Outfitters is a locally owned safari and expedition company, founded and run from Arusha, in the shadow of Mount Meru. We design and operate journeys across Tanzania's Northern and Southern Circuits, into Kenya's most storied reserves, and among Rwanda's forested highlands — each itinerary shaped by years spent in these places, not assembled behind a desk.",
     "aboutBody2": "Our approach is a considered one. We work across three tiers — Wilderness Trail, Wilderness Reserve, and Wilderness Sovereign — so that whatever a client's budget, the journey we build for them reflects genuine judgment rather than a template.",
     "aboutBody3": "For our trade partners, this means a safari company that answers quickly, prices honestly, and stands behind every detail of the journey — from the first enquiry to the last night under canvas.",
-
     "workingTogetherEyebrow": "Working Together",
     "workingTogetherTitle": "What a Partnership With Us Looks Like",
     "workingTogetherIntro": "Your clients ask considered questions. A partnership with EWA Safari Outfitters means having considered answers, from people who know the ground.",
@@ -3531,7 +3565,6 @@
     "card3Body": "Three clear tiers, from mid-luxury to ultra-luxury, so any client's brief has a natural home in our range.",
     "card4Title": "Honest Communication",
     "card4Body": "A written proposal, in good time, from a person who knows your account — not a queue.",
-
     "guidesFleetEyebrow": "The Team on the Ground",
     "guidesFleetTitle": "Guides Who Know the Land, Vehicles Built to Reach It",
     "guidesFleetIntro": "A safari is only as good as the person driving it and the vehicle carrying you there. We hold both to the same exacting standard.",
@@ -3549,7 +3582,6 @@
     "fleetList1": "Purpose-built 4x4s, rigorously maintained",
     "fleetList2": "Pop-up roofs for unobstructed viewing",
     "fleetList3": "Equipped for comfort on long game drives",
-
     "kitEyebrow": "For Our Trade Partners",
     "kitTitle": "What You'll Receive as an Approved Partner",
     "kitIntro": "Once your agency is approved, everything you need to price and present EWA Safari Outfitters arrives as a single, considered kit.",
@@ -3562,7 +3594,6 @@
     "kitItem4Title": "A Dedicated Contact",
     "kitItem4Body": "One person at EWA who knows your account, reachable directly.",
     "kitNote": "Rate and commission details are shared privately with approved partners, and are not published here.",
-
     "collectionEyebrow": "Our Collection",
     "collectionTitle": "Three Tiers, One Standard of Care",
     "collectionIntro": "Every itinerary we build sits within one of three tiers, so a client's budget and expectation are matched from the very first conversation.",
@@ -3578,7 +3609,6 @@
     "tier3Name": "Wilderness Sovereign",
     "tier3Body": "Our finest private camps and lodges — exceptional rooms, exceptional settings, fully tailored.",
     "tier3Fit": "For the ultra-luxury traveller",
-
     "glanceEyebrow": "Before You Enquire",
     "glanceTitle": "At a Glance",
     "glanceIntro": "A few essential details, so your first enquiry with us is as considered as the itineraries we build.",
@@ -3594,12 +3624,10 @@
     "glance5Value": "Net rates, shared privately once your partnership is approved",
     "glance6Label": "What We'll Ask For",
     "glance6Value": "Your agency's details, your typical client, and your expected volume",
-
     "enquiryEyebrow": "Begin a Partnership",
     "enquiryTitle": "Enquire About Trade Partnership",
     "enquiryIntro": "Share a little about your agency below, and we'll be in touch to confirm your trade status. Once approved, your trade kit follows by email.",
     "enquiryContactLine": "info@theextremewilderness.com · +255 747 999 070",
-
     "formAgencyName": "Agency Name",
     "formAgencyNamePlaceholder": "Northbound Travel Co.",
     "formCountry": "Country / Market",
@@ -3622,7 +3650,6 @@
     "formSuccessBody": "Thank you — we'll be in touch to confirm your trade status within one business day.",
     "formError": "Something went wrong. Please try again or email us directly.",
     "formNote": "We review each enquiry personally, and follow up within a few business days.",
-
     "metaKeywords": [
       "Tanzania safari trade partner",
       "travel agent net rates Tanzania",
@@ -3684,5 +3711,146 @@
     "emailItinerarySubject": "Your itinerary request — EWA Safari Outfitters",
     "emailItineraryIntro": "Thanks for requesting the {context} itinerary. Our team is preparing your full day-by-day plan and will send it to this address within 24 hours.",
     "viewLabel": "View Guide Now"
+  },
+  "destinationsHub": {
+    "metaTitle": "East Africa Destinations | Tanzania, Kenya & Rwanda",
+    "metaDescription": "Explore every national park, wildlife reserve, and key destination EWA Safari Outfitters operates across Tanzania, Kenya, and Rwanda — organised by circuit and area, not an alphabetical list.",
+    "metaKeywords": [
+      "East Africa destinations",
+      "Tanzania Kenya Rwanda safari",
+      "African safari destinations map",
+      "Serengeti Masai Mara Volcanoes",
+      "East Africa national parks"
+    ],
+    "breadcrumbLabel": "Destinations",
+    "heroEyebrow": "East Africa, Region by Region",
+    "heroTitle": "East Africa",
+    "heroTitleGold": "by Region",
+    "heroLede": "Explore every national park, wildlife reserve, and key destination EWA Safari Outfitters operates across Tanzania, Kenya, and Rwanda — organised the way the land itself is organised, not by menu.",
+    "exploreMap": "Explore the Map",
+    "statDestinations": "Destinations",
+    "statCountries": "Countries",
+    "statCircuits": "TZ Circuits",
+    "statMammals": "Mammal Species",
+    "statBirds": "Bird Species",
+    "statHq": "HQ & Ground Team",
+    "statHqValue": "Arusha",
+    "mapEyebrow": "Tap a Country to Begin",
+    "mapHeading": "Every Region EWA Safari Outfitters Operates In",
+    "mapCopy1": "Tanzania, Kenya, and Rwanda are shaded — tap any of the three to jump straight to its destinations below. Every other country on the map is context, not a place EWA Safari Outfitters currently runs safaris.",
+    "mapCopy2": "Every region, flagship or hidden gem, has a story. Below, EWA Safari Outfitters has organised each country exactly as its planners map itineraries there — by circuit and area, not an alphabetical list.",
+    "mapAriaLabel": "Map of Tanzania, Kenya, and Rwanda — click a country to browse its destinations",
+    "areasEyebrow": "Browse by Area",
+    "areasHeading": "Destinations, Organised the Way EWA Safari Outfitters Plans Them",
+    "areasBody": "Select a country, then open any area to see exactly which parks and reserves fall within it — the same regional logic EWA Safari Outfitters' planners use when building your itinerary.",
+    "tzIntroHeading": "Wild Tanzania — Three Epic Circuits",
+    "tzIntroBody": "26 national parks and reserves across three distinct circuits, plus Zanzibar and the Arusha gateway. 28% of Tanzania's land is under conservation — the highest commitment of any safari nation on Earth.",
+    "tzAreaZanzibarArusha": "Zanzibar & Arusha Gateway",
+    "seeAllTanzania": "See All Tanzania Destinations",
+    "keIntroHeading": "Wild Kenya — Africa's Original Safari Destination",
+    "keIntroBody": "59 national parks and reserves, home to the planet's greatest wildlife spectacle and the last two northern white rhinos on Earth.",
+    "seeAllKenya": "See All Kenya Destinations",
+    "rwIntroHeading": "Land of a Thousand Hills",
+    "rwIntroBody": "Small in size, extraordinary in depth — home to roughly half of the world's remaining mountain gorillas.",
+    "seeAllRwanda": "See All Rwanda Destinations",
+    "leadBandHeading": "Not Sure Where to Start?",
+    "leadBandBody": "Build your own safari in 90 seconds — tell EWA Safari Outfitters your dates, interests and style, and see real matched itineraries with transparent pricing.",
+    "leadBandCta": "Craft Your Safari",
+    "storiesEyebrow": "Field Notes",
+    "storiesHeading": "A Few of the Stories Behind These Places",
+    "storiesBody": "Every destination on this page has a history worth knowing before you go. Here are four that shape how EWA Safari Outfitters plans around them.",
+    "story1Kicker": "Serengeti National Park",
+    "story1Heading": "The Land That Runs Forever",
+    "story1Body": "The name Serengeti comes from the Maasai word siringet — \"the place where the land runs on forever.\" Established in 1951 and a UNESCO World Heritage Site since 1981, it forms the core of an unbroken 30,000 km² ecosystem that spills across the border into Kenya's Masai Mara.",
+    "story1Link": "Explore Serengeti",
+    "story2Kicker": "Ngorongoro Crater",
+    "story2Heading": "A Volcano That Fell In On Itself",
+    "story2Body": "Geologists estimate Ngorongoro once stood as tall as Kilimanjaro before it erupted and collapsed roughly 2–3 million years ago, leaving the world's largest intact, unflooded volcanic caldera — and one of the highest concentrations of wildlife anywhere in Africa.",
+    "story2Link": "Explore Ngorongoro",
+    "story3Kicker": "Masai Mara, Kenya",
+    "story3Heading": "An Invisible Border, One Ecosystem",
+    "story3Body": "The Masai Mara is the northern extension of the Serengeti, separated from its Tanzanian counterpart only by an international line the wildlife doesn't recognise. Between July and October, the Mara River crossings are the Migration's most dramatic act.",
+    "story3Link": "Explore Masai Mara",
+    "story4Kicker": "Volcanoes National Park, Rwanda",
+    "story4Heading": "Where Modern Gorilla Conservation Began",
+    "story4Body": "Home to roughly half of the world's remaining mountain gorillas, Volcanoes National Park is where primatologist Dian Fossey established her research camp in 1967 — the birthplace of the conservation work that has since doubled the species' population.",
+    "story4Link": "Explore Volcanoes NP",
+    "compareEyebrow": "Not Sure Which Country?",
+    "compareHeading": "Tanzania, Kenya & Rwanda — At a Glance",
+    "compareBestFor": "Best For",
+    "tzFact1": "Most parks & wilderness — 26 parks and reserves",
+    "tzFact2": "Highest land conservation — 28% protected",
+    "tzFact3": "Best for Serengeti, Ngorongoro & Zanzibar combined",
+    "tzExplore": "Explore Tanzania",
+    "keFact1": "Highest big-cat density — 90+ mammal species in the Mara",
+    "keFact2": "Migration river crossings — Jul–Oct",
+    "keFact3": "Best for classic safari icons & birding",
+    "keExplore": "Explore Kenya",
+    "rwFact1": "Mountain gorilla trekking — ~1,000 gorillas on Earth",
+    "rwFact2": "Only great ape population growing",
+    "rwFact3": "Best for intimate, once-in-a-lifetime encounters",
+    "rwExplore": "Explore Rwanda",
+    "testimonialQuote": "Nothing could have prepared us for the sheer scale of the migration. EWA delivered beyond words.",
+    "testimonialCite": "Sarah & Michael T., United Kingdom",
+    "trustRating": "4.9 / 5",
+    "trustRatingLabel": "200+ Verified Guests",
+    "trustReviews": "97%",
+    "trustReviewsLabel": "5-Star Reviews",
+    "trustCountries": "40+",
+    "trustCountriesLabel": "Countries Served",
+    "trustBigFive": "100%",
+    "trustBigFiveLabel": "Big Five Sightings",
+    "finalCtaEyebrow": "Ready When You Are",
+    "finalCtaHeading": "Let's Plan Your Perfect East Africa Safari With EWA Safari Outfitters",
+    "finalCtaBody": "Share your travel dates and what moves you. EWA Safari Outfitters will build something extraordinary — entirely around you, no templates, no shortcuts.",
+    "finalCtaButton": "Start Planning",
+    "tzAreaZanzibarArushaTagline": "Beach & Basecamp",
+    "destinationsSuffix": "destinations",
+    "statMammalsValue": "90+",
+    "statBirdsValue": "1,100+",
+    "heroImageAlt": "Elephants greeting each other at a waterhole in East Africa"
+  },
+  "faqHub": {
+    "metaTitle": "Safari FAQ | Tanzania, Kenya & Rwanda Questions Answered",
+    "metaDescription": "Answers to the questions travelers actually ask about Tanzania, Kenya, and Rwanda safaris — costs, best time to visit, family safaris, gorilla trekking, Kilimanjaro, and more.",
+    "ogDescription": "Real answers on safari costs, timing, family travel, gorilla trekking, Kilimanjaro, and more — from EWA Safari Outfitters.",
+    "ogImageAlt": "Safari vehicle on the Serengeti plains at golden hour",
+    "twitterTitle": "Safari FAQ | EWA Safari Outfitters",
+    "breadcrumbLabel": "FAQ",
+    "heroEyebrow": "Questions, Answered",
+    "heroTitle": "Frequently Asked",
+    "heroTitleGold": "Questions",
+    "heroSubtitle": "Straight answers to what travelers actually ask before booking a Tanzania, Kenya, or Rwanda safari — costs, timing, family travel, gorilla trekking, Kilimanjaro, and more.",
+    "sectionEyebrow": "FAQ",
+    "ctaHeading": "Didn't find your answer?",
+    "ctaSubtitle": "Tell us what you're planning and we'll get back to you directly — usually within a couple of hours.",
+    "ctaButton": "Ask Us Directly",
+    "sidebarFamilyHeading": "Planning a Family Safari?",
+    "sidebarFamilyBody": "Tell us your kids' ages and travel dates — we'll build the pace around your family.",
+    "sidebarFamilyButton": "Plan My Family Safari",
+    "sidebarBestTimeHeading": "Not Sure When to Go?",
+    "sidebarBestTimeBody": "Share your travel dates and we'll match them to the migration and the seasons.",
+    "sidebarBestTimeButton": "Check My Travel Dates",
+    "sidebarPlanningHeading": "Want a Real Quote?",
+    "sidebarPlanningBody": "Skip the guesswork — get transparent, no-obligation pricing for your trip.",
+    "sidebarPlanningButton": "Get My Free Quote",
+    "sidebarTanzaniaHeading": "Ready for Tanzania?",
+    "sidebarTanzaniaBody": "Let's design your Serengeti, Ngorongoro, and Tarangire itinerary together.",
+    "sidebarTanzaniaButton": "Plan My Tanzania Safari",
+    "sidebarKenyaRwandaHeading": "Exploring Kenya or Rwanda?",
+    "sidebarKenyaRwandaBody": "From the Masai Mara to gorilla trekking — let's plan your route.",
+    "sidebarKenyaRwandaButton": "Plan My Kenya & Rwanda Trip",
+    "sidebarKilimanjaroHeading": "Ready to Climb Kilimanjaro?",
+    "sidebarKilimanjaroBody": "We'll match you to the right route, pace, and season for your climb.",
+    "sidebarKilimanjaroButton": "Plan My Kilimanjaro Climb",
+    "sidebarHoneymoonHeading": "Planning Something Special?",
+    "sidebarHoneymoonBody": "Honeymoon, anniversary, or a safari-and-beach escape — let's design it.",
+    "sidebarHoneymoonButton": "Plan My Trip",
+    "sidebarCultureHeading": "Have More Questions?",
+    "sidebarCultureBody": "Vaccinations, visas, packing — ask us anything before you book.",
+    "sidebarCultureButton": "Ask Us Directly",
+    "sidebarAboutEwaHeading": "Ready to Meet the Team?",
+    "sidebarAboutEwaBody": "See who's behind EWA Safari Outfitters, or reach out directly.",
+    "sidebarAboutEwaButton": "Contact Us"
   }
 }

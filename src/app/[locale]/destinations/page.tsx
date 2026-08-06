@@ -1,36 +1,23 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { Link } from '@/i18n/navigation'
-import { ArrowRight, Users, Car, Headphones, Shield, Compass, Trophy } from 'lucide-react'
-import BookNowButton from '@/components/booking/BookNowButton'
-import DestinationCard from '@/components/destinations/DestinationCard'
+import { Quote, Star } from 'lucide-react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { getDestinations } from '@/data/destinations.i18n'
+import { Link } from '@/i18n/navigation'
+import BookNowButton from '@/components/booking/BookNowButton'
+import NewsletterForm from '@/components/home/NewsletterForm'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import { buildAlternates } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
-
-const CIRCUIT_FEATURED: Record<string, string> = {
-  northern: 'serengeti',
-  southern: 'ruaha',
-  western: 'mahale',
-}
-
-const REGION_LABEL_KEYS: Record<string, 'regionNorthern' | 'regionTarangire' | 'regionSouthern' | 'regionWestern' | 'regionZanzibar' | 'regionArusha'> = {
-  northern: 'regionNorthern',
-  tarangire: 'regionTarangire',
-  southern: 'regionSouthern',
-  western: 'regionWestern',
-  zanzibar: 'regionZanzibar',
-  arusha: 'regionArusha',
-}
+import DestinationsExplorer, { type CountryAreaData } from '@/components/destinations/DestinationsExplorer'
+import { getDestinations } from '@/data/destinations.i18n'
+import type { Destination } from '@/data/destinations'
+import { buildAlternates } from '@/lib/site'
 
 type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'destinations' })
+  const t = await getTranslations({ locale, namespace: 'destinationsHub' })
   const title = t('metaTitle')
   const description = t('metaDescription')
   return {
@@ -38,144 +25,102 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     keywords: t.raw('metaKeywords') as string[],
-    openGraph: {
-      title,
-      description,
-      images: [{ url: '/images/gallery/safari-119.jpg', width: 1200, height: 630, alt: t('heroImageAlt') }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      images: ['/images/gallery/safari-119.jpg'],
-    },
+    openGraph: { title, description, type: 'website' },
+    twitter: { card: 'summary_large_image', title, description },
   }
 }
 
-const tanzaniaStats = [
-  { icon: '🦁', stat: '26' },
-  { icon: '🌍', stat: '28%' },
-  { icon: '🐦', stat: '1,100+' },
-  { icon: '🦒', stat: '70+' },
-  { icon: '🏔️', stat: '5,895 m' },
-  { icon: '🏆', stat: '#1' },
-]
-
-const DEST_EXTRA: Record<string, { badge: string; badgeColor: string; bestTime: string; duration: string; priceFrom: string }> = {
-  serengeti:       { badge: 'Must-Visit',          badgeColor: 'bg-gold text-brand',           bestTime: 'Jul – Oct & Jan – Feb', duration: '3–7 days', priceFrom: '$280' },
-  ngorongoro:      { badge: 'UNESCO World Heritage', badgeColor: 'bg-brand text-white',         bestTime: 'Jun – Oct & Jan – Mar', duration: '1–2 days', priceFrom: '$240' },
-  tarangire:       { badge: 'Elephant Paradise',   badgeColor: 'bg-brand text-white',           bestTime: 'Jun – Oct',             duration: '2–3 days', priceFrom: '$200' },
-  manyara:         { badge: 'Scenic Wonder',        badgeColor: 'bg-gold text-brand',            bestTime: 'Jun – Oct & Jan – Feb', duration: '1–2 days', priceFrom: '$180' },
-  katavi:          { badge: 'Raw Wilderness',       badgeColor: 'bg-brand-secondary text-white', bestTime: 'Jul – Oct',             duration: '3–4 days', priceFrom: '$350' },
-  gombe:           { badge: 'Conservation Icon',    badgeColor: 'bg-gold text-brand',            bestTime: 'Aug – Nov',             duration: '2–3 days', priceFrom: '$300' },
-  'lake-victoria': { badge: 'Hidden Gem',           badgeColor: 'bg-brand text-white',           bestTime: 'Jun – Oct',             duration: '2–4 days', priceFrom: '$180' },
-  ruaha:           { badge: 'Big Cat Country',      badgeColor: 'bg-brand text-white',           bestTime: 'May – Nov',             duration: '3–5 days', priceFrom: '$260' },
-  nyerere:         { badge: 'UNESCO Heritage',      badgeColor: 'bg-gold text-brand',            bestTime: 'Jun – Oct',             duration: '3–5 days', priceFrom: '$240' },
+function bySlug(list: Destination[], slugs: string[]) {
+  return slugs.map((s) => list.find((d) => d.slug === s)).filter((d): d is Destination => Boolean(d))
 }
 
-const EXTRA_META: Record<string, { badge: string; priceFrom: string }> = {
-  zanzibar: { badge: 'Beach & Culture', priceFrom: '$160' },
-  arusha:   { badge: 'Gateway City',    priceFrom: '$80'  },
+function toRow(d: Destination) {
+  return { slug: d.slug, name: d.name, teaser: d.tagline }
 }
 
-const CIRCUIT_META = [
-  {
-    id: 'northern',
-    regions: ['northern', 'tarangire'],
-    labelKey: 'circuitNorthernLabel' as const,
-    taglineKey: 'circuitNorthernTagline' as const,
-    box1DescKey: 'box1NorthernDesc' as const,
-    icon: '🦁',
-    color: 'bg-amber-50 border-amber-200',
-    labelColor: 'text-amber-800',
-    box1Color: 'bg-amber-400/20 border-amber-400/30',
-  },
-  {
-    id: 'western',
-    regions: ['western'],
-    labelKey: 'circuitWesternLabel' as const,
-    taglineKey: 'circuitWesternTagline' as const,
-    box1DescKey: 'box1WesternDesc' as const,
-    icon: '🐒',
-    color: 'bg-green-50 border-green-200',
-    labelColor: 'text-brand',
-    box1Color: 'bg-green-400/20 border-green-400/30',
-  },
-  {
-    id: 'southern',
-    regions: ['southern'],
-    labelKey: 'circuitSouthernLabel' as const,
-    taglineKey: 'circuitSouthernTagline' as const,
-    box1DescKey: 'box1SouthernDesc' as const,
-    icon: '🐆',
-    color: 'bg-sky-50 border-sky-200',
-    labelColor: 'text-sky-800',
-    box1Color: 'bg-sky-400/20 border-sky-400/30',
-  },
-]
-
-export default async function DestinationsPage({ params }: Props) {
+export default async function DestinationsHubPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const t = await getTranslations('destinations')
+
+  const t = await getTranslations('destinationsHub')
   const tc = await getTranslations('common')
+  const tTz = await getTranslations('destinations')
+  const tKe = await getTranslations('kenya')
+  const tRw = await getTranslations('rwanda')
+
   const allDestinations = await getDestinations(locale)
-  const tanzaniaDestinations = allDestinations.filter(d => d.country === 'tanzania')
 
-  const circuits = CIRCUIT_META.map(meta => ({
-    ...meta,
-    label: t(meta.labelKey),
-    tagline: t(meta.taglineKey),
-    box1Desc: t(meta.box1DescKey),
-    destinations: tanzaniaDestinations
-      .filter(d => meta.regions.includes(d.region))
-      .map(d => ({
-        id: d.slug,
-        slug: d.slug,
-        name: d.name,
-        tagline: d.tagline,
-        size: d.parkSize,
-        image: d.heroImage,
-        overview: d.description,
-        firstParagraph: d.description.split('\n\n')[0],
-        regionLabel: REGION_LABEL_KEYS[d.region] ? t(REGION_LABEL_KEYS[d.region]) : d.region,
-        packagesCount: d.packages.length,
-        highlights: d.highlights,
-        wildlife: d.wildlife,
-        ...(DEST_EXTRA[d.slug] ?? { badge: '', badgeColor: 'bg-brand text-white', bestTime: '', duration: '', priceFrom: '' }),
-      })),
-  }))
+  // Tanzania — grouped by the real circuit `region` enum already used on
+  // /destinations/tanzania; Tarangire/Manyara merge into "Northern Circuit"
+  // and Zanzibar/Arusha merge into one card, matching that page's own
+  // coarser circuit framing.
+  const tz = allDestinations.filter((d) => d.country === 'tanzania')
+  const tzNorthern = tz.filter((d) => d.region === 'northern' || d.region === 'tarangire')
+  const tzWestern = tz.filter((d) => d.region === 'western')
+  const tzSouthern = tz.filter((d) => d.region === 'southern')
+  const tzZanzibarArusha = tz.filter((d) => d.region === 'zanzibar' || d.region === 'arusha')
 
-  const extras = (['zanzibar', 'arusha'] as const).map(slug => {
-    const dest = allDestinations.find(d => d.slug === slug)
-    return {
-      id: slug,
-      slug,
-      name: dest?.name ?? slug,
-      tagline: dest?.tagline ?? '',
-      image: dest?.heroImage ?? '',
-      desc: dest?.description ?? '',
-      firstParagraph: dest?.description.split('\n\n')[0] ?? '',
-      regionLabel: dest?.region && REGION_LABEL_KEYS[dest.region] ? t(REGION_LABEL_KEYS[dest.region]) : dest?.region ?? '',
-      wildlife: dest?.wildlife ?? [],
-      packagesCount: dest?.packages.length ?? 0,
-      badge: EXTRA_META[slug].badge,
-      priceFrom: EXTRA_META[slug].priceFrom,
-    }
-  })
+  // Kenya/Rwanda — the `region` field on Destination is Tanzania-circuit-
+  // specific and meaningless here; group using the same slug->area mapping
+  // already used on the live /kenya and /rwanda pages.
+  const ke = allDestinations.filter((d) => d.country === 'kenya')
+  const rw = allDestinations.filter((d) => d.country === 'rwanda')
 
-  const seasons = [
-    { months: t('season1Months'), color: 'bg-amber-50 border-amber-200', labelColor: 'text-amber-700', tip: t('season1Tip') },
-    { months: t('season2Months'), color: 'bg-sky-50 border-sky-200',     labelColor: 'text-sky-700',   tip: t('season2Tip') },
-    { months: t('season3Months'), color: 'bg-green-50 border-green-200', labelColor: 'text-brand',     tip: t('season3Tip') },
-    { months: t('season4Months'), color: 'bg-blue-50 border-blue-200',   labelColor: 'text-blue-700',  tip: t('season4Tip') },
+  const areaData: Record<'tanzania' | 'kenya' | 'rwanda', CountryAreaData> = {
+    tanzania: {
+      introHeading: t('tzIntroHeading'),
+      introBody: t('tzIntroBody'),
+      areas: [
+        { kicker: tTz('circuitNorthernLabel'), heading: tTz('circuitNorthernTagline'), destinations: tzNorthern.map(toRow) },
+        { kicker: tTz('circuitWesternLabel'), heading: tTz('circuitWesternTagline'), destinations: tzWestern.map(toRow) },
+        { kicker: tTz('circuitSouthernLabel'), heading: tTz('circuitSouthernTagline'), destinations: tzSouthern.map(toRow) },
+        { kicker: t('tzAreaZanzibarArusha'), heading: t('tzAreaZanzibarArushaTagline'), destinations: tzZanzibarArusha.map(toRow) },
+      ],
+      seeAllHref: '/destinations/tanzania',
+      seeAllLabel: t('seeAllTanzania'),
+    },
+    kenya: {
+      introHeading: t('keIntroHeading'),
+      introBody: t('keIntroBody'),
+      areas: [
+        { kicker: tKe('regionSouthernKenya'), destinations: bySlug(ke, ['masai-mara', 'amboseli']).map(toRow) },
+        { kicker: tKe('regionNorthernKenya'), destinations: bySlug(ke, ['samburu']).map(toRow) },
+        { kicker: tKe('regionSouthWestKenya'), destinations: bySlug(ke, ['tsavo']).map(toRow) },
+        { kicker: tKe('regionCentralKenya'), destinations: bySlug(ke, ['ol-pejeta', 'lake-nakuru']).map(toRow) },
+        { kicker: tKe('regionKenyanCoast'), destinations: bySlug(ke, ['kenyan-coast']).map(toRow) },
+      ],
+      seeAllHref: '/kenya',
+      seeAllLabel: t('seeAllKenya'),
+    },
+    rwanda: {
+      introHeading: t('rwIntroHeading'),
+      introBody: t('rwIntroBody'),
+      areas: [
+        { kicker: tRw('regionNorthernRwanda'), destinations: bySlug(rw, ['volcanoes']).map(toRow) },
+        { kicker: tRw('regionSouthWestRwanda'), destinations: bySlug(rw, ['nyungwe']).map(toRow) },
+        { kicker: tRw('regionEasternRwanda'), destinations: bySlug(rw, ['akagera']).map(toRow) },
+        { kicker: tRw('regionWesternRwanda'), destinations: bySlug(rw, ['lake-kivu']).map(toRow) },
+        { kicker: tRw('regionCapital'), destinations: bySlug(rw, ['kigali']).map(toRow) },
+      ],
+      seeAllHref: '/rwanda',
+      seeAllLabel: t('seeAllRwanda'),
+    },
+  }
+
+  const stats = [
+    { value: String(allDestinations.length), label: t('statDestinations') },
+    { value: '3', label: t('statCountries') },
+    { value: '3', label: t('statCircuits') },
+    { value: t('statMammalsValue'), label: t('statMammals') },
+    { value: t('statBirdsValue'), label: t('statBirds') },
+    { value: t('statHqValue'), label: t('statHq') },
   ]
 
-  const statLabels = [
-    t('statParks'), t('statLand'), t('statBirds'),
-    t('statMammals'), t('statSummit'), t('statRanking'),
-  ]
-  const seasonLabels = [
-    t('season1Label'), t('season2Label'), t('season3Label'), t('season4Label'),
+  const stories = [
+    { kicker: t('story1Kicker'), heading: t('story1Heading'), body: t('story1Body'), link: t('story1Link'), href: '/destinations/serengeti' },
+    { kicker: t('story2Kicker'), heading: t('story2Heading'), body: t('story2Body'), link: t('story2Link'), href: '/destinations/ngorongoro' },
+    { kicker: t('story3Kicker'), heading: t('story3Heading'), body: t('story3Body'), link: t('story3Link'), href: '/destinations/masai-mara' },
+    { kicker: t('story4Kicker'), heading: t('story4Heading'), body: t('story4Body'), link: t('story4Link'), href: '/destinations/volcanoes' },
   ]
 
   return (
@@ -184,14 +129,14 @@ export default async function DestinationsPage({ params }: Props) {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/safari-119.webp"
+            src="/images/gallery/elephants.webp"
             alt={t('heroImageAlt')}
             fill
             className="object-cover object-center"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/75" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <Breadcrumb items={[
@@ -201,329 +146,188 @@ export default async function DestinationsPage({ params }: Props) {
           <div className="max-w-2xl">
             <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-              {t('heroTitle')}<br />
-              <span className="text-gold">{t('heroTitleGold')}</span>
+              {t('heroTitle')} <span className="text-gold">{t('heroTitleGold')}</span>
             </h1>
             <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-xl">
-              {t('heroSubtitle')}
+              {t('heroLede')}
             </p>
             <div className="flex flex-wrap gap-3">
-              <BookNowButton
-                packageName="Tanzania Safari"
-                packageType={tc('packageTypes.tanzaniaSafari')}
-                label={t('planMyTanzaniaSafari')}
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg"
-                arrow
-              />
               <a
-                href="#northern"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors"
+                href="#areas"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg"
               >
-                {t('exploreCircuits')} <ArrowRight className="w-4 h-4" />
+                {t('exploreMap')}
               </a>
+              <BookNowButton
+                packageType={tc('packageTypes.customSafari')}
+                label={tc('planMySafari')}
+                className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats strip */}
-      <section className="bg-brand py-8">
+      {/* Stat strip */}
+      <section className="bg-brand py-8 border-t border-white/10">
         <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-            {tanzaniaStats.map((item, i) => (
-              <div key={item.stat} className="flex flex-col items-center gap-1">
-                <span className="text-gold font-bold text-xl">{item.stat}</span>
-                <span className="text-white/60 text-xs leading-tight">{statLabels[i]}</span>
+            {stats.map((s) => (
+              <div key={s.label} className="flex flex-col items-center gap-1">
+                <span className="text-gold font-bold text-xl">{s.value}</span>
+                <span className="text-white/60 text-xs leading-tight">{s.label}</span>
               </div>
             ))}
           </div>
         </Reveal>
       </section>
 
-      {/* Intro */}
-      <section className="py-16">
+      {/* Map + Browse by Area */}
+      <section id="areas" className="py-16 lg:py-24">
         <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
-              {t('introEyebrow')}
-            </span>
-            <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-5">
-              {t('introHeading')}
-            </h2>
-            <p className="text-text-muted leading-relaxed">
-              {t('introBody')}
-            </p>
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('areasEyebrow')}</span>
+            <h2 className="text-3xl lg:text-4xl font-semibold text-brand mt-3 mb-4">{t('areasHeading')}</h2>
+            <p className="text-text-muted leading-relaxed">{t('areasBody')}</p>
           </div>
+          <DestinationsExplorer data={areaData} />
         </Reveal>
       </section>
 
-      {/* 2×2 Overview Grid */}
-      <section className="py-16">
-        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-            {/* Box 1 — Three Circuits */}
-            <div className="bg-brand rounded-3xl p-8 flex flex-col">
-              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">{t('box1Eyebrow')}</p>
-              <h3 className="text-2xl font-bold text-white mb-6">{t('box1Heading')}</h3>
-              <div className="space-y-4 flex-1">
-                {circuits.map((c) => (
-                  <a
-                    key={c.id}
-                    href={`#${c.id}`}
-                    className={`flex items-center gap-4 rounded-2xl border px-5 py-4 hover:opacity-90 transition-opacity group ${c.box1Color}`}
-                  >
-                    <div className="flex-1 min-w-0">
-                      <p className="text-white font-bold text-sm">{c.label}</p>
-                      <p className="text-white/75 text-xs mt-0.5 truncate">{c.box1Desc}</p>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-white/60 group-hover:text-gold transition-colors flex-shrink-0" />
-                  </a>
-                ))}
-              </div>
-              <div className="mt-6 pt-5 border-t border-white/10">
-                <p className="text-white/70 text-xs">Also: <span className="text-white/70 font-medium">Zanzibar Beach</span> &amp; <span className="text-white/70 font-medium">Arusha Gateway</span></p>
-              </div>
-            </div>
-
-            {/* Box 2 — Why Book With Us */}
-            <div className="bg-amber-50 rounded-3xl p-8 border border-amber-100 flex flex-col">
-              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">{t('box2Eyebrow')}</p>
-              <h3 className="text-2xl font-bold text-brand mb-6">{t('box2Heading')}</h3>
-              <div className="grid grid-cols-2 gap-4 flex-1">
-                {[
-                  { icon: Compass, title: tc('whyBorn'), desc: tc('whyBornDesc') },
-                  { icon: Car, title: tc('whyVehicles'), desc: tc('whyVehiclesDesc') },
-                  { icon: Users, title: tc('whyGroups'), desc: tc('whyGroupsDesc') },
-                  { icon: Shield, title: tc('whyLicensed'), desc: tc('whyLicensedDesc') },
-                  { icon: Headphones, title: tc('whySupport'), desc: tc('whySupportDesc') },
-                  { icon: Trophy, title: tc('whyYears'), desc: tc('whyYearsDesc') },
-                ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-3">
-                    <div className="w-8 h-8 bg-gold/20 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <item.icon className="w-4 h-4 text-brand" />
-                    </div>
-                    <div>
-                      <p className="text-brand font-bold text-xs">{item.title}</p>
-                      <p className="text-text-muted text-xs leading-snug mt-0.5">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Box 3 — Tanzania in Numbers */}
-            <div className="bg-light-green rounded-3xl p-8 border border-brand/10 flex flex-col">
-              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">{t('box3Eyebrow')}</p>
-              <h3 className="text-2xl font-bold text-brand mb-6">{t('box3Heading')}</h3>
-              <div className="grid grid-cols-2 gap-5 flex-1">
-                {[
-                  { stat: '1.5M', label: t('box3Stat1Label'), sub: t('box3Stat1Sub') },
-                  { stat: '10%', label: t('box3Stat2Label'), sub: t('box3Stat2Sub') },
-                  { stat: '54,600', label: t('box3Stat3Label'), sub: t('box3Stat3Sub') },
-                  { stat: '25,000+', label: t('box3Stat4Label'), sub: t('box3Stat4Sub') },
-                  { stat: '60 yrs', label: t('box3Stat5Label'), sub: t('box3Stat5Sub') },
-                  { stat: '1,100+', label: t('box3Stat6Label'), sub: t('box3Stat6Sub') },
-                ].map((item) => (
-                  <div key={item.stat} className="bg-white rounded-2xl px-4 py-3 border border-brand/5">
-                    <p className="text-gold-label font-bold text-xl leading-none">{item.stat}</p>
-                    <p className="text-brand font-semibold text-xs mt-1 leading-snug">{item.label}</p>
-                    <p className="text-text-muted text-[11px] mt-0.5 leading-snug">{item.sub}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Box 4 — How It Works */}
-            <div className="bg-brand-dark rounded-3xl p-8 flex flex-col" style={{ backgroundColor: '#0a2e1a' }}>
-              <p className="text-gold-label text-xs font-bold uppercase tracking-widest mb-2">{t('box4Eyebrow')}</p>
-              <h3 className="text-2xl font-bold text-white mb-6">{t('box4Heading')}</h3>
-              <div className="space-y-5 flex-1">
-                {[
-                  { step: '01', title: tc('step1Title'), desc: tc('step1Desc') },
-                  { step: '02', title: tc('step2Title'), desc: tc('step2Desc') },
-                  { step: '03', title: tc('step3Title'), desc: tc('step3Desc') },
-                  { step: '04', title: tc('step4Title'), desc: tc('step4DescTanzania') },
-                ].map((s) => (
-                  <div key={s.step} className="flex items-start gap-4">
-                    <div className="w-9 h-9 rounded-full bg-gold flex items-center justify-center flex-shrink-0">
-                      <span className="text-brand font-bold text-xs">{s.step}</span>
-                    </div>
-                    <div>
-                      <p className="text-white font-bold text-sm">{s.title}</p>
-                      <p className="text-white/70 text-xs leading-snug mt-1">{s.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 pt-5 border-t border-white/10">
-                <BookNowButton
-                  packageName="Tanzania Safari"
-                  packageType={tc('packageTypes.tanzaniaSafari')}
-                  label={t('startPlanningFree')}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
-                  arrow
-                />
-              </div>
-            </div>
-
-          </div>
-        </Reveal>
-      </section>
-
-      {/* Three circuits */}
-      {circuits.map((circuit) => (
-        <section key={circuit.id} id={circuit.id} className="py-20 bg-light-green scroll-mt-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Circuit header badge */}
-            <Reveal className={`inline-flex items-center gap-3 rounded-2xl border px-5 py-3 mb-10 ${circuit.color}`}>
-              <div>
-                <p className={`text-xs font-bold uppercase tracking-widest ${circuit.labelColor}`}>{circuit.label}</p>
-                <p className="text-brand/70 text-sm">{circuit.tagline}</p>
-              </div>
-            </Reveal>
-
-            <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {circuit.destinations.map((dest) => {
-                const isFeatured = dest.slug === CIRCUIT_FEATURED[circuit.id]
-                return (
-                  <RevealItem key={dest.id} className={isFeatured ? 'sm:col-span-2' : ''}>
-                    <DestinationCard
-                      slug={dest.slug}
-                      name={dest.name}
-                      regionLabel={dest.regionLabel}
-                      description={dest.firstParagraph}
-                      image={dest.image}
-                      wildlife={dest.wildlife}
-                      bestTime={dest.bestTime}
-                      experiencesLabel={tc('experiencesCount', { count: dest.packagesCount })}
-                      priceFrom={dest.priceFrom}
-                      featured={isFeatured}
-                      labels={{ from: tc('from'), featuredBadge: tc('featuredDestination') }}
-                    />
-                  </RevealItem>
-                )
-              })}
-            </RevealGroup>
-          </div>
-        </section>
-      ))}
-
-      {/* Zanzibar + Arusha extras */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-12">
-            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
-              {t('extrasEyebrow')}
-            </span>
-            <h2 className="text-3xl font-semibold text-brand mb-3">{t('extrasHeading')}</h2>
-            <p className="text-text-muted max-w-lg mx-auto text-base">
-              {t('extrasSubtitle')}
-            </p>
-          </Reveal>
-          <RevealGroup className="grid sm:grid-cols-2 gap-6">
-            {extras.map((extra) => (
-              <RevealItem key={extra.id}>
-                <DestinationCard
-                  slug={extra.slug}
-                  name={extra.name}
-                  regionLabel={extra.regionLabel}
-                  description={extra.firstParagraph}
-                  image={extra.image}
-                  wildlife={extra.wildlife}
-                  bestTime=""
-                  experiencesLabel={tc('experiencesCount', { count: extra.packagesCount })}
-                  priceFrom={extra.priceFrom}
-                  labels={{ from: tc('from'), featuredBadge: tc('featuredDestination') }}
-                />
-              </RevealItem>
-            ))}
-          </RevealGroup>
+      {/* Lead capture band */}
+      <section className="bg-gold py-14 text-center">
+        <div className="max-w-2xl mx-auto px-4">
+          <h2 className="text-3xl font-semibold text-brand mb-3">{t('leadBandHeading')}</h2>
+          <p className="text-brand/80 mb-7">{t('leadBandBody')}</p>
+          <BookNowButton
+            packageType={tc('packageTypes.customSafari')}
+            label={t('leadBandCta')}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-brand hover:bg-brand-secondary text-white font-bold rounded-xl transition-colors"
+          />
         </div>
       </section>
 
-      {/* Seasonal guide */}
-      <section className="py-20 bg-light-green">
+      {/* Field Notes */}
+      <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-12">
-            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
-              {t('seasonEyebrow')}
-            </span>
-            <h2 className="text-3xl font-semibold text-brand mb-3">{t('seasonHeading')}</h2>
-            <p className="text-text-muted max-w-lg mx-auto text-base">
-              {t('seasonSubtitle')}
-            </p>
-          </Reveal>
-
-          <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-            {seasons.map((s, i) => (
-              <RevealItem key={s.months} className={`rounded-2xl border p-5 ${s.color}`}>
-                <p className="font-bold text-brand text-base mb-1">{s.months}</p>
-                <p className={`text-xs font-semibold uppercase tracking-wide mb-3 ${s.labelColor}`}>{seasonLabels[i]}</p>
-                <p className="text-base text-text-muted leading-relaxed">{s.tip}</p>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-
-          {/* Migration callout */}
-          <Reveal className="bg-brand rounded-2xl p-6 lg:p-8 flex flex-col lg:flex-row items-start lg:items-center gap-6">
-            <div className="flex-1">
-              <h3 className="text-white font-bold text-lg mb-2">
-                {t('migrationHeading')}
-              </h3>
-              <p className="text-white/70 text-base leading-relaxed">
-                {t('migrationDesc')}
-              </p>
-            </div>
-            <BookNowButton
-              packageName="Great Migration Safari"
-              packageType={tc('packageTypes.tanzaniaMigrationSafari')}
-              label={t('planMigrationSafari')}
-              className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors whitespace-nowrap"
-              arrow
-            />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-brand rounded-3xl p-8 lg:p-14 text-center relative overflow-hidden">
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage: "url('/images/gallery/safari-119.webp')",
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            />
-            <Reveal className="relative z-10">
-              <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
-                {t('ctaEyebrow')}
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                {t('ctaHeading')}
-              </h2>
-              <p className="text-white/70 max-w-xl mx-auto mb-8 leading-relaxed">
-                {t('ctaBody')}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <BookNowButton
-                  packageName="Tanzania Safari"
-                  packageType={tc('packageTypes.tanzaniaSafari')}
-                  label={t('startPlanningFree')}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-base shadow-lg"
-                  arrow
-                />
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('storiesEyebrow')}</span>
+            <h2 className="text-3xl lg:text-4xl font-semibold text-brand mt-3 mb-4">{t('storiesHeading')}</h2>
+            <p className="text-text-muted leading-relaxed">{t('storiesBody')}</p>
+          </div>
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {stories.map((s) => (
+              <RevealItem key={s.kicker} className="border-t border-brand/10 pt-6">
+                <p className="text-gold-label text-[11px] font-bold uppercase tracking-widest mb-3">{s.kicker}</p>
+                <h3 className="text-2xl font-semibold text-brand mb-3">{s.heading}</h3>
+                <p className="text-text-muted text-sm leading-relaxed mb-4">{s.body}</p>
                 <Link
-                  href="/kenya"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors text-base"
+                  href={s.href}
+                  className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gold text-brand text-xs font-semibold uppercase tracking-wide hover:bg-gold transition-colors"
                 >
-                  {t('exploreKenyaToo')} <ArrowRight className="w-4 h-4" />
+                  {s.link} →
+                </Link>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
+
+      {/* Compare grid */}
+      <section className="bg-brand py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('compareEyebrow')}</span>
+            <h2 className="text-3xl lg:text-4xl font-semibold text-white mt-3">{t('compareHeading')}</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gold/40 border-y border-gold/40">
+            {[
+              { name: tc('packageTypes.tanzaniaSafari'), facts: [t('tzFact1'), t('tzFact2'), t('tzFact3')], href: '/destinations/tanzania', cta: t('tzExplore') },
+              { name: tc('packageTypes.kenyaSafari'), facts: [t('keFact1'), t('keFact2'), t('keFact3')], href: '/kenya', cta: t('keExplore') },
+              { name: tc('packageTypes.rwandaSafari'), facts: [t('rwFact1'), t('rwFact2'), t('rwFact3')], href: '/rwanda', cta: t('rwExplore') },
+            ].map((col) => (
+              <div key={col.name} className="p-8">
+                <p className="text-gold text-[11px] font-bold uppercase tracking-widest mb-2">{t('compareBestFor')}</p>
+                <h3 className="text-2xl font-semibold text-white mb-4">{col.name}</h3>
+                <ul className="space-y-2 mb-6">
+                  {col.facts.map((f) => (
+                    <li key={f} className="text-white/70 text-sm border-t border-gold/30 pt-2 first:border-0 first:pt-0">{f}</li>
+                  ))}
+                </ul>
+                <Link
+                  href={col.href}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 border border-gold text-white hover:bg-gold hover:text-brand font-semibold rounded-xl transition-colors"
+                >
+                  {col.cta}
                 </Link>
               </div>
-            </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial + trust stats */}
+      <section className="py-16 lg:py-24 bg-[#f5f0e8]">
+        <div className="max-w-3xl mx-auto px-4">
+          <div className="relative bg-transparent rounded-3xl border border-gold p-10 lg:p-14 text-center">
+            <Quote className="w-10 h-10 text-gold/30 mx-auto mb-4" fill="currentColor" strokeWidth={0} />
+            <div className="flex justify-center gap-1 mb-5">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-gold text-gold" />
+              ))}
+            </div>
+            <blockquote className="text-2xl lg:text-3xl font-medium text-brand italic leading-snug mb-6">
+              &ldquo;{t('testimonialQuote')}&rdquo;
+            </blockquote>
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-11 h-11 rounded-full bg-brand text-white text-sm font-bold flex items-center justify-center flex-shrink-0">
+                ST
+              </div>
+              <cite className="text-brand font-semibold text-sm not-italic">{t('testimonialCite')}</cite>
+            </div>
+          </div>
+
+          <div className="bg-transparent rounded-2xl border border-gold mt-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-gold/30">
+              {[
+                { num: t('trustRating'), label: t('trustRatingLabel') },
+                { num: t('trustReviews'), label: t('trustReviewsLabel') },
+                { num: t('trustCountries'), label: t('trustCountriesLabel') },
+                { num: t('trustBigFive'), label: t('trustBigFiveLabel') },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col items-center justify-center py-6 px-4 text-center">
+                  <span className="text-2xl font-bold text-gold leading-none">{item.num}</span>
+                  <span className="text-text-muted text-xs uppercase tracking-wide mt-2">{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA + newsletter */}
+      <section className="relative py-16 lg:py-24 overflow-hidden">
+        <Image
+          src="/images/gallery/serengeti-hot-air-balloon.webp"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-brand/80" />
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="text-center lg:text-left">
+            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('finalCtaEyebrow')}</span>
+            <h2 className="text-3xl lg:text-4xl font-semibold text-white mt-3 mb-4">{t('finalCtaHeading')}</h2>
+            <p className="text-white/70 mb-8">{t('finalCtaBody')}</p>
+            <BookNowButton
+              packageType={tc('packageTypes.customSafari')}
+              label={t('finalCtaButton')}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors"
+            />
+          </div>
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+            <NewsletterForm dark />
           </div>
         </div>
       </section>

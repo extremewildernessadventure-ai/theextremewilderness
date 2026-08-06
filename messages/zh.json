@@ -171,7 +171,11 @@
         "small": 2495,
         "group": 2350
       },
-      "pricing6Day": { "solo": 2395, "small": 2195, "group": 2095 },
+      "pricing6Day": {
+        "solo": 2395,
+        "small": 2195,
+        "group": 2095
+      },
       "quickFacts6Day": {
         "routeName": "马查梅路线（威士忌路线）",
         "duration": "6天 / 5夜",
@@ -283,8 +287,14 @@
           "a": "可以——许多登山者在攀登前后增加游猎或海滩行程，充分利用这趟坦桑尼亚之旅。"
         }
       ],
-      "tabLabels": { "6": "6天马查梅", "7": "7天马查梅" },
-      "routeNameByDuration": { "6": "马查梅路线 — 6天", "7": "马查梅路线 — 7天" },
+      "tabLabels": {
+        "6": "6天马查梅",
+        "7": "7天马查梅"
+      },
+      "routeNameByDuration": {
+        "6": "马查梅路线 — 6天",
+        "7": "马查梅路线 — 7天"
+      },
       "heroImageAlt": "金合欢掩映下拔地而起于稀树草原之上的乞力马扎罗山"
     },
     "lemosho": {
@@ -423,8 +433,16 @@
         "small": 2750,
         "group": 2595
       },
-      "pricing6Day": { "solo": 3185, "small": 2450, "group": 1911 },
-      "pricing7Day": { "solo": 3575, "small": 2750, "group": 2145 },
+      "pricing6Day": {
+        "solo": 3185,
+        "small": 2450,
+        "group": 1911
+      },
+      "pricing7Day": {
+        "solo": 3575,
+        "small": 2750,
+        "group": 2145
+      },
       "quickFacts6Day": {
         "routeName": "莱莫肖路线",
         "duration": "6天 / 5夜",
@@ -607,8 +625,16 @@
           "a": "可以——许多登山者在徒步前后增加游猎或海滩行程。由于你已适应坦桑尼亚的时区和旅行节奏，这是延长行程的高效方式。"
         }
       ],
-      "tabLabels": { "6": "6天莱莫肖", "7": "7天莱莫肖", "8": "8天莱莫肖" },
-      "routeNameByDuration": { "6": "莱莫肖路线 — 6天", "7": "莱莫肖路线 — 7天", "8": "莱莫肖路线 — 8天" },
+      "tabLabels": {
+        "6": "6天莱莫肖",
+        "7": "7天莱莫肖",
+        "8": "8天莱莫肖"
+      },
+      "routeNameByDuration": {
+        "6": "莱莫肖路线 — 6天",
+        "7": "莱莫肖路线 — 7天",
+        "8": "莱莫肖路线 — 8天"
+      },
       "heroImageAlt": "乞力马扎罗山破云而出的壮阔全景"
     },
     "rongai": {
@@ -1315,7 +1341,8 @@
     "trustCountries": "服务国家",
     "trustBigFive": "五大兽目击",
     "trustQuote": "没有什么能让我们为大迁徙的宏大规模做好心理准备。EWA的表现超乎言语。",
-    "trustQuoteAuthor": "— Sarah & Michael T.，英国"
+    "trustQuoteAuthor": "— Sarah & Michael T.，英国",
+    "companyFaq": "常见问题"
   },
   "common": {
     "bookNow": "立即预订",
@@ -3258,7 +3285,11 @@
   "privacy": {
     "metaTitle": "隐私政策",
     "metaDescription": "了解EWA Safari Outfitters如何收集、使用和保护您的个人数据。符合GDPR标准的野生动物园预订隐私政策。",
-    "metaKeywords": ["坦桑尼亚野生动物园隐私政策", "GDPR野生动物园预订", "旅行社数据保护"],
+    "metaKeywords": [
+      "坦桑尼亚野生动物园隐私政策",
+      "GDPR野生动物园预订",
+      "旅行社数据保护"
+    ],
     "heroTitle1": "隐私",
     "heroTitle2": "政策",
     "heroSubtitle": "我们致力于保护您的个人数据。本政策准确说明我们收集什么、为什么收集，以及您如何保持掌控——包括您在GDPR下的权利。",
@@ -3355,7 +3386,12 @@
   "terms": {
     "metaTitle": "条款与条件",
     "metaDescription": "在EWA Safari Outfitters预订野生动物园、徒步旅行和旅游体验的条款和条件。包括取消政策、责任和保险要求。",
-    "metaKeywords": ["坦桑尼亚野生动物园条款与条件", "野生动物园预订取消政策", "EWA Safari Outfitters条款", "野生动物园旅行保险"],
+    "metaKeywords": [
+      "坦桑尼亚野生动物园条款与条件",
+      "野生动物园预订取消政策",
+      "EWA Safari Outfitters条款",
+      "野生动物园旅行保险"
+    ],
     "heroTitle1": "条款与",
     "heroTitle2": "条件",
     "heroSubtitle": "预订前请阅读。这些条款适用于EWA Safari Outfitters安排的所有游猎、徒步探险和旅行体验。",
@@ -3578,20 +3614,17 @@
     "heroLede": "对于把客户托付给我们的旅行代理而言，一场游猎在出发前很久就已经开始——凭借本地知识、周全的规划，以及一家诚实作答的运营商。我们邀请精选的贸易合作伙伴，在坦桑尼亚、肯尼亚和卢旺达与我们直接合作。",
     "heroCtaPrimary": "咨询贸易合作",
     "heroCtaSecondary": "了解更多",
-
     "navLabelAbout": "关于我们",
     "navLabelWorking": "合作方式",
     "navLabelGuidesFleet": "向导与车队",
     "navLabelCollection": "我们的系列",
     "navLabelGlance": "概览",
-
     "aboutEyebrow": "欢迎来到EWA Safari Outfitters",
     "aboutTitle": "一家从零开始建立的游猎公司",
     "aboutVisualCap": "坦桑尼亚，阿鲁沙",
     "aboutBody1": "EWA Safari Outfitters是一家本地拥有的游猎与探险公司，创立并运营于阿鲁沙，坐落在梅鲁山的阴影之下。我们设计并运营穿越坦桑尼亚南北环线、肯尼亚最负盛名的保护区，以及卢旺达林木葱郁的高地的旅程——每一条行程都由多年扎根当地的经验塑造而成，而非在办公桌前拼凑出来。",
     "aboutBody2": "我们的方式经过深思熟虑。我们提供三个等级——荒野小径、荒野保护区与荒野至尊——因此无论客户预算如何，我们为其打造的旅程都体现出真正的专业判断，而非套用模板。",
     "aboutBody3": "对我们的贸易合作伙伴而言，这意味着一家回复迅速、报价诚实、并对旅程每一个细节负责的游猎公司——从第一次咨询到帐篷下的最后一夜，始终如一。",
-
     "workingTogetherEyebrow": "携手合作",
     "workingTogetherTitle": "与我们合作是怎样的体验",
     "workingTogetherIntro": "您的客户会提出深思熟虑的问题。与EWA Safari Outfitters合作，意味着从真正了解当地情况的人那里，获得同样深思熟虑的答案。",
@@ -3603,7 +3636,6 @@
     "card3Body": "三个清晰的等级，从中端豪华到超豪华，让任何客户的需求都能在我们的产品中找到自然的归属。",
     "card4Title": "诚信沟通",
     "card4Body": "一份及时送达的书面方案，来自了解您账户的专人——而不是排队等候的回复。",
-
     "guidesFleetEyebrow": "一线团队",
     "guidesFleetTitle": "熟悉土地的向导，为抵达而生的车辆",
     "guidesFleetIntro": "一场游猎的品质，取决于驾驶者与载您前往之地的车辆。我们对两者都秉持同样严格的标准。",
@@ -3621,7 +3653,6 @@
     "fleetList1": "专为目的打造的四驱车，维护严格",
     "fleetList2": "可开启车顶，观赏视野无遮挡",
     "fleetList3": "配备齐全，长时间游猎巡游依然舒适",
-
     "kitEyebrow": "致我们的贸易合作伙伴",
     "kitTitle": "作为认可合作伙伴，您将获得什么",
     "kitIntro": "一旦您的机构获得认可，为EWA Safari Outfitters报价与推介所需的一切，都会以一份统一、精心准备的资料包送达。",
@@ -3634,7 +3665,6 @@
     "kitItem4Title": "专属联系人",
     "kitItem4Body": "EWA内部一位了解您账户情况、可直接联系的专人。",
     "kitNote": "费率与佣金详情仅私下提供给已获认可的合作伙伴，不在此公开。",
-
     "collectionEyebrow": "我们的系列",
     "collectionTitle": "三个等级，同一种品质标准",
     "collectionIntro": "我们打造的每一条行程都归属于三个等级之一，让客户的预算与期望从第一次沟通起就能得到精准匹配。",
@@ -3650,7 +3680,6 @@
     "tier3Name": "荒野至尊",
     "tier3Body": "我们最精致的私人营地与旅馆——非凡的客房，非凡的环境，完全为您量身定制。",
     "tier3Fit": "适合超豪华旅行者",
-
     "glanceEyebrow": "咨询之前",
     "glanceTitle": "概览",
     "glanceIntro": "以下是一些关键信息，让您向我们发出的第一次咨询，就与我们打造的行程一样周全。",
@@ -3666,12 +3695,10 @@
     "glance5Value": "净价费率，在您的合作获得认可后私下提供",
     "glance6Label": "我们会询问的信息",
     "glance6Value": "您机构的详细信息、典型客户特征，以及预期业务量",
-
     "enquiryEyebrow": "开启合作",
     "enquiryTitle": "咨询贸易合作",
     "enquiryIntro": "请在下方分享一些关于您机构的信息，我们会与您联系以确认贸易合作资格。获得认可后，您的资料包将通过邮件送达。",
     "enquiryContactLine": "info@theextremewilderness.com · +255 747 999 070",
-
     "formAgencyName": "机构名称",
     "formAgencyNamePlaceholder": "Northbound Travel Co.",
     "formCountry": "国家 / 市场",
@@ -3694,7 +3721,6 @@
     "formSuccessBody": "感谢您——我们将在一个工作日内与您联系，确认您的贸易合作资格。",
     "formError": "出现了一些问题，请重试，或直接给我们发邮件。",
     "formNote": "我们会亲自审阅每一份咨询，并在几个工作日内回复。",
-
     "metaKeywords": [
       "坦桑尼亚游猎贸易合作伙伴",
       "坦桑尼亚旅行社净价",
@@ -3756,5 +3782,146 @@
     "emailItinerarySubject": "您的行程请求 — EWA Safari Outfitters",
     "emailItineraryIntro": "感谢您索取{context}行程。我们的团队正在准备您完整的逐日计划，并将在24小时内发送到此地址。",
     "viewLabel": "立即查看指南"
+  },
+  "destinationsHub": {
+    "metaTitle": "东非目的地 | 坦桑尼亚、肯尼亚与卢旺达",
+    "metaDescription": "探索EWA Safari Outfitters在坦桑尼亚、肯尼亚和卢旺达运营的每一座国家公园、野生动物保护区和重要目的地——按线路和区域组织，而非按字母顺序排列。",
+    "metaKeywords": [
+      "东非目的地",
+      "坦桑尼亚肯尼亚卢旺达游猎",
+      "非洲游猎目的地地图",
+      "塞伦盖蒂马赛马拉火山",
+      "东非国家公园"
+    ],
+    "breadcrumbLabel": "目的地",
+    "heroEyebrow": "东非，按地区探索",
+    "heroTitle": "东非",
+    "heroTitleGold": "按地区探索",
+    "heroLede": "探索EWA Safari Outfitters在坦桑尼亚、肯尼亚和卢旺达运营的每一座国家公园、野生动物保护区和重要目的地——按这片土地本身的脉络组织，而不是按菜单式列表。",
+    "exploreMap": "探索地图",
+    "statDestinations": "目的地",
+    "statCountries": "国家",
+    "statCircuits": "坦桑尼亚线路",
+    "statMammals": "哺乳动物种类",
+    "statBirds": "鸟类种类",
+    "statHq": "总部与本地团队",
+    "statHqValue": "阿鲁沙",
+    "mapEyebrow": "点击国家开始探索",
+    "mapHeading": "EWA Safari Outfitters运营的每一个地区",
+    "mapCopy1": "坦桑尼亚、肯尼亚和卢旺达已高亮显示——点击这三国中的任意一个，即可直接跳转到下方对应的目的地。地图上的其他国家仅作地理参考，并非EWA Safari Outfitters目前开展游猎的地区。",
+    "mapCopy2": "无论是标志性地区还是鲜为人知的秘境，每个地区都有自己的故事。下方内容中，EWA Safari Outfitters按照策划师规划行程时所用的方式组织每个国家——按线路和区域划分，而非字母顺序列表。",
+    "mapAriaLabel": "坦桑尼亚、肯尼亚和卢旺达地图——点击某个国家浏览其目的地",
+    "areasEyebrow": "按区域浏览",
+    "areasHeading": "目的地，按EWA Safari Outfitters的规划方式组织",
+    "areasBody": "先选择一个国家，再展开任意区域，即可准确查看其中包含哪些公园和保护区——这与EWA Safari Outfitters策划师制定行程时所用的区域逻辑完全一致。",
+    "tzIntroHeading": "狂野坦桑尼亚——三条史诗级线路",
+    "tzIntroBody": "26座国家公园与保护区分布在三条不同线路上，此外还有桑给巴尔和门户城市阿鲁沙。坦桑尼亚28%的国土处于保护之下——这是全球所有游猎国家中最高的比例。",
+    "tzAreaZanzibarArusha": "桑给巴尔与阿鲁沙门户",
+    "seeAllTanzania": "查看坦桑尼亚全部目的地",
+    "keIntroHeading": "狂野肯尼亚——非洲最初的游猎目的地",
+    "keIntroBody": "59座国家公园与保护区，是地球上最壮观的野生动物奇观之乡，也是地球上最后两头北方白犀牛的家园。",
+    "seeAllKenya": "查看肯尼亚全部目的地",
+    "rwIntroHeading": "千丘之国",
+    "rwIntroBody": "国土虽小，内涵却极不寻常——这里是全球现存山地大猩猩约一半数量的家园。",
+    "seeAllRwanda": "查看卢旺达全部目的地",
+    "leadBandHeading": "不知道从何开始？",
+    "leadBandBody": "只需90秒即可定制专属游猎——告诉EWA Safari Outfitters您的出行日期、兴趣与风格，即可获得真实匹配的行程与透明报价。",
+    "leadBandCta": "定制您的游猎",
+    "storiesEyebrow": "田野笔记",
+    "storiesHeading": "这些地方背后的几段故事",
+    "storiesBody": "这个页面上的每一个目的地，都有一段值得在出发前了解的历史。以下四段故事，正是EWA Safari Outfitters围绕这些地方规划行程的依据。",
+    "story1Kicker": "塞伦盖蒂国家公园",
+    "story1Heading": "永无止境的土地",
+    "story1Body": "塞伦盖蒂（Serengeti）之名源自马赛语siringet——意为“土地无尽延伸之地”。公园建立于1951年，自1981年起被列为联合国教科文组织世界遗产，是一个面积达30,000平方公里、跨越边境延伸至肯尼亚马赛马拉的完整生态系统的核心。",
+    "story1Link": "探索塞伦盖蒂",
+    "story2Kicker": "恩戈罗恩戈罗火山口",
+    "story2Heading": "一座向内塌陷的火山",
+    "story2Body": "地质学家估计，恩戈罗恩戈罗曾与乞力马扎罗山一样高耸，约在200至300万年前喷发并向内塌陷，形成了世界上现存最大、完整未被淹没的火山口——也是非洲野生动物密度最高的地区之一。",
+    "story2Link": "探索恩戈罗恩戈罗",
+    "story3Kicker": "肯尼亚马赛马拉",
+    "story3Heading": "一条无形的边界，一个生态系统",
+    "story3Body": "马赛马拉是塞伦盖蒂向北的延伸，与坦桑尼亚一侧仅隔着一条野生动物并不认得的国际边界线。每年7月至10月，马拉河的渡河场面是大迁徙中最震撼人心的一幕。",
+    "story3Link": "探索马赛马拉",
+    "story4Kicker": "卢旺达火山国家公园",
+    "story4Heading": "现代大猩猩保护事业的起点",
+    "story4Body": "火山国家公园是全球现存约一半山地大猩猩的家园，灵长类动物学家戴安·福西（Dian Fossey）于1967年在此建立研究营地——由此开启的保护工作，如今已使该物种的数量增长了一倍。",
+    "story4Link": "探索火山国家公园",
+    "compareEyebrow": "不确定该选哪个国家？",
+    "compareHeading": "坦桑尼亚、肯尼亚与卢旺达——一览对比",
+    "compareBestFor": "最适合",
+    "tzFact1": "公园与荒野最多——26座公园及保护区",
+    "tzFact2": "土地保护比例最高——28%受保护",
+    "tzFact3": "最适合将塞伦盖蒂、恩戈罗恩戈罗与桑给巴尔结合游览",
+    "tzExplore": "探索坦桑尼亚",
+    "keFact1": "大型猫科动物密度最高——马拉地区哺乳动物种类超过90种",
+    "keFact2": "大迁徙渡河——7月至10月",
+    "keFact3": "最适合经典游猎地标与观鸟",
+    "keExplore": "探索肯尼亚",
+    "rwFact1": "山地大猩猩徒步——全球约1000只大猩猩",
+    "rwFact2": "唯一数量正在增长的类人猿种群",
+    "rwFact3": "最适合亲密难忘、一生一次的邂逅",
+    "rwExplore": "探索卢旺达",
+    "testimonialQuote": "无论怎样的准备都无法让我们真正体会大迁徙的壮阔规模。EWA的安排远超我们的期待。",
+    "testimonialCite": "萨拉与迈克尔·T，英国",
+    "trustRating": "4.9 / 5",
+    "trustRatingLabel": "200+位已验证客户",
+    "trustReviews": "97%",
+    "trustReviewsLabel": "五星好评率",
+    "trustCountries": "40+",
+    "trustCountriesLabel": "服务国家数",
+    "trustBigFive": "100%",
+    "trustBigFiveLabel": "非洲五霸目击率",
+    "finalCtaEyebrow": "只等您启程",
+    "finalCtaHeading": "与EWA Safari Outfitters一起规划您的完美东非游猎",
+    "finalCtaBody": "告诉我们您的出行日期与心之所向。EWA Safari Outfitters将为您打造非凡旅程——完全围绕您量身定制，没有模板，没有捷径。",
+    "finalCtaButton": "开始规划",
+    "tzAreaZanzibarArushaTagline": "海滩与大本营",
+    "destinationsSuffix": "个目的地",
+    "statMammalsValue": "90+",
+    "statBirdsValue": "1,100+",
+    "heroImageAlt": "东非水塘边互相问候的大象"
+  },
+  "faqHub": {
+    "metaTitle": "游猎常见问题 | 坦桑尼亚、肯尼亚与卢旺达",
+    "metaDescription": "解答旅行者关于坦桑尼亚、肯尼亚和卢旺达游猎最真实关心的问题——费用、最佳季节、家庭游猎、大猩猩徒步、乞力马扎罗山等。",
+    "ogDescription": "关于游猎费用、最佳时间、家庭出行、大猩猩徒步、乞力马扎罗山等的真实解答——来自EWA Safari Outfitters。",
+    "ogImageAlt": "黄金时刻塞伦盖蒂平原上的游猎车",
+    "twitterTitle": "游猎常见问题 | EWA Safari Outfitters",
+    "breadcrumbLabel": "常见问题",
+    "heroEyebrow": "您的问题，我们解答",
+    "heroTitle": "常见",
+    "heroTitleGold": "问题解答",
+    "heroSubtitle": "在预订坦桑尼亚、肯尼亚或卢旺达游猎之前，旅行者最想知道的答案——费用、时间、家庭出行、大猩猩徒步、乞力马扎罗山等。",
+    "sectionEyebrow": "常见问题",
+    "ctaHeading": "没有找到您想要的答案？",
+    "ctaSubtitle": "告诉我们您的计划，我们会直接与您联系——通常在几小时内回复。",
+    "ctaButton": "直接联系我们",
+    "sidebarFamilyHeading": "正在规划家庭游猎？",
+    "sidebarFamilyBody": "告诉我们孩子的年龄和出行日期——我们会据此调整行程节奏。",
+    "sidebarFamilyButton": "定制我的家庭游猎",
+    "sidebarBestTimeHeading": "不确定何时出行？",
+    "sidebarBestTimeBody": "告诉我们您的出行日期，我们会为您匹配大迁徙与最佳季节。",
+    "sidebarBestTimeButton": "核实我的出行日期",
+    "sidebarPlanningHeading": "想要真实报价？",
+    "sidebarPlanningBody": "无需猜测——获取透明、无需承诺的行程报价。",
+    "sidebarPlanningButton": "获取免费报价",
+    "sidebarTanzaniaHeading": "准备好前往坦桑尼亚了吗？",
+    "sidebarTanzaniaBody": "让我们一起规划您的塞伦盖蒂、恩戈罗恩戈罗与塔兰吉雷行程。",
+    "sidebarTanzaniaButton": "定制我的坦桑尼亚游猎",
+    "sidebarKenyaRwandaHeading": "计划探索肯尼亚或卢旺达？",
+    "sidebarKenyaRwandaBody": "从马赛马拉到大猩猩徒步——让我们为您规划路线。",
+    "sidebarKenyaRwandaButton": "定制我的肯尼亚与卢旺达之旅",
+    "sidebarKilimanjaroHeading": "准备好攀登乞力马扎罗山了吗？",
+    "sidebarKilimanjaroBody": "我们会为您匹配合适的路线、节奏与季节。",
+    "sidebarKilimanjaroButton": "定制我的乞力马扎罗攀登",
+    "sidebarHoneymoonHeading": "正在筹划特别的旅程？",
+    "sidebarHoneymoonBody": "蜜月、纪念日，或游猎加海滩的组合行程——让我们一起设计。",
+    "sidebarHoneymoonButton": "定制我的行程",
+    "sidebarCultureHeading": "还有更多问题？",
+    "sidebarCultureBody": "疫苗、签证、行装——预订前尽管向我们咨询。",
+    "sidebarCultureButton": "直接联系我们",
+    "sidebarAboutEwaHeading": "想认识我们的团队吗？",
+    "sidebarAboutEwaBody": "了解EWA Safari Outfitters背后的团队，或直接与我们联系。",
+    "sidebarAboutEwaButton": "联系我们"
   }
 }

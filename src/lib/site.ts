@@ -60,3 +60,20 @@ export function buildBreadcrumbSchema(locale: string, items: BreadcrumbTrailItem
     })),
   }
 }
+
+/**
+ * Builds schema.org FAQPage JSON-LD from a flat {q, a}[] list. Mirrors
+ * buildBreadcrumbSchema's convention — a single shared helper instead of
+ * each page hand-rolling the same mainEntity/acceptedAnswer shape.
+ */
+export function buildFaqSchema(items: { q: string; a: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  }
+}
