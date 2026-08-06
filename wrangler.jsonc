@@ -13,7 +13,8 @@
 	},
 	"workers_dev": false,
 	"routes": [
-		{ "pattern": "www.theextremewilderness.com", "custom_domain": true }
+		{ "pattern": "www.theextremewilderness.com", "custom_domain": true },
+		{ "pattern": "theextremewilderness.com", "custom_domain": true }
 	],
 	"services": [
 		{
