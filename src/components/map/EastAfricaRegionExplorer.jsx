@@ -273,8 +273,7 @@ export default function EastAfricaRegionExplorer({
     <div
       style={{
         background: PALETTE.sand,
-        minHeight: "100%",
-        padding: "40px 24px",
+        padding: "24px 24px 32px",
         fontFamily: "Inter, sans-serif",
       }}
     >
@@ -306,7 +305,7 @@ export default function EastAfricaRegionExplorer({
           </>
         )}
 
-        <div style={{ display: "flex", gap: 10, marginBottom: 28 }}>
+        <div style={{ display: "flex", gap: 10, marginBottom: 20 }}>
           {COUNTRY_KEYS.map((key) => (
             <button
               key={key}
@@ -333,7 +332,7 @@ export default function EastAfricaRegionExplorer({
             border: `1px solid ${PALETTE.sandLine}`,
             borderRadius: 8,
             padding: "18px 20px",
-            marginBottom: 24,
+            marginBottom: 18,
           }}
         >
           <div
@@ -368,7 +367,7 @@ export default function EastAfricaRegionExplorer({
           >
             <svg
               viewBox={`0 0 ${width} ${height}`}
-              style={{ width: "100%", height: "auto", display: "block" }}
+              style={{ width: "100%", maxWidth: 400, height: "auto", display: "block", margin: "0 auto" }}
             >
               {paths.map((p) => {
                 const isActive = p.id === activeId;
