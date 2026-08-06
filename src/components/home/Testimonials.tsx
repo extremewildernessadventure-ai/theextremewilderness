@@ -106,7 +106,7 @@ export default function Testimonials() {
           <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-2">
             {t('trustedByTravelers')}
           </h2>
-          <p className="text-text-muted text-sm max-w-lg mx-auto">
+          <p className="text-text-muted text-sm max-w-xl mx-auto">
             {t('realStories')}
           </p>
         </div>

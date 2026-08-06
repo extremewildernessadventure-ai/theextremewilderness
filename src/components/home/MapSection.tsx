@@ -24,7 +24,7 @@ export default function MapSection() {
           <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-3">
             {t('exploreByRegion')}
           </h2>
-          <p className="text-text-muted max-w-lg mx-auto text-sm">
+          <p className="text-text-muted max-w-xl mx-auto text-sm">
             {t('exploreByRegionDesc')}
           </p>
         </Reveal>

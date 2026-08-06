@@ -114,14 +114,17 @@ export default function DestinationCards() {
   return (
     <section className="py-20 bg-light-green">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal className="flex items-end justify-between mb-10">
+        <Reveal className="flex items-start justify-between mb-10">
           <div>
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
               {t('topDestinations')}
             </span>
-            <h2 className="text-3xl lg:text-4xl font-semibold text-brand">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-3">
               {t('exploreEastAfrica')}
             </h2>
+            <p className="text-text-muted max-w-xl text-sm">
+              {t('exploreEastAfricaDesc')}
+            </p>
           </div>
           <Link
             href="/destinations"
