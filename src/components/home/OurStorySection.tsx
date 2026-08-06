@@ -10,6 +10,9 @@ export default function OurStorySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <Reveal>
+            <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
+              {t('ourStoryEyebrow')}
+            </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-brand mb-6 leading-tight">
               {t('ourStoryTitle')}
             </h2>
