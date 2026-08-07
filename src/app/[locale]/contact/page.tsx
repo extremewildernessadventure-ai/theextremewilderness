@@ -145,20 +145,6 @@ export default async function ContactPage({ params }: Props) {
                 </a>
               </div>
 
-              {/* Google Maps */}
-              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
-                <iframe
-                  src="https://maps.google.com/maps?q=Arusha,Tanzania&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                  width="100%"
-                  height="260"
-                  style={{ border: 0, display: 'block' }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="EWA Safari Outfitters — Arusha, Tanzania"
-                />
-              </div>
-
               {/* Trust */}
               <div className="bg-white rounded-xl px-5 py-4 border border-gray-100 text-center shadow-sm">
                 <div className="flex items-center justify-center gap-1 mb-1">

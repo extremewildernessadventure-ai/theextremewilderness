@@ -2549,7 +2549,6 @@
     "phoneLabel": "Телефон / WhatsApp",
     "optional": "необязательно",
     "emailInvalid": "Введите корректный адрес электронной почты",
-    "phoneRequired": "Для связи по WhatsApp / телефону необходим номер телефона",
     "phoneInvalid": "Введите корректный номер телефона (напр. +7 900 000 00 00)",
     "gender": "Пол",
     "selectGender": "Выберите пол",
@@ -2584,7 +2583,7 @@
     "submitError": "При отправке запроса что-то пошло не так. Попробуйте ещё раз или напишите нам: info@theextremewilderness.com",
     "noPayment": "⏱ Среднее время ответа: менее 2 часов · Без оплаты и обязательств",
     "successTitle": "Запрос отправлен!",
-    "successMessage": "Спасибо, {name}! Наша команда свяжется с вами через {method} в течение 2 часов.",
+    "successMessage": "Спасибо, {name}! Наша команда свяжется с вами в течение 2 часов.",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "email",
     "phoneContactLabel": "телефон",
@@ -2638,11 +2637,6 @@
       "dairyFree": "Без молочных продуктов",
       "wheelchair": "Доступность для инвалидных колясок",
       "privateGuide": "Частный гид"
-    },
-    "contactOptions": {
-      "whatsapp": "WhatsApp",
-      "email": "E-mail",
-      "phone": "Телефонный звонок"
     },
     "flexibilityOptions": {
       "fixed": "Фиксированные даты",

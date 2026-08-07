@@ -48,7 +48,6 @@ function buildHtml(d: Record<string, unknown>) {
     row('Budget',          str(d.budget)),
     row('Accommodation',   str(d.accommodation)),
     row('Special Req.',    arr(d.specialReqs)),
-    row('Contact Via',     str(d.contactPref)),
   ].join('')
 
   const packageRows = d.packageName ? [

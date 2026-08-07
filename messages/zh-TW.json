@@ -2549,7 +2549,6 @@
     "phoneLabel": "電話 / WhatsApp",
     "optional": "選填",
     "emailInvalid": "請輸入有效的電子郵箱",
-    "phoneRequired": "選擇WhatsApp / 電話聯絡時需要填寫電話號碼",
     "phoneInvalid": "請輸入有效的電話號碼（例如+1 555 000 0000）",
     "gender": "性別",
     "selectGender": "選擇性別",
@@ -2584,7 +2583,7 @@
     "submitError": "傳送諮詢時出了點問題。請重試，或發郵件至info@theextremewilderness.com",
     "noPayment": "⏱ 平均響應時間：2小時以內 · 無需付款或承諾",
     "successTitle": "諮詢已傳送！",
-    "successMessage": "謝謝您，{name}！我們的團隊將在2小時內通過{method}聯絡您。",
+    "successMessage": "謝謝您，{name}！我們的團隊將在2小時內與您聯絡。",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "郵件",
     "phoneContactLabel": "電話",
@@ -2638,11 +2637,6 @@
       "dairyFree": "無乳製品",
       "wheelchair": "無障礙通行",
       "privateGuide": "私人嚮導"
-    },
-    "contactOptions": {
-      "whatsapp": "WhatsApp",
-      "email": "電子郵件",
-      "phone": "電話"
     },
     "flexibilityOptions": {
       "fixed": "固定日期",

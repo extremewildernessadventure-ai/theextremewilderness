@@ -155,12 +155,6 @@ export default function EnquiryModal() {
     { value: 'flexible', label: t('flexibilityOptions.flexible') },
   ]
 
-  const CONTACT_OPTIONS = [
-    { value: 'whatsapp', label: t('contactOptions.whatsapp'), emoji: '💬' },
-    { value: 'email',    label: t('contactOptions.email'),    emoji: '✉️' },
-    { value: 'phone',    label: t('contactOptions.phone'),    emoji: '📞' },
-  ]
-
   // ── Form state ────────────────────────────────────────────────────────
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName]   = useState('')
@@ -178,7 +172,6 @@ export default function EnquiryModal() {
   const [budget, setBudget]             = useState('')
   const [accommodation, setAccommodation] = useState('')
   const [specialReqs, setSpecialReqs]   = useState<string[]>([])
-  const contactPref: string = 'whatsapp'
   const [message, setMessage]           = useState('')
   const [privacyAgreed, setPrivacyAgreed] = useState(false)
   const [submitted, setSubmitted]   = useState(false)
@@ -254,9 +247,7 @@ export default function EnquiryModal() {
   const validateFields = () => {
     const errs: { email?: string; phone?: string } = {}
     if (!EMAIL_RE.test(email)) errs.email = t('emailInvalid')
-    const phoneRequired = contactPref !== 'email'
-    if (phoneRequired && !phone) errs.phone = t('phoneRequired')
-    else if (phone && !PHONE_RE.test(phone)) errs.phone = t('phoneInvalid')
+    if (phone && !PHONE_RE.test(phone)) errs.phone = t('phoneInvalid')
     setFieldErrors(errs)
     return Object.keys(errs).length === 0
   }
@@ -276,7 +267,7 @@ export default function EnquiryModal() {
           tripType, arrivalDate, departureDate, flexibility,
           adults, children, childAges,
           budget, accommodation, specialReqs,
-          contactPref, message,
+          message,
           packageName: bookingInfo?.packageName,
           packageType: bookingInfo?.packageType,
           duration: bookingInfo?.duration,
@@ -302,8 +293,6 @@ export default function EnquiryModal() {
   }
 
   if (!isOpen) return null
-
-  const contactMethodLabel = CONTACT_OPTIONS.find((o) => o.value === contactPref)?.label ?? t('contactOptions.email')
 
   return (
     <>
@@ -381,7 +370,7 @@ export default function EnquiryModal() {
               </div>
               <h3 className="text-xl font-bold text-brand mb-2">{t('successTitle')}</h3>
               <p className="text-text-muted text-sm max-w-xs">
-                {t('successMessage', { name: firstName, method: contactMethodLabel })}
+                {t('successMessage', { name: firstName })}
               </p>
             </div>
           ) : (
@@ -421,6 +410,9 @@ export default function EnquiryModal() {
                           setEmail(e.target.value)
                           if (fieldErrors.email) setFieldErrors((p) => ({ ...p, email: undefined }))
                         }}
+                        onBlur={() => {
+                          if (email && !EMAIL_RE.test(email)) setFieldErrors((p) => ({ ...p, email: t('emailInvalid') }))
+                        }}
                         placeholder="jane@email.com"
                         className={inputCls + ' pl-10' + (fieldErrors.email ? ' !border-red-400 !ring-red-200' : '')}
                       />
@@ -432,19 +424,15 @@ export default function EnquiryModal() {
                   <div>
                     <Label htmlFor="enquiry-phone">
                       {t('phoneLabel')}
-                      {contactPref === 'email' && (
-                        <span className="ml-1 text-gray-400 font-normal normal-case tracking-normal text-[11px]">
-                          ({t('optional')})
-                        </span>
-                      )}
+                      <span className="ml-1 text-gray-400 font-normal normal-case tracking-normal text-[11px]">
+                        ({t('optional')})
+                      </span>
                     </Label>
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
                         id="enquiry-phone"
                         type="tel"
-                        required={contactPref !== 'email'}
-                        aria-required={contactPref !== 'email'}
                         value={phone}
                         onChange={(e) => {
                           setPhone(e.target.value)
@@ -685,7 +673,7 @@ export default function EnquiryModal() {
             <button
               type="submit"
               form="booking-form"
-              disabled={submitting || !privacyAgreed || !firstName || !lastName || !email || (contactPref !== 'email' && !phone) || Object.values(fieldErrors).some(Boolean)}
+              disabled={submitting || !privacyAgreed || !firstName || !lastName || !email || Object.values(fieldErrors).some(Boolean)}
               className="w-full flex items-center justify-center gap-2.5 py-3.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all text-sm"
             >
               {submitting ? (

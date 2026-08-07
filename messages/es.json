@@ -2549,7 +2549,6 @@
     "phoneLabel": "Teléfono / WhatsApp",
     "optional": "opcional",
     "emailInvalid": "Por favor ingresa un correo electrónico válido",
-    "phoneRequired": "El número de teléfono es obligatorio para WhatsApp / llamada",
     "phoneInvalid": "Por favor ingresa un número de teléfono válido (ej. +34 612 345 678)",
     "gender": "Género",
     "selectGender": "Selecciona tu género",
@@ -2584,7 +2583,7 @@
     "submitError": "Ha ocurrido un error al enviar tu consulta. Inténtalo de nuevo o escríbenos a info@theextremewilderness.com",
     "noPayment": "⏱ Tiempo de respuesta promedio: menos de 2 horas · Sin pago ni compromiso",
     "successTitle": "¡Consulta enviada!",
-    "successMessage": "¡Gracias, {name}! Nuestro equipo se pondrá en contacto contigo a través de {method} en 2 horas.",
+    "successMessage": "¡Gracias, {name}! Nuestro equipo se pondrá en contacto contigo en 2 horas.",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "correo electrónico",
     "phoneContactLabel": "teléfono",
@@ -2638,11 +2637,6 @@
       "dairyFree": "Sin lácteos",
       "wheelchair": "Acceso para sillas de ruedas",
       "privateGuide": "Guía privado"
-    },
-    "contactOptions": {
-      "whatsapp": "WhatsApp",
-      "email": "Correo electrónico",
-      "phone": "Llamada telefónica"
     },
     "flexibilityOptions": {
       "fixed": "Fechas fijas",

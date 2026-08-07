@@ -2549,7 +2549,6 @@
     "phoneLabel": "电话 / WhatsApp",
     "optional": "选填",
     "emailInvalid": "请输入有效的电子邮箱",
-    "phoneRequired": "选择WhatsApp / 电话联系时需要填写电话号码",
     "phoneInvalid": "请输入有效的电话号码（例如+1 555 000 0000）",
     "gender": "性别",
     "selectGender": "选择性别",
@@ -2584,7 +2583,7 @@
     "submitError": "发送咨询时出了点问题。请重试，或发邮件至info@theextremewilderness.com",
     "noPayment": "⏱ 平均响应时间：2小时以内 · 无需付款或承诺",
     "successTitle": "咨询已发送！",
-    "successMessage": "谢谢您，{name}！我们的团队将在2小时内通过{method}联系您。",
+    "successMessage": "谢谢您，{name}！我们的团队将在2小时内与您联系。",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "邮件",
     "phoneContactLabel": "电话",
@@ -2638,11 +2637,6 @@
       "dairyFree": "无乳制品",
       "wheelchair": "无障碍通行",
       "privateGuide": "私人向导"
-    },
-    "contactOptions": {
-      "whatsapp": "WhatsApp",
-      "email": "电子邮件",
-      "phone": "电话"
     },
     "flexibilityOptions": {
       "fixed": "固定日期",
