@@ -567,6 +567,16 @@ export const accommodations: Accommodation[] = [
     featuredIn: [{ label: 'Southern Edition: Tanzania Calving Season Migration Safari — Ndutu & Ngorongoro Crater', href: '/safaris/7-days-migration-southern' }],
   },
   {
+    slug: 'ndutu-safari-lodge',
+    name: 'Ndutu Safari Lodge',
+    tier: 'reserve',
+    location: 'Ndutu, Southern Serengeti',
+    description: 'A permanent stone-and-thatch lodge of 34 cottages overlooking Lake Ndutu, positioned for year-round access to the resident predators that never leave when the migration moves on.',
+    amenities: ['En-Suite Rooms', 'Wildlife Views', 'Full-Service Restaurant', 'Scenic Views'],
+    images: ['/images/lodges/ndutu-safari-lodge.webp', '/images/lodges/ndutu-safari-lodge-2.webp', '/images/lodges/ndutu-safari-lodge-3.webp', '/images/lodges/ndutu-safari-lodge-4.webp'],
+    featuredIn: [{ label: '8-Day Off The Beaten Track Photography Safari', href: '/safaris/off-the-beaten-track-photography-safari' }],
+  },
+  {
     slug: 'ngorongoro-farm-house',
     name: 'Ngorongoro Farm House',
     tier: 'trail',

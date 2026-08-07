@@ -567,6 +567,16 @@ export const accommodations: Accommodation[] = [
     featuredIn: [{ label: 'Southern Edition: Tansania-Kälberzeit-Migrationssafari — Ndutu & Ngorongoro-Krater', href: '/safaris/7-days-migration-southern' }],
   },
   {
+    slug: 'ndutu-safari-lodge',
+    name: 'Ndutu Safari Lodge',
+    tier: 'reserve',
+    location: 'Ndutu, Südlicher Serengeti',
+    description: 'Eine dauerhafte Lodge aus Stein und Reetdach mit 34 Cottages mit Blick auf den Lake Ndutu, ideal gelegen für ganzjährigen Zugang zu den ansässigen Raubtieren, die auch nach dem Weiterziehen der Migration bleiben.',
+    amenities: ['Zimmer mit eigenem Bad', 'Tierbeobachtung', 'Vollservice-Restaurant', 'Landschaftliche Aussicht'],
+    images: ['/images/lodges/ndutu-safari-lodge.webp', '/images/lodges/ndutu-safari-lodge-2.webp', '/images/lodges/ndutu-safari-lodge-3.webp', '/images/lodges/ndutu-safari-lodge-4.webp'],
+    featuredIn: [{ label: '8-Tage-Fotosafari abseits der ausgetretenen Pfade', href: '/safaris/off-the-beaten-track-photography-safari' }],
+  },
+  {
     slug: 'ngorongoro-farm-house',
     name: 'Ngorongoro Farm House',
     tier: 'trail',

@@ -107,6 +107,11 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'Serengeti migration flying', 'Africa luxury migration safari', 'Tanzania air safari 8 days',
     'migration safari bucket list', 'Tanzania fly-in wildlife', 'best Africa migration', 'Serengeti fly-in 8 days',
   ],
+  'off-the-beaten-track-photography-safari': [
+    'off the beaten track Tanzania safari', 'Ndutu predator photography safari', 'resident predator safari Africa',
+    'Tanzania safari for content creators', 'wildlife photography tour Tanzania', 'authentic Tanzania safari',
+    'private guided safari Tanzania', 'uncrowded Tanzania safari', 'Ngorongoro Ndutu photography safari', 'book Tanzania safari 2027',
+  ],
   '11-days-rwanda-tanzania': [
     'Rwanda Tanzania combined safari', 'Tanzania Rwanda gorilla trekking', 'gorilla trekking Tanzania safari',
     'East Africa combined tour', '11 day East Africa', 'Rwanda Tanzania 2026',
@@ -203,7 +208,50 @@ const DEFAULT_SAFARI_KEYWORDS = [
 // Until a given locale/slug has an entry, generateMetadata below falls back to
 // that locale's researched core/pillar terms (@/data/coreKeywords) rather than
 // silently serving the English SAFARI_KEYWORDS regardless of locale.
-const SAFARI_KEYWORDS_BY_LOCALE: Partial<Record<string, Partial<Record<string, string[]>>>> = {}
+const SAFARI_KEYWORDS_BY_LOCALE: Partial<Record<string, Partial<Record<string, string[]>>>> = {
+  fr: {
+    'off-the-beaten-track-photography-safari': [
+      'safari photo Tanzanie hors des sentiers battus', 'safari photographique Ndutu prédateurs', 'safari Serengeti sans les foules',
+      'safari privé Tanzanie petit groupe', 'safari photo animalier Afrique', 'cratère du Ngorongoro et Ndutu safari',
+      'safari authentique Tanzanie hors saison', 'safari guidé sur mesure Tanzanie', 'safari Tanzanie créateurs de contenu', 'réserver safari Tanzanie 2027',
+    ],
+  },
+  es: {
+    'off-the-beaten-track-photography-safari': [
+      'safari fotográfico Tanzania poco concurrido', 'depredadores residentes Ndutu safari', 'safari privado Tanzania fuera de temporada',
+      'Tanzania safari para creadores de contenido', 'tour de fotografía de fauna en Tanzania', 'safari auténtico Tanzania sin multitudes',
+      'safari guiado privado Tanzania', 'Ngorongoro y Ndutu safari fotográfico', 'safari Tanzania fuera de lo trillado', 'reservar safari Tanzania 2027',
+    ],
+  },
+  de: {
+    'off-the-beaten-track-photography-safari': [
+      'Tansania Safari abseits der ausgetretenen Pfade', 'Fotosafari Ndutu Tansania', 'Raubkatzen-Safari Ndutu ganzjährig',
+      'private geführte Safari Tansania', 'Fotografie-Safari Serengeti Ngorongoro', 'authentische Tansania Safari ohne Massentourismus',
+      'Safari für Content Creator Tansania', 'Ngorongoro Ndutu Kombireise', 'Tansania Safari 2027 buchen', 'Kleingruppen-Safari Tansania Fotografen',
+    ],
+  },
+  ru: {
+    'off-the-beaten-track-photography-safari': [
+      'фотосафари в Танзании вне туристических троп', 'сафари на резидентных хищников Ндуту', 'приватное фотосафари по Африке',
+      'сафари для фотографов дикой природы в Танзании', 'малолюдное сафари в Танзании', 'авторское сафари по Танзании',
+      'индивидуальное сафари с гидом по Танзании', 'фотосафари Нгоронгоро и Ндуту', 'сафари без толп туристов Танзания', 'забронировать сафари в Танзанию 2027',
+    ],
+  },
+  zh: {
+    'off-the-beaten-track-photography-safari': [
+      '坦桑尼亚小众游猎', '恩杜图猎豹摄影游猎', '常驻猎食动物游猎非洲',
+      '坦桑尼亚摄影游猎定制', '野生动物摄影团坦桑尼亚', '深度坦桑尼亚游猎',
+      '私人向导坦桑尼亚游猎', '人少坦桑尼亚游猎路线', '恩戈罗恩戈罗恩杜图摄影游猎', '2027坦桑尼亚游猎预订',
+    ],
+  },
+  'zh-TW': {
+    'off-the-beaten-track-photography-safari': [
+      '坦尚尼亞秘境獵遊', '恩杜圖常駐獵食動物攝影', '非洲野生動物攝影獵遊',
+      '私人嚮導坦尚尼亞獵遊', '恩杜圖恩戈羅恩戈羅攝影行程', '人少坦尚尼亞獵遊',
+      '塞倫蓋蒂攝影獵遊團', '內容創作者非洲獵遊', '深度坦尚尼亞獵遊體驗', '2027坦尚尼亞獵遊預訂',
+    ],
+  },
+}
 
 const SAFARI_BLOG_MAP: Record<string, string> = {
   '7-day-serengeti-ngorongoro':          'best-time-to-visit-serengeti',

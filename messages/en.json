@@ -975,7 +975,7 @@
         "successRate": "~95%",
         "bestSeason": "June–October · January–February",
         "accommodation": "4-season camping tents",
-        "priceFrom": "USD $2,237 per person (group 5+)"
+        "priceFrom": "USD $2,590 per person (group 5+)"
       },
       "whyChoose": [
         {
@@ -1083,10 +1083,310 @@
         "Tips"
       ],
       "pricing": {
-        "solo": 2237,
-        "small": 2237,
-        "group": 2237
+        "solo": 2590,
+        "small": 2590,
+        "group": 2590
       },
+      "faq": [
+        {
+          "q": "How long is the Northern Circuit route?",
+          "a": "Approximately 98 km (61 miles) total — the longest standard route on Kilimanjaro."
+        },
+        {
+          "q": "How does the Northern Circuit compare to Machame or Lemosho?",
+          "a": "It's longer than both, which is the whole point — more days at altitude, a gentler acclimatization profile, and a route around Kibo's quiet northern slopes that Machame and Lemosho climbers never see. If your schedule allows the extra days, it's generally the safer choice for summit success; if time is tight, Machame or Lemosho get you there faster."
+        },
+        {
+          "q": "Is the Northern Circuit crowded?",
+          "a": "No — it's one of the quietest routes on the mountain. Long stretches of trail with no other climbing parties are the norm, not the exception."
+        },
+        {
+          "q": "What's included in the price?",
+          "a": "All Kilimanjaro National Park fees and conservation levies, a KINAPA-certified lead guide, assistant guides, a personal porter, full-board mountain meals, 4-season camping equipment, emergency oxygen, twice-daily pulse oximeter health checks, and hotel/airport transfers. International flights, visa, personal travel insurance, personal gear, and tips are not included."
+        }
+      ],
+      "faq9Day": [
+        {
+          "q": "How hard is the standard 9-day route specifically?",
+          "a": "Moderate overall, with a genuinely demanding summit night like every route on the mountain. Nine days on the mountain gives your body the acclimatization time that makes this route's success rate as high as it is, without the compressed pacing of the 8-day version or the extra rest day of the 10-day version."
+        },
+        {
+          "q": "What's the success rate on the 9-day Northern Circuit?",
+          "a": "Approximately 95% — the version most climbers choose, and the one this route is built around."
+        },
+        {
+          "q": "Is 9 days the right choice for a first-time climber?",
+          "a": "For most first-time climbers, yes — it balances a strong acclimatization profile against a reasonable time commitment, without needing the extra rest day the 10-day version adds for climbers who want additional margin."
+        }
+      ],
+      "choosing": {
+        "intro": "All three itineraries follow the same Northern Circuit route around Kilimanjaro's quiet northern slopes. The difference comes down to pace, and how much time your body gets to adjust to altitude before summit night.",
+        "items": [
+          {
+            "label": "8-Day Northern Circuit",
+            "successRate": "~90–93%",
+            "desc": "Our fastest Northern Circuit option, combining the Shira Plateau crossing with the push to Moir Camp into a single longer day. Best suited to climbers on a tighter schedule who still want the route's quiet trails and strong acclimatization profile."
+          },
+          {
+            "label": "9-Day Northern Circuit",
+            "successRate": "~95%",
+            "desc": "Our recommended default and the version most climbers choose — the pacing this route is built around, balancing a strong acclimatization profile against a reasonable time commitment."
+          },
+          {
+            "label": "10-Day Northern Circuit",
+            "successRate": "~96–98%",
+            "desc": "Adds a full rest day at Third Cave Camp before the push toward School Hut — the highest possible acclimatization margin, for older climbers, anyone who's struggled with altitude before, or climbers who simply want more margin than less."
+          }
+        ],
+        "footer": "Whichever you choose, physical preparation beforehand matters more than the day count — arriving fit makes every version of this climb safer and more enjoyable."
+      },
+      "highlights": [
+        {
+          "title": "Lava Tower Crossing",
+          "body": "Every duration passes the dramatic Lava Tower rock formation at 4,200m, on the day the Northern Circuit splits away from the southern routes into alpine desert and Kibo's quieter northern half."
+        },
+        {
+          "title": "Buffalo Camp's Seclusion",
+          "body": "A genuinely secluded camp on the northern slopes that climbers on other routes never see — the option to hike Little Lent Hill nearby adds extended views over remote terrain few others get to."
+        },
+        {
+          "title": "The Extra Rest Day, If You Take It",
+          "body": "The 10-day variant's acclimatization day at Third Cave Camp is deliberately unhurried — short optional walks and a full health check, built entirely around giving your body one more cycle to adjust before summit night."
+        },
+        {
+          "title": "Kilimanjaro's Longest Route",
+          "body": "At roughly 98 km, this is the longest standard route on the mountain — more time at altitude translates directly into some of Kilimanjaro's highest summit success rates, at any of the three durations."
+        },
+        {
+          "title": "Genuinely Quiet Trails",
+          "body": "Long stretches of trail with no other climbing parties are the norm here, not the exception — one of the least-crowded ways to summit Kilimanjaro."
+        }
+      ],
+      "tabLabels": {
+        "8": "8 Days",
+        "9": "9 Days",
+        "10": "10 Days"
+      },
+      "routeNameByDuration": {
+        "8": "Northern Circuit Route — 8-Day",
+        "9": "Northern Circuit Route — 9-Day",
+        "10": "Northern Circuit Route — 10-Day"
+      },
+      "faqHeading": "Northern Circuit Route FAQ",
+      "quickFacts8Day": {
+        "routeName": "Northern Circuit (The Grand Traverse) — 8-Day",
+        "duration": "8 Days / 7 Nights",
+        "distance": "~98 km total",
+        "startGate": "Londorossi Gate (2,100m)",
+        "finishGate": "Mweka Gate (1,640m)",
+        "summit": "Uhuru Peak — 5,895m / 19,341ft",
+        "difficulty": "Moderate",
+        "trailTraffic": "Very Low",
+        "successRate": "~90–93%",
+        "bestSeason": "June–October · January–February",
+        "accommodation": "4-season camping tents",
+        "priceFrom": "USD $2,290 per person (group 5+)"
+      },
+      "arrivalDay8Day": "You arrive in Tanzania and transfer to your hotel in Moshi. Your lead guide meets you for a thorough pre-climb briefing — gear check, route overview, altitude safety protocol, and Q&A. Rest well — your expedition begins tomorrow.",
+      "itinerary8Day": [
+        {
+          "day": 1,
+          "title": "Londorossi Gate → Mti Mkubwa Camp",
+          "meta": "Camp: Mti Mkubwa · Elevation: 2,780m · Distance: 6 km · Hiking Time: 2–3 hours",
+          "body": "A 4x4 drive up the forest track to the Lemosho Glades starts the day before the trail begins on foot. This is the most vegetation- and wildlife-rich section of the route — watch the canopy for monkeys as you climb through rainforest.",
+          "expect": "A gentle opening day. Use it to settle into the rhythm of the trail."
+        },
+        {
+          "day": 2,
+          "title": "Mti Mkubwa → Shira Ridge → Shira 1 Camp",
+          "meta": "Camp: Shira 1 Camp · Elevation: 3,600m · Distance: 8 km · Hiking Time: 4–5 hours",
+          "body": "The trees thin quickly today as the trail climbs the dramatic Shira Ridge. It's a steep day, rewarded with gorgeous panoramic views across the western Shira Plateau.",
+          "expect": "A sustained climb with real altitude gain. Mild headaches tonight are normal."
+        },
+        {
+          "day": 3,
+          "title": "Shira 1 → Shira Plateau → Lava Tower → Moir Camp",
+          "meta": "Camp: Moir Camp · Elevation: 4,200m · Distance: 14 km · Hiking Time: 6–8 hours",
+          "body": "The longest day on this itinerary, and the one that makes the 8-day version faster than the standard route. You'll cross the open Shira Plateau, pass through the Garden of Senecios, and stop for lunch at the dramatic Lava Tower rock formation before descending to Moir Camp — skipping the separate overnight at Shira 2 that the 9-day version includes. This is also where the Northern Circuit splits away from the southern circuit routes, entering alpine desert and the quieter northern half of the mountain.",
+          "expect": "A genuinely long day, both in distance and in the altitude touched at Lava Tower. Fatigue tonight is normal — this is the day you're trading for one less night on the mountain."
+        },
+        {
+          "day": 4,
+          "title": "Moir Valley → Buffalo Camp",
+          "meta": "Camp: Buffalo Camp · Elevation: 4,020m · Distance: 12 km · Hiking Time: 5–6 hours",
+          "body": "A moderately steep trail circles Kibo's northern slopes, with gradual inclines and declines and the option to hike Little Lent Hill for extended views. Buffalo Camp itself is a highlight of the Northern Circuit — a genuinely secluded camp few climbers on other routes ever see.",
+          "expect": "Rolling terrain rather than a single hard climb. The seclusion here is the whole point — enjoy it."
+        },
+        {
+          "day": 5,
+          "title": "Buffalo Ridge → Third Cave Camp",
+          "meta": "Camp: Third Cave Camp · Elevation: 3,875m · Distance: 8 km · Hiking Time: 5–7 hours",
+          "body": "The trail climbs Buffalo Ridge before skirting the remote northern slopes toward Third Cave Camp, near where the Rongai route passes. By now your body is well adjusted to high elevation.",
+          "expect": "A long day, but your acclimatisation advantage should be showing by this point in the trek."
+        },
+        {
+          "day": 6,
+          "title": "Kibo-Mawenzi Saddle → School Hut Camp",
+          "meta": "Camp: School Hut Camp · Elevation: 4,800m · Distance: 15 km · Hiking Time: 4–5 hours",
+          "body": "A steeper climb today, crossing the saddle between Kibo and Mawenzi Peaks with unique views of both. An early dinner and early night follow — the wake-up call is midnight.",
+          "expect": "Nerves and altitude-related restlessness are normal tonight. Rest even if you can't sleep."
+        },
+        {
+          "day": 7,
+          "title": "Summit Night → Uhuru Peak → Millennium Camp",
+          "meta": "Camp: Millennium Camp · Elevation: 3,950m · Ascent: 5 km · Descent: 12 km · Total Time: 10–15 hours",
+          "body": "Midnight departure for the steep ascent to Gilman's Point, where you join climbers from other routes for the final push. The crater rim walk passes striking views of Mawenzi Peak before the last scramble through snow to Uhuru Peak. The long descent continues down to Millennium Camp.",
+          "expect": "The hardest and most extraordinary day of the expedition — and, on this itinerary, arriving with one fewer acclimatization day behind you than the 9-day version. The descent afterward is long — pace yourself."
+        },
+        {
+          "day": 8,
+          "title": "Millennium Camp → Mweka Gate → Hotel",
+          "meta": "End of Expedition · Elevation: 1,640m · Distance: 10 km · Hiking Time: 3–4 hours",
+          "body": "Breathing gets easier with every step down as the trail returns to rainforest. At Mweka Gate, your summit certificate is presented before the transfer back to your hotel in Moshi.",
+          "expect": "Rest. Celebrate. You've completed Kilimanjaro's longest route, in one of its faster configurations."
+        }
+      ],
+      "pricing8Day": {
+        "solo": 2290,
+        "small": 2290,
+        "group": 2290
+      },
+      "faq8Day": [
+        {
+          "q": "Why is the 8-day version cheaper than the 9-day?",
+          "a": "One fewer day on the mountain means one fewer day of guide, porter, and park fees — the route and scenery are otherwise identical to the standard itinerary."
+        },
+        {
+          "q": "Is the 8-day version as safe as the 9-day version?",
+          "a": "It's still a well-paced route with a strong acclimatization profile — the reduction comes from combining one pair of moderate days into a single longer one, not from cutting altitude adaptation time entirely. That said, it carries a slightly lower success rate than the 9-day version, since less time at altitude generally means less acclimatization margin."
+        },
+        {
+          "q": "What's the success rate on the 8-day Northern Circuit?",
+          "a": "Approximately 90–93% — still among the higher success rates on the mountain, just below the 9- and 10-day versions."
+        },
+        {
+          "q": "Who should choose the 8-day over the 9-day?",
+          "a": "Climbers on a tighter schedule who still want the Northern Circuit's quiet trails and strong acclimatization profile, without the extra day the standard version uses. If you have any doubt about your fitness or altitude tolerance, the 9-day version is the safer choice."
+        },
+        {
+          "q": "Is Day 3 too demanding for most climbers?",
+          "a": "It's the longest single day on this itinerary, but it's walked at a measured pace with regular breaks, and your guide monitors you throughout. Climbers in reasonable hiking condition manage it without difficulty — it simply asks more of you than any other day on this route."
+        }
+      ],
+      "quickFacts10Day": {
+        "routeName": "Northern Circuit (The Grand Traverse) — 10-Day",
+        "duration": "10 Days / 9 Nights",
+        "distance": "~98 km total",
+        "startGate": "Londorossi Gate (2,100m)",
+        "finishGate": "Mweka Gate (1,640m)",
+        "summit": "Uhuru Peak — 5,895m / 19,341ft",
+        "difficulty": "Moderate",
+        "trailTraffic": "Very Low",
+        "successRate": "~96–98%",
+        "bestSeason": "June–October · January–February",
+        "accommodation": "4-season camping tents",
+        "priceFrom": "USD $2,790 per person (group 5+)"
+      },
+      "arrivalDay10Day": "You arrive in Tanzania and transfer to your hotel in Moshi. Your lead guide meets you for a thorough pre-climb briefing — gear check, route overview, altitude safety protocol, and Q&A. Rest well — your expedition begins tomorrow.",
+      "itinerary10Day": [
+        {
+          "day": 1,
+          "title": "Londorossi Gate → Mti Mkubwa Camp",
+          "meta": "Camp: Mti Mkubwa · Elevation: 2,780m · Distance: 6 km · Hiking Time: 2–3 hours",
+          "body": "A 4x4 drive up the forest track to the Lemosho Glades starts the day before the trail begins on foot. This is the most vegetation- and wildlife-rich section of the route — watch the canopy for monkeys as you climb through rainforest.",
+          "expect": "A gentle opening day. Use it to settle into the rhythm of the trail."
+        },
+        {
+          "day": 2,
+          "title": "Mti Mkubwa → Shira Ridge → Shira 1 Camp",
+          "meta": "Camp: Shira 1 Camp · Elevation: 3,600m · Distance: 8 km · Hiking Time: 4–5 hours",
+          "body": "The trees thin quickly today as the trail climbs the dramatic Shira Ridge. It's a steep day, rewarded with gorgeous panoramic views across the western Shira Plateau.",
+          "expect": "A sustained climb with real altitude gain. Mild headaches tonight are normal."
+        },
+        {
+          "day": 3,
+          "title": "Shira Plateau → Shira 2 Camp",
+          "meta": "Camp: Shira 2 Camp · Elevation: 3,850m · Distance: 8 km · Hiking Time: 4–5 hours",
+          "body": "A gentler day crossing the Shira Plateau's open meadows — good for acclimatization. Short exploratory trails around camp let you get a feel for the surrounding moorland.",
+          "expect": "A comfortable day by comparison. Take advantage of the shorter distance to rest well."
+        },
+        {
+          "day": 4,
+          "title": "Shira 2 → Lava Tower → Moir Camp",
+          "meta": "Camp: Moir Camp · Elevation: 4,200m · Distance: 14 km · Hiking Time: 5–7 hours",
+          "body": "The trail passes through the Garden of Senecios — the last of the larger vegetation — before lunch at the dramatic Lava Tower rock formation. Here the Northern Circuit splits away from the southern circuit routes, entering alpine desert and the quieter northern half of the mountain.",
+          "expect": "A long day with a significant altitude touch at the Lava Tower. This is where the Northern Circuit begins to feel genuinely remote."
+        },
+        {
+          "day": 5,
+          "title": "Moir Valley → Buffalo Camp",
+          "meta": "Camp: Buffalo Camp · Elevation: 4,020m · Distance: 12 km · Hiking Time: 5–6 hours",
+          "body": "A moderately steep trail circles Kibo's northern slopes, with gradual inclines and declines and the option to hike Little Lent Hill for extended views. Buffalo Camp itself is a highlight of the Northern Circuit — a genuinely secluded camp few climbers on other routes ever see.",
+          "expect": "Rolling terrain rather than a single hard climb. The seclusion here is the whole point — enjoy it."
+        },
+        {
+          "day": 6,
+          "title": "Buffalo Ridge → Third Cave Camp",
+          "meta": "Camp: Third Cave Camp · Elevation: 3,875m · Distance: 8 km · Hiking Time: 5–7 hours",
+          "body": "The trail climbs Buffalo Ridge before skirting the remote northern slopes toward Third Cave Camp, near where the Rongai route passes.",
+          "expect": "A long day — but unlike the standard route, you'll have a full rest day here before continuing, so there's no need to push your pace."
+        },
+        {
+          "day": 7,
+          "title": "Acclimatization Day — Third Cave Camp",
+          "meta": "Camp: Third Cave Camp (second night) · Elevation: 3,875m · Distance: 2–3 km (optional exploratory walks) · Hiking Time: 1–2 hours",
+          "body": "A deliberately unhurried day built entirely around giving your body one more full cycle to adjust before the push toward 4,800m. Short optional walks around camp keep your legs moving without adding real exertion; otherwise, the day is yours to rest, eat well, and let your guide run a thorough health check before the harder days ahead.",
+          "expect": "The lightest day of the entire expedition. Climbers who've struggled with altitude before tend to feel the benefit of this day most on summit night."
+        },
+        {
+          "day": 8,
+          "title": "Kibo-Mawenzi Saddle → School Hut Camp",
+          "meta": "Camp: School Hut Camp · Elevation: 4,800m · Distance: 15 km · Hiking Time: 4–5 hours",
+          "body": "A steeper climb today, crossing the saddle between Kibo and Mawenzi Peaks with unique views of both. An early dinner and early night follow — the wake-up call is midnight.",
+          "expect": "Nerves and altitude-related restlessness are normal tonight. Rest even if you can't sleep — the extra rest day behind you should show here."
+        },
+        {
+          "day": 9,
+          "title": "Summit Night → Uhuru Peak → Millennium Camp",
+          "meta": "Camp: Millennium Camp · Elevation: 3,950m · Ascent: 5 km · Descent: 12 km · Total Time: 10–15 hours",
+          "body": "Midnight departure for the steep ascent to Gilman's Point, where you join climbers from other routes for the final push. The crater rim walk passes striking views of Mawenzi Peak before the last scramble through snow to Uhuru Peak. The long descent continues down to Millennium Camp.",
+          "expect": "The hardest and most extraordinary day of the expedition — approached with the maximum acclimatization this route offers. The descent afterward is long — pace yourself."
+        },
+        {
+          "day": 10,
+          "title": "Millennium Camp → Mweka Gate → Hotel",
+          "meta": "End of Expedition · Elevation: 1,640m · Distance: 10 km · Hiking Time: 3–4 hours",
+          "body": "Breathing gets easier with every step down as the trail returns to rainforest. At Mweka Gate, your summit certificate is presented before the transfer back to your hotel in Moshi.",
+          "expect": "Rest. Celebrate. You've completed Kilimanjaro's longest route with its fullest acclimatization profile."
+        }
+      ],
+      "pricing10Day": {
+        "solo": 2790,
+        "small": 2790,
+        "group": 2790
+      },
+      "faq10Day": [
+        {
+          "q": "What does the extra day actually add?",
+          "a": "A full rest day at Third Cave Camp (3,875m), inserted before the push toward School Hut and summit night. It's not extra distance — it's extra time for your body to adjust, which is exactly what matters most for summit success."
+        },
+        {
+          "q": "What's the success rate on the 10-day Northern Circuit?",
+          "a": "Approximately 96–98% — the highest of the three variants, and among the highest of any route or itinerary length on the mountain."
+        },
+        {
+          "q": "Who should choose the 10-day over the 9-day?",
+          "a": "Older climbers, anyone who's experienced altitude sickness on a previous climb, or climbers who'd simply rather have more margin than less. It's also a strong choice if your schedule has the flexibility and you'd rather not leave summit success to a narrower acclimatization window."
+        },
+        {
+          "q": "Does the extra day cost much more?",
+          "a": "One additional day of guide, porter, and park fees — a modest increase for a meaningful jump in acclimatization margin. See the pricing above."
+        },
+        {
+          "q": "Is this the same as the crater camp option some operators offer?",
+          "a": "No — crater camp itineraries involve sleeping at roughly 5,750m inside the summit crater itself, a materially different and higher-risk product. This 10-day version keeps the standard descent to Millennium Camp after summiting; it simply adds a rest day earlier in the climb."
+        }
+      ],
       "heroImageAlt": "A rocky, snow-covered ridge rising above a sea of clouds"
     }
   },
@@ -3667,10 +3967,20 @@
       "Tanzania inbound tour operator",
       "safari agent commission",
       "Kenya Rwanda safari trade rates",
-      "Tanzania ground handler partnership"
+      "Tanzania ground handler partnership",
+      "Tanzania ground operator for travel agents",
+      "sell Tanzania safaris as a travel agent",
+      "white label safari itineraries Tanzania",
+      "travel trade safari partner East Africa",
+      "ready-made safari itineraries for agents",
+      "wholesale safari rates Tanzania",
+      "trusted Tanzania ground handler",
+      "FIT and group safari operator Tanzania",
+      "safari agent portal Tanzania",
+      "partner with a local Tanzania safari operator"
     ],
     "ogImageAlt": "Safari Land Cruiser crossing the Tanzania plains",
-    "metaTitle": "Trade Partnerships | EWA Safari Outfitters",
+    "metaTitle": "Trade Partnerships",
     "metaDescription": "Become an EWA Safari Outfitters trade partner. Direct net rates, local guiding expertise, and a tiered collection of Tanzania, Kenya, and Rwanda safaris for travel agents and tour operators.",
     "breadcrumbLabel": "Trade Partnerships"
   },
@@ -3718,6 +4028,21 @@
     "emailItinerarySubject": "Your itinerary request — EWA Safari Outfitters",
     "emailItineraryIntro": "Thanks for requesting the {context} itinerary. Our team is preparing your full day-by-day plan and will send it to this address within 24 hours.",
     "viewLabel": "View Guide Now"
+  },
+  "exitIntent": {
+    "badge": "Before You Go",
+    "heading": "We'd hate for you to leave empty-handed",
+    "body": "Join The Wilderness Edit for honest wildlife updates, seasonal guides, and the occasional early-bird offer — plus 5% off your first safari when you book through this list.",
+    "nameLabel": "Your name",
+    "emailLabel": "Your email address",
+    "emailPlaceholder": "you@example.com",
+    "submitLabel": "Send Me 5% Off",
+    "submitting": "Sending…",
+    "dismissLabel": "Close",
+    "noSpam": "No spam, ever. Unsubscribe any time.",
+    "successTitle": "You're on the list!",
+    "successDesc": "Check your inbox — your discount and our next dispatch are on the way.",
+    "errorMessage": "Something went wrong. Please try again or email us at info@theextremewilderness.com"
   },
   "destinationsHub": {
     "metaTitle": "East Africa Destinations | Tanzania, Kenya & Rwanda",

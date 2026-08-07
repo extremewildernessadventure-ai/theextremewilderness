@@ -10,6 +10,7 @@ import BottomNav from '@/components/layout/BottomNav'
 import Providers from '@/components/layout/Providers'
 import WhatsAppButton from '@/components/shared/WhatsAppButton'
 import LanguageSuggestionBanner from '@/components/shared/LanguageSuggestionBanner'
+import ExitIntentPopup from '@/components/shared/ExitIntentPopup'
 
 type Props = {
   children: React.ReactNode
@@ -32,7 +33,7 @@ const OG_LOCALE: Record<string, string> = {
 const CLIENT_NAMESPACES = [
   'common', 'forms', 'nav', 'bottomNav', 'home', 'safari', 'destinations',
   'destinationsHub', 'trekking', 'trekkingRouteDetail', 'tradePartners',
-  'pdfLead', 'planBuilder', 'accommodationsHub',
+  'pdfLead', 'planBuilder', 'accommodationsHub', 'exitIntent',
 ] as const
 
 function pickMessages(messages: Record<string, unknown>, namespaces: readonly string[]) {
@@ -135,6 +136,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <div className="h-16 lg:hidden" aria-hidden="true" />
         <WhatsAppButton />
         <LanguageSuggestionBanner />
+        <ExitIntentPopup />
         <BottomNav />
       </Providers>
     </NextIntlClientProvider>

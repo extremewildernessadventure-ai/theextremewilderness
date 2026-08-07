@@ -1047,7 +1047,7 @@
         "successRate": "~95%",
         "bestSeason": "Junio–octubre · Enero–febrero",
         "accommodation": "Tiendas de campaña 4 estaciones",
-        "priceFrom": "2.237 USD por persona (grupo 5+)"
+        "priceFrom": "2.590 USD por persona (grupo 5+)"
       },
       "whyChoose": [
         {
@@ -1155,10 +1155,310 @@
         "Propinas"
       ],
       "pricing": {
-        "solo": 2237,
-        "small": 2237,
-        "group": 2237
+        "solo": 2590,
+        "small": 2590,
+        "group": 2590
       },
+      "faq": [
+        {
+          "q": "¿Qué longitud tiene la ruta Northern Circuit?",
+          "a": "Aproximadamente 98 km (61 millas) en total — la ruta estándar más larga del Kilimanjaro."
+        },
+        {
+          "q": "¿Cómo se compara la Northern Circuit con la Machame o la Lemosho?",
+          "a": "Es más larga que ambas, y ese es precisamente el punto — más días en altitud, un perfil de aclimatación más suave, y una ruta alrededor de las tranquilas laderas nórdicas del Kibo que los escaladores de Machame y Lemosho nunca ven. Si tu agenda permite los días adicionales, suele ser la opción más segura para lograr la cumbre; si el tiempo es limitado, Machame o Lemosho te llevan allí más rápido."
+        },
+        {
+          "q": "¿Está muy concurrida la Northern Circuit?",
+          "a": "No — es una de las rutas más tranquilas de la montaña. Los largos tramos de sendero sin ningún otro grupo de escalada son la norma, no la excepción."
+        },
+        {
+          "q": "¿Qué incluye el precio?",
+          "a": "Todas las tarifas del Parque Nacional del Kilimanjaro y las tasas de conservación, un guía principal certificado por KINAPA, guías asistentes, un porteador personal, comidas completas en la montaña, equipo de acampada 4 estaciones, oxígeno de emergencia, controles de salud con oxímetro de pulso dos veces al día, y traslados hotel/aeropuerto. No incluye vuelos internacionales, visado, seguro de viaje personal, equipo personal ni propinas."
+        }
+      ],
+      "faq9Day": [
+        {
+          "q": "¿Qué tan difícil es específicamente la ruta estándar de 9 días?",
+          "a": "Moderada en general, con una noche de cumbre genuinamente exigente como en cualquier ruta de la montaña. Nueve días en la montaña le dan a tu cuerpo el tiempo de aclimatación que hace que la tasa de éxito de esta ruta sea tan alta como es, sin el ritmo comprimido de la versión de 8 días ni el día de descanso adicional de la versión de 10 días."
+        },
+        {
+          "q": "¿Cuál es la tasa de éxito de la Northern Circuit de 9 días?",
+          "a": "Aproximadamente el 95% — la versión que eligen la mayoría de los escaladores, y aquella en torno a la cual se construye esta ruta."
+        },
+        {
+          "q": "¿Son los 9 días la opción adecuada para quien escala por primera vez?",
+          "a": "Para la mayoría de los escaladores primerizos, sí — equilibra un perfil de aclimatación sólido con un compromiso de tiempo razonable, sin necesitar el día de descanso adicional que la versión de 10 días añade para quienes quieren más margen."
+        }
+      ],
+      "choosing": {
+        "intro": "Los tres itinerarios siguen la misma ruta Northern Circuit alrededor de las tranquilas laderas nórdicas del Kilimanjaro. La diferencia se reduce al ritmo, y a cuánto tiempo tiene tu cuerpo para adaptarse a la altitud antes de la noche de cumbre.",
+        "items": [
+          {
+            "label": "Northern Circuit de 8 Días",
+            "successRate": "~90–93%",
+            "desc": "Nuestra opción más rápida de la Northern Circuit, combinando el cruce de la Meseta de Shira con el ascenso hacia el Campamento Moir en un solo día más largo. Ideal para escaladores con una agenda más ajustada que aun así quieren los senderos tranquilos y el sólido perfil de aclimatación de la ruta."
+          },
+          {
+            "label": "Northern Circuit de 9 Días",
+            "successRate": "~95%",
+            "desc": "Nuestra opción recomendada por defecto y la versión que eligen la mayoría de los escaladores — el ritmo en torno al cual se construye esta ruta, equilibrando un perfil de aclimatación sólido con un compromiso de tiempo razonable."
+          },
+          {
+            "label": "Northern Circuit de 10 Días",
+            "successRate": "~96–98%",
+            "desc": "Añade un día completo de descanso en el Campamento Third Cave antes del ascenso hacia School Hut — el máximo margen de aclimatación posible, para escaladores de mayor edad, cualquiera que haya tenido dificultades con la altitud antes, o escaladores que simplemente prefieran más margen que menos."
+          }
+        ],
+        "footer": "Elijas la que elijas, la preparación física previa importa más que el número de días — llegar en forma hace que cada versión de esta ascensión sea más segura y más disfrutable."
+      },
+      "highlights": [
+        {
+          "title": "El Cruce de la Torre de Lava",
+          "body": "Todas las duraciones pasan por la espectacular formación rocosa de la Torre de Lava a 4.200 m, el día en que la Northern Circuit se separa de las rutas del sur hacia el desierto alpino y la mitad norte más tranquila del Kibo."
+        },
+        {
+          "title": "El Aislamiento del Campamento Buffalo",
+          "body": "Un campamento genuinamente aislado en las laderas nórdicas que los escaladores de otras rutas nunca ven — la opción de subir la cercana Little Lent Hill añade vistas extendidas sobre un terreno remoto que pocos más llegan a ver."
+        },
+        {
+          "title": "El Día de Descanso Adicional, Si Lo Eliges",
+          "body": "El día de aclimatación de la variante de 10 días en el Campamento Third Cave es deliberadamente pausado — cortas caminatas opcionales y un chequeo de salud completo, pensado enteramente para darle a tu cuerpo un ciclo más de adaptación antes de la noche de cumbre."
+        },
+        {
+          "title": "La Ruta Más Larga del Kilimanjaro",
+          "body": "Con aproximadamente 98 km, esta es la ruta estándar más larga de la montaña — más tiempo en altitud se traduce directamente en algunas de las tasas de éxito de cumbre más altas del Kilimanjaro, en cualquiera de las tres duraciones."
+        },
+        {
+          "title": "Senderos Genuinamente Tranquilos",
+          "body": "Los largos tramos de sendero sin ningún otro grupo de escalada son la norma aquí, no la excepción — una de las formas menos concurridas de alcanzar la cumbre del Kilimanjaro."
+        }
+      ],
+      "tabLabels": {
+        "8": "8 Días",
+        "9": "9 Días",
+        "10": "10 Días"
+      },
+      "routeNameByDuration": {
+        "8": "Ruta Northern Circuit — 8 Días",
+        "9": "Ruta Northern Circuit — 9 Días",
+        "10": "Ruta Northern Circuit — 10 Días"
+      },
+      "faqHeading": "Preguntas Frecuentes sobre la Ruta Northern Circuit",
+      "quickFacts8Day": {
+        "routeName": "Northern Circuit (La Gran Travesía) — 8 Días",
+        "duration": "8 días / 7 noches",
+        "distance": "~98 km en total",
+        "startGate": "Puerta Londorossi (2.100 m)",
+        "finishGate": "Puerta Mweka (1.640 m)",
+        "summit": "Pico Uhuru — 5.895 m / 19.341 pies",
+        "difficulty": "Moderada",
+        "trailTraffic": "Muy bajo",
+        "successRate": "~90–93%",
+        "bestSeason": "Junio–octubre · Enero–febrero",
+        "accommodation": "Tiendas de campaña 4 estaciones",
+        "priceFrom": "2.290 USD por persona (grupo 5+)"
+      },
+      "arrivalDay8Day": "Llegas a Tanzania y te trasladas a tu hotel en Moshi. Tu guía principal te recibe para una charla informativa completa previa a la ascensión — revisión de equipo, resumen de la ruta, protocolo de seguridad en altitud y preguntas. Descansa bien — tu expedición comienza mañana.",
+      "itinerary8Day": [
+        {
+          "day": 1,
+          "title": "Puerta Londorossi → Campamento Mti Mkubwa",
+          "meta": "Campamento: Mti Mkubwa · Elevación: 2.780 m · Distancia: 6 km · Tiempo de caminata: 2–3 horas",
+          "body": "Un trayecto en 4x4 por la pista forestal hasta los Claros de Lemosho comienza el día antes de que el sendero empiece a pie. Esta es la sección con más vegetación y fauna de la ruta — observa la copa de los árboles en busca de monos mientras asciendes por la selva tropical.",
+          "expect": "Un día de apertura suave. Aprovéchalo para adaptarte al ritmo del sendero."
+        },
+        {
+          "day": 2,
+          "title": "Mti Mkubwa → Cresta Shira → Campamento Shira 1",
+          "meta": "Campamento: Shira 1 · Elevación: 3.600 m · Distancia: 8 km · Tiempo de caminata: 4–5 horas",
+          "body": "Los árboles se adelgazan rápidamente hoy mientras el sendero asciende la espectacular Cresta Shira. Es un día empinado, recompensado con hermosas vistas panorámicas sobre la Meseta occidental de Shira.",
+          "expect": "Un ascenso sostenido con verdadera ganancia de altitud. Los dolores de cabeza leves esta noche son normales."
+        },
+        {
+          "day": 3,
+          "title": "Shira 1 → Meseta de Shira → Torre de Lava → Campamento Moir",
+          "meta": "Campamento: Moir · Elevación: 4.200 m · Distancia: 14 km · Tiempo de caminata: 6–8 horas",
+          "body": "El día más largo de este itinerario, y el que hace que la versión de 8 días sea más rápida que la ruta estándar. Cruzarás la Meseta de Shira a cielo abierto, atravesarás el Jardín de los Senecios y pararás a almorzar en la espectacular formación rocosa de la Torre de Lava antes de descender al Campamento Moir — sin la pernoctación independiente en Shira 2 que incluye la versión de 9 días. Aquí también es donde la Northern Circuit se separa de las rutas del circuito sur, entrando en el desierto alpino y la mitad norte más tranquila de la montaña.",
+          "expect": "Un día genuinamente largo, tanto en distancia como en la altitud alcanzada en la Torre de Lava. El cansancio esta noche es normal — este es el día que intercambias por una noche menos en la montaña."
+        },
+        {
+          "day": 4,
+          "title": "Valle de Moir → Campamento Buffalo",
+          "meta": "Campamento: Buffalo · Elevación: 4.020 m · Distancia: 12 km · Tiempo de caminata: 5–6 horas",
+          "body": "Un sendero moderadamente empinado rodea las laderas nórdicas del Kibo, con subidas y bajadas graduales y la opción de subir Little Lent Hill para vistas extendidas. El Campamento Buffalo en sí es un punto destacado de la Northern Circuit — un campamento genuinamente aislado que pocos escaladores en otras rutas llegan a ver.",
+          "expect": "Terreno ondulado en lugar de una sola subida difícil. El aislamiento aquí es todo el sentido — disfrútalo."
+        },
+        {
+          "day": 5,
+          "title": "Cresta Buffalo → Campamento Third Cave",
+          "meta": "Campamento: Third Cave · Elevación: 3.875 m · Distancia: 8 km · Tiempo de caminata: 5–7 horas",
+          "body": "El sendero asciende la Cresta Buffalo antes de bordear las laderas nórdicas remotas hacia el Campamento Third Cave, cerca de donde pasa la ruta Rongai. Para este momento tu cuerpo está bien adaptado a la gran altitud.",
+          "expect": "Un día largo, pero tu ventaja de aclimatación debería notarse en este punto de la caminata."
+        },
+        {
+          "day": 6,
+          "title": "Silla Kibo-Mawenzi → Campamento School Hut",
+          "meta": "Campamento: School Hut · Elevación: 4.800 m · Distancia: 15 km · Tiempo de caminata: 4–5 horas",
+          "body": "Un ascenso más empinado hoy, cruzando la silla entre los Picos Kibo y Mawenzi con vistas únicas de ambos. Sigue una cena temprana y una noche temprana — la hora de despertar es medianoche.",
+          "expect": "Los nervios y la inquietud relacionada con la altitud son normales esta noche. Descansa aunque no puedas dormir."
+        },
+        {
+          "day": 7,
+          "title": "Noche de cumbre → Pico Uhuru → Campamento Millennium",
+          "meta": "Campamento: Millennium · Elevación: 3.950 m · Ascenso: 5 km · Descenso: 12 km · Tiempo total: 10–15 horas",
+          "body": "Salida a medianoche para el empinado ascenso hacia Gilman's Point, donde te unes a escaladores de otras rutas para el empuje final. La caminata por el borde del cráter ofrece vistas impresionantes del Pico Mawenzi antes de la última escalada a través de la nieve hasta el Pico Uhuru. El largo descenso continúa hasta el Campamento Millennium.",
+          "expect": "El día más difícil y extraordinario de la expedición — y, en este itinerario, llegando con un día de aclimatación menos que en la versión de 9 días. El descenso posterior es largo — administra tu ritmo."
+        },
+        {
+          "day": 8,
+          "title": "Campamento Millennium → Puerta Mweka → Hotel",
+          "meta": "Fin de la expedición · Elevación: 1.640 m · Distancia: 10 km · Tiempo de caminata: 3–4 horas",
+          "body": "Respirar se vuelve más fácil con cada paso mientras el sendero regresa a la selva tropical. En la Puerta Mweka, se te entrega tu certificado de cumbre antes del traslado de vuelta a tu hotel en Moshi.",
+          "expect": "Descansa. Celebra. Has completado la ruta más larga del Kilimanjaro, en una de sus configuraciones más rápidas."
+        }
+      ],
+      "pricing8Day": {
+        "solo": 2290,
+        "small": 2290,
+        "group": 2290
+      },
+      "faq8Day": [
+        {
+          "q": "¿Por qué la versión de 8 días es más económica que la de 9?",
+          "a": "Un día menos en la montaña significa un día menos de guía, porteador y tarifas de parque — la ruta y el paisaje son, por lo demás, idénticos al itinerario estándar."
+        },
+        {
+          "q": "¿Es la versión de 8 días tan segura como la de 9?",
+          "a": "Sigue siendo una ruta con un ritmo bien planificado y un perfil de aclimatación sólido — la reducción viene de combinar un par de días moderados en uno solo más largo, no de recortar por completo el tiempo de adaptación a la altitud. Dicho esto, tiene una tasa de éxito ligeramente más baja que la versión de 9 días, ya que menos tiempo en altitud generalmente significa menos margen de aclimatación."
+        },
+        {
+          "q": "¿Cuál es la tasa de éxito de la Northern Circuit de 8 días?",
+          "a": "Aproximadamente 90–93% — sigue estando entre las tasas de éxito más altas de la montaña, apenas por debajo de las versiones de 9 y 10 días."
+        },
+        {
+          "q": "¿Quién debería elegir la de 8 días en lugar de la de 9?",
+          "a": "Escaladores con una agenda más ajustada que aun así quieren los senderos tranquilos y el sólido perfil de aclimatación de la Northern Circuit, sin el día adicional que usa la versión estándar. Si tienes alguna duda sobre tu condición física o tu tolerancia a la altitud, la versión de 9 días es la opción más segura."
+        },
+        {
+          "q": "¿Es el Día 3 demasiado exigente para la mayoría de los escaladores?",
+          "a": "Es el día individual más largo de este itinerario, pero se camina a un ritmo medido con descansos regulares, y tu guía te supervisa en todo momento. Los escaladores en condición física razonable lo completan sin dificultad — simplemente exige más que cualquier otro día de esta ruta."
+        }
+      ],
+      "quickFacts10Day": {
+        "routeName": "Northern Circuit (La Gran Travesía) — 10 Días",
+        "duration": "10 días / 9 noches",
+        "distance": "~98 km en total",
+        "startGate": "Puerta Londorossi (2.100 m)",
+        "finishGate": "Puerta Mweka (1.640 m)",
+        "summit": "Pico Uhuru — 5.895 m / 19.341 pies",
+        "difficulty": "Moderada",
+        "trailTraffic": "Muy bajo",
+        "successRate": "~96–98%",
+        "bestSeason": "Junio–octubre · Enero–febrero",
+        "accommodation": "Tiendas de campaña 4 estaciones",
+        "priceFrom": "2.790 USD por persona (grupo 5+)"
+      },
+      "arrivalDay10Day": "Llegas a Tanzania y te trasladas a tu hotel en Moshi. Tu guía principal te recibe para una charla informativa completa previa a la ascensión — revisión de equipo, resumen de la ruta, protocolo de seguridad en altitud y preguntas. Descansa bien — tu expedición comienza mañana.",
+      "itinerary10Day": [
+        {
+          "day": 1,
+          "title": "Puerta Londorossi → Campamento Mti Mkubwa",
+          "meta": "Campamento: Mti Mkubwa · Elevación: 2.780 m · Distancia: 6 km · Tiempo de caminata: 2–3 horas",
+          "body": "Un trayecto en 4x4 por la pista forestal hasta los Claros de Lemosho comienza el día antes de que el sendero empiece a pie. Esta es la sección con más vegetación y fauna de la ruta — observa la copa de los árboles en busca de monos mientras asciendes por la selva tropical.",
+          "expect": "Un día de apertura suave. Aprovéchalo para adaptarte al ritmo del sendero."
+        },
+        {
+          "day": 2,
+          "title": "Mti Mkubwa → Cresta Shira → Campamento Shira 1",
+          "meta": "Campamento: Shira 1 · Elevación: 3.600 m · Distancia: 8 km · Tiempo de caminata: 4–5 horas",
+          "body": "Los árboles se adelgazan rápidamente hoy mientras el sendero asciende la espectacular Cresta Shira. Es un día empinado, recompensado con hermosas vistas panorámicas sobre la Meseta occidental de Shira.",
+          "expect": "Un ascenso sostenido con verdadera ganancia de altitud. Los dolores de cabeza leves esta noche son normales."
+        },
+        {
+          "day": 3,
+          "title": "Meseta de Shira → Campamento Shira 2",
+          "meta": "Campamento: Shira 2 · Elevación: 3.850 m · Distancia: 8 km · Tiempo de caminata: 4–5 horas",
+          "body": "Un día más suave cruzando las praderas abiertas de la Meseta de Shira — bueno para la aclimatación. Cortos senderos exploratorios alrededor del campamento te permiten conocer el páramo circundante.",
+          "expect": "Un día cómodo en comparación. Aprovecha la distancia más corta para descansar bien."
+        },
+        {
+          "day": 4,
+          "title": "Shira 2 → Torre de Lava → Campamento Moir",
+          "meta": "Campamento: Moir · Elevación: 4.200 m · Distancia: 14 km · Tiempo de caminata: 5–7 horas",
+          "body": "El sendero atraviesa el Jardín de los Senecios — la última vegetación de mayor tamaño — antes del almuerzo en la espectacular formación rocosa de la Torre de Lava. Aquí la Northern Circuit se separa de las rutas del circuito sur, entrando en el desierto alpino y la mitad norte más tranquila de la montaña.",
+          "expect": "Un día largo con un contacto significativo con la altitud en la Torre de Lava. Aquí es donde la Northern Circuit empieza a sentirse verdaderamente remota."
+        },
+        {
+          "day": 5,
+          "title": "Valle de Moir → Campamento Buffalo",
+          "meta": "Campamento: Buffalo · Elevación: 4.020 m · Distancia: 12 km · Tiempo de caminata: 5–6 horas",
+          "body": "Un sendero moderadamente empinado rodea las laderas nórdicas del Kibo, con subidas y bajadas graduales y la opción de subir Little Lent Hill para vistas extendidas. El Campamento Buffalo en sí es un punto destacado de la Northern Circuit — un campamento genuinamente aislado que pocos escaladores en otras rutas llegan a ver.",
+          "expect": "Terreno ondulado en lugar de una sola subida difícil. El aislamiento aquí es todo el sentido — disfrútalo."
+        },
+        {
+          "day": 6,
+          "title": "Cresta Buffalo → Campamento Third Cave",
+          "meta": "Campamento: Third Cave · Elevación: 3.875 m · Distancia: 8 km · Tiempo de caminata: 5–7 horas",
+          "body": "El sendero asciende la Cresta Buffalo antes de bordear las laderas nórdicas remotas hacia el Campamento Third Cave, cerca de donde pasa la ruta Rongai.",
+          "expect": "Un día largo — pero a diferencia de la ruta estándar, aquí tendrás un día completo de descanso antes de continuar, así que no hace falta forzar el ritmo."
+        },
+        {
+          "day": 7,
+          "title": "Día de Aclimatación — Campamento Third Cave",
+          "meta": "Campamento: Third Cave (segunda noche) · Elevación: 3.875 m · Distancia: 2–3 km (caminatas exploratorias opcionales) · Tiempo de caminata: 1–2 horas",
+          "body": "Un día deliberadamente pausado, pensado enteramente para darle a tu cuerpo un ciclo completo más de adaptación antes del ascenso hacia los 4.800 m. Cortas caminatas opcionales alrededor del campamento mantienen las piernas en movimiento sin añadir un esfuerzo real; por lo demás, el día es tuyo para descansar, comer bien y dejar que tu guía realice un chequeo de salud exhaustivo antes de los días más duros que se avecinan.",
+          "expect": "El día más ligero de toda la expedición. Los escaladores que han tenido dificultades con la altitud en el pasado suelen notar el beneficio de este día sobre todo en la noche de cumbre."
+        },
+        {
+          "day": 8,
+          "title": "Silla Kibo-Mawenzi → Campamento School Hut",
+          "meta": "Campamento: School Hut · Elevación: 4.800 m · Distancia: 15 km · Tiempo de caminata: 4–5 horas",
+          "body": "Un ascenso más empinado hoy, cruzando la silla entre los Picos Kibo y Mawenzi con vistas únicas de ambos. Sigue una cena temprana y una noche temprana — la hora de despertar es medianoche.",
+          "expect": "Los nervios y la inquietud relacionada con la altitud son normales esta noche. Descansa aunque no puedas dormir — el día de descanso adicional debería notarse aquí."
+        },
+        {
+          "day": 9,
+          "title": "Noche de cumbre → Pico Uhuru → Campamento Millennium",
+          "meta": "Campamento: Millennium · Elevación: 3.950 m · Ascenso: 5 km · Descenso: 12 km · Tiempo total: 10–15 horas",
+          "body": "Salida a medianoche para el empinado ascenso hacia Gilman's Point, donde te unes a escaladores de otras rutas para el empuje final. La caminata por el borde del cráter ofrece vistas impresionantes del Pico Mawenzi antes de la última escalada a través de la nieve hasta el Pico Uhuru. El largo descenso continúa hasta el Campamento Millennium.",
+          "expect": "El día más difícil y extraordinario de la expedición — abordado con la máxima aclimatación que ofrece esta ruta. El descenso posterior es largo — administra tu ritmo."
+        },
+        {
+          "day": 10,
+          "title": "Campamento Millennium → Puerta Mweka → Hotel",
+          "meta": "Fin de la expedición · Elevación: 1.640 m · Distancia: 10 km · Tiempo de caminata: 3–4 horas",
+          "body": "Respirar se vuelve más fácil con cada paso mientras el sendero regresa a la selva tropical. En la Puerta Mweka, se te entrega tu certificado de cumbre antes del traslado de vuelta a tu hotel en Moshi.",
+          "expect": "Descansa. Celebra. Has completado la ruta más larga del Kilimanjaro con su perfil de aclimatación más completo."
+        }
+      ],
+      "pricing10Day": {
+        "solo": 2790,
+        "small": 2790,
+        "group": 2790
+      },
+      "faq10Day": [
+        {
+          "q": "¿Qué aporta realmente el día adicional?",
+          "a": "Un día completo de descanso en el Campamento Third Cave (3.875 m), insertado antes del ascenso hacia School Hut y la noche de cumbre. No es distancia adicional — es tiempo adicional para que tu cuerpo se adapte, que es exactamente lo que más importa para lograr la cumbre."
+        },
+        {
+          "q": "¿Cuál es la tasa de éxito de la Northern Circuit de 10 días?",
+          "a": "Aproximadamente 96–98% — la más alta de las tres variantes, y entre las más altas de cualquier ruta o duración de itinerario en la montaña."
+        },
+        {
+          "q": "¿Quién debería elegir la de 10 días en lugar de la de 9?",
+          "a": "Escaladores de mayor edad, cualquiera que haya sufrido mal de altura en una ascensión anterior, o escaladores que simplemente prefieran tener más margen que menos. También es una excelente opción si tu agenda tiene flexibilidad y prefieres no dejar el éxito de la cumbre a una ventana de aclimatación más estrecha."
+        },
+        {
+          "q": "¿Cuesta mucho más el día adicional?",
+          "a": "Un día adicional de guía, porteador y tarifas de parque — un incremento modesto por un salto considerable en el margen de aclimatación. Consulta las tarifas arriba."
+        },
+        {
+          "q": "¿Es esto lo mismo que la opción de campamento en el cráter que ofrecen algunos operadores?",
+          "a": "No — los itinerarios de campamento en el cráter implican dormir a unos 5.750 m dentro del propio cráter de la cumbre, un producto sustancialmente distinto y de mayor riesgo. Esta versión de 10 días mantiene el descenso estándar hasta el Campamento Millennium tras alcanzar la cumbre; simplemente añade un día de descanso antes en la ascensión."
+        }
+      ],
       "heroImageAlt": "Una cresta rocosa cubierta de nieve que se eleva sobre un mar de nubes"
     }
   },
@@ -3738,10 +4038,20 @@
       "operador turístico receptivo Tanzania",
       "comisión agente de safaris",
       "tarifas comerciales safari Kenia Ruanda",
-      "alianza operador receptivo Tanzania"
+      "alianza operador receptivo Tanzania",
+      "operador receptivo en Tanzania para agencias de viajes",
+      "vender safaris en Tanzania como agencia",
+      "itinerarios de safari de marca blanca Tanzania",
+      "socio del sector de viajes safari África Oriental",
+      "itinerarios de safari listos para agencias",
+      "tarifas de safari al por mayor Tanzania",
+      "operador receptivo de confianza en Tanzania",
+      "operador de safaris FIT y grupos Tanzania",
+      "portal de agentes de safari Tanzania",
+      "asociarse con un operador local en Tanzania"
     ],
     "ogImageAlt": "Land Cruiser de safari cruzando las llanuras de Tanzania",
-    "metaTitle": "Alianzas Comerciales | EWA Safari Outfitters",
+    "metaTitle": "Alianzas Comerciales",
     "metaDescription": "Conviértase en socio comercial de EWA Safari Outfitters. Tarifas netas directas, experiencia de guiado local, y una colección escalonada de safaris en Tanzania, Kenia y Ruanda para agentes de viajes y operadores turísticos.",
     "breadcrumbLabel": "Alianzas Comerciales"
   },
@@ -3750,6 +4060,21 @@
     "subtitle": "Incluso los mejores guías a veces toman un camino equivocado. Deja que te ayudemos a volver a la senda.",
     "backHome": "Volver al Inicio",
     "browseDestinations": "Explorar Destinos"
+  },
+  "exitIntent": {
+    "badge": "Antes de Irte",
+    "heading": "No queremos que te vayas con las manos vacías",
+    "body": "Únete a The Wilderness Edit para recibir novedades honestas sobre la fauna, guías estacionales y alguna que otra oferta anticipada — además de un 5% de descuento en tu primer safari al reservar a través de esta lista.",
+    "nameLabel": "Tu nombre",
+    "emailLabel": "Tu correo electrónico",
+    "emailPlaceholder": "tucorreo@ejemplo.com",
+    "submitLabel": "Quiero mi 5% de Descuento",
+    "submitting": "Enviando…",
+    "dismissLabel": "Cerrar",
+    "noSpam": "Nada de spam, nunca. Cancela tu suscripción cuando quieras.",
+    "successTitle": "¡Ya estás en la lista!",
+    "successDesc": "Revisa tu bandeja de entrada — tu descuento y nuestro próximo boletín están en camino.",
+    "errorMessage": "Algo salió mal. Inténtalo de nuevo o escríbenos a info@theextremewilderness.com"
   },
   "pdfLead": {
     "badge": "Guía Gratis",

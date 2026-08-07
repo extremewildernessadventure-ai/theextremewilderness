@@ -567,6 +567,16 @@ export const accommodations: Accommodation[] = [
     featuredIn: [{ label: '南部版：坦尚尼亞產犢季遷徙獵遊——恩杜圖與恩戈羅恩戈羅火山口', href: '/safaris/7-days-migration-southern' }],
   },
   {
+    slug: 'ndutu-safari-lodge',
+    name: 'Ndutu Safari Lodge',
+    tier: 'reserve',
+    location: '恩杜圖，塞倫蓋蒂南部',
+    description: '這座永久性的石造茅草頂旅館擁有34間小屋，俯瞰恩杜圖湖，地理位置絕佳，讓您全年都能造訪那些在遷徙獸群離開後依然留守此地的常駐獵食動物。',
+    amenities: ['帶獨立衛浴客房', '野生動物景觀', '全套服務餐廳', '風景觀景'],
+    images: ['/images/lodges/ndutu-safari-lodge.webp', '/images/lodges/ndutu-safari-lodge-2.webp', '/images/lodges/ndutu-safari-lodge-3.webp', '/images/lodges/ndutu-safari-lodge-4.webp'],
+    featuredIn: [{ label: '8日秘境攝影獵遊', href: '/safaris/off-the-beaten-track-photography-safari' }],
+  },
+  {
     slug: 'ngorongoro-farm-house',
     name: 'Ngorongoro Farm House',
     tier: 'trail',

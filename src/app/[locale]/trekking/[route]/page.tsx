@@ -15,6 +15,7 @@ import BookNowButton from '@/components/booking/BookNowButton'
 import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
 import LemoshoMultiItinerary from '@/components/trekking/LemoshoMultiItinerary'
 import MachameMultiItinerary from '@/components/trekking/MachameMultiItinerary'
+import NorthernCircuitMultiItinerary from '@/components/trekking/NorthernCircuitMultiItinerary'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import { mlimaniPhoto, mlimaniCapKey } from '@/data/mlimaniGallery'
 import { buildAlternates, localeUrl, SITE_URL, buildBreadcrumbSchema } from '@/lib/site'
@@ -92,12 +93,13 @@ const ROUTE_META: Record<string, import('next').Metadata> = {
     ],
   },
   'northern-circuit': {
-    title: 'Kilimanjaro Northern Circuit 2026 | 9–10 Days',
-    description: "The Northern Circuit — Kilimanjaro's longest route with a 95% summit success rate. 9–10 days circumnavigating the entire mountain.",
+    title: 'Kilimanjaro Northern Circuit 2026 | 8–10 Days',
+    description: "The Northern Circuit — Kilimanjaro's longest route with up to a 98% summit success rate. 8, 9, or 10 days circumnavigating the entire mountain.",
     keywords: [
       'Kilimanjaro Northern Circuit', 'longest Kilimanjaro route', 'Kilimanjaro 95% success rate',
       'best success rate Kilimanjaro', 'Kilimanjaro 10 day route', 'Northern Circuit guide',
       'Kilimanjaro acclimatisation route', 'highest Kilimanjaro success', 'Tanzania Northern Circuit trek', 'Kilimanjaro full circumnavigation',
+      'Kilimanjaro 8 day Northern Circuit', 'Northern Circuit duration options',
     ],
   },
 }
@@ -239,6 +241,41 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
     faq:        trd.raw('machame.faq'),
   } : null
 
+  // Northern Circuit: unlike Lemosho/Machame, the FAQ switches per duration
+  // tab rather than being one static list — each variant's `faq` is the
+  // shared questions (distance/comparison/crowding/inclusions) concatenated
+  // with that duration's own dedicated questions.
+  const northernCircuitSharedFaq = route === 'northern-circuit' ? trd.raw('northern-circuit.faq') : null
+  const northernCircuitExtras = route === 'northern-circuit' ? {
+    variants: {
+      '8': {
+        quickFacts: trd.raw('northern-circuit.quickFacts8Day'),
+        arrivalDay: trd('northern-circuit.arrivalDay8Day'),
+        itinerary:  trd.raw('northern-circuit.itinerary8Day'),
+        pricing:    trd.raw('northern-circuit.pricing8Day'),
+        faq:        [...(northernCircuitSharedFaq ?? []), ...trd.raw('northern-circuit.faq8Day')],
+      },
+      '9': {
+        quickFacts: routeContent!.quickFacts,
+        arrivalDay: routeContent!.arrivalDay,
+        itinerary:  routeContent!.itinerary,
+        pricing:    routeContent!.pricing,
+        faq:        [...(northernCircuitSharedFaq ?? []), ...trd.raw('northern-circuit.faq9Day')],
+      },
+      '10': {
+        quickFacts: trd.raw('northern-circuit.quickFacts10Day'),
+        arrivalDay: trd('northern-circuit.arrivalDay10Day'),
+        itinerary:  trd.raw('northern-circuit.itinerary10Day'),
+        pricing:    trd.raw('northern-circuit.pricing10Day'),
+        faq:        [...(northernCircuitSharedFaq ?? []), ...trd.raw('northern-circuit.faq10Day')],
+      },
+    },
+    included:  routeContent!.included,
+    excluded:  routeContent!.excluded,
+    choosing:  trd.raw('northern-circuit.choosing'),
+    highlights: trd.raw('northern-circuit.highlights'),
+  } : null
+
   const GEAR_CATEGORIES = [
     {
       label: t('gear1Cat'),
@@ -312,7 +349,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
     { name: 'Nov', type: 'avoid' }, { name: 'Dec', type: 'good' },
   ]
 
-  const routeFaq = route === 'lemosho' ? lemoshoExtras?.faq : route === 'machame' ? machameExtras?.faq : null
+  const routeFaq = route === 'lemosho' ? lemoshoExtras?.faq : route === 'machame' ? machameExtras?.faq : route === 'northern-circuit' ? northernCircuitExtras?.variants['9'].faq : null
 
   const tripSchema = routeContent ? {
     '@context': 'https://schema.org',
@@ -544,6 +581,52 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                     choosing: trd('labels.choosingHeading'),
                     highlights: trd('labels.highlightsHeading'),
                     faq: trd('labels.faqHeading'),
+                  }}
+                  labels={{
+                    quickFacts:   trd('labels.quickFacts'),
+                    itinerary:    trd('labels.itinerary'),
+                    arrivalDay:   trd('labels.arrivalDay'),
+                    whatToExpect: trd('labels.whatToExpect'),
+                    included:     trd('labels.included'),
+                    notIncluded:  trd('labels.notIncluded'),
+                    pricing:      trd('labels.pricing'),
+                    solo:         trd('labels.solo'),
+                    small:        trd('labels.small'),
+                    group:        trd('labels.group'),
+                    perPerson:    trd('labels.perPerson'),
+                    from:         trd('labels.from'),
+                    bookThisRoute: trd('labels.bookThisRoute'),
+                    ...Object.fromEntries(
+                      QUICK_FACT_KEYS.map((k) => [k, trd(`labels.${k}`)])
+                    ),
+                  }}
+                  pdfCard={<KilimanjaroPdfCard />}
+                />
+              ) : route === 'northern-circuit' && northernCircuitExtras ? (
+                <NorthernCircuitMultiItinerary
+                  variants={northernCircuitExtras.variants as Parameters<typeof NorthernCircuitMultiItinerary>[0]['variants']}
+                  included={northernCircuitExtras.included}
+                  excluded={northernCircuitExtras.excluded}
+                  choosing={northernCircuitExtras.choosing}
+                  highlights={northernCircuitExtras.highlights}
+                  bookThisRouteLabel={trd('labels.bookThisRoute')}
+                  tabLabels={{
+                    '8': trd('northern-circuit.tabLabels.8'),
+                    '9': trd('northern-circuit.tabLabels.9'),
+                    '10': trd('northern-circuit.tabLabels.10'),
+                  }}
+                  tabBadges={{
+                    '9': t('badgeRecommended'),
+                  }}
+                  routeNames={{
+                    '8': trd('northern-circuit.routeNameByDuration.8'),
+                    '9': trd('northern-circuit.routeNameByDuration.9'),
+                    '10': trd('northern-circuit.routeNameByDuration.10'),
+                  }}
+                  headings={{
+                    choosing: trd('labels.choosingHeading'),
+                    highlights: trd('labels.highlightsHeading'),
+                    faq: trd('northern-circuit.faqHeading'),
                   }}
                   labels={{
                     quickFacts:   trd('labels.quickFacts'),

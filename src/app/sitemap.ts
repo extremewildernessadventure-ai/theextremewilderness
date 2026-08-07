@@ -42,7 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/travel-info', priority: 0.6, changeFrequency: 'monthly' as const },
     { path: '/faq', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/plan', priority: 0.6, changeFrequency: 'monthly' as const },
-    { path: '/trade-partners', priority: 0.5, changeFrequency: 'monthly' as const },
+    { path: '/trade-partners', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
   ]

@@ -1047,7 +1047,7 @@
         "successRate": "~95 %",
         "bestSeason": "Juin–octobre · Janvier–février",
         "accommodation": "Tentes de camping 4 saisons",
-        "priceFrom": "2 237 USD par personne (groupe 5+)"
+        "priceFrom": "2 590 USD par personne (groupe 5+)"
       },
       "whyChoose": [
         {
@@ -1155,10 +1155,310 @@
         "Pourboires"
       ],
       "pricing": {
-        "solo": 2237,
-        "small": 2237,
-        "group": 2237
+        "solo": 2590,
+        "small": 2590,
+        "group": 2590
       },
+      "faq": [
+        {
+          "q": "Quelle est la longueur de l'itinéraire Northern Circuit ?",
+          "a": "Environ 98 km (61 miles) au total — l'itinéraire standard le plus long du Kilimandjaro."
+        },
+        {
+          "q": "Comment la Northern Circuit se compare-t-elle à la Machame ou à la Lemosho ?",
+          "a": "Elle est plus longue que les deux, et c'est tout l'intérêt — plus de jours en altitude, un profil d'acclimatation plus progressif, et un itinéraire autour des pentes nordiques tranquilles du Kibo que les grimpeurs de la Machame et de la Lemosho ne voient jamais. Si votre emploi du temps permet ces jours supplémentaires, c'est généralement le choix le plus sûr pour atteindre le sommet ; si le temps est compté, la Machame ou la Lemosho vous y mènent plus rapidement."
+        },
+        {
+          "q": "La Northern Circuit est-elle fréquentée ?",
+          "a": "Non — c'est l'un des itinéraires les plus tranquilles de la montagne. De longues portions de sentier sans aucun autre groupe de grimpeurs sont la norme, pas l'exception."
+        },
+        {
+          "q": "Que comprend le prix ?",
+          "a": "Tous les frais du parc national du Kilimandjaro et les taxes de conservation, un guide principal certifié KINAPA, des guides assistants, un porteur personnel, des repas complets en montagne, un équipement de camping 4 saisons, de l'oxygène d'urgence, des contrôles de santé biquotidiens à l'oxymètre de pouls, et les transferts hôtel/aéroport. Les vols internationaux, le visa, l'assurance voyage personnelle, l'équipement personnel et les pourboires ne sont pas inclus."
+        }
+      ],
+      "faq9Day": [
+        {
+          "q": "Quel est le niveau de difficulté spécifique de l'itinéraire standard de 9 jours ?",
+          "a": "Modéré dans l'ensemble, avec une nuit du sommet véritablement exigeante, comme sur tous les itinéraires de la montagne. Neuf jours sur la montagne donnent à votre corps le temps d'acclimatation qui explique le taux de réussite élevé de cet itinéraire, sans le rythme comprimé de la version 8 jours ni le jour de repos supplémentaire de la version 10 jours."
+        },
+        {
+          "q": "Quel est le taux de réussite de la Northern Circuit en 9 jours ?",
+          "a": "Environ 95 % — la version choisie par la plupart des grimpeurs, et celle autour de laquelle cet itinéraire est construit."
+        },
+        {
+          "q": "9 jours est-il le bon choix pour un grimpeur débutant ?",
+          "a": "Pour la plupart des grimpeurs débutants, oui — cette durée équilibre un solide profil d'acclimatation avec un engagement de temps raisonnable, sans nécessiter le jour de repos supplémentaire qu'ajoute la version 10 jours pour les grimpeurs qui souhaitent davantage de marge."
+        }
+      ],
+      "choosing": {
+        "intro": "Les trois itinéraires suivent le même tracé de la Northern Circuit autour des pentes nordiques tranquilles du Kilimandjaro. La différence tient au rythme, et au temps dont dispose votre corps pour s'adapter à l'altitude avant la nuit du sommet.",
+        "items": [
+          {
+            "label": "Northern Circuit en 8 jours",
+            "successRate": "~90–93 %",
+            "desc": "Notre option Northern Circuit la plus rapide, combinant la traversée du plateau du Shira et la montée vers le camp Moir en une seule journée plus longue. Idéale pour les grimpeurs disposant de moins de temps mais qui souhaitent tout de même profiter des sentiers tranquilles de l'itinéraire et de son solide profil d'acclimatation."
+          },
+          {
+            "label": "Northern Circuit en 9 jours",
+            "successRate": "~95 %",
+            "desc": "Notre choix recommandé par défaut et la version choisie par la plupart des grimpeurs — le rythme autour duquel cet itinéraire est construit, équilibrant un solide profil d'acclimatation avec un engagement de temps raisonnable."
+          },
+          {
+            "label": "Northern Circuit en 10 jours",
+            "successRate": "~96–98 %",
+            "desc": "Ajoute une journée complète de repos au camp Third Cave avant la montée vers School Hut — la marge d'acclimatation la plus élevée possible, pour les grimpeurs plus âgés, ceux qui ont déjà eu des difficultés avec l'altitude, ou simplement ceux qui préfèrent avoir plus de marge que moins."
+          }
+        ],
+        "footer": "Quel que soit votre choix, la préparation physique en amont compte davantage que le nombre de jours — arriver en forme rend chaque version de cette ascension plus sûre et plus agréable."
+      },
+      "highlights": [
+        {
+          "title": "La Traversée de la Tour de Lave",
+          "body": "Chaque durée passe par la spectaculaire formation rocheuse de la Tour de Lave à 4 200 m, le jour où la Northern Circuit se sépare des itinéraires sud pour entrer dans le désert alpin et la moitié nord plus tranquille du Kibo."
+        },
+        {
+          "title": "L'Isolement du Camp Buffalo",
+          "body": "Un camp véritablement isolé sur les pentes nordiques, que les grimpeurs des autres itinéraires ne voient jamais — la possibilité de gravir Little Lent Hill à proximité offre des vues étendues sur un terrain reculé que peu d'autres atteignent."
+        },
+        {
+          "title": "Le Jour de Repos Supplémentaire, Si Vous Le Choisissez",
+          "body": "La journée d'acclimatation de la version 10 jours au camp Third Cave est délibérément sans précipitation — de courtes marches facultatives et un bilan de santé complet, entièrement pensés pour donner à votre corps un cycle d'adaptation supplémentaire avant la nuit du sommet."
+        },
+        {
+          "title": "L'Itinéraire le Plus Long du Kilimandjaro",
+          "body": "Avec environ 98 km, c'est l'itinéraire standard le plus long de la montagne — plus de temps en altitude se traduit directement par certains des taux de réussite au sommet les plus élevés du Kilimandjaro, quelle que soit la durée choisie parmi les trois."
+        },
+        {
+          "title": "Des Sentiers Véritablement Tranquilles",
+          "body": "De longues portions de sentier sans aucun autre groupe de grimpeurs sont ici la norme, pas l'exception — l'une des voies les moins fréquentées pour atteindre le sommet du Kilimandjaro."
+        }
+      ],
+      "tabLabels": {
+        "8": "8 jours",
+        "9": "9 jours",
+        "10": "10 jours"
+      },
+      "routeNameByDuration": {
+        "8": "Itinéraire Northern Circuit — 8 jours",
+        "9": "Itinéraire Northern Circuit — 9 jours",
+        "10": "Itinéraire Northern Circuit — 10 jours"
+      },
+      "faqHeading": "FAQ de l'itinéraire Northern Circuit",
+      "quickFacts8Day": {
+        "routeName": "Northern Circuit (La Grande Traversée) — 8 jours",
+        "duration": "8 jours / 7 nuits",
+        "distance": "~98 km au total",
+        "startGate": "Porte Londorossi (2 100 m)",
+        "finishGate": "Porte Mweka (1 640 m)",
+        "summit": "Pic Uhuru — 5 895 m / 19 341 pi",
+        "difficulty": "Modérée",
+        "trailTraffic": "Très faible",
+        "successRate": "~90–93 %",
+        "bestSeason": "Juin–octobre · Janvier–février",
+        "accommodation": "Tentes de camping 4 saisons",
+        "priceFrom": "2 290 USD par personne (groupe 5+)"
+      },
+      "arrivalDay8Day": "Vous arrivez en Tanzanie et êtes transféré à votre hôtel à Moshi. Votre guide principal vous rencontre pour un briefing complet avant l'ascension — vérification du matériel, aperçu de l'itinéraire, protocole de sécurité en altitude et questions-réponses. Reposez-vous bien — votre expédition commence demain.",
+      "itinerary8Day": [
+        {
+          "day": 1,
+          "title": "Porte Londorossi → Camp Mti Mkubwa",
+          "meta": "Camp : Mti Mkubwa · Altitude : 2 780 m · Distance : 6 km · Durée de marche : 2–3 heures",
+          "body": "Un trajet en 4x4 sur la piste forestière jusqu'aux clairières de Lemosho commence la journée avant que le sentier ne débute à pied. C'est la section la plus riche en végétation et en faune de l'itinéraire — observez la canopée pour repérer les singes en traversant la forêt tropicale.",
+          "expect": "Une journée d'ouverture douce. Profitez-en pour vous installer dans le rythme du sentier."
+        },
+        {
+          "day": 2,
+          "title": "Mti Mkubwa → Crête du Shira → Camp Shira 1",
+          "meta": "Camp : Camp Shira 1 · Altitude : 3 600 m · Distance : 8 km · Durée de marche : 4–5 heures",
+          "body": "Les arbres s'éclaircissent rapidement aujourd'hui alors que le sentier grimpe la spectaculaire crête du Shira. C'est une journée raide, récompensée par de magnifiques vues panoramiques sur le plateau occidental du Shira.",
+          "expect": "Une montée soutenue avec un réel gain d'altitude. De légers maux de tête ce soir sont normaux."
+        },
+        {
+          "day": 3,
+          "title": "Shira 1 → Plateau du Shira → Tour de Lave → Camp Moir",
+          "meta": "Camp : Camp Moir · Altitude : 4 200 m · Distance : 14 km · Durée de marche : 6–8 heures",
+          "body": "La journée la plus longue de cet itinéraire, celle qui rend la version 8 jours plus rapide que l'itinéraire standard. Vous traverserez le plateau ouvert du Shira, passerez par le Jardin des Senecios, et ferez une pause déjeuner à la spectaculaire formation rocheuse de la Tour de Lave avant de redescendre vers le camp Moir — sans passer la nuit séparément à Shira 2 comme le prévoit la version 9 jours. C'est également ici que la Northern Circuit se sépare des itinéraires du circuit sud, entrant dans le désert alpin et la moitié nord plus tranquille de la montagne.",
+          "expect": "Une journée véritablement longue, tant par la distance que par l'altitude atteinte à la Tour de Lave. La fatigue ce soir est normale — c'est la journée que vous échangez contre une nuit de moins sur la montagne."
+        },
+        {
+          "day": 4,
+          "title": "Vallée de Moir → Camp Buffalo",
+          "meta": "Camp : Camp Buffalo · Altitude : 4 020 m · Distance : 12 km · Durée de marche : 5–6 heures",
+          "body": "Un sentier modérément raide contourne les pentes nordiques du Kibo, avec des montées et descentes progressives et la possibilité de gravir Little Lent Hill pour des vues étendues. Le camp Buffalo lui-même est un point fort de la Northern Circuit — un camp véritablement isolé que peu de grimpeurs sur d'autres itinéraires voient jamais.",
+          "expect": "Un terrain vallonné plutôt qu'une seule montée difficile. L'isolement ici est tout l'intérêt — profitez-en."
+        },
+        {
+          "day": 5,
+          "title": "Crête de Buffalo → Camp Third Cave",
+          "meta": "Camp : Camp Third Cave · Altitude : 3 875 m · Distance : 8 km · Durée de marche : 5–7 heures",
+          "body": "Le sentier grimpe la crête de Buffalo avant de longer les pentes nordiques isolées vers le camp Third Cave, près de l'endroit où passe l'itinéraire Rongai. À ce stade, votre corps est bien adapté à la haute altitude.",
+          "expect": "Une longue journée, mais votre avantage d'acclimatation devrait se montrer à ce stade de la randonnée."
+        },
+        {
+          "day": 6,
+          "title": "Selle Kibo-Mawenzi → Camp School Hut",
+          "meta": "Camp : Camp School Hut · Altitude : 4 800 m · Distance : 15 km · Durée de marche : 4–5 heures",
+          "body": "Une montée plus raide aujourd'hui, traversant la selle entre les pics Kibo et Mawenzi avec des vues uniques sur les deux. Un dîner tôt et un coucher tôt suivent — le réveil est à minuit.",
+          "expect": "La nervosité et l'agitation liée à l'altitude sont normales ce soir. Reposez-vous même si vous ne pouvez pas dormir."
+        },
+        {
+          "day": 7,
+          "title": "Nuit du sommet → Pic Uhuru → Camp Millennium",
+          "meta": "Camp : Camp Millennium · Altitude : 3 950 m · Montée : 5 km · Descente : 12 km · Durée totale : 10–15 heures",
+          "body": "Départ à minuit pour l'ascension raide vers Gilman's Point, où vous rejoignez des grimpeurs d'autres itinéraires pour la poussée finale. La marche sur le bord du cratère offre des vues saisissantes sur le pic Mawenzi avant la dernière escalade à travers la neige jusqu'au pic Uhuru. La longue descente continue jusqu'au camp Millennium.",
+          "expect": "La journée la plus difficile et la plus extraordinaire de l'expédition — et, sur cet itinéraire, abordée avec un jour d'acclimatation de moins que sur la version 9 jours. La descente qui suit est longue — gérez votre effort."
+        },
+        {
+          "day": 8,
+          "title": "Camp Millennium → Porte Mweka → Hôtel",
+          "meta": "Fin de l'expédition · Altitude : 1 640 m · Distance : 10 km · Durée de marche : 3–4 heures",
+          "body": "La respiration devient plus facile à chaque pas alors que le sentier revient vers la forêt tropicale. À la porte Mweka, votre certificat de sommet vous est remis avant le transfert vers votre hôtel à Moshi.",
+          "expect": "Reposez-vous. Célébrez. Vous avez terminé l'itinéraire le plus long du Kilimandjaro, dans l'une de ses configurations les plus rapides."
+        }
+      ],
+      "pricing8Day": {
+        "solo": 2290,
+        "small": 2290,
+        "group": 2290
+      },
+      "faq8Day": [
+        {
+          "q": "Pourquoi la version 8 jours est-elle moins chère que la version 9 jours ?",
+          "a": "Un jour de moins sur la montagne signifie un jour de moins de frais de guide, de porteur et de parc — l'itinéraire et les paysages restent par ailleurs identiques à ceux de l'itinéraire standard."
+        },
+        {
+          "q": "La version 8 jours est-elle aussi sûre que la version 9 jours ?",
+          "a": "C'est toujours un itinéraire bien rythmé avec un solide profil d'acclimatation — la réduction vient de la fusion de deux journées modérées en une seule journée plus longue, et non d'une suppression totale du temps d'adaptation à l'altitude. Cela dit, elle affiche un taux de réussite légèrement inférieur à celui de la version 9 jours, car moins de temps en altitude signifie généralement moins de marge d'acclimatation."
+        },
+        {
+          "q": "Quel est le taux de réussite de la Northern Circuit en 8 jours ?",
+          "a": "Environ 90–93 % — toujours parmi les taux de réussite les plus élevés de la montagne, juste en dessous des versions 9 et 10 jours."
+        },
+        {
+          "q": "Qui devrait choisir la version 8 jours plutôt que la version 9 jours ?",
+          "a": "Les grimpeurs disposant de moins de temps mais qui souhaitent tout de même profiter des sentiers tranquilles de la Northern Circuit et de son solide profil d'acclimatation, sans le jour supplémentaire utilisé par la version standard. En cas de doute sur votre condition physique ou votre tolérance à l'altitude, la version 9 jours est le choix le plus sûr."
+        },
+        {
+          "q": "Le jour 3 est-il trop exigeant pour la plupart des grimpeurs ?",
+          "a": "C'est la journée la plus longue de cet itinéraire, mais elle se parcourt à un rythme mesuré avec des pauses régulières, et votre guide vous surveille tout au long de la journée. Les grimpeurs en condition physique raisonnable la gèrent sans difficulté — elle demande simplement un peu plus que n'importe quelle autre journée de cet itinéraire."
+        }
+      ],
+      "quickFacts10Day": {
+        "routeName": "Northern Circuit (La Grande Traversée) — 10 jours",
+        "duration": "10 jours / 9 nuits",
+        "distance": "~98 km au total",
+        "startGate": "Porte Londorossi (2 100 m)",
+        "finishGate": "Porte Mweka (1 640 m)",
+        "summit": "Pic Uhuru — 5 895 m / 19 341 pi",
+        "difficulty": "Modérée",
+        "trailTraffic": "Très faible",
+        "successRate": "~96–98 %",
+        "bestSeason": "Juin–octobre · Janvier–février",
+        "accommodation": "Tentes de camping 4 saisons",
+        "priceFrom": "2 790 USD par personne (groupe 5+)"
+      },
+      "arrivalDay10Day": "Vous arrivez en Tanzanie et êtes transféré à votre hôtel à Moshi. Votre guide principal vous rencontre pour un briefing complet avant l'ascension — vérification du matériel, aperçu de l'itinéraire, protocole de sécurité en altitude et questions-réponses. Reposez-vous bien — votre expédition commence demain.",
+      "itinerary10Day": [
+        {
+          "day": 1,
+          "title": "Porte Londorossi → Camp Mti Mkubwa",
+          "meta": "Camp : Mti Mkubwa · Altitude : 2 780 m · Distance : 6 km · Durée de marche : 2–3 heures",
+          "body": "Un trajet en 4x4 sur la piste forestière jusqu'aux clairières de Lemosho commence la journée avant que le sentier ne débute à pied. C'est la section la plus riche en végétation et en faune de l'itinéraire — observez la canopée pour repérer les singes en traversant la forêt tropicale.",
+          "expect": "Une journée d'ouverture douce. Profitez-en pour vous installer dans le rythme du sentier."
+        },
+        {
+          "day": 2,
+          "title": "Mti Mkubwa → Crête du Shira → Camp Shira 1",
+          "meta": "Camp : Camp Shira 1 · Altitude : 3 600 m · Distance : 8 km · Durée de marche : 4–5 heures",
+          "body": "Les arbres s'éclaircissent rapidement aujourd'hui alors que le sentier grimpe la spectaculaire crête du Shira. C'est une journée raide, récompensée par de magnifiques vues panoramiques sur le plateau occidental du Shira.",
+          "expect": "Une montée soutenue avec un réel gain d'altitude. De légers maux de tête ce soir sont normaux."
+        },
+        {
+          "day": 3,
+          "title": "Plateau du Shira → Camp Shira 2",
+          "meta": "Camp : Camp Shira 2 · Altitude : 3 850 m · Distance : 8 km · Durée de marche : 4–5 heures",
+          "body": "Une journée plus douce traversant les prairies ouvertes du plateau du Shira — bonne pour l'acclimatation. De courts sentiers d'exploration autour du camp vous permettent de découvrir la lande environnante.",
+          "expect": "Une journée confortable en comparaison. Profitez de la distance plus courte pour bien vous reposer."
+        },
+        {
+          "day": 4,
+          "title": "Shira 2 → Tour de Lave → Camp Moir",
+          "meta": "Camp : Camp Moir · Altitude : 4 200 m · Distance : 14 km · Durée de marche : 5–7 heures",
+          "body": "Le sentier traverse le Jardin des Senecios — la dernière grande végétation — avant le déjeuner à la spectaculaire formation rocheuse de la Tour de Lave. C'est ici que la Northern Circuit se sépare des itinéraires du circuit sud, entrant dans le désert alpin et la moitié nord plus tranquille de la montagne.",
+          "expect": "Une longue journée avec un contact important avec l'altitude à la Tour de Lave. C'est ici que la Northern Circuit commence à se sentir véritablement isolée."
+        },
+        {
+          "day": 5,
+          "title": "Vallée de Moir → Camp Buffalo",
+          "meta": "Camp : Camp Buffalo · Altitude : 4 020 m · Distance : 12 km · Durée de marche : 5–6 heures",
+          "body": "Un sentier modérément raide contourne les pentes nordiques du Kibo, avec des montées et descentes progressives et la possibilité de gravir Little Lent Hill pour des vues étendues. Le camp Buffalo lui-même est un point fort de la Northern Circuit — un camp véritablement isolé que peu de grimpeurs sur d'autres itinéraires voient jamais.",
+          "expect": "Un terrain vallonné plutôt qu'une seule montée difficile. L'isolement ici est tout l'intérêt — profitez-en."
+        },
+        {
+          "day": 6,
+          "title": "Crête de Buffalo → Camp Third Cave",
+          "meta": "Camp : Camp Third Cave · Altitude : 3 875 m · Distance : 8 km · Durée de marche : 5–7 heures",
+          "body": "Le sentier grimpe la crête de Buffalo avant de longer les pentes nordiques isolées vers le camp Third Cave, près de l'endroit où passe l'itinéraire Rongai.",
+          "expect": "Une longue journée — mais contrairement à l'itinéraire standard, vous bénéficierez ici d'une journée complète de repos avant de continuer, donc inutile de forcer l'allure."
+        },
+        {
+          "day": 7,
+          "title": "Jour d'acclimatation — Camp Third Cave",
+          "meta": "Camp : Camp Third Cave (deuxième nuit) · Altitude : 3 875 m · Distance : 2–3 km (marches d'exploration facultatives) · Durée de marche : 1–2 heures",
+          "body": "Une journée délibérément sans précipitation, entièrement conçue pour donner à votre corps un cycle complet supplémentaire d'adaptation avant la montée vers 4 800 m. De courtes marches facultatives autour du camp permettent de garder les jambes actives sans effort réel ; le reste du temps est à vous pour vous reposer, bien manger, et laisser votre guide effectuer un bilan de santé complet avant les journées plus exigeantes à venir.",
+          "expect": "La journée la plus légère de toute l'expédition. Les grimpeurs ayant déjà connu des difficultés avec l'altitude ressentent généralement le bénéfice de cette journée surtout lors de la nuit du sommet."
+        },
+        {
+          "day": 8,
+          "title": "Selle Kibo-Mawenzi → Camp School Hut",
+          "meta": "Camp : Camp School Hut · Altitude : 4 800 m · Distance : 15 km · Durée de marche : 4–5 heures",
+          "body": "Une montée plus raide aujourd'hui, traversant la selle entre les pics Kibo et Mawenzi avec des vues uniques sur les deux. Un dîner tôt et un coucher tôt suivent — le réveil est à minuit.",
+          "expect": "La nervosité et l'agitation liée à l'altitude sont normales ce soir. Reposez-vous même si vous ne pouvez pas dormir — le jour de repos supplémentaire derrière vous devrait se faire sentir ici."
+        },
+        {
+          "day": 9,
+          "title": "Nuit du sommet → Pic Uhuru → Camp Millennium",
+          "meta": "Camp : Camp Millennium · Altitude : 3 950 m · Montée : 5 km · Descente : 12 km · Durée totale : 10–15 heures",
+          "body": "Départ à minuit pour l'ascension raide vers Gilman's Point, où vous rejoignez des grimpeurs d'autres itinéraires pour la poussée finale. La marche sur le bord du cratère offre des vues saisissantes sur le pic Mawenzi avant la dernière escalade à travers la neige jusqu'au pic Uhuru. La longue descente continue jusqu'au camp Millennium.",
+          "expect": "La journée la plus difficile et la plus extraordinaire de l'expédition — abordée avec le maximum d'acclimatation que cet itinéraire puisse offrir. La descente qui suit est longue — gérez votre effort."
+        },
+        {
+          "day": 10,
+          "title": "Camp Millennium → Porte Mweka → Hôtel",
+          "meta": "Fin de l'expédition · Altitude : 1 640 m · Distance : 10 km · Durée de marche : 3–4 heures",
+          "body": "La respiration devient plus facile à chaque pas alors que le sentier revient vers la forêt tropicale. À la porte Mweka, votre certificat de sommet vous est remis avant le transfert vers votre hôtel à Moshi.",
+          "expect": "Reposez-vous. Célébrez. Vous avez terminé l'itinéraire le plus long du Kilimandjaro, avec son profil d'acclimatation le plus complet."
+        }
+      ],
+      "pricing10Day": {
+        "solo": 2790,
+        "small": 2790,
+        "group": 2790
+      },
+      "faq10Day": [
+        {
+          "q": "Qu'apporte réellement le jour supplémentaire ?",
+          "a": "Une journée complète de repos au camp Third Cave (3 875 m), insérée avant la montée vers School Hut et la nuit du sommet. Ce n'est pas une distance supplémentaire — c'est du temps supplémentaire pour que votre corps s'adapte, ce qui compte le plus pour la réussite au sommet."
+        },
+        {
+          "q": "Quel est le taux de réussite de la Northern Circuit en 10 jours ?",
+          "a": "Environ 96–98 % — le plus élevé des trois variantes, et parmi les plus élevés de tous les itinéraires et durées proposés sur la montagne."
+        },
+        {
+          "q": "Qui devrait choisir la version 10 jours plutôt que la version 9 jours ?",
+          "a": "Les grimpeurs plus âgés, ceux ayant déjà souffert du mal aigu des montagnes lors d'une ascension précédente, ou simplement ceux qui préfèrent avoir plus de marge que moins. C'est également un excellent choix si votre emploi du temps offre la flexibilité nécessaire et que vous préférez ne pas laisser la réussite au sommet dépendre d'une fenêtre d'acclimatation plus étroite."
+        },
+        {
+          "q": "Le jour supplémentaire coûte-t-il beaucoup plus cher ?",
+          "a": "Un jour supplémentaire de frais de guide, de porteur et de parc — une augmentation modeste pour un gain significatif de marge d'acclimatation. Voir les tarifs ci-dessus."
+        },
+        {
+          "q": "Est-ce la même chose que l'option camp du cratère proposée par certains opérateurs ?",
+          "a": "Non — les itinéraires avec camp du cratère impliquent de dormir à environ 5 750 m à l'intérieur même du cratère sommital, un produit sensiblement différent et plus risqué. Cette version 10 jours conserve la descente standard vers le camp Millennium après l'ascension du sommet ; elle ajoute simplement une journée de repos plus tôt dans l'ascension."
+        }
+      ],
       "heroImageAlt": "Une crête rocheuse enneigée s'élevant au-dessus d'une mer de nuages"
     }
   },
@@ -3738,10 +4038,20 @@
       "tour-opérateur réceptif Tanzanie",
       "commission agent safari",
       "tarifs commerciaux safari Kenya Rwanda",
-      "partenariat réceptif Tanzanie"
+      "partenariat réceptif Tanzanie",
+      "opérateur réceptif Tanzanie pour agences de voyages",
+      "vendre des safaris en Tanzanie en tant qu'agence",
+      "itinéraires de safari en marque blanche Tanzanie",
+      "partenaire du secteur du voyage safari Afrique de l'Est",
+      "itinéraires de safari prêts à vendre pour agences",
+      "tarifs de safari en gros Tanzanie",
+      "réceptif de confiance en Tanzanie",
+      "opérateur safari FIT et groupes Tanzanie",
+      "portail agent safari Tanzanie",
+      "devenir partenaire d'un opérateur local en Tanzanie"
     ],
     "ogImageAlt": "Land Cruiser de safari traversant les plaines de Tanzanie",
-    "metaTitle": "Partenariats Commerciaux | EWA Safari Outfitters",
+    "metaTitle": "Partenariats Commerciaux",
     "metaDescription": "Devenez partenaire commercial d'EWA Safari Outfitters. Tarifs nets directs, expertise de guidage local et une collection à plusieurs niveaux de safaris en Tanzanie, au Kenya et au Rwanda pour agents de voyage et tour-opérateurs.",
     "breadcrumbLabel": "Partenariats Commerciaux"
   },
@@ -3789,6 +4099,21 @@
     "emailItinerarySubject": "Votre demande d'itinéraire — EWA Safari Outfitters",
     "emailItineraryIntro": "Merci d'avoir demandé l'itinéraire {context}. Notre équipe prépare votre programme détaillé jour par jour et vous l'enverra à cette adresse sous 24 heures.",
     "viewLabel": "Voir le Guide Maintenant"
+  },
+  "exitIntent": {
+    "badge": "Avant de partir",
+    "heading": "Ne repartez pas les mains vides",
+    "body": "Rejoignez The Wilderness Edit pour des actualités sincères sur la faune, des guides saisonniers et, de temps à autre, une offre en avant-première — plus 5 % de réduction sur votre premier safari réservé grâce à cette liste.",
+    "nameLabel": "Votre nom",
+    "emailLabel": "Votre adresse e-mail",
+    "emailPlaceholder": "vous@exemple.com",
+    "submitLabel": "Recevoir mes 5 % de réduction",
+    "submitting": "Envoi en cours…",
+    "dismissLabel": "Fermer",
+    "noSpam": "Jamais de spam. Désabonnement possible à tout moment.",
+    "successTitle": "C'est fait, vous êtes inscrit(e) !",
+    "successDesc": "Vérifiez votre boîte de réception — votre réduction et notre prochaine newsletter arrivent bientôt.",
+    "errorMessage": "Une erreur s'est produite. Veuillez réessayer ou nous écrire à info@theextremewilderness.com"
   },
   "destinationsHub": {
     "metaTitle": "Destinations en Afrique de l'Est | Tanzanie, Kenya & Rwanda",

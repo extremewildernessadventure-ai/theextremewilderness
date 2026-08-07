@@ -567,6 +567,16 @@ export const accommodations: Accommodation[] = [
     featuredIn: [{ label: 'Édition Sud : Safari de Migration de la Saison des Naissances en Tanzanie — Ndutu & Cratère du Ngorongoro', href: '/safaris/7-days-migration-southern' }],
   },
   {
+    slug: 'ndutu-safari-lodge',
+    name: 'Ndutu Safari Lodge',
+    tier: 'reserve',
+    location: 'Ndutu, sud du Serengeti',
+    description: 'Un lodge permanent en pierre et chaume de 34 cottages surplombant le lac Ndutu, positionné pour un accès toute l\'année aux prédateurs résidents qui ne partent jamais quand la migration s\'en va.',
+    amenities: ['Chambres avec salle de bain privée', 'Vue sur la faune', 'Restaurant complet', 'Vue panoramique'],
+    images: ['/images/lodges/ndutu-safari-lodge.webp', '/images/lodges/ndutu-safari-lodge-2.webp', '/images/lodges/ndutu-safari-lodge-3.webp', '/images/lodges/ndutu-safari-lodge-4.webp'],
+    featuredIn: [{ label: 'Safari Photographique Hors des Sentiers Battus de 8 Jours', href: '/safaris/off-the-beaten-track-photography-safari' }],
+  },
+  {
     slug: 'ngorongoro-farm-house',
     name: 'Ngorongoro Farm House',
     tier: 'trail',

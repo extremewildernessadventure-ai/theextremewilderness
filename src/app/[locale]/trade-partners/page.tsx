@@ -5,7 +5,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 import TradePartnerForm from '@/components/trade-partners/TradePartnerForm'
-import { buildAlternates } from '@/lib/site'
+import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
 import styles from './page.module.css'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -76,8 +76,46 @@ export default async function TradePartnersPage({ params }: Props) {
     { label: t('glance6Label'), value: t('glance6Value') },
   ]
 
+  const breadcrumbItems = [
+    { label: 'EWA Safari Outfitters', href: `/${locale}` },
+    { label: t('breadcrumbLabel') },
+  ]
+  const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, '/trade-partners')
+
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Tour Operator Trade Partnership',
+    name: t('metaTitle'),
+    description: t('metaDescription'),
+    provider: {
+      '@type': 'TravelAgency',
+      name: 'EWA Safari Outfitters',
+      url: SITE_URL,
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'Tanzania' },
+      { '@type': 'Country', name: 'Kenya' },
+      { '@type': 'Country', name: 'Rwanda' },
+    ],
+    audience: {
+      '@type': 'BusinessAudience',
+      audienceType: 'Travel Agents and Tour Operators',
+    },
+    url: localeUrl(locale, '/trade-partners'),
+  }
+
   return (
-    <div className={styles.tradePage}>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className={styles.tradePage}>
 
       {/* Hero */}
       <section className={styles.hero}>
@@ -282,6 +320,7 @@ export default async function TradePartnersPage({ params }: Props) {
         </div>
       </section>
 
-    </div>
+      </div>
+    </>
   )
 }

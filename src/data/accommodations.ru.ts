@@ -567,6 +567,16 @@ export const accommodations: Accommodation[] = [
     featuredIn: [{ label: 'Южное издание: сафари на миграцию в сезон отёла — Ндуту и кратер Нгоронгоро', href: '/safaris/7-days-migration-southern' }],
   },
   {
+    slug: 'ndutu-safari-lodge',
+    name: 'Ndutu Safari Lodge',
+    tier: 'reserve',
+    location: 'Ндуту, Южный Серенгети',
+    description: 'Постоянный лодж из камня и тростника с 34 коттеджами и видом на озеро Ндуту, расположенный так, чтобы обеспечивать круглогодичный доступ к резидентным хищникам, которые остаются здесь даже тогда, когда миграция уходит дальше.',
+    amenities: ['Номера с собственной ванной', 'Виды на дикую природу', 'Ресторан с полным обслуживанием', 'Живописные виды'],
+    images: ['/images/lodges/ndutu-safari-lodge.webp', '/images/lodges/ndutu-safari-lodge-2.webp', '/images/lodges/ndutu-safari-lodge-3.webp', '/images/lodges/ndutu-safari-lodge-4.webp'],
+    featuredIn: [{ label: '8-дневное фотосафари в стороне от туристических троп', href: '/safaris/off-the-beaten-track-photography-safari' }],
+  },
+  {
     slug: 'ngorongoro-farm-house',
     name: 'Ngorongoro Farm House',
     tier: 'trail',

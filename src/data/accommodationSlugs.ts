@@ -70,6 +70,7 @@ export const LODGE_NAME_TO_SLUG: Record<string, string> = {
   'Melia Ngorongoro Lodge': 'ngorongoro-lodge-the-rim-room-meli-collection',
   'Mikumi Wildlife Lodge': 'mikumi-wildlife-lodge',
   'Ndutu Kati Kati Tented Camp': 'ndutu-kati-kati-tented-camp',
+  'Ndutu Safari Lodge': 'ndutu-safari-lodge',
   'Ngorongoro Farm House': 'ngorongoro-farm-house',
   'Ngorongoro Lion\'s Paw': 'ngorongoro-lions-paw',
   'Ngorongoro Lodge, The Rim Room (Meliá Collection)': 'ngorongoro-lodge-the-rim-room-meli-collection',
