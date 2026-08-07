@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import { buildAlternates, SITE_URL, localeUrl } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema, SITE_URL, localeUrl } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 import {
@@ -86,6 +86,12 @@ export default async function AboutPage({ params }: Props) {
 
   const pills = [t('est2009'), t('tatoCertified'), t('locallyOwned'), t('arushaBased')]
 
+  const breadcrumbItems = [
+    { label: 'EWA Safari Outfitters', href: `/${locale}` },
+    { label: t('breadcrumbLabel') },
+  ]
+  const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, '/about')
+
   const guideSpotlightSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -105,16 +111,17 @@ export default async function AboutPage({ params }: Props) {
     <main>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(guideSpotlightSchema) }}
       />
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative bg-brand min-h-[90vh] flex items-stretch overflow-hidden">
         <div className="relative z-10 flex flex-col justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 pt-32 pb-16 lg:py-32">
-          <Breadcrumb items={[
-            { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: t('breadcrumbLabel') },
-          ]} />
+          <Breadcrumb items={breadcrumbItems} />
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">{t('ourStory')}</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
             {t('weAreTanzania').split(' ').slice(0, -1).join(' ')} <span className="text-gold">{t('weAreTanzania').split(' ').slice(-1)}</span>

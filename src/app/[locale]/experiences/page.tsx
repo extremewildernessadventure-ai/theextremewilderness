@@ -7,7 +7,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { getExperiences } from '@/data/experiences.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import type { Experience } from '@/data/experiences'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -59,8 +59,19 @@ export default async function ExperiencesPage({ params }: Props) {
     { step: '03', title: t('step3Title'), desc: t('step3Desc') },
     { step: '04', title: t('step4Title'), desc: t('step4Desc') },
   ]
+  const breadcrumbItems = [
+    { label: 'EWA Safari Outfitters', href: `/${locale}` },
+    { label: t('breadcrumbSection') },
+  ]
+  const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, '/experiences')
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <Image
@@ -76,10 +87,7 @@ export default async function ExperiencesPage({ params }: Props) {
 
         {/* Content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={[
-            { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: t('breadcrumbSection') },
-          ]} />
+          <Breadcrumb items={breadcrumbItems} />
           <p className="text-gold font-semibold text-sm uppercase tracking-widest mb-3">{t('heroEyebrow')}</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] mb-6 max-w-3xl">
             {t('heroTitle')}<br />

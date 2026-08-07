@@ -11,7 +11,7 @@ import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 import DestinationsExplorer, { type CountryAreaData } from '@/components/destinations/DestinationsExplorer'
 import { getDestinations } from '@/data/destinations.i18n'
 import type { Destination } from '@/data/destinations'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -123,8 +123,19 @@ export default async function DestinationsHubPage({ params }: Props) {
     { kicker: t('story4Kicker'), heading: t('story4Heading'), body: t('story4Body'), link: t('story4Link'), href: '/destinations/volcanoes' },
   ]
 
+  const breadcrumbItems = [
+    { label: 'EWA Safari Outfitters', href: `/${locale}` },
+    { label: t('breadcrumbLabel') },
+  ]
+  const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, '/destinations')
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <div className="absolute inset-0">
@@ -139,10 +150,7 @@ export default async function DestinationsHubPage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <Breadcrumb items={[
-            { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: t('breadcrumbLabel') },
-          ]} />
+          <Breadcrumb items={breadcrumbItems} />
           <div className="max-w-2xl">
             <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">

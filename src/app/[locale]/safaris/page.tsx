@@ -12,7 +12,7 @@ import FilteredPackageGrid from '@/components/itineraries/FilteredPackageGrid'
 import NationalParksGrid from '@/components/itineraries/NationalParksGrid'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -139,8 +139,19 @@ export default async function SafarisPage({ params }: Props) {
     { value: t('stat3Value'), label: t('stat3Label') },
     { value: t('stat4Value'), label: t('stat4Label') },
   ]
+  const breadcrumbItems = [
+    { label: 'EWA Safari Outfitters', href: `/${locale}` },
+    { label: t('breadcrumbLabel') },
+  ]
+  const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, '/safaris')
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* ── 1. HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <Image
@@ -156,10 +167,7 @@ export default async function SafarisPage({ params }: Props) {
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={[
-            { label: 'EWA Safari Outfitters', href: `/${locale}` },
-            { label: t('breadcrumbLabel') },
-          ]} />
+          <Breadcrumb items={breadcrumbItems} />
           <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroPill')}</p>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] mb-6 max-w-3xl">

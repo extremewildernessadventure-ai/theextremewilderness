@@ -12,7 +12,7 @@ import ExperienceGallery from '@/components/experiences/ExperienceGallery'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import { mlimaniPhoto, mlimaniCapKey, MLIMANI_SHOWCASE } from '@/data/mlimaniGallery'
-import { buildAlternates, localeUrl, SITE_URL } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema, localeUrl, SITE_URL } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -223,8 +223,18 @@ export default async function TrekkingPage({ params }: Props) {
     })),
   }
 
+  const breadcrumbItems = [
+    { label: 'EWA Safari Outfitters', href: `/${locale}` },
+    { label: t('heroEyebrow') },
+  ]
+  const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, '/trekking')
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(routesItemListSchema) }}
@@ -245,10 +255,7 @@ export default async function TrekkingPage({ params }: Props) {
           <div className="flex flex-col lg:flex-row items-end justify-between gap-8">
             {/* Left title block */}
             <div className="flex-1 min-w-0">
-              <Breadcrumb items={[
-                { label: 'EWA Safari Outfitters', href: `/${locale}` },
-                { label: t('heroEyebrow') },
-              ]} />
+              <Breadcrumb items={breadcrumbItems} />
               <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
                 {t('heroEyebrow')}
               </span>
