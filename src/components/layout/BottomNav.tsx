@@ -11,10 +11,11 @@ import {
   CalendarDays,
   Grid2x2,
   MapPin,
-  Globe,
   Sparkles,
   Info,
   BookOpen,
+  Handshake,
+  BedDouble,
   X,
   ArrowRight,
 } from 'lucide-react'
@@ -40,17 +41,13 @@ export default function BottomNav() {
   const pathname = usePathname()
   const { pageBookingInfo, openBooking } = useBooking()
 
-  const destItems = [
-    { label: t('destinations'), href: '/destinations' as const, Icon: MapPin },
-    { label: t('tanzania'),     href: '/tanzania' as const,     Icon: Globe },
-    { label: t('kenya'),        href: '/kenya' as const,        Icon: Globe },
-    { label: t('rwanda'),       href: '/rwanda' as const,       Icon: Globe },
-  ]
-
-  const otherItems = [
-    { label: t('blog'),            href: '/blog' as const,            Icon: BookOpen },
-    { label: t('experiences'),     href: '/experiences' as const,     Icon: Sparkles },
-    { label: t('about'),           href: '/about' as const,           Icon: Info },
+  const moreItems = [
+    { label: t('destinations'),  href: '/destinations' as const,  Icon: MapPin },
+    { label: t('experiences'),   href: '/experiences' as const,   Icon: Sparkles },
+    { label: t('about'),         href: '/about' as const,         Icon: Info },
+    { label: t('blog'),          href: '/blog' as const,          Icon: BookOpen },
+    { label: t('tradePartners'), href: '/trade-partners' as const, Icon: Handshake },
+    { label: t('accommodations'), href: '/accommodations' as const, Icon: BedDouble },
   ]
 
   const isActive = (path: string) =>
@@ -135,24 +132,8 @@ export default function BottomNav() {
               </Link>
             )}
 
-            <p className="text-white/60 text-[10px] font-semibold uppercase tracking-widest mb-2">{t('destinations')}</p>
-            <div className="grid grid-cols-2 gap-3 mb-4">
-              {destItems.map(({ label, href, Icon }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="flex items-center gap-3 bg-white/10 hover:bg-white/20 active:bg-white/25 rounded-xl px-4 py-3 transition-colors"
-                >
-                  <Icon className="w-5 h-5 text-gold flex-shrink-0" />
-                  <span className="text-white text-sm font-medium">{label}</span>
-                </Link>
-              ))}
-            </div>
-
-            <div className="border-t border-white/10 mb-4" />
-
             <div className="grid grid-cols-2 gap-3">
-              {otherItems.map(({ label, href, Icon }) => (
+              {moreItems.map(({ label, href, Icon }) => (
                 <Link
                   key={href}
                   href={href}

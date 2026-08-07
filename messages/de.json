@@ -2654,7 +2654,8 @@
     "about": "Über uns",
     "followUs": "Folgen Sie uns",
     "blog": "Blog",
-    "accommodations": "Unterkünfte"
+    "accommodations": "Unterkünfte",
+    "tradePartners": "Handelspartner"
   },
   "blog": {
     "metaTitle": "Safari-Blog | Reiseführer Tansania & Ostafrika",
@@ -4101,19 +4102,25 @@
     "viewLabel": "Guide jetzt ansehen"
   },
   "exitIntent": {
-    "badge": "Bevor Sie gehen",
-    "heading": "Gehen Sie nicht mit leeren Händen",
-    "body": "Treten Sie „The Wilderness Edit\" bei — ehrliche Updates zur Tierwelt, saisonale Guides und gelegentliche Frühbucher-Angebote, plus 5 % Rabatt auf Ihre erste Safari, wenn Sie über diese Liste buchen.",
+    "badge": "Eine Nachricht von unserem Team",
+    "heading": "Warten Sie — bevor Sie gehen",
+    "body": "Wir sind ein professionelles Team mit Sitz in Tansania und würden gerne in Kontakt bleiben. Hinterlassen Sie uns Ihre E-Mail und wir schicken Ihnen ehrliche Reisetipps und saisonale Empfehlungen — plus einen Willkommensrabatt für Ihre erste Safari.",
     "nameLabel": "Ihr Name",
     "emailLabel": "Ihre E-Mail-Adresse",
     "emailPlaceholder": "sie@beispiel.de",
-    "submitLabel": "Meinen 5 %-Rabatt sichern",
-    "submitting": "Wird gesendet…",
+    "submitLabel": "Rabatt anzeigen",
+    "submitting": "Einen Moment…",
     "dismissLabel": "Schließen",
     "noSpam": "Kein Spam, versprochen. Jederzeit abbestellbar.",
     "successTitle": "Sie sind dabei!",
-    "successDesc": "Prüfen Sie Ihren Posteingang — Ihr Rabattcode und unser nächster Newsletter sind bereits unterwegs.",
-    "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an info@theextremewilderness.com"
+    "successDesc": "Hier ist Ihr Willkommensrabatt — tippen Sie unten, um uns zu sagen, dass Sie ihn nutzen möchten.",
+    "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an info@theextremewilderness.com",
+    "codeLabel": "Ihr Code",
+    "claimButtonLabel": "Rabatt einlösen",
+    "claiming": "Wird gesendet…",
+    "claimedLabel": "Gesendet! Wir melden uns bei Ihnen",
+    "claimError": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an info@theextremewilderness.com",
+    "honorNote": "Erwähnen Sie diesen Code einfach, wenn Sie sich bei uns melden, und unser Team wendet ihn auf Ihre Safari an."
   },
   "destinationsHub": {
     "metaTitle": "Ostafrika-Reiseziele | Tansania, Kenia & Ruanda",

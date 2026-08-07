@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { X, Mail } from 'lucide-react'
+import Image from 'next/image'
+import { X, Check } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useBooking } from '@/context/BookingContext'
 import { trackEvent, trackFormFillConversion } from '@/lib/analytics'
@@ -10,6 +11,7 @@ const COOKIE_NAME = 'exit-intent-seen'
 const COOKIE_DAYS = 30
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
+type ClaimStatus = 'idle' | 'claiming' | 'claimed' | 'error'
 
 function getCookie(name: string): string | undefined {
   return document.cookie
@@ -31,6 +33,8 @@ export default function ExitIntentPopup() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<Status>('idle')
+  const [code, setCode] = useState<string | null>(null)
+  const [claimStatus, setClaimStatus] = useState<ClaimStatus>('idle')
 
   const trigger = useCallback(() => {
     setVisible(true)
@@ -67,11 +71,29 @@ export default function ExitIntentPopup() {
         body: JSON.stringify({ name, email, source: 'exit-intent' }),
       })
       if (!res.ok) throw new Error('subscribe failed')
+      const data = await res.json() as { code?: string }
+      setCode(data.code ?? null)
       setStatus('success')
       trackEvent('exit_intent_submitted', { source: 'exit-intent' })
       trackFormFillConversion()
     } catch {
       setStatus('error')
+    }
+  }
+
+  const handleClaim = async () => {
+    setClaimStatus('claiming')
+    try {
+      const res = await fetch('/api/exit-intent-claim', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email }),
+      })
+      if (!res.ok) throw new Error('claim failed')
+      setClaimStatus('claimed')
+      trackEvent('exit_intent_discount_claimed')
+    } catch {
+      setClaimStatus('error')
     }
   }
 
@@ -94,18 +116,55 @@ export default function ExitIntentPopup() {
           <X className="w-5 h-5" />
         </button>
 
-        <div className="p-8">
+        <div className="flex items-center gap-3 px-8 pt-8">
+          <Image
+            src="/EWA logo.webp"
+            alt="EWA Safari Outfitters"
+            width={160}
+            height={80}
+            className="object-contain w-10 h-auto flex-shrink-0"
+          />
+          <div>
+            <p className="text-white font-semibold text-sm leading-tight">EWA Safari Outfitters</p>
+            <p className="text-gold-label text-xs font-semibold uppercase tracking-widest">{t('badge')}</p>
+          </div>
+        </div>
+
+        <div className="px-8 pb-8 pt-4">
           {status === 'success' ? (
-            <div className="text-center py-4">
-              <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4">
-                <Mail className="w-5 h-5 text-gold" />
-              </div>
+            <div className="text-center py-2">
               <h3 className="text-white font-semibold text-xl mb-2">{t('successTitle')}</h3>
-              <p className="text-white/70 text-sm leading-relaxed">{t('successDesc')}</p>
+              <p className="text-white/70 text-sm leading-relaxed mb-5">{t('successDesc')}</p>
+
+              {code && (
+                <div className="mb-5 rounded-xl border-2 border-dashed border-gold/50 bg-white/5 py-4 px-3">
+                  <p className="text-white/50 text-[11px] font-semibold uppercase tracking-widest mb-1">{t('codeLabel')}</p>
+                  <p className="text-gold font-mono font-bold text-xl tracking-wider">{code}</p>
+                </div>
+              )}
+
+              {claimStatus === 'claimed' ? (
+                <div className="flex items-center justify-center gap-2 text-gold font-semibold text-sm py-3">
+                  <Check className="w-4 h-4" />
+                  {t('claimedLabel')}
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleClaim}
+                  disabled={claimStatus === 'claiming'}
+                  className="w-full py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {claimStatus === 'claiming' ? t('claiming') : t('claimButtonLabel')}
+                </button>
+              )}
+              {claimStatus === 'error' && (
+                <p role="alert" className="text-red-400 text-xs text-center mt-2">{t('claimError')}</p>
+              )}
+              <p className="text-white/50 text-xs leading-relaxed mt-4">{t('honorNote')}</p>
             </div>
           ) : (
             <>
-              <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-3">{t('badge')}</p>
               <h3 className="text-white font-semibold text-2xl mb-2 leading-tight">{t('heading')}</h3>
               <p className="text-white/70 text-sm leading-relaxed mb-6">{t('body')}</p>
 

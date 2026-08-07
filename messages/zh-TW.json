@@ -2654,7 +2654,8 @@
     "about": "關於我們",
     "followUs": "關注我們",
     "blog": "部落格",
-    "accommodations": "住宿"
+    "accommodations": "住宿",
+    "tradePartners": "貿易合作夥伴"
   },
   "blog": {
     "metaTitle": "獵遊部落格 | 坦尚尼亞與東非旅行指南",
@@ -4101,19 +4102,25 @@
     "viewLabel": "立即檢視指南"
   },
   "exitIntent": {
-    "badge": "離開前",
-    "heading": "我們不希望您就這樣空手離開",
-    "body": "加入《The Wilderness Edit》電子報，獲取真實可靠的野生動物近況、季節指南，以及不定期的搶先優惠——透過本電子報預訂，首次獵遊還可享95折優惠。",
+    "badge": "來自我們團隊的一句話",
+    "heading": "先別急著離開",
+    "body": "我們是一支根植於坦尚尼亞的專業團隊，很希望和您保持聯繫。留下您的電子郵件，我們會分享真實的旅行靈感與當季小提醒——還有首次獵遊的歡迎優惠。",
     "nameLabel": "您的姓名",
-    "emailLabel": "您的電子郵箱",
+    "emailLabel": "您的電子郵件",
     "emailPlaceholder": "you@example.com",
-    "submitLabel": "領取95折優惠",
-    "submitting": "傳送中…",
+    "submitLabel": "查看我的優惠",
+    "submitting": "請稍候…",
     "dismissLabel": "關閉",
-    "noSpam": "絕無垃圾郵件。隨時可退訂。",
-    "successTitle": "您已成功加入！",
-    "successDesc": "請查看您的收件箱——優惠券與我們的下一期電子報即將送達。",
-    "errorMessage": "出了點問題。請重試或發郵件至info@theextremewilderness.com"
+    "noSpam": "絕不寄送垃圾郵件，隨時可以取消訂閱。",
+    "successTitle": "訂閱成功！",
+    "successDesc": "這是您的歡迎優惠——點擊下方告訴我們您想使用它。",
+    "errorMessage": "發生錯誤，請再試一次，或寫信至 info@theextremewilderness.com",
+    "codeLabel": "您的優惠碼",
+    "claimButtonLabel": "領取我的優惠",
+    "claiming": "傳送中…",
+    "claimedLabel": "已送出！我們會盡快與您聯繫",
+    "claimError": "發生錯誤，請再試一次，或寫信至 info@theextremewilderness.com",
+    "honorNote": "聯繫我們時提及此優惠碼，我們的團隊會將它套用在您的獵遊行程上。"
   },
   "destinationsHub": {
     "metaTitle": "東非目的地 | 坦尚尼亞、肯亞與盧安達",

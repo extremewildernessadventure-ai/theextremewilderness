@@ -2654,7 +2654,8 @@
     "about": "关于我们",
     "followUs": "关注我们",
     "blog": "博客",
-    "accommodations": "住宿"
+    "accommodations": "住宿",
+    "tradePartners": "贸易合作伙伴"
   },
   "blog": {
     "metaTitle": "游猎博客 | 坦桑尼亚与东非旅行指南",
@@ -4101,19 +4102,25 @@
     "viewLabel": "立即查看指南"
   },
   "exitIntent": {
-    "badge": "临行前",
-    "heading": "别让您就这样空手离开",
-    "body": "加入《荒野纪事》，获取真实的野生动物资讯、季节指南，以及不定期的早鸟优惠——通过此订阅名单预订，您的首次游猎还可享9.5折优惠。",
+    "badge": "来自我们团队的一句话",
+    "heading": "别急着走",
+    "body": "我们是一支扎根坦桑尼亚的专业团队，很想和您保持联系。留下您的邮箱，我们会分享真实的旅行灵感和当季小贴士——还有首次游猎的欢迎优惠。",
     "nameLabel": "您的姓名",
-    "emailLabel": "您的电子邮箱",
+    "emailLabel": "您的邮箱地址",
     "emailPlaceholder": "you@example.com",
-    "submitLabel": "领取我的9.5折优惠",
-    "submitting": "发送中…",
+    "submitLabel": "查看我的优惠",
+    "submitting": "请稍候…",
     "dismissLabel": "关闭",
-    "noSpam": "无垃圾邮件，随时可退订。",
-    "successTitle": "您已成功加入订阅名单！",
-    "successDesc": "请查收您的收件箱——您的优惠码和我们的下一期资讯即将送达。",
-    "errorMessage": "出了点问题。请重试或发邮件至info@theextremewilderness.com"
+    "noSpam": "绝不发送垃圾邮件，随时可以取消订阅。",
+    "successTitle": "订阅成功！",
+    "successDesc": "这是您的欢迎优惠——点击下方告诉我们您想使用它。",
+    "errorMessage": "出了点问题，请重试，或发邮件至 info@theextremewilderness.com",
+    "codeLabel": "您的优惠码",
+    "claimButtonLabel": "领取我的优惠",
+    "claiming": "发送中…",
+    "claimedLabel": "已发送！我们会尽快与您联系",
+    "claimError": "出了点问题，请重试，或发邮件至 info@theextremewilderness.com",
+    "honorNote": "联系我们时提及此优惠码，我们的团队会为您的游猎行程使用它。"
   },
   "destinationsHub": {
     "metaTitle": "东非目的地 | 坦桑尼亚、肯尼亚与卢旺达",

@@ -2654,7 +2654,8 @@
     "about": "Nosotros",
     "followUs": "Síguenos",
     "blog": "Blog",
-    "accommodations": "Alojamientos"
+    "accommodations": "Alojamientos",
+    "tradePartners": "Socios Comerciales"
   },
   "blog": {
     "metaTitle": "Blog de Safari | Guías de Viaje de Tanzania y África Oriental",
@@ -4062,19 +4063,25 @@
     "browseDestinations": "Explorar Destinos"
   },
   "exitIntent": {
-    "badge": "Antes de Irte",
-    "heading": "No queremos que te vayas con las manos vacías",
-    "body": "Únete a The Wilderness Edit para recibir novedades honestas sobre la fauna, guías estacionales y alguna que otra oferta anticipada — además de un 5% de descuento en tu primer safari al reservar a través de esta lista.",
+    "badge": "Un mensaje de nuestro equipo",
+    "heading": "Espera — antes de irte",
+    "body": "Somos un equipo profesional con base en Tanzania, y nos encantaría mantenernos en contacto. Déjanos tu correo y te enviaremos ideas de viaje sinceras y consejos según la temporada — además de un descuento de bienvenida para tu primer safari.",
     "nameLabel": "Tu nombre",
     "emailLabel": "Tu correo electrónico",
     "emailPlaceholder": "tucorreo@ejemplo.com",
-    "submitLabel": "Quiero mi 5% de Descuento",
-    "submitting": "Enviando…",
+    "submitLabel": "Ver mi descuento",
+    "submitting": "Un momento…",
     "dismissLabel": "Cerrar",
-    "noSpam": "Nada de spam, nunca. Cancela tu suscripción cuando quieras.",
+    "noSpam": "Sin spam, nunca. Cancela cuando quieras.",
     "successTitle": "¡Ya estás en la lista!",
-    "successDesc": "Revisa tu bandeja de entrada — tu descuento y nuestro próximo boletín están en camino.",
-    "errorMessage": "Algo salió mal. Inténtalo de nuevo o escríbenos a info@theextremewilderness.com"
+    "successDesc": "Aquí tienes tu descuento de bienvenida — toca abajo para avisarnos que quieres usarlo.",
+    "errorMessage": "Algo salió mal. Inténtalo de nuevo o escríbenos a info@theextremewilderness.com",
+    "codeLabel": "Tu código",
+    "claimButtonLabel": "Reclamar mi descuento",
+    "claiming": "Enviando…",
+    "claimedLabel": "¡Enviado! Nos pondremos en contacto",
+    "claimError": "Algo salió mal. Inténtalo de nuevo o escríbenos a info@theextremewilderness.com",
+    "honorNote": "Solo menciona este código cuando nos escribas y nuestro equipo lo aplicará a tu safari."
   },
   "pdfLead": {
     "badge": "Guía Gratis",

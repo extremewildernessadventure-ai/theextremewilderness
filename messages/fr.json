@@ -2654,7 +2654,8 @@
     "about": "À propos",
     "followUs": "Suivez-nous",
     "blog": "Blog",
-    "accommodations": "Hébergements"
+    "accommodations": "Hébergements",
+    "tradePartners": "Partenaires Commerciaux"
   },
   "blog": {
     "metaTitle": "Blog Safari | Guides de Voyage Tanzanie et Afrique de l'Est",
@@ -4101,19 +4102,25 @@
     "viewLabel": "Voir le Guide Maintenant"
   },
   "exitIntent": {
-    "badge": "Avant de partir",
-    "heading": "Ne repartez pas les mains vides",
-    "body": "Rejoignez The Wilderness Edit pour des actualités sincères sur la faune, des guides saisonniers et, de temps à autre, une offre en avant-première — plus 5 % de réduction sur votre premier safari réservé grâce à cette liste.",
-    "nameLabel": "Votre nom",
-    "emailLabel": "Votre adresse e-mail",
+    "badge": "Un mot de notre équipe",
+    "heading": "Attendez — avant de partir",
+    "body": "Nous sommes une équipe professionnelle basée en Tanzanie, et on aimerait rester en contact. Laissez-nous votre email et on vous enverra des idées de voyage sincères et des conseils selon la saison — plus une remise de bienvenue pour votre premier safari.",
+    "nameLabel": "Votre prénom",
+    "emailLabel": "Votre adresse email",
     "emailPlaceholder": "vous@exemple.com",
-    "submitLabel": "Recevoir mes 5 % de réduction",
-    "submitting": "Envoi en cours…",
+    "submitLabel": "Voir ma remise",
+    "submitting": "Un instant…",
     "dismissLabel": "Fermer",
-    "noSpam": "Jamais de spam. Désabonnement possible à tout moment.",
-    "successTitle": "C'est fait, vous êtes inscrit(e) !",
-    "successDesc": "Vérifiez votre boîte de réception — votre réduction et notre prochaine newsletter arrivent bientôt.",
-    "errorMessage": "Une erreur s'est produite. Veuillez réessayer ou nous écrire à info@theextremewilderness.com"
+    "noSpam": "Aucun spam, promis. Désabonnement à tout moment.",
+    "successTitle": "C'est fait, vous êtes inscrit·e !",
+    "successDesc": "Voici votre remise de bienvenue — cliquez ci-dessous pour nous dire que vous voulez l'utiliser.",
+    "errorMessage": "Une erreur s'est produite. Merci de réessayer ou de nous écrire à info@theextremewilderness.com",
+    "codeLabel": "Votre code",
+    "claimButtonLabel": "Je réclame ma remise",
+    "claiming": "Envoi…",
+    "claimedLabel": "C'est envoyé ! On vous recontacte bientôt",
+    "claimError": "Une erreur s'est produite. Merci de réessayer ou de nous écrire à info@theextremewilderness.com",
+    "honorNote": "Il vous suffit de mentionner ce code lorsque vous nous contactez, et notre équipe l'appliquera à votre safari."
   },
   "destinationsHub": {
     "metaTitle": "Destinations en Afrique de l'Est | Tanzanie, Kenya & Rwanda",
