@@ -29,6 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages = [
     { path: '', priority: 1.0, changeFrequency: 'weekly' as const },
     { path: '/safaris', priority: 0.9, changeFrequency: 'weekly' as const },
+    { path: '/accommodations', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/destinations', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/destinations/tanzania', priority: 0.9, changeFrequency: 'weekly' as const },
     { path: '/trekking', priority: 0.8, changeFrequency: 'monthly' as const },

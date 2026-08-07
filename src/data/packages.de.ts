@@ -106,7 +106,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Gran Melia, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -119,7 +119,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -130,7 +130,7 @@ export const packages: SafariPackage[] = [
         meals: "Vollpension",
         insiderFact: "Karatu liegt direkt außerhalb der Grenze des Ngorongoro-Schutzgebiets — die letzte Ackerlandstrecke vor dem Kraterhochland.",
         accommodationByTier: {
-          trail: { name: 'Serengeti Katikati Camp', image: '/images/gallery/Central-Serengeti-1.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Katikati Camp', image: '/images/lodges/serengeti-katikati-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
@@ -143,7 +143,7 @@ export const packages: SafariPackage[] = [
         meals: "Vollpension",
         insiderFact: "Das ganzjährige Wasser rund um Seronera zieht ansässige Großkatzenpopulationen an, einschließlich der berühmten baumsitzenden Löwen der Kopjes.",
         accommodationByTier: {
-          trail: { name: 'Serengeti Katikati Camp', image: '/images/gallery/Central-Serengeti-1.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Katikati Camp', image: '/images/lodges/serengeti-katikati-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
@@ -158,7 +158,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -171,7 +171,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Gran Melia, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -291,7 +291,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Gran Melia, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -304,7 +304,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Tloma Lodge', image: '/images/lodges/tloma-lodge.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -315,7 +315,7 @@ export const packages: SafariPackage[] = [
         meals: "All-Inclusive",
         insiderFact: "Der Ngorongoro-Krater ist ein geschlossenes Ökosystem von rund 260 km² — die meisten dort lebenden Tiere verlassen ihn nie.",
         accommodationByTier: {
-          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubu Kubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Four Seasons Safari Lodge Serengeti', image: '/images/lodges/four-seasons-safari-lodge-serengeti.webp', amenities: ['pool', 'spa', 'view'] },
         },
@@ -327,7 +327,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Kubu Kubu Tented Lodge',
         meals: "All-Inclusive",
         accommodationByTier: {
-          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubu Kubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Four Seasons Safari Lodge Serengeti', image: '/images/lodges/four-seasons-safari-lodge-serengeti.webp', amenities: ['pool', 'spa', 'view'] },
         },
@@ -341,7 +341,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Tloma Lodge', image: '/images/lodges/tloma-lodge.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -351,7 +351,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Royal Zanzibar',
         meals: "All-Inclusive",
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -364,7 +364,7 @@ export const packages: SafariPackage[] = [
         meals: "All-Inclusive",
         insiderFact: "Nungwi liegt an der Nordspitze Sansibars und ist von den Gezeiten, die Schwimmer an der Ostküste bei Ebbe stranden lassen, weitgehend unberührt.",
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -376,7 +376,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Royal Zanzibar',
         meals: "All-Inclusive",
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -388,7 +388,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Royal Zanzibar',
         meals: "All-Inclusive",
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -514,7 +514,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Der Ngorongoro ist einer der wenigen Orte Afrikas, wo man das Spitzmaulnashorn zuverlässig an einem einzigen Tag beobachten kann — etwa 25 Individuen leben auf dem Kraterboden.',
         accommodationByTier: {
           trail: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -661,8 +661,8 @@ export const packages: SafariPackage[] = [
         accommodation: 'Daressalam, je nach Stufe unterschiedlich',
         meals: 'Abendessen',
         accommodationByTier: {
-          reserve: { name: 'Dar es Salaam Serena Hotel', image: '/images/gallery/stone-town.webp', amenities: ['pool', 'restaurant', 'wifi'] },
-          sovereign: { name: 'Hyatt Regency Dar', image: '/images/gallery/stone-town.jpg', amenities: ['pool', 'restaurant', 'wifi'] },
+          reserve: { name: 'Dar es Salaam Serena Hotel', image: '/images/lodges/dar-es-salaam-serena-hotel.webp', amenities: ['pool', 'restaurant', 'wifi'] },
+          sovereign: { name: 'Hyatt Regency Dar', image: '/images/lodges/hyatt-regency-dar.webp', amenities: ['pool', 'restaurant', 'wifi'] },
         },
       },
       {
@@ -674,7 +674,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Nyerere (ehemals Selous-Wildreservat) ist Afrikas größte Schutzwildnis mit 54.600 km² (21.081 sq mi) — ungefähr so groß wie die Schweiz.',
         accommodationByTier: {
           reserve: { name: 'Rufiji River Camp', image: '/images/lodges/rufiji-river-camp.webp', amenities: ['wildlife-view', 'restaurant'] },
-          sovereign: { name: 'Serena Mivumo River Lodge', image: '/images/gallery/nyerere.webp', amenities: ['all-inclusive', 'pool', 'wildlife-view'] },
+          sovereign: { name: 'Serena Mivumo River Lodge', image: '/images/lodges/serena-mivumo-river-lodge.webp', amenities: ['all-inclusive', 'pool', 'wildlife-view'] },
         },
       },
       {
@@ -686,7 +686,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Nyerere beherbergt eine der größten verbliebenen Populationen afrikanischer Wildhunde sowie starke Flusspferdbestände entlang des Rufiji.',
         accommodationByTier: {
           reserve: { name: 'Rufiji River Camp', image: '/images/lodges/rufiji-river-camp.webp', amenities: ['wildlife-view', 'restaurant'] },
-          sovereign: { name: 'Serena Mivumo River Lodge', image: '/images/gallery/nyerere.webp', amenities: ['all-inclusive', 'pool', 'wildlife-view'] },
+          sovereign: { name: 'Serena Mivumo River Lodge', image: '/images/lodges/serena-mivumo-river-lodge.webp', amenities: ['all-inclusive', 'pool', 'wildlife-view'] },
         },
       },
       {
@@ -697,8 +697,8 @@ export const packages: SafariPackage[] = [
         meals: 'Vollpension',
         insiderFact: 'Ruaha ist Tansanias größter Nationalpark mit 20.226 km² (7.809 sq mi) und beherbergt schätzungsweise 10% der weltweit verbliebenen Löwenpopulation.',
         accommodationByTier: {
-          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
-          sovereign: { name: 'Ikuka Camp', image: '/images/gallery/Ruaha-National-Park.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          sovereign: { name: 'Ikuka Camp', image: '/images/lodges/ikuka-camp.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
         },
       },
       {
@@ -709,8 +709,8 @@ export const packages: SafariPackage[] = [
         meals: 'Vollpension',
         insiderFact: 'Der Große Ruaha-Fluss verankert die Tierbeobachtung entlang der südöstlichen Parkgrenze — Elefanten und Büffel bewegen sich hier in großen Herden.',
         accommodationByTier: {
-          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
-          sovereign: { name: 'Ikuka Camp', image: '/images/gallery/Ruaha-National-Park.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          sovereign: { name: 'Ikuka Camp', image: '/images/lodges/ikuka-camp.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
         },
       },
       {
@@ -721,8 +721,8 @@ export const packages: SafariPackage[] = [
         meals: 'Vollpension',
         insiderFact: 'Ruaha bietet auch einige der besten Chancen Tansanias auf Rappen- und Wasserböcke.',
         accommodationByTier: {
-          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
-          sovereign: { name: 'Ikuka Camp', image: '/images/gallery/Ruaha-National-Park.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          sovereign: { name: 'Ikuka Camp', image: '/images/lodges/ikuka-camp.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
         },
       },
       {
@@ -819,8 +819,8 @@ export const packages: SafariPackage[] = [
         accommodation: 'Zentral-Serengeti, je nach Stufe verschieden',
         meals: "Mittagessen, Abendessen",
         accommodationByTier: {
-          trail: { name: 'Serengeti Katikati Camp', image: '/images/gallery/Central-Serengeti-1.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
-          reserve: { name: 'Lahia Tented Lodge', image: '/images/gallery/serengeti.webp', amenities: ['view', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Katikati Camp', image: '/images/lodges/serengeti-katikati-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Lahia Tented Lodge', image: '/images/lodges/lahia-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
       },
@@ -831,8 +831,8 @@ export const packages: SafariPackage[] = [
         accommodation: 'Zentral-Serengeti, je nach Stufe verschieden',
         meals: "Alle Mahlzeiten",
         accommodationByTier: {
-          trail: { name: 'Serengeti Katikati Camp', image: '/images/gallery/Central-Serengeti-1.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
-          reserve: { name: 'Lahia Tented Lodge', image: '/images/gallery/serengeti.webp', amenities: ['view', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Katikati Camp', image: '/images/lodges/serengeti-katikati-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Lahia Tented Lodge', image: '/images/lodges/lahia-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
       },
@@ -843,7 +843,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Ngorongoro-Gebiet, je nach Stufe verschieden',
         meals: "Alle Mahlzeiten",
         accommodationByTier: {
-          trail: { name: 'Tortils Ngorongoro Camp', image: '/images/gallery/ngorongoro-crater-landscape.webp', amenities: ['restaurant', 'garden'] },
+          trail: { name: 'Tortils Ngorongoro Camp', image: '/images/lodges/tortils-ngorongoro-camp.webp', amenities: ['restaurant', 'garden'] },
           reserve: { name: 'Ngorongoro Serena Lodge', image: '/images/lodges/ngorongoro-serena-safari-lodge.webp', amenities: ['view', 'restaurant', 'ensuite'] },
           sovereign: { name: 'Melia Ngorongoro Lodge', image: '/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection.webp', amenities: ['view', 'spa', 'restaurant'] },
         },
@@ -996,7 +996,7 @@ export const packages: SafariPackage[] = [
         insiderFact: "Die Affenbrotbäume Tarangires können weit über tausend Jahre alt werden und genug Wasser in ihren Stämmen speichern, um monatelange Dürre zu überstehen — bitten Sie Ihren Guide, Ihnen die ältesten zu zeigen.",
         accommodationByTier: {
           reserve: { name: 'Zuri Kilima Siri', image: '/images/lodges/zuri-kilima-siri.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
-          sovereign: { name: 'Siringiti Tarangire Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
+          sovereign: { name: 'Siringiti Tarangire Camp', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
         },
       },
       {
@@ -1008,7 +1008,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Die Trockenzeit konzentriert die Tierwelt eng entlang des Tarangire-Flusses — je näher Sie am Oktober reisen, desto größer sind die Herden in der Regel.',
         accommodationByTier: {
           reserve: { name: 'Zuri Kilima Siri', image: '/images/lodges/zuri-kilima-siri.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
-          sovereign: { name: 'Siringiti Tarangire Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
+          sovereign: { name: 'Siringiti Tarangire Camp', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
         },
       },
       {
@@ -1020,7 +1020,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Karatu liegt auf über 1.500 m Höhe, spürbar kühler als die Ebenen darunter — eine zusätzliche Schicht für den Abend lohnt sich.',
         accommodationByTier: {
           reserve: { name: 'Tloma Lodge', image: '/images/lodges/tloma-lodge.webp', amenities: ['wifi', 'restaurant', 'garden'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -1031,7 +1031,7 @@ export const packages: SafariPackage[] = [
         meals: 'Alle Mahlzeiten',
         insiderFact: "Der Kraterboden bleibt selbst mittags mehrere Grad kühler als der Kraterrand — nehmen Sie für den Abstieg eine leichte Jacke mit.",
         accommodationByTier: {
-          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
       },
@@ -1043,7 +1043,7 @@ export const packages: SafariPackage[] = [
         meals: 'Alle Mahlzeiten',
         insiderFact: "Fragen Sie Ihren Guide nach dem aktuellen Standort der Migration — die ansässige Tierwelt des Serengeti ist das ganze Jahr über hervorragend, aber den Besuch nach den Herden auszurichten fügt eine ganz eigene Ebene hinzu.",
         accommodationByTier: {
-          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
       },
@@ -1055,7 +1055,7 @@ export const packages: SafariPackage[] = [
         meals: 'Alle Mahlzeiten',
         insiderFact: 'Sundowner-Stopps werden meist auf einem felsigen Kopje mit freiem Horizont arrangiert — ein guter Moment, um die Kamera bereitzuhalten, bevor das Licht schwindet.',
         accommodationByTier: {
-          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
       },
@@ -1170,7 +1170,7 @@ export const packages: SafariPackage[] = [
         description: 'Landen Sie am internationalen Kilimandscharo-Flughafen, wo Ihr Safari-Guide direkt vor der Ankunftshalle auf Sie wartet — derselbe Guide, der Sie die gesamte Reise über begleiten wird. Von hier sind es rund eine Stunde bis zu Ihrer Unterkunft in Arusha. Richten Sie sich ein, lernen Sie Ihren Guide kennen und erhalten Sie ein vollständiges Safari-Briefing vor einem frühen Abend. Morgen beginnt das eigentliche Abenteuer.',
         accommodation: 'Arusha Hotel',
         meals: 'Abendessen',
-        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
         insiderFact: 'Arusha liegt auf einer angenehmen Höhenlage und hat ein kühleres Klima als die Ebenen, die vor Ihnen liegen; packen Sie eine leichte Schicht für den Abend ein.',
       },
       {
@@ -1525,7 +1525,7 @@ export const packages: SafariPackage[] = [
         insiderFact: "Arusha liegt auf rund 1.400 m (4.593 ft) Höhe und bietet neu ankommenden Gästen einen sanften Höhenübergang, bevor die Parks richtig beginnen.",
         accommodationByTier: {
           reserve: { name: 'Gran Meliá, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -1537,7 +1537,7 @@ export const packages: SafariPackage[] = [
         insiderFact: "Der Arusha-Nationalpark ist einer der wenigen Parks Tansanias, in dem eine geführte Wandersafari das ganze Jahr über erlaubt ist.",
         accommodationByTier: {
           reserve: { name: 'Gran Meliá, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -1620,7 +1620,7 @@ export const packages: SafariPackage[] = [
         insiderFact: "Der Rückflug mit dem Propellerflugzeug von der Serengeti nach Arusha dauert weniger als eine Stunde, verglichen mit über 6 Stunden Fahrt auf derselben Strecke.",
         accommodationByTier: {
           reserve: { name: 'Gran Meliá, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -1742,7 +1742,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Diese Seite des Kilimandscharo sieht nur einen Bruchteil des Besucherverkehrs der Standard-Kletterrouten auf der Südseite des Berges.',
         accommodationByTier: {
           reserve: { name: 'Kambi ya Tembo', image: '/images/lodges/kambi-ya-tembo.webp', amenities: ['view', 'wildlife-view'] },
-          sovereign: { name: 'Africa Amini Original Maasai Lodge', image: '/images/gallery/kilimanjaro.jpg', amenities: ['view', 'cultural'] },
+          sovereign: { name: 'Africa Amini Original Maasai Lodge', image: '/images/lodges/africa-amini-original-maasai-lodge.webp', amenities: ['view', 'cultural'] },
         },
       },
       {
@@ -1755,7 +1755,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Höhe wirkt sich bei jedem unterschiedlich aus — die Wanderung wird bewusst in Ihrem eigenen Tempo gegangen, sodass die Fitness und nicht ein fester Zeitplan das Tempo bestimmt.',
         accommodationByTier: {
           reserve: { name: 'Kambi ya Tembo', image: '/images/lodges/kambi-ya-tembo.webp', amenities: ['view', 'wildlife-view'] },
-          sovereign: { name: 'Africa Amini Original Maasai Lodge', image: '/images/gallery/kilimanjaro.jpg', amenities: ['view', 'cultural'] },
+          sovereign: { name: 'Africa Amini Original Maasai Lodge', image: '/images/lodges/africa-amini-original-maasai-lodge.webp', amenities: ['view', 'cultural'] },
         },
       },
       {
@@ -1781,7 +1781,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Mto Wa Mbu bedeutet auf Suaheli „Moskitobach" — eine Erinnerung daran, für den Dorfspaziergang Insektenschutzmittel griffbereit zu haben.',
         accommodationByTier: {
           reserve: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['wifi', 'restaurant', 'highland-garden', 'farm'] },
-          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -1794,7 +1794,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Tarangires Elefantenherden konzentrieren sich in der Trockenzeit am stärksten entlang des Flusses, wenn dieser eine der wenigen verlässlichen Wasserquellen weit und breit ist.',
         accommodationByTier: {
           reserve: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['wifi', 'restaurant', 'highland-garden', 'farm'] },
-          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -1962,7 +1962,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Gran Melia Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -1973,9 +1973,9 @@ export const packages: SafariPackage[] = [
         meals: "Alle Mahlzeiten",
         insiderFact: "Tarangire hat außerhalb der Regenzeit eine der höchsten Elefantendichten Afrikas, wenn sich die Herden am Fluss konzentrieren.",
         accommodationByTier: {
-          trail: { name: 'Lake Burunge Baobab', image: '/images/gallery/tarangire-elephants-baobab.webp', amenities: ['restaurant', 'garden'] },
+          trail: { name: 'Lake Burunge Baobab', image: '/images/lodges/lake-burunge-baobab-tented-lodge.webp', amenities: ['restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -1985,9 +1985,9 @@ export const packages: SafariPackage[] = [
         accommodation: 'Karatu, je nach Stufe verschieden',
         meals: "Alle Mahlzeiten",
         accommodationByTier: {
-          trail: { name: 'Ngorongoro Farm House', image: '/images/gallery/ngorongoro-crater-landscape.webp', amenities: ['restaurant', 'garden'] },
+          trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -1998,7 +1998,7 @@ export const packages: SafariPackage[] = [
         meals: "Alle Mahlzeiten",
         insiderFact: "Der Ngorongoro-Krater ist ein geschlossenes Ökosystem von rund 260 km² — die meisten dort lebenden Tiere verlassen ihn nie, darunter einige der zuverlässigsten Schwarznashorn-Sichtungen der Region.",
         accommodationByTier: {
-          trail: { name: 'Serengeti Katikati Camp', image: '/images/gallery/Central-Serengeti-1.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Katikati Camp', image: '/images/lodges/serengeti-katikati-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubu Kubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Lemala Nanyukie', image: '/images/lodges/lemala-nanyukie.webp', amenities: ['wildlife-view', 'view'] },
         },
@@ -2010,9 +2010,9 @@ export const packages: SafariPackage[] = [
         accommodation: 'Nord-Serengeti, je nach Stufe verschieden',
         meals: "Alle Mahlzeiten",
         accommodationByTier: {
-          trail: { name: 'Mara Katikati Tented Camp', image: '/images/gallery/mara1.webp', amenities: ['ensuite', 'wildlife-view'] },
+          trail: { name: 'Mara Katikati Tented Camp', image: '/images/lodges/mara-katikati-tented-camp.webp', amenities: ['ensuite', 'wildlife-view'] },
           reserve: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['wildlife-view', 'view'] },
-          sovereign: { name: 'Lemala Kuria Hills', image: '/images/gallery/maasai-mara.webp', amenities: ['pool', 'view', 'wildlife-view'] },
+          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'wildlife-view'] },
         },
       },
       {
@@ -2023,9 +2023,9 @@ export const packages: SafariPackage[] = [
         meals: "Alle Mahlzeiten",
         insiderFact: "Überquerungen können zu jeder Stunde stattfinden und dauern nur Minuten — Guides positionieren die Fahrzeuge an bekannten Überquerungspunkten und warten manchmal stundenlang, bis die Herden sich entschließen.",
         accommodationByTier: {
-          trail: { name: 'Mara Katikati Tented Camp', image: '/images/gallery/mara1.webp', amenities: ['ensuite', 'wildlife-view'] },
+          trail: { name: 'Mara Katikati Tented Camp', image: '/images/lodges/mara-katikati-tented-camp.webp', amenities: ['ensuite', 'wildlife-view'] },
           reserve: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['wildlife-view', 'view'] },
-          sovereign: { name: 'Lemala Kuria Hills', image: '/images/gallery/maasai-mara.webp', amenities: ['pool', 'view', 'wildlife-view'] },
+          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'wildlife-view'] },
         },
       },
       {
@@ -2035,9 +2035,9 @@ export const packages: SafariPackage[] = [
         accommodation: 'Nord-Serengeti, je nach Stufe verschieden',
         meals: "Alle Mahlzeiten",
         accommodationByTier: {
-          trail: { name: 'Mara Katikati Tented Camp', image: '/images/gallery/mara1.webp', amenities: ['ensuite', 'wildlife-view'] },
+          trail: { name: 'Mara Katikati Tented Camp', image: '/images/lodges/mara-katikati-tented-camp.webp', amenities: ['ensuite', 'wildlife-view'] },
           reserve: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['wildlife-view', 'view'] },
-          sovereign: { name: 'Lemala Kuria Hills', image: '/images/gallery/maasai-mara.webp', amenities: ['pool', 'view', 'wildlife-view'] },
+          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'wildlife-view'] },
         },
       },
       {
@@ -2651,7 +2651,7 @@ export const packages: SafariPackage[] = [
         meals: "Vollpension",
         accommodationByTier: {
           trail: { name: 'Kinigi Guest House', image: '/images/lodges/kinigi-guest-house.webp', amenities: ['ensuite', 'restaurant'] },
-          reserve: { name: 'La Palme Hotel', image: 'https://lapalmehotel.net/wp-content/uploads/sites/4/2023/08/lapalme-main-v2-jpg.webp', amenities: ['wifi', 'restaurant', 'garden'] },
+          reserve: { name: 'La Palme Hotel', image: '/images/lodges/la-palme-hotel.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           sovereign: { name: 'Bisate Lodge', image: '/images/lodges/bisate-lodge.webp', amenities: ['view', 'spa', 'wildlife-view'] },
         },
       },
@@ -2664,7 +2664,7 @@ export const packages: SafariPackage[] = [
         insiderFact: "Ruanda begrenzt die Anzahl der Gorilla-Trekking-Permits pro Familiengruppe und Tag — frühzeitige Buchung ist in der Hochsaison unerlässlich.",
         accommodationByTier: {
           trail: { name: 'Kinigi Guest House', image: '/images/lodges/kinigi-guest-house.webp', amenities: ['ensuite', 'restaurant'] },
-          reserve: { name: 'La Palme Hotel', image: 'https://lapalmehotel.net/wp-content/uploads/sites/4/2023/08/lapalme-main-v2-jpg.webp', amenities: ['wifi', 'restaurant', 'garden'] },
+          reserve: { name: 'La Palme Hotel', image: '/images/lodges/la-palme-hotel.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           sovereign: { name: 'Bisate Lodge', image: '/images/lodges/bisate-lodge.webp', amenities: ['view', 'spa', 'wildlife-view'] },
         },
       },
@@ -2689,7 +2689,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Gran Melia, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -2702,7 +2702,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Tloma Lodge', image: '/images/lodges/tloma-lodge.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -2715,7 +2715,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Tloma Lodge', image: '/images/lodges/tloma-lodge.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -2725,7 +2725,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Serengeti Tented Camp',
         meals: "Vollpension",
         accommodationByTier: {
-          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Four Seasons Safari Lodge Serengeti', image: '/images/lodges/four-seasons-safari-lodge-serengeti.webp', amenities: ['pool', 'spa', 'view'] },
         },
@@ -2737,7 +2737,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Serengeti Tented Camp',
         meals: "Vollpension",
         accommodationByTier: {
-          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Four Seasons Safari Lodge Serengeti', image: '/images/lodges/four-seasons-safari-lodge-serengeti.webp', amenities: ['pool', 'spa', 'view'] },
         },
@@ -2749,7 +2749,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Royal Zanzibar',
         meals: "Frühstück, Mittagessen",
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -2761,7 +2761,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Royal Zanzibar',
         meals: "All-Inclusive",
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -2973,7 +2973,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Kigali Serena',
         meals: "Abendessen",
         accommodationByTier: {
-          trail: { name: 'Kigali Serena', image: '/images/gallery/kigali-city.webp', amenities: ['wifi', 'pool', 'restaurant'] },
+          trail: { name: 'Kigali Serena', image: '/images/lodges/kigali-serena.webp', amenities: ['wifi', 'pool', 'restaurant'] },
         },
       },
       {
@@ -2983,7 +2983,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Ingagi Lodge',
         meals: "Alle Mahlzeiten",
         accommodationByTier: {
-          trail: { name: 'Ingagi Lodge', image: '/images/gallery/rwanda-virunga-hills.webp', amenities: ['restaurant', 'garden'] },
+          trail: { name: 'Ingagi Lodge', image: '/images/lodges/ingagi-lodge.webp', amenities: ['restaurant', 'garden'] },
         },
       },
       {
@@ -2994,7 +2994,7 @@ export const packages: SafariPackage[] = [
         meals: "Alle Mahlzeiten",
         insiderFact: "Ruanda begrenzt die Gorilla-Trekking-Genehmigungen, um die tägliche Besucherzahl pro Familiengruppe zu beschränken — eine frühzeitige Buchung ist in den Hauptmonaten unerlässlich.",
         accommodationByTier: {
-          trail: { name: 'Ingagi Lodge', image: '/images/gallery/rwanda-virunga-hills.webp', amenities: ['restaurant', 'garden'] },
+          trail: { name: 'Ingagi Lodge', image: '/images/lodges/ingagi-lodge.webp', amenities: ['restaurant', 'garden'] },
         },
       },
       {
@@ -3100,7 +3100,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Dar es Salaam Serena Hotel',
         meals: 'Abendessen',
         accommodationByTier: {
-          trail: { name: 'Dar es Salaam Serena Hotel', image: '/images/gallery/stone-town.webp', amenities: ['pool', 'restaurant', 'wifi'] },
+          trail: { name: 'Dar es Salaam Serena Hotel', image: '/images/lodges/dar-es-salaam-serena-hotel.webp', amenities: ['pool', 'restaurant', 'wifi'] },
         },
       },
       {
@@ -3111,7 +3111,7 @@ export const packages: SafariPackage[] = [
         meals: 'Vollpension',
         insiderFact: 'Keine Straße führt nach Gombe — jeder Besuch kommt per privatem Boot an, so wie seit sechzig Jahren.',
         accommodationByTier: {
-          trail: { name: 'Mbalimbali Gombe Tented Camp', image: '/images/gallery/gombe-stream.webp', amenities: ['wildlife-view', 'ensuite'] },
+          trail: { name: 'Mbalimbali Gombe Tented Camp', image: '/images/lodges/mbalimbali-gombe-tented-camp.webp', amenities: ['wildlife-view', 'ensuite'] },
         },
       },
       {
@@ -3122,7 +3122,7 @@ export const packages: SafariPackage[] = [
         meals: 'Vollpension',
         insiderFact: 'Eine junge Jane Goodall begann 1960 ihre bahnbrechende Forschung in genau diesem Wald — die Pfade, die Sie gehen, sind jene, auf denen ihre ursprünglichen Studien aufgebaut wurden.',
         accommodationByTier: {
-          trail: { name: 'Mbalimbali Gombe Tented Camp', image: '/images/gallery/gombe-stream.webp', amenities: ['wildlife-view', 'ensuite'] },
+          trail: { name: 'Mbalimbali Gombe Tented Camp', image: '/images/lodges/mbalimbali-gombe-tented-camp.webp', amenities: ['wildlife-view', 'ensuite'] },
         },
       },
       {
@@ -3133,7 +3133,7 @@ export const packages: SafariPackage[] = [
         meals: 'Vollpension',
         insiderFact: 'Das Kigoma Hilltop bietet einen weiten Blick über den Tanganjikasee, einen der tiefsten Süßwasserseen der Erde.',
         accommodationByTier: {
-          trail: { name: 'Kigoma Hilltop', image: '/images/gallery/nyerere.webp', amenities: ['view', 'restaurant'] },
+          trail: { name: 'Kigoma Hilltop', image: '/images/lodges/kigoma-hilltop.webp', amenities: ['view', 'restaurant'] },
         },
       },
       {
@@ -3230,7 +3230,7 @@ export const packages: SafariPackage[] = [
         meals: 'Abendessen',
         accommodationByTier: {
           reserve: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -3240,8 +3240,8 @@ export const packages: SafariPackage[] = [
         accommodation: 'West-Kilimandscharo, je nach Stufe unterschiedlich',
         meals: 'Vollpension',
         accommodationByTier: {
-          reserve: { name: 'Original Maasai Lodge', image: '/images/gallery/maa1.jpg', amenities: ['restaurant', 'garden'] },
-          sovereign: { name: 'Original Maasai Lodge (Kisiwa Boma)', image: '/images/gallery/maa1.webp', amenities: ['restaurant', 'garden', 'view'] },
+          reserve: { name: 'Original Maasai Lodge', image: '/images/lodges/original-maasai-lodge.webp', amenities: ['restaurant', 'garden'] },
+          sovereign: { name: 'Original Maasai Lodge (Kisiwa Boma)', image: '/images/lodges/original-maasai-lodge.webp', amenities: ['restaurant', 'garden', 'view'] },
         },
       },
       {
@@ -3252,8 +3252,8 @@ export const packages: SafariPackage[] = [
         meals: 'Vollpension',
         insiderFact: 'Das Hochland des West-Kilimandscharo liegt echt abseits des nördlichen Standardrundkurses — nur wenige Anbieter führen hier durch.',
         accommodationByTier: {
-          reserve: { name: 'Original Maasai Lodge', image: '/images/gallery/maa1.jpg', amenities: ['restaurant', 'garden'] },
-          sovereign: { name: 'Original Maasai Lodge (Kisiwa Boma)', image: '/images/gallery/maa1.webp', amenities: ['restaurant', 'garden', 'view'] },
+          reserve: { name: 'Original Maasai Lodge', image: '/images/lodges/original-maasai-lodge.webp', amenities: ['restaurant', 'garden'] },
+          sovereign: { name: 'Original Maasai Lodge (Kisiwa Boma)', image: '/images/lodges/original-maasai-lodge.webp', amenities: ['restaurant', 'garden', 'view'] },
         },
       },
       {
@@ -3265,7 +3265,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Der Arusha-Nationalpark ist einer der wenigen Parks Tansanias, in dem eine geführte Wandersafari das ganze Jahr über erlaubt ist.',
         accommodationByTier: {
           reserve: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -3288,7 +3288,7 @@ export const packages: SafariPackage[] = [
         meals: 'Vollpension',
         accommodationByTier: {
           reserve: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['restaurant', 'garden'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -3300,7 +3300,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Der Ngorongoro-Krater ist ein geschlossenes Ökosystem von etwa 260 km² (100 sq mi) Breite — die meisten dort lebenden Tiere verlassen ihn nie.',
         accommodationByTier: {
           reserve: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['restaurant', 'garden'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -3345,7 +3345,7 @@ export const packages: SafariPackage[] = [
         meals: 'Vollpension',
         accommodationByTier: {
           reserve: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -3449,7 +3449,7 @@ export const packages: SafariPackage[] = [
         meals: 'Abendessen',
         accommodationByTier: {
           reserve: { name: 'Gran Meliá, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -3461,7 +3461,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Tarangire beherbergt außerhalb der Regenzeit eine der höchsten Elefantendichten Afrikas, wenn die Herden sich am Fluss konzentrieren.',
         accommodationByTier: {
           reserve: { name: 'Elephant Springs', image: '/images/lodges/elephant-springs.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/tarangire-treetops.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
         },
       },
       {
@@ -4425,7 +4425,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Die Gnus überqueren diese politische Grenze jedes Jahr vollständig gleichgültig und folgen einem jährlichen 3.000-km-Kreislauf, der durch Regen und Graswachstum angetrieben wird.',
         accommodationByTier: {
           trail: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
-          reserve: { name: '&Beyond Serengeti Under Canvas', image: '/images/lodges/beyond-serengeti-under-canvas.webp', amenities: ['luxury-tent', 'ensuite', 'migration-position', 'restaurant'] },
+          reserve: { name: '&Beyond Serengeti Under Canvas', image: '/images/lodges/andbeyond-serengeti-under-canvas.webp', amenities: ['luxury-tent', 'ensuite', 'migration-position', 'restaurant'] },
         },
       },
       {
@@ -4437,7 +4437,7 @@ export const packages: SafariPackage[] = [
         insiderFact: 'Das &Beyond Serengeti Under Canvas ist ein mobiles Camp — es wird saisonal neu positioniert, um der Wanderung zu folgen und optimale Tierbeobachtungen zu gewährleisten.',
         accommodationByTier: {
           trail: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
-          reserve: { name: '&Beyond Serengeti Under Canvas', image: '/images/lodges/beyond-serengeti-under-canvas.webp', amenities: ['luxury-tent', 'ensuite', 'migration-position', 'restaurant'] },
+          reserve: { name: '&Beyond Serengeti Under Canvas', image: '/images/lodges/andbeyond-serengeti-under-canvas.webp', amenities: ['luxury-tent', 'ensuite', 'migration-position', 'restaurant'] },
         },
       },
       {
@@ -4671,10 +4671,10 @@ export const packages: SafariPackage[] = [
       { q: 'Reichen vier Nächte auf Sansibar aus?', a: 'Es ist eine echte, entspannte Ruhephase nach fünf aktiven Safari-Tagen — die meisten Paare finden es genau richtig, obwohl eine Verlängerung um eine oder zwei Nächte leicht möglich ist, wenn Sie mehr Strandzeit wünschen.' },
     ],
     itinerary: [
-      { day: 1, title: 'Arusha nach Tarangire', description: 'Abholung von Ihrem Hotel in Arusha, dann ein ganztägiger geführter Game Drive durch Tarangire, auf der Suche nach Elefantenherden unter uralten Baobabs, bevor es weiter nach Karatu für die Nacht geht.', accommodation: 'Lodge in Karatu', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] }, sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] } } },
+      { day: 1, title: 'Arusha nach Tarangire', description: 'Abholung von Ihrem Hotel in Arusha, dann ein ganztägiger geführter Game Drive durch Tarangire, auf der Suche nach Elefantenherden unter uralten Baobabs, bevor es weiter nach Karatu für die Nacht geht.', accommodation: 'Lodge in Karatu', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] }, sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] } } },
       { day: 2, title: 'Karatu zum Zentral-Serengeti', description: 'Fahrt durch den Ngorongoro-Wald mit einem Halt am Kraterausblick, danach weiter zum Zentral-Serengeti für einen Nachmittag mit geführten Game Drives.', accommodation: 'Zeltcamp im Serengeti', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Kubu Kubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant', 'wifi'] }, sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['view', 'spa', 'wildlife-view'] } } },
       { day: 3, title: 'Zentral-Serengeti, Ganzer Tag', description: 'Ein ganzer Tag im Herzen der offenen Ebenen des Zentral-Serengeti, eines der verlässlichsten Gebiete Tansanias für Löwe, Leopard und Gepard.', accommodation: 'Zeltcamp im Serengeti', meals: 'Vollpension', insiderFact: 'Die ansässigen Löwenrudel des Seronera-Tals machen das Zentral-Serengeti zu einem der zuverlässigsten Orte Afrikas, um zu jeder Jahreszeit Löwen zu sehen.', accommodationByTier: { trail: { name: 'Kubu Kubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant', 'wifi'] }, sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['view', 'spa', 'wildlife-view'] } } },
-      { day: 4, title: 'Zentral-Serengeti zum Ngorongoro-Krater', description: 'Ein geführter Abstieg in den Ngorongoro-Krater — UNESCO-Weltkulturerbe und Heimat der Big Five — bevor es zurück nach Karatu für die Nacht geht.', accommodation: 'Lodge in Karatu', meals: 'Vollpension', insiderFact: 'Der Ngorongoro ist einer der wenigen Orte in Tansania, an denen Spitzmaulnashörner zuverlässig an einem einzigen Game Drive gesehen werden können.', accommodationByTier: { trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] }, sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] } } },
+      { day: 4, title: 'Zentral-Serengeti zum Ngorongoro-Krater', description: 'Ein geführter Abstieg in den Ngorongoro-Krater — UNESCO-Weltkulturerbe und Heimat der Big Five — bevor es zurück nach Karatu für die Nacht geht.', accommodation: 'Lodge in Karatu', meals: 'Vollpension', insiderFact: 'Der Ngorongoro ist einer der wenigen Orte in Tansania, an denen Spitzmaulnashörner zuverlässig an einem einzigen Game Drive gesehen werden können.', accommodationByTier: { trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] }, sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] } } },
       { day: 5, title: 'Karatu nach Sansibar', description: 'Ein entspannter Vormittag in der Lodge, mit Zeit für einen Spaziergang durch eine Kaffeeplantage, falls gewünscht, gefolgt von einem frühen Mittagessen und Ihrem privaten Transfer nach Sansibar. Unser lokaler Guide empfängt Sie bei der Ankunft und begleitet Sie zum Nungwi-Strand.', accommodation: 'Resort in Nungwi', meals: 'Frühstück & Mittagessen', accommodationByTier: { trail: { name: 'Nungwi Dreams By Mantis', image: '/images/lodges/nungwi-dreams-by-mantis.webp', amenities: ['pool', 'view', 'restaurant', 'wifi'] }, sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'view', 'all-inclusive'] } } },
       { day: 6, title: 'Nungwi-Strand, Sansibar', description: 'Der erste von drei entspannten Tagen am weißen Sand Sansibars — frei für Tauchen, eine Sonnenuntergangsfahrt mit dem Dhau-Boot, einen Besuch in Stone Town, oder einfach den Strand.', accommodation: 'Resort in Nungwi', meals: 'Je nach Stufe', accommodationByTier: { trail: { name: 'Nungwi Dreams By Mantis', image: '/images/lodges/nungwi-dreams-by-mantis.webp', amenities: ['pool', 'view', 'restaurant', 'wifi'] }, sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'view', 'all-inclusive'] } } },
       { day: 7, title: 'Nungwi-Strand, Sansibar', description: 'Ein vollständig freier Tag am Strand — Tauchen, Schnorcheln, oder einfach gar nichts tun.', accommodation: 'Resort in Nungwi', meals: 'Je nach Stufe', accommodationByTier: { trail: { name: 'Nungwi Dreams By Mantis', image: '/images/lodges/nungwi-dreams-by-mantis.webp', amenities: ['pool', 'view', 'restaurant', 'wifi'] }, sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'view', 'all-inclusive'] } } },
@@ -4731,15 +4731,15 @@ export const packages: SafariPackage[] = [
       { q: 'Ist dies eine private oder gemeinsame Safari?', a: 'Ihr Guide und Fahrzeug sind während der gesamten Reise privat für Ihre Gruppe, mit Ausnahme gemeinsamer Game Drives in ausgewählten Wilderness-Sovereign-Unterkünften, die zum Game-Package-Tarif arbeiten.' },
     ],
     itinerary: [
-      { day: 1, title: 'Arusha', description: 'Ankunft und Transfer nach Arusha für eine Übernachtung vor Beginn Ihrer Safari.', accommodation: 'Lodge in Arusha', meals: 'Übernachtung mit Frühstück', accommodationByTier: { trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] }, sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] } } },
-      { day: 2, title: 'Freier Tag, Arusha', description: 'Ein freier Tag in Arusha, um sich einzuleben, bevor es in die Parks geht.', accommodation: 'Lodge in Arusha', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] }, sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] } } },
-      { day: 3, title: 'Tarangire-Nationalpark', description: 'Ein geführter Game Drive durch Tarangire, auf der Suche nach den größten Elefantenherden Tansanias unter uralten Baobabs.', accommodation: 'Lodge in Tarangire', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Conserve Safari Tarangire', image: '/images/lodges/zuri-kilima-siri.webp', amenities: ['restaurant', 'wifi'] }, sovereign: { name: 'Tarangire Treetops', image: '/images/lodges/tarangire-treetops.webp', amenities: ['pool', 'view', 'wildlife-view'] } } },
-      { day: 4, title: 'Fußsafari in Tarangire, Manyara-See und Karatu', description: 'Eine morgendliche Fußsafari in Tarangire, dann weiter zum Manyara-See, bevor es nach Karatu für die Nacht geht.', accommodation: 'Lodge in Karatu', meals: 'Vollpension', insiderFact: 'Tarangire ist einer der wenigen Parks in Tansania, in denen geführte Fußsafaris erlaubt sind — eine seltene Gelegenheit, Wildtiere zu Fuß mit einem bewaffneten Ranger zu verfolgen.', accommodationByTier: { trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] }, sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] } } },
-      { day: 5, title: 'Ngorongoro-Krater', description: 'Ein ganztägiger geführter Abstieg in den Ngorongoro-Krater, auf der Suche nach den Big Five in der größten intakten Vulkancaldera der Welt.', accommodation: 'Lodge in Karatu', meals: 'Vollpension', insiderFact: 'Der Ngorongoro ist einer der wenigen Orte in Tansania, an denen Spitzmaulnashörner zuverlässig an einem einzigen Game Drive gesehen werden können.', accommodationByTier: { trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] }, sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] } } },
+      { day: 1, title: 'Arusha', description: 'Ankunft und Transfer nach Arusha für eine Übernachtung vor Beginn Ihrer Safari.', accommodation: 'Lodge in Arusha', meals: 'Übernachtung mit Frühstück', accommodationByTier: { trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] }, sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] } } },
+      { day: 2, title: 'Freier Tag, Arusha', description: 'Ein freier Tag in Arusha, um sich einzuleben, bevor es in die Parks geht.', accommodation: 'Lodge in Arusha', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] }, sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] } } },
+      { day: 3, title: 'Tarangire-Nationalpark', description: 'Ein geführter Game Drive durch Tarangire, auf der Suche nach den größten Elefantenherden Tansanias unter uralten Baobabs.', accommodation: 'Lodge in Tarangire', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Conserve Safari Tarangire', image: '/images/lodges/conserve-safari-tarangire.webp', amenities: ['restaurant', 'wifi'] }, sovereign: { name: 'Tarangire Treetops', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['pool', 'view', 'wildlife-view'] } } },
+      { day: 4, title: 'Fußsafari in Tarangire, Manyara-See und Karatu', description: 'Eine morgendliche Fußsafari in Tarangire, dann weiter zum Manyara-See, bevor es nach Karatu für die Nacht geht.', accommodation: 'Lodge in Karatu', meals: 'Vollpension', insiderFact: 'Tarangire ist einer der wenigen Parks in Tansania, in denen geführte Fußsafaris erlaubt sind — eine seltene Gelegenheit, Wildtiere zu Fuß mit einem bewaffneten Ranger zu verfolgen.', accommodationByTier: { trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] }, sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] } } },
+      { day: 5, title: 'Ngorongoro-Krater', description: 'Ein ganztägiger geführter Abstieg in den Ngorongoro-Krater, auf der Suche nach den Big Five in der größten intakten Vulkancaldera der Welt.', accommodation: 'Lodge in Karatu', meals: 'Vollpension', insiderFact: 'Der Ngorongoro ist einer der wenigen Orte in Tansania, an denen Spitzmaulnashörner zuverlässig an einem einzigen Game Drive gesehen werden können.', accommodationByTier: { trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] }, sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] } } },
       { day: 6, title: 'Ngorongoro zum Zentral-Serengeti (über die Olduvai-Schlucht)', description: 'Durchfahrt durch das Ngorongoro-Schutzgebiet mit einem Halt an der Olduvai-Schlucht — oft als Wiege der Menschheit bezeichnet — bevor es weiter zum Zentral-Serengeti geht.', accommodation: 'Zeltcamp im Serengeti', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Kubu Kubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant', 'wifi'] }, sovereign: { name: 'Serengeti Explorer', image: '/images/lodges/serengeti-explorer.webp', amenities: ['pool', 'view', 'spa'] } } },
-      { day: 7, title: 'Zentral-Serengeti zum nördlichen Serengeti / Mara-Fluss', description: 'Fahrt nach Norden zum Mara-Fluss, hinein in das bevorzugte Überquerungsgebiet des Serengeti.', accommodation: 'Camp am Mara-Fluss', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] }, sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] } } },
-      { day: 8, title: 'Mara-Flussüberquerung, Ganzer Tag', description: 'Ein ganzer Tag, positioniert, um die Flussüberquerungen der Großen Migration zu verfolgen.', accommodation: 'Camp am Mara-Fluss', meals: 'Vollpension', insiderFact: 'Flussüberquerungen sind keine geplanten Ereignisse — Herden können sich stundenlang am Ufer sammeln, bevor sie sich entscheiden. Ihr Guide liest das Herdenverhalten, um Sie rechtzeitig zu positionieren.', accommodationByTier: { trail: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] }, sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] } } },
-      { day: 9, title: 'Mara-Flussüberquerung, Ganzer Tag', description: 'Ein zweiter ganzer Tag im selben Gebiet — Flussüberquerungen folgen keinem Zeitplan, sodass dieser zusätzliche Tag Ihre Chancen, eine zu erleben, deutlich verbessert.', accommodation: 'Camp am Mara-Fluss', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] }, sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] } } },
+      { day: 7, title: 'Zentral-Serengeti zum nördlichen Serengeti / Mara-Fluss', description: 'Fahrt nach Norden zum Mara-Fluss, hinein in das bevorzugte Überquerungsgebiet des Serengeti.', accommodation: 'Camp am Mara-Fluss', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] }, sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] } } },
+      { day: 8, title: 'Mara-Flussüberquerung, Ganzer Tag', description: 'Ein ganzer Tag, positioniert, um die Flussüberquerungen der Großen Migration zu verfolgen.', accommodation: 'Camp am Mara-Fluss', meals: 'Vollpension', insiderFact: 'Flussüberquerungen sind keine geplanten Ereignisse — Herden können sich stundenlang am Ufer sammeln, bevor sie sich entscheiden. Ihr Guide liest das Herdenverhalten, um Sie rechtzeitig zu positionieren.', accommodationByTier: { trail: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] }, sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] } } },
+      { day: 9, title: 'Mara-Flussüberquerung, Ganzer Tag', description: 'Ein zweiter ganzer Tag im selben Gebiet — Flussüberquerungen folgen keinem Zeitplan, sodass dieser zusätzliche Tag Ihre Chancen, eine zu erleben, deutlich verbessert.', accommodation: 'Camp am Mara-Fluss', meals: 'Vollpension', accommodationByTier: { trail: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] }, sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] } } },
       { day: 10, title: 'Abreise', description: 'Transfer zur Kogatende-Landebahn für Ihren Rückflug.', accommodation: 'N/A', meals: 'Frühstück' },
     ],
   },
@@ -5027,8 +5027,8 @@ export const packages: SafariPackage[] = [
         meals: 'Alle Mahlzeiten',
         insiderFact: "Gegenlicht-Staub ist einer der charakteristischen Looks Tarangires — am späten Nachmittag in Richtung Sonne statt von ihr weg zu fotografieren, liefert oft die besten Aufnahmen.",
         accommodationByTier: {
-          reserve: { name: 'Burunge Tented Lodge', image: '/images/lodges/zuri-kilima-siri.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
-          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
+          reserve: { name: 'Burunge Tented Lodge', image: '/images/lodges/burunge-tented-lodge.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
+          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
         },
       },
       {
@@ -5040,8 +5040,8 @@ export const packages: SafariPackage[] = [
         meals: 'Alle Mahlzeiten',
         insiderFact: "Einige der Affenbrotbäume Tarangires sind weit über tausend Jahre alt — eine Weitwinkelaufnahme, die die gesamte Silhouette des Baumes vor offenem Himmel zeigt, lohnt sich.",
         accommodationByTier: {
-          reserve: { name: 'Burunge Tented Lodge', image: '/images/lodges/zuri-kilima-siri.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
-          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
+          reserve: { name: 'Burunge Tented Lodge', image: '/images/lodges/burunge-tented-lodge.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
+          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
         },
       },
       {
@@ -5105,7 +5105,7 @@ export const packages: SafariPackage[] = [
         meals: 'Alle Mahlzeiten',
         insiderFact: 'Eine angespannte, dicht zusammengedrängte Herde am Flussufer ist meist das beste Zeichen dafür, dass eine Überquerung bevorstehen könnte — Ihr Guide liest die Körpersprache der Herde, bevor er das Fahrzeug positioniert.',
         accommodationByTier: {
-          reserve: { name: 'Mara Under Canvas', image: '/images/gallery/mara1.jpg', amenities: ['wildlife-view', 'view'] },
+          reserve: { name: 'Mara Under Canvas', image: '/images/lodges/mara-under-canvas.webp', amenities: ['wildlife-view', 'view'] },
           sovereign: { name: 'Siringit Migration Camp, Kogatende', image: '/images/lodges/siringit-migration-camp-ndutu-site.webp', amenities: ['ensuite', 'view', 'wildlife-view'] },
         },
       },
@@ -5118,7 +5118,7 @@ export const packages: SafariPackage[] = [
         meals: 'Alle Mahlzeiten',
         insiderFact: 'Weite Landschaftsaufnahmen der offenen Ebenen werden beim Jagen nach Action leicht übersehen — es lohnt sich, bewusst ein paar Aufnahmen für die schiere Weite der Landschaft selbst einzuplanen.',
         accommodationByTier: {
-          reserve: { name: 'Mara Under Canvas', image: '/images/gallery/mara1.jpg', amenities: ['wildlife-view', 'view'] },
+          reserve: { name: 'Mara Under Canvas', image: '/images/lodges/mara-under-canvas.webp', amenities: ['wildlife-view', 'view'] },
           sovereign: { name: 'Siringit Migration Camp, Kogatende', image: '/images/lodges/siringit-migration-camp-ndutu-site.webp', amenities: ['ensuite', 'view', 'wildlife-view'] },
         },
       },

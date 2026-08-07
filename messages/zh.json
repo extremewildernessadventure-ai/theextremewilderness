@@ -1307,7 +1307,8 @@
     "rwanda": "卢旺达",
     "tanzaniaDesc": "塞伦盖蒂 · 恩戈罗恩戈罗 · 桑给巴尔",
     "kenyaDesc": "马赛马拉 · 安博塞利 · 察沃",
-    "rwandaDesc": "火山国家公园 · 大猩猩徒步"
+    "rwandaDesc": "火山国家公园 · 大猩猩徒步",
+    "accommodations": "住宿"
   },
   "footer": {
     "tagline": "旷野呼唤你回家的地方。生于坦桑尼亚、本地经营，自2022年起打造定制游猎。",
@@ -1330,7 +1331,7 @@
     "safariMachame": "乞力马扎罗马查梅路线",
     "safariSouthern": "南方环线",
     "companyAbout": "关于我们",
-    "companyWhyUs": "为什么选择我们",
+    "companyWhyUs": "关于我们",
     "companyGuides": "我们的向导",
     "companyBlog": "博客",
     "companyTrade": "贸易合作伙伴",
@@ -1342,7 +1343,8 @@
     "trustBigFive": "五大兽目击",
     "trustQuote": "没有什么能让我们为大迁徙的宏大规模做好心理准备。EWA的表现超乎言语。",
     "trustQuoteAuthor": "— Sarah & Michael T.，英国",
-    "companyFaq": "常见问题"
+    "companyFaq": "常见问题",
+    "companyAccommodations": "住宿"
   },
   "common": {
     "bookNow": "立即预订",
@@ -2351,7 +2353,8 @@
     "experiences": "体验",
     "about": "关于我们",
     "followUs": "关注我们",
-    "blog": "博客"
+    "blog": "博客",
+    "accommodations": "住宿"
   },
   "blog": {
     "metaTitle": "游猎博客 | 坦桑尼亚与东非旅行指南",
@@ -3112,13 +3115,13 @@
     "heroBullet4": "小团出行。绝不妥协。",
     "startPlanningButton": "开始规划我的行程",
     "browseItinerariesButton": "浏览行程",
-    "stat1Value": "200+",
+    "stat1Value": "50+",
     "stat1Label": "已完成游猎",
     "stat2Value": "5+",
     "stat2Label": "年东非经验",
     "stat3Value": "98%",
     "stat3Label": "客人满意度",
-    "stat4Value": "6",
+    "stat4Value": "3",
     "stat4Label": "覆盖国家",
     "signatureEditionsEyebrow": "签名系列",
     "signatureEditionsHeading": "我们的旗舰旅程",
@@ -3927,5 +3930,41 @@
     "sidebarAboutEwaHeading": "想认识我们的团队吗？",
     "sidebarAboutEwaBody": "了解EWA Safari Outfitters背后的团队，或直接与我们联系。",
     "sidebarAboutEwaButton": "联系我们"
+  },
+  "accommodationsHub": {
+    "metaTitle": "住宿精选合集",
+    "metaDescription": "EWA Safari Outfitters行程中实际使用的每一家旅馆与营地,尽在这里——真实的房间、真实的场景,让您在抵达之前就能提前了解。",
+    "metaKeywords": ["坦桑尼亚野生动物园旅馆", "豪华野生动物园营地", "塞伦盖蒂旅馆", "恩戈罗恩戈罗火山口旅馆", "塔兰吉雷营地", "桑给巴尔海滩酒店", "帐篷式野生动物园营地", "非洲最佳野生动物园住宿", "精品野生动物园旅馆", "马赛马拉营地"],
+    "ogDescription": "按等级浏览EWA Safari Outfitters真正使用的每一家旅馆与营地——Wilderness Trail、Reserve与Sovereign。",
+    "ogImageAlt": "俯瞰坦桑尼亚灌木丛的游猎旅馆露台",
+    "twitterTitle": "住宿精选合集",
+    "breadcrumbLabel": "住宿",
+    "exploreCollection": "浏览住宿系列",
+    "heroEyebrow": "您将下榻之处",
+    "heroTitle": "住宿精选合集",
+    "heroSubtitle": "我们行程中实际使用的每一家旅馆与营地,尽在这里——真实的房间、真实的场景,让您在抵达之前就能提前了解。",
+    "heroImageAlt": "塞伦盖蒂野生动物园旅馆的客房别墅，配有可俯瞰平原的私人无边泳池",
+    "statAccommodations": "住宿数量",
+    "statTiers": "等级",
+    "statParks": "公园与地区",
+    "statPhotos": "真实实拍照片",
+    "sectionEyebrow": "按等级浏览",
+    "sectionTitle": "在荒野中找到属于您的家",
+    "sectionSubtitle": "以下每一处住宿目前都至少出现在一条EWA Safari Outfitters行程中。选择一个等级,点开任意卡片即可查看完整图库。",
+    "tierTrailIntro": "地理位置出色、管理良好的营地与旅馆——舒适、价格公道,向导品质绝不打折扣。",
+    "tierReserveIntro": "位于野生动物核心区域的高端营地,服务更周到,地域特色更鲜明。",
+    "tierSovereignIntro": "我们最出色的私人营地与旅馆——卓越的客房、卓越的环境,全程为您量身定制。",
+    "viewGallery": "查看图库",
+    "photosCount": "{count, plural, other {#张照片}}",
+    "photosComingSoon": "照片即将上线",
+    "closeCard": "关闭",
+    "featuredInLabel": "出现在以下行程中",
+    "enquireButton": "咨询这处住宿",
+    "newsletterEyebrow": "保持灵感",
+    "newsletterHeading": "The Wilderness Edit",
+    "newsletterText": "每月获取新增旅馆信息、季节性营地开放消息，以及我们团队诚实的住宿推荐。",
+    "leadBandHeading": "不确定哪种住宿适合您的行程?",
+    "leadBandSubtitle": "告诉EWA Safari Outfitters您的旅行风格与预算,我们将围绕真正适合您的住宿,为您量身规划行程方案。",
+    "leadBandButton": "定制我的游猎行程"
   }
 }

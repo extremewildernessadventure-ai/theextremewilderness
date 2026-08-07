@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { routing } from '@/i18n/routing'
+import type { Accommodation } from '@/data/accommodations'
 
 export const SITE_URL = 'https://www.theextremewilderness.com'
 
@@ -74,6 +75,36 @@ export function buildFaqSchema(items: { q: string; a: string }[]) {
       '@type': 'Question',
       name: item.q,
       acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  }
+}
+
+/**
+ * Builds schema.org ItemList JSON-LD wrapping every accommodation as a
+ * LodgingBusiness entity, from the same (already-localized) accommodations
+ * array the /accommodations page already renders cards from — reused
+ * instead of recomputed, so the two never drift apart. Mirrors
+ * buildBreadcrumbSchema/buildFaqSchema's single-shared-helper convention.
+ *
+ * Each item's `url` points at the page's own #<slug> anchor (bare slug —
+ * matches AccommodationsExplorer's DOM ids and AmenityStay's internal
+ * links) since there is no standalone per-lodge route.
+ */
+export function buildAccommodationsListSchema(locale: string, accommodations: Accommodation[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: accommodations.map((a, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'LodgingBusiness',
+        name: a.name,
+        description: a.description,
+        image: a.images[0] ? `${SITE_URL}${a.images[0]}` : undefined,
+        url: localeUrl(locale, `/accommodations#${a.slug}`),
+        address: { '@type': 'PostalAddress', addressLocality: a.location },
+      },
     })),
   }
 }

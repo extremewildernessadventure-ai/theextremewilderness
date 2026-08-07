@@ -47,6 +47,12 @@ export default async function ExperiencesPage({ params }: Props) {
   const t = await getTranslations('experiences')
 
   const experienceTypeIcons = ['🦁', '🦓', '🐵', '🦍', '🏔️', '🌊', '📷', '🚶', '💎', '👨‍👩‍👧', '🌍', '🎈', '💍', '🏺', '✈️', '🦜']
+  const stats = [
+    { value: '50+', label: t('stat1Label') },
+    { value: '5+', label: t('stat2Label') },
+    { value: '20+', label: t('stat3Label') },
+    { value: '98%', label: t('stat4Label') },
+  ]
   const steps = [
     { step: '01', title: t('step1Title'), desc: t('step1Desc') },
     { step: '02', title: t('step2Title'), desc: t('step2Desc') },
@@ -98,6 +104,20 @@ export default async function ExperiencesPage({ params }: Props) {
         </div>
       </section>
 
+      {/* ── STAT STRIP ───────────────────────────────────────────────────── */}
+      <section className="bg-brand py-8 border-t border-white/10">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            {stats.map(({ value, label }) => (
+              <div key={label} className="flex flex-col items-center gap-1">
+                <span className="text-gold text-3xl lg:text-4xl font-bold">{value}</span>
+                <span className="text-white/60 text-xs uppercase tracking-wider">{label}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
       {/* ── INTRO ────────────────────────────────────────────────────────── */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,19 +136,6 @@ export default async function ExperiencesPage({ params }: Props) {
               <p className="text-text-muted leading-relaxed mb-8">
                 {t('introParagraph2Full')}
               </p>
-              <div className="flex flex-wrap gap-8">
-                {[
-                  { n: '200+', l: t('stat1Label') },
-                  { n: '5+', l: t('stat2Label') },
-                  { n: '20+', l: t('stat3Label') },
-                  { n: '98%', l: t('stat4Label') },
-                ].map(({ n, l }) => (
-                  <div key={l}>
-                    <div className="text-2xl font-bold text-brand">{n}</div>
-                    <div className="text-xs text-text-muted mt-0.5">{l}</div>
-                  </div>
-                ))}
-              </div>
             </Reveal>
 
             {/* Mosaic photos */}

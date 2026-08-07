@@ -91,20 +91,18 @@ export default async function TradePartnersPage({ params }: Props) {
         />
         <div className={styles.heroScrim} />
         <svg className={styles.horizon} viewBox="0 0 1200 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,160 C150,120 250,150 340,130 C400,118 430,95 470,100 C510,105 520,140 560,140 C610,140 630,90 660,90 C690,90 700,130 740,132 C820,136 900,110 980,120 C1060,130 1120,150 1200,140 L1200,200 L0,200 Z" fill="#1B1F15" opacity="0.9" />
-          <line x1="470" y1="100" x2="470" y2="60" stroke="#C9A54B" strokeWidth="1" opacity="0.4" />
-          <line x1="480" y1="70" x2="470" y2="60" stroke="#C9A54B" strokeWidth="1" opacity="0.4" />
-          <line x1="460" y1="80" x2="470" y2="60" stroke="#C9A54B" strokeWidth="1" opacity="0.4" />
+          <path d="M0,160 C150,120 250,150 340,130 C400,118 430,95 470,100 C510,105 520,140 560,140 C610,140 630,90 660,90 C690,90 700,130 740,132 C820,136 900,110 980,120 C1060,130 1120,150 1200,140 L1200,200 L0,200 Z" fill="#1C3A2A" opacity="0.9" />
+          <line x1="470" y1="100" x2="470" y2="60" stroke="#D4A853" strokeWidth="1" opacity="0.4" />
+          <line x1="480" y1="70" x2="470" y2="60" stroke="#D4A853" strokeWidth="1" opacity="0.4" />
+          <line x1="460" y1="80" x2="470" y2="60" stroke="#D4A853" strokeWidth="1" opacity="0.4" />
         </svg>
         <div className={`${styles.wrap} ${styles.heroInner}`}>
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
             { label: t('breadcrumbLabel') },
           ]} />
-          <div className={styles.emblem}>EWA</div>
           <span className={`${styles.eyebrow} ${styles.onDark}`}>{t('heroEyebrow')}</span>
           <h1>{t('heroTitle')}</h1>
-          <p className={styles.sub}>{t('heroSub')}</p>
           <p className={styles.lede}>{t('heroLede')}</p>
           <div className={styles.heroCtas}>
             <a href="#enquiry" className={`${styles.btn} ${styles.solid}`}>{t('heroCtaPrimary')}</a>
@@ -269,7 +267,7 @@ export default async function TradePartnersPage({ params }: Props) {
       <hr className={styles.divider} />
 
       {/* Enquiry */}
-      <section id="enquiry" className={`${styles.section} ${styles.dark}`}>
+      <section id="enquiry" className={`${styles.section} ${styles.dark} ${styles.enquirySection}`}>
         <div className={styles.wrap}>
           <div className={styles.enquiryPanel}>
             <Reveal className={styles.enquiryIntro}>

@@ -1307,7 +1307,8 @@
     "rwanda": "Rwanda",
     "tanzaniaDesc": "Serengeti · Ngorongoro · Zanzibar",
     "kenyaDesc": "Masai Mara · Amboseli · Tsavo",
-    "rwandaDesc": "Parc des Volcans · Trekking gorilles"
+    "rwandaDesc": "Parc des Volcans · Trekking gorilles",
+    "accommodations": "Hébergements"
   },
   "footer": {
     "tagline": "Là où la nature vous appelle chez vous. Fondée en Tanzanie, propriété locale, créant des safaris sur mesure depuis 2022.",
@@ -1330,7 +1331,7 @@
     "safariMachame": "Kilimandjaro Route Machame",
     "safariSouthern": "Circuit Sud",
     "companyAbout": "Qui sommes-nous",
-    "companyWhyUs": "Pourquoi nous choisir",
+    "companyWhyUs": "À propos de nous",
     "companyGuides": "Nos guides",
     "companyBlog": "Blog",
     "companyTrade": "Partenaires Commerciaux",
@@ -1342,7 +1343,8 @@
     "trustBigFive": "observations du Big Five",
     "trustQuote": "Rien n'aurait pu nous préparer à l'ampleur de la migration. EWA a dépassé toutes nos attentes.",
     "trustQuoteAuthor": "— Sarah & Michael T., Royaume-Uni",
-    "companyFaq": "FAQ"
+    "companyFaq": "FAQ",
+    "companyAccommodations": "Hébergements"
   },
   "common": {
     "bookNow": "Réserver",
@@ -2351,7 +2353,8 @@
     "experiences": "Expériences",
     "about": "À propos",
     "followUs": "Suivez-nous",
-    "blog": "Blog"
+    "blog": "Blog",
+    "accommodations": "Hébergements"
   },
   "blog": {
     "metaTitle": "Blog Safari | Guides de Voyage Tanzanie et Afrique de l'Est",
@@ -3112,13 +3115,13 @@
     "heroBullet4": "Petits groupes. Sans compromis.",
     "startPlanningButton": "Commencer à planifier mon voyage",
     "browseItinerariesButton": "Parcourir les itinéraires",
-    "stat1Value": "200+",
+    "stat1Value": "50+",
     "stat1Label": "Safaris réalisés",
     "stat2Value": "5+",
     "stat2Label": "Années en Afrique de l'Est",
     "stat3Value": "98%",
     "stat3Label": "Satisfaction des voyageurs",
-    "stat4Value": "6",
+    "stat4Value": "3",
     "stat4Label": "Pays couverts",
     "signatureEditionsEyebrow": "Éditions Signature",
     "signatureEditionsHeading": "Nos Voyages Phares",
@@ -3927,5 +3930,41 @@
     "sidebarAboutEwaHeading": "Envie de rencontrer notre équipe ?",
     "sidebarAboutEwaBody": "Découvrez qui se cache derrière EWA Safari Outfitters, ou contactez-nous directement.",
     "sidebarAboutEwaButton": "Nous contacter"
+  },
+  "accommodationsHub": {
+    "metaTitle": "La Collection d'Hébergements",
+    "metaDescription": "Tous les lodges et camps utilisés dans les itinéraires d'EWA Safari Outfitters, réunis en un seul endroit — les vraies chambres, les vrais lieux, avant même votre arrivée.",
+    "metaKeywords": ["lodges de safari Tanzanie", "camps de safari de luxe", "lodges du Serengeti", "lodges du cratère du Ngorongoro", "camps de Tarangire", "hôtels de plage à Zanzibar", "camps de safari sous tente", "meilleur hébergement de safari en Afrique", "lodges de safari boutique", "camps du Masai Mara"],
+    "ogDescription": "Découvrez tous les lodges et camps réellement utilisés par EWA Safari Outfitters, par gamme — Wilderness Trail, Reserve et Sovereign.",
+    "ogImageAlt": "Terrasse d'un lodge de safari surplombant la brousse tanzanienne",
+    "twitterTitle": "La Collection d'Hébergements",
+    "breadcrumbLabel": "Hébergements",
+    "exploreCollection": "Explorer la collection",
+    "heroEyebrow": "Où vous séjournerez",
+    "heroTitle": "La Collection d'Hébergements",
+    "heroSubtitle": "Tous les lodges et camps utilisés dans nos itinéraires, réunis en un seul endroit — les vraies chambres, les vrais lieux, avant même votre arrivée.",
+    "heroImageAlt": "Villa d'hôtes avec piscine à débordement privée surplombant la plaine dans un lodge de safari du Serengeti",
+    "statAccommodations": "Hébergements",
+    "statTiers": "Gammes",
+    "statParks": "Parcs et régions",
+    "statPhotos": "Photos réelles",
+    "sectionEyebrow": "Parcourir par gamme",
+    "sectionTitle": "Trouvez votre refuge dans la nature sauvage",
+    "sectionSubtitle": "Chaque propriété ci-dessous figure actuellement dans au moins un itinéraire d'EWA Safari Outfitters. Choisissez une gamme, puis ouvrez une fiche pour voir la galerie complète.",
+    "tierTrailIntro": "Des camps et lodges bien tenus, dans d'excellents emplacements — confortables, à prix justes, sans compromis sur le guidage.",
+    "tierReserveIntro": "Des camps haut de gamme dans des zones fauniques privilégiées, avec un service élevé et un fort sentiment de lieu.",
+    "tierSovereignIntro": "Nos plus beaux camps et lodges privés — des chambres exceptionnelles, des cadres exceptionnels, entièrement sur mesure.",
+    "viewGallery": "Voir la galerie",
+    "photosCount": "{count, plural, one {# photo} other {# photos}}",
+    "photosComingSoon": "Photos à venir",
+    "closeCard": "Fermer",
+    "featuredInLabel": "Proposé dans ces itinéraires",
+    "enquireButton": "Demander ce séjour",
+    "newsletterEyebrow": "Restez inspiré",
+    "newsletterHeading": "The Wilderness Edit",
+    "newsletterText": "Recevez les nouveaux lodges ajoutés, les ouvertures de camps saisonnières et des recommandations sincères de notre équipe — chaque mois.",
+    "leadBandHeading": "Pas sûr du séjour qui convient à votre voyage ?",
+    "leadBandSubtitle": "Indiquez à EWA Safari Outfitters votre style de voyage et votre budget, et obtenez des options d’itinéraire construites autour des hébergements qui vous conviennent.",
+    "leadBandButton": "Créer mon safari"
   }
 }

@@ -288,23 +288,27 @@ export default async function TrekkingPage({ params }: Props) {
         </div>
       </section>
 
+      {/* ── STAT STRIP ───────────────────────────────────────────────────── */}
+      <section className="bg-brand py-8 border-t border-white/10">
+        <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-3 gap-6 text-center">
+            {[
+              { value: t('stat1Value'), label: t('stat1Label') },
+              { value: t('stat2Value'), label: t('stat2Label') },
+              { value: t('stat3Value'), label: t('stat3Label') },
+            ].map(({ value, label }) => (
+              <div key={label} className="flex flex-col items-center gap-1">
+                <span className="text-gold text-2xl lg:text-4xl font-bold">{value}</span>
+                <span className="text-white/60 text-xs uppercase tracking-wider">{label}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
       {/* Why Kilimanjaro */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-12">
-            {[
-              { value: t('stat1Value'), label: t('stat1Label'), sub: t('stat1Sub') },
-              { value: t('stat2Value'), label: t('stat2Label'), sub: t('stat2Sub') },
-              { value: t('stat3Value'), label: t('stat3Label'), sub: t('stat3Sub') },
-            ].map(({ value, label, sub }) => (
-              <RevealItem key={label} className="p-6 bg-light-green rounded-2xl">
-                <div className="text-3xl font-bold text-brand mb-1">{value}</div>
-                <div className="font-medium text-brand text-sm">{label}</div>
-                <div className="text-text-muted text-xs">{sub}</div>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-
           <Reveal className="mb-8">
             <h2 className="text-2xl font-semibold text-brand">{t('chooseRouteHeading')}</h2>
           </Reveal>

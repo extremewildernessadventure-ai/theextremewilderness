@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { Wifi, Waves, Sparkles, UtensilsCrossed, Trees, Mountain, Bath, Leaf, Binoculars, BadgeCheck } from 'lucide-react'
 import type { TierStay } from '@/data/packages'
+import { Link } from '@/i18n/navigation'
+import { LODGE_NAME_TO_SLUG } from '@/data/accommodationSlugs'
 
 const AMENITY_ICONS: Record<string, typeof Wifi> = {
   wifi: Wifi,
@@ -16,8 +18,10 @@ const AMENITY_ICONS: Record<string, typeof Wifi> = {
 }
 
 export default function AmenityStay({ label, stay }: { label: string; stay: TierStay }) {
-  return (
-    <div className="rounded-xl overflow-hidden border border-gray-100 bg-white">
+  const slug = LODGE_NAME_TO_SLUG[stay.name]
+
+  const inner = (
+    <>
       <div className="relative aspect-video w-full bg-light-green">
         {stay.image.startsWith('/') ? (
           <Image src={stay.image} alt={stay.name} fill loading="lazy" className="object-cover" sizes="(max-width: 768px) 50vw, 256px" />
@@ -36,6 +40,19 @@ export default function AmenityStay({ label, stay }: { label: string; stay: Tier
           })}
         </div>
       </div>
-    </div>
+    </>
   )
+
+  if (slug) {
+    return (
+      <Link
+        href={`/accommodations#${slug}`}
+        className="block rounded-xl overflow-hidden border border-gray-100 bg-white hover:border-gold/40 hover:shadow-sm transition-all"
+      >
+        {inner}
+      </Link>
+    )
+  }
+
+  return <div className="rounded-xl overflow-hidden border border-gray-100 bg-white">{inner}</div>
 }

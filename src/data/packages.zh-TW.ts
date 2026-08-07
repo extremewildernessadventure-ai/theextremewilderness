@@ -107,7 +107,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Gran Melia, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -121,7 +121,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -133,7 +133,7 @@ export const packages: SafariPackage[] = [
         insiderFact:
           '卡拉圖就位於恩戈羅恩戈羅保護區邊界之外——是進入火山口高地前最後一段農田地帶。',
         accommodationByTier: {
-          trail: { name: 'Serengeti Katikati Camp', image: '/images/gallery/Central-Serengeti-1.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Katikati Camp', image: '/images/lodges/serengeti-katikati-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
@@ -147,7 +147,7 @@ export const packages: SafariPackage[] = [
         insiderFact:
           '塞羅內拉全年不斷的水源吸引了常駐的大型貓科動物種群，包括著名的石崗樹棲獅群。',
         accommodationByTier: {
-          trail: { name: 'Serengeti Katikati Camp', image: '/images/gallery/Central-Serengeti-1.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Katikati Camp', image: '/images/lodges/serengeti-katikati-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
@@ -162,7 +162,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -176,7 +176,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Gran Melia, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -296,7 +296,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Gran Melia, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -309,7 +309,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Tloma Lodge', image: '/images/lodges/tloma-lodge.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -320,7 +320,7 @@ export const packages: SafariPackage[] = [
         meals: '全包',
         insiderFact: '恩戈羅恩戈羅火山口是一個約260平方公里的封閉生態系統——大多數常駐動物終生都不會離開這裡。',
         accommodationByTier: {
-          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubu Kubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Four Seasons Safari Lodge Serengeti', image: '/images/lodges/four-seasons-safari-lodge-serengeti.webp', amenities: ['pool', 'spa', 'view'] },
         },
@@ -332,7 +332,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Kubu Kubu Tented Lodge',
         meals: '全包',
         accommodationByTier: {
-          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubu Kubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Four Seasons Safari Lodge Serengeti', image: '/images/lodges/four-seasons-safari-lodge-serengeti.webp', amenities: ['pool', 'spa', 'view'] },
         },
@@ -346,7 +346,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Tloma Lodge', image: '/images/lodges/tloma-lodge.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -356,7 +356,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Royal Zanzibar',
         meals: '全包',
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -370,7 +370,7 @@ export const packages: SafariPackage[] = [
         meals: '全包',
         insiderFact: '努格威位於尚吉巴的最北端，很大程度上不受東海岸低潮時困住游泳者的潮汐影響。',
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -382,7 +382,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Royal Zanzibar',
         meals: '全包',
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -394,7 +394,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Royal Zanzibar',
         meals: '全包',
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -520,7 +520,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '恩戈羅恩戈羅是非洲少數幾個能在單日獵遊巡遊中可靠觀賞黑犀牛的地方之一——約有25頭黑犀牛生活在火山口底部。',
         accommodationByTier: {
           trail: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -673,8 +673,8 @@ export const packages: SafariPackage[] = [
         accommodation: '達累斯薩拉姆，視等級而定',
         meals: '晚餐',
         accommodationByTier: {
-          reserve: { name: 'Dar es Salaam Serena Hotel', image: '/images/gallery/stone-town.webp', amenities: ['pool', 'restaurant', 'wifi'] },
-          sovereign: { name: 'Hyatt Regency Dar', image: '/images/gallery/stone-town.jpg', amenities: ['pool', 'restaurant', 'wifi'] },
+          reserve: { name: 'Dar es Salaam Serena Hotel', image: '/images/lodges/dar-es-salaam-serena-hotel.webp', amenities: ['pool', 'restaurant', 'wifi'] },
+          sovereign: { name: 'Hyatt Regency Dar', image: '/images/lodges/hyatt-regency-dar.webp', amenities: ['pool', 'restaurant', 'wifi'] },
         },
       },
       {
@@ -686,7 +686,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '尼耶雷雷（原塞盧斯禁獵區）是非洲面積最大的受保護荒野，占地54,600平方公里（21,081平方英里）——大致相當於瑞士的國土面積。',
         accommodationByTier: {
           reserve: { name: 'Rufiji River Camp', image: '/images/lodges/rufiji-river-camp.webp', amenities: ['wildlife-view', 'restaurant'] },
-          sovereign: { name: 'Serena Mivumo River Lodge', image: '/images/gallery/nyerere.webp', amenities: ['all-inclusive', 'pool', 'wildlife-view'] },
+          sovereign: { name: 'Serena Mivumo River Lodge', image: '/images/lodges/serena-mivumo-river-lodge.webp', amenities: ['all-inclusive', 'pool', 'wildlife-view'] },
         },
       },
       {
@@ -698,7 +698,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '尼耶雷雷擁有非洲現存最大的野犬種群之一，魯菲吉河沿岸的河馬數量也十分可觀。',
         accommodationByTier: {
           reserve: { name: 'Rufiji River Camp', image: '/images/lodges/rufiji-river-camp.webp', amenities: ['wildlife-view', 'restaurant'] },
-          sovereign: { name: 'Serena Mivumo River Lodge', image: '/images/gallery/nyerere.webp', amenities: ['all-inclusive', 'pool', 'wildlife-view'] },
+          sovereign: { name: 'Serena Mivumo River Lodge', image: '/images/lodges/serena-mivumo-river-lodge.webp', amenities: ['all-inclusive', 'pool', 'wildlife-view'] },
         },
       },
       {
@@ -709,8 +709,8 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         insiderFact: '魯阿哈是坦尚尼亞面積最大的國家公園，占地20,226平方公里（7,809平方英里），據估計棲息著全球現存獅子種群的10%。',
         accommodationByTier: {
-          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
-          sovereign: { name: 'Ikuka Camp', image: '/images/gallery/Ruaha-National-Park.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          sovereign: { name: 'Ikuka Camp', image: '/images/lodges/ikuka-camp.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
         },
       },
       {
@@ -721,8 +721,8 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         insiderFact: '大魯阿哈河沿岸是公園東南邊緣觀賞野生動物的核心地帶——大象與水牛常在此結成大群移動。',
         accommodationByTier: {
-          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
-          sovereign: { name: 'Ikuka Camp', image: '/images/gallery/Ruaha-National-Park.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          sovereign: { name: 'Ikuka Camp', image: '/images/lodges/ikuka-camp.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
         },
       },
       {
@@ -733,8 +733,8 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         insiderFact: '魯阿哈也是坦尚尼亞境內觀賞黑馬羚與馬羚機率最高的地區之一。',
         accommodationByTier: {
-          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
-          sovereign: { name: 'Ikuka Camp', image: '/images/gallery/Ruaha-National-Park.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          sovereign: { name: 'Ikuka Camp', image: '/images/lodges/ikuka-camp.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
         },
       },
       {
@@ -824,8 +824,8 @@ export const packages: SafariPackage[] = [
         accommodation: '塞倫蓋蒂中部，視等級而定',
         meals: '午餐、晚餐',
         accommodationByTier: {
-          trail: { name: 'Serengeti Katikati Camp', image: '/images/gallery/Central-Serengeti-1.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
-          reserve: { name: 'Lahia Tented Lodge', image: '/images/gallery/serengeti.webp', amenities: ['view', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Katikati Camp', image: '/images/lodges/serengeti-katikati-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Lahia Tented Lodge', image: '/images/lodges/lahia-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
       },
@@ -836,8 +836,8 @@ export const packages: SafariPackage[] = [
         accommodation: '塞倫蓋蒂中部，視等級而定',
         meals: '所有餐食',
         accommodationByTier: {
-          trail: { name: 'Serengeti Katikati Camp', image: '/images/gallery/Central-Serengeti-1.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
-          reserve: { name: 'Lahia Tented Lodge', image: '/images/gallery/serengeti.webp', amenities: ['view', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Katikati Camp', image: '/images/lodges/serengeti-katikati-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Lahia Tented Lodge', image: '/images/lodges/lahia-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
       },
@@ -848,7 +848,7 @@ export const packages: SafariPackage[] = [
         accommodation: '恩戈羅恩戈羅地區，視等級而定',
         meals: '所有餐食',
         accommodationByTier: {
-          trail: { name: 'Tortils Ngorongoro Camp', image: '/images/gallery/ngorongoro-crater-landscape.webp', amenities: ['restaurant', 'garden'] },
+          trail: { name: 'Tortils Ngorongoro Camp', image: '/images/lodges/tortils-ngorongoro-camp.webp', amenities: ['restaurant', 'garden'] },
           reserve: { name: 'Ngorongoro Serena Lodge', image: '/images/lodges/ngorongoro-serena-safari-lodge.webp', amenities: ['view', 'restaurant', 'ensuite'] },
           sovereign: { name: 'Melia Ngorongoro Lodge', image: '/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection.webp', amenities: ['view', 'spa', 'restaurant'] },
         },
@@ -1001,7 +1001,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '塔蘭吉雷的猴麵包樹壽命可長達千年以上，樹幹中儲存的水分足以支撐數月的乾旱——不妨請嚮導為您指出最古老的那幾棵。',
         accommodationByTier: {
           reserve: { name: 'Zuri Kilima Siri', image: '/images/lodges/zuri-kilima-siri.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
-          sovereign: { name: 'Siringiti Tarangire Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
+          sovereign: { name: 'Siringiti Tarangire Camp', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
         },
       },
       {
@@ -1013,7 +1013,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '旱季會讓野生動物緊密聚集在塔蘭吉雷河沿岸——出行時間越接近10月，象群往往越龐大。',
         accommodationByTier: {
           reserve: { name: 'Zuri Kilima Siri', image: '/images/lodges/zuri-kilima-siri.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
-          sovereign: { name: 'Siringiti Tarangire Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
+          sovereign: { name: 'Siringiti Tarangire Camp', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
         },
       },
       {
@@ -1025,7 +1025,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '卡拉圖海拔超過1,500米，明顯比下方的平原涼爽——晚上不妨多備一件外套。',
         accommodationByTier: {
           reserve: { name: 'Tloma Lodge', image: '/images/lodges/tloma-lodge.webp', amenities: ['wifi', 'restaurant', 'garden'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -1036,7 +1036,7 @@ export const packages: SafariPackage[] = [
         meals: '所有餐食',
         insiderFact: '即便在正午，火山口底部的氣溫也比邊緣低上幾度——下降時請帶一件薄外套。',
         accommodationByTier: {
-          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
       },
@@ -1048,7 +1048,7 @@ export const packages: SafariPackage[] = [
         meals: '所有餐食',
         insiderFact: '不妨向嚮導詢問遷徙目前所在的位置——塞倫蓋蒂的常駐野生動物全年都很出色，但配合獸群的時機出行，會為體驗增添完全不同的一層意義。',
         accommodationByTier: {
-          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
       },
@@ -1060,7 +1060,7 @@ export const packages: SafariPackage[] = [
         meals: '所有餐食',
         insiderFact: '日落酒停靠點通常安排在視野開闊的岩石石崗上——請在光線消失之前備好相機。',
         accommodationByTier: {
-          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          reserve: { name: 'Conserve Safari Serengeti Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           sovereign: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] },
         },
       },
@@ -1175,7 +1175,7 @@ export const packages: SafariPackage[] = [
         description: '降落於吉力馬札羅國際機場，您的獵遊嚮導會在到達大廳外等候，也正是這位嚮導將全程陪伴您整趟旅程。從這裡到阿魯沙的住宿地大約需要一小時車程。安頓下來，與嚮導會面，接受完整的獵遊簡報，然後早早休息。明天，真正的冒險就要開始。',
         accommodation: 'Arusha Hotel',
         meals: '晚餐',
-        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
         insiderFact: '阿魯沙海拔適中，氣候比前方的平原更為涼爽；晚上請準備一件薄外套。',
       },
       {
@@ -1523,7 +1523,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '阿魯沙海拔約1,400米（4,593英尺），為初來乍到的旅行者提供了進入各公園前溫和的海拔適應緩衝。',
         accommodationByTier: {
           reserve: { name: 'Gran Meliá, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -1535,7 +1535,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '阿魯沙國家公園是坦尚尼亞少數幾個全年允許嚮導陪同健行獵遊的公園之一。',
         accommodationByTier: {
           reserve: { name: 'Gran Meliá, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -1619,7 +1619,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '從塞倫蓋蒂飛往阿魯沙的叢林航班耗時不到一小時，相比之下走同一路線的陸路車程則需超過6小時。',
         accommodationByTier: {
           reserve: { name: 'Gran Meliá, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -1741,7 +1741,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '吉力馬札羅的這一側，遊客流量只是山南側標準攀登路線的一小部分。',
         accommodationByTier: {
           reserve: { name: 'Kambi ya Tembo', image: '/images/lodges/kambi-ya-tembo.webp', amenities: ['view', 'wildlife-view'] },
-          sovereign: { name: 'Africa Amini Original Maasai Lodge', image: '/images/gallery/kilimanjaro.jpg', amenities: ['view', 'cultural'] },
+          sovereign: { name: 'Africa Amini Original Maasai Lodge', image: '/images/lodges/africa-amini-original-maasai-lodge.webp', amenities: ['view', 'cultural'] },
         },
       },
       {
@@ -1754,7 +1754,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '海拔對每個人的影響各不相同——這次健行刻意按您自己的節奏進行，正是為了讓體能而非固定時刻表來決定節奏。',
         accommodationByTier: {
           reserve: { name: 'Kambi ya Tembo', image: '/images/lodges/kambi-ya-tembo.webp', amenities: ['view', 'wildlife-view'] },
-          sovereign: { name: 'Africa Amini Original Maasai Lodge', image: '/images/gallery/kilimanjaro.jpg', amenities: ['view', 'cultural'] },
+          sovereign: { name: 'Africa Amini Original Maasai Lodge', image: '/images/lodges/africa-amini-original-maasai-lodge.webp', amenities: ['view', 'cultural'] },
         },
       },
       {
@@ -1780,7 +1780,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '姆托瓦姆布在斯瓦希里語中意為"蚊子溪流"——提醒您在村莊健行時隨身攜帶驅蟲劑。',
         accommodationByTier: {
           reserve: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['wifi', 'restaurant', 'highland-garden', 'farm'] },
-          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -1793,7 +1793,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '旱季時，塔蘭吉雷的象群最為密集地聚集在河流沿岸，此時這條河是方圓數英里內少數幾個可靠的水源之一。',
         accommodationByTier: {
           reserve: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['wifi', 'restaurant', 'highland-garden', 'farm'] },
-          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -1961,7 +1961,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Gran Melia Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -1972,9 +1972,9 @@ export const packages: SafariPackage[] = [
         meals: '所有餐食',
         insiderFact: '除雨季外，塔蘭吉雷擁有非洲最高的大象密度之一，雨季時象群則沿河流集中。',
         accommodationByTier: {
-          trail: { name: 'Lake Burunge Baobab', image: '/images/gallery/tarangire-elephants-baobab.webp', amenities: ['restaurant', 'garden'] },
+          trail: { name: 'Lake Burunge Baobab', image: '/images/lodges/lake-burunge-baobab-tented-lodge.webp', amenities: ['restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -1984,9 +1984,9 @@ export const packages: SafariPackage[] = [
         accommodation: '卡拉圖，視等級而定',
         meals: '所有餐食',
         accommodationByTier: {
-          trail: { name: 'Ngorongoro Farm House', image: '/images/gallery/ngorongoro-crater-landscape.webp', amenities: ['restaurant', 'garden'] },
+          trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm Lodge", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -1997,7 +1997,7 @@ export const packages: SafariPackage[] = [
         meals: '所有餐食',
         insiderFact: '恩戈羅恩戈羅火山口是一個約260平方公里的封閉生態系統——大多數常駐動物終生都不會離開這裡，包括本地區一些最可靠的黑犀牛目擊機會。',
         accommodationByTier: {
-          trail: { name: 'Serengeti Katikati Camp', image: '/images/gallery/Central-Serengeti-1.jpg', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Katikati Camp', image: '/images/lodges/serengeti-katikati-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubu Kubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Lemala Nanyukie', image: '/images/lodges/lemala-nanyukie.webp', amenities: ['wildlife-view', 'view'] },
         },
@@ -2009,9 +2009,9 @@ export const packages: SafariPackage[] = [
         accommodation: '塞倫蓋蒂北部，視等級而定',
         meals: '所有餐食',
         accommodationByTier: {
-          trail: { name: 'Mara Katikati Tented Camp', image: '/images/gallery/mara1.webp', amenities: ['ensuite', 'wildlife-view'] },
+          trail: { name: 'Mara Katikati Tented Camp', image: '/images/lodges/mara-katikati-tented-camp.webp', amenities: ['ensuite', 'wildlife-view'] },
           reserve: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['wildlife-view', 'view'] },
-          sovereign: { name: 'Lemala Kuria Hills', image: '/images/gallery/maasai-mara.webp', amenities: ['pool', 'view', 'wildlife-view'] },
+          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'wildlife-view'] },
         },
       },
       {
@@ -2022,9 +2022,9 @@ export const packages: SafariPackage[] = [
         meals: '所有餐食',
         insiderFact: '渡河可能在任何時刻發生，且只需幾分鐘——嚮導會將車輛安置在已知的渡河點等候，有時要等上數小時，直到獸群下定決心。',
         accommodationByTier: {
-          trail: { name: 'Mara Katikati Tented Camp', image: '/images/gallery/mara1.webp', amenities: ['ensuite', 'wildlife-view'] },
+          trail: { name: 'Mara Katikati Tented Camp', image: '/images/lodges/mara-katikati-tented-camp.webp', amenities: ['ensuite', 'wildlife-view'] },
           reserve: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['wildlife-view', 'view'] },
-          sovereign: { name: 'Lemala Kuria Hills', image: '/images/gallery/maasai-mara.webp', amenities: ['pool', 'view', 'wildlife-view'] },
+          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'wildlife-view'] },
         },
       },
       {
@@ -2034,9 +2034,9 @@ export const packages: SafariPackage[] = [
         accommodation: '塞倫蓋蒂北部，視等級而定',
         meals: '所有餐食',
         accommodationByTier: {
-          trail: { name: 'Mara Katikati Tented Camp', image: '/images/gallery/mara1.webp', amenities: ['ensuite', 'wildlife-view'] },
+          trail: { name: 'Mara Katikati Tented Camp', image: '/images/lodges/mara-katikati-tented-camp.webp', amenities: ['ensuite', 'wildlife-view'] },
           reserve: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['wildlife-view', 'view'] },
-          sovereign: { name: 'Lemala Kuria Hills', image: '/images/gallery/maasai-mara.webp', amenities: ['pool', 'view', 'wildlife-view'] },
+          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'wildlife-view'] },
         },
       },
       {
@@ -2086,7 +2086,7 @@ export const packages: SafariPackage[] = [
         description: '抵達吉力馬札羅國際機場，轉送至阿魯沙飯店。與嚮導會面，在晚餐時接受全面的獵遊簡報。',
         accommodation: 'Arusha Coffee Lodge',
         meals: '晚餐',
-        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -2094,7 +2094,7 @@ export const packages: SafariPackage[] = [
         description: '在阿魯沙國家公園進行清晨獵遊巡遊——這座多樣化的公園在一片緊湊而風景優美的區域內彙集了長頸鹿、斑馬、疣猴、豹和紅鶴。下午在阿魯沙自由活動。可選加入手工藝品市場之旅。',
         accommodation: 'Arusha Coffee Lodge',
         meals: '所有餐食',
-        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 3,
@@ -2214,7 +2214,7 @@ export const packages: SafariPackage[] = [
         description: '抵達吉力馬札羅國際機場，轉送至阿魯沙飯店，休息並接受獵遊簡報。',
         accommodation: 'Arusha Hotel',
         meals: '晚餐',
-        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -2303,7 +2303,7 @@ export const packages: SafariPackage[] = [
         description: '抵達吉力馬札羅國際機場，轉送至阿魯沙飯店。晚餐時接受獵遊簡報。',
         accommodation: 'Arusha Hotel',
         meals: '晚餐',
-        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -2392,7 +2392,7 @@ export const packages: SafariPackage[] = [
         description: '抵達吉力馬札羅國際機場，轉送至阿魯沙飯店。晚餐時接受獵遊簡報。',
         accommodation: 'Arusha Hotel',
         meals: '晚餐',
-        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -2652,7 +2652,7 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         accommodationByTier: {
           trail: { name: 'Kinigi Guest House', image: '/images/lodges/kinigi-guest-house.webp', amenities: ['ensuite', 'restaurant'] },
-          reserve: { name: 'La Palme Hotel', image: 'https://lapalmehotel.net/wp-content/uploads/sites/4/2023/08/lapalme-main-v2-jpg.webp', amenities: ['wifi', 'restaurant', 'garden'] },
+          reserve: { name: 'La Palme Hotel', image: '/images/lodges/la-palme-hotel.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           sovereign: { name: 'Bisate Lodge', image: '/images/lodges/bisate-lodge.webp', amenities: ['view', 'spa', 'wildlife-view'] },
         },
       },
@@ -2666,7 +2666,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '盧安達對每個大猩猩家族的每日訪客數量設有許可證上限——在旺季務必提前預訂。',
         accommodationByTier: {
           trail: { name: 'Kinigi Guest House', image: '/images/lodges/kinigi-guest-house.webp', amenities: ['ensuite', 'restaurant'] },
-          reserve: { name: 'La Palme Hotel', image: 'https://lapalmehotel.net/wp-content/uploads/sites/4/2023/08/lapalme-main-v2-jpg.webp', amenities: ['wifi', 'restaurant', 'garden'] },
+          reserve: { name: 'La Palme Hotel', image: '/images/lodges/la-palme-hotel.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           sovereign: { name: 'Bisate Lodge', image: '/images/lodges/bisate-lodge.webp', amenities: ['view', 'spa', 'wildlife-view'] },
         },
       },
@@ -2691,7 +2691,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Gran Melia, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -2704,7 +2704,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Tloma Lodge', image: '/images/lodges/tloma-lodge.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -2718,7 +2718,7 @@ export const packages: SafariPackage[] = [
         accommodationByTier: {
           trail: { name: 'Tloma Lodge', image: '/images/lodges/tloma-lodge.webp', amenities: ['wifi', 'restaurant', 'garden'] },
           reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -2728,7 +2728,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Serengeti Tented Camp',
         meals: '全食宿',
         accommodationByTier: {
-          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Four Seasons Safari Lodge Serengeti', image: '/images/lodges/four-seasons-safari-lodge-serengeti.webp', amenities: ['pool', 'spa', 'view'] },
         },
@@ -2740,7 +2740,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Serengeti Tented Camp',
         meals: '全食宿',
         accommodationByTier: {
-          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
+          trail: { name: 'Serengeti Queens Camp', image: '/images/lodges/serengeti-queens-camp-2.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
           reserve: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['pool', 'view', 'restaurant'] },
           sovereign: { name: 'Four Seasons Safari Lodge Serengeti', image: '/images/lodges/four-seasons-safari-lodge-serengeti.webp', amenities: ['pool', 'spa', 'view'] },
         },
@@ -2752,7 +2752,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Royal Zanzibar',
         meals: '早餐、午餐',
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -2764,7 +2764,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Royal Zanzibar',
         meals: '全包',
         accommodationByTier: {
-          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house.webp', amenities: ['restaurant', 'beachfront'] },
+          trail: { name: 'Makofi Guest House', image: '/images/lodges/makofi-guest-house-5.webp', amenities: ['restaurant', 'beachfront'] },
           reserve: { name: 'Royal Zanzibar', image: '/images/lodges/royal-zanzibar.webp', amenities: ['all-inclusive', 'beachfront', 'pool'] },
           sovereign: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'beachfront'] },
         },
@@ -2980,7 +2980,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Kigali Serena',
         meals: '晚餐',
         accommodationByTier: {
-          trail: { name: 'Kigali Serena', image: '/images/gallery/kigali-city.webp', amenities: ['wifi', 'pool', 'restaurant'] },
+          trail: { name: 'Kigali Serena', image: '/images/lodges/kigali-serena.webp', amenities: ['wifi', 'pool', 'restaurant'] },
         },
       },
       {
@@ -2990,7 +2990,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Ingagi Lodge',
         meals: '所有餐食',
         accommodationByTier: {
-          trail: { name: 'Ingagi Lodge', image: '/images/gallery/rwanda-virunga-hills.webp', amenities: ['restaurant', 'garden'] },
+          trail: { name: 'Ingagi Lodge', image: '/images/lodges/ingagi-lodge.webp', amenities: ['restaurant', 'garden'] },
         },
       },
       {
@@ -3001,7 +3001,7 @@ export const packages: SafariPackage[] = [
         meals: '所有餐食',
         insiderFact: '盧安達對每個大猩猩家族的每日訪客數量設有許可證上限——在旺季務必提前預訂。',
         accommodationByTier: {
-          trail: { name: 'Ingagi Lodge', image: '/images/gallery/rwanda-virunga-hills.webp', amenities: ['restaurant', 'garden'] },
+          trail: { name: 'Ingagi Lodge', image: '/images/lodges/ingagi-lodge.webp', amenities: ['restaurant', 'garden'] },
         },
       },
       {
@@ -3107,7 +3107,7 @@ export const packages: SafariPackage[] = [
         accommodation: 'Dar es Salaam Serena Hotel',
         meals: '晚餐',
         accommodationByTier: {
-          trail: { name: 'Dar es Salaam Serena Hotel', image: '/images/gallery/stone-town.webp', amenities: ['pool', 'restaurant', 'wifi'] },
+          trail: { name: 'Dar es Salaam Serena Hotel', image: '/images/lodges/dar-es-salaam-serena-hotel.webp', amenities: ['pool', 'restaurant', 'wifi'] },
         },
       },
       {
@@ -3118,7 +3118,7 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         insiderFact: '沒有一條道路通往貢貝——每一位訪客都以延續了六十年的方式，乘船抵達。',
         accommodationByTier: {
-          trail: { name: 'Mbalimbali Gombe Tented Camp', image: '/images/gallery/gombe-stream.webp', amenities: ['wildlife-view', 'ensuite'] },
+          trail: { name: 'Mbalimbali Gombe Tented Camp', image: '/images/lodges/mbalimbali-gombe-tented-camp.webp', amenities: ['wildlife-view', 'ensuite'] },
         },
       },
       {
@@ -3129,7 +3129,7 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         insiderFact: '年輕的珍·古德爾於1960年在這同一片森林中開始了她開創性的研究——您所走的小徑，正是她最初研究所依循的那些路徑。',
         accommodationByTier: {
-          trail: { name: 'Mbalimbali Gombe Tented Camp', image: '/images/gallery/gombe-stream.webp', amenities: ['wildlife-view', 'ensuite'] },
+          trail: { name: 'Mbalimbali Gombe Tented Camp', image: '/images/lodges/mbalimbali-gombe-tented-camp.webp', amenities: ['wildlife-view', 'ensuite'] },
         },
       },
       {
@@ -3140,7 +3140,7 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         insiderFact: 'Kigoma Hilltop坐擁遠眺坦干伊喀湖的開闊視野——這是地球上最深的淡水湖之一。',
         accommodationByTier: {
-          trail: { name: 'Kigoma Hilltop', image: '/images/gallery/nyerere.webp', amenities: ['view', 'restaurant'] },
+          trail: { name: 'Kigoma Hilltop', image: '/images/lodges/kigoma-hilltop.webp', amenities: ['view', 'restaurant'] },
         },
       },
       {
@@ -3237,7 +3237,7 @@ export const packages: SafariPackage[] = [
         meals: '晚餐',
         accommodationByTier: {
           reserve: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -3247,8 +3247,8 @@ export const packages: SafariPackage[] = [
         accommodation: '西吉力馬札羅，視等級而定',
         meals: '全食宿',
         accommodationByTier: {
-          reserve: { name: 'Original Maasai Lodge', image: '/images/gallery/maa1.jpg', amenities: ['restaurant', 'garden'] },
-          sovereign: { name: 'Original Maasai Lodge (Kisiwa Boma)', image: '/images/gallery/maa1.webp', amenities: ['restaurant', 'garden', 'view'] },
+          reserve: { name: 'Original Maasai Lodge', image: '/images/lodges/original-maasai-lodge.webp', amenities: ['restaurant', 'garden'] },
+          sovereign: { name: 'Original Maasai Lodge (Kisiwa Boma)', image: '/images/lodges/original-maasai-lodge.webp', amenities: ['restaurant', 'garden', 'view'] },
         },
       },
       {
@@ -3259,8 +3259,8 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         insiderFact: '西吉力馬札羅高地確實遠離標準的北方環線——很少有旅行社會安排前往此地的路線。',
         accommodationByTier: {
-          reserve: { name: 'Original Maasai Lodge', image: '/images/gallery/maa1.jpg', amenities: ['restaurant', 'garden'] },
-          sovereign: { name: 'Original Maasai Lodge (Kisiwa Boma)', image: '/images/gallery/maa1.webp', amenities: ['restaurant', 'garden', 'view'] },
+          reserve: { name: 'Original Maasai Lodge', image: '/images/lodges/original-maasai-lodge.webp', amenities: ['restaurant', 'garden'] },
+          sovereign: { name: 'Original Maasai Lodge (Kisiwa Boma)', image: '/images/lodges/original-maasai-lodge.webp', amenities: ['restaurant', 'garden', 'view'] },
         },
       },
       {
@@ -3272,7 +3272,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '阿魯沙國家公園是坦尚尼亞少數幾個全年允許嚮導陪同健行獵遊的公園之一。',
         accommodationByTier: {
           reserve: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -3295,7 +3295,7 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         accommodationByTier: {
           reserve: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['restaurant', 'garden'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -3307,7 +3307,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '恩戈羅恩戈羅火山口是一個封閉的生態系統，寬約260平方公里（100平方英里）——大多數常住動物從未離開過它。',
         accommodationByTier: {
           reserve: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['restaurant', 'garden'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -3352,7 +3352,7 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         accommodationByTier: {
           reserve: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -3456,7 +3456,7 @@ export const packages: SafariPackage[] = [
         meals: '晚餐',
         accommodationByTier: {
           reserve: { name: 'Gran Meliá, Arusha', image: '/images/lodges/gran-melia-arusha.webp', amenities: ['wifi', 'pool', 'spa'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -3468,7 +3468,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '除雨季外，塔蘭吉雷擁有非洲最高的象群密度之一，此時象群沿河流集中活動。',
         accommodationByTier: {
           reserve: { name: 'Elephant Springs', image: '/images/lodges/elephant-springs.webp', amenities: ['pool', 'view', 'restaurant'] },
-          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/tarangire-treetops.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
+          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['view', 'wildlife-view', 'restaurant'] },
         },
       },
       {
@@ -3733,7 +3733,7 @@ export const packages: SafariPackage[] = [
         description: '向西驅車前往魯阿哈國家公園——一段漫長卻風景優美的旅程，穿越南部高地。魯阿哈是坦尚尼亞最大的國家公園，也是真正的野生動物愛好者在這片大陸上最令人興奮的目的地之一。',
         accommodation: 'Ruaha River Lodge',
         meals: '所有餐食',
-        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view'] } },
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 8,
@@ -3741,7 +3741,7 @@ export const packages: SafariPackage[] = [
         description: '魯阿哈庇護著坦尚尼亞規模最大的獅子、豹、獵豹和野犬種群——這座公園的獵食動物密度非同尋常。象群數量以千計。大魯阿哈河是這座公園的生命線，在旱季從整個地區吸引動物前來。沒有人潮，沒有喧囂——只有最純粹形態的荒野。',
         accommodation: 'Ruaha River Lodge',
         meals: '所有餐食',
-        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view'] } },
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 9,
@@ -3749,7 +3749,7 @@ export const packages: SafariPackage[] = [
         description: '在魯阿哈再度過完整的一天。清晨的巡遊聚焦河流區域，那裡的獵食動物在黎明時分最為活躍。下午的巡遊深入偏遠的內陸地區，那些鮮有人至的地方棲息著貂羚、大捻角羚和大羚羊，與更常見的物種共存。',
         accommodation: 'Ruaha River Lodge',
         meals: '所有餐食',
-        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view'] } },
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 10,
@@ -3822,7 +3822,7 @@ export const packages: SafariPackage[] = [
         description: '登上輕型飛機，向西飛越坦尚尼亞南部平原，前往魯阿哈國家公園。從空中俯瞰，稀樹林地延伸至地平線的規模一覽無遺。下午在大魯阿哈河進行獵遊巡遊，為接下來的旅程定下基調。',
         accommodation: 'Ruaha River Lodge',
         meals: '午餐、晚餐',
-        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view'] } },
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 5,
@@ -3830,7 +3830,7 @@ export const packages: SafariPackage[] = [
         description: '在魯阿哈度過完整的一天——坦尚尼亞最大的國家公園，也是非洲最偉大的秘境之一。這裡的獵食動物密度非同尋常：獅子、豹、獵豹和野犬全都棲息在同一片景觀之中。象群數量以千計。沒有旅遊巴士車隊，沒有人潮——只有您、您的嚮導，以及荒野。',
         accommodation: 'Ruaha River Lodge',
         meals: '所有餐食',
-        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view'] } },
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 6,
@@ -3838,7 +3838,7 @@ export const packages: SafariPackage[] = [
         description: '深入魯阿哈更偏遠的地區。貂羚和大捻角羚棲息在乾燥的稀樹林中。大魯阿哈河從整個地區吸引動物前來，水邊的獵食者與獵物之間的互動是每日上演的奇觀。',
         accommodation: 'Ruaha River Lodge',
         meals: '所有餐食',
-        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view'] } },
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 7,
@@ -4087,7 +4087,7 @@ export const packages: SafariPackage[] = [
         description: '向西驅車，穿越風景優美的南部高地景觀，前往魯阿哈國家公園。當您進入坦尚尼亞最大的公園時，景觀從耕種的丘陵逐漸轉變為原始的稀樹林地。',
         accommodation: 'Ruaha River Lodge',
         meals: '所有餐食',
-        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view'] } },
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 7,
@@ -4095,7 +4095,7 @@ export const packages: SafariPackage[] = [
         description: '沿大魯阿哈河在魯阿哈度過完整的一天。坦尚尼亞規模最大的獅子、豹、獵豹和野犬種群棲息在這座公園內。象群數量以千計。營地的私密規模與完全沒有人潮的特點，讓魯阿哈成為經驗豐富的獵遊旅行者眼中坦尚尼亞最令人興奮的公園。',
         accommodation: 'Ruaha River Lodge',
         meals: '所有餐食',
-        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge.webp', amenities: ['view', 'wildlife-view'] } },
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-5.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 8,
@@ -4552,7 +4552,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '塞倫蓋蒂與馬賽馬拉共同構成一個單一的遷徙生態系統——角馬每年都會完全無視這道政治邊界穿越而過，追隨一段由降雨和青草驅動、長達3,000公里的年度環線。',
         accommodationByTier: {
           trail: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
-          reserve: { name: '&Beyond Serengeti Under Canvas', image: '/images/lodges/beyond-serengeti-under-canvas.webp', amenities: ['luxury-tent', 'ensuite', 'migration-position', 'restaurant'] },
+          reserve: { name: '&Beyond Serengeti Under Canvas', image: '/images/lodges/andbeyond-serengeti-under-canvas.webp', amenities: ['luxury-tent', 'ensuite', 'migration-position', 'restaurant'] },
         },
       },
       {
@@ -4564,7 +4564,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '&Beyond Serengeti Under Canvas是一座移動營地——它會隨季節重新定位以追隨遷徙，確保客人始終處於觀賞野生動物的最佳位置。',
         accommodationByTier: {
           trail: { name: 'Kubukubu Tented Lodge', image: '/images/lodges/kubukubu-tented-lodge.webp', amenities: ['ensuite', 'restaurant', 'wildlife-view'] },
-          reserve: { name: '&Beyond Serengeti Under Canvas', image: '/images/lodges/beyond-serengeti-under-canvas.webp', amenities: ['luxury-tent', 'ensuite', 'migration-position', 'restaurant'] },
+          reserve: { name: '&Beyond Serengeti Under Canvas', image: '/images/lodges/andbeyond-serengeti-under-canvas.webp', amenities: ['luxury-tent', 'ensuite', 'migration-position', 'restaurant'] },
         },
       },
       {
@@ -5210,7 +5210,7 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         accommodationByTier: {
           trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -5245,7 +5245,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '恩戈羅恩戈羅是坦尚尼亞少數幾個能在單次獵遊巡遊中可靠觀賞黑犀牛的地方之一。',
         accommodationByTier: {
           trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -5403,7 +5403,7 @@ export const packages: SafariPackage[] = [
         meals: '含早餐',
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -5414,7 +5414,7 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         accommodationByTier: {
           trail: { name: 'Kahawa House', image: '/images/lodges/kahawa-house.webp', amenities: ['wifi', 'restaurant', 'garden'] },
-          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge.webp', amenities: ['wifi', 'pool', 'view'] },
+          sovereign: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-5.webp', amenities: ['wifi', 'pool', 'view'] },
         },
       },
       {
@@ -5424,8 +5424,8 @@ export const packages: SafariPackage[] = [
         accommodation: 'Tarangire Lodge',
         meals: '全食宿',
         accommodationByTier: {
-          trail: { name: 'Conserve Safari Tarangire', image: '/images/lodges/zuri-kilima-siri.webp', amenities: ['restaurant', 'wifi'] },
-          sovereign: { name: 'Tarangire Treetops', image: '/images/lodges/tarangire-treetops.webp', amenities: ['pool', 'view', 'wildlife-view'] },
+          trail: { name: 'Conserve Safari Tarangire', image: '/images/lodges/conserve-safari-tarangire.webp', amenities: ['restaurant', 'wifi'] },
+          sovereign: { name: 'Tarangire Treetops', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['pool', 'view', 'wildlife-view'] },
         },
       },
       {
@@ -5437,7 +5437,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '塔蘭吉雷是坦尚尼亞少數幾座允許嚮導陪同健行獵遊的公園之一——是難得的機會，在持槍護林員的陪同下健行追蹤野生動物。',
         accommodationByTier: {
           trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -5449,7 +5449,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '恩戈羅恩戈羅是坦尚尼亞少數幾個能在單次獵遊巡遊中可靠觀賞黑犀牛的地方之一。',
         accommodationByTier: {
           trail: { name: 'Ngorongoro Farm House', image: '/images/lodges/ngorongoro-farm-house.webp', amenities: ['pool', 'view', 'organic-farm', 'restaurant'] },
-          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibb-s-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
+          sovereign: { name: "Gibb's Farm", image: '/images/lodges/gibbs-farm.webp', amenities: ['spa', 'view', 'organic-farm'] },
         },
       },
       {
@@ -5471,7 +5471,7 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         accommodationByTier: {
           trail: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] },
-          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] },
+          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] },
         },
       },
       {
@@ -5483,7 +5483,7 @@ export const packages: SafariPackage[] = [
         insiderFact: '渡河並非按時刻表進行的事件——獸群可能在河岸聚集數小時才下定決心。您的嚮導會解讀獸群的行為，提前為您安排好位置。',
         accommodationByTier: {
           trail: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] },
-          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] },
+          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] },
         },
       },
       {
@@ -5494,7 +5494,7 @@ export const packages: SafariPackage[] = [
         meals: '全食宿',
         accommodationByTier: {
           trail: { name: 'Mara Mara Tented Lodge', image: '/images/lodges/mara-mara-tented-lodge.webp', amenities: ['view', 'restaurant', 'wildlife-view'] },
-          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] },
+          sovereign: { name: 'Lemala Kuria Hills', image: '/images/lodges/lemala-kuria-hills-2.webp', amenities: ['pool', 'view', 'spa', 'wildlife-view'] },
         },
       },
       {
@@ -5608,8 +5608,8 @@ export const packages: SafariPackage[] = [
         meals: '所有餐食',
         insiderFact: '逆光塵土是塔蘭吉雷的標誌性畫面之一——午後朝著太陽方向拍攝，而非背對它，往往能拍出最出色的畫面。',
         accommodationByTier: {
-          reserve: { name: 'Burunge Tented Lodge', image: '/images/lodges/zuri-kilima-siri.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
-          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
+          reserve: { name: 'Burunge Tented Lodge', image: '/images/lodges/burunge-tented-lodge.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
+          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
         },
       },
       {
@@ -5621,8 +5621,8 @@ export const packages: SafariPackage[] = [
         meals: '所有餐食',
         insiderFact: '塔蘭吉雷的一些猴麵包樹樹齡遠超千年——值得用一張廣角畫面，將整棵樹的剪影連同開闊的天空一同收入鏡頭。',
         accommodationByTier: {
-          reserve: { name: 'Burunge Tented Lodge', image: '/images/lodges/zuri-kilima-siri.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
-          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
+          reserve: { name: 'Burunge Tented Lodge', image: '/images/lodges/burunge-tented-lodge.webp', amenities: ['restaurant', 'wifi', 'wildlife-view'] },
+          sovereign: { name: 'Siringit Tarangire Camp', image: '/images/lodges/siringit-tarangire-camp-5.webp', amenities: ['view', 'wildlife-view', 'luxury-tent'] },
         },
       },
       {
@@ -5686,7 +5686,7 @@ export const packages: SafariPackage[] = [
         meals: '所有餐食',
         insiderFact: '河岸邊緊張、聚攏成團的獸群，通常是渡河可能即將發生的最佳訊號——您的嚮導會先解讀獸群的肢體語言，再為車輛確定位置。',
         accommodationByTier: {
-          reserve: { name: 'Mara Under Canvas', image: '/images/gallery/mara1.jpg', amenities: ['wildlife-view', 'view'] },
+          reserve: { name: 'Mara Under Canvas', image: '/images/lodges/mara-under-canvas.webp', amenities: ['wildlife-view', 'view'] },
           sovereign: { name: 'Siringit Migration Camp, Kogatende', image: '/images/lodges/siringit-migration-camp-ndutu-site.webp', amenities: ['ensuite', 'view', 'wildlife-view'] },
         },
       },
@@ -5699,7 +5699,7 @@ export const packages: SafariPackage[] = [
         meals: '所有餐食',
         insiderFact: '在追逐動態場面時，開闊平原寬廣的環境畫面很容易被忽略——值得刻意留出幾張畫面，專門拍攝這片景觀本身的宏大規模。',
         accommodationByTier: {
-          reserve: { name: 'Mara Under Canvas', image: '/images/gallery/mara1.jpg', amenities: ['wildlife-view', 'view'] },
+          reserve: { name: 'Mara Under Canvas', image: '/images/lodges/mara-under-canvas.webp', amenities: ['wildlife-view', 'view'] },
           sovereign: { name: 'Siringit Migration Camp, Kogatende', image: '/images/lodges/siringit-migration-camp-ndutu-site.webp', amenities: ['ensuite', 'view', 'wildlife-view'] },
         },
       },

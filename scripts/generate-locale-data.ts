@@ -61,6 +61,14 @@ import { faqCategories as faqRu } from '../src/data/faq.ru'
 import { faqCategories as faqZh } from '../src/data/faq.zh'
 import { faqCategories as faqZhTW } from '../src/data/faq.zh-TW'
 
+import { accommodations as accommodationsEn } from '../src/data/accommodations'
+import { accommodations as accommodationsFr } from '../src/data/accommodations.fr'
+import { accommodations as accommodationsEs } from '../src/data/accommodations.es'
+import { accommodations as accommodationsDe } from '../src/data/accommodations.de'
+import { accommodations as accommodationsRu } from '../src/data/accommodations.ru'
+import { accommodations as accommodationsZh } from '../src/data/accommodations.zh'
+import { accommodations as accommodationsZhTW } from '../src/data/accommodations.zh-TW'
+
 import { articles as articlesEn } from '../src/data/blog/articles'
 import { articles as articlesFr } from '../src/data/blog/articles.fr'
 import { articles as articlesEs } from '../src/data/blog/articles.es'
@@ -105,6 +113,7 @@ writeByLocale('blog-posts', {
 })
 writeByLocale('articles', { en: articlesEn, fr: articlesFr, es: articlesEs, de: articlesDe, ru: articlesRu, zh: articlesZh, 'zh-TW': articlesZhTW })
 writeByLocale('faq', { en: faqEn, fr: faqFr, es: faqEs, de: faqDe, ru: faqRu, zh: faqZh, 'zh-TW': faqZhTW })
+writeByLocale('accommodations', { en: accommodationsEn, fr: accommodationsFr, es: accommodationsEs, de: accommodationsDe, ru: accommodationsRu, zh: accommodationsZh, 'zh-TW': accommodationsZhTW })
 
 // next-intl UI message catalogs — same all-locales-bundled-together problem as
 // the datasets above (src/i18n/request.ts previously did a template-literal

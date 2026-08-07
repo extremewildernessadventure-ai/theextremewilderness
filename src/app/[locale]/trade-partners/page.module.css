@@ -5,17 +5,17 @@
 */
 
 .tradePage {
-  --ivory: #F6F1E3;
-  --ivory-deep: #EDE3C8;
-  --ink: #23271C;
-  --forest: #333B29;
-  --gold: #A9822F;
-  --gold-light: #C9A54B;
-  --clay: #8B4F30;
-  --text-muted: #5E5C4C;
-  --text-muted-light: #B9C0AB;
-  --line: rgba(35, 39, 28, 0.15);
-  --line-dark: rgba(246, 241, 227, 0.18);
+  --ivory: #EDE7D7;
+  --ivory-deep: #E8EDEA;
+  --ink: #1C3A2A;
+  --forest: #2D5A3D;
+  --gold: #b8903d;
+  --gold-light: #D4A853;
+  --clay: #b8903d;
+  --text-muted: #4B5563;
+  --text-muted-light: rgba(255, 255, 255, 0.65);
+  --line: rgba(28, 58, 42, 0.15);
+  --line-dark: rgba(255, 255, 255, 0.18);
 
   background: var(--ivory);
   color: var(--ink);
@@ -110,8 +110,11 @@
   position: relative;
   color: var(--ivory);
   overflow: hidden;
-  padding: 130px 0 110px;
-  text-align: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 128px 0 64px;
+  text-align: left;
 }
 .heroImg {
   object-fit: cover;
@@ -121,7 +124,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(35, 39, 28, 0.88) 0%, rgba(51, 59, 41, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 100%);
 }
 .horizon {
   position: absolute;
@@ -134,12 +137,14 @@
 .heroInner {
   position: relative;
   z-index: 3;
+  width: 100%;
+}
+.heroInner > * {
   max-width: 720px;
-  margin: 0 auto;
 }
 .hero .emblem {
   color: var(--gold-light);
-  margin: 0 auto 28px;
+  margin: 0 0 28px;
   width: 56px;
   height: 56px;
   font-size: 20px;
@@ -149,7 +154,7 @@
   line-height: 1.1;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #FBF7EC;
+  color: #FFFFFF;
   margin-bottom: 16px;
 }
 .sub {
@@ -164,13 +169,13 @@
   line-height: 1.8;
   color: var(--text-muted-light);
   max-width: 560px;
-  margin: 0 auto 44px;
+  margin: 0 0 44px;
   font-weight: 400;
 }
 .heroCtas {
   display: flex;
   gap: 18px;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -225,7 +230,7 @@
 
 .dark { background: var(--ink); color: var(--ivory); }
 .dark .sectionHead p { color: var(--text-muted-light); }
-.dark h2 { color: #FBF7EC; }
+.dark h2 { color: #FFFFFF; }
 
 .deep { background: var(--ivory-deep); }
 
@@ -248,7 +253,7 @@
   aspect-ratio: 4/5;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(155deg, #4B5539 0%, #2A2F21 55%, #1E2217 100%);
+  background: linear-gradient(155deg, #2D5A3D 0%, #1C3A2A 55%, #152e20 100%);
 }
 .aboutVisualImg {
   object-fit: cover;
@@ -256,14 +261,14 @@
 .aboutVisualScrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgba(24, 27, 18, 0.75) 100%);
+  background: linear-gradient(180deg, transparent 55%, rgba(21, 46, 32, 0.75) 100%);
   pointer-events: none;
 }
 .aboutVisual::after {
   content: "";
   position: absolute;
   inset: 16px;
-  border: 1px solid rgba(246, 241, 227, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   z-index: 2;
   pointer-events: none;
 }
@@ -274,7 +279,7 @@
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(246, 241, 227, 0.75);
+  color: rgba(255, 255, 255, 0.75);
 }
 .aboutCopy h2 { font-size: 36px; margin-bottom: 6px; }
 .aboutCopy .rule { margin-top: 8px; margin-bottom: 28px; }
@@ -317,7 +322,7 @@
 .kitItem h4 {
   font-size: 18px;
   font-weight: 700;
-  color: #FBF7EC;
+  color: #FFFFFF;
 }
 .kitItem p { font-size: 15px; color: var(--text-muted-light); line-height: 1.7; }
 .kitNote {
@@ -386,6 +391,18 @@
 }
 
 /* ---------- ENQUIRY PANEL ---------- */
+.enquirySection { position: relative; overflow: hidden; }
+.enquirySection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/gallery/ewa-vehicle-hero.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  z-index: 0;
+}
+.enquirySection .wrap { position: relative; z-index: 1; }
 .enquiryPanel { max-width: 760px; margin: 0 auto; }
 .enquiryIntro { text-align: center; margin-bottom: 54px; }
 .enquiryIntro .contact {
@@ -405,24 +422,23 @@
 .field label {
   display: block;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-muted-light);
+  color: #FFFFFF;
   margin-bottom: 10px;
 }
 .field input,
 .field select,
 .field textarea {
   width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--line-dark);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--line-dark);
   color: var(--ivory);
-  padding: 8px 2px 12px;
+  padding: 12px 16px;
   font-weight: 400;
   font-size: 15.5px;
-  border-radius: 0;
+  border-radius: 12px;
 }
 .field select option { background: var(--ink); color: var(--ivory); }
 .field textarea { resize: vertical; min-height: 80px; }
@@ -430,10 +446,11 @@
 .field select:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--gold);
+  border-color: var(--gold-light);
+  background: rgba(255, 255, 255, 0.22);
 }
 .field input::placeholder,
-.field textarea::placeholder { color: #6A6C5B; font-style: italic; }
+.field textarea::placeholder { color: rgba(255, 255, 255, 0.4); font-style: normal; }
 
 .submitRow { grid-column: 1 / -1; text-align: center; margin-top: 16px; }
 .submitRow .note {
@@ -446,9 +463,9 @@
 .formError {
   grid-column: 1 / -1;
   font-size: 13px;
-  color: #E8B4A0;
-  background: rgba(139, 79, 48, 0.2);
-  border: 1px solid rgba(139, 79, 48, 0.4);
+  color: #F87171;
+  background: rgba(248, 113, 113, 0.15);
+  border: 1px solid rgba(248, 113, 113, 0.4);
   border-radius: 4px;
   padding: 12px 16px;
 }
@@ -460,7 +477,7 @@
 .formSuccess h3 {
   font-size: 24px;
   font-weight: 700;
-  color: #FBF7EC;
+  color: #FFFFFF;
   margin-bottom: 12px;
 }
 .formSuccess p {

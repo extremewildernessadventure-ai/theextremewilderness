@@ -1307,7 +1307,8 @@
     "rwanda": "盧安達",
     "tanzaniaDesc": "塞倫蓋蒂 · 恩戈羅恩戈羅 · 尚吉巴",
     "kenyaDesc": "馬賽馬拉 · 安博塞利 · 察沃",
-    "rwandaDesc": "火山國家公園 · 大猩猩健行"
+    "rwandaDesc": "火山國家公園 · 大猩猩健行",
+    "accommodations": "住宿"
   },
   "footer": {
     "tagline": "曠野呼喚你回家的地方。生於坦尚尼亞、本地經營，自2022年起打造定製獵遊。",
@@ -1330,7 +1331,7 @@
     "safariMachame": "吉力馬札羅馬查梅路線",
     "safariSouthern": "南方環線",
     "companyAbout": "關於我們",
-    "companyWhyUs": "為什麼選擇我們",
+    "companyWhyUs": "關於我們",
     "companyGuides": "我們的嚮導",
     "companyBlog": "部落格",
     "companyTrade": "貿易合作夥伴",
@@ -1342,7 +1343,8 @@
     "trustBigFive": "五大獸目擊",
     "trustQuote": "沒有什麼能讓我們為大遷徙的宏大規模做好心理準備。EWA的表現超乎言語。",
     "trustQuoteAuthor": "— Sarah & Michael T.，英國",
-    "companyFaq": "常見問題"
+    "companyFaq": "常見問題",
+    "companyAccommodations": "住宿"
   },
   "common": {
     "bookNow": "立即預訂",
@@ -2351,7 +2353,8 @@
     "experiences": "體驗",
     "about": "關於我們",
     "followUs": "關注我們",
-    "blog": "部落格"
+    "blog": "部落格",
+    "accommodations": "住宿"
   },
   "blog": {
     "metaTitle": "獵遊部落格 | 坦尚尼亞與東非旅行指南",
@@ -3112,13 +3115,13 @@
     "heroBullet4": "小團出行。絕不妥協。",
     "startPlanningButton": "開始規劃我的行程",
     "browseItinerariesButton": "瀏覽行程",
-    "stat1Value": "200+",
+    "stat1Value": "50+",
     "stat1Label": "已完成獵遊",
     "stat2Value": "5+",
     "stat2Label": "年東非經驗",
     "stat3Value": "98%",
     "stat3Label": "客人滿意度",
-    "stat4Value": "6",
+    "stat4Value": "3",
     "stat4Label": "覆蓋國家",
     "signatureEditionsEyebrow": "簽名系列",
     "signatureEditionsHeading": "我們的旗艦旅程",
@@ -3927,5 +3930,41 @@
     "sidebarAboutEwaHeading": "想認識我們的團隊嗎？",
     "sidebarAboutEwaBody": "瞭解EWA Safari Outfitters背後的團隊，或直接與我們聯絡。",
     "sidebarAboutEwaButton": "聯絡我們"
+  },
+  "accommodationsHub": {
+    "metaTitle": "住宿精選合集",
+    "metaDescription": "EWA Safari Outfitters行程中實際使用的每一家旅館與營地,盡在這裡——真實的房間、真實的場景,讓您在抵達之前就能提前瞭解。",
+    "metaKeywords": ["坦尚尼亞野生動物園旅館", "豪華野生動物園營地", "塞倫蓋提旅館", "恩戈羅恩戈羅火山口旅館", "塔蘭吉雷營地", "桑吉巴海灘酒店", "帳篷式野生動物園營地", "非洲最佳野生動物園住宿", "精品野生動物園旅館", "馬賽馬拉營地"],
+    "ogDescription": "按等級瀏覽EWA Safari Outfitters真正使用的每一家旅館與營地——Wilderness Trail、Reserve與Sovereign。",
+    "ogImageAlt": "俯瞰坦尚尼亞灌木叢的獵遊旅館露臺",
+    "twitterTitle": "住宿精選合集",
+    "breadcrumbLabel": "住宿",
+    "exploreCollection": "瀏覽住宿系列",
+    "heroEyebrow": "您將下榻之處",
+    "heroTitle": "住宿精選合集",
+    "heroSubtitle": "我們行程中實際使用的每一家旅館與營地,盡在這裡——真實的房間、真實的場景,讓您在抵達之前就能提前瞭解。",
+    "heroImageAlt": "塞倫蓋提野生動物園旅館的客房別墅，配有可俯瞰平原的私人無邊泳池",
+    "statAccommodations": "住宿數量",
+    "statTiers": "等級",
+    "statParks": "公園與地區",
+    "statPhotos": "真實實拍照片",
+    "sectionEyebrow": "按等級瀏覽",
+    "sectionTitle": "在荒野中找到屬於您的家",
+    "sectionSubtitle": "以下每一處住宿目前都至少出現在一條EWA Safari Outfitters行程中。選擇一個等級,點開任意卡片即可檢視完整相簿。",
+    "tierTrailIntro": "地理位置出色、管理良好的營地與旅館——舒適、價格公道,嚮導品質絕不打折扣。",
+    "tierReserveIntro": "位於野生動物核心區域的高階營地,服務更周到,地域特色更鮮明。",
+    "tierSovereignIntro": "我們最出色的私人營地與旅館——卓越的客房、卓越的環境,全程為您量身定製。",
+    "viewGallery": "檢視相簿",
+    "photosCount": "{count, plural, other {#張照片}}",
+    "photosComingSoon": "照片即將上線",
+    "closeCard": "關閉",
+    "featuredInLabel": "出現在以下行程中",
+    "enquireButton": "諮詢這處住宿",
+    "newsletterEyebrow": "保持靈感",
+    "newsletterHeading": "The Wilderness Edit",
+    "newsletterText": "每月獲取新增旅館資訊、季節性營地開放消息，以及我們團隊誠實的住宿推薦。",
+    "leadBandHeading": "不確定哪種住宿適合您的行程?",
+    "leadBandSubtitle": "告訴EWA Safari Outfitters您的旅行風格與預算,我們將圍繞真正適合您的住宿,為您量身規劃行程方案。",
+    "leadBandButton": "定製我的獵遊行程"
   }
 }

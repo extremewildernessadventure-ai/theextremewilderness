@@ -48,9 +48,9 @@ export default function BottomNav() {
   ]
 
   const otherItems = [
-    { label: t('blog'),         href: '/blog' as const,         Icon: BookOpen },
-    { label: t('experiences'),  href: '/experiences' as const,  Icon: Sparkles },
-    { label: t('about'),        href: '/about' as const,        Icon: Info },
+    { label: t('blog'),            href: '/blog' as const,            Icon: BookOpen },
+    { label: t('experiences'),     href: '/experiences' as const,     Icon: Sparkles },
+    { label: t('about'),           href: '/about' as const,           Icon: Info },
   ]
 
   const isActive = (path: string) =>
