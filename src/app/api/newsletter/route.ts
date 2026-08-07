@@ -2,8 +2,6 @@ import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 import { computeDiscountCode } from '@/lib/discountCode'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 export async function POST(req: NextRequest) {
   try {
     const { name, email, source } = await req.json() as {
@@ -17,6 +15,7 @@ export async function POST(req: NextRequest) {
     const [firstName, ...rest] = (name ?? '').trim().split(' ')
     const lastName = rest.join(' ')
 
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const { error } = await resend.contacts.create({
       email,
       firstName: firstName || '',

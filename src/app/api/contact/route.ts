@@ -1,7 +1,6 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 const FROM = process.env.RESEND_FROM ?? 'EWA Contact <noreply@theextremewilderness.com>'
 const TO   = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
 
@@ -40,6 +39,7 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`
 
+    const resend = new Resend(process.env.RESEND_API_KEY)
     const { error } = await resend.emails.send({
       from: FROM,
       to: TO,

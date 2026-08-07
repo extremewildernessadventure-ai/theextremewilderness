@@ -2,7 +2,6 @@ import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 import { localeUrl } from '@/lib/site'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID ?? ''
 const TO = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
 const FROM = process.env.RESEND_FROM ?? 'EWA Guide <noreply@theextremewilderness.com>'
@@ -26,6 +25,8 @@ export async function POST(req: NextRequest) {
     // Client-supplied — escape before embedding in the HTML email.
     const trimContext = (context?.trim() ?? '').slice(0, 120)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+    const resend = new Resend(process.env.RESEND_API_KEY)
 
     // Add to newsletter audience for follow-up emails
     if (AUDIENCE_ID) {
