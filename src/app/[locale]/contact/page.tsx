@@ -114,7 +114,7 @@ export default async function ContactPage({ params }: Props) {
                 </p>
                 <div className="flex items-start gap-2 text-sm text-text-muted">
                   <MapPin className="w-4 h-4 text-brand mt-0.5 flex-shrink-0" />
-                  <span>Njiro Road, Arusha, Tanzania</span>
+                  <span>20 Ingira Street, Arusha, Tanzania</span>
                 </div>
               </div>
 

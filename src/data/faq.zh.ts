@@ -284,7 +284,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: '与EWA Safari Outfitters同行，谁会担任我的游猎向导？',
-        a: 'EWA的向导团队由经验丰富、常驻坦桑尼亚的专业向导组成——其中包括Mike Mawolle、Johnson Rafael与Josh Meela——每一位都在北部与南部线路上驾驶多年，正是这种对每一条道路了如指掌的本地经验，造就了普通游猎与卓越游猎之间的差距。每次行程均由专属向导全程负责，绝不会同时分身负责多辆车。',
+        a: 'EWA的向导团队由经验丰富、常驻坦桑尼亚的专业向导组成——其中包括Mike Mawolle、Nixon Massawe与Josh Meela——每一位都在北部与南部线路上驾驶多年，正是这种对每一条道路了如指掌的本地经验，造就了普通游猎与卓越游猎之间的差距。每次行程均由专属向导全程负责，绝不会同时分身负责多辆车。',
         relatedLinks: [{ label: '认识我们的团队', href: '/about#guides' }],
       },
       {
@@ -293,7 +293,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: 'EWA Safari Outfitters的总部在哪里？可以实地参观办公室吗？',
-        a: 'EWA Safari Outfitters的总部位于坦桑尼亚阿鲁沙的卡洛莱尼（Kaloleni）地区——紧邻卡洛莱尼小学——大多数北部线路游猎与乞力马扎罗山攀登行程均从这座城市启程。欢迎旅客在行程前后到访办公室；请提前通过info@theextremewilderness.com或+255 (0) 747 999 070联系我们，安排到访事宜。',
+        a: 'EWA Safari Outfitters的总部位于坦桑尼亚阿鲁沙Ingira Street 20号，大多数北部线路游猎与乞力马扎罗山攀登行程均从这座城市启程。欢迎旅客在行程前后到访办公室；请提前通过info@theextremewilderness.com或+255 (0) 747 999 070联系我们，安排到访事宜。',
         relatedLinks: [{ label: '到访我们的办公室', href: '/about' }, { label: '联系我们', href: '/contact' }],
       },
       {

@@ -284,7 +284,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: 'Qui sera mon guide de safari avec EWA Safari Outfitters ?',
-        a: "L'équipe de guides d'EWA comprend des guides de safari expérimentés basés en Tanzanie — parmi eux Mike Mawolle, Johnson Rafael et Josh Meela — chacun avec des années passées à parcourir les mêmes itinéraires du Circuit Nord et du Circuit Sud, exactement le type de connaissance locale, route par route, qui fait la différence entre un bon et un excellent game drive. Un guide est attribué par voyage, jamais partagé entre plusieurs véhicules à la fois.",
+        a: "L'équipe de guides d'EWA comprend des guides de safari expérimentés basés en Tanzanie — parmi eux Mike Mawolle, Nixon Massawe et Josh Meela — chacun avec des années passées à parcourir les mêmes itinéraires du Circuit Nord et du Circuit Sud, exactement le type de connaissance locale, route par route, qui fait la différence entre un bon et un excellent game drive. Un guide est attribué par voyage, jamais partagé entre plusieurs véhicules à la fois.",
         relatedLinks: [{ label: 'Rencontrer l\'équipe', href: '/about#guides' }],
       },
       {
@@ -293,7 +293,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: "Où est basée EWA Safari Outfitters, et peut-on visiter le bureau ?",
-        a: "EWA Safari Outfitters est basée à Kaloleni, Arusha, en Tanzanie — près de l'école primaire de Kaloleni — la même ville d'où partent la plupart des safaris du Circuit Nord et des ascensions du Kilimandjaro. Les visiteurs sont les bienvenus au bureau avant ou après un voyage ; contactez-nous à l'avance à info@theextremewilderness.com ou au +255 (0) 747 999 070 pour organiser une visite.",
+        a: "EWA Safari Outfitters est basée au 20 Ingira Street, à Arusha, en Tanzanie — la même ville d'où partent la plupart des safaris du Circuit Nord et des ascensions du Kilimandjaro. Les visiteurs sont les bienvenus au bureau avant ou après un voyage ; contactez-nous à l'avance à info@theextremewilderness.com ou au +255 (0) 747 999 070 pour organiser une visite.",
         relatedLinks: [{ label: 'Visiter notre bureau', href: '/about' }, { label: 'Nous contacter', href: '/contact' }],
       },
       {

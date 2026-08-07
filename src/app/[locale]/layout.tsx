@@ -82,14 +82,14 @@ export default async function LocaleLayout({ children, params }: Props) {
     email: 'info@theextremewilderness.com',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Arusha',
+      streetAddress: '20 Ingira Street',
       addressLocality: 'Arusha',
       addressCountry: 'TZ',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: -3.3869,
-      longitude: 36.6830,
+      latitude: -3.3757225,
+      longitude: 36.6971749,
     },
     sameAs: [
       'https://www.instagram.com/extremewildernessadventure/',

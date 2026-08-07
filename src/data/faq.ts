@@ -294,7 +294,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: 'Who will be my safari guide with EWA Safari Outfitters?',
-        a: "EWA's guiding team includes experienced, Tanzania-based safari guides — among them Mike Mawolle, Johnson Rafael, and Josh Meela — each with years of driving the same Northern and Southern Circuit routes, which is exactly the kind of local, road-by-road knowledge that makes the difference between a good game drive and a great one. Guides are assigned per trip, not shared across multiple vehicles at once.",
+        a: "EWA's guiding team includes experienced, Tanzania-based safari guides — among them Mike Mawolle, Nixon Massawe, and Josh Meela — each with years of driving the same Northern and Southern Circuit routes, which is exactly the kind of local, road-by-road knowledge that makes the difference between a good game drive and a great one. Guides are assigned per trip, not shared across multiple vehicles at once.",
         relatedLinks: [{ label: 'Meet the Team', href: '/about#guides' }],
       },
       {
@@ -303,7 +303,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: 'Where is EWA Safari Outfitters based, and can I visit the office?',
-        a: 'EWA Safari Outfitters is based in Kaloleni, Arusha, Tanzania — near Kaloleni Primary School — the same city most Northern Circuit safaris and Kilimanjaro climbs begin from. Visitors are welcome to stop by the office before or after a trip; reach out in advance at info@theextremewilderness.com or +255 (0) 747 999 070 to arrange a visit.',
+        a: 'EWA Safari Outfitters is based at 20 Ingira Street, Arusha, Tanzania — the same city most Northern Circuit safaris and Kilimanjaro climbs begin from. Visitors are welcome to stop by the office before or after a trip; reach out in advance at info@theextremewilderness.com or +255 (0) 747 999 070 to arrange a visit.',
         relatedLinks: [{ label: 'Visit Our Office', href: '/about' }, { label: 'Contact Us', href: '/contact' }],
       },
       {

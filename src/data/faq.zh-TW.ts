@@ -284,7 +284,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: '與EWA Safari Outfitters同行，誰會擔任我的獵遊嚮導？',
-        a: 'EWA的嚮導團隊由經驗豐富、常駐坦尚尼亞的專業嚮導組成——其中包括Mike Mawolle、Johnson Rafael與Josh Meela——每一位都在北部與南部線路上駕駛多年，正是這種對每一條道路瞭如指掌的本地經驗，造就了普通獵遊與卓越獵遊之間的差距。每次行程均由專屬嚮導全程負責，絕不會同時分身負責多輛車。',
+        a: 'EWA的嚮導團隊由經驗豐富、常駐坦尚尼亞的專業嚮導組成——其中包括Mike Mawolle、Nixon Massawe與Josh Meela——每一位都在北部與南部線路上駕駛多年，正是這種對每一條道路瞭如指掌的本地經驗，造就了普通獵遊與卓越獵遊之間的差距。每次行程均由專屬嚮導全程負責，絕不會同時分身負責多輛車。',
         relatedLinks: [{ label: '認識我們的團隊', href: '/about#guides' }],
       },
       {
@@ -293,7 +293,7 @@ export const faqCategories: FaqCategory[] = [
       },
       {
         q: 'EWA Safari Outfitters的總部在哪裡？可以實地參觀辦公室嗎？',
-        a: 'EWA Safari Outfitters的總部位於坦尚尼亞阿魯沙的卡洛萊尼（Kaloleni）地區——緊鄰卡洛萊尼小學——大多數北部線路獵遊與吉力馬札羅山攀登行程均從這座城市啟程。歡迎旅客在行程前後到訪辦公室；請提前通過info@theextremewilderness.com或+255 (0) 747 999 070聯絡我們，安排到訪事宜。',
+        a: 'EWA Safari Outfitters的總部位於坦尚尼亞阿魯沙Ingira Street 20號，大多數北部線路獵遊與吉力馬札羅山攀登行程均從這座城市啟程。歡迎旅客在行程前後到訪辦公室；請提前通過info@theextremewilderness.com或+255 (0) 747 999 070聯絡我們，安排到訪事宜。',
         relatedLinks: [{ label: '到訪我們的辦公室', href: '/about' }, { label: '聯絡我們', href: '/contact' }],
       },
       {

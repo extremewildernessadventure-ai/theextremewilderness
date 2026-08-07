@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, SITE_URL, localeUrl } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 import {
@@ -71,8 +71,8 @@ export default async function AboutPage({ params }: Props) {
       bio: t('team1Bio'),
     },
     {
-      image: '/Team/Johnson Rafael.jpeg',
-      name: 'Johnson Rafael',
+      image: '/Team/Nixon Massawe.jpeg',
+      name: 'Nixon Massawe',
       role: t('team2Role'),
       bio: t('team2Bio'),
     },
@@ -86,8 +86,27 @@ export default async function AboutPage({ params }: Props) {
 
   const pills = [t('est2009'), t('tatoCertified'), t('locallyOwned'), t('arushaBased')]
 
+  const guideSpotlightSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Nixon Massawe',
+    jobTitle: t('guideSpotlightRole'),
+    description: t('guideSpotlightP1'),
+    image: `${SITE_URL}/Team/Nixon Massawe.jpeg`,
+    url: localeUrl(locale, '/about#guide-spotlight'),
+    worksFor: {
+      '@type': 'Organization',
+      name: 'EWA Safari Outfitters',
+      url: SITE_URL,
+    },
+  }
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(guideSpotlightSchema) }}
+      />
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative bg-brand min-h-[90vh] flex items-stretch overflow-hidden">
@@ -235,9 +254,48 @@ export default async function AboutPage({ params }: Props) {
                 <span className="inline-flex px-3 py-1 bg-gold/10 text-gold text-xs font-bold rounded-full uppercase tracking-wider mb-3">{role}</span>
                 <h3 className="text-brand font-bold text-xl mb-3">{name}</h3>
                 <p className="text-text-muted text-sm leading-relaxed">{bio}</p>
+                {name === 'Nixon Massawe' && (
+                  <a href="#guide-spotlight" className="inline-flex items-center gap-1 text-gold text-xs font-bold uppercase tracking-wider mt-4 hover:text-gold-dark transition-colors">
+                    {t('guideSpotlightCta')} <ArrowRight className="w-3 h-3" />
+                  </a>
+                )}
               </RevealItem>
             ))}
           </RevealGroup>
+        </div>
+      </section>
+
+      {/* ── Guide Spotlight ──────────────────────────────────────────────── */}
+      <section id="guide-spotlight" className="py-10 lg:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 lg:p-14">
+            <div className="grid lg:grid-cols-2 gap-14 items-center">
+              <Reveal>
+                <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">{t('guideSpotlightEyebrow')}</p>
+                <h2 className="text-3xl lg:text-4xl font-bold text-brand mb-2 leading-tight">
+                  {t('guideSpotlightHeading')}
+                </h2>
+                <p className="text-text-muted text-sm font-medium mb-6">{t('guideSpotlightRole')}</p>
+                <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightP1')}</p>
+                <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightP2')}</p>
+                <div className="bg-light-green rounded-2xl p-6 border-l-4 border-gold my-7 shadow-sm">
+                  <p className="text-brand font-semibold text-base italic leading-relaxed">
+                    &ldquo;{t('guideSpotlightQuote')}&rdquo;
+                  </p>
+                  <p className="text-text-muted text-xs mt-3 font-medium">{t('guideSpotlightQuoteAuthor')}</p>
+                </div>
+                <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightP3')}</p>
+                <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightP4')}</p>
+                <p className="text-brand font-semibold leading-relaxed">{t('guideSpotlightClosing')}</p>
+              </Reveal>
+              <Reveal delay={0.15} className="relative">
+                <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                  <Image src="/Team/Nixon Massawe.jpeg" alt={t('guideSpotlightImageAlt')} fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand/30 to-transparent" />
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -267,13 +325,13 @@ export default async function AboutPage({ params }: Props) {
               </h3>
               <div className="relative z-10 border-t border-white/10 mb-6" />
               <div className="relative z-10 space-y-1">
-                <p className="text-white/70 text-sm">Near Kaloleni Primary School</p>
-                <p className="text-white/70 text-sm">Kaloleni, Arusha</p>
+                <p className="text-white/70 text-sm">20 Ingira Street</p>
+                <p className="text-white/70 text-sm">Arusha</p>
                 <p className="text-white/70 text-sm">Tanzania, East Africa</p>
               </div>
               <div className="relative z-10 mt-auto pt-8">
                 <a
-                  href="https://www.google.com/maps/place/The+Extreme+Wilderness+Adventure/@-3.3649565,36.6889837,17z"
+                  href="https://www.google.com/maps/search/?api=1&query=20+Ingira+Street+Arusha+Tanzania"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
@@ -284,7 +342,7 @@ export default async function AboutPage({ params }: Props) {
             </Reveal>
             <Reveal delay={0.15} className="rounded-2xl overflow-hidden shadow-sm min-h-[400px] ring-1 ring-black/5">
               <iframe
-                src="https://maps.google.com/maps?q=-3.3649565,36.6889837&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=20+Ingira+Street,+Arusha,+Tanzania&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 className="w-full h-full min-h-[400px] border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
