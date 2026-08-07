@@ -4128,6 +4128,27 @@
     "claimError": "發生錯誤，請再試一次，或寫信至 info@theextremewilderness.com",
     "honorNote": "聯繫我們時提及此優惠碼，我們的團隊會將它套用在您的獵遊行程上。"
   },
+  "search": {
+    "navLabel": "搜尋",
+    "placeholder": "搜尋獵遊、目的地、體驗行程…",
+    "searching": "搜尋中…",
+    "noResultsTitle": "找不到結果",
+    "noResultsBody": "請嘗試其他搜尋字詞。",
+    "seeAllResults": "查看與「{query}」相關的所有結果",
+    "typeSafari": "獵遊",
+    "typeDestination": "目的地",
+    "typeExperience": "體驗",
+    "typeBlog": "部落格",
+    "typeFaq": "常見問題",
+    "typeAccommodation": "住宿",
+    "breadcrumbLabel": "搜尋",
+    "pageTitle": "搜尋",
+    "pageTitleWithQuery": "「{query}」的搜尋結果",
+    "pageDescription": "搜尋EWA Safari Outfitters提供的獵遊、目的地、體驗行程與旅遊指南。",
+    "pageHeading": "「{query}」的結果",
+    "pageEmptyHeading": "找不到與「{query}」相關的結果",
+    "pageEmptyBody": "請嘗試其他關鍵字，或瀏覽我們的獵遊與目的地。"
+  },
   "destinationsHub": {
     "metaTitle": "東非目的地 | 坦尚尼亞、肯亞與盧安達",
     "metaDescription": "探索EWA Safari Outfitters在坦尚尼亞、肯亞和盧安達運營的每一座國家公園、野生動物保護區和重要目的地——按線路和區域組織，而非按字母順序排列。",

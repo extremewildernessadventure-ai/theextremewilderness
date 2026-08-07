@@ -4128,6 +4128,27 @@
     "claimError": "出了点问题，请重试，或发邮件至 info@theextremewilderness.com",
     "honorNote": "联系我们时提及此优惠码，我们的团队会为您的游猎行程使用它。"
   },
+  "search": {
+    "navLabel": "搜索",
+    "placeholder": "搜索游猎、目的地、体验项目…",
+    "searching": "搜索中…",
+    "noResultsTitle": "未找到结果",
+    "noResultsBody": "请尝试其他搜索词。",
+    "seeAllResults": "查看与“{query}”相关的所有结果",
+    "typeSafari": "游猎",
+    "typeDestination": "目的地",
+    "typeExperience": "体验",
+    "typeBlog": "博客",
+    "typeFaq": "常见问题",
+    "typeAccommodation": "住宿",
+    "breadcrumbLabel": "搜索",
+    "pageTitle": "搜索",
+    "pageTitleWithQuery": "“{query}”的搜索结果",
+    "pageDescription": "搜索EWA Safari Outfitters提供的游猎、目的地、体验项目和旅行指南。",
+    "pageHeading": "“{query}”的结果",
+    "pageEmptyHeading": "未找到与“{query}”相关的结果",
+    "pageEmptyBody": "请尝试其他关键词，或浏览我们的游猎和目的地。"
+  },
   "destinationsHub": {
     "metaTitle": "东非目的地 | 坦桑尼亚、肯尼亚与卢旺达",
     "metaDescription": "探索EWA Safari Outfitters在坦桑尼亚、肯尼亚和卢旺达运营的每一座国家公园、野生动物保护区和重要目的地——按线路和区域组织，而非按字母顺序排列。",

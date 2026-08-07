@@ -1,10 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Search } from 'lucide-react'
 import { Link, usePathname } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import LanguageSwitcher from './LanguageSwitcher'
+import { useSearch } from '@/context/SearchContext'
 
 // Pages with no dark hero section behind the fixed nav — the transparent
 // white-text state has poor contrast there, so these start opaque immediately
@@ -13,6 +15,8 @@ const NO_HERO_ROUTES = ['/plan']
 
 export default function Navbar() {
   const t = useTranslations('nav')
+  const tSearch = useTranslations('search')
+  const { openSearch } = useSearch()
   const pathname = usePathname()
   const forceOpaque = NO_HERO_ROUTES.includes(pathname)
   const [scrolled, setScrolled] = useState(false)
@@ -66,6 +70,14 @@ export default function Navbar() {
 
           {/* Language switcher + Social + CTA (desktop only) */}
           <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={openSearch}
+              aria-label={tSearch('navLabel')}
+              className="hidden lg:flex w-8 h-8 items-center justify-center text-white/60 hover:text-white transition-colors"
+            >
+              <Search className="w-[18px] h-[18px]" />
+            </button>
             <LanguageSwitcher />
             <a
               href="https://www.instagram.com/extremewildernessadventure/"

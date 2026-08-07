@@ -4128,6 +4128,27 @@
     "claimError": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an info@theextremewilderness.com",
     "honorNote": "Erwähnen Sie diesen Code einfach, wenn Sie sich bei uns melden, und unser Team wendet ihn auf Ihre Safari an."
   },
+  "search": {
+    "navLabel": "Suche",
+    "placeholder": "Safaris, Reiseziele, Erlebnisse durchsuchen…",
+    "searching": "Suche läuft…",
+    "noResultsTitle": "Keine Ergebnisse",
+    "noResultsBody": "Versuchen Sie einen anderen Suchbegriff.",
+    "seeAllResults": "Alle Ergebnisse für „{query}“ anzeigen",
+    "typeSafari": "Safari",
+    "typeDestination": "Reiseziel",
+    "typeExperience": "Erlebnis",
+    "typeBlog": "Blog",
+    "typeFaq": "FAQ",
+    "typeAccommodation": "Unterkunft",
+    "breadcrumbLabel": "Suche",
+    "pageTitle": "Suche",
+    "pageTitleWithQuery": "Suchergebnisse für „{query}“",
+    "pageDescription": "Durchsuchen Sie Safaris, Reiseziele, Erlebnisse und Reiseführer von EWA Safari Outfitters.",
+    "pageHeading": "Ergebnisse für „{query}“",
+    "pageEmptyHeading": "Keine Ergebnisse für „{query}“",
+    "pageEmptyBody": "Versuchen Sie andere Suchbegriffe oder entdecken Sie unsere Safaris und Reiseziele."
+  },
   "destinationsHub": {
     "metaTitle": "Ostafrika-Reiseziele | Tansania, Kenia & Ruanda",
     "metaDescription": "Entdecken Sie jeden Nationalpark, jedes Wildreservat und jedes wichtige Reiseziel, an dem EWA Safari Outfitters in Tansania, Kenia und Ruanda tätig ist — geordnet nach Rundreise-Route und Region, nicht alphabetisch.",

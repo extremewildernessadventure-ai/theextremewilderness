@@ -46,16 +46,20 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
 
-  // No SearchAction here — Google's guidelines require that target to be a
-  // real, working search URL, and this site has no internal search feature
-  // to point it at (a fabricated target would just be invalid structured
-  // data, not a working sitelinks searchbox).
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'EWA Safari Outfitters',
     url: localeUrl(locale, '/'),
     inLanguage: locale,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${localeUrl(locale, '/search')}?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   }
 
   return (

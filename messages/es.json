@@ -4089,6 +4089,27 @@
     "claimError": "Algo salió mal. Inténtalo de nuevo o escríbenos a info@theextremewilderness.com",
     "honorNote": "Solo menciona este código cuando nos escribas y nuestro equipo lo aplicará a tu safari."
   },
+  "search": {
+    "navLabel": "Buscar",
+    "placeholder": "Busca safaris, destinos, experiencias…",
+    "searching": "Buscando…",
+    "noResultsTitle": "Sin resultados",
+    "noResultsBody": "Prueba con otro término de búsqueda.",
+    "seeAllResults": "Ver todos los resultados para «{query}»",
+    "typeSafari": "Safari",
+    "typeDestination": "Destino",
+    "typeExperience": "Experiencia",
+    "typeBlog": "Blog",
+    "typeFaq": "Preguntas frecuentes",
+    "typeAccommodation": "Alojamiento",
+    "breadcrumbLabel": "Búsqueda",
+    "pageTitle": "Búsqueda",
+    "pageTitleWithQuery": "Resultados de búsqueda para «{query}»",
+    "pageDescription": "Busca safaris, destinos, experiencias y guías de viaje de EWA Safari Outfitters.",
+    "pageHeading": "Resultados para «{query}»",
+    "pageEmptyHeading": "Sin resultados para «{query}»",
+    "pageEmptyBody": "Prueba con otras palabras clave, o explora nuestros safaris y destinos."
+  },
   "pdfLead": {
     "badge": "Guía Gratis",
     "imagePanelBrand": "EWA Safari Outfitters",

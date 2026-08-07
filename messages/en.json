@@ -4057,6 +4057,27 @@
     "claimError": "Something went wrong. Please try again or email us at info@theextremewilderness.com",
     "honorNote": "Just mention this code when you reach out and our team will apply it to your safari."
   },
+  "search": {
+    "navLabel": "Search",
+    "placeholder": "Search safaris, destinations, experiences…",
+    "searching": "Searching…",
+    "noResultsTitle": "No results found",
+    "noResultsBody": "Try a different search term.",
+    "seeAllResults": "See all results for \"{query}\"",
+    "typeSafari": "Safari",
+    "typeDestination": "Destination",
+    "typeExperience": "Experience",
+    "typeBlog": "Blog",
+    "typeFaq": "FAQ",
+    "typeAccommodation": "Accommodation",
+    "breadcrumbLabel": "Search",
+    "pageTitle": "Search",
+    "pageTitleWithQuery": "Search results for \"{query}\"",
+    "pageDescription": "Search safaris, destinations, experiences, and travel guides from EWA Safari Outfitters.",
+    "pageHeading": "Results for \"{query}\"",
+    "pageEmptyHeading": "No results for \"{query}\"",
+    "pageEmptyBody": "Try different keywords, or browse our safaris and destinations instead."
+  },
   "destinationsHub": {
     "metaTitle": "East Africa Destinations | Tanzania, Kenya & Rwanda",
     "metaDescription": "Explore every national park, wildlife reserve, and key destination EWA Safari Outfitters operates across Tanzania, Kenya, and Rwanda — organised by circuit and area, not an alphabetical list.",

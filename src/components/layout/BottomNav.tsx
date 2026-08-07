@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Link, usePathname } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { useBooking } from '@/context/BookingContext'
+import { useSearch } from '@/context/SearchContext'
 import {
   Home,
   Compass,
@@ -16,6 +17,7 @@ import {
   BookOpen,
   Handshake,
   BedDouble,
+  Search,
   X,
   ArrowRight,
 } from 'lucide-react'
@@ -37,9 +39,11 @@ export default function BottomNav() {
   const t = useTranslations('bottomNav')
   const tf = useTranslations('forms')
   const tc = useTranslations('common')
+  const tSearch = useTranslations('search')
   const [moreOpen, setMoreOpen] = useState(false)
   const pathname = usePathname()
   const { pageBookingInfo, openBooking } = useBooking()
+  const { openSearch } = useSearch()
 
   const moreItems = [
     { label: t('destinations'),  href: '/destinations' as const,  Icon: MapPin },
@@ -131,6 +135,15 @@ export default function BottomNav() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             )}
+
+            <button
+              type="button"
+              onClick={() => { close(); openSearch() }}
+              className="flex items-center gap-3 w-full bg-white/10 hover:bg-white/20 active:bg-white/25 rounded-xl px-4 py-3 mb-3 transition-colors"
+            >
+              <Search className="w-5 h-5 text-gold flex-shrink-0" />
+              <span className="text-white text-sm font-medium">{tSearch('navLabel')}</span>
+            </button>
 
             <div className="grid grid-cols-2 gap-3">
               {moreItems.map(({ label, href, Icon }) => (

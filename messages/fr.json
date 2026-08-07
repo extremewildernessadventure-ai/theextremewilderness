@@ -4128,6 +4128,27 @@
     "claimError": "Une erreur s'est produite. Merci de réessayer ou de nous écrire à info@theextremewilderness.com",
     "honorNote": "Il vous suffit de mentionner ce code lorsque vous nous contactez, et notre équipe l'appliquera à votre safari."
   },
+  "search": {
+    "navLabel": "Rechercher",
+    "placeholder": "Rechercher safaris, destinations, expériences…",
+    "searching": "Recherche…",
+    "noResultsTitle": "Aucun résultat",
+    "noResultsBody": "Essayez un autre terme de recherche.",
+    "seeAllResults": "Voir tous les résultats pour « {query} »",
+    "typeSafari": "Safari",
+    "typeDestination": "Destination",
+    "typeExperience": "Expérience",
+    "typeBlog": "Blog",
+    "typeFaq": "FAQ",
+    "typeAccommodation": "Hébergement",
+    "breadcrumbLabel": "Recherche",
+    "pageTitle": "Recherche",
+    "pageTitleWithQuery": "Résultats de recherche pour « {query} »",
+    "pageDescription": "Recherchez des safaris, destinations, expériences et guides de voyage EWA Safari Outfitters.",
+    "pageHeading": "Résultats pour « {query} »",
+    "pageEmptyHeading": "Aucun résultat pour « {query} »",
+    "pageEmptyBody": "Essayez d'autres mots-clés, ou parcourez nos safaris et destinations."
+  },
   "destinationsHub": {
     "metaTitle": "Destinations en Afrique de l'Est | Tanzanie, Kenya & Rwanda",
     "metaDescription": "Découvrez chaque parc national, réserve faunique et destination clé où EWA Safari Outfitters opère en Tanzanie, au Kenya et au Rwanda — organisés par circuit et région, pas par ordre alphabétique.",

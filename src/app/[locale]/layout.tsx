@@ -33,7 +33,7 @@ const OG_LOCALE: Record<string, string> = {
 const CLIENT_NAMESPACES = [
   'common', 'forms', 'nav', 'bottomNav', 'home', 'safari', 'destinations',
   'destinationsHub', 'trekking', 'trekkingRouteDetail', 'tradePartners',
-  'pdfLead', 'planBuilder', 'accommodationsHub', 'exitIntent',
+  'pdfLead', 'planBuilder', 'accommodationsHub', 'exitIntent', 'search',
 ] as const
 
 function pickMessages(messages: Record<string, unknown>, namespaces: readonly string[]) {
