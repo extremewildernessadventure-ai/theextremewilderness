@@ -405,7 +405,7 @@ export default async function TrekkingPage({ params }: Props) {
       <KiliRouteMap />
 
       {/* Your Summit Kit */}
-      <section className="py-20 bg-brand">
+      <section id="summit-kit" className="py-20 bg-brand">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <Reveal className="mb-12">
@@ -458,7 +458,7 @@ export default async function TrekkingPage({ params }: Props) {
       </section>
 
       {/* When to Summit */}
-      <section className="py-20">
+      <section id="when-to-summit" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center mb-12">
             <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">{t('sumIntelEyebrow')}</span>

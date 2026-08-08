@@ -3,12 +3,15 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Link } from '@/i18n/navigation'
 import {
-  ChevronRight, ArrowRight, Calendar, Heart, DollarSign,
-  Shirt, ShieldCheck, Phone, Syringe, Sun,
+  ArrowRight, Calendar, Heart, DollarSign,
+  Shirt, ShieldCheck, Phone, Syringe, Sun, Mountain,
+  Bug, HeartPulse, Banknote, Repeat, Briefcase, PawPrint,
 } from 'lucide-react'
 import { buildAlternates } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import Reveal from '@/components/motion/Reveal'
+import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
+import CtaBanner from '@/components/home/CtaBanner'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -51,10 +54,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+const SEASON_STYLE = {
+  dry:          { border: 'border-gold', badge: 'text-gold-label' },
+  rain:         { border: 'border-brand-secondary', badge: 'text-brand-secondary' },
+  transitional: { border: 'border-gray-300', badge: 'text-text-muted' },
+} as const
+
 export default async function TravelInfoPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations('travelInfo')
+  const tTrek = await getTranslations('trekking')
 
   const quickFacts = [
     { label: t('qf1Label'), value: t('qf1Value') },
@@ -65,77 +75,36 @@ export default async function TravelInfoPage({ params }: Props) {
     { label: t('qf6Label'), value: t('qf6Value') },
   ]
 
+  const monthFormatter = new Intl.DateTimeFormat(locale, { month: 'short' })
+  const seasonLabel = {
+    shortDry: t('seasonShortDry'), dry: t('seasonDrySeason'),
+    longRains: t('seasonLongRains'), shortRains: t('seasonShortRains'),
+    transitional: t('seasonTransitional'),
+  }
+  const monthCards = [
+    { m: 0,  highlight: t('s1mJan'), season: seasonLabel.shortDry,     style: 'dry' as const },
+    { m: 1,  highlight: t('s1mFeb'), season: seasonLabel.shortDry,     style: 'dry' as const },
+    { m: 2,  highlight: t('s1mMar'), season: seasonLabel.longRains,    style: 'rain' as const },
+    { m: 3,  highlight: t('s1mApr'), season: seasonLabel.longRains,    style: 'rain' as const },
+    { m: 4,  highlight: t('s1mMay'), season: seasonLabel.longRains,    style: 'rain' as const },
+    { m: 5,  highlight: t('s1mJun'), season: seasonLabel.dry,          style: 'dry' as const },
+    { m: 6,  highlight: t('s1mJul'), season: seasonLabel.dry,          style: 'dry' as const },
+    { m: 7,  highlight: t('s1mAug'), season: seasonLabel.dry,          style: 'dry' as const },
+    { m: 8,  highlight: t('s1mSep'), season: seasonLabel.dry,          style: 'dry' as const },
+    { m: 9,  highlight: t('s1mOct'), season: seasonLabel.dry,          style: 'dry' as const },
+    { m: 10, highlight: t('s1mNov'), season: seasonLabel.shortRains,   style: 'rain' as const },
+    { m: 11, highlight: t('s1mDec'), season: seasonLabel.transitional, style: 'transitional' as const },
+  ].map((c) => ({ ...c, label: monthFormatter.format(new Date(2026, c.m, 1)) }))
+
+  const packingListA = [t('s4list1'), t('s4list2'), t('s4list3'), t('s4list4'), t('s4list5')]
+  const packingListB = [t('s4list6'), t('s4list7'), t('s4list8'), t('s4list9'), t('s4list10')]
+
   const sections = [
-    {
-      id: 'when-to-travel',
-      icon: Calendar,
-      title: t('s1Title'),
-      content: [
-        { heading: t('s1h1'), body: t('s1b1') },
-        { heading: t('s1h2'), body: t('s1b2') },
-        { heading: t('s1h3'), body: t('s1b3') },
-      ],
-      table: {
-        headers: [t('s1th1'), t('s1th2'), t('s1th3')],
-        rows: [
-          [t('s1tr1c1'), t('s1tr1c2'), t('s1tr1c3')],
-          [t('s1tr2c1'), t('s1tr2c2'), t('s1tr2c3')],
-          [t('s1tr3c1'), t('s1tr3c2'), t('s1tr3c3')],
-          [t('s1tr4c1'), t('s1tr4c2'), t('s1tr4c3')],
-          [t('s1tr5c1'), t('s1tr5c2'), t('s1tr5c3')],
-        ],
-      },
-      list: undefined as string[] | undefined,
-    },
-    {
-      id: 'health',
-      icon: Syringe,
-      title: t('s2Title'),
-      content: [
-        { heading: t('s2h1'), body: t('s2b1') },
-        { heading: t('s2h2'), body: t('s2b2') },
-        { heading: t('s2h3'), body: t('s2b3') },
-      ],
-      table: undefined as { headers: string[]; rows: string[][] } | undefined,
-      list: undefined as string[] | undefined,
-    },
-    {
-      id: 'currency',
-      icon: DollarSign,
-      title: t('s3Title'),
-      content: [
-        { heading: t('s3h1'), body: t('s3b1') },
-        { heading: t('s3h2'), body: t('s3b2') },
-        { heading: t('s3h3'), body: t('s3b3') },
-      ],
-      table: undefined as { headers: string[]; rows: string[][] } | undefined,
-      list: undefined as string[] | undefined,
-    },
-    {
-      id: 'dress-code',
-      icon: Shirt,
-      title: t('s4Title'),
-      content: [
-        { heading: t('s4h1'), body: t('s4b1') },
-        { heading: t('s4h2'), body: t('s4b2') },
-      ],
-      table: undefined as { headers: string[]; rows: string[][] } | undefined,
-      list: [
-        t('s4list1'), t('s4list2'), t('s4list3'), t('s4list4'), t('s4list5'),
-        t('s4list6'), t('s4list7'), t('s4list8'), t('s4list9'), t('s4list10'),
-      ],
-    },
-    {
-      id: 'safety',
-      icon: ShieldCheck,
-      title: t('s5Title'),
-      content: [
-        { heading: t('s5h1'), body: t('s5b1') },
-        { heading: t('s5h2'), body: t('s5b2') },
-      ],
-      table: undefined as { headers: string[]; rows: string[][] } | undefined,
-      list: undefined as string[] | undefined,
-    },
+    { id: 'when-to-travel', icon: Calendar, title: t('s1Title') },
+    { id: 'health', icon: Syringe, title: t('s2Title') },
+    { id: 'currency', icon: DollarSign, title: t('s3Title') },
+    { id: 'dress-code', icon: Shirt, title: t('s4Title') },
+    { id: 'safety', icon: ShieldCheck, title: t('s5Title') },
   ]
 
   return (
@@ -143,7 +112,7 @@ export default async function TravelInfoPage({ params }: Props) {
 
       {/* Hero */}
       <section className="relative bg-brand py-32 lg:py-40 overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/safari-118.webp')] bg-cover bg-center" />
+        <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/lion-portrait.webp')] bg-cover bg-center" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
@@ -160,14 +129,11 @@ export default async function TravelInfoPage({ params }: Props) {
       {/* Quick Facts Band */}
       <section className="bg-brand border-t border-white/10 py-12">
         <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-6 lg:divide-x lg:divide-white/10">
             {quickFacts.map(({ label, value }) => (
-              <div key={label} className="flex gap-3 items-start">
-                <div className="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0" />
-                <div>
-                  <p className="text-white/60 text-xs uppercase tracking-wider mb-0.5">{label}</p>
-                  <p className="text-white text-sm font-medium">{value}</p>
-                </div>
+              <div key={label} className="px-4 lg:px-5">
+                <p className="text-gold text-[10px] font-semibold uppercase tracking-widest mb-2">{label}</p>
+                <p className="text-white/80 text-sm leading-snug">{value}</p>
               </div>
             ))}
           </div>
@@ -175,9 +141,9 @@ export default async function TravelInfoPage({ params }: Props) {
       </section>
 
       {/* Jump Nav */}
-      <section className="sticky top-0 z-30 bg-white border-b border-gray-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto">
-          <nav className="flex gap-1 py-3 min-w-max">
+      <section className="bg-white border-b border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex flex-wrap gap-1 py-3">
             {sections.map(({ id, title, icon: Icon }) => (
               <a
                 key={id}
@@ -192,78 +158,242 @@ export default async function TravelInfoPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Sections */}
-      {sections.map(({ id, icon: Icon, title, content, table, list }, idx) => (
-        <section
-          key={id}
-          id={id}
-          className={`py-20 lg:py-28 ${idx % 2 === 0 ? 'bg-white' : 'bg-light-green'}`}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <Reveal className="max-w-3xl mx-auto lg:mx-0">
-
-              {/* Section header */}
-              <div className="flex items-center gap-4 mb-10">
-                <div className="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
-                  <Icon className="w-6 h-6 text-brand" />
-                </div>
-                <div>
-                  <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{t('sectionEyebrow')}</p>
-                  <h2 className="text-3xl font-bold text-brand">{title}</h2>
-                </div>
+      {/* ── 1. When to Travel ──────────────────────────────────────────── */}
+      <section id="when-to-travel" className="py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <div className="flex items-center gap-4 mb-10">
+              <div className="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+                <Calendar className="w-6 h-6 text-brand" />
               </div>
+              <div>
+                <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{t('sectionEyebrow')}</p>
+                <h2 className="text-3xl font-bold text-brand">{t('s1Title')}</h2>
+              </div>
+            </div>
 
-              {/* Content blocks */}
-              <div className="space-y-8">
-                {content.map(({ heading, body }) => (
-                  <div key={heading}>
-                    <h3 className="text-brand font-semibold text-lg mb-2">{heading}</h3>
-                    <p className="text-text-muted leading-relaxed">{body}</p>
+            <div className="max-w-3xl mb-10">
+              <h3 className="text-brand font-semibold text-lg mb-2">{t('s1h1')}</h3>
+              <p className="text-text-muted leading-relaxed">{t('s1b1')}</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
+              <div className="bg-white border border-gray-200 border-t-4 border-t-gold rounded-2xl p-8">
+                <span className="inline-block text-[10.5px] font-bold uppercase tracking-wider bg-gold/15 text-gold-label px-3 py-1 rounded-full mb-4">
+                  {t('s1tagPeak')}
+                </span>
+                <h3 className="text-brand font-bold text-2xl mb-2">{t('s1h2')}</h3>
+                <p className="text-text-muted text-sm leading-relaxed">{t('s1b2')}</p>
+              </div>
+              <div className="bg-white border border-gray-200 border-t-4 border-t-brand-secondary rounded-2xl p-8">
+                <span className="inline-block text-[10.5px] font-bold uppercase tracking-wider bg-brand-secondary/10 text-brand-secondary px-3 py-1 rounded-full mb-4">
+                  {t('s1tagGreen')}
+                </span>
+                <h3 className="text-brand font-bold text-2xl mb-2">{t('s1h3')}</h3>
+                <p className="text-text-muted text-sm leading-relaxed">{t('s1b3')}</p>
+              </div>
+            </div>
+          </Reveal>
+
+          <RevealGroup className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {monthCards.map(({ m, label, season, highlight, style }) => (
+              <RevealItem
+                key={m}
+                className={`bg-white border border-gray-200 border-l-4 ${SEASON_STYLE[style].border} rounded-xl p-4`}
+              >
+                <p className="text-brand font-bold text-xl mb-0.5">{label}</p>
+                <p className={`text-[10px] font-semibold uppercase tracking-wide mb-2 ${SEASON_STYLE[style].badge}`}>
+                  {season}
+                </p>
+                <p className="text-text-muted text-xs leading-relaxed">{highlight}</p>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+
+          <Reveal className="mt-14 max-w-3xl mx-auto bg-light-green rounded-2xl p-8">
+            <div className="flex items-center gap-3 mb-3">
+              <Mountain className="w-5 h-5 text-brand shrink-0" />
+              <h3 className="text-brand font-bold text-xl">{tTrek('whenToSummitHeading')}</h3>
+            </div>
+            <p className="text-text-muted text-sm leading-relaxed mb-6">{tTrek('whenToSummitSubtitle')}</p>
+            <div className="space-y-4 mb-6">
+              {[
+                { label: tTrek('season1Label'), months: tTrek('season1Months'), desc: tTrek('season1Desc') },
+                { label: tTrek('season2Label'), months: tTrek('season2Months'), desc: tTrek('season2Desc') },
+                { label: tTrek('season3Label'), months: tTrek('season3Months'), desc: tTrek('season3Desc') },
+              ].map(({ label, months, desc }) => (
+                <div key={label} className="bg-white rounded-xl p-4 border border-gray-100">
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+                    <span className="text-brand font-semibold text-sm">{label}</span>
+                    <span className="text-gold-label text-xs font-semibold uppercase tracking-wide">{months}</span>
                   </div>
-                ))}
-              </div>
-
-              {/* Optional table */}
-              {table && (
-                <div className="mt-10 overflow-x-auto rounded-2xl border border-gray-200">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="bg-brand text-white">
-                        {table.headers.map((h) => (
-                          <th key={h} className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide">{h}</th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {table.rows.map((row, i) => (
-                        <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                          {row.map((cell, j) => (
-                            <td key={j} className="px-5 py-3 text-text-muted border-t border-gray-100">
-                              {j === 0 ? <span className="font-semibold text-brand">{cell}</span> : cell}
-                            </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                  <p className="text-text-muted text-xs leading-relaxed">{desc}</p>
                 </div>
-              )}
+              ))}
+            </div>
+            <Link
+              href="/trekking#when-to-summit"
+              className="inline-flex items-center gap-1.5 text-brand font-semibold text-sm hover:text-gold-dark transition-colors"
+            >
+              {t('kiliSeasonLink')}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
 
-              {/* Optional list */}
-              {list && (
-                <ul className="mt-8 space-y-2">
-                  {list.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-text-muted text-sm leading-relaxed">
+      {/* ── 2. Health & Vaccinations ───────────────────────────────────── */}
+      <section id="health" className="py-20 lg:py-28 bg-light-green">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="flex items-center gap-4 mb-10">
+            <div className="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+              <Syringe className="w-6 h-6 text-brand" />
+            </div>
+            <div>
+              <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{t('sectionEyebrow')}</p>
+              <h2 className="text-3xl font-bold text-brand">{t('s2Title')}</h2>
+            </div>
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { Icon: Syringe, heading: t('s2h1'), body: t('s2b1') },
+              { Icon: Bug, heading: t('s2h2'), body: t('s2b2') },
+              { Icon: HeartPulse, heading: t('s2h3'), body: t('s2b3') },
+            ].map(({ Icon, heading, body }) => (
+              <RevealItem key={heading} className="bg-white border border-gray-200 rounded-2xl p-7">
+                <div className="w-11 h-11 border border-gold rounded-full flex items-center justify-center mb-5">
+                  <Icon className="w-5 h-5 text-gold" />
+                </div>
+                <h3 className="text-brand font-semibold text-lg mb-2">{heading}</h3>
+                <p className="text-text-muted text-sm leading-relaxed">{body}</p>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
+
+      {/* ── 3. Customs & Currency ──────────────────────────────────────── */}
+      <section id="currency" className="py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="flex items-center gap-4 mb-10">
+            <div className="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+              <DollarSign className="w-6 h-6 text-brand" />
+            </div>
+            <div>
+              <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{t('sectionEyebrow')}</p>
+              <h2 className="text-3xl font-bold text-brand">{t('s3Title')}</h2>
+            </div>
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { Icon: Banknote, heading: t('s3h1'), body: t('s3b1') },
+              { Icon: Repeat, heading: t('s3h2'), body: t('s3b2') },
+              { Icon: Briefcase, heading: t('s3h3'), body: t('s3b3') },
+            ].map(({ Icon, heading, body }) => (
+              <RevealItem key={heading} className="bg-white border border-gray-200 rounded-2xl p-7">
+                <div className="w-11 h-11 border border-gold rounded-full flex items-center justify-center mb-5">
+                  <Icon className="w-5 h-5 text-gold" />
+                </div>
+                <h3 className="text-brand font-semibold text-lg mb-2">{heading}</h3>
+                <p className="text-text-muted text-sm leading-relaxed">{body}</p>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
+
+      {/* ── 4. What to Pack ────────────────────────────────────────────── */}
+      <section id="dress-code" className="py-20 lg:py-28 bg-light-green">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="max-w-3xl mx-auto">
+            <div className="flex items-center gap-4 mb-10">
+              <div className="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+                <Shirt className="w-6 h-6 text-brand" />
+              </div>
+              <div>
+                <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{t('sectionEyebrow')}</p>
+                <h2 className="text-3xl font-bold text-brand">{t('s4Title')}</h2>
+              </div>
+            </div>
+            <div className="space-y-8 mb-10">
+              <div>
+                <h3 className="text-brand font-semibold text-lg mb-2">{t('s4h1')}</h3>
+                <p className="text-text-muted leading-relaxed">{t('s4b1')}</p>
+              </div>
+              <div>
+                <h3 className="text-brand font-semibold text-lg mb-2">{t('s4h2')}</h3>
+                <p className="text-text-muted leading-relaxed">{t('s4b2')}</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
+              {[packingListA, packingListB].map((col, i) => (
+                <ul key={i} className="space-y-2">
+                  {col.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5 text-text-muted text-sm leading-relaxed py-1 border-b border-dashed border-gray-200">
                       <span className="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0" />
                       {item}
                     </li>
                   ))}
                 </ul>
-              )}
-            </Reveal>
-          </div>
-        </section>
-      ))}
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal className="relative overflow-hidden mt-14 max-w-3xl mx-auto bg-white rounded-2xl p-8 border border-gray-100">
+            <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/kilimanjaro-hero.webp')] bg-cover bg-center" />
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-3">
+                <Mountain className="w-5 h-5 text-brand shrink-0" />
+                <h3 className="text-brand font-bold text-xl">{tTrek('packHeading')}</h3>
+              </div>
+              <p className="text-text-muted text-sm leading-relaxed mb-6">{tTrek('packSubtitle')}</p>
+              <div className="flex flex-wrap gap-2.5 mb-6">
+                {[tTrek('gear1Cat'), tTrek('gear2Cat'), tTrek('gear3Cat'), tTrek('gear4Cat')].map((cat) => (
+                  <span key={cat} className="px-4 py-2 rounded-full bg-light-green text-brand text-xs font-semibold">
+                    {cat}
+                  </span>
+                ))}
+              </div>
+              <Link
+                href="/trekking#summit-kit"
+                className="inline-flex items-center gap-1.5 text-brand font-semibold text-sm hover:text-gold-dark transition-colors"
+              >
+                {t('kiliPackLink')}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── 5. Safety & Security ───────────────────────────────────────── */}
+      <section id="safety" className="py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="flex items-center gap-4 mb-10">
+            <div className="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-6 h-6 text-brand" />
+            </div>
+            <div>
+              <p className="text-gold-label text-xs font-semibold uppercase tracking-widest mb-1">{t('sectionEyebrow')}</p>
+              <h2 className="text-3xl font-bold text-brand">{t('s5Title')}</h2>
+            </div>
+          </Reveal>
+          <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[
+              { Icon: ShieldCheck, heading: t('s5h1'), body: t('s5b1') },
+              { Icon: PawPrint, heading: t('s5h2'), body: t('s5b2') },
+            ].map(({ Icon, heading, body }) => (
+              <RevealItem key={heading} className="bg-white border border-gray-200 rounded-2xl p-7">
+                <div className="w-11 h-11 border border-gold rounded-full flex items-center justify-center mb-5">
+                  <Icon className="w-5 h-5 text-gold" />
+                </div>
+                <h3 className="text-brand font-semibold text-lg mb-2">{heading}</h3>
+                <p className="text-text-muted text-sm leading-relaxed">{body}</p>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
 
       {/* Sun + Best Time callout */}
       <section className="bg-white py-20 lg:py-24">
@@ -316,6 +446,8 @@ export default async function TravelInfoPage({ params }: Props) {
           </Reveal>
         </div>
       </section>
+
+      <CtaBanner />
 
     </main>
   )
