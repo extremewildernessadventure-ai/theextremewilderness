@@ -63,9 +63,9 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'Tanzania couples safari', 'honeymoon safari Africa 2026', 'Africa wedding anniversary safari', 'luxury safari honeymoon',
   ],
   '7-days-crown-jewels': [
-    'crown jewels Tanzania safari', 'best Tanzania safari', 'Tanzania top safari',
-    'Serengeti Zanzibar safari', 'Tanzania crown jewels', 'Africa bucket list safari',
-    'Tanzania premium safari', 'best of Tanzania safari', 'luxury Tanzania 7 days', 'Africa best wildlife safari',
+    'crown jewels Tanzania safari', 'best Tanzania safari', 'Tanzania hot air balloon safari',
+    'Tarangire Ngorongoro Serengeti safari', 'luxury Tanzania 7 days', 'Tanzania night game drive safari',
+    'premium Tanzania safari', 'Africa bucket list safari', 'private guided safari Tanzania', 'book Tanzania safari 2027',
   ],
   '7-days-migration-southern': [
     'Great Migration southern Tanzania', 'wildebeest migration safari', 'Ndutu calving season safari',
@@ -187,6 +187,11 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'Masai Mara Great Migration', 'Kenya safari package 2026', 'Lake Naivasha safari',
     "Hell's Gate bike safari Kenya", 'Kenya safari cost', 'best Kenya safari 5 days',
   ],
+  'rwanda-primates-zanzibar-seniors-groups': [
+    'Rwanda gorilla trekking and Zanzibar', 'primate safari and beach holiday', 'senior safari Rwanda',
+    'anniversary safari Africa', 'group safari Rwanda Zanzibar', 'luxury Rwanda Zanzibar combination',
+    'gorilla trekking beach extension', 'multi-generational safari', 'private guided safari Rwanda', 'book Rwanda safari 2027',
+  ],
 }
 
 // Per-package hero image crop override — most hero photos are fine with the
@@ -215,12 +220,32 @@ const SAFARI_KEYWORDS_BY_LOCALE: Partial<Record<string, Partial<Record<string, s
       'safari privé Tanzanie petit groupe', 'safari photo animalier Afrique', 'cratère du Ngorongoro et Ndutu safari',
       'safari authentique Tanzanie hors saison', 'safari guidé sur mesure Tanzanie', 'safari Tanzanie créateurs de contenu', 'réserver safari Tanzanie 2027',
     ],
+    'rwanda-primates-zanzibar-seniors-groups': [
+      'trekking gorilles Rwanda et Zanzibar', 'safari primates et séjour plage', 'safari senior Rwanda',
+      'safari anniversaire Afrique', 'safari groupe Rwanda Zanzibar', 'combiné luxe Rwanda Zanzibar',
+      'extension plage après trekking gorilles', 'safari multigénérationnel', 'safari privé guidé Rwanda', 'réserver safari Rwanda 2027',
+    ],
+    '7-days-crown-jewels': [
+      'safari joyaux de la couronne Tanzanie', 'meilleur safari Tanzanie', 'safari montgolfière Tanzanie',
+      'safari Tarangire Ngorongoro Serengeti', 'safari luxe Tanzanie 7 jours', 'safari game drive nocturne Tanzanie',
+      'safari premium Tanzanie', 'safari incontournable Afrique', 'safari privé guidé Tanzanie', 'réserver safari Tanzanie 2027',
+    ],
   },
   es: {
     'off-the-beaten-track-photography-safari': [
       'safari fotográfico Tanzania poco concurrido', 'depredadores residentes Ndutu safari', 'safari privado Tanzania fuera de temporada',
       'Tanzania safari para creadores de contenido', 'tour de fotografía de fauna en Tanzania', 'safari auténtico Tanzania sin multitudes',
       'safari guiado privado Tanzania', 'Ngorongoro y Ndutu safari fotográfico', 'safari Tanzania fuera de lo trillado', 'reservar safari Tanzania 2027',
+    ],
+    'rwanda-primates-zanzibar-seniors-groups': [
+      'trekking de gorilas en Ruanda y Zanzíbar', 'safari de primates y vacaciones de playa', 'safari para mayores en Ruanda',
+      'safari de aniversario en África', 'safari en grupo Ruanda Zanzíbar', 'combinación de lujo Ruanda Zanzíbar',
+      'extensión de playa tras trekking de gorilas', 'safari multigeneracional', 'safari privado guiado en Ruanda', 'reservar safari en Ruanda 2027',
+    ],
+    '7-days-crown-jewels': [
+      'safari Joyas de la Corona Tanzania', 'mejor safari en Tanzania', 'safari en globo aerostático Tanzania',
+      'safari Tarangire Ngorongoro Serengeti', 'safari de lujo Tanzania 7 días', 'safari nocturno en Tanzania',
+      'safari premium en Tanzania', 'safari imprescindible en África', 'safari privado guiado en Tanzania', 'reservar safari en Tanzania 2027',
     ],
   },
   de: {
@@ -229,12 +254,32 @@ const SAFARI_KEYWORDS_BY_LOCALE: Partial<Record<string, Partial<Record<string, s
       'private geführte Safari Tansania', 'Fotografie-Safari Serengeti Ngorongoro', 'authentische Tansania Safari ohne Massentourismus',
       'Safari für Content Creator Tansania', 'Ngorongoro Ndutu Kombireise', 'Tansania Safari 2027 buchen', 'Kleingruppen-Safari Tansania Fotografen',
     ],
+    'rwanda-primates-zanzibar-seniors-groups': [
+      'Gorilla-Trekking Ruanda und Sansibar', 'Primaten-Safari und Strandurlaub', 'Senioren-Safari Ruanda',
+      'Jubiläums-Safari Afrika', 'Gruppensafari Ruanda Sansibar', 'Luxus-Kombireise Ruanda Sansibar',
+      'Gorilla-Trekking mit Strandverlängerung', 'Mehrgenerationen-Safari', 'private geführte Safari Ruanda', 'Ruanda-Safari 2027 buchen',
+    ],
+    '7-days-crown-jewels': [
+      'Kronjuwelen-Safari Tansania', 'beste Tansania-Safari', 'Heißluftballon-Safari Tansania',
+      'Tarangire Ngorongoro Serengeti Safari', 'Luxus-Safari Tansania 7 Tage', 'Nacht-Game-Drive Safari Tansania',
+      'Premium-Safari Tansania', 'Bucket-List-Safari Afrika', 'private geführte Safari Tansania', 'Tansania-Safari 2027 buchen',
+    ],
   },
   ru: {
     'off-the-beaten-track-photography-safari': [
       'фотосафари в Танзании вне туристических троп', 'сафари на резидентных хищников Ндуту', 'приватное фотосафари по Африке',
       'сафари для фотографов дикой природы в Танзании', 'малолюдное сафари в Танзании', 'авторское сафари по Танзании',
       'индивидуальное сафари с гидом по Танзании', 'фотосафари Нгоронгоро и Ндуту', 'сафари без толп туристов Танзания', 'забронировать сафари в Танзанию 2027',
+    ],
+    'rwanda-primates-zanzibar-seniors-groups': [
+      'трекинг к гориллам в Руанде и Занзибар', 'сафари к приматам и пляжный отдых', 'сафари в Руанду для пожилых',
+      'сафари в Африку на годовщину', 'групповое сафари Руанда Занзибар', 'люксовое сочетание Руанда Занзибар',
+      'трекинг к гориллам с пляжным отдыхом', 'сафари для нескольких поколений', 'частное сафари с гидом по Руанде', 'забронировать сафари в Руанду 2027',
+    ],
+    '7-days-crown-jewels': [
+      'королевские жемчужины сафари Танзания', 'лучшее сафари по Танзании', 'сафари на воздушном шаре в Танзании',
+      'сафари Тарангире Нгоронгоро Серенгети', 'люксовое сафари Танзания 7 дней', 'ночное сафари в Танзании',
+      'премиальное сафари по Танзании', 'сафари мечты в Африке', 'частное сафари с гидом по Танзании', 'забронировать сафари в Танзанию 2027',
     ],
   },
   zh: {
@@ -243,12 +288,32 @@ const SAFARI_KEYWORDS_BY_LOCALE: Partial<Record<string, Partial<Record<string, s
       '坦桑尼亚摄影游猎定制', '野生动物摄影团坦桑尼亚', '深度坦桑尼亚游猎',
       '私人向导坦桑尼亚游猎', '人少坦桑尼亚游猎路线', '恩戈罗恩戈罗恩杜图摄影游猎', '2027坦桑尼亚游猎预订',
     ],
+    'rwanda-primates-zanzibar-seniors-groups': [
+      '卢旺达大猩猩追踪桑给巴尔', '灵长类动物游猎海滩假期', '卢旺达长者游猎',
+      '非洲纪念日游猎', '卢旺达桑给巴尔团组游猎', '卢旺达桑给巴尔豪华组合',
+      '大猩猩追踪海滩延伸', '跨代同游游猎', '卢旺达私人向导游猎', '2027卢旺达游猎预订',
+    ],
+    '7-days-crown-jewels': [
+      '皇冠明珠坦桑尼亚游猎', '坦桑尼亚最佳游猎', '坦桑尼亚热气球游猎',
+      '塔兰吉雷恩戈罗恩戈罗塞伦盖蒂游猎', '坦桑尼亚7日豪华游猎', '坦桑尼亚夜间游猎巡游',
+      '坦桑尼亚高端游猎', '非洲必去游猎清单', '坦桑尼亚私人向导游猎', '2027坦桑尼亚游猎预订',
+    ],
   },
   'zh-TW': {
     'off-the-beaten-track-photography-safari': [
       '坦尚尼亞秘境獵遊', '恩杜圖常駐獵食動物攝影', '非洲野生動物攝影獵遊',
       '私人嚮導坦尚尼亞獵遊', '恩杜圖恩戈羅恩戈羅攝影行程', '人少坦尚尼亞獵遊',
       '塞倫蓋蒂攝影獵遊團', '內容創作者非洲獵遊', '深度坦尚尼亞獵遊體驗', '2027坦尚尼亞獵遊預訂',
+    ],
+    'rwanda-primates-zanzibar-seniors-groups': [
+      '盧安達大猩猩健行與尚吉巴', '靈長類獵遊海灘假期', '長者盧安達獵遊',
+      '非洲紀念日獵遊', '盧安達尚吉巴團組獵遊', '盧安達尚吉巴豪華組合行程',
+      '大猩猩健行海灘延伸行程', '跨代同遊獵遊行程', '盧安達私人嚮導獵遊', '2027盧安達獵遊預訂',
+    ],
+    '7-days-crown-jewels': [
+      '坦尚尼亞皇冠明珠獵遊', '坦尚尼亞最佳獵遊行程', '坦尚尼亞熱氣球獵遊',
+      '塔蘭吉雷恩戈羅恩戈羅塞倫蓋蒂獵遊', '坦尚尼亞7日豪華獵遊', '坦尚尼亞夜間獵遊巡遊',
+      '坦尚尼亞頂級獵遊行程', '非洲此生必訪獵遊', '坦尚尼亞私人嚮導獵遊', '2027坦尚尼亞獵遊預訂',
     ],
   },
 }
@@ -259,7 +324,7 @@ const SAFARI_BLOG_MAP: Record<string, string> = {
   '10-day-safari-zanzibar':              'zanzibar-travel-guide',
   '5-day-serengeti-fly-in':              'best-time-to-visit-serengeti',
   '5-days-highlights-safari':            'great-migration-guide',
-  '7-days-crown-jewels':                 'zanzibar-travel-guide',
+  '7-days-crown-jewels':                 'ngorongoro-crater-guide',
   '7-days-migration-southern':           'great-migration-guide',
   '7-day-southern-circuit':              'big-five-africa-tanzania',
   '8-days-honeymoon-safari':             'safari-honeymoon-tanzania',
@@ -283,6 +348,7 @@ const SAFARI_BLOG_MAP: Record<string, string> = {
   '5-day-kenya-safari':                  'serengeti-vs-masai-mara',
   '2-day-selous-safari-from-zanzibar':   'zanzibar-travel-guide',
   '4-day-tarangire-ngorongoro-lake-eyasi': 'ngorongoro-crater-guide',
+  'rwanda-primates-zanzibar-seniors-groups': 'gorilla-trekking-rwanda',
 }
 const DEFAULT_BLOG_SLUG = 'tanzania-safari-cost'
 
