@@ -9,7 +9,12 @@
 	],
 	"assets": {
 		"directory": ".open-next/assets",
-		"binding": "ASSETS"
+		"binding": "ASSETS",
+		// Default "auto-trailing-slash" 307-redirects /foo.html -> /foo, which
+		// breaks the Yandex ownership-verification file (yandex_*.html) since
+		// verifiers don't follow redirects. This is the only static .html file
+		// in the asset bundle, so disabling clean-URL handling is safe.
+		"html_handling": "none"
 	},
 	"workers_dev": false,
 	"routes": [
