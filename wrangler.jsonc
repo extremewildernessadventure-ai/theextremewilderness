@@ -23,5 +23,12 @@
 			"binding": "WORKER_SELF_REFERENCE",
 			"service": "extreme-wilderness"
 		}
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "ewa-invoices",
+			"database_id": "5e76d144-3c2b-4d35-8bc1-763aa1f67f36"
+		}
 	]
 }

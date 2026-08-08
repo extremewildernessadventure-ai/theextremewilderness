@@ -49,6 +49,7 @@ export default async function Footer() {
     { label: t('companyFaq'), href: '/faq' },
     { label: t('companyAccommodations'), href: '/accommodations' },
     { label: t('companyTravelInfo'), href: '/travel-info' },
+    { label: t('companyPayments'), href: '/payments' },
     { label: t('companyTrade'), href: '/trade-partners' },
     { label: t('companyContact'), href: '/contact' },
   ] as const
