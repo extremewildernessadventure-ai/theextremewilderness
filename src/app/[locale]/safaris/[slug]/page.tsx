@@ -69,8 +69,8 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
   ],
   '7-days-migration-southern': [
     'Great Migration southern Tanzania', 'wildebeest migration safari', 'Ndutu calving season safari',
-    'Serengeti migration southern', 'Tanzania migration safari 2026', 'wildlife migration Tanzania',
-    'best migration safari Africa', 'Serengeti wildebeest safari', 'calving season Ndutu', 'Africa migration safari',
+    'Serengeti migration southern', 'Tanzania migration safari 2027', 'wildlife migration Tanzania',
+    'best migration safari Africa', 'Olduvai Gorge safari', 'Mto wa Mbu cultural safari', 'Africa migration safari',
   ],
   '10-days-luxury-family': [
     'family safari Tanzania', 'Tanzania luxury family safari', 'Africa safari with kids',
@@ -542,7 +542,7 @@ export default async function SafariPackagePage({ params }: Props) {
         packageType={TRIP_TYPE_LABEL[pkg.type]}
         restrictTripType
         priceFrom={`$${pkg.priceFrom.toLocaleString('en-US')}`}
-        duration={`${pkg.duration} ${tc('nights')}`}
+        duration={`${pkg.duration} ${tc('days')}`}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -604,7 +604,7 @@ export default async function SafariPackagePage({ params }: Props) {
                     </div>
                     <div className="bg-white rounded-lg border border-gray-100 p-3">
                       <Clock className="w-4 h-4 text-gold mb-1.5" />
-                      <p className="font-bold text-brand text-base leading-tight">{pkg.duration} {tc('nights')}</p>
+                      <p className="font-bold text-brand text-base leading-tight">{pkg.duration} {tc('days')}</p>
                       <p className="text-xs text-text-muted">{t('duration')}</p>
                     </div>
                     <div className="bg-white rounded-lg border border-gray-100 p-3">
@@ -902,7 +902,7 @@ export default async function SafariPackagePage({ params }: Props) {
                 tripTypeLabel={TRIP_TYPE_LABEL[pkg.type]}
                 priceFrom={pkg.priceFrom}
                 duration={pkg.duration}
-                nightsLabel={tc('nights')}
+                nightsLabel={tc('days')}
                 perPersonLabel={tc('perPerson')}
                 pricingTiers={pkg.pricingTiers}
                 pricingTiersProvisional={pkg.pricingTiersProvisional}
