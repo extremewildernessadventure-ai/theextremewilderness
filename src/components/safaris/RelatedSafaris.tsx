@@ -56,7 +56,7 @@ export default function RelatedSafaris({ current, all }: { current: SafariPackag
                 <div className="relative h-56 w-full">
                   <Image
                     src={p.heroImage}
-                    alt={p.name}
+                    alt={p.heroImageAlt ?? p.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

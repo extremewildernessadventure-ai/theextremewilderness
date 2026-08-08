@@ -10,7 +10,7 @@ export interface Accommodation {
   location: string
   description: string
   amenities: string[]
-  images: string[]
+  images: { src: string; alt: string }[]
   featuredIn: AccommodationItinerary[]
   needsPhotography?: boolean
 }
@@ -23,7 +23,7 @@ export const accommodations: Accommodation[] = [
     location: 'Northern Serengeti',
     description: 'A fully mobile luxury tented camp that follows the Great Migration itself, so guests wake up wherever the herds currently are.',
     amenities: ['Luxury Tented Suites', 'En-Suite Rooms', 'Migration-Route Location', 'Full-Service Restaurant'],
-    images: ['/images/lodges/andbeyond-serengeti-under-canvas.webp', '/images/lodges/andbeyond-serengeti-under-canvas-2.webp', '/images/lodges/andbeyond-serengeti-under-canvas-3.webp', '/images/lodges/andbeyond-serengeti-under-canvas-4.webp'],
+    images: [{ src: '/images/lodges/andbeyond-serengeti-under-canvas.webp', alt: 'andBeyond Serengeti Under Canvas mess tent and campfire seating beneath an acacia tree at sunset on the Serengeti plains' }, { src: '/images/lodges/andbeyond-serengeti-under-canvas-lounge-tent.webp', alt: 'Safari-style lounge tent at andBeyond Serengeti Under Canvas with striped armchairs, a backgammon table and hurricane lanterns' }, { src: '/images/lodges/andbeyond-serengeti-under-canvas-tent-veranda.webp', alt: 'Canvas guest tent veranda at andBeyond Serengeti Under Canvas with camp chairs and a washstand mirror at golden hour' }, { src: '/images/lodges/andbeyond-serengeti-under-canvas-bedroom-view.webp', alt: 'Mobile camp bedroom at andBeyond Serengeti Under Canvas opening onto the open Serengeti grassland at sunrise' }],
     featuredIn: [{ label: 'Highlights of Kenya & Tanzania Safari', href: '/safaris/kenya-tanzania-highlights-safari' }],
   },
   {
@@ -33,7 +33,7 @@ export const accommodations: Accommodation[] = [
     location: 'West Kilimanjaro',
     description: 'A Maasai-run lodge on the western slopes of Kilimanjaro, built around genuine cultural exchange with the surrounding community.',
     amenities: ['Scenic Views', 'Cultural Experiences'],
-    images: ['/images/lodges/africa-amini-original-maasai-lodge.webp', '/images/lodges/africa-amini-original-maasai-lodge-2.webp', '/images/lodges/africa-amini-original-maasai-lodge-3.webp', '/images/lodges/africa-amini-original-maasai-lodge-4.webp', '/images/lodges/africa-amini-original-maasai-lodge-5.webp'],
+    images: [{ src: '/images/lodges/africa-amini-original-maasai-lodge.webp', alt: 'Maasai warriors in traditional red shuka beside the pool terrace at Africa Amini Original Maasai Lodge on West Kilimanjaro' }, { src: '/images/lodges/africa-amini-original-maasai-lodge-pool.webp', alt: 'Oval infinity pool with red Maasai-cloth loungers overlooking rolling savanna hills at Africa Amini Original Maasai Lodge' }, { src: '/images/lodges/africa-amini-original-maasai-lodge-bedroom.webp', alt: 'Rustic stone-walled guest bedroom with a carved wooden door at Africa Amini Original Maasai Lodge lit at dusk' }, { src: '/images/lodges/africa-amini-original-maasai-lodge-bathroom-view.webp', alt: 'Freestanding tub in a curved stone bathroom with red drapery and a savanna view at Africa Amini Original Maasai Lodge' }, { src: '/images/lodges/africa-amini-original-maasai-lodge-yoga-room.webp', alt: 'Guests meditating on woven mats inside the thatched yoga and wellness room at Africa Amini Original Maasai Lodge' }],
     featuredIn: [{ label: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike', href: '/safaris/12-days-wild-wilderness' }],
   },
   {
@@ -43,7 +43,7 @@ export const accommodations: Accommodation[] = [
     location: 'Lake Manyara National Park',
     description: 'Treehouse-style suites raised into the groundwater forest canopy, deep inside Lake Manyara itself rather than on its edge.',
     amenities: ['Scenic Views', 'Wildlife Views', 'Treehouse Suites', 'Forest Canopy Setting', 'En-Suite Rooms', 'Full-Service Restaurant'],
-    images: ['/images/lodges/andbeyond-lake-manyara-tree-lodge.webp', '/images/lodges/andbeyond-lake-manyara-tree-lodge-2.webp', '/images/lodges/andbeyond-lake-manyara-tree-lodge-3.webp', '/images/lodges/andbeyond-lake-manyara-tree-lodge-4.webp'],
+    images: [{ src: '/images/lodges/andbeyond-lake-manyara-tree-lodge-living-room.webp', alt: 'Candlelit lounge at andBeyond Lake Manyara Tree Lodge with carved tribal figures and thatched shingle ceiling' }, { src: '/images/lodges/andbeyond-lake-manyara-tree-lodge-pool.webp', alt: 'Round stone-edged swimming pool set into the groundwater forest canopy at andBeyond Lake Manyara Tree Lodge' }, { src: '/images/lodges/andbeyond-lake-manyara-tree-lodge-suite-bedroom.webp', alt: 'Treehouse suite bedroom with a draped four-poster bed and woven chain room divider at andBeyond Lake Manyara Tree Lodge' }, { src: '/images/lodges/andbeyond-lake-manyara-tree-lodge-bar.webp', alt: 'Wood-panelled bar and sitting area decorated with tribal weapons and framed photographs at andBeyond Lake Manyara Tree Lodge' }],
     featuredIn: [{ label: '12 Days Tanzania Kenya Expedition', href: '/safaris/12-days-tanzania-kenya' }, { label: '7 Days Gems of the North', href: '/safaris/7-days-gems-of-north' }, { label: 'Highlights of Kenya & Tanzania Safari', href: '/safaris/kenya-tanzania-highlights-safari' }],
   },
   {
@@ -53,7 +53,7 @@ export const accommodations: Accommodation[] = [
     location: 'Masai Mara, Kenya',
     description: 'Perched on the edge of the Oloololo Escarpment with a sweeping view over the entire Mara plain — one of the most photographed outlooks in East Africa.',
     amenities: ['Swimming Pool', 'Scenic Views', 'Spa', 'Migration-Route Location'],
-    images: ['/images/lodges/angama-mara.webp', '/images/lodges/angama-mara-2.webp', '/images/lodges/angama-mara-3.webp', '/images/lodges/angama-mara-4.webp'],
+    images: [{ src: '/images/lodges/angama-mara-escarpment-view.webp', alt: 'Angama Mara\'s tented suites perched on the Oloololo Escarpment overlooking the Masai Mara plains at dusk' }, { src: '/images/lodges/angama-mara-pool-deck.webp', alt: 'Poolside deck at Angama Mara with red sun loungers, a sun hat and striped towel overlooking the Mara plain' }, { src: '/images/lodges/angama-mara-architecture-courtyard.webp', alt: 'Brick architectural courtyard with a reflecting water garden and mirrored glass at Angama Mara' }, { src: '/images/lodges/angama-mara-suite-interior.webp', alt: 'Designer suite at Angama Mara with a red-draped bed, freestanding bathtub and woven Maasai-pattern screens' }],
     featuredIn: [{ label: '5 Days Kenya Safari — Hell\'s Gate, Lake Nakuru & Masai Mara', href: '/safaris/5-day-kenya-safari' }],
   },
   {
@@ -63,7 +63,7 @@ export const accommodations: Accommodation[] = [
     location: 'Arusha',
     description: 'A working coffee estate on the outskirts of Arusha, close to the airport, that makes a relaxed first or last night before or after the bush.',
     amenities: ['Free WiFi', 'Swimming Pool', 'Scenic Views', 'Garden Grounds', 'Full-Service Restaurant'],
-    images: ['/images/lodges/arusha-coffee-lodge-5.webp', '/images/lodges/arusha-coffee-lodge-2.webp', '/images/lodges/arusha-coffee-lodge-3.webp', '/images/lodges/arusha-coffee-lodge-4.webp'],
+    images: [{ src: '/images/lodges/arusha-coffee-lodge-garden-path.webp', alt: 'Guest in a sun hat walking a gravel path through the shaded coffee-estate gardens at Arusha Coffee Lodge' }, { src: '/images/lodges/arusha-coffee-lodge-cottage-exterior.webp', alt: 'Private cottage veranda with wicker armchairs surrounded by coffee bushes at Arusha Coffee Lodge' }, { src: '/images/lodges/arusha-coffee-lodge-main-lodge-night.webp', alt: 'Main lodge building at Arusha Coffee Lodge lit up at night around a reflecting courtyard pool' }, { src: '/images/lodges/arusha-coffee-lodge-suite-lounge.webp', alt: 'Suite sitting room at Arusha Coffee Lodge with a glowing four-poster bed alcove and chandelier over a green sofa' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '10 Days Tanzania Luxury Family Safari', href: '/safaris/10-days-luxury-family' }, { label: '10-Day Ultimate Great Migration — Mara River-Crossing Safari', href: '/safaris/10-day-ultimate-great-migration-mara-river-crossing' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }, { label: '12-Day Tanzania Safari for Seniors, Anniversaries & Groups', href: '/safaris/12-day-seniors-anniversary-groups-safari' }, { label: '7 Days Crown Jewels Safari', href: '/safaris/7-days-crown-jewels' }, { label: '7 Days Flight Over Ndutu Migration', href: '/safaris/7-days-flight-ndutu' }, { label: '7 Days Gems of the North', href: '/safaris/7-days-gems-of-north' }, { label: '7 Days Serengeti & Ngorongoro Safari', href: '/safaris/7-day-serengeti-ngorongoro' }, { label: '7-Day Tanzania Photography & Adventure Safari', href: '/safaris/7-day-photography-adventure-safari' }, { label: '8 Days Flight to Migration', href: '/safaris/8-days-flight-migration' }, { label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }, { label: 'Ultimate Tanzania Safari', href: '/safaris/ultimate-tanzania-safari' }],
   },
   {
@@ -73,7 +73,7 @@ export const accommodations: Accommodation[] = [
     location: 'Volcanoes National Park, Rwanda',
     description: 'Domed forest villas set into a restored volcanic amphitheatre a short drive from the gorilla trekking trailheads.',
     amenities: ['Scenic Views', 'Spa', 'Wildlife Views'],
-    images: ['/images/lodges/bisate-lodge.webp', '/images/lodges/bisate-lodge-2.webp', '/images/lodges/bisate-lodge-3.webp', '/images/lodges/bisate-lodge-4.webp'],
+    images: [{ src: '/images/lodges/bisate-lodge-villa-exterior.webp', alt: 'Thatched domed forest villa at Bisate Lodge glimpsed through flowering shrubs on the restored volcanic hillside' }, { src: '/images/lodges/bisate-lodge-villas-aerial.webp', alt: 'Aerial view of Bisate Lodge\'s cluster of domed villas set into the reforested volcanic amphitheatre near Volcanoes National Park' }, { src: '/images/lodges/bisate-lodge-bedroom-interior.webp', alt: 'Domed villa bedroom at Bisate Lodge with a woven ceiling, herringbone headboard and private fireplace' }, { src: '/images/lodges/bisate-lodge-dining-room.webp', alt: 'Stone-walled dining room at Bisate Lodge with a lit fireplace and a table set for dinner' }],
     featuredIn: [{ label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }],
   },
   {
@@ -83,7 +83,7 @@ export const accommodations: Accommodation[] = [
     location: 'Tarangire National Park',
     description: 'A tented lodge on the Tarangire boundary, positioned for early access to one of Africa’s densest elephant landscapes.',
     amenities: ['Full-Service Restaurant', 'Free WiFi', 'Wildlife Views'],
-    images: ['/images/lodges/burunge-tented-lodge.webp', '/images/lodges/burunge-tented-lodge-2.webp', '/images/lodges/burunge-tented-lodge-3.webp', '/images/lodges/burunge-tented-lodge-4.webp', '/images/lodges/burunge-tented-lodge-5.webp'],
+    images: [{ src: '/images/lodges/burunge-tented-lodge-tent-bedroom.webp', alt: 'Canvas tent bedroom at Burunge Tented Lodge with a draped four-poster bed and hammock on the private balcony' }, { src: '/images/lodges/burunge-tented-lodge-tent-exterior.webp', alt: 'Raised thatched guest tent on stilts at Burunge Tented Lodge on the Tarangire boundary at golden hour' }, { src: '/images/lodges/burunge-tented-lodge-aerial-view.webp', alt: 'Aerial view of Burunge Tented Lodge\'s thatched main building, pool and bush surroundings near Tarangire National Park' }, { src: '/images/lodges/burunge-tented-lodge-pool-deck.webp', alt: 'Swimming pool and sun loungers beside the thatched main lodge at Burunge Tented Lodge' }, { src: '/images/lodges/burunge-tented-lodge-twin-room.webp', alt: 'Twin canopy beds inside a family tent at Burunge Tented Lodge with polished dark wood flooring' }],
     featuredIn: [{ label: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti', href: '/safaris/tanzania-photographic-safari' }],
   },
   {
@@ -93,7 +93,7 @@ export const accommodations: Accommodation[] = [
     location: 'Tarangire National Park',
     description: 'A straightforward, well-run camp on the Tarangire circuit for travellers who want solid guiding without the premium price tag.',
     amenities: ['Full-Service Restaurant', 'Free WiFi'],
-    images: ['/images/lodges/conserve-safari-tarangire.webp', '/images/lodges/conserve-safari-tarangire-2.webp', '/images/lodges/conserve-safari-tarangire-3.webp', '/images/lodges/conserve-safari-tarangire-4.webp', '/images/lodges/conserve-safari-tarangire-5.webp'],
+    images: [{ src: '/images/lodges/conserve-safari-tarangire-tent-bedroom.webp', alt: 'Dimly lit safari tent bedroom at Conserve Safari Tarangire with a king bed and twin bench seating' }, { src: '/images/lodges/conserve-safari-tarangire-breakfast-dining.webp', alt: 'Guests and staff at breakfast in the open-sided mess tent at Conserve Safari Tarangire' }, { src: '/images/lodges/conserve-safari-tarangire-bar.webp', alt: 'Wooden camp bar stocked with spirits and rattan stools at Conserve Safari Tarangire' }, { src: '/images/lodges/conserve-safari-tarangire-veranda-view.webp', alt: 'Coffee service on a private tent veranda overlooking the Tarangire grassland under a storm sky' }, { src: '/images/lodges/conserve-safari-tarangire-tent-desk-bathroom.webp', alt: 'Tent bedroom writing desk and ensuite bathroom entrance at Conserve Safari Tarangire' }],
     featuredIn: [{ label: '10-Day Ultimate Great Migration — Mara River-Crossing Safari', href: '/safaris/10-day-ultimate-great-migration-mara-river-crossing' }],
   },
   {
@@ -103,7 +103,7 @@ export const accommodations: Accommodation[] = [
     location: 'Dar es Salaam',
     description: 'A beachfront city hotel on the Msasani Peninsula, most often used as a comfortable overnight stop en route to or from the southern circuit.',
     amenities: ['Swimming Pool', 'Full-Service Restaurant', 'Free WiFi'],
-    images: ['/images/lodges/dar-es-salaam-serena-hotel.webp', '/images/lodges/dar-es-salaam-serena-hotel-2.webp', '/images/lodges/dar-es-salaam-serena-hotel-3.webp', '/images/lodges/dar-es-salaam-serena-hotel-4.webp', '/images/lodges/dar-es-salaam-serena-hotel-5.webp'],
+    images: [{ src: '/images/lodges/dar-es-salaam-serena-hotel-entrance-night.webp', alt: 'Illuminated porte-cochere entrance of Dar es Salaam Serena Hotel at night with palm trees lining the driveway' }, { src: '/images/lodges/dar-es-salaam-serena-hotel-pool.webp', alt: 'Outdoor swimming pool surrounded by palm trees and striped umbrellas at Dar es Salaam Serena Hotel' }, { src: '/images/lodges/dar-es-salaam-serena-hotel-lobby.webp', alt: 'Grand double-height lobby with a mosaic marble floor and hanging lantern chandelier at Dar es Salaam Serena Hotel' }, { src: '/images/lodges/dar-es-salaam-serena-hotel-restaurant.webp', alt: 'Zebra-themed restaurant dining room set with white tablecloths at Dar es Salaam Serena Hotel' }, { src: '/images/lodges/dar-es-salaam-serena-hotel-guest-room.webp', alt: 'Guest room with a smart TV welcome screen and gold-trimmed bedding at Dar es Salaam Serena Hotel' }],
     featuredIn: [{ label: '5 Days Private Gombe Chimpanzee Trekking', href: '/safaris/5-day-gombe-chimpanzee-trekking' }, { label: '7 Days Southern Circuit — Ruaha & Nyerere', href: '/safaris/7-day-southern-circuit' }],
   },
   {
@@ -113,7 +113,7 @@ export const accommodations: Accommodation[] = [
     location: 'Kigali, Rwanda',
     description: 'A simple, budget-friendly base in Kigali for travellers prioritising value over the gorilla trekking and primate legs of a Rwanda trip.',
     amenities: ['Free WiFi', 'Swimming Pool', 'Full-Service Restaurant'],
-    images: ['/images/lodges/discover-rwanda-youth-hostel.webp', '/images/lodges/discover-rwanda-youth-hostel-2.webp', '/images/lodges/discover-rwanda-youth-hostel-3.webp', '/images/lodges/discover-rwanda-youth-hostel-4.webp'],
+    images: [{ src: '/images/lodges/discover-rwanda-youth-hostel-exterior-night.webp', alt: 'Discover Rwanda Youth Hostel\'s terrace and spiral staircase lit up at night in Kigali' }, { src: '/images/lodges/discover-rwanda-youth-hostel-entrance-gate.webp', alt: 'Signposted entrance gate of Discover Rwanda Youth Hostel with guests walking in past the garden beds' }, { src: '/images/lodges/discover-rwanda-youth-hostel-dorm-room.webp', alt: 'Simple bunk-bed dormitory room at Discover Rwanda Youth Hostel with tiled flooring' }, { src: '/images/lodges/discover-rwanda-youth-hostel-bathroom.webp', alt: 'Basic ensuite shower and toilet room at Discover Rwanda Youth Hostel' }],
     featuredIn: [{ label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }],
   },
   {
@@ -123,7 +123,7 @@ export const accommodations: Accommodation[] = [
     location: 'Nairobi, Kenya',
     description: 'A dependable Nairobi hotel used as a gateway stop before heading out to Kenya’s parks and reserves.',
     amenities: ['Free WiFi', 'Swimming Pool', 'Full-Service Restaurant'],
-    images: ['/images/lodges/eka-hotel.webp', '/images/lodges/eka-hotel-2.webp', '/images/lodges/eka-hotel-3.webp', '/images/lodges/eka-hotel-4.webp'],
+    images: [{ src: '/images/lodges/eka-hotel-courtyard-pool.webp', alt: 'Central courtyard swimming pool flanked by guest room wings at Eka Hotel in Nairobi' }, { src: '/images/lodges/eka-hotel-entrance.webp', alt: 'Eka Hotel entrance and illuminated signage in Nairobi at dusk' }, { src: '/images/lodges/eka-hotel-lobby-lounge.webp', alt: 'Lobby lounge seating in blue and cream upholstery with a patterned carpet at Eka Hotel' }, { src: '/images/lodges/eka-hotel-room-jacuzzi.webp', alt: 'Guest room at Eka Hotel with a corner jacuzzi tub positioned beside the bed' }],
     featuredIn: [{ label: '10-Day Kenya & Tanzania Safari', href: '/safaris/10-day-kenya-tanzania-safari' }],
   },
   {
@@ -133,7 +133,7 @@ export const accommodations: Accommodation[] = [
     location: 'Tarangire region',
     description: 'A mid-range camp built around a natural spring that draws elephant and other wildlife right past the property.',
     amenities: ['Swimming Pool', 'Scenic Views', 'Full-Service Restaurant'],
-    images: ['/images/lodges/elephant-springs.webp', '/images/lodges/elephant-springs-2.webp', '/images/lodges/elephant-springs-3.webp', '/images/lodges/elephant-springs-4.webp'],
+    images: [{ src: '/images/lodges/elephant-springs-exterior-view.webp', alt: 'Wide view of Elephant Springs\' timber-and-stone guest cottages set among acacia trees in the Tarangire region' }, { src: '/images/lodges/elephant-springs-pool-deck.webp', alt: 'Infinity pool deck with sun loungers and drinks overlooking acacia bushland at Elephant Springs' }, { src: '/images/lodges/elephant-springs-suite-bedroom.webp', alt: 'Suite bedroom at Elephant Springs with a canopy-netted bed and freestanding tub beside a stone feature wall' }, { src: '/images/lodges/elephant-springs-lounge-dining.webp', alt: 'Open-sided lounge and dining area at Elephant Springs with green sofas and a reed ceiling' }],
     featuredIn: [{ label: '7-Day Tanzania Photography & Adventure Safari', href: '/safaris/7-day-photography-adventure-safari' }],
   },
   {
@@ -143,7 +143,7 @@ export const accommodations: Accommodation[] = [
     location: 'Lake Naivasha, Kenya',
     description: 'A spa resort on the shores of Lake Naivasha, offering a genuine slow-down between game-drive days in the Rift Valley.',
     amenities: ['Spa', 'Swimming Pool', 'Scenic Views', 'Free WiFi'],
-    images: ['/images/lodges/enashipai-resort-spa.webp', '/images/lodges/enashipai-resort-and-spa-2.webp', '/images/lodges/enashipai-resort-and-spa-3.webp', '/images/lodges/enashipai-resort-and-spa-4.webp'],
+    images: [{ src: '/images/lodges/enashipai-resort-spa.webp', alt: 'Red-accented guest room with a balcony and lake-facing view at Enashipai Resort & Spa on Lake Naivasha' }, { src: '/images/lodges/enashipai-resort-and-spa-exterior-pool.webp', alt: 'Gabled thatched-roof exterior of Enashipai Resort & Spa with a pool terrace and red umbrellas' }, { src: '/images/lodges/enashipai-resort-and-spa-suite-bedroom.webp', alt: 'Suite bedroom with a sheer canopy bed opening onto a wrought-iron balcony at Enashipai Resort & Spa' }, { src: '/images/lodges/enashipai-resort-and-spa-suite-lounge.webp', alt: 'Suite sitting room with an orange sofa and Maasai portrait art opening onto a garden balcony at Enashipai Resort & Spa' }],
     featuredIn: [{ label: '5 Days Kenya Safari — Hell\'s Gate, Lake Nakuru & Masai Mara', href: '/safaris/5-day-kenya-safari' }],
   },
   {
@@ -153,7 +153,7 @@ export const accommodations: Accommodation[] = [
     location: 'Central Serengeti',
     description: 'A lodge built around its own watering hole in the heart of the Serengeti, where wildlife regularly passes below the terrace.',
     amenities: ['Swimming Pool', 'Spa', 'Scenic Views'],
-    images: ['/images/lodges/four-seasons-safari-lodge-serengeti.webp', '/images/lodges/four-seasons-safari-lodge-serengeti-2.webp', '/images/lodges/four-seasons-safari-lodge-serengeti-3.webp', '/images/lodges/four-seasons-safari-lodge-serengeti-4.webp'],
+    images: [{ src: '/images/lodges/four-seasons-safari-lodge-serengeti-terrace-waterhole.webp', alt: 'Sunset terrace lounge seating overlooking the lodge\'s own watering hole at Four Seasons Safari Lodge Serengeti' }, { src: '/images/lodges/four-seasons-safari-lodge-serengeti-villa-pool.webp', alt: 'Private villa plunge pool and thatched roof overlooking the Serengeti plains at Four Seasons Safari Lodge Serengeti' }, { src: '/images/lodges/four-seasons-safari-lodge-serengeti-suite-interior.webp', alt: 'Suite interior with a four-poster bed and pool-view deck at Four Seasons Safari Lodge Serengeti' }, { src: '/images/lodges/four-seasons-safari-lodge-serengeti-wine-cellar.webp', alt: 'Wine cellar dining table surrounded by stocked wine racks at Four Seasons Safari Lodge Serengeti' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }, { label: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike', href: '/safaris/12-days-wild-wilderness' }],
   },
   {
@@ -163,7 +163,7 @@ export const accommodations: Accommodation[] = [
     location: 'Karatu, Ngorongoro Highlands',
     description: 'A long-running organic farm estate below the crater rim, still growing its own coffee and produce, and widely regarded as one of Tanzania’s finest kitchens.',
     amenities: ['Spa', 'Scenic Views', 'Organic Farm-to-Table'],
-    images: ['/images/lodges/gibbs-farm.webp', '/images/lodges/gibbs-farm-2.webp', '/images/lodges/gibbs-farm-3.webp', '/images/lodges/gibbs-farm-4.webp', '/images/lodges/gibbs-farm-5.webp'],
+    images: [{ src: '/images/lodges/gibbs-farm-cottage-exterior.webp', alt: 'Twin-gabled cottage exterior with garden steps and bougainvillea at Gibb\'s Farm below the Ngorongoro Highlands' }, { src: '/images/lodges/gibbs-farm-suite-bedroom.webp', alt: 'Beamed-ceiling suite bedroom with a stone feature wall and garden-facing sitting area at Gibb\'s Farm' }, { src: '/images/lodges/gibbs-farm-fireplace-lounge.webp', alt: 'Stone fireplace lounge with candlelight opening onto a guest bedroom at Gibb\'s Farm' }, { src: '/images/lodges/gibbs-farm-garden-pathway.webp', alt: 'Colonnaded pergola walkway lined with yellow-flowering hedges at Gibb\'s Farm, Karatu' }, { src: '/images/lodges/gibbs-farm-organic-garden.webp', alt: 'Farm worker tending the organic vegetable garden past a white cabbage row at Gibb\'s Farm' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '10-Day Ultimate Great Migration — Mara River-Crossing Safari', href: '/safaris/10-day-ultimate-great-migration-mara-river-crossing' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }, { label: '12-Day Tanzania Safari for Seniors, Anniversaries & Groups', href: '/safaris/12-day-seniors-anniversary-groups-safari' }, { label: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike', href: '/safaris/12-days-wild-wilderness' }, { label: '5 Days Serengeti Fly-In Safari', href: '/safaris/5-day-serengeti-fly-in' }, { label: '7 Days Serengeti & Ngorongoro Safari', href: '/safaris/7-day-serengeti-ngorongoro' }, { label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }, { label: '8-Day Honeymoon Safari — Bush Lovers', href: '/safaris/8-days-honeymoon-safari' }, { label: '9-Day Honeymoon Safari & Zanzibar Beach Escape', href: '/safaris/9-day-honeymoon-safari-zanzibar' }],
   },
   {
@@ -173,7 +173,7 @@ export const accommodations: Accommodation[] = [
     location: 'Masai Mara, Kenya',
     description: 'A classic tented camp on the banks of the Mara River, in one of the reserve’s most reliable wildlife corridors.',
     amenities: ['Free WiFi', 'Swimming Pool', 'Full-Service Restaurant', 'Mara River Views'],
-    images: ['/images/lodges/governors-camp.webp', '/images/lodges/governors-camp-2.webp', '/images/lodges/governors-camp-3.webp', '/images/lodges/governors-camp-4.webp', '/images/lodges/governors-camp-5.webp'],
+    images: [{ src: '/images/lodges/governors-camp.webp', alt: 'Governors Camp thatched tented suite lit up at dusk beneath tall riverine trees on the banks of the Mara River' }, { src: '/images/lodges/governors-camp-sunset-tented-suite.webp', alt: 'Row of canvas tented suites on a raised wooden deck at Governors Camp under a pink Masai Mara sunset sky' }, { src: '/images/lodges/governors-camp-bedroom.webp', alt: 'Tented suite bedroom at Governors Camp with a king bed, hanging paper lanterns and safari-style stools' }, { src: '/images/lodges/governors-camp-bathroom.webp', alt: 'En-suite bathroom in a Governors Camp tent with a vessel sink, mirror and open view through to the bedroom' }, { src: '/images/lodges/governors-camp-riverside-dining.webp', alt: 'Candlelit private dinner table set on the banks of the Mara River at Governors Camp at dusk' }],
     featuredIn: [{ label: 'Highlights of Kenya & Tanzania Safari', href: '/safaris/kenya-tanzania-highlights-safari' }],
   },
   {
@@ -183,7 +183,7 @@ export const accommodations: Accommodation[] = [
     location: 'Arusha',
     description: 'A polished city hotel in Arusha offering full resort facilities for travellers who want more comfort before or after their safari.',
     amenities: ['Free WiFi', 'Swimming Pool', 'Spa'],
-    images: ['/images/lodges/gran-melia-arusha.webp', '/images/lodges/gran-melia-arusha-2.webp', '/images/lodges/gran-melia-arusha-3.webp', '/images/lodges/gran-melia-arusha-4.webp', '/images/lodges/gran-melia-arusha-5.webp'],
+    images: [{ src: '/images/lodges/gran-melia-arusha.webp', alt: 'Spacious marble-floored lobby at Gran Melia Arusha with white lounge seating and carved wooden screens' }, { src: '/images/lodges/gran-melia-arusha-pool-exterior.webp', alt: 'Gran Melia Arusha hotel exterior with multi-storey guest wing overlooking the free-form swimming pool and palm gardens' }, { src: '/images/lodges/gran-melia-arusha-restaurant-lounge.webp', alt: 'Open-air restaurant and lounge at Gran Melia Arusha with colourful cushioned seating and floor-to-ceiling windows' }, { src: '/images/lodges/gran-melia-arusha-suite-bathroom.webp', alt: 'Suite bathroom at Gran Melia Arusha with a freestanding tub, chandelier and private balcony overlooking the grounds' }, { src: '/images/lodges/gran-melia-arusha-balcony-pool-view.webp', alt: 'Guest room balcony at Gran Melia Arusha looking down over the resort pool and gardens toward the Arusha hills' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '10 Days Tanzania Luxury Family Safari', href: '/safaris/10-days-luxury-family' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }, { label: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike', href: '/safaris/12-days-wild-wilderness' }, { label: '7 Days Serengeti & Ngorongoro Safari', href: '/safaris/7-day-serengeti-ngorongoro' }, { label: '7-Day Tanzania Photography & Adventure Safari', href: '/safaris/7-day-photography-adventure-safari' }, { label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }, { label: 'Southern Edition: Tanzania Calving Season Migration Safari — Ndutu & Ngorongoro Crater', href: '/safaris/7-days-migration-southern' }, { label: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti', href: '/safaris/tanzania-photographic-safari' }],
   },
   {
@@ -193,7 +193,7 @@ export const accommodations: Accommodation[] = [
     location: 'Rift Valley, Kenya',
     description: 'A resort set directly on the Rift Valley escarpment, pairing sweeping valley views with full golf and spa facilities.',
     amenities: ['Swimming Pool', 'Scenic Views', 'Spa', 'Rift Valley Views'],
-    images: ['/images/lodges/great-rift-valley-lodge-golf-resort.webp', '/images/lodges/great-rift-valley-lodge-golf-resort-2.webp', '/images/lodges/great-rift-valley-lodge-golf-resort-3.webp', '/images/lodges/great-rift-valley-lodge-golf-resort-4.webp'],
+    images: [{ src: '/images/lodges/great-rift-valley-lodge-golf-resort.webp', alt: 'Golf fairway at Great Rift Valley Lodge & Golf Resort framed by acacia trees at sunset with the Rift Valley escarpment beyond' }, { src: '/images/lodges/great-rift-valley-lodge-golf-resort-exterior.webp', alt: 'Stone-and-thatch lodge building at Great Rift Valley Lodge & Golf Resort with a wraparound balcony and mature trees' }, { src: '/images/lodges/great-rift-valley-lodge-golf-resort-twin-room.webp', alt: 'Twin guest room at Great Rift Valley Lodge & Golf Resort with draped mosquito nets over each bed' }, { src: '/images/lodges/great-rift-valley-lodge-golf-resort-garden-event-dining.webp', alt: 'Marquee dining setup on the lawn at Great Rift Valley Lodge & Golf Resort with round tables dressed in white linen' }],
     featuredIn: [{ label: '5 Days Kenya Safari — Hell\'s Gate, Lake Nakuru & Masai Mara', href: '/safaris/5-day-kenya-safari' }],
   },
   {
@@ -203,7 +203,7 @@ export const accommodations: Accommodation[] = [
     location: 'Nairobi, Kenya',
     description: 'A colonial-style boutique hotel in Nairobi’s Karen suburb, a genuinely comfortable base at either end of a Kenya safari.',
     amenities: ['Swimming Pool', 'Spa', 'Full-Service Restaurant', 'Free WiFi'],
-    images: ['/images/lodges/hemingways-nairobi.webp', '/images/lodges/hemingways-nairobi-4.webp', '/images/lodges/hemingways-nairobi-5.webp', '/images/lodges/hemingways-nairobi-6.webp'],
+    images: [{ src: '/images/lodges/hemingways-nairobi.webp', alt: 'Colonial-style guest wings at Hemingways Nairobi with wraparound verandas along a brick pathway at sunset' }, { src: '/images/lodges/hemingways-nairobi-bathroom-dressing-room.webp', alt: 'Marble bathroom and walnut dressing room at Hemingways Nairobi with a freestanding oval tub and separate jacuzzi' }, { src: '/images/lodges/hemingways-nairobi-restaurant-bar.webp', alt: 'Restaurant and bar trolley at Hemingways Nairobi with green banquette seating and brass drinks cart' }, { src: '/images/lodges/hemingways-nairobi-suite-bedroom.webp', alt: 'Suite bedroom at Hemingways Nairobi with a canopy bed, exposed timber ceiling beams and a private balcony over the garden' }],
     featuredIn: [{ label: '11 Days Kenya Undisputed', href: '/safaris/11-days-kenya-undisputed' }, { label: '12 Days Tanzania Kenya Expedition', href: '/safaris/12-days-tanzania-kenya' }, { label: 'Authentic, Exclusive Kenya — Amboseli, Samburu & the Masai Mara', href: '/safaris/authentic-exclusive-kenya' }, { label: 'Classic Kenya Safari — Masai Mara, the Rift Valley & Amboseli', href: '/safaris/classic-kenya-safari' }, { label: 'Highlights of Kenya & Tanzania Safari', href: '/safaris/kenya-tanzania-highlights-safari' }],
   },
   {
@@ -213,7 +213,7 @@ export const accommodations: Accommodation[] = [
     location: 'Udzungwa Mountains National Park',
     description: 'A forest-edge camp built for hiking and primate-tracking in the Udzungwa Mountains, one of Tanzania’s least-visited parks.',
     amenities: ['Garden Grounds', 'Scenic Views'],
-    images: ['/images/lodges/hondo-hondo-udzungwa-forest-camp.webp', '/images/lodges/hondo-hondo-udzungwa-forest-camp-2.webp', '/images/lodges/hondo-hondo-udzungwa-forest-camp-3.webp', '/images/lodges/hondo-hondo-udzungwa-forest-camp-4.webp', '/images/lodges/hondo-hondo-udzungwa-forest-camp-5.webp'],
+    images: [{ src: '/images/lodges/hondo-hondo-udzungwa-forest-camp.webp', alt: 'Thatched cottage at Hondo Hondo Udzungwa Forest Camp tucked among dense forest trees' }, { src: '/images/lodges/hondo-hondo-udzungwa-forest-camp-cottage-garden-path.webp', alt: 'Gravel path leading to a thatched guest cottage at Hondo Hondo Udzungwa Forest Camp through dappled forest light' }, { src: '/images/lodges/hondo-hondo-udzungwa-forest-camp-twin-room.webp', alt: 'Twin-bed tent interior at Hondo Hondo Udzungwa Forest Camp with green throws and an en-suite bamboo bathroom' }, { src: '/images/lodges/hondo-hondo-udzungwa-forest-camp-thatched-roof-detail.webp', alt: 'Close-up of a thatched roof and raised stone steps at a Hondo Hondo Udzungwa Forest Camp cottage' }, { src: '/images/lodges/hondo-hondo-udzungwa-forest-camp-tent-porch.webp', alt: 'Tent entrance and porch with camp chairs on a circular stone patio at Hondo Hondo Udzungwa Forest Camp' }],
     featuredIn: [{ label: '10 Days Southern Tanzania Secrets', href: '/safaris/10-days-southern-secrets' }],
   },
   {
@@ -223,7 +223,7 @@ export const accommodations: Accommodation[] = [
     location: 'Dar es Salaam',
     description: 'A full-service city hotel on the Dar es Salaam waterfront, used as a comfortable transit stop on southern-circuit itineraries.',
     amenities: ['Swimming Pool', 'Full-Service Restaurant', 'Free WiFi'],
-    images: ['/images/lodges/hyatt-regency-dar.webp', '/images/lodges/hyatt-regency-dar-2.webp', '/images/lodges/hyatt-regency-dar-3.webp', '/images/lodges/hyatt-regency-dar-4.webp', '/images/lodges/hyatt-regency-dar-5.webp'],
+    images: [{ src: '/images/lodges/hyatt-regency-dar.webp', alt: 'Hyatt Regency Dar es Salaam, The Kilimanjaro, illuminated at night with its fountain-lined entrance drive' }, { src: '/images/lodges/hyatt-regency-dar-rooftop-pool-sunset.webp', alt: 'Rooftop infinity pool at Hyatt Regency Dar es Salaam with loungers facing a golden sunset over the city' }, { src: '/images/lodges/hyatt-regency-dar-restaurant.webp', alt: 'Glass-walled restaurant at Hyatt Regency Dar es Salaam overlooking a lush tropical garden' }, { src: '/images/lodges/hyatt-regency-dar-guest-room.webp', alt: 'Modern guest room at Hyatt Regency Dar es Salaam with a king bed and floor-to-ceiling windows over the city skyline' }, { src: '/images/lodges/hyatt-regency-dar-rooftop-pool-loungers.webp', alt: 'Daytime view of the rooftop pool deck and sun loungers at Hyatt Regency Dar es Salaam with coconut palms and city rooftops beyond' }],
     featuredIn: [{ label: '7 Days Southern Circuit — Ruaha & Nyerere', href: '/safaris/7-day-southern-circuit' }],
   },
   {
@@ -233,7 +233,7 @@ export const accommodations: Accommodation[] = [
     location: 'Ruaha National Park',
     description: 'A private camp on a rocky outcrop overlooking the Ruaha River, in one of Tanzania’s largest and least-crowded parks.',
     amenities: ['Scenic Views', 'Wildlife Views', 'Full-Service Restaurant'],
-    images: ['/images/lodges/ikuka-camp.webp', '/images/lodges/ikuka-camp-2.webp', '/images/lodges/ikuka-camp-3.webp', '/images/lodges/ikuka-camp-4.webp', '/images/lodges/ikuka-camp-5.webp'],
+    images: [{ src: '/images/lodges/ikuka-camp.webp', alt: 'Thatched Ikuka Camp lodge perched on a rocky outcrop surrounded by Ruaha bushland' }, { src: '/images/lodges/ikuka-camp-bedroom-sunset-deck.webp', alt: 'Guest at Ikuka Camp relaxing on a private deck at sunset overlooking the Ruaha wilderness from the bedroom' }, { src: '/images/lodges/ikuka-camp-lounge-deck-view.webp', alt: 'Open-sided thatched lounge at Ikuka Camp with leather sofas and sweeping views over the Ruaha hills' }, { src: '/images/lodges/ikuka-camp-open-air-bathroom.webp', alt: 'Open-air stone-basin bathroom at Ikuka Camp with a view over the Ruaha wilderness through the thatch structure' }, { src: '/images/lodges/ikuka-camp-plunge-pool-dinner.webp', alt: 'Private plunge pool and lantern-lit dinner table at Ikuka Camp overlooking the Ruaha landscape at dusk' }],
     featuredIn: [{ label: '7 Days Southern Circuit — Ruaha & Nyerere', href: '/safaris/7-day-southern-circuit' }],
   },
   {
@@ -243,7 +243,7 @@ export const accommodations: Accommodation[] = [
     location: 'Volcanoes National Park, Rwanda',
     description: 'A budget-friendly lodge close to the Volcanoes National Park boundary, positioned for early starts on gorilla trekking days.',
     amenities: ['Full-Service Restaurant', 'Garden Grounds'],
-    images: ['/images/lodges/ingagi-lodge.webp', '/images/lodges/ingagi-lodge-3.webp', '/images/lodges/ingagi-lodge-4.webp', '/images/lodges/ingagi-lodge-5.webp'],
+    images: [{ src: '/images/lodges/ingagi-lodge.webp', alt: 'Ingagi Lodge thatched roundhouses lit up at night around a stone firepit with a lit bonfire' }, { src: '/images/lodges/ingagi-lodge-lounge-interior.webp', alt: 'Living room lounge at Ingagi Lodge with African artwork, a mini fridge and stone accent wall' }, { src: '/images/lodges/ingagi-lodge-suite-bedroom.webp', alt: 'Suite bedroom at Ingagi Lodge with a mosquito-net canopy bed decorated for a special occasion' }, { src: '/images/lodges/ingagi-lodge-volcano-view-garden.webp', alt: 'Ingagi Lodge gardens at sunrise with the Virunga volcanoes rising in silhouette behind thatched cottages' }],
     featuredIn: [{ label: '4 Days Rwanda Gorilla Trekking', href: '/safaris/4-day-rwanda-gorilla-trekking' }],
   },
   {
@@ -253,7 +253,7 @@ export const accommodations: Accommodation[] = [
     location: 'Arusha',
     description: 'A relaxed guesthouse on a working coffee estate just outside Arusha, a quiet first or last night before or after the bush.',
     amenities: ['Free WiFi', 'Full-Service Restaurant', 'Garden Grounds'],
-    images: ['/images/lodges/kahawa-house.webp', '/images/lodges/kahawa-house-2.webp', '/images/lodges/kahawa-house-3.webp', '/images/lodges/kahawa-house-4.webp', '/images/lodges/kahawa-house-5.webp'],
+    images: [{ src: '/images/lodges/kahawa-house.webp', alt: 'Kahawa House guesthouse exterior and swimming pool framed by acacia trees on the coffee estate' }, { src: '/images/lodges/kahawa-house-entrance.webp', alt: 'Kahawa House entrance wall signage beside stone-clad pillars and a flower-lined walkway' }, { src: '/images/lodges/kahawa-house-aerial-view.webp', alt: 'Aerial view of Kahawa House cottages, pool and gardens set within the working coffee estate' }, { src: '/images/lodges/kahawa-house-pool-deck.webp', alt: 'Kahawa House swimming pool and paved terrace with loungers at golden hour' }, { src: '/images/lodges/kahawa-house-bedroom.webp', alt: 'Guest bedroom at Kahawa House with a wooden headboard and window overlooking the coffee estate greenery' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '10-Day Kenya & Tanzania Safari', href: '/safaris/10-day-kenya-tanzania-safari' }, { label: '10-Day Ultimate Great Migration — Mara River-Crossing Safari', href: '/safaris/10-day-ultimate-great-migration-mara-river-crossing' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }, { label: '12-Day Tanzania Safari for Seniors, Anniversaries & Groups', href: '/safaris/12-day-seniors-anniversary-groups-safari' }, { label: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike', href: '/safaris/12-days-wild-wilderness' }, { label: '4-Day Tarangire, Ngorongoro & Lake Eyasi', href: '/safaris/4-day-tarangire-ngorongoro-lake-eyasi' }, { label: '5 Days Serengeti Fly-In Safari', href: '/safaris/5-day-serengeti-fly-in' }, { label: '5-Day Comfort Tanzania Safari', href: '/safaris/5-day-comfort-tanzania-safari' }, { label: '6-Day Comfort Tanzania Safari', href: '/safaris/6-day-comfort-tanzania-safari' }, { label: '7 Days Serengeti & Ngorongoro Safari', href: '/safaris/7-day-serengeti-ngorongoro' }, { label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }, { label: '8-Day Honeymoon Safari — Bush Lovers', href: '/safaris/8-days-honeymoon-safari' }, { label: 'Southern Edition: Tanzania Calving Season Migration Safari — Ndutu & Ngorongoro Crater', href: '/safaris/7-days-migration-southern' }, { label: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti', href: '/safaris/tanzania-photographic-safari' }],
   },
   {
@@ -263,7 +263,7 @@ export const accommodations: Accommodation[] = [
     location: 'West Kilimanjaro',
     description: 'A tented camp on private land at the foot of Kilimanjaro, known for its resident elephant herds and mountain backdrop.',
     amenities: ['Scenic Views', 'Wildlife Views'],
-    images: ['/images/lodges/kambi-ya-tembo.webp', '/images/lodges/kambi-ya-tembo-2.webp', '/images/lodges/kambi-ya-tembo-4.webp', '/images/lodges/kambi-ya-tembo-5.webp'],
+    images: [{ src: '/images/lodges/kambi-ya-tembo.webp', alt: 'Star-filled night sky over the silhouette of Kilimanjaro seen from Kambi ya Tembo' }, { src: '/images/lodges/kambi-ya-tembo-lodge-exterior.webp', alt: 'Thatched main lodge building at Kambi ya Tembo approached along a dirt path through acacia scrub' }, { src: '/images/lodges/kambi-ya-tembo-dining-lounge.webp', alt: 'Open-sided thatched dining and lounge area at Kambi ya Tembo with sand floor and safari-style furniture' }, { src: '/images/lodges/kambi-ya-tembo-viewpoint-chairs.webp', alt: 'Canvas director\'s chairs on a viewpoint deck at Kambi ya Tembo overlooking the West Kilimanjaro plains' }],
     featuredIn: [{ label: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike', href: '/safaris/12-days-wild-wilderness' }],
   },
   {
@@ -273,7 +273,7 @@ export const accommodations: Accommodation[] = [
     location: 'Masai Mara, Kenya',
     description: 'A tented camp on the Mara’s western edge, close to the Oloololo Escarpment and within reach of the river-crossing points.',
     amenities: ['Wildlife Views', 'Scenic Views', 'Swimming Pool', 'Spa', 'Migration-Route Location', 'Full-Service Restaurant'],
-    images: ['/images/lodges/kichwa-tembo-camp.webp', '/images/lodges/kichwa-tembo-camp-2.webp', '/images/lodges/kichwa-tembo-camp-3.webp', '/images/lodges/kichwa-tembo-camp-4.webp', '/images/lodges/kichwa-tembo-camp-5.webp'],
+    images: [{ src: '/images/lodges/kichwa-tembo-camp.webp', alt: 'Four-poster tented suite bedroom at Kichwa Tembo Camp with a dark wood canopy bed' }, { src: '/images/lodges/kichwa-tembo-camp-pool-deck.webp', alt: 'Swimming pool deck at Kichwa Tembo Camp with sun loungers overlooking the open Masai Mara plains at sunrise' }, { src: '/images/lodges/kichwa-tembo-camp-tent-suite-deck.webp', alt: 'Tented suite at Kichwa Tembo Camp with a red accent pillow and private deck opening onto the forest' }, { src: '/images/lodges/kichwa-tembo-camp-chefs-buffet.webp', alt: 'Chefs preparing a buffet spread in the open dining room at Kichwa Tembo Camp' }, { src: '/images/lodges/kichwa-tembo-camp-breakfast-dining.webp', alt: 'Breakfast buffet counter and dining area at Kichwa Tembo Camp beneath a thatched roof with hanging chandeliers' }],
     featuredIn: [{ label: '11 Days Kenya Undisputed', href: '/safaris/11-days-kenya-undisputed' }, { label: '12 Days Tanzania Kenya Expedition', href: '/safaris/12-days-tanzania-kenya' }, { label: 'Authentic, Exclusive Kenya — Amboseli, Samburu & the Masai Mara', href: '/safaris/authentic-exclusive-kenya' }, { label: 'Classic Kenya Safari — Masai Mara, the Rift Valley & Amboseli', href: '/safaris/classic-kenya-safari' }, { label: 'Highlights of Kenya & Tanzania Safari', href: '/safaris/kenya-tanzania-highlights-safari' }],
   },
   {
@@ -283,7 +283,7 @@ export const accommodations: Accommodation[] = [
     location: 'Kigali, Rwanda',
     description: 'A central Kigali hotel used as a comfortable overnight stop before or after gorilla trekking in the Virungas.',
     amenities: ['Free WiFi', 'Swimming Pool', 'Full-Service Restaurant'],
-    images: ['/images/lodges/kigali-serena.webp', '/images/lodges/kigali-serena-2.webp', '/images/lodges/kigali-serena-3.webp', '/images/lodges/kigali-serena-4.webp', '/images/lodges/kigali-serena-5.webp'],
+    images: [{ src: '/images/lodges/kigali-serena.webp', alt: 'Kigali Serena hotel courtyard and pool illuminated at dusk surrounded by multi-storey guest wings' }, { src: '/images/lodges/kigali-serena-lobby-atrium.webp', alt: 'Multi-storey open atrium lobby at Kigali Serena with carved wooden sculptures and red lounge seating' }, { src: '/images/lodges/kigali-serena-restaurant-stained-glass.webp', alt: 'Restaurant at Kigali Serena with floor-to-ceiling stained glass murals depicting Rwandan landscapes' }, { src: '/images/lodges/kigali-serena-guest-room.webp', alt: 'Guest room at Kigali Serena with a dark wood wardrobe and a bed dressed in orange and cream linens' }, { src: '/images/lodges/kigali-serena-balcony-room.webp', alt: 'Guest room at Kigali Serena with a private balcony overlooking the hotel courtyard and pool' }],
     featuredIn: [{ label: '4 Days Rwanda Gorilla Trekking', href: '/safaris/4-day-rwanda-gorilla-trekking' }],
   },
   {
@@ -293,7 +293,7 @@ export const accommodations: Accommodation[] = [
     location: 'Kigoma, Lake Tanganyika',
     description: 'A hillside lodge overlooking Lake Tanganyika, the gateway stop for chimpanzee trekking in Gombe and Mahale.',
     amenities: ['Scenic Views', 'Full-Service Restaurant'],
-    images: ['/images/lodges/kigoma-hilltop.webp', '/images/lodges/kigoma-hilltop-2.webp', '/images/lodges/kigoma-hilltop-3.webp', '/images/lodges/kigoma-hilltop-4.webp', '/images/lodges/kigoma-hilltop-5.webp'],
+    images: [{ src: '/images/lodges/kigoma-hilltop.webp', alt: 'Cliffside dining deck at Kigoma Hilltop with tables set overlooking the blue waters of Lake Tanganyika' }, { src: '/images/lodges/kigoma-hilltop-swimming-pool.webp', alt: 'Round swimming pool at Kigoma Hilltop surrounded by thatched sun shelters and palm trees' }, { src: '/images/lodges/kigoma-hilltop-aerial-lake-tanganyika-view.webp', alt: 'Aerial view of Kigoma Hilltop\'s red-roofed cottages set among trees above the bay of Lake Tanganyika' }, { src: '/images/lodges/kigoma-hilltop-canopy-bed-room.webp', alt: 'Canopy bed guest room at Kigoma Hilltop draped in sheer mosquito netting with a blue ribbon accent' }, { src: '/images/lodges/kigoma-hilltop-balcony-dining-lake-view.webp', alt: 'Private balcony dining table at Kigoma Hilltop overlooking Lake Tanganyika and the surrounding hills' }],
     featuredIn: [{ label: '5 Days Private Gombe Chimpanzee Trekking', href: '/safaris/5-day-gombe-chimpanzee-trekking' }],
   },
   {
@@ -303,7 +303,7 @@ export const accommodations: Accommodation[] = [
     location: 'Zanzibar Island',
     description: 'Domed private pavilions set into the hillside above the Indian Ocean, each with its own plunge pool — a deliberate change of pace after days in the bush.',
     amenities: ['Swimming Pool', 'Spa', 'Beachfront', 'All-Inclusive', 'Scenic Views'],
-    images: ['/images/lodges/kilindi-zanzibar.webp', '/images/lodges/kilindi-zanzibar-2.webp', '/images/lodges/kilindi-zanzibar-3.webp', '/images/lodges/kilindi-zanzibar-4.webp', '/images/lodges/kilindi-zanzibar-5.webp'],
+    images: [{ src: '/images/lodges/kilindi-zanzibar.webp', alt: 'Infinity pool at Kilindi Zanzibar framed by palm trees facing the Indian Ocean at sunset' }, { src: '/images/lodges/kilindi-zanzibar-private-plunge-pool-deck.webp', alt: 'Private plunge pool on a wooden deck outside a domed pavilion at Kilindi Zanzibar, framed by forest canopy' }, { src: '/images/lodges/kilindi-zanzibar-pavilion-plunge-pool.webp', alt: 'Domed white pavilion and private plunge pool at Kilindi Zanzibar with a floating breakfast tray' }, { src: '/images/lodges/kilindi-zanzibar-domed-bathroom.webp', alt: 'Domed open-air bathroom at Kilindi Zanzibar with twin stone basins and hanging bathrobes' }, { src: '/images/lodges/kilindi-zanzibar-aerial-pavilion-pools.webp', alt: 'Aerial view of a domed Kilindi Zanzibar pavilion with cascading private pools set into the forested hillside above the ocean' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '11 Days Southern Wildlife & Spice Isles', href: '/safaris/11-days-southern-spice' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }, { label: '9-Day Honeymoon Safari & Zanzibar Beach Escape', href: '/safaris/9-day-honeymoon-safari-zanzibar' }],
   },
   {
@@ -313,7 +313,7 @@ export const accommodations: Accommodation[] = [
     location: 'Volcanoes National Park, Rwanda',
     description: 'A straightforward guesthouse close to the Volcanoes National Park gate, built for early gorilla trekking departures.',
     amenities: ['Scenic Views', 'Garden Grounds', 'En-Suite Rooms', 'Full-Service Restaurant'],
-    images: ['/images/lodges/kinigi-guest-house.webp', '/images/lodges/kinigi-guest-house-2.webp', '/images/lodges/kinigi-guest-house-3.webp', '/images/lodges/kinigi-guest-house-4.webp'],
+    images: [{ src: '/images/lodges/kinigi-guest-house.webp', alt: 'Stone-and-brick cottages at Kinigi Guest House with pitched tiled roofs and chimneys among tall trees' }, { src: '/images/lodges/kinigi-guest-house-volcano-view.webp', alt: 'Kinigi Guest House cottages with the Virunga volcanoes rising behind under a cloudy sky' }, { src: '/images/lodges/kinigi-guest-house-garden-path.webp', alt: 'Gravel garden path at Kinigi Guest House lined with flowering shrubs and hydrangeas between the cottages' }, { src: '/images/lodges/kinigi-guest-house-cottage-row.webp', alt: 'Row of stone cottages at Kinigi Guest House with dark tiled roofs and a rose-lined veranda' }],
     featuredIn: [{ label: '11 Days Rwanda Tanzania Safari', href: '/safaris/11-days-rwanda-tanzania' }, { label: '12 Days Rwanda Primates Experience', href: '/safaris/12-days-rwanda-primates' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }],
   },
   {
@@ -323,7 +323,7 @@ export const accommodations: Accommodation[] = [
     location: 'Lake Manyara',
     description: 'A tented camp on the Rift Valley escarpment overlooking Lake Manyara, with views that stretch across the valley floor.',
     amenities: ['Free WiFi', 'Full-Service Restaurant', 'Rift Valley Views', 'Swimming Pool'],
-    images: ['/images/lodges/kirurumu-manyara-lodge.webp', '/images/lodges/kirurumu-manyara-lodge-3.webp', '/images/lodges/kirurumu-manyara-lodge-4.webp', '/images/lodges/kirurumu-manyara-lodge-5.webp'],
+    images: [{ src: '/images/lodges/kirurumu-manyara-lodge.webp', alt: 'Open-air lounge tent at Kirurumu Manyara Lodge framing a sweeping view over the Lake Manyara escarpment and Rift Valley floor' }, { src: '/images/lodges/kirurumu-manyara-lodge-suite-lake-view.webp', alt: 'Four-poster suite bed at Kirurumu Manyara Lodge with sheer curtains and a distant view of Lake Manyara' }, { src: '/images/lodges/kirurumu-manyara-lodge-escarpment-deck.webp', alt: 'Private deck with table and chairs perched on the Rift Valley escarpment at Kirurumu Manyara Lodge' }, { src: '/images/lodges/kirurumu-manyara-lodge-fire-pit-deck.webp', alt: 'Evening fire pit lounge with director\'s chairs and safari lanterns on the deck at Kirurumu Manyara Lodge' }],
     featuredIn: [{ label: 'Highlights of Kenya & Tanzania Safari', href: '/safaris/kenya-tanzania-highlights-safari' }],
   },
   {
@@ -333,7 +333,7 @@ export const accommodations: Accommodation[] = [
     location: 'Lake Eyasi',
     description: 'A small tented camp beside Lake Eyasi, the usual base for visits to the Hadzabe hunter-gatherer community.',
     amenities: ['Scenic Views', 'Garden Grounds'],
-    images: ['/images/lodges/kisima-ngeda-tented-camp.webp', '/images/lodges/kisima-ngeda-tented-camp-2.webp', '/images/lodges/kisima-ngeda-tented-camp-3.webp', '/images/lodges/kisima-ngeda-tented-camp-4.webp', '/images/lodges/kisima-ngeda-tented-camp-5.webp'],
+    images: [{ src: '/images/lodges/kisima-ngeda-tented-camp.webp', alt: 'Split view of a canvas guest tent porch and a bush fireside seating area beside boulders at Kisima Ngeda Tented Camp, Lake Eyasi' }, { src: '/images/lodges/kisima-ngeda-tented-camp-lounge-fire-pit.webp', alt: 'Thatched lounge and dining buildings lit at dusk with guests gathered around a fire pit at Kisima Ngeda Tented Camp' }, { src: '/images/lodges/kisima-ngeda-tented-camp-lookout-tower.webp', alt: 'Elevated wooden lookout tower beneath doum palms overlooking Lake Eyasi at Kisima Ngeda Tented Camp' }, { src: '/images/lodges/kisima-ngeda-tented-camp-pool-aerial.webp', alt: 'Aerial view of the swimming pool surrounded by palm trees and yellow loungers at Kisima Ngeda Tented Camp' }, { src: '/images/lodges/kisima-ngeda-tented-camp-aerial-lakeshore.webp', alt: 'Aerial view of thatched guest tents nestled among palms on the shore of Lake Eyasi at Kisima Ngeda Tented Camp' }],
     featuredIn: [{ label: '11 Days Rwanda Tanzania Safari', href: '/safaris/11-days-rwanda-tanzania' }],
   },
   {
@@ -343,7 +343,7 @@ export const accommodations: Accommodation[] = [
     location: 'Karatu, Ngorongoro Highlands',
     description: 'A former coffee estate lodge with wide verandas facing the Rift Valley escarpment and a well-regarded kitchen, close to the crater rim road.',
     amenities: ['Swimming Pool', 'Scenic Views', 'Full-Service Restaurant', 'Garden Grounds'],
-    images: ['/images/lodges/kitela-lodge.webp', '/images/lodges/kitela-lodge-2.webp', '/images/lodges/kitela-lodge-3.webp', '/images/lodges/kitela-lodge-4.webp', '/images/lodges/kitela-lodge-5.webp'],
+    images: [{ src: '/images/lodges/kitela-lodge.webp', alt: 'Swimming pool and thatched main house framed by palm trees at Kitela Lodge near Karatu' }, { src: '/images/lodges/kitela-lodge-canopy-bed-suite.webp', alt: 'Suite bedroom at Kitela Lodge with a sheer draped canopy bed lit by warm evening light' }, { src: '/images/lodges/kitela-lodge-clawfoot-tub-bathroom.webp', alt: 'En-suite bathroom at Kitela Lodge with a freestanding clawfoot tub and glass-block shower' }, { src: '/images/lodges/kitela-lodge-thatched-cottages-dusk.webp', alt: 'Thatched guest cottages glowing with interior light at dusk at Kitela Lodge' }, { src: '/images/lodges/kitela-lodge-main-lodge-night.webp', alt: 'Main lodge building illuminated at night beneath a rising moon at Kitela Lodge' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '10 Days Tanzania Luxury Family Safari', href: '/safaris/10-days-luxury-family' }, { label: '11 Days Rwanda Tanzania Safari', href: '/safaris/11-days-rwanda-tanzania' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }, { label: '12 Days Tanzania Kenya Expedition', href: '/safaris/12-days-tanzania-kenya' }, { label: '5 Days Highlights Safari', href: '/safaris/5-days-highlights-safari' }, { label: '5 Days Serengeti Fly-In Safari', href: '/safaris/5-day-serengeti-fly-in' }, { label: '7 Days Serengeti & Ngorongoro Safari', href: '/safaris/7-day-serengeti-ngorongoro' }, { label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }, { label: 'Ultimate Tanzania Safari', href: '/safaris/ultimate-tanzania-safari' }],
   },
   {
@@ -353,7 +353,7 @@ export const accommodations: Accommodation[] = [
     location: 'Central Serengeti / Tarangire',
     description: 'A dependable tented lodge used on both the Tarangire and central Serengeti legs of several itineraries, valued for solid guiding at a fair price.',
     amenities: ['Swimming Pool', 'Scenic Views', 'Full-Service Restaurant', 'Free WiFi', 'All-Inclusive', 'En-Suite Rooms'],
-    images: ['/images/lodges/kubukubu-tented-lodge.webp', '/images/lodges/kubukubu-tented-lodge-2.webp', '/images/lodges/kubukubu-tented-lodge-3.webp', '/images/lodges/kubukubu-tented-lodge-4.webp', '/images/lodges/kubukubu-tented-lodge-5.webp'],
+    images: [{ src: '/images/lodges/kubukubu-tented-lodge.webp', alt: 'Aerial view of thatched tents at Kubukubu Tented Lodge overlooking the Serengeti plains at sunset' }, { src: '/images/lodges/kubukubu-tented-lodge-canopy-bed-tent.webp', alt: 'Canvas guest tent at Kubukubu Tented Lodge with a mosquito-net canopy bed and open view of the plains' }, { src: '/images/lodges/kubukubu-tented-lodge-twin-bed-tent.webp', alt: 'Twin-bed tent interior with mosquito-net canopies at Kubukubu Tented Lodge' }, { src: '/images/lodges/kubukubu-tented-lodge-sunset-breakfast-view.webp', alt: 'Family enjoying breakfast on the deck at sunset overlooking the Serengeti plains at Kubukubu Tented Lodge' }, { src: '/images/lodges/kubukubu-tented-lodge-infinity-pool-view.webp', alt: 'Guests relaxing at the edge of the infinity pool overlooking the Serengeti plains at Kubukubu Tented Lodge' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '10 Days Tanzania Luxury Family Safari', href: '/safaris/10-days-luxury-family' }, { label: '10-Day Kenya & Tanzania Safari', href: '/safaris/10-day-kenya-tanzania-safari' }, { label: '10-Day Ultimate Great Migration — Mara River-Crossing Safari', href: '/safaris/10-day-ultimate-great-migration-mara-river-crossing' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }, { label: '12-Day Tanzania Safari for Seniors, Anniversaries & Groups', href: '/safaris/12-day-seniors-anniversary-groups-safari' }, { label: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike', href: '/safaris/12-days-wild-wilderness' }, { label: '5 Days Serengeti Fly-In Safari', href: '/safaris/5-day-serengeti-fly-in' }, { label: '5-Day Comfort Tanzania Safari', href: '/safaris/5-day-comfort-tanzania-safari' }, { label: '6-Day Comfort Tanzania Safari', href: '/safaris/6-day-comfort-tanzania-safari' }, { label: '7 Days Serengeti & Ngorongoro Safari', href: '/safaris/7-day-serengeti-ngorongoro' }, { label: '8 Days Flight to Migration', href: '/safaris/8-days-flight-migration' }, { label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }, { label: '9-Day Honeymoon Safari & Zanzibar Beach Escape', href: '/safaris/9-day-honeymoon-safari-zanzibar' }, { label: 'Highlights of Kenya & Tanzania Safari', href: '/safaris/kenya-tanzania-highlights-safari' }, { label: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti', href: '/safaris/tanzania-photographic-safari' }],
   },
   {
@@ -363,7 +363,7 @@ export const accommodations: Accommodation[] = [
     location: 'Musanze, Rwanda',
     description: 'A city hotel in Kigali offering a comfortable, central base before heading out to Rwanda’s national parks.',
     amenities: ['Free WiFi', 'Full-Service Restaurant', 'Garden Grounds'],
-    images: ['/images/lodges/la-palme-hotel.webp', '/images/lodges/la-palme-hotel-2.webp', '/images/lodges/la-palme-hotel-3.webp', '/images/lodges/la-palme-hotel-4.webp', '/images/lodges/la-palme-hotel-5.webp'],
+    images: [{ src: '/images/lodges/la-palme-hotel.webp', alt: 'Street view of La Palme Hotel\'s building and signage in Musanze, Rwanda at dusk' }, { src: '/images/lodges/la-palme-hotel-entrance-facade.webp', alt: 'Brick facade and covered entrance of La Palme Hotel with its paved parking court' }, { src: '/images/lodges/la-palme-hotel-guest-room.webp', alt: 'Guest room at La Palme Hotel with an orange and gold bedspread and writing desk' }, { src: '/images/lodges/la-palme-hotel-guest-room-gold-curtains.webp', alt: 'Guest room at La Palme Hotel with sheer gold curtains and a wood-framed bed' }, { src: '/images/lodges/la-palme-hotel-garden-terrace.webp', alt: 'Garden terrace at La Palme Hotel with outdoor seating beneath green umbrellas' }],
     featuredIn: [{ label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }],
   },
   {
@@ -373,7 +373,7 @@ export const accommodations: Accommodation[] = [
     location: 'Central Serengeti',
     description: 'A tented camp in the Serengeti’s central plains, offering close access to some of the ecosystem’s most reliable year-round game viewing.',
     amenities: ['Scenic Views', 'Full-Service Restaurant', 'Wildlife Views'],
-    images: ['/images/lodges/lahia-tented-lodge.webp', '/images/lodges/lahia-tented-lodge-2.webp', '/images/lodges/lahia-tented-lodge-3.webp', '/images/lodges/lahia-tented-lodge-4.webp', '/images/lodges/lahia-tented-lodge-5.webp'],
+    images: [{ src: '/images/lodges/lahia-tented-lodge.webp', alt: 'Infinity pool at dusk beside the thatched main lodge at Lahia Tented Lodge overlooking the central Serengeti plains' }, { src: '/images/lodges/lahia-tented-lodge-guest-tent-sunrise.webp', alt: 'Stilted guest tent with thatched roof at Lahia Tented Lodge at sunrise over the Serengeti' }, { src: '/images/lodges/lahia-tented-lodge-suite-bedroom-view.webp', alt: 'Suite bedroom at Lahia Tented Lodge with a daybed and floor-to-ceiling views of the Serengeti plains' }, { src: '/images/lodges/lahia-tented-lodge-lounge-dining-area.webp', alt: 'Thatched lounge and dining area at Lahia Tented Lodge with green sofas and panoramic plains views' }, { src: '/images/lodges/lahia-tented-lodge-dining-room-sunset.webp', alt: 'Dining room corridor at Lahia Tented Lodge lit by golden sunset light through floor-to-ceiling windows' }],
     featuredIn: [{ label: '5 Days Highlights Safari', href: '/safaris/5-days-highlights-safari' }],
   },
   {
@@ -383,7 +383,7 @@ export const accommodations: Accommodation[] = [
     location: 'Tarangire National Park',
     description: 'A tented lodge overlooking Lake Burunge on the Tarangire boundary, popular for its sunset views across the water.',
     amenities: ['Full-Service Restaurant', 'Garden Grounds', 'Swimming Pool', 'Free WiFi', 'Lake Views'],
-    images: ['/images/lodges/lake-burunge-baobab-tented-lodge.webp', '/images/lodges/lake-burunge-baobab-tented-lodge-2.webp', '/images/lodges/lake-burunge-baobab-tented-lodge-3.webp', '/images/lodges/lake-burunge-baobab-tented-lodge-4.webp', '/images/lodges/lake-burunge-baobab-tented-lodge-5.webp'],
+    images: [{ src: '/images/lodges/lake-burunge-baobab-tented-lodge.webp', alt: 'Swimming pool beside the thatched main lodge at Lake Burunge Baobab Tented Lodge on the Tarangire boundary' }, { src: '/images/lodges/lake-burunge-baobab-tented-lodge-baobab-sunset.webp', alt: 'Silhouette of a baobab tree against an orange sunset sky above the lodge buildings at Lake Burunge Baobab Tented Lodge' }, { src: '/images/lodges/lake-burunge-baobab-tented-lodge-canopy-bed-tent.webp', alt: 'Tented guest room at Lake Burunge Baobab Tented Lodge with a white canopy bed and wicker armchairs' }, { src: '/images/lodges/lake-burunge-baobab-tented-lodge-baobab-tree-deck.webp', alt: 'Ancient baobab tree rising through a wraparound wooden deck at Lake Burunge Baobab Tented Lodge' }, { src: '/images/lodges/lake-burunge-baobab-tented-lodge-camp-at-dusk.webp', alt: 'Row of guest tents lit up at dusk under a dramatic cloudy sky at Lake Burunge Baobab Tented Lodge' }],
     featuredIn: [{ label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }, { label: '12-Day Tanzania Safari for Seniors, Anniversaries & Groups', href: '/safaris/12-day-seniors-anniversary-groups-safari' }, { label: '5-Day Comfort Tanzania Safari', href: '/safaris/5-day-comfort-tanzania-safari' }, { label: '6-Day Comfort Tanzania Safari', href: '/safaris/6-day-comfort-tanzania-safari' }],
   },
   {
@@ -393,7 +393,7 @@ export const accommodations: Accommodation[] = [
     location: 'Lake Elementaita, Kenya',
     description: 'A tented camp on the shores of Lake Elementaita, a quieter alternative to the busier Rift Valley lakes.',
     amenities: ['Scenic Views', 'Full-Service Restaurant', 'Lake Views', 'Free WiFi'],
-    images: ['/images/lodges/lake-elementaita-serena-camp.webp', '/images/lodges/lake-elementaita-serena-camp-2.webp', '/images/lodges/lake-elementaita-serena-camp-4.webp', '/images/lodges/lake-elementaita-serena-camp-5.webp'],
+    images: [{ src: '/images/lodges/lake-elementaita-serena-camp.webp', alt: 'Garden lawn with shaded seating and umbrellas near the shore of Lake Elementaita at Lake Elementaita Serena Camp' }, { src: '/images/lodges/lake-elementaita-serena-camp-pool-aerial.webp', alt: 'Aerial view of the circular swimming pool surrounded by dense trees at Lake Elementaita Serena Camp' }, { src: '/images/lodges/lake-elementaita-serena-camp-tent-exterior.webp', alt: 'Exterior of a thatched-roof guest tent named \'The Flamingo\' surrounded by acacia trees at Lake Elementaita Serena Camp' }, { src: '/images/lodges/lake-elementaita-serena-camp-pool-deck.webp', alt: 'Pool deck with loungers, umbrellas and a fire pit at Lake Elementaita Serena Camp' }],
     featuredIn: [{ label: '5 Days Kenya Safari — Hell\'s Gate, Lake Nakuru & Masai Mara', href: '/safaris/5-day-kenya-safari' }],
   },
   {
@@ -403,7 +403,7 @@ export const accommodations: Accommodation[] = [
     location: 'Lake Kivu, Rwanda',
     description: 'A lakeside hotel on Lake Kivu, usually the closing stop on a Rwanda itinerary after the primate trekking legs.',
     amenities: ['Swimming Pool', 'Scenic Views', 'Full-Service Restaurant'],
-    images: ['/images/lodges/lake-kivu-serena-hotel.webp', '/images/lodges/lake-kivu-serena-hotel-2.webp', '/images/lodges/lake-kivu-serena-hotel-3.webp', '/images/lodges/lake-kivu-serena-hotel-4.webp', '/images/lodges/lake-kivu-serena-hotel-5.webp'],
+    images: [{ src: '/images/lodges/lake-kivu-serena-hotel.webp', alt: 'Aerial night view of the figure-eight swimming pool and lit terrace restaurant at Lake Kivu Serena Hotel' }, { src: '/images/lodges/lake-kivu-serena-hotel-pink-facade.webp', alt: 'Pink balconied guest wing at Lake Kivu Serena Hotel framed by palm trees with the lake beyond' }, { src: '/images/lodges/lake-kivu-serena-hotel-lakeside-garden-path.webp', alt: 'Stone pathway through palm-shaded gardens leading to the shore of Lake Kivu at Lake Kivu Serena Hotel' }, { src: '/images/lodges/lake-kivu-serena-hotel-pool-lake-aerial.webp', alt: 'Aerial view of the figure-eight swimming pool with Lake Kivu and the surrounding gardens at Lake Kivu Serena Hotel' }, { src: '/images/lodges/lake-kivu-serena-hotel-guest-room-four-poster.webp', alt: 'Guest room at Lake Kivu Serena Hotel with a dark wood four-poster bed and a lake-view balcony' }],
     featuredIn: [{ label: '12 Days Rwanda Primates Experience', href: '/safaris/12-days-rwanda-primates' }],
   },
   {
@@ -413,7 +413,7 @@ export const accommodations: Accommodation[] = [
     location: 'Lake Naivasha, Kenya',
     description: 'A lakeside resort on Lake Naivasha, well placed for boat trips and walking safaris on nearby Crescent Island.',
     amenities: ['Free WiFi', 'Swimming Pool', 'Full-Service Restaurant', 'Lake Views'],
-    images: ['/images/lodges/lake-naivasha-sopa-resort.webp', '/images/lodges/lake-naivasha-sopa-resort-2.webp', '/images/lodges/lake-naivasha-sopa-resort-3.webp', '/images/lodges/lake-naivasha-sopa-resort-4.webp', '/images/lodges/lake-naivasha-sopa-resort-5.webp'],
+    images: [{ src: '/images/lodges/lake-naivasha-sopa-resort.webp', alt: 'Brick pathway and bridge crossing the swimming pool beneath palm trees at sunset at Lake Naivasha Sopa Resort' }, { src: '/images/lodges/lake-naivasha-sopa-resort-honeymoon-suite.webp', alt: 'Suite bedroom at Lake Naivasha Sopa Resort decorated with rose petals and a swan towel display for honeymooners' }, { src: '/images/lodges/lake-naivasha-sopa-resort-suite-lounge-bar.webp', alt: 'Suite lounge with leather sofas and a private bar corner at Lake Naivasha Sopa Resort' }, { src: '/images/lodges/lake-naivasha-sopa-resort-stone-cottage-patio.webp', alt: 'Stone cottage exterior with a round turret and private patio seating at Lake Naivasha Sopa Resort' }, { src: '/images/lodges/lake-naivasha-sopa-resort-guest-room.webp', alt: 'Guest room at Lake Naivasha Sopa Resort with a carved wooden bed and blue patterned bedding' }],
     featuredIn: [{ label: '5 Days Kenya Safari — Hell\'s Gate, Lake Nakuru & Masai Mara', href: '/safaris/5-day-kenya-safari' }],
   },
   {
@@ -423,7 +423,7 @@ export const accommodations: Accommodation[] = [
     location: 'Lake Nakuru National Park, Kenya',
     description: 'A lodge inside Lake Nakuru National Park itself, known historically for its flamingo-lined shoreline and resident rhino population.',
     amenities: ['Scenic Views', 'Full-Service Restaurant', 'Free WiFi'],
-    images: ['/images/lodges/lake-nakuru-lodge.webp', '/images/lodges/lake-nakuru-lodge-2.webp', '/images/lodges/lake-nakuru-lodge-3.webp', '/images/lodges/lake-nakuru-lodge-4.webp', '/images/lodges/lake-nakuru-lodge-5.webp'],
+    images: [{ src: '/images/lodges/lake-nakuru-lodge.webp', alt: 'African-themed dining room at Lake Nakuru Lodge decorated with life-size giraffe models and woven basket lighting' }, { src: '/images/lodges/lake-nakuru-lodge-canopy-bed-fireplace.webp', alt: 'Guest room at Lake Nakuru Lodge with twin canopy beds and a stone fireplace' }, { src: '/images/lodges/lake-nakuru-lodge-guest-room-red-accent.webp', alt: 'Guest room at Lake Nakuru Lodge with carved wood furniture and red accent bedding' }, { src: '/images/lodges/lake-nakuru-lodge-pool-main-building.webp', alt: 'Swimming pool with \'Nakuru Lodge\' tiled lettering in front of the main lodge building at dusk' }, { src: '/images/lodges/lake-nakuru-lodge-pool-sunset-view.webp', alt: 'Swimming pool deck at sunset overlooking the grassland and lake at Lake Nakuru Lodge' }],
     featuredIn: [{ label: '11 Days Kenya Undisputed', href: '/safaris/11-days-kenya-undisputed' }, { label: '12 Days Tanzania Kenya Expedition', href: '/safaris/12-days-tanzania-kenya' }, { label: '5 Days Kenya Safari — Hell\'s Gate, Lake Nakuru & Masai Mara', href: '/safaris/5-day-kenya-safari' }, { label: 'Classic Kenya Safari — Masai Mara, the Rift Valley & Amboseli', href: '/safaris/classic-kenya-safari' }],
   },
   {
@@ -433,7 +433,7 @@ export const accommodations: Accommodation[] = [
     location: 'Lake Nakuru National Park, Kenya',
     description: 'A lodge on high ground above Lake Nakuru, with panoramic views down over the lake and surrounding park.',
     amenities: ['Free WiFi', 'Swimming Pool', 'Full-Service Restaurant', 'Scenic Views'],
-    images: ['/images/lodges/lake-nakuru-sopa-lodge.webp', '/images/lodges/lake-nakuru-sopa-lodge-3.webp', '/images/lodges/lake-nakuru-sopa-lodge-4.webp', '/images/lodges/lake-nakuru-sopa-lodge-5.webp'],
+    images: [{ src: '/images/lodges/lake-nakuru-sopa-lodge.webp', alt: 'Private balcony with table and chairs overlooking Lake Nakuru at Lake Nakuru Sopa Lodge' }, { src: '/images/lodges/lake-nakuru-sopa-lodge-dining-room-lake-view.webp', alt: 'Circular thatched dining room with panoramic windows overlooking Lake Nakuru at dusk at Lake Nakuru Sopa Lodge' }, { src: '/images/lodges/lake-nakuru-sopa-lodge-pool-sunset.webp', alt: 'Swimming pool with \'Sopa\' mosaic lettering at sunset at Lake Nakuru Sopa Lodge' }, { src: '/images/lodges/lake-nakuru-sopa-lodge-cottages-aerial-dusk.webp', alt: 'Aerial view of thatched cottages along a hillside path above Lake Nakuru at dusk at Lake Nakuru Sopa Lodge' }],
     featuredIn: [{ label: '10-Day Kenya & Tanzania Safari', href: '/safaris/10-day-kenya-tanzania-safari' }],
   },
   {
@@ -443,7 +443,7 @@ export const accommodations: Accommodation[] = [
     location: 'Northern Serengeti, Kogatende',
     description: 'A private hilltop camp above the Mara River crossing points, built for travellers timing their trip to the river crossings.',
     amenities: ['Swimming Pool', 'Scenic Views', 'Wildlife Views', 'Spa'],
-    images: ['/images/lodges/lemala-kuria-hills-2.webp', '/images/lodges/lemala-kuria-hills-3.webp', '/images/lodges/lemala-kuria-hills-4.webp', '/images/lodges/lemala-kuria-hills-5.webp'],
+    images: [{ src: '/images/lodges/lemala-kuria-hills-aerial-kopje-camp.webp', alt: 'Aerial view of tented suites with private plunge pools scattered across a rocky kopje at Lemala Kuria Hills' }, { src: '/images/lodges/lemala-kuria-hills-deck-plunge-pool.webp', alt: 'Private deck with a plunge pool and lounge seating overlooking the northern Serengeti plains at Lemala Kuria Hills' }, { src: '/images/lodges/lemala-kuria-hills-bathroom-freestanding-tub.webp', alt: 'Tented suite bathroom at Lemala Kuria Hills with a freestanding tub framed by sweeping savannah views' }, { src: '/images/lodges/lemala-kuria-hills-rock-lounge-fire-pit.webp', alt: 'Outdoor lounge with fire pit built into the rocks overlooking the plains at Lemala Kuria Hills' }],
     featuredIn: [{ label: '10-Day Ultimate Great Migration — Mara River-Crossing Safari', href: '/safaris/10-day-ultimate-great-migration-mara-river-crossing' }, { label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }],
   },
   {
@@ -453,7 +453,7 @@ export const accommodations: Accommodation[] = [
     location: 'Tarangire National Park',
     description: 'A private tented camp overlooking the Tarangire River, in one of Africa’s densest elephant landscapes outside the wet season.',
     amenities: ['All-Inclusive', 'Spa', 'Scenic Views', 'Wildlife Views'],
-    images: ['/images/lodges/lemala-nanyukie.webp', '/images/lodges/lemala-nanyukie-2.webp', '/images/lodges/lemala-nanyukie-3.webp', '/images/lodges/lemala-nanyukie-4.webp', '/images/lodges/lemala-nanyukie-5.webp'],
+    images: [{ src: '/images/lodges/lemala-nanyukie.webp', alt: 'Guest tent lounge at Lemala Nanyukie opening onto a private plunge pool and deck overlooking the Tarangire plains' }, { src: '/images/lodges/lemala-nanyukie-lounge-dining-deck.webp', alt: 'Open-sided lounge and dining deck at Lemala Nanyukie with blue sofas and views over the Tarangire plains' }, { src: '/images/lodges/lemala-nanyukie-aerial-plains-sunset.webp', alt: 'Aerial view of tented camp nestled among boulders and acacia trees on the Serengeti-Tarangire plains at sunset at Lemala Nanyukie' }, { src: '/images/lodges/lemala-nanyukie-camp-exterior-acacia.webp', alt: 'Tented camp exterior at Lemala Nanyukie framed beneath a large acacia tree' }, { src: '/images/lodges/lemala-nanyukie-infinity-pool.webp', alt: 'Couple relaxing in the infinity pool overlooking the plains at Lemala Nanyukie' }],
     featuredIn: [{ label: '10 Days Tanzania Luxury Family Safari', href: '/safaris/10-days-luxury-family' }, { label: '7 Days Gems of the North', href: '/safaris/7-days-gems-of-north' }, { label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }, { label: 'Ultimate Tanzania Safari', href: '/safaris/ultimate-tanzania-safari' }],
   },
   {
@@ -463,7 +463,7 @@ export const accommodations: Accommodation[] = [
     location: 'Ngorongoro Conservation Area',
     description: 'A private tented camp close to the Ngorongoro descent road, putting guests on the crater floor before sunrise.',
     amenities: ['Spa', 'Scenic Views', 'Full-Service Restaurant'],
-    images: ['/images/lodges/lemala-osonjoi.webp', '/images/lodges/lemala-osonjoi-3.webp', '/images/lodges/lemala-osonjoi-4.webp', '/images/lodges/lemala-osonjoi-5.webp'],
+    images: [{ src: '/images/lodges/lemala-osonjoi.webp', alt: 'Dark timber-clad guest villa rising among forest trees at Lemala Osonjoi near the Ngorongoro crater rim' }, { src: '/images/lodges/lemala-osonjoi-forest-deck-dining.webp', alt: 'Private forest deck at Lemala Osonjoi set for an intimate meal with wine glasses beneath the tree canopy' }, { src: '/images/lodges/lemala-osonjoi-lounge-pendant-lights.webp', alt: 'Lounge at Lemala Osonjoi with woven pendant lights and curved sofas opening onto a forest-view deck' }, { src: '/images/lodges/lemala-osonjoi-bathroom-forest-view.webp', alt: 'Suite bathroom at Lemala Osonjoi with a freestanding tub set beneath a floor-to-ceiling forest-view window' }],
     featuredIn: [{ label: '10 Days Tanzania Luxury Family Safari', href: '/safaris/10-days-luxury-family' }],
   },
   {
@@ -473,7 +473,7 @@ export const accommodations: Accommodation[] = [
     location: 'Zanzibar Island',
     description: 'A simple, well-placed guesthouse for travellers extending a Tanzania safari onto Zanzibar’s beaches on a tighter budget.',
     amenities: ['Full-Service Restaurant', 'Beachfront'],
-    images: ['/images/lodges/makofi-guest-house-5.webp', '/images/lodges/makofi-guest-house-2.webp', '/images/lodges/makofi-guest-house-3.webp', '/images/lodges/makofi-guest-house-4.webp'],
+    images: [{ src: '/images/lodges/makofi-guest-house-thatched-cottage-exterior.webp', alt: 'Arched thatched-roof guest cottage at Makofi Guest House with a private veranda and two patterned armchairs, Zanzibar Island' }, { src: '/images/lodges/makofi-guest-house-beachfront-restaurant.webp', alt: 'Makofi Guest House\'s open-air beachfront restaurant with colorful bunting and communal dining tables on the sand, Zanzibar' }, { src: '/images/lodges/makofi-guest-house-canopy-bed.webp', alt: 'Guest room at Makofi Guest House with a sheer white mosquito net canopy over the bed and folded towel decor' }, { src: '/images/lodges/makofi-guest-house-veranda-lounge.webp', alt: 'Covered veranda lounge at Makofi Guest House with colorful African-print cushions and a thatched ceiling' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }],
   },
   {
@@ -483,7 +483,7 @@ export const accommodations: Accommodation[] = [
     location: 'Northern Serengeti / Mara Border, Tanzania',
     description: 'A classic tented camp inside the Masai Mara ecosystem, run simply and positioned for early game drives.',
     amenities: ['En-Suite Rooms', 'Wildlife Views'],
-    images: ['/images/lodges/mara-katikati-tented-camp.webp', '/images/lodges/mara-katikati-tented-camp-2.webp', '/images/lodges/mara-katikati-tented-camp-3.webp', '/images/lodges/mara-katikati-tented-camp-4.webp'],
+    images: [{ src: '/images/lodges/mara-katikati-tented-camp.webp', alt: 'Mara Katikati Tented Camp\'s dining tent lit up at dusk with lanterns and set tables, northern Serengeti' }, { src: '/images/lodges/mara-katikati-tented-camp-tent-exterior-daytime.webp', alt: 'Guest tent at Mara Katikati Tented Camp shaded by acacia trees with a green-bedded twin room visible inside' }, { src: '/images/lodges/mara-katikati-tented-camp-breakfast-buffet.webp', alt: 'Chef preparing a hot breakfast buffet inside the mess tent at Mara Katikati Tented Camp' }, { src: '/images/lodges/mara-katikati-tented-camp-sunset-tent-view.webp', alt: 'Guest relaxing on the deck of a twin-bed tent at Mara Katikati Tented Camp, watching the Serengeti sunset' }],
     featuredIn: [{ label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }],
   },
   {
@@ -493,7 +493,7 @@ export const accommodations: Accommodation[] = [
     location: 'Northern Serengeti / Masai Mara border',
     description: 'A tented lodge close to the Kenya-Tanzania border area, positioned for the migration’s river-crossing season.',
     amenities: ['Wildlife Views', 'Scenic Views', 'Full-Service Restaurant'],
-    images: ['/images/lodges/mara-mara-tented-lodge.webp', '/images/lodges/mara-mara-tented-lodge-2.webp', '/images/lodges/mara-mara-tented-lodge-3.webp', '/images/lodges/mara-mara-tented-lodge-4.webp'],
+    images: [{ src: '/images/lodges/mara-mara-tented-lodge.webp', alt: 'Wicker lounge seating on the sundowner deck at Mara Mara Tented Lodge overlooking the Serengeti plains at sunset' }, { src: '/images/lodges/mara-mara-tented-lodge-suite-bedroom.webp', alt: 'Thatched-roof suite at Mara Mara Tented Lodge with twin beds under a mosquito net and an en-suite dressing area' }, { src: '/images/lodges/mara-mara-tented-lodge-pool-deck.webp', alt: 'Swimming pool and stone sundeck at Mara Mara Tented Lodge with the thatched main lodge in the background' }, { src: '/images/lodges/mara-mara-tented-lodge-dining-room.webp', alt: 'Open-air dining room at Mara Mara Tented Lodge set for a group meal under a thatched roof' }],
     featuredIn: [{ label: '10-Day Ultimate Great Migration — Mara River-Crossing Safari', href: '/safaris/10-day-ultimate-great-migration-mara-river-crossing' }, { label: '8 Days Flight to Migration', href: '/safaris/8-days-flight-migration' }, { label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }],
   },
   {
@@ -503,7 +503,7 @@ export const accommodations: Accommodation[] = [
     location: 'Masai Mara, Kenya',
     description: 'A hilltop lodge inside the Masai Mara with sweeping views over the reserve’s plains and river below.',
     amenities: ['Free WiFi', 'Swimming Pool', 'Full-Service Restaurant', 'Scenic Views'],
-    images: ['/images/lodges/mara-serena-safari-lodge.webp', '/images/lodges/mara-serena-safari-lodge-2.webp', '/images/lodges/mara-serena-safari-lodge-3.webp', '/images/lodges/mara-serena-safari-lodge-4.webp', '/images/lodges/mara-serena-safari-lodge-5.webp'],
+    images: [{ src: '/images/lodges/mara-serena-safari-lodge.webp', alt: 'Curved viewing terrace at Mara Serena Safari Lodge overlooking the Masai Mara plains' }, { src: '/images/lodges/mara-serena-safari-lodge-lobby-interior.webp', alt: 'Maasai-inspired lobby at Mara Serena Safari Lodge with hand-painted walls and sweeping views of the Mara' }, { src: '/images/lodges/mara-serena-safari-lodge-swimming-pool.webp', alt: 'Kidney-shaped swimming pool at Mara Serena Safari Lodge framed by palm trees and views over the reserve' }, { src: '/images/lodges/mara-serena-safari-lodge-guest-room.webp', alt: 'Guest room at Mara Serena Safari Lodge decorated with Maasai-pattern textiles and a round mirror' }, { src: '/images/lodges/mara-serena-safari-lodge-dining-room.webp', alt: 'Private dining nook at Mara Serena Safari Lodge with hand-painted ochre walls and a table set for dinner' }],
     featuredIn: [{ label: '5 Days Kenya Safari — Hell\'s Gate, Lake Nakuru & Masai Mara', href: '/safaris/5-day-kenya-safari' }],
   },
   {
@@ -513,7 +513,7 @@ export const accommodations: Accommodation[] = [
     location: 'Northern Serengeti',
     description: 'A mobile tented camp that relocates with the migration through the northern Serengeti and Mara border area.',
     amenities: ['Wildlife Views', 'Scenic Views'],
-    images: ['/images/lodges/mara-under-canvas.webp', '/images/lodges/mara-under-canvas-2.webp', '/images/lodges/mara-under-canvas-3.webp', '/images/lodges/mara-under-canvas-4.webp', '/images/lodges/mara-under-canvas-5.webp'],
+    images: [{ src: '/images/lodges/mara-under-canvas.webp', alt: 'Guest tent at Mara Under Canvas glowing at golden hour among acacia trees in the northern Serengeti' }, { src: '/images/lodges/mara-under-canvas-twin-tent-wardrobe.webp', alt: 'Twin beds and canvas wardrobe inside a guest tent at Mara Under Canvas' }, { src: '/images/lodges/mara-under-canvas-tent-dressing-area.webp', alt: 'Tent dressing area with vanity basin at Mara Under Canvas opening onto the Serengeti plains' }, { src: '/images/lodges/mara-under-canvas-twin-beds-lanterns.webp', alt: 'Twin beds with hurricane lanterns inside a guest tent at Mara Under Canvas' }, { src: '/images/lodges/mara-under-canvas-king-bed-suite.webp', alt: 'King bed suite at Mara Under Canvas with purple accent pillows and canvas walls' }],
     featuredIn: [{ label: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti', href: '/safaris/tanzania-photographic-safari' }],
   },
   {
@@ -523,7 +523,7 @@ export const accommodations: Accommodation[] = [
     location: 'Masai Mara, Kenya',
     description: 'A large, well-established lodge inside the Mara ecosystem, close to the migration’s river-crossing corridor.',
     amenities: ['Free WiFi', 'Swimming Pool', 'Full-Service Restaurant', 'Mara River Views', 'Migration-Route Location'],
-    images: ['/images/lodges/masai-mara-sopa-lodge.webp', '/images/lodges/masai-mara-sopa-lodge-3.webp', '/images/lodges/masai-mara-sopa-lodge-4.webp', '/images/lodges/masai-mara-sopa-lodge-5.webp'],
+    images: [{ src: '/images/lodges/masai-mara-sopa-lodge.webp', alt: 'Swimming pool and thatched cone-roofed buildings at Masai Mara Sopa Lodge framed by bougainvillea' }, { src: '/images/lodges/masai-mara-sopa-lodge-veranda-seating.webp', alt: 'Stone-pillared veranda lounge at Masai Mara Sopa Lodge overlooking the surrounding woodland' }, { src: '/images/lodges/masai-mara-sopa-lodge-lounge.webp', alt: 'Woven sofa seating area in the lounge at Masai Mara Sopa Lodge' }, { src: '/images/lodges/masai-mara-sopa-lodge-outdoor-dining-deck.webp', alt: 'Private outdoor dining table on a wooden deck at Masai Mara Sopa Lodge surrounded by trees' }],
     featuredIn: [{ label: '10-Day Kenya & Tanzania Safari', href: '/safaris/10-day-kenya-tanzania-safari' }, { label: '5 Days Kenya Safari — Hell\'s Gate, Lake Nakuru & Masai Mara', href: '/safaris/5-day-kenya-safari' }],
   },
   {
@@ -533,7 +533,7 @@ export const accommodations: Accommodation[] = [
     location: 'Ndutu, Southern Serengeti',
     description: 'A tented camp near Lake Masek in the Ndutu area, the heart of the wildebeest calving season each year.',
     amenities: ['Scenic Views', 'Wildlife Views', 'En-Suite Rooms'],
-    images: ['/images/lodges/masek-tented-lodge.webp', '/images/lodges/masek-tented-lodge-2.webp', '/images/lodges/masek-tented-lodge-3.webp', '/images/lodges/masek-tented-lodge-4.webp', '/images/lodges/masek-tented-lodge-5.webp'],
+    images: [{ src: '/images/lodges/masek-tented-lodge.webp', alt: 'Silhouetted acacia tree at sunrise near Masek Tented Lodge on the shore of Lake Masek, Ndutu' }, { src: '/images/lodges/masek-tented-lodge-tent-exterior.webp', alt: 'Guest tent at Masek Tented Lodge raised on a wooden platform beneath an acacia tree' }, { src: '/images/lodges/masek-tented-lodge-tent-bedroom.webp', alt: 'Four-poster bed under a mosquito net inside a guest tent at Masek Tented Lodge' }, { src: '/images/lodges/masek-tented-lodge-lakeside-dining-deck.webp', alt: 'Staff member setting a private dining table on the deck at Masek Tented Lodge overlooking Lake Masek' }, { src: '/images/lodges/masek-tented-lodge-swimming-pool.webp', alt: 'Swimming pool at Masek Tented Lodge overlooking Lake Masek and the surrounding plains' }],
     featuredIn: [{ label: '7 Days Flight Over Ndutu Migration', href: '/safaris/7-days-flight-ndutu' }, { label: '7-Day Tanzania Photography & Adventure Safari', href: '/safaris/7-day-photography-adventure-safari' }],
   },
   {
@@ -543,7 +543,7 @@ export const accommodations: Accommodation[] = [
     location: 'Gombe Stream National Park',
     description: 'A small tented camp on the shore of Lake Tanganyika, the base for chimpanzee trekking in Gombe Stream.',
     amenities: ['Wildlife Views', 'En-Suite Rooms'],
-    images: ['/images/lodges/mbalimbali-gombe-tented-camp.webp', '/images/lodges/mbalimbali-gombe-tented-camp-2.webp', '/images/lodges/mbalimbali-gombe-tented-camp-3.webp', '/images/lodges/mbalimbali-gombe-tented-camp-4.webp', '/images/lodges/mbalimbali-gombe-tented-camp-5.webp'],
+    images: [{ src: '/images/lodges/mbalimbali-gombe-tented-camp.webp', alt: 'Four-poster canopy bed in a guest tent at Mbali Mbali Gombe Tented Camp' }, { src: '/images/lodges/mbalimbali-gombe-tented-camp-lakeshore-loungers.webp', alt: 'Sun loungers shaded by trees on the Lake Tanganyika shoreline at Mbali Mbali Gombe Tented Camp' }, { src: '/images/lodges/mbalimbali-gombe-tented-camp-forest-deck.webp', alt: 'Forest-shaded seating deck at Mbali Mbali Gombe Tented Camp with African wood carvings' }, { src: '/images/lodges/mbalimbali-gombe-tented-camp-dining-room.webp', alt: 'Waiter serving guests in the wood-panelled dining room at Mbali Mbali Gombe Tented Camp' }, { src: '/images/lodges/mbalimbali-gombe-tented-camp-lakeside-bonfire.webp', alt: 'Beach bonfire at dusk on the shore of Lake Tanganyika at Mbali Mbali Gombe Tented Camp' }],
     featuredIn: [{ label: '5 Days Private Gombe Chimpanzee Trekking', href: '/safaris/5-day-gombe-chimpanzee-trekking' }],
   },
   {
@@ -553,7 +553,7 @@ export const accommodations: Accommodation[] = [
     location: 'Mikumi National Park',
     description: 'A lodge overlooking Mikumi’s open floodplain, one of the most accessible parks on Tanzania’s southern circuit.',
     amenities: ['Swimming Pool', 'Scenic Views', 'Full-Service Restaurant'],
-    images: ['/images/lodges/mikumi-wildlife-lodge.webp', '/images/lodges/mikumi-wildlife-lodge-2.webp', '/images/lodges/mikumi-wildlife-lodge-3.webp', '/images/lodges/mikumi-wildlife-lodge-4.webp', '/images/lodges/mikumi-wildlife-lodge-5.webp'],
+    images: [{ src: '/images/lodges/mikumi-wildlife-lodge.webp', alt: 'Mikumi Wildlife Lodge\'s stone-and-glass main building and swimming pool lit at dusk' }, { src: '/images/lodges/mikumi-wildlife-lodge-lounge-interior.webp', alt: 'High-ceilinged lounge at Mikumi Wildlife Lodge with floor-to-ceiling windows over Mikumi National Park' }, { src: '/images/lodges/mikumi-wildlife-lodge-guest-room.webp', alt: 'Guest room at Mikumi Wildlife Lodge with a king bed and floor-to-ceiling windows overlooking the floodplain' }, { src: '/images/lodges/mikumi-wildlife-lodge-infinity-pool.webp', alt: 'Guest walking along the edge of the infinity pool at Mikumi Wildlife Lodge overlooking the park' }, { src: '/images/lodges/mikumi-wildlife-lodge-twin-room.webp', alt: 'Twin guest room at Mikumi Wildlife Lodge with modern decor' }],
     featuredIn: [{ label: '10 Days Southern Tanzania Secrets', href: '/safaris/10-days-southern-secrets' }, { label: '12 Days The Grand Safari', href: '/safaris/12-days-grand-safari' }],
   },
   {
@@ -563,7 +563,7 @@ export const accommodations: Accommodation[] = [
     location: 'Ndutu, Southern Serengeti',
     description: 'A seasonal tented camp in the Ndutu area, timed to the wildebeest calving season each year.',
     amenities: ['En-Suite Rooms', 'Wildlife Views'],
-    images: ['/images/lodges/ndutu-kati-kati-tented-camp.webp', '/images/lodges/ndutu-kati-kati-tented-camp-2.webp', '/images/lodges/ndutu-kati-kati-tented-camp-3.webp', '/images/lodges/ndutu-kati-kati-tented-camp-4.webp', '/images/lodges/ndutu-kati-kati-tented-camp-5.webp'],
+    images: [{ src: '/images/lodges/ndutu-kati-kati-tented-camp.webp', alt: 'Hot air balloon drifting past a silhouetted acacia tree at sunrise near Ndutu Kati Kati Tented Camp' }, { src: '/images/lodges/ndutu-kati-kati-tented-camp-tent-exterior.webp', alt: 'Guest tent at Ndutu Kati Kati Tented Camp lit by golden-hour light against the Ndutu hillside' }, { src: '/images/lodges/ndutu-kati-kati-tented-camp-twin-beds.webp', alt: 'Twin beds inside a guest tent at Ndutu Kati Kati Tented Camp' }, { src: '/images/lodges/ndutu-kati-kati-tented-camp-breakfast-dining.webp', alt: 'Chef serving breakfast to guests inside the mess tent at Ndutu Kati Kati Tented Camp' }, { src: '/images/lodges/ndutu-kati-kati-tented-camp-dining-tent.webp', alt: 'Open-sided dining tent at Ndutu Kati Kati Tented Camp set for a group meal' }],
     featuredIn: [{ label: 'Southern Edition: Tanzania Calving Season Migration Safari — Ndutu & Ngorongoro Crater', href: '/safaris/7-days-migration-southern' }],
   },
   {
@@ -573,7 +573,7 @@ export const accommodations: Accommodation[] = [
     location: 'Ndutu, Southern Serengeti',
     description: 'A permanent stone-and-thatch lodge of 34 cottages overlooking Lake Ndutu, positioned for year-round access to the resident predators that never leave when the migration moves on.',
     amenities: ['En-Suite Rooms', 'Wildlife Views', 'Full-Service Restaurant', 'Scenic Views'],
-    images: ['/images/lodges/ndutu-safari-lodge.webp', '/images/lodges/ndutu-safari-lodge-2.webp', '/images/lodges/ndutu-safari-lodge-3.webp', '/images/lodges/ndutu-safari-lodge-4.webp'],
+    images: [{ src: '/images/lodges/ndutu-safari-lodge.webp', alt: 'Lantern-lit lounge terrace at Ndutu Safari Lodge overlooking the Serengeti plains at dusk' }, { src: '/images/lodges/ndutu-safari-lodge-cottage-exterior.webp', alt: 'Stone-and-thatch guest cottages at Ndutu Safari Lodge surrounded by aloe plants and garden pathways' }, { src: '/images/lodges/ndutu-safari-lodge-veranda-view.webp', alt: 'Private veranda at Ndutu Safari Lodge with chilled drinks and binoculars overlooking the plains' }, { src: '/images/lodges/ndutu-safari-lodge-breakfast-buffet.webp', alt: 'Breakfast buffet spread at Ndutu Safari Lodge decorated with wildebeest wire-art wall sculptures' }],
     featuredIn: [{ label: '8-Day Off The Beaten Track Photography Safari', href: '/safaris/off-the-beaten-track-photography-safari' }],
   },
   {
@@ -583,7 +583,7 @@ export const accommodations: Accommodation[] = [
     location: 'Karatu, Ngorongoro Highlands',
     description: 'A working coffee farm turned lodge, set among banana groves on the crater’s forested rim — relaxed and homely rather than formal.',
     amenities: ['Full-Service Restaurant', 'Garden Grounds', 'Free WiFi', 'Highland Gardens', 'Working Farm', 'Swimming Pool'],
-    images: ['/images/lodges/ngorongoro-farm-house.webp', '/images/lodges/ngorongoro-farm-house-2.webp', '/images/lodges/ngorongoro-farm-house-3.webp', '/images/lodges/ngorongoro-farm-house-4.webp', '/images/lodges/ngorongoro-farm-house-5.webp'],
+    images: [{ src: '/images/lodges/ngorongoro-farm-house.webp', alt: 'Aerial view of the swimming pool and sun deck at Ngorongoro Farm House' }, { src: '/images/lodges/ngorongoro-farm-house-exterior-garden.webp', alt: 'Thatched-roof main building at Ngorongoro Farm House seen across its flower gardens' }, { src: '/images/lodges/ngorongoro-farm-house-bedroom.webp', alt: 'Twin four-poster beds under mosquito nets in a guest room at Ngorongoro Farm House' }, { src: '/images/lodges/ngorongoro-farm-house-outdoor-dining-deck.webp', alt: 'String-lit outdoor dining deck at Ngorongoro Farm House in the evening' }, { src: '/images/lodges/ngorongoro-farm-house-pool-loungers.webp', alt: 'Poolside loungers shaded by trees at Ngorongoro Farm House' }],
     featuredIn: [{ label: '10-Day Kenya & Tanzania Safari', href: '/safaris/10-day-kenya-tanzania-safari' }, { label: '10-Day Ultimate Great Migration — Mara River-Crossing Safari', href: '/safaris/10-day-ultimate-great-migration-mara-river-crossing' }, { label: '12-Day Tanzania Safari for Seniors, Anniversaries & Groups', href: '/safaris/12-day-seniors-anniversary-groups-safari' }, { label: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike', href: '/safaris/12-days-wild-wilderness' }, { label: '4-Day Tarangire, Ngorongoro & Lake Eyasi', href: '/safaris/4-day-tarangire-ngorongoro-lake-eyasi' }, { label: '5 Days Highlights Safari', href: '/safaris/5-days-highlights-safari' }, { label: '5-Day Comfort Tanzania Safari', href: '/safaris/5-day-comfort-tanzania-safari' }, { label: '6-Day Comfort Tanzania Safari', href: '/safaris/6-day-comfort-tanzania-safari' }, { label: '7 Days Serengeti & Ngorongoro Safari', href: '/safaris/7-day-serengeti-ngorongoro' }, { label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }, { label: '9-Day Honeymoon Safari & Zanzibar Beach Escape', href: '/safaris/9-day-honeymoon-safari-zanzibar' }, { label: 'Highlights of Kenya & Tanzania Safari', href: '/safaris/kenya-tanzania-highlights-safari' }],
   },
   {
@@ -593,7 +593,7 @@ export const accommodations: Accommodation[] = [
     location: 'Karatu, Ngorongoro Highlands',
     description: 'A mid-range lodge on the Ngorongoro Highlands with easy access to the crater descent road for early game drives.',
     amenities: ['Scenic Views', 'Full-Service Restaurant', 'En-Suite Rooms'],
-    images: ['/images/lodges/ngorongoro-lion-s-paw.webp', '/images/lodges/ngorongoro-lion-s-paw-2.webp', '/images/lodges/ngorongoro-lion-s-paw-3.webp', '/images/lodges/ngorongoro-lion-s-paw-4.webp', '/images/lodges/ngorongoro-lion-s-paw-5.webp'],
+    images: [{ src: '/images/lodges/ngorongoro-lion-s-paw.webp', alt: 'Covered lounge terrace at Ngorongoro Lion\'s Paw overlooking the forested highlands' }, { src: '/images/lodges/ngorongoro-lion-s-paw-aerial-deck.webp', alt: 'Aerial view of the timber deck and bar at Ngorongoro Lion\'s Paw surrounded by acacia trees' }, { src: '/images/lodges/ngorongoro-lion-s-paw-guest-cottages.webp', alt: 'Guest cottages with private balconies at Ngorongoro Lion\'s Paw' }, { src: '/images/lodges/ngorongoro-lion-s-paw-bedroom.webp', alt: 'Canopy bed guest room at Ngorongoro Lion\'s Paw with a private balcony view' }, { src: '/images/lodges/ngorongoro-lion-s-paw-wooden-deck.webp', alt: 'Polished wooden deck and lamp posts at Ngorongoro Lion\'s Paw overlooking the highlands' }],
     featuredIn: [{ label: '10 Days Tanzania Luxury Family Safari', href: '/safaris/10-days-luxury-family' }, { label: '7-Day Tanzania Photography & Adventure Safari', href: '/safaris/7-day-photography-adventure-safari' }],
   },
   {
@@ -603,7 +603,7 @@ export const accommodations: Accommodation[] = [
     location: 'Ngorongoro Conservation Area',
     description: 'A lodge set directly on the crater rim, among the closest properties to the descent road with genuine crater views.',
     amenities: ['Scenic Views', 'Spa', 'Full-Service Restaurant', 'En-Suite Rooms'],
-    images: ['/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection.webp', '/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection-2.webp', '/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection-3.webp', '/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection-4.webp', '/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection-5.webp'],
+    images: [{ src: '/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection.webp', alt: 'Open-plan living and dining room at Ngorongoro Lodge, The Rim Room (Meliá Collection), with a crowned crane painting' }, { src: '/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection-rooftop-terrace.webp', alt: 'Rooftop terrace with a telescope at Ngorongoro Lodge, The Rim Room (Meliá Collection), overlooking the crater floor' }, { src: '/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection-restaurant.webp', alt: 'Restaurant dining room at Ngorongoro Lodge, The Rim Room (Meliá Collection)' }, { src: '/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection-lounge.webp', alt: 'A-frame timber lounge at Ngorongoro Lodge, The Rim Room (Meliá Collection)' }, { src: '/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection-suite-living-room.webp', alt: 'Suite living room at Ngorongoro Lodge, The Rim Room (Meliá Collection), opening to the bedroom' }],
     featuredIn: [{ label: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike', href: '/safaris/12-days-wild-wilderness' }, { label: '5 Days Highlights Safari', href: '/safaris/5-days-highlights-safari' }, { label: '7-Day Tanzania Photography & Adventure Safari', href: '/safaris/7-day-photography-adventure-safari' }, { label: 'Southern Edition: Tanzania Calving Season Migration Safari — Ndutu & Ngorongoro Crater', href: '/safaris/7-days-migration-southern' }, { label: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti', href: '/safaris/tanzania-photographic-safari' }],
   },
   {
@@ -613,7 +613,7 @@ export const accommodations: Accommodation[] = [
     location: 'Ngorongoro Conservation Area',
     description: 'A stone-built lodge cut into the crater’s forested rim, with rooms looking straight down into the Ngorongoro floor.',
     amenities: ['Scenic Views', 'Full-Service Restaurant', 'En-Suite Rooms'],
-    images: ['/images/lodges/ngorongoro-serena-safari-lodge.webp', '/images/lodges/ngorongoro-serena-safari-lodge-2.webp', '/images/lodges/ngorongoro-serena-safari-lodge-3.webp', '/images/lodges/ngorongoro-serena-safari-lodge-4.webp', '/images/lodges/ngorongoro-serena-safari-lodge-5.webp'],
+    images: [{ src: '/images/lodges/ngorongoro-serena-safari-lodge.webp', alt: 'Stone-built guest rooms at Ngorongoro Serena Safari Lodge cut into the crater\'s forested rim at sunset' }, { src: '/images/lodges/ngorongoro-serena-safari-lodge-cottage-row.webp', alt: 'Row of stone-and-timber guest rooms at Ngorongoro Serena Safari Lodge along the crater rim' }, { src: '/images/lodges/ngorongoro-serena-safari-lodge-crater-view-lounge.webp', alt: 'Lounge terrace at Ngorongoro Serena Safari Lodge with chandeliers and a view down into the Ngorongoro Crater' }, { src: '/images/lodges/ngorongoro-serena-safari-lodge-bedroom.webp', alt: 'Guest room at Ngorongoro Serena Safari Lodge decorated with rock-art-style wildlife murals' }, { src: '/images/lodges/ngorongoro-serena-safari-lodge-sitting-room.webp', alt: 'Striped-sofa sitting room at Ngorongoro Serena Safari Lodge' }],
     featuredIn: [{ label: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike', href: '/safaris/12-days-wild-wilderness' }, { label: '5 Days Highlights Safari', href: '/safaris/5-days-highlights-safari' }, { label: 'Southern Edition: Tanzania Calving Season Migration Safari — Ndutu & Ngorongoro Crater', href: '/safaris/7-days-migration-southern' }, { label: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti', href: '/safaris/tanzania-photographic-safari' }],
   },
   {
@@ -623,7 +623,7 @@ export const accommodations: Accommodation[] = [
     location: 'Nungwi, Zanzibar',
     description: 'A beachfront property on Zanzibar’s northern tip at Nungwi, known for calm swimming water and sunset views.',
     amenities: ['Swimming Pool', 'Scenic Views', 'Full-Service Restaurant', 'Free WiFi'],
-    images: ['/images/lodges/nungwi-dreams-by-mantis.webp', '/images/lodges/nungwi-dreams-by-mantis-2.webp', '/images/lodges/nungwi-dreams-by-mantis-3.webp', '/images/lodges/nungwi-dreams-by-mantis-4.webp', '/images/lodges/nungwi-dreams-by-mantis-5.webp'],
+    images: [{ src: '/images/lodges/nungwi-dreams-by-mantis.webp', alt: 'Two guests relaxing on the edge of the infinity pool at Nungwi Dreams By Mantis, overlooking the turquoise reef waters of Zanzibar\'s northern tip' }, { src: '/images/lodges/nungwi-dreams-by-mantis-aerial-coastline.webp', alt: 'Aerial view of Nungwi Dreams By Mantis\'s white beachfront villas and pools strung along the Nungwi coastline' }, { src: '/images/lodges/nungwi-dreams-by-mantis-suite-bedroom.webp', alt: 'Ocean-view suite bedroom with a private balcony overlooking the sea at Nungwi Dreams By Mantis' }, { src: '/images/lodges/nungwi-dreams-by-mantis-pool-loungers.webp', alt: 'Row of poolside sun loungers and umbrellas along the infinity pool edge at dusk, Nungwi Dreams By Mantis' }, { src: '/images/lodges/nungwi-dreams-by-mantis-rooftop-restaurant.webp', alt: 'Rooftop restaurant terrace with ocean views and bougainvillea at Nungwi Dreams By Mantis' }],
     featuredIn: [{ label: '7 Days Crown Jewels Safari', href: '/safaris/7-days-crown-jewels' }, { label: '9-Day Honeymoon Safari & Zanzibar Beach Escape', href: '/safaris/9-day-honeymoon-safari-zanzibar' }],
   },
   {
@@ -633,7 +633,7 @@ export const accommodations: Accommodation[] = [
     location: 'Amboseli National Park, Kenya',
     description: 'A lodge inside Amboseli National Park with some of the most reliable Kilimanjaro views of any property in the park.',
     amenities: ['Scenic Views', 'Wildlife Views', 'Swimming Pool', 'Free WiFi', 'Full-Service Restaurant', 'Kilimanjaro Views'],
-    images: ['/images/lodges/ol-tukai-lodge.webp', '/images/lodges/ol-tukai-lodge-2.webp', '/images/lodges/ol-tukai-lodge-3.webp', '/images/lodges/ol-tukai-lodge-4.webp', '/images/lodges/ol-tukai-lodge-5.webp'],
+    images: [{ src: '/images/lodges/ol-tukai-lodge.webp', alt: 'Twin-bed safari-style guest room with African-print bed runners and tented ceiling at Ol Tukai Lodge, Amboseli National Park' }, { src: '/images/lodges/ol-tukai-lodge-main-lodge-exterior.webp', alt: 'Thatched-roof main lodge building and open-air bar terrace at Ol Tukai Lodge under a stormy Amboseli sky' }, { src: '/images/lodges/ol-tukai-lodge-aerial-pool.webp', alt: 'Aerial view of Ol Tukai Lodge\'s kidney-shaped swimming pool bordered by the Amboseli swamp plains' }, { src: '/images/lodges/ol-tukai-lodge-aerial-cottages.webp', alt: 'Aerial view of thatched guest cottages set among acacia trees at Ol Tukai Lodge, Amboseli' }, { src: '/images/lodges/ol-tukai-lodge-aerial-rooftops.webp', alt: 'Overhead aerial view of Ol Tukai Lodge\'s cluster of thatched rooftops and stone garden pathways' }],
     featuredIn: [{ label: '11 Days Kenya Undisputed', href: '/safaris/11-days-kenya-undisputed' }, { label: '12 Days Tanzania Kenya Expedition', href: '/safaris/12-days-tanzania-kenya' }, { label: 'Authentic, Exclusive Kenya — Amboseli, Samburu & the Masai Mara', href: '/safaris/authentic-exclusive-kenya' }, { label: 'Classic Kenya Safari — Masai Mara, the Rift Valley & Amboseli', href: '/safaris/classic-kenya-safari' }, { label: 'Highlights of Kenya & Tanzania Safari', href: '/safaris/kenya-tanzania-highlights-safari' }],
   },
   {
@@ -643,7 +643,7 @@ export const accommodations: Accommodation[] = [
     location: 'Nyungwe Forest, Rwanda',
     description: 'A lodge on the edge of Nyungwe Forest, built around chimpanzee trekking and canopy-walk access rather than gorillas.',
     amenities: ['Scenic Views', 'Spa', 'Full-Service Restaurant'],
-    images: ['/images/lodges/one-only-nyungwe-house.webp', '/images/lodges/one-only-nyungwe-house-2.webp', '/images/lodges/one-only-nyungwe-house-3.webp', '/images/lodges/one-only-nyungwe-house-4.webp'],
+    images: [{ src: '/images/lodges/one-only-nyungwe-house.webp', alt: 'One&Only Nyungwe House\'s long stone-and-timber lodge building overlooking a green tea plantation in Rwanda' }, { src: '/images/lodges/one-only-nyungwe-house-tea-plantation-villas.webp', alt: 'Tea-plantation villas at One&Only Nyungwe House wreathed in morning mist beside the surrounding rainforest' }, { src: '/images/lodges/one-only-nyungwe-house-bar.webp', alt: 'Stone-and-timber bar with African artwork and a forest view at One&Only Nyungwe House' }, { src: '/images/lodges/one-only-nyungwe-house-twin-room-forest-view.webp', alt: 'Twin-bed guest room with a private balcony over the Nyungwe Forest canopy at One&Only Nyungwe House' }],
     featuredIn: [{ label: '12 Days Rwanda Primates Experience', href: '/safaris/12-days-rwanda-primates' }],
   },
   {
@@ -653,7 +653,7 @@ export const accommodations: Accommodation[] = [
     location: 'West Kilimanjaro',
     description: 'A Maasai-owned lodge at the foot of Kilimanjaro, with a premium Kisiwa Boma suite category alongside its standard rooms.',
     amenities: ['Full-Service Restaurant', 'Garden Grounds', 'Scenic Views'],
-    images: ['/images/lodges/original-maasai-lodge.webp', '/images/lodges/original-maasai-lodge-2.webp', '/images/lodges/original-maasai-lodge-3.webp', '/images/lodges/original-maasai-lodge-4.webp', '/images/lodges/original-maasai-lodge-5.webp'],
+    images: [{ src: '/images/lodges/original-maasai-lodge.webp', alt: 'Maasai warriors in traditional shuka gathered around the pool at Original Maasai Lodge with the thatched lodge behind' }, { src: '/images/lodges/original-maasai-lodge-pool-savanna-view.webp', alt: 'Plunge pool at Original Maasai Lodge overlooking open savanna plains at the foot of Kilimanjaro' }, { src: '/images/lodges/original-maasai-lodge-poolside-drink-service.webp', alt: 'Guest receiving a poolside drink from Maasai staff overlooking the plains at Original Maasai Lodge' }, { src: '/images/lodges/original-maasai-lodge-campfire-ceremony.webp', alt: 'Maasai warriors singing around an evening campfire at Original Maasai Lodge' }, { src: '/images/lodges/original-maasai-lodge-kisiwa-boma-suite.webp', alt: 'Kisiwa Boma suite bed with red linens beneath a thatched roof at Original Maasai Lodge' }],
     featuredIn: [{ label: '12-Day Tanzania Safari for Seniors, Anniversaries & Groups', href: '/safaris/12-day-seniors-anniversary-groups-safari' }],
   },
   {
@@ -663,7 +663,7 @@ export const accommodations: Accommodation[] = [
     location: 'Kigali, Rwanda',
     description: 'A full-service international hotel in central Kigali, a comfortable gateway stop before or after Rwanda’s primate trekking.',
     amenities: ['Swimming Pool', 'Full-Service Restaurant', 'Free WiFi', 'Spa'],
-    images: ['/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp', '/images/lodges/radisson-blu-hotel-and-convention-centre-kigali-2.webp', '/images/lodges/radisson-blu-hotel-and-convention-centre-kigali-3.webp', '/images/lodges/radisson-blu-hotel-and-convention-centre-kigali-4.webp', '/images/lodges/radisson-blu-hotel-and-convention-centre-kigali-5.webp'],
+    images: [{ src: '/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp', alt: 'Curved courtyard swimming pool and guest room wings at the Radisson Blu Hotel & Convention Centre, Kigali' }, { src: '/images/lodges/radisson-blu-hotel-and-convention-centre-kigali-aerial-view.webp', alt: 'Aerial view of the Radisson Blu hotel beside the domed Kigali Convention Centre and surrounding gardens' }, { src: '/images/lodges/radisson-blu-hotel-and-convention-centre-kigali-convention-centre-night.webp', alt: 'The Kigali Convention Centre\'s dome illuminated in blue light at night beside the Radisson Blu hotel' }, { src: '/images/lodges/radisson-blu-hotel-and-convention-centre-kigali-guest-room.webp', alt: 'Modern guest room with a city-view balcony at the Radisson Blu Hotel & Convention Centre, Kigali' }, { src: '/images/lodges/radisson-blu-hotel-and-convention-centre-kigali-ballroom.webp', alt: 'Ballroom set for a banquet event beneath the Kigali Convention Centre\'s screen and red uplighting' }],
     featuredIn: [{ label: '11 Days Rwanda Tanzania Safari', href: '/safaris/11-days-rwanda-tanzania' }, { label: '12 Days Rwanda Primates Experience', href: '/safaris/12-days-rwanda-primates' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }],
   },
   {
@@ -673,7 +673,7 @@ export const accommodations: Accommodation[] = [
     location: 'Zanzibar Island',
     description: 'An all-inclusive beachfront resort on Zanzibar, the standard closing stop for safaris extending onto the island.',
     amenities: ['All-Inclusive', 'Beachfront', 'Swimming Pool', 'Scenic Views'],
-    images: ['/images/lodges/royal-zanzibar.webp', '/images/lodges/royal-zanzibar-2.webp', '/images/lodges/royal-zanzibar-3.webp', '/images/lodges/royal-zanzibar-4.webp'],
+    images: [{ src: '/images/lodges/royal-zanzibar.webp', alt: 'Aerial view of the Royal Zanzibar beachfront resort with its lagoon pools and white sand beach' }, { src: '/images/lodges/royal-zanzibar-suite-ocean-view.webp', alt: 'Four-poster suite bedroom with a private ocean-view balcony at Royal Zanzibar' }, { src: '/images/lodges/royal-zanzibar-pool-ocean-view.webp', alt: 'Infinity pool overlooking the Indian Ocean with sun loungers and thatched umbrellas at Royal Zanzibar' }, { src: '/images/lodges/royal-zanzibar-buffet-restaurant.webp', alt: 'Buffet restaurant with chafing dishes and copper accents at Royal Zanzibar' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }, { label: 'Ultimate Tanzania Safari', href: '/safaris/ultimate-tanzania-safari' }],
   },
   {
@@ -683,7 +683,7 @@ export const accommodations: Accommodation[] = [
     location: 'Ruaha National Park',
     description: 'A lodge scattered along the Great Ruaha River, in Tanzania’s largest national park and one of its most under-visited.',
     amenities: ['Scenic Views', 'Wildlife Views', 'Full-Service Restaurant'],
-    images: ['/images/lodges/ruaha-river-lodge-5.webp', '/images/lodges/ruaha-river-lodge-2.webp', '/images/lodges/ruaha-river-lodge-3.webp', '/images/lodges/ruaha-river-lodge-4.webp'],
+    images: [{ src: '/images/lodges/ruaha-river-lodge-dining-pavilion.webp', alt: 'Thatched open-air dining pavilion lit by evening sun beneath acacia trees at Ruaha River Lodge' }, { src: '/images/lodges/ruaha-river-lodge-river-view-deck.webp', alt: 'Guests relaxing on a private deck overlooking the rocky Great Ruaha riverbed at Ruaha River Lodge' }, { src: '/images/lodges/ruaha-river-lodge-guest-room.webp', alt: 'Stone-walled guest room lounge with twin beds and zebra-print cushions at Ruaha River Lodge' }, { src: '/images/lodges/ruaha-river-lodge-bar.webp', alt: 'Thatched bar area with zebra-print seating and a bartender at Ruaha River Lodge' }],
     featuredIn: [{ label: '10 Days Southern Tanzania Secrets', href: '/safaris/10-days-southern-secrets' }, { label: '11 Days Southern Wildlife & Spice Isles', href: '/safaris/11-days-southern-spice' }, { label: '12 Days The Grand Safari', href: '/safaris/12-days-grand-safari' }, { label: '7 Days Southern Circuit — Ruaha & Nyerere', href: '/safaris/7-day-southern-circuit' }],
   },
   {
@@ -693,7 +693,7 @@ export const accommodations: Accommodation[] = [
     location: 'Nyerere National Park (Selous)',
     description: 'A riverside camp on the Rufiji River in Nyerere National Park, the base for both game drives and boat safaris.',
     amenities: ['Wildlife Views', 'Full-Service Restaurant', 'Scenic Views'],
-    images: ['/images/lodges/rufiji-river-camp.webp', '/images/lodges/rufiji-river-camp-2.webp', '/images/lodges/rufiji-river-camp-3.webp', '/images/lodges/rufiji-river-camp-4.webp'],
+    images: [{ src: '/images/lodges/rufiji-river-camp.webp', alt: 'Private plunge pool and wooden deck lit at night beneath a giant tree at Rufiji River Camp' }, { src: '/images/lodges/rufiji-river-camp-tented-suite-exterior.webp', alt: 'Thatched tented suite exterior at dusk at Rufiji River Camp in Nyerere National Park' }, { src: '/images/lodges/rufiji-river-camp-tree-shaded-plunge-pool.webp', alt: 'Private plunge pool shaded by a large tree overlooking the Rufiji River at sunset' }, { src: '/images/lodges/rufiji-river-camp-communal-pool.webp', alt: 'Guest swimming in the communal pool beneath a thatched umbrella at Rufiji River Camp' }],
     featuredIn: [{ label: '10 Days Southern Tanzania Secrets', href: '/safaris/10-days-southern-secrets' }, { label: '11 Days Southern Wildlife & Spice Isles', href: '/safaris/11-days-southern-spice' }, { label: '12 Days The Grand Safari', href: '/safaris/12-days-grand-safari' }, { label: '7 Days Southern Circuit — Ruaha & Nyerere', href: '/safaris/7-day-southern-circuit' }],
   },
   {
@@ -703,7 +703,7 @@ export const accommodations: Accommodation[] = [
     location: 'Akagera National Park, Rwanda',
     description: 'A tented lodge overlooking Lake Ihema in Akagera, Rwanda’s savanna park and the country’s Big Five destination.',
     amenities: ['Scenic Views', 'Wildlife Views'],
-    images: ['/images/lodges/ruzizi-tented-lodge.webp', '/images/lodges/ruzizi-tented-lodge-2.webp', '/images/lodges/ruzizi-tented-lodge-3.webp', '/images/lodges/ruzizi-tented-lodge-4.webp'],
+    images: [{ src: '/images/lodges/ruzizi-tented-lodge.webp', alt: 'Wooden deck with a fire pit overlooking Lake Ihema at Ruzizi Tented Lodge, Akagera National Park' }, { src: '/images/lodges/ruzizi-tented-lodge-dining-room.webp', alt: 'Long stone-walled dining table set for an evening meal at Ruzizi Tented Lodge' }, { src: '/images/lodges/ruzizi-tented-lodge-bedroom.webp', alt: 'Twin-bed room with tribal-print artwork at Ruzizi Tented Lodge' }, { src: '/images/lodges/ruzizi-tented-lodge-tent-exterior.webp', alt: 'Green safari tent exterior amid greenery with a wooden walkway at Ruzizi Tented Lodge' }],
     featuredIn: [{ label: '12 Days Rwanda Primates Experience', href: '/safaris/12-days-rwanda-primates' }],
   },
   {
@@ -713,7 +713,7 @@ export const accommodations: Accommodation[] = [
     location: 'Samburu National Reserve, Kenya',
     description: 'A tented camp on the Ewaso Nyiro River in Samburu, home to species found almost nowhere else in Kenya.',
     amenities: ['Scenic Views', 'Wildlife Views'],
-    images: ['/images/lodges/samburu-intrepids.webp', '/images/lodges/samburu-intrepids-2.webp', '/images/lodges/samburu-intrepids-3.webp', '/images/lodges/samburu-intrepids-4.webp'],
+    images: [{ src: '/images/lodges/samburu-intrepids.webp', alt: 'Elevated wooden dining deck lit up at night at Samburu Intrepids on the Ewaso Nyiro River' }, { src: '/images/lodges/samburu-intrepids-canopy-bed-room.webp', alt: 'Canopy bed with pink pillows and a forest view at Samburu Intrepids' }, { src: '/images/lodges/samburu-intrepids-twin-room-ensuite.webp', alt: 'Mosquito-net-draped twin room opening onto an en-suite bathroom at Samburu Intrepids' }, { src: '/images/lodges/samburu-intrepids-pool-night.webp', alt: 'Swimming pool lit up at night and surrounded by trees at Samburu Intrepids' }],
     featuredIn: [{ label: '11 Days Kenya Undisputed', href: '/safaris/11-days-kenya-undisputed' }, { label: 'Authentic, Exclusive Kenya — Amboseli, Samburu & the Masai Mara', href: '/safaris/authentic-exclusive-kenya' }],
   },
   {
@@ -723,7 +723,7 @@ export const accommodations: Accommodation[] = [
     location: 'Nyerere National Park (Selous)',
     description: 'A camp built into the rocks above the Rufiji River in the Selous ecosystem, reached by light aircraft.',
     amenities: ['Full-Service Restaurant', 'Scenic Views', 'Free WiFi', 'Wildlife Views'],
-    images: ['/images/lodges/sand-rivers-selous.webp', '/images/lodges/sand-rivers-selous-2.webp', '/images/lodges/sand-rivers-selous-3.webp', '/images/lodges/sand-rivers-selous-4.webp', '/images/lodges/sand-rivers-selous-5.webp'],
+    images: [{ src: '/images/lodges/sand-rivers-selous.webp', alt: 'View from the river of Sand Rivers Selous\'s thatched cottages built into the rocky bluff among trees' }, { src: '/images/lodges/sand-rivers-selous-dining-terrace.webp', alt: 'Outdoor dining table set on the thatched terrace at Sand Rivers Selous' }, { src: '/images/lodges/sand-rivers-selous-lounge.webp', alt: 'Whitewashed stone lounge with wicker furniture at Sand Rivers Selous' }, { src: '/images/lodges/sand-rivers-selous-driftwood-lounge.webp', alt: 'Living area with driftwood decor and white sofas at Sand Rivers Selous' }, { src: '/images/lodges/sand-rivers-selous-canopy-bedroom.webp', alt: 'Open-air bedroom with mosquito-net canopy overlooking the bush at Sand Rivers Selous' }],
     featuredIn: [{ label: '2-Day Nyerere Safari from Zanzibar', href: '/safaris/2-day-selous-safari-from-zanzibar' }],
   },
   {
@@ -733,7 +733,7 @@ export const accommodations: Accommodation[] = [
     location: 'Lake Nakuru National Park, Kenya',
     description: 'A lodge on high ground inside Lake Nakuru National Park, with wide views over the lake and its wildlife.',
     amenities: ['Free WiFi', 'Swimming Pool', 'Full-Service Restaurant', 'Scenic Views'],
-    images: ['/images/lodges/sarova-lion-hill-game-lodge.webp', '/images/lodges/sarova-lion-hill-game-lodge-2.webp', '/images/lodges/sarova-lion-hill-game-lodge-3.webp', '/images/lodges/sarova-lion-hill-game-lodge-4.webp', '/images/lodges/sarova-lion-hill-game-lodge-5.webp'],
+    images: [{ src: '/images/lodges/sarova-lion-hill-game-lodge.webp', alt: 'Swimming pool shaded by palm trees at Sarova Lion Hill Game Lodge, Lake Nakuru National Park' }, { src: '/images/lodges/sarova-lion-hill-game-lodge-guest-room.webp', alt: 'Guest room with dark wood floors and four-poster bed frame at Sarova Lion Hill Game Lodge' }, { src: '/images/lodges/sarova-lion-hill-game-lodge-cottage-veranda.webp', alt: 'Stone cottage veranda with green armchairs at Sarova Lion Hill Game Lodge' }, { src: '/images/lodges/sarova-lion-hill-game-lodge-cottage-exterior-view.webp', alt: 'Stone cottage exterior with a covered porch overlooking the valley at Sarova Lion Hill Game Lodge' }, { src: '/images/lodges/sarova-lion-hill-game-lodge-lounge-fireplace.webp', alt: 'Lounge with a stone fireplace and striped sofas at Sarova Lion Hill Game Lodge' }],
     featuredIn: [{ label: '5 Days Kenya Safari — Hell\'s Gate, Lake Nakuru & Masai Mara', href: '/safaris/5-day-kenya-safari' }],
   },
   {
@@ -743,7 +743,7 @@ export const accommodations: Accommodation[] = [
     location: 'Nyerere National Park (Selous)',
     description: 'A lodge above the Rufiji River rapids in Nyerere National Park, combining game drives with river-based activities.',
     amenities: ['All-Inclusive', 'Swimming Pool', 'Wildlife Views'],
-    images: ['/images/lodges/serena-mivumo-river-lodge.webp', '/images/lodges/serena-mivumo-river-lodge-2.webp', '/images/lodges/serena-mivumo-river-lodge-3.webp', '/images/lodges/serena-mivumo-river-lodge-4.webp', '/images/lodges/serena-mivumo-river-lodge-5.webp'],
+    images: [{ src: '/images/lodges/serena-mivumo-river-lodge.webp', alt: 'Stilted thatched-roof cottage rising above the forest canopy at Serena Mivumo River Lodge' }, { src: '/images/lodges/serena-mivumo-river-lodge-pool-deck-aerial.webp', alt: 'Aerial view of the wooden pool deck and loungers above the Rufiji River at Serena Mivumo River Lodge' }, { src: '/images/lodges/serena-mivumo-river-lodge-guest-room.webp', alt: 'Guest room beneath a thatched roof with warm lamp lighting at Serena Mivumo River Lodge' }, { src: '/images/lodges/serena-mivumo-river-lodge-lounge-bar.webp', alt: 'Thatched lounge and bar area overlooking the Rufiji River at Serena Mivumo River Lodge' }, { src: '/images/lodges/serena-mivumo-river-lodge-breakfast-buffet.webp', alt: 'Breakfast buffet with juice jugs and fresh fruit set out at Serena Mivumo River Lodge' }],
     featuredIn: [{ label: '7 Days Southern Circuit — Ruaha & Nyerere', href: '/safaris/7-day-southern-circuit' }],
   },
   {
@@ -753,7 +753,7 @@ export const accommodations: Accommodation[] = [
     location: 'Central Serengeti',
     description: 'A private camp in the central Serengeti built for travellers wanting a smaller, more exclusive footprint in the ecosystem.',
     amenities: ['Swimming Pool', 'Scenic Views', 'Spa'],
-    images: ['/images/lodges/serengeti-explorer.webp', '/images/lodges/serengeti-explorer-2.webp', '/images/lodges/serengeti-explorer-3.webp', '/images/lodges/serengeti-explorer-4.webp', '/images/lodges/serengeti-explorer-5.webp'],
+    images: [{ src: '/images/lodges/serengeti-explorer.webp', alt: 'Suite bedroom with a private balcony overlooking the plains at Serengeti Explorer, guest reading outside' }, { src: '/images/lodges/serengeti-explorer-suite-bedroom-dark-decor.webp', alt: 'Suite bedroom with dark patterned wallpaper and warm lighting at Serengeti Explorer' }, { src: '/images/lodges/serengeti-explorer-dining-nook.webp', alt: 'Dining and tea nook with a decorative stone-studded wall at Serengeti Explorer' }, { src: '/images/lodges/serengeti-explorer-dressing-room.webp', alt: 'Dressing area with safari clothing, hats, and luggage at Serengeti Explorer' }, { src: '/images/lodges/serengeti-explorer-interior-hallway.webp', alt: 'Interior hallway with stone-studded decor and a lit pendant lamp at Serengeti Explorer' }],
     featuredIn: [{ label: '10-Day Ultimate Great Migration — Mara River-Crossing Safari', href: '/safaris/10-day-ultimate-great-migration-mara-river-crossing' }],
   },
   {
@@ -763,7 +763,7 @@ export const accommodations: Accommodation[] = [
     location: 'Central Serengeti',
     description: 'A classic tented camp under acacia cover in the heart of the Serengeti’s game-rich central plains.',
     amenities: ['En-Suite Rooms', 'Full-Service Restaurant', 'Wildlife Views'],
-    images: ['/images/lodges/serengeti-katikati-camp.webp', '/images/lodges/serengeti-katikati-camp-2.webp', '/images/lodges/serengeti-katikati-camp-3.webp', '/images/lodges/serengeti-katikati-camp-4.webp', '/images/lodges/serengeti-katikati-camp-5.webp'],
+    images: [{ src: '/images/lodges/serengeti-katikati-camp.webp', alt: 'Twin-bed tent interior opening onto the Serengeti plains at Serengeti Katikati Camp' }, { src: '/images/lodges/serengeti-katikati-camp-tent-under-acacia.webp', alt: 'Canvas safari tent pitched beneath an acacia tree in open grassland at Serengeti Katikati Camp' }, { src: '/images/lodges/serengeti-katikati-camp-breakfast-buffet.webp', alt: 'Chef preparing a breakfast buffet spread inside the mess tent at Serengeti Katikati Camp' }, { src: '/images/lodges/serengeti-katikati-camp-plains-view.webp', alt: 'Wide view of the Serengeti\'s central plains and camp tents beneath a grassy hill' }, { src: '/images/lodges/serengeti-katikati-camp-tent-bathroom.webp', alt: 'En-suite canvas tent bathroom with sink and toilet at Serengeti Katikati Camp' }],
     featuredIn: [{ label: '5 Days Highlights Safari', href: '/safaris/5-days-highlights-safari' }, { label: '7 Days Serengeti & Ngorongoro Safari', href: '/safaris/7-day-serengeti-ngorongoro' }, { label: '8 Days Great Northern Migration', href: '/safaris/8-days-great-northern-migration' }],
   },
   {
@@ -773,7 +773,7 @@ export const accommodations: Accommodation[] = [
     location: 'Central Serengeti',
     description: 'A straightforward tented camp in the central Serengeti, offering solid access to the plains without a premium price tag.',
     amenities: ['En-Suite Rooms', 'Full-Service Restaurant', 'Wildlife Views'],
-    images: ['/images/lodges/serengeti-queens-camp-2.webp', '/images/lodges/serengeti-queens-camp-3.webp', '/images/lodges/serengeti-queens-camp-4.webp', '/images/lodges/serengeti-queens-camp-5.webp'],
+    images: [{ src: '/images/lodges/serengeti-queens-camp-firepit.webp', alt: 'Camp fire circle with wooden safari chairs set on the central Serengeti plains at Serengeti Queens Camp' }, { src: '/images/lodges/serengeti-queens-camp-lounge-tent.webp', alt: 'Canvas lounge tent at Serengeti Queens Camp with sofa seating, patterned cushions and views over the plains' }, { src: '/images/lodges/serengeti-queens-camp-dining-tent.webp', alt: 'Open-sided dining tent at Serengeti Queens Camp set with white linens and folded orange napkins for breakfast' }, { src: '/images/lodges/serengeti-queens-camp-exterior.webp', alt: 'Exterior view of green canvas tents at Serengeti Queens Camp surrounded by acacia trees on the central Serengeti plains' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }, { label: '8-Day Honeymoon Safari — Bush Lovers', href: '/safaris/8-days-honeymoon-safari' }],
   },
   {
@@ -783,7 +783,7 @@ export const accommodations: Accommodation[] = [
     location: 'Ndutu, Southern Serengeti',
     description: 'A seasonal mobile camp pitched at the Ndutu site each year to follow the wildebeest calving season.',
     amenities: ['En-Suite Rooms', 'Scenic Views', 'Wildlife Views'],
-    images: ['/images/lodges/siringit-migration-camp-ndutu-site.webp', '/images/lodges/siringit-migration-camp-ndutu-site-2.webp', '/images/lodges/siringit-migration-camp-ndutu-site-3.webp', '/images/lodges/siringit-migration-camp-ndutu-site-4.webp', '/images/lodges/siringit-migration-camp-ndutu-site-5.webp'],
+    images: [{ src: '/images/lodges/siringit-migration-camp-ndutu-site.webp', alt: 'Guests relaxing around an open campfire on the Ndutu plains at dusk at Siringit Migration Camp' }, { src: '/images/lodges/siringit-migration-camp-ndutu-site-mess-tent-exterior.webp', alt: 'Mess tent exterior at Siringit Migration Camp, Ndutu site, under a dramatic cloudy sky on the open plains' }, { src: '/images/lodges/siringit-migration-camp-ndutu-site-bedroom-suite.webp', alt: 'Tented bedroom suite at Siringit Migration Camp with a rust-orange leather headboard and patterned throw' }, { src: '/images/lodges/siringit-migration-camp-ndutu-site-bathroom-vanity.webp', alt: 'Walk-in closet and en-suite bathroom vanity with double sinks inside a tent at Siringit Migration Camp' }, { src: '/images/lodges/siringit-migration-camp-ndutu-site-tent-exterior-sunset.webp', alt: 'Private tent deck with seating at sunset among acacia trees at Siringit Migration Camp, Ndutu site' }],
     featuredIn: [{ label: '7-Day Tanzania Photography & Adventure Safari', href: '/safaris/7-day-photography-adventure-safari' }, { label: 'Southern Edition: Tanzania Calving Season Migration Safari — Ndutu & Ngorongoro Crater', href: '/safaris/7-days-migration-southern' }, { label: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti', href: '/safaris/tanzania-photographic-safari' }],
   },
   {
@@ -793,7 +793,7 @@ export const accommodations: Accommodation[] = [
     location: 'Tarangire National Park',
     description: 'A private tented camp raised on stilts above the Tarangire treeline, among elephant country year-round.',
     amenities: ['Scenic Views', 'Wildlife Views', 'Luxury Tented Suites', 'Full-Service Restaurant', 'Swimming Pool'],
-    images: ['/images/lodges/siringit-tarangire-camp-5.webp', '/images/lodges/siringit-tarangire-camp-2.webp', '/images/lodges/siringit-tarangire-camp-3.webp', '/images/lodges/siringit-tarangire-camp-4.webp'],
+    images: [{ src: '/images/lodges/siringit-tarangire-camp-pool-aerial.webp', alt: 'Aerial view of the circular plunge pool and wooden sundeck at Siringit Tarangire Camp surrounded by bush' }, { src: '/images/lodges/siringit-tarangire-camp-firepit-exterior.webp', alt: 'Dome-shaped guest pods at Siringit Tarangire Camp lit up at dusk around an outdoor firepit lounge' }, { src: '/images/lodges/siringit-tarangire-camp-lounge-deck.webp', alt: 'Open-air lounge deck at Siringit Tarangire Camp with a sofa, curated decor shelving and dining area beyond' }, { src: '/images/lodges/siringit-tarangire-camp-suite-night.webp', alt: 'Domed guest suite at Siringit Tarangire Camp with bed and private deck under a starry night sky' }],
     featuredIn: [{ label: '10-Day Ultimate Great Migration — Mara River-Crossing Safari', href: '/safaris/10-day-ultimate-great-migration-mara-river-crossing' }, { label: '7-Day Tanzania Photography & Adventure Safari', href: '/safaris/7-day-photography-adventure-safari' }, { label: '8-Day Honeymoon Safari — Bush Lovers', href: '/safaris/8-days-honeymoon-safari' }, { label: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti', href: '/safaris/tanzania-photographic-safari' }],
   },
   {
@@ -803,7 +803,7 @@ export const accommodations: Accommodation[] = [
     location: 'Arusha',
     description: 'A private villa property in Arusha, a comfortable and more personal alternative to a standard hotel stay before or after the bush.',
     amenities: ['Swimming Pool', 'Spa', 'Scenic Views', 'Free WiFi'],
-    images: ['/images/lodges/siringiti-arusha-villa.webp', '/images/lodges/siringiti-arusha-villa-2.webp', '/images/lodges/siringiti-arusha-villa-3.webp', '/images/lodges/siringiti-arusha-villa-4.webp'],
+    images: [{ src: '/images/lodges/siringiti-arusha-villa.webp', alt: 'Open-plan living and dining room at Siringiti Arusha Villa with a sectional sofa and vaulted ceiling' }, { src: '/images/lodges/siringiti-arusha-villa-exterior-pool.webp', alt: 'Exterior of Siringiti Arusha Villa with sun loungers and umbrellas beside the swimming pool' }, { src: '/images/lodges/siringiti-arusha-villa-kitchen.webp', alt: 'Modern kitchen at Siringiti Arusha Villa with wooden cabinetry, pendant lights and a breakfast bar' }, { src: '/images/lodges/siringiti-arusha-villa-bathtub.webp', alt: 'Freestanding bathtub surrounded by lit candles in a bathroom at Siringiti Arusha Villa' }],
     featuredIn: [{ label: '5 Days Serengeti Fly-In Safari', href: '/safaris/5-day-serengeti-fly-in' }, { label: '8-Day Honeymoon Safari — Bush Lovers', href: '/safaris/8-days-honeymoon-safari' }],
   },
   {
@@ -813,7 +813,7 @@ export const accommodations: Accommodation[] = [
     location: 'Central Serengeti',
     description: 'A luxury tented camp in the central Serengeti’s plains, with a premium suite category alongside its standard tents.',
     amenities: ['Free WiFi', 'Scenic Views', 'Full-Service Restaurant', 'Spa', 'Wildlife Views', 'Luxury Tented Suites'],
-    images: ['/images/lodges/siringiti-serengeti-camp.webp', '/images/lodges/siringiti-serengeti-camp-2.webp', '/images/lodges/siringiti-serengeti-camp-3.webp', '/images/lodges/siringiti-serengeti-camp-4.webp', '/images/lodges/siringiti-serengeti-camp-5.webp'],
+    images: [{ src: '/images/lodges/siringiti-serengeti-camp.webp', alt: 'Maasai staff member standing on a tent deck beneath an acacia tree at Siringiti Serengeti Camp at sunset' }, { src: '/images/lodges/siringiti-serengeti-camp-tent-exterior.webp', alt: 'Guest tent exterior at Siringiti Serengeti Camp shaded by a large acacia tree on the central Serengeti plains' }, { src: '/images/lodges/siringiti-serengeti-camp-bar-lounge.webp', alt: 'Lounge tent bar area at Siringiti Serengeti Camp with a cowhide rug and animal-skull decor' }, { src: '/images/lodges/siringiti-serengeti-camp-lounge-tent.webp', alt: 'Lounge tent seating area at Siringiti Serengeti Camp with stacked brass side tables and a cowhide rug' }, { src: '/images/lodges/siringiti-serengeti-camp-suite-bedroom-lounge.webp', alt: 'Suite bedroom at Siringiti Serengeti Camp with a beaded chandelier, king bed and sofa seating area' }],
     featuredIn: [{ label: '11 Days Rwanda Tanzania Safari', href: '/safaris/11-days-rwanda-tanzania' }, { label: '12 Days Tanzania Kenya Expedition', href: '/safaris/12-days-tanzania-kenya' }, { label: '12 Days The Grand Safari', href: '/safaris/12-days-grand-safari' }, { label: '12-Day Tanzania Safari for Seniors, Anniversaries & Groups', href: '/safaris/12-day-seniors-anniversary-groups-safari' }, { label: '5 Days Highlights Safari', href: '/safaris/5-days-highlights-safari' }, { label: '5 Days Serengeti Fly-In Safari', href: '/safaris/5-day-serengeti-fly-in' }, { label: '7 Days Crown Jewels Safari', href: '/safaris/7-days-crown-jewels' }, { label: '7 Days Flight Over Ndutu Migration', href: '/safaris/7-days-flight-ndutu' }, { label: '7 Days Gems of the North', href: '/safaris/7-days-gems-of-north' }, { label: '7 Days Serengeti & Ngorongoro Safari', href: '/safaris/7-day-serengeti-ngorongoro' }, { label: '8-Day Honeymoon Safari — Bush Lovers', href: '/safaris/8-days-honeymoon-safari' }, { label: '9-Day Honeymoon Safari & Zanzibar Beach Escape', href: '/safaris/9-day-honeymoon-safari-zanzibar' }, { label: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti', href: '/safaris/tanzania-photographic-safari' }, { label: 'Ultimate Tanzania Safari', href: '/safaris/ultimate-tanzania-safari' }],
   },
   {
@@ -823,7 +823,7 @@ export const accommodations: Accommodation[] = [
     location: 'Ol Pejeta Conservancy, Kenya',
     description: 'A tented camp inside Ol Pejeta Conservancy, home to Kenya’s largest black rhino sanctuary and the world’s last northern white rhinos.',
     amenities: ['Wildlife Views', 'Swimming Pool'],
-    images: ['/images/lodges/sweetwaters-serena-camp.webp', '/images/lodges/sweetwaters-serena-camp-2.webp', '/images/lodges/sweetwaters-serena-camp-3.webp', '/images/lodges/sweetwaters-serena-camp-4.webp'],
+    images: [{ src: '/images/lodges/sweetwaters-serena-camp.webp', alt: 'Coffee and tea service set on a table beside armchairs under acacia trees at Sweetwaters Serena Camp at sunset' }, { src: '/images/lodges/sweetwaters-serena-camp-tent-bedroom.webp', alt: 'Tented bedroom at Sweetwaters Serena Camp lit by lanterns with a thatched roof canopy overhead' }, { src: '/images/lodges/sweetwaters-serena-camp-dining-room.webp', alt: 'Dining room at Sweetwaters Serena Camp with floor-to-ceiling windows overlooking Ol Pejeta Conservancy at sunrise' }, { src: '/images/lodges/sweetwaters-serena-camp-exterior-dusk.webp', alt: 'Stone-clad main lodge building at Sweetwaters Serena Camp lit up at dusk with a manicured lawn' }],
     featuredIn: [{ label: '11 Days Kenya Undisputed', href: '/safaris/11-days-kenya-undisputed' }],
   },
   {
@@ -833,7 +833,7 @@ export const accommodations: Accommodation[] = [
     location: 'Amboseli area, Kenya',
     description: 'A conservancy lodge bordering Amboseli National Park, built around a community conservation program alongside its Kilimanjaro views.',
     amenities: ['Swimming Pool', 'Spa', 'Kilimanjaro Views', 'Conservation Program'],
-    images: ['/images/lodges/tawi-lodge.webp', '/images/lodges/tawi-lodge-2.webp', '/images/lodges/tawi-lodge-3.webp', '/images/lodges/tawi-lodge-4.webp'],
+    images: [{ src: '/images/lodges/tawi-lodge.webp', alt: 'Aerial view of thatched cottages connected by pathways through acacia bushland at Tawi Lodge at sunset' }, { src: '/images/lodges/tawi-lodge-pool-dusk.webp', alt: 'Thatched main lodge building at Tawi Lodge lit up at dusk beside a lantern-lined swimming pool' }, { src: '/images/lodges/tawi-lodge-deck-kilimanjaro-view.webp', alt: 'Sun loungers on a deck at Tawi Lodge with a distant view of Mount Kilimanjaro at sunset' }, { src: '/images/lodges/tawi-lodge-kilimanjaro-view.webp', alt: 'Mount Kilimanjaro framed by acacia trees as seen from the grounds of Tawi Lodge' }],
     featuredIn: [{ label: 'Highlights of Kenya & Tanzania Safari', href: '/safaris/kenya-tanzania-highlights-safari' }],
   },
   {
@@ -843,7 +843,7 @@ export const accommodations: Accommodation[] = [
     location: 'Karatu, Ngorongoro Highlands',
     description: 'A colonial-style coffee estate manor near the crater rim, pairing period architecture with a genuinely strong kitchen.',
     amenities: ['Scenic Views', 'Full-Service Restaurant', 'En-Suite Rooms', 'Swimming Pool', 'Spa', 'Colonial-Era Architecture'],
-    images: ['/images/lodges/the-manor-at-ngorongoro.webp', '/images/lodges/the-manor-at-ngorongoro-2.webp', '/images/lodges/the-manor-at-ngorongoro-3.webp', '/images/lodges/the-manor-at-ngorongoro-4.webp'],
+    images: [{ src: '/images/lodges/the-manor-at-ngorongoro.webp', alt: 'Cape Dutch-style manor house exterior at The Manor at Ngorongoro at dusk with manicured gardens' }, { src: '/images/lodges/the-manor-at-ngorongoro-suite-fireplace.webp', alt: 'Suite at The Manor at Ngorongoro with a lit fireplace, sitting area and four-poster bed' }, { src: '/images/lodges/the-manor-at-ngorongoro-front-lawn.webp', alt: 'Children walking across the front lawn toward the white gabled manor house at The Manor at Ngorongoro' }, { src: '/images/lodges/the-manor-at-ngorongoro-lounge-bar.webp', alt: 'Lounge with a fireplace, grand piano and bar at The Manor at Ngorongoro' }],
     featuredIn: [{ label: '10 Days Tanzania Luxury Family Safari', href: '/safaris/10-days-luxury-family' }, { label: '7 Days Crown Jewels Safari', href: '/safaris/7-days-crown-jewels' }, { label: '8 Days Flight to Migration', href: '/safaris/8-days-flight-migration' }, { label: 'Highlights of Kenya & Tanzania Safari', href: '/safaris/kenya-tanzania-highlights-safari' }],
   },
   {
@@ -853,7 +853,7 @@ export const accommodations: Accommodation[] = [
     location: 'Karatu, Ngorongoro Highlands',
     description: 'A garden lodge on a former coffee farm outside Karatu, a relaxed base close to the crater descent road.',
     amenities: ['Free WiFi', 'Full-Service Restaurant', 'Garden Grounds', 'Organic Farm-to-Table'],
-    images: ['/images/lodges/tloma-lodge.webp', '/images/lodges/tloma-lodge-3.webp', '/images/lodges/tloma-lodge-4.webp', '/images/lodges/tloma-lodge-5.webp'],
+    images: [{ src: '/images/lodges/tloma-lodge.webp', alt: 'Swimming pool with loungers overlooking the garden lodge buildings at Tloma Lodge on a former coffee farm' }, { src: '/images/lodges/tloma-lodge-suite-bedroom.webp', alt: 'Bedroom at Tloma Lodge with a mosquito-net canopy bed, blue striped linens and thatched ceiling' }, { src: '/images/lodges/tloma-lodge-twin-room.webp', alt: 'Twin canopy beds draped in mosquito netting inside a guest room at Tloma Lodge' }, { src: '/images/lodges/tloma-lodge-pool-garden-view.webp', alt: 'Wide view of the swimming pool, garden terraces and main lodge building at Tloma Lodge under a blue sky' }],
     featuredIn: [{ label: '10 Days Safari & Zanzibar Beach', href: '/safaris/10-day-safari-zanzibar' }, { label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }, { label: '12 Days The Grand Safari', href: '/safaris/12-days-grand-safari' }, { label: '7 Days Flight Over Ndutu Migration', href: '/safaris/7-days-flight-ndutu' }, { label: '7 Days Gems of the North', href: '/safaris/7-days-gems-of-north' }, { label: '8-Day Honeymoon Safari — Bush Lovers', href: '/safaris/8-days-honeymoon-safari' }],
   },
   {
@@ -863,7 +863,7 @@ export const accommodations: Accommodation[] = [
     location: 'Ngorongoro Highlands',
     description: 'A budget-friendly camp in the Ngorongoro Highlands for travellers prioritising value on the crater leg of their trip.',
     amenities: ['Full-Service Restaurant', 'Garden Grounds'],
-    images: ['/images/lodges/tortils-ngorongoro-camp.webp', '/images/lodges/tortils-ngorongoro-camp-2.webp', '/images/lodges/tortils-ngorongoro-camp-3.webp', '/images/lodges/tortils-ngorongoro-camp-4.webp', '/images/lodges/tortils-ngorongoro-camp-5.webp'],
+    images: [{ src: '/images/lodges/tortils-ngorongoro-camp.webp', alt: 'Safari tent nestled among dense forest at Tortils Ngorongoro Camp in the Ngorongoro Highlands' }, { src: '/images/lodges/tortils-ngorongoro-camp-aerial-forest.webp', alt: 'Aerial view of tented rooftops hidden within dense green forest canopy at Tortils Ngorongoro Camp' }, { src: '/images/lodges/tortils-ngorongoro-camp-tent-forest.webp', alt: 'Wide view of a guest tent surrounded by tall forest trees at Tortils Ngorongoro Camp' }, { src: '/images/lodges/tortils-ngorongoro-camp-canopy-bed.webp', alt: 'Couple reading together on a canopy bed draped in mosquito netting at Tortils Ngorongoro Camp' }, { src: '/images/lodges/tortils-ngorongoro-camp-bathroom.webp', alt: 'En-suite bathroom with slatted wood partitions at Tortils Ngorongoro Camp' }],
     featuredIn: [{ label: '5 Days Highlights Safari', href: '/safaris/5-days-highlights-safari' }],
   },
   {
@@ -873,7 +873,7 @@ export const accommodations: Accommodation[] = [
     location: 'Kigali, Rwanda',
     description: 'A central Kigali hotel offering a comfortable, well-located base before or after Rwanda’s national parks.',
     amenities: ['Free WiFi', 'Full-Service Restaurant', 'Scenic Views'],
-    images: ['/images/lodges/ubumwe-grande-hotel.webp', '/images/lodges/ubumwe-grande-hotel-2.webp', '/images/lodges/ubumwe-grande-hotel-3.webp', '/images/lodges/ubumwe-grande-hotel-4.webp'],
+    images: [{ src: '/images/lodges/ubumwe-grande-hotel.webp', alt: 'Aerial exterior view of the Ubumwe Grande Hotel tower rising above the Kigali city skyline' }, { src: '/images/lodges/ubumwe-grande-hotel-guest-room.webp', alt: 'Guest room at Ubumwe Grande Hotel with a king bed, black leather headboard and autumn-leaf artwork' }, { src: '/images/lodges/ubumwe-grande-hotel-suite-lounge.webp', alt: 'Suite sitting area at Ubumwe Grande Hotel with a bed, armchairs and en-suite bathroom visible' }, { src: '/images/lodges/ubumwe-grande-hotel-rooftop-pool.webp', alt: 'Rooftop infinity pool at Ubumwe Grande Hotel overlooking the Kigali city skyline' }],
     featuredIn: [{ label: '12 Days Rwanda, Tanzania & Zanzibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }],
   },
   {
@@ -883,7 +883,7 @@ export const accommodations: Accommodation[] = [
     location: 'Tarangire region',
     description: 'A tented camp on the Tarangire circuit offering dependable guiding and wildlife viewing at a mid-range price.',
     amenities: ['Full-Service Restaurant', 'Free WiFi', 'Wildlife Views'],
-    images: ['/images/lodges/zuri-kilima-siri.webp', '/images/lodges/zuri-kilima-siri-2.webp', '/images/lodges/zuri-kilima-siri-3.webp', '/images/lodges/zuri-kilima-siri-4.webp', '/images/lodges/zuri-kilima-siri-5.webp'],
+    images: [{ src: '/images/lodges/zuri-kilima-siri.webp', alt: 'Aerial view of tented camp buildings perched among rocky kopjes and bushveld at Zuri Kilima Siri' }, { src: '/images/lodges/zuri-kilima-siri-tent-rock-outcrop.webp', alt: 'Guest tent deck built beside a large granite rock outcrop at Zuri Kilima Siri with an outdoor bathtub' }, { src: '/images/lodges/zuri-kilima-siri-bedroom-suite.webp', alt: 'Tented bedroom suite at Zuri Kilima Siri with a wooden bed frame and private deck overlooking the plains' }, { src: '/images/lodges/zuri-kilima-siri-dining-tent.webp', alt: 'Open-air dining tent at Zuri Kilima Siri with wooden tables set beneath chandelier lighting' }, { src: '/images/lodges/zuri-kilima-siri-outdoor-shower.webp', alt: 'Open-air rain shower and bathroom at Zuri Kilima Siri set against a granite boulder and bush view' }],
     featuredIn: [{ label: '8-Day Honeymoon Safari — Bush Lovers', href: '/safaris/8-days-honeymoon-safari' }],
   },
 ]

@@ -8,7 +8,7 @@ export const experiences: Experience[] = [
     tagline: '见证世界上最伟大的野生动物奇观',
     description:
       '没有什么能比得上黎明前起身，塞伦盖蒂在四面八方无尽延伸，一群狮子在清晨的金光中苏醒。我们的经典游猎巡游带您深入坦桑尼亚的标志性公园——塞伦盖蒂、恩戈罗恩戈罗火山口、塔兰吉雷——乘坐定制4×4车辆，由像读一门语言般读懂丛林的本地资深向导带领。',
-    image: '/images/gallery/safari-001.webp',
+    image: '/images/gallery/lion-sleeping-tree-branch-serengeti.webp',
     durationLabel: '5 – 14天',
     highlights: ['恩戈罗恩戈罗火山口的五大兽', '大迁徙产犊与渡河', '部分公园的夜间巡游', '精通斯瓦希里语的资深向导'],
     priceFrom: '$2,450',
@@ -68,7 +68,7 @@ export const experiences: Experience[] = [
     tagline: '从赤道丛林到极地峰顶',
     description:
       '海拔5,895米的乞力马扎罗是地球上最高的独立山峰——也是唯一能在五天内从雨林走过荒原、荒漠直至冰川的地方。我们以海拔适应为先的方法和精挑细选的高海拔向导，给您登上乌呼鲁峰的最佳机会，以及沿途最难忘的旅程。',
-    image: '/images/gallery/safari-005.webp',
+    image: '/images/gallery/kilimanjaro-trekkers-giant-senecio.webp',
     durationLabel: '6 – 9天',
     highlights: ['马查梅、莱莫肖和隆盖路线', '私人团与单人攀登', '背夫、厨师和登顶团队', 'KINAPA认证向导'],
     priceFrom: '$1,850',
@@ -83,7 +83,7 @@ export const experiences: Experience[] = [
     tagline: '从丛林到海滩——终极东非度假',
     description:
       '以碧绿的印度洋海水和糖白的沙滩为游猎画上高潮。桑给巴尔的石头城是被联合国教科文组织认定的历史迷宫；农圭和帕杰是世界级海滩。我们将4–6天的坦桑尼亚游猎与3–4晚的海岛时光无缝衔接。一个假期，两个截然不同的世界。',
-    image: '/images/gallery/zanzibar-1.webp',
+    image: '/images/gallery/beachfront-candlelit-dinner-zanzibar.webp',
     durationLabel: '7 – 12天',
     highlights: ['塞伦盖蒂游猎+桑给巴尔海滩', '石头城香料之旅', '姆内姆巴环礁浮潜与深潜', '精品海滩旅馆选择'],
     priceFrom: '$3,600',
@@ -98,7 +98,7 @@ export const experiences: Experience[] = [
     tagline: '带着意图拍摄。带着非凡影像归来。',
     description:
       '这些专业行程为摄影师设计——在每个目击点停留更久、更早出营、围绕晨昏完美追光的日程安排。我们为干净的背景和无遮挡的拍摄调整车辆位置。提供定制车顶舱口改装车辆。适合从爱好者到专业人士。',
-    image: '/images/gallery/safari-007.webp',
+    image: '/images/gallery/elephants-grazing-tall-grass-savanna.webp',
     durationLabel: '7 – 12天',
     highlights: ['关键目击点的延长停留', '围绕黄金时刻的日程安排', '专属野生动物摄影向导', '可选车顶舱口车辆'],
     priceFrom: '$3,900',
@@ -158,7 +158,7 @@ export const experiences: Experience[] = [
     tagline: '千年未变的土地',
     description:
       '大多数游客从未离开北方环线。鲁阿哈和卡塔维是坦桑尼亚保守得最好的秘密——庞大的狮群、成群结队的水牛和大象、非洲野犬的领地，视野中没有另一辆车。粗犷、原始、完全不慌不忙。献给想要人潮到来之前那个非洲的人。',
-    image: '/images/gallery/safari-013.webp',
+    image: '/images/gallery/baobab-tree-sunset-silhouette.webp',
     durationLabel: '5 – 8天',
     highlights: ['坦桑尼亚最大的狮群数量', '非洲野犬筑巢（季节性）', '卡塔维挤满河马的河流', '仅限独家飞行抵达'],
     priceFrom: '$4,200',
@@ -173,7 +173,7 @@ export const experiences: Experience[] = [
     tagline: '在破晓的第一缕光中飘越塞伦盖蒂',
     description:
       '从晨光初照的简易跑道升空，静静飘过金合欢和花岗岩丘，塞伦盖蒂在脚下徐徐展开——兽群在草丛中穿行，河流闪着银光，一个仿佛无限的世界。在非洲上空一小时的漂浮寂静。随后是戴白手套的员工奉上的丛林香槟早餐。不容错过。',
-    image: '/images/gallery/migr1.webp',
+    image: '/images/gallery/great-migration-across-grasslands.webp',
     durationLabel: '半日附加项目',
     highlights: ['塞伦盖蒂日出气球飞行', '丛林香槟早餐', '飞行证书', '可与任何游猎套餐搭配'],
     priceFrom: '$550',
@@ -188,7 +188,7 @@ export const experiences: Experience[] = [
     tagline: '白天在丛林，夜晚在海滩——东非天生为蜜月而生',
     description:
       '五天穿越塔兰吉雷、中央塞伦盖蒂和恩戈罗恩戈罗火山口，节奏恰好为两个人而定——从不匆忙、始终私密。然后是桑给巴尔农圭海岸四个悠闲的夜晚作为收尾。从烛光晚餐到旅馆的蜜月布置，每个细节都在您落地前安排妥当。',
-    image: '/images/gallery/honey.webp',
+    image: '/images/gallery/leopards-interacting-fallen-log.webp',
     durationLabel: '9天',
     highlights: ['全程私人向导与车辆', '恩戈罗恩戈罗火山口五大兽', '桑给巴尔农圭海滩4晚', '蜜月细节可按需安排（蛋糕、鲜花、私人晚餐）'],
     priceFrom: '$3,847',
@@ -203,7 +203,7 @@ export const experiences: Experience[] = [
     tagline: '野生动物与文化，等量齐观',
     description:
       '大多数游猎给你看动物。这一次给你看与动物共享这片土地最久的人们。塔兰吉雷的象群和恩戈罗恩戈罗火山口的五大兽，加上在向导带领下、以尊重的方式与哈扎比人——地球上最后的狩猎采集社群之一——共度的下午，以及埃亚西湖畔的达托加铁匠。',
-    image: '/images/gallery/maa1.webp',
+    image: '/images/gallery/maasai-warriors-jumping-dance-boma.webp',
     durationLabel: '4天',
     highlights: ['哈扎比狩猎采集社群探访', '达托加铁匠传统', '恩戈罗恩戈罗火山口五大兽', '社区主导、合乎伦理的探访规范'],
     priceFrom: '$1,250',
@@ -218,7 +218,7 @@ export const experiences: Experience[] = [
     tagline: '跳过车程。直接降落在精彩中央。',
     description:
       '从阿鲁沙直飞中央塞伦盖蒂的心脏地带，把在路上的一整天换成观赏动物的一整天。在顶级捕食者领地深处住两晚，向导带领下降恩戈罗恩戈罗火山口，并在曼雅拉湖停留——五天高效、高密度的行程尽收一切。',
-    image: '/images/gallery/Central-Serengeti-1.webp',
+    image: '/images/gallery/serengeti-wildebeest-herd-acacia-woodland.webp',
     durationLabel: '5天',
     highlights: ['直飞中央塞伦盖蒂', '顶级捕食者领地的两个整天', '恩戈罗恩戈罗火山口下降', '短假期的理想选择，最大化野生动物时间'],
     priceFrom: '$2,475',

@@ -53,12 +53,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('ogDescription'),
-      images: [{ url: '/images/gallery/safari-118.jpg', width: 1200, height: 630, alt: t('metaTitle') }],
+      images: [{ url: '/images/gallery/serengeti-lions-under-acacia.jpg', width: 1200, height: 630, alt: t('metaTitle') }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('twitterTitle'),
-      images: ['/images/gallery/safari-118.jpg'],
+      images: ['/images/gallery/serengeti-lions-under-acacia.jpg'],
     },
     keywords: PAYMENTS_KEYWORDS[locale] ?? PAYMENTS_KEYWORDS.en,
     // A payment-processing utility page, not content worth surfacing in
@@ -101,7 +101,7 @@ export default async function PaymentsPage({ params }: Props) {
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-brand py-20 lg:py-24 text-center">
-        <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/lion-and-cub.webp')] bg-cover bg-center" />
+        <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/maned-lion-resting-savanna-grass.webp')] bg-cover bg-center" />
         <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center mb-4">
             <Breadcrumb items={breadcrumbItems} />
@@ -263,7 +263,7 @@ export default async function PaymentsPage({ params }: Props) {
 
       {/* Help band */}
       <section className="relative overflow-hidden bg-brand py-16 text-center">
-        <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/lion-and-cub.webp')] bg-cover bg-center" />
+        <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/maned-lion-resting-savanna-grass.webp')] bg-cover bg-center" />
         <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">{t('helpEyebrow')}</p>
           <h2 className="text-2xl lg:text-3xl font-bold text-white mb-3">{t('helpHeading')}</h2>

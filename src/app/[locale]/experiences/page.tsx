@@ -30,12 +30,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      images: [{ url: '/images/gallery/safari-118.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
+      images: [{ url: '/images/gallery/serengeti-lions-under-acacia.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
-      images: ['/images/gallery/safari-118.jpg'],
+      images: ['/images/gallery/serengeti-lions-under-acacia.jpg'],
     },
   }
 }
@@ -75,7 +75,7 @@ export default async function ExperiencesPage({ params }: Props) {
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <Image
-          src="/images/gallery/safari-118.webp"
+          src="/images/gallery/serengeti-lions-under-acacia.webp"
           alt={t('heroImageAlt')}
           fill
           className="object-cover object-center"
@@ -149,14 +149,14 @@ export default async function ExperiencesPage({ params }: Props) {
             {/* Mosaic photos */}
             <Reveal delay={0.15} className="grid grid-cols-2 gap-3">
               <div className="relative rounded-2xl overflow-hidden aspect-[3/4]">
-                <Image src="/images/gallery/safari-021.webp" alt={t('mosaicLandscapeAlt')} fill className="object-cover" sizes="30vw" />
+                <Image src="/images/gallery/family-friendly-game-drive.webp" alt={t('mosaicLandscapeAlt')} fill className="object-cover" sizes="30vw" />
               </div>
               <div className="flex flex-col gap-3">
                 <div className="relative rounded-2xl overflow-hidden aspect-video">
-                  <Image src="/images/gallery/safari-022.webp" alt={t('mosaicWildlifeAlt')} fill className="object-cover" sizes="20vw" />
+                  <Image src="/images/gallery/wildlife-spotting-young-explorers.webp" alt={t('mosaicWildlifeAlt')} fill className="object-cover" sizes="20vw" />
                 </div>
                 <div className="relative rounded-2xl overflow-hidden flex-1">
-                  <Image src="/images/gallery/safari-023.webp" alt={t('mosaicBushCampAlt')} fill className="object-cover" sizes="20vw" />
+                  <Image src="/images/gallery/family-safari-landscape.webp" alt={t('mosaicBushCampAlt')} fill className="object-cover" sizes="20vw" />
                 </div>
               </div>
             </Reveal>
@@ -208,14 +208,14 @@ export default async function ExperiencesPage({ params }: Props) {
       {/* ── PHOTO STRIP ──────────────────────────────────────────────────── */}
       <RevealGroup className="flex h-64 overflow-hidden">
         {[
-          '/images/gallery/safari-025.webp',
-          '/images/gallery/safari-026.webp',
-          '/images/gallery/safari-027.webp',
-          '/images/gallery/safari-028.webp',
-          '/images/gallery/safari-029.webp',
-        ].map((src, i) => (
+          { src: '/images/gallery/kilimanjaro-trekkers-rocky-trail.webp', alt: 'Two trekkers pausing on a rocky trail on Mount Kilimanjaro' },
+          { src: '/images/gallery/giraffe-walking-savanna-dusk.webp', alt: '' },
+          { src: '/images/gallery/lion-resting-on-serengeti-kopje.webp', alt: 'Lion resting atop a granite kopje in the Serengeti' },
+          { src: '/images/gallery/birdlife-tanzania-safari-route.webp', alt: '' },
+          { src: '/images/gallery/waterbirds-wetland-habitat.webp', alt: '' },
+        ].map(({ src, alt }, i) => (
           <RevealItem key={i} className="relative flex-1">
-            <Image src={src} alt="" fill className="object-cover" sizes="20vw" />
+            <Image src={src} alt={alt} fill className="object-cover" sizes="20vw" />
           </RevealItem>
         ))}
       </RevealGroup>
@@ -239,7 +239,7 @@ export default async function ExperiencesPage({ params }: Props) {
       {/* ── CTA / NEWSLETTER ─────────────────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/gallery/safari-128.webp"
+          src="/images/gallery/ruaha-lions-affectionate.webp"
           alt={t('ctaImageAlt')}
           fill
           className="object-cover"

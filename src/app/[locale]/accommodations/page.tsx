@@ -22,12 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('ogDescription'),
-      images: [{ url: '/images/lodges/four-seasons-safari-lodge-serengeti-2.webp', width: 1200, height: 630, alt: t('ogImageAlt') }],
+      images: [{ url: '/images/lodges/four-seasons-safari-lodge-serengeti-villa-pool.webp', width: 1200, height: 630, alt: t('ogImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('twitterTitle'),
-      images: ['/images/lodges/four-seasons-safari-lodge-serengeti-2.webp'],
+      images: ['/images/lodges/four-seasons-safari-lodge-serengeti-villa-pool.webp'],
     },
     keywords: Array.from(new Set([...(t.raw('metaKeywords') as string[]), ...accommodations.map((a) => a.name)])),
   }
@@ -65,7 +65,7 @@ export default async function AccommodationsPage({ params }: Props) {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/lodges/four-seasons-safari-lodge-serengeti-2.webp"
+            src="/images/lodges/four-seasons-safari-lodge-serengeti-villa-pool.webp"
             alt={t('heroImageAlt')}
             fill
             priority
@@ -153,7 +153,7 @@ export default async function AccommodationsPage({ params }: Props) {
       {/* Newsletter */}
       <section className="relative py-16 lg:py-20 overflow-hidden">
         <Image
-          src="/images/lodges/elephant-springs-2.webp"
+          src="/images/lodges/elephant-springs-pool-deck.webp"
           alt=""
           fill
           className="object-cover"

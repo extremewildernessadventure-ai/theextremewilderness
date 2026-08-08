@@ -80,6 +80,20 @@ export function buildFaqSchema(items: { q: string; a: string }[]) {
 }
 
 /**
+ * Builds a schema.org ImageObject for a single image. Real pixel dimensions
+ * aren't stored anywhere in the image data today, so `width`/`height` are
+ * left out rather than guessed — `url` + `caption` are what matter for
+ * Google Image Search discovery, and are always available.
+ */
+export function buildImageObject(src: string, caption?: string) {
+  return {
+    '@type': 'ImageObject',
+    url: `${SITE_URL}${src}`,
+    ...(caption ? { caption } : {}),
+  }
+}
+
+/**
  * Builds schema.org ItemList JSON-LD wrapping every accommodation as a
  * LodgingBusiness entity, from the same (already-localized) accommodations
  * array the /accommodations page already renders cards from — reused
@@ -101,7 +115,7 @@ export function buildAccommodationsListSchema(locale: string, accommodations: Ac
         '@type': 'LodgingBusiness',
         name: a.name,
         description: a.description,
-        image: a.images[0] ? `${SITE_URL}${a.images[0]}` : undefined,
+        image: a.images.length > 0 ? a.images.map((img) => buildImageObject(img.src, img.alt)) : undefined,
         url: localeUrl(locale, `/accommodations#${a.slug}`),
         address: { '@type': 'PostalAddress', addressLocality: a.location },
       },

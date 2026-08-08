@@ -61,7 +61,7 @@ export default function KiliRouteMap({ route }: { route?: string } = {}) {
       {/* Kilimanjaro summit background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/gallery/safari-110.webp)' }}
+        style={{ backgroundImage: 'url(/images/gallery/guided-walk-evergreen-forest.webp)' }}
       />
       {/* Gradient overlay — dark at top/bottom, lighter in centre so photo reads */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/50 to-black/75" />

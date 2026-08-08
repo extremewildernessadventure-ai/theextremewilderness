@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const galleryImages = [
   '/images/gallery/Serengeti-National-park.webp',
-  '/images/gallery/safari-007.webp',
+  '/images/gallery/elephants-grazing-tall-grass-savanna.webp',
   '/images/gallery/ewa-vehicle-arusha-street.webp',
   '/images/gallery/elephants.webp',
   '/images/gallery/ewa-group-palms.webp',

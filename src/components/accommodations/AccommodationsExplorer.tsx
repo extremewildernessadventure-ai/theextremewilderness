@@ -97,7 +97,7 @@ export default function AccommodationsExplorer({ accommodations }: Props) {
                         <div>
                           <div className="relative aspect-[16/10] bg-brand/10">
                             {mainImage ? (
-                              <Image src={mainImage} alt={`${lodge.name}, ${lodge.location}`} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 60vw" />
+                              <Image src={mainImage.src} alt={mainImage.alt || `${lodge.name}, ${lodge.location}`} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 60vw" />
                             ) : (
                               <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-text-muted">
                                 <ImageOff className="w-8 h-8" />
@@ -109,12 +109,13 @@ export default function AccommodationsExplorer({ accommodations }: Props) {
                             <div className="grid gap-1.5 p-1.5" style={{ gridTemplateColumns: `repeat(${lodge.images.length}, minmax(0, 1fr))` }}>
                               {lodge.images.map((img, i) => (
                                 <button
-                                  key={img}
+                                  key={img.src}
                                   type="button"
                                   onClick={() => setActiveImage((prev) => ({ ...prev, [lodge.slug]: i }))}
+                                  aria-label={img.alt || `${lodge.name} photo ${i + 1}`}
                                   className={`relative aspect-square overflow-hidden ${i === activeIdx ? 'ring-2 ring-gold' : 'opacity-75 hover:opacity-100'} transition-opacity`}
                                 >
-                                  <Image src={img} alt="" fill className="object-cover" sizes="120px" />
+                                  <Image src={img.src} alt="" fill className="object-cover" sizes="120px" />
                                 </button>
                               ))}
                             </div>
@@ -172,7 +173,7 @@ export default function AccommodationsExplorer({ accommodations }: Props) {
                   >
                     <div className="relative aspect-[4/3] bg-brand/10">
                       {lodge.images[0] ? (
-                        <Image src={lodge.images[0]} alt={`${lodge.name}, ${lodge.location}`} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                        <Image src={lodge.images[0].src} alt={lodge.images[0].alt || `${lodge.name}, ${lodge.location}`} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center text-text-muted/60">
                           <ImageOff className="w-8 h-8" />

@@ -13,7 +13,7 @@ import { getPackages, getPackage } from '@/data/packages.i18n'
 import { getDestinations, getDestination } from '@/data/destinations.i18n'
 import { routing } from '@/i18n/routing'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { SITE_URL, buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import { SITE_URL, buildAlternates, buildBreadcrumbSchema, buildImageObject } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
 
@@ -179,7 +179,7 @@ export default async function BlogArticlePage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.metaDescription,
-    image: `${SITE_URL}${post.heroImage}`,
+    image: buildImageObject(post.heroImage, post.heroImageAlt),
     author: { '@type': 'Organization', name: 'EWA Safari Outfitters' },
     publisher: { '@type': 'Organization', name: 'EWA Safari Outfitters', logo: { '@type': 'ImageObject', url: `${SITE_URL}/EWA%20logo.webp` } },
     datePublished: new Date(post.date).toISOString(),

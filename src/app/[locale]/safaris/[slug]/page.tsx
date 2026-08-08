@@ -15,7 +15,7 @@ import { getPackage, getPackages } from '@/data/packages.i18n'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import { routing } from '@/i18n/routing'
-import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema, buildImageObject } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
@@ -438,7 +438,10 @@ export default async function SafariPackagePage({ params }: Props) {
     '@type': 'Trip',
     name: pkg.name,
     description: pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights, starting from $${pkg.priceFrom.toLocaleString('en-US')} per person. ${pkg.highlights[0]}.`,
-    image: `${SITE_URL}${pkg.heroImage}`,
+    image: [
+      buildImageObject(pkg.heroImage, pkg.heroImageAlt ?? pkg.name),
+      ...pkg.gallery.map((g) => buildImageObject(g.src, g.alt)),
+    ],
     provider: {
       '@type': 'Organization',
       name: 'EWA Safari Outfitters',
@@ -504,7 +507,7 @@ export default async function SafariPackagePage({ params }: Props) {
       <section className="relative h-[55vh] min-h-80 bg-brand flex items-end">
         <Image
           src={pkg.heroImage}
-          alt={pkg.name}
+          alt={pkg.heroImageAlt ?? pkg.name}
           fill
           className={`object-cover ${HERO_IMAGE_POSITION[slug] ?? ''}`}
           priority
@@ -553,6 +556,30 @@ export default async function SafariPackagePage({ params }: Props) {
                 {pkg.overview.map((para, i) => (
                   <p key={i} className="text-base text-text-muted leading-relaxed">{para}</p>
                 ))}
+              </div>
+            )}
+
+            {/* Photo Gallery — only rendered when the package actually has extra
+                gallery photos beyond the hero; below the fold, so no `priority`,
+                and `sizes` matched to the grid's real column widths rather than
+                the oversized-fallback pattern found elsewhere on the site. */}
+            {pkg.gallery.length > 0 && (
+              <div>
+                <h2 className="text-xl font-semibold text-brand mb-4">{t('packageGalleryHeading')}</h2>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  {pkg.gallery.map((img) => (
+                    <div key={img.src} className="relative aspect-[4/3] rounded-lg overflow-hidden bg-light-green">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        loading="lazy"
+                        className="object-cover hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 22vw"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
 

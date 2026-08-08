@@ -260,7 +260,7 @@ export default async function DestinationPage({ params }: Props) {
       <section className="relative h-[60vh] min-h-80 bg-brand flex items-end">
         <Image
           src={dest.heroImage}
-          alt={dest.name}
+          alt={dest.heroImageAlt ?? dest.name}
           fill
           className={`object-cover ${dest.heroImagePosition === 'top' ? 'object-top' : 'object-center'}`}
           priority
@@ -442,7 +442,7 @@ export default async function DestinationPage({ params }: Props) {
                 <RevealItem key={pkg.slug}>
                   <Link href={`/safaris/${pkg.slug}`} className="bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all group block">
                     <div className="relative h-44">
-                      <Image src={pkg.heroImage} alt={pkg.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                      <Image src={pkg.heroImage} alt={pkg.heroImageAlt ?? pkg.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-brand mb-1 text-sm">{pkg.name}</h3>

@@ -84,7 +84,7 @@ export async function searchSite(rawQuery: string, locale: string): Promise<Sear
   for (const a of accommodations) {
     const snippet = truncate(a.description)
     const score = matchScore(words, a.name, snippet)
-    if (score) scored.push({ type: 'accommodation', title: a.name, snippet, href: `/accommodations#${a.slug}`, image: a.images[0], score })
+    if (score) scored.push({ type: 'accommodation', title: a.name, snippet, href: `/accommodations#${a.slug}`, image: a.images[0]?.src, score })
   }
 
   scored.sort((a, b) => b.score - a.score)

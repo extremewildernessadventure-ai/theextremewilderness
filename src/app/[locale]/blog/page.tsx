@@ -21,12 +21,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       title,
       description,
-      images: [{ url: '/images/gallery/safari-114.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
+      images: [{ url: '/images/gallery/wildlife-western-tanzania-safari.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
-      images: ['/images/gallery/safari-114.jpg'],
+      images: ['/images/gallery/wildlife-western-tanzania-safari.jpg'],
     },
     keywords: t.raw('metaKeywords') as string[],
   }

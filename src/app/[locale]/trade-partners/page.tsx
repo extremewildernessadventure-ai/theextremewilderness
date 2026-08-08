@@ -20,12 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/images/gallery/safari-118.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
+      images: [{ url: '/images/gallery/serengeti-lions-under-acacia.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('metaTitle'),
-      images: ['/images/gallery/safari-118.jpg'],
+      images: ['/images/gallery/serengeti-lions-under-acacia.jpg'],
     },
     keywords: t.raw('metaKeywords') as string[],
   }
@@ -164,7 +164,7 @@ export default async function TradePartnersPage({ params }: Props) {
           <Reveal className={styles.about}>
             <div className={styles.aboutVisual}>
               <Image
-                src="/images/gallery/safari-113.webp"
+                src="/images/gallery/lion-pride-roadside-rest.webp"
                 alt={t('aboutVisualCap')}
                 fill
                 className={styles.aboutVisualImg}

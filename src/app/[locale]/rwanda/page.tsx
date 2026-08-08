@@ -25,10 +25,10 @@ const RWANDA_DEST_REGION_KEYS: Record<string, 'regionNorthernRwanda' | 'regionSo
 
 const RWANDA_DEST_ORDER = ['volcanoes', 'nyungwe', 'akagera', 'lake-kivu', 'kigali'] as const
 const RWANDA_DEST_IMAGES: Record<string, string> = {
-  volcanoes: '/images/gallery/volcanoes.webp',
+  volcanoes: '/images/gallery/volcanoes-national-park-farmland.webp',
   nyungwe: '/images/gallery/nyungwe.webp',
   akagera: '/images/gallery/akagera.webp',
-  'lake-kivu': '/images/gallery/safari-123.webp',
+  'lake-kivu': '/images/gallery/safari-vehicle-sunset-guests.webp',
   kigali: '/images/gallery/kigali-city.webp',
 }
 const RWANDA_DEST_BADGE_COLORS: Record<string, string> = {
@@ -527,7 +527,7 @@ export default async function RwandaPage({ params }: Props) {
           <div className="bg-brand rounded-3xl p-8 lg:p-14 text-center relative overflow-hidden">
             <div
               className="absolute inset-0 opacity-10"
-              style={{ backgroundImage: "url('/images/gallery/rwanda.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+              style={{ backgroundImage: "url('/images/gallery/gorilla-mother-and-baby-rwanda.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
             />
             <Reveal className="relative z-10">
               <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">

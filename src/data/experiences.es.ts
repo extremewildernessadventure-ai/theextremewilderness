@@ -8,7 +8,7 @@ export const experiences: Experience[] = [
     tagline: 'Sé testigo de los mayores espectáculos de fauna del mundo',
     description:
       'Nada se compara a levantarse antes del amanecer, con el Serengeti extendiéndose infinito en todas las direcciones y una manada de leones despertándose en el oro de la mañana. Nuestros safaris clásicos te llevan al corazón de los parques emblemáticos de Tanzania — Serengeti, Cráter del Ngorongoro, Tarangire — en vehículos 4×4 a medida con guías locales expertos que leen la sabana como un idioma.',
-    image: '/images/gallery/safari-001.webp',
+    image: '/images/gallery/lion-sleeping-tree-branch-serengeti.webp',
     durationLabel: '5 – 14 días',
     highlights: ['Los Cinco Grandes en el Cráter del Ngorongoro', 'Cría y cruces de la Gran Migración', 'Drives nocturnos en parques seleccionados', 'Guías expertos de habla swahili'],
     priceFrom: '$2.450',
@@ -68,7 +68,7 @@ export const experiences: Experience[] = [
     tagline: 'De la selva ecuatorial a la cumbre ártica',
     description:
       'A 5.895 m, el Kilimanjaro es la montaña independiente más alta de la Tierra — y el único lugar donde puedes caminar desde la selva tropical a través del páramo, el desierto y el hielo glacial en cinco días. Nuestro enfoque prioritario en la aclimatación y nuestros guías de alta altitud seleccionados a mano te dan las mejores posibilidades de alcanzar el Pico Uhuru, y el viaje más memorable en el camino.',
-    image: '/images/gallery/safari-005.webp',
+    image: '/images/gallery/kilimanjaro-trekkers-giant-senecio.webp',
     durationLabel: '6 – 9 días',
     highlights: ['Rutas Machame, Lemosho y Rongai', 'Ascensos en grupo privado y solo', 'Porteadores, cocinero y equipo de cumbre', 'Guías certificados KINAPA'],
     priceFrom: '$1.850',
@@ -83,7 +83,7 @@ export const experiences: Experience[] = [
     tagline: 'De la sabana a la playa — la escapada definitiva de África Oriental',
     description:
       'Termina un safari en su punto álgido con agua turquesa del Océano Índico y arena blanca como el azúcar. Stone Town de Zanzíbar es un laberinto UNESCO de historia; Nungwi y Paje son playas de clase mundial. Combinamos a la perfección 4 a 6 días de safari en Tanzania con 3 a 4 noches en la isla. Unas vacaciones, dos mundos completamente diferentes.',
-    image: '/images/gallery/zanzibar-1.webp',
+    image: '/images/gallery/beachfront-candlelit-dinner-zanzibar.webp',
     durationLabel: '7 – 12 días',
     highlights: ['Safari en el Serengeti + playa de Zanzíbar', 'Tour de especias en Stone Town', 'Buceo en el Atolón de Mnemba', 'Opciones de lodge boutique en la playa'],
     priceFrom: '$3.600',
@@ -98,7 +98,7 @@ export const experiences: Experience[] = [
     tagline: 'Fotografía con intención. Regresa con imágenes extraordinarias.',
     description:
       'Estos itinerarios especializados están diseñados para fotógrafos — más tiempo en cada avistamiento, salidas tempranas del campamento, horarios perfectos de caza de luz al amanecer y al atardecer. Posicionamos los vehículos para fondos limpios y tomas sin obstáculos. Vehículos con escotilla de techo disponibles. Adecuado para entusiastas y profesionales.',
-    image: '/images/gallery/safari-007.webp',
+    image: '/images/gallery/elephants-grazing-tall-grass-savanna.webp',
     durationLabel: '7 – 12 días',
     highlights: ['Tiempo extendido en avistamientos clave', 'Programación orientada a la hora dorada', 'Guía fotográfico de fauna dedicado', 'Vehículos con escotilla de techo disponibles'],
     priceFrom: '$3.900',
@@ -158,7 +158,7 @@ export const experiences: Experience[] = [
     tagline: 'Donde la tierra no ha cambiado en mil años',
     description:
       'La mayoría de los visitantes nunca abandonan el Circuito Norte. Ruaha y Katavi son los secretos mejor guardados de Tanzania — enormes manadas de leones, grandes rebaños de búfalos y elefantes, territorios de perros salvajes, y ni un solo vehículo más a la vista. Accidentado, crudo y completamente sin prisa. Para quienes quieren África tal como era antes de las multitudes.',
-    image: '/images/gallery/safari-013.webp',
+    image: '/images/gallery/baobab-tree-sunset-silhouette.webp',
     durationLabel: '5 – 8 días',
     highlights: ['La mayor población de leones de Tanzania', 'Guaridas de perros salvajes (temporal)', 'Ríos atestados de hipopótamos en Katavi', 'Acceso exclusivo en avión únicamente'],
     priceFrom: '$4.200',
@@ -173,7 +173,7 @@ export const experiences: Experience[] = [
     tagline: 'Sobrevuela el Serengeti con la primera luz del día',
     description:
       'Despega desde una pista iluminada por el amanecer, asciende silenciosamente sobre acacias y kopjes mientras el Serengeti se revela desde arriba — manadas serpenteando entre la hierba, ríos brillando plateados, un mundo que parece infinito. Una hora de silencio flotante sobre África. Seguida de un desayuno de champán en la sabana servido por personal con guantes blancos. Imprescindible.',
-    image: '/images/gallery/migr1.webp',
+    image: '/images/gallery/great-migration-across-grasslands.webp',
     durationLabel: 'Medio día opcional',
     highlights: ['Vuelo en globo al amanecer sobre el Serengeti', 'Desayuno de champán en la sabana', 'Certificado de vuelo', 'Combínalo con cualquier paquete safari'],
     priceFrom: '$550',
@@ -188,7 +188,7 @@ export const experiences: Experience[] = [
     tagline: 'Sabana de día, playa de noche — la luna de miel para la que se hizo África Oriental',
     description:
       'Cinco días por Tarangire, el Serengeti central y el cráter del Ngorongoro, con el ritmo exacto para dos — sin prisas, siempre en privado. Después, cuatro noches tranquilas en la costa de Nungwi, en Zanzíbar, para cerrar el viaje. Cada detalle, desde las cenas a la luz de las velas hasta las atenciones de luna de miel en tu lodge, queda organizado antes de que aterrices.',
-    image: '/images/gallery/honey.webp',
+    image: '/images/gallery/leopards-interacting-fallen-log.webp',
     durationLabel: '9 días',
     highlights: ['Guía y vehículo privados durante todo el viaje', 'Big Five del cráter del Ngorongoro', '4 noches en la playa de Nungwi, Zanzíbar', 'Detalles de luna de miel bajo petición (tarta, flores, cena privada)'],
     priceFrom: '$3.847',
@@ -203,7 +203,7 @@ export const experiences: Experience[] = [
     tagline: 'Fauna y cultura, a partes iguales',
     description:
       'La mayoría de los safaris te muestran los animales. Este te muestra a las personas que llevan más tiempo compartiendo esta tierra con ellos. Las manadas de elefantes de Tarangire y los Big Five del cráter del Ngorongoro, combinados con una tarde respetuosa y guiada entre los Hadzabe — una de las últimas comunidades cazadoras-recolectoras de la Tierra — y los herreros Datoga del lago Eyasi.',
-    image: '/images/gallery/maa1.webp',
+    image: '/images/gallery/maasai-warriors-jumping-dance-boma.webp',
     durationLabel: '4 días',
     highlights: ['Visita a la comunidad cazadora-recolectora Hadzabe', 'Tradición de los herreros Datoga', 'Big Five del cráter del Ngorongoro', 'Visitas éticas lideradas por la comunidad'],
     priceFrom: '$1.250',
@@ -218,7 +218,7 @@ export const experiences: Experience[] = [
     tagline: 'Olvídate de la carretera. Aterriza en medio de la acción.',
     description:
       'Vuela directamente desde Arusha al corazón del Serengeti central, cambiando un día entero de carretera por un día entero de avistamientos. Dos noches en pleno territorio de depredadores, un descenso guiado al cráter del Ngorongoro y una parada en el lago Manyara — todo en cinco días eficientes y de alta intensidad.',
-    image: '/images/gallery/Central-Serengeti-1.webp',
+    image: '/images/gallery/serengeti-wildebeest-herd-acacia-woodland.webp',
     durationLabel: '5 días',
     highlights: ['Vuelo directo al Serengeti central', 'Dos días completos en territorio de depredadores', 'Descenso al cráter del Ngorongoro', 'Ideal para viajes cortos, máximo tiempo de safari'],
     priceFrom: '$2.475',

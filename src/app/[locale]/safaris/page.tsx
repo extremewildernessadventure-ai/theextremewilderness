@@ -29,12 +29,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/images/gallery/safari-009.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
+      images: [{ url: '/images/gallery/village-life-safari-circuit.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('metaTitle'),
-      images: ['/images/gallery/safari-009.jpg'],
+      images: ['/images/gallery/village-life-safari-circuit.jpg'],
     },
   }
 }
@@ -42,15 +42,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const EDITION_META = [
   { slug: '7-day-serengeti-ngorongoro', image: '/images/gallery/ngorongoro-crater-landscape.webp', badgeKey: 'badgeBestseller' },
   { slug: '12-days-rwanda-primates', image: '/images/gallery/gorilla.webp', badgeKey: 'badgeIconic' },
-  { slug: '7-day-southern-circuit', image: '/images/gallery/Ruaha-National-Park.webp', badgeKey: 'badgeRemote' },
+  { slug: '7-day-southern-circuit', image: '/images/gallery/ruaha-giraffes-riverbank.webp', badgeKey: 'badgeRemote' },
   { slug: '10-day-safari-zanzibar', image: '/images/gallery/zanzibar-nungwi-aerial.webp', badgeKey: 'badgePopular' },
 ] as const
 
 const EXTRA_META = [
-  { slug: '5-day-serengeti-fly-in', image: '/images/gallery/safari-025.webp', badgeKey: 'badgeLuxury' },
-  { slug: '11-days-kenya-undisputed', image: '/images/gallery/safari-026.webp', badgeKey: null },
-  { slug: '10-day-northern-circuit', image: '/images/gallery/safari-027.webp', badgeKey: null },
-  { slug: '7-day-southern-circuit', image: '/images/gallery/safari-028.webp', badgeKey: null },
+  { slug: '5-day-serengeti-fly-in', image: '/images/gallery/kilimanjaro-trekkers-rocky-trail.webp', badgeKey: 'badgeLuxury' },
+  { slug: '11-days-kenya-undisputed', image: '/images/gallery/giraffe-walking-savanna-dusk.webp', badgeKey: null },
+  { slug: '10-day-northern-circuit', image: '/images/gallery/lion-resting-on-serengeti-kopje.webp', badgeKey: null },
+  { slug: '7-day-southern-circuit', image: '/images/gallery/birdlife-tanzania-safari-route.webp', badgeKey: null },
 ] as const
 
 export default async function SafarisPage({ params }: Props) {
@@ -139,7 +139,7 @@ export default async function SafarisPage({ params }: Props) {
       {/* ── 1. HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <Image
-          src="/images/gallery/safari-009.webp"
+          src="/images/gallery/village-life-safari-circuit.webp"
           alt={t('heroImageAlt')}
           fill
           priority
@@ -359,6 +359,7 @@ export default async function SafarisPage({ params }: Props) {
                   duration: pkg.duration,
                   priceFrom: pkg.priceFrom,
                   image: pkg.heroImage,
+                  imageAlt: pkg.heroImageAlt,
                   destinations: pkg.destinations,
                   groupSize: pkg.groupSize,
                   badge: pkg.badge ?? null,
@@ -423,7 +424,7 @@ export default async function SafarisPage({ params }: Props) {
       {/* ── 7. CTA + NEWSLETTER ──────────────────────────────────────────────── */}
       <section className="relative py-24 overflow-hidden">
         <Image
-          src="/images/gallery/safari-009.webp"
+          src="/images/gallery/village-life-safari-circuit.webp"
           alt=""
           fill
           className="object-cover"

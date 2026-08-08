@@ -1,10 +1,21 @@
 import type { MetadataRoute } from 'next'
-import { localeUrl } from '@/lib/site'
+import { localeUrl, SITE_URL } from '@/lib/site'
 import { blogPosts } from '@/data/blog/index'
 import { getBlogPosts } from '@/data/blog/index.i18n'
 import { packages } from '@/data/packages'
 import { destinations } from '@/data/destinations'
 import { experiencePagesEn } from '@/data/experiencePages/content.en'
+
+// Image paths are identical across locales (same photos regardless of
+// language), so these are built once from the English data and reused for
+// every locale's URL entry below — matches how `packages`/`destinations`
+// themselves are already used purely for English-derived slug enumeration.
+const packageImages = Object.fromEntries(
+  packages.map((p) => [p.slug, [p.heroImage, ...p.gallery.map((g) => g.src)].map((path) => `${SITE_URL}${path}`)])
+)
+const destinationImages = Object.fromEntries(
+  destinations.map((d) => [d.slug, [`${SITE_URL}${d.heroImage}`]])
+)
 
 // Bumped only when the underlying data files actually change, so unrelated
 // pages don't get a fresh lastModified on every deploy.
@@ -75,6 +86,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: CONTENT_LAST_UPDATED,
         changeFrequency: 'monthly',
         priority: 0.8,
+        images: packageImages[slug],
         alternates: {
           languages: {
             ...Object.fromEntries(LOCALES.map((l) => [l, localeUrl(l, `/safaris/${slug}`)])),
@@ -93,6 +105,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: CONTENT_LAST_UPDATED,
         changeFrequency: 'monthly',
         priority: 0.7,
+        images: destinationImages[slug],
         alternates: {
           languages: {
             ...Object.fromEntries(LOCALES.map((l) => [l, localeUrl(l, `/destinations/${slug}`)])),
@@ -157,11 +170,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const postDate = englishPost?.lastUpdated ?? englishPost?.date
     const lastModified = postDate ? new Date(postDate) : CONTENT_LAST_UPDATED
     for (const locale of localesWithSlug) {
+      const localePost = blogPostsByLocale[locale].find((p) => p.slug === slug)
       entries.push({
         url: localeUrl(locale, `/blog/${slug}`),
         lastModified,
         changeFrequency: 'monthly',
         priority: 0.6,
+        images: localePost ? [`${SITE_URL}${localePost.heroImage}`] : undefined,
         alternates: {
           languages: {
             ...Object.fromEntries(localesWithSlug.map((l) => [l, localeUrl(l, `/blog/${slug}`)])),

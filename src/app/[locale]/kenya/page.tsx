@@ -36,12 +36,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('metaTitle'),
       description: t('metaDescription'),
-      images: [{ url: '/images/gallery/safari-119.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
+      images: [{ url: '/images/gallery/masai-mara-lion-pride-sunset.jpg', width: 1200, height: 630, alt: t('ogImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('metaTitle'),
-      images: ['/images/gallery/safari-119.jpg'],
+      images: ['/images/gallery/masai-mara-lion-pride-sunset.jpg'],
     },
   }
 }
@@ -111,7 +111,7 @@ export default async function KenyaPage({ params }: Props) {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/safari-119.webp"
+            src="/images/gallery/masai-mara-lion-pride-sunset.webp"
             alt={t('heroImageAlt')}
             fill
             className="object-cover object-center"
@@ -488,7 +488,7 @@ export default async function KenyaPage({ params }: Props) {
           <div className="bg-brand rounded-3xl p-8 lg:p-14 text-center relative overflow-hidden">
             <div
               className="absolute inset-0 opacity-10"
-              style={{ backgroundImage: 'url(/images/gallery/safari-119.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+              style={{ backgroundImage: 'url(/images/gallery/masai-mara-lion-pride-sunset.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
             />
             <Reveal className="relative z-10">
               <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">

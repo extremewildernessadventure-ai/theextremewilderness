@@ -165,7 +165,7 @@ export default async function TrekkingPage({ params }: Props) {
       desc: t('article3Desc'),
       readTime: t('article3Time'),
       href: '/blog',
-      image: '/images/gallery/kilimanjarosasa.webp',
+      image: '/images/gallery/kilimanjaro-rising-over-plains.webp',
     },
     {
       category: t('article4Cat'),
@@ -173,7 +173,7 @@ export default async function TrekkingPage({ params }: Props) {
       desc: t('article4Desc'),
       readTime: t('article4Time'),
       href: '/blog',
-      image: '/images/gallery/kilimanjaro%20(6).webp',
+      image: '/images/gallery/kilimanjaro-summit-acacia-trees.webp',
     },
   ]
 
@@ -571,7 +571,6 @@ export default async function TrekkingPage({ params }: Props) {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 sizes="100vw"
-                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/40 to-transparent" />
               <div className="relative z-10 p-8 md:p-10">

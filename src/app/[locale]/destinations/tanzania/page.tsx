@@ -41,12 +41,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description,
-      images: [{ url: '/images/gallery/safari-119.jpg', width: 1200, height: 630, alt: t('heroImageAlt') }],
+      images: [{ url: '/images/gallery/masai-mara-lion-pride-sunset.jpg', width: 1200, height: 630, alt: t('heroImageAlt') }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
-      images: ['/images/gallery/safari-119.jpg'],
+      images: ['/images/gallery/masai-mara-lion-pride-sunset.jpg'],
     },
   }
 }
@@ -184,7 +184,7 @@ export default async function DestinationsPage({ params }: Props) {
       <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/safari-119.webp"
+            src="/images/gallery/masai-mara-lion-pride-sunset.webp"
             alt={t('heroImageAlt')}
             fill
             className="object-cover object-center"
@@ -493,7 +493,7 @@ export default async function DestinationsPage({ params }: Props) {
             <div
               className="absolute inset-0 opacity-10"
               style={{
-                backgroundImage: "url('/images/gallery/safari-119.webp')",
+                backgroundImage: "url('/images/gallery/masai-mara-lion-pride-sunset.webp')",
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}

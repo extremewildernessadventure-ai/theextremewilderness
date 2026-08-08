@@ -12,17 +12,18 @@ interface DestItem {
   name: string
   href: string
   image: string
+  imageAlt: string
   packages: number
   wildlife: string
 }
 
 const featuredMeta = [
-  { nameKey: 'dc0Name', wildlifeKey: 'dc0Wildlife', href: '/destinations/masai-mara', image: '/images/gallery/maasai-mara.webp', packages: 2 },
-  { nameKey: 'dc1Name', wildlifeKey: 'dc1Wildlife', href: '/destinations/serengeti', image: '/images/gallery/Serengeti-National-park.webp', packages: 18 },
-  { nameKey: 'dc2Name', wildlifeKey: 'dc2Wildlife', href: '/destinations/volcanoes', image: '/images/gallery/Volcanoes%20NP.webp', packages: 2 },
-  { nameKey: 'dc3Name', wildlifeKey: 'dc3Wildlife', href: '/trekking', image: '/images/gallery/kilimanjaro.webp', packages: 6 },
-  { nameKey: 'dc4Name', wildlifeKey: 'dc4Wildlife', href: '/destinations/zanzibar', image: '/images/gallery/zanzibar-1.webp', packages: 4 },
-  { nameKey: 'dc5Name', wildlifeKey: 'dc5Wildlife', href: '/destinations/kenyan-coast', image: '/images/gallery/mombasa.webp', packages: 2 },
+  { nameKey: 'dc0Name', wildlifeKey: 'dc0Wildlife', href: '/destinations/masai-mara', image: '/images/gallery/maasai-mara.webp', imageAlt: 'Wildebeest and zebra herds grazing on the open plains of the Masai Mara', packages: 2 },
+  { nameKey: 'dc1Name', wildlifeKey: 'dc1Wildlife', href: '/destinations/serengeti', image: '/images/gallery/Serengeti-National-park.webp', imageAlt: 'Endless golden grassland of the Serengeti at sunset', packages: 18 },
+  { nameKey: 'dc2Name', wildlifeKey: 'dc2Wildlife', href: '/destinations/volcanoes', image: '/images/gallery/volcanoes-national-park.webp', imageAlt: 'Misty volcanic peaks of Volcanoes National Park, Rwanda', packages: 2 },
+  { nameKey: 'dc3Name', wildlifeKey: 'dc3Wildlife', href: '/trekking', image: '/images/gallery/kilimanjaro.webp', imageAlt: 'Snow-capped summit of Mount Kilimanjaro above the clouds', packages: 6 },
+  { nameKey: 'dc4Name', wildlifeKey: 'dc4Wildlife', href: '/destinations/zanzibar', image: '/images/gallery/beachfront-candlelit-dinner-zanzibar.webp', imageAlt: 'Turquoise water and white sand beach on Zanzibar Island', packages: 4 },
+  { nameKey: 'dc5Name', wildlifeKey: 'dc5Wildlife', href: '/destinations/kenyan-coast', image: '/images/gallery/mombasa.webp', imageAlt: 'Palm-lined beach along the Kenyan coast near Mombasa', packages: 2 },
 ] as const
 
 function DestCard({ dest, exploreLabel }: { dest: DestItem; exploreLabel: string }) {
@@ -30,7 +31,7 @@ function DestCard({ dest, exploreLabel }: { dest: DestItem; exploreLabel: string
     <>
       <Image
         src={dest.image}
-        alt={dest.name}
+        alt={dest.imageAlt}
         fill
         className="object-cover transition-transform duration-500 group-hover:scale-105"
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -84,6 +85,7 @@ export default function DestinationCards() {
   const featured: DestItem[] = featuredMeta.map((m) => ({
     href: m.href,
     image: m.image,
+    imageAlt: m.imageAlt,
     packages: m.packages,
     name: t(m.nameKey),
     wildlife: t(m.wildlifeKey),

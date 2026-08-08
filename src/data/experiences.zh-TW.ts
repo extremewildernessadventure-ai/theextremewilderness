@@ -8,7 +8,7 @@ export const experiences: Experience[] = [
     tagline: '見證世界上最偉大的野生動物奇觀',
     description:
       '沒有什麼能比得上黎明前起身，塞倫蓋提在四面八方無盡延伸，一群獅子在清晨的金光中甦醒。我們的經典獵遊巡遊帶您深入坦尚尼亞的標誌性公園——塞倫蓋提、恩戈羅恩戈羅火山口、塔蘭吉雷——搭乘客製化4×4車輛，由像讀一門語言般讀懂叢林的在地資深嚮導帶領。',
-    image: '/images/gallery/safari-001.webp',
+    image: '/images/gallery/lion-sleeping-tree-branch-serengeti.webp',
     durationLabel: '5 – 14天',
     highlights: ['恩戈羅恩戈羅火山口的五大獸', '大遷徙產犢與渡河', '部分公園的夜間巡遊', '精通史瓦希里語的資深嚮導'],
     priceFrom: '$2,450',
@@ -68,7 +68,7 @@ export const experiences: Experience[] = [
     tagline: '從赤道叢林到極地峰頂',
     description:
       '海拔5,895公尺的吉力馬札羅是地球上最高的獨立山峰——也是唯一能在五天內從雨林走過荒原、荒漠直至冰川的地方。我們以高度適應為先的方法和精挑細選的高海拔嚮導，給您登上烏呼魯峰的最佳機會，以及沿途最難忘的旅程。',
-    image: '/images/gallery/safari-005.webp',
+    image: '/images/gallery/kilimanjaro-trekkers-giant-senecio.webp',
     durationLabel: '6 – 9天',
     highlights: ['馬查梅、萊莫肖和隆蓋路線', '私人團與單人攀登', '挑夫、廚師和登頂團隊', 'KINAPA認證嚮導'],
     priceFrom: '$1,850',
@@ -83,7 +83,7 @@ export const experiences: Experience[] = [
     tagline: '從叢林到海灘——終極東非度假',
     description:
       '以碧綠的印度洋海水和糖白的沙灘為獵遊畫上高潮。尚吉巴的石頭城是聯合國教科文組織認定的歷史迷宮；農圭和帕杰是世界級海灘。我們將4–6天的坦尚尼亞獵遊與3–4晚的海島時光無縫銜接。一個假期，兩個截然不同的世界。',
-    image: '/images/gallery/zanzibar-1.webp',
+    image: '/images/gallery/beachfront-candlelit-dinner-zanzibar.webp',
     durationLabel: '7 – 12天',
     highlights: ['塞倫蓋提獵遊+尚吉巴海灘', '石頭城香料之旅', '姆內姆巴環礁浮潛與深潛', '精品海灘旅館選擇'],
     priceFrom: '$3,600',
@@ -98,7 +98,7 @@ export const experiences: Experience[] = [
     tagline: '帶著意圖拍攝。帶著非凡影像歸來。',
     description:
       '這些專業行程為攝影師設計——在每個目擊點停留更久、更早出營、圍繞晨昏完美追光的日程安排。我們為乾淨的背景和無遮蔽的拍攝調整車輛位置。提供客製化車頂艙口改裝車輛。適合從愛好者到專業人士。',
-    image: '/images/gallery/safari-007.webp',
+    image: '/images/gallery/elephants-grazing-tall-grass-savanna.webp',
     durationLabel: '7 – 12天',
     highlights: ['關鍵目擊點的延長停留', '圍繞黃金時刻的日程安排', '專屬野生動物攝影嚮導', '可選車頂艙口車輛'],
     priceFrom: '$3,900',
@@ -158,7 +158,7 @@ export const experiences: Experience[] = [
     tagline: '千年未變的土地',
     description:
       '大多數遊客從未離開北方環線。魯阿哈和卡塔維是坦尚尼亞保守得最好的祕密——龐大的獅群、成群結隊的水牛和大象、非洲野犬的領地，視野中沒有另一輛車。粗獷、原始、完全不慌不忙。獻給想要人潮到來之前那個非洲的人。',
-    image: '/images/gallery/safari-013.webp',
+    image: '/images/gallery/baobab-tree-sunset-silhouette.webp',
     durationLabel: '5 – 8天',
     highlights: ['坦尚尼亞最大的獅群數量', '非洲野犬築巢（季節性）', '卡塔維擠滿河馬的河流', '僅限獨家飛行抵達'],
     priceFrom: '$4,200',
@@ -173,7 +173,7 @@ export const experiences: Experience[] = [
     tagline: '在破曉的第一縷光中飄越塞倫蓋提',
     description:
       '從晨光初照的簡易跑道升空，靜靜飄過金合歡和花崗岩丘，塞倫蓋提在腳下徐徐展開——獸群在草叢中穿行，河流閃著銀光，一個彷彿無限的世界。在非洲上空一小時的漂浮寂靜。隨後是戴白手套的員工奉上的叢林香檳早餐。不容錯過。',
-    image: '/images/gallery/migr1.webp',
+    image: '/images/gallery/great-migration-across-grasslands.webp',
     durationLabel: '半日附加項目',
     highlights: ['塞倫蓋提日出氣球飛行', '叢林香檳早餐', '飛行證書', '可與任何獵遊套餐搭配'],
     priceFrom: '$550',
@@ -188,7 +188,7 @@ export const experiences: Experience[] = [
     tagline: '白天在叢林，夜晚在海灘——東非天生為蜜月而生',
     description:
       '五天穿越塔蘭吉雷、中央塞倫蓋提和恩戈羅恩戈羅火山口，節奏恰好為兩個人而定——從不匆忙、始終私密。然後是尚吉巴農圭海岸四個悠閒的夜晚作為收尾。從燭光晚餐到旅館的蜜月布置，每個細節都在您落地前安排妥當。',
-    image: '/images/gallery/honey.webp',
+    image: '/images/gallery/leopards-interacting-fallen-log.webp',
     durationLabel: '9天',
     highlights: ['全程私人嚮導與車輛', '恩戈羅恩戈羅火山口五大獸', '尚吉巴農圭海灘4晚', '蜜月細節可按需安排（蛋糕、鮮花、私人晚餐）'],
     priceFrom: '$3,847',
@@ -203,7 +203,7 @@ export const experiences: Experience[] = [
     tagline: '野生動物與文化，等量齊觀',
     description:
       '大多數獵遊給你看動物。這一次給你看與動物共享這片土地最久的人們。塔蘭吉雷的象群和恩戈羅恩戈羅火山口的五大獸，加上在嚮導帶領下、以尊重的方式與哈扎比人——地球上最後的狩獵採集社群之一——共度的下午，以及埃亞西湖畔的達托加鐵匠。',
-    image: '/images/gallery/maa1.webp',
+    image: '/images/gallery/maasai-warriors-jumping-dance-boma.webp',
     durationLabel: '4天',
     highlights: ['哈扎比狩獵採集社群探訪', '達托加鐵匠傳統', '恩戈羅恩戈羅火山口五大獸', '社區主導、合乎倫理的探訪規範'],
     priceFrom: '$1,250',
@@ -218,7 +218,7 @@ export const experiences: Experience[] = [
     tagline: '跳過車程。直接降落在精彩中央。',
     description:
       '從阿魯沙直飛中央塞倫蓋提的心臟地帶，把在路上的一整天換成觀賞動物的一整天。在頂級掠食者領地深處住兩晚，嚮導帶領下降恩戈羅恩戈羅火山口，並在曼雅拉湖停留——五天高效、高密度的行程盡收一切。',
-    image: '/images/gallery/Central-Serengeti-1.webp',
+    image: '/images/gallery/serengeti-wildebeest-herd-acacia-woodland.webp',
     durationLabel: '5天',
     highlights: ['直飛中央塞倫蓋提', '頂級掠食者領地的兩個整天', '恩戈羅恩戈羅火山口下降', '短假期的理想選擇，最大化野生動物時間'],
     priceFrom: '$2,475',

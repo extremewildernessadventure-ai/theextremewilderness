@@ -19,7 +19,7 @@ function PackageCard({ pkg, tc }: { pkg: (typeof packages)[number]; tc: ReturnTy
       <div className="relative h-52 overflow-hidden flex-shrink-0">
         <Image
           src={pkg.heroImage}
-          alt={pkg.name}
+          alt={pkg.heroImageAlt ?? pkg.name}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           sizes="(max-width: 768px) 100vw, 50vw"

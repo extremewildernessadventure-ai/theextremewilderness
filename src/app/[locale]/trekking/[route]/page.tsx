@@ -140,12 +140,12 @@ export async function generateMetadata({ params }: RouteProps): Promise<import('
 const ROUTE_SLUGS = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const
 
 const ROUTE_HERO_IMAGES: Record<string, { src: string; alt: string }> = {
-  machame:           { src: '/images/gallery/kilimanjaro-card-machame.jpg',          alt: 'Mount Kilimanjaro rising above the savanna, framed by acacia trees' },
-  lemosho:           { src: '/images/gallery/kilimanjaro-card-lemosho.jpg',           alt: 'Wide scenic view of Kilimanjaro emerging above the clouds' },
-  marangu:           { src: '/images/gallery/kilimanjaro-card-marangu.jpg',           alt: 'Aerial view of the Kilimanjaro summit breaking through the clouds' },
-  rongai:            { src: '/images/gallery/kilimanjaro-card-rongai.jpg',            alt: 'A dirt trail leading toward Mount Kilimanjaro on the Rongai route' },
-  umbwe:             { src: '/images/gallery/kilimanjaro-card-umbwe.jpg',             alt: 'Climbers ascending toward the summit at sunrise' },
-  'northern-circuit':{ src: '/images/gallery/kilimanjaro-card-northern-circuit.jpg', alt: 'A rocky, snow-covered ridge rising above a sea of clouds' },
+  machame:           { src: '/images/gallery/kilimanjaro-card-machame.webp',          alt: 'Mount Kilimanjaro rising above the savanna, framed by acacia trees' },
+  lemosho:           { src: '/images/gallery/kilimanjaro-card-lemosho.webp',           alt: 'Wide scenic view of Kilimanjaro emerging above the clouds' },
+  marangu:           { src: '/images/gallery/kilimanjaro-card-marangu.webp',           alt: 'Aerial view of the Kilimanjaro summit breaking through the clouds' },
+  rongai:            { src: '/images/gallery/kilimanjaro-card-rongai.webp',            alt: 'A dirt trail leading toward Mount Kilimanjaro on the Rongai route' },
+  umbwe:             { src: '/images/gallery/kilimanjaro-card-umbwe.webp',             alt: 'Climbers ascending toward the summit at sunrise' },
+  'northern-circuit':{ src: '/images/gallery/kilimanjaro-card-northern-circuit.webp', alt: 'A rocky, snow-covered ridge rising above a sea of clouds' },
 }
 
 // Real expedition photos from the company's own climbs ("Mlimani The Extreme").

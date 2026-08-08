@@ -13,6 +13,7 @@ interface PackageData {
   duration: number
   priceFrom: number
   image: string
+  imageAlt?: string
   destinations: string[]
   groupSize?: { min: number; max: number }
   badge?: string | null
@@ -313,7 +314,7 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
                 <div className="relative h-52 overflow-hidden">
                   <Image
                     src={pkg.image}
-                    alt={pkg.name}
+                    alt={pkg.imageAlt ?? pkg.name}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

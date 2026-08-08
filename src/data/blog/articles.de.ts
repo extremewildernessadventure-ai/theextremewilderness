@@ -2309,7 +2309,7 @@ export const articles: Record<string, SectionType[]> = {
   },
   {
     "type": "image",
-    "src": "/images/gallery/IMG-20260610-WA0079.webp",
+    "src": "/images/gallery/cyclists-forest-trail-arusha-national-park.webp",
     "alt": "Radfahrer auf einem Waldpfad im Arusha-Nationalpark mit hohen Bäumen über ihnen",
     "caption": "Die Bergwald-Trails bieten Schatten, Tierwelt und eine eindrucksvolle Kulisse in jede Richtung."
   },

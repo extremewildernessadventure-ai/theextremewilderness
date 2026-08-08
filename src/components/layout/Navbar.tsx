@@ -48,8 +48,8 @@ export default function Navbar() {
             <Image
               src="/EWA logo.webp"
               alt="EWA Safari Outfitters"
-              width={160}
-              height={80}
+              width={128}
+              height={64}
               className="object-contain w-16 h-auto lg:w-24 lg:h-auto"
               priority
             />

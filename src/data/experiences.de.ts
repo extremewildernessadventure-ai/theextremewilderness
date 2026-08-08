@@ -8,7 +8,7 @@ export const experiences: Experience[] = [
     tagline: 'Erleben Sie die größten Wildtierschauspiele der Welt',
     description:
       'Nichts ist vergleichbar damit, vor der Morgendämmerung aufzustehen, während sich die Serengeti in alle Richtungen endlos erstreckt und ein Rudel Löwen im Morgengold erwacht. Unsere klassischen Pirschfahrt-Safaris führen Sie tief in Tansanias ikonische Parks — Serengeti, Ngorongoro-Krater, Tarangire — in maßgefertigten 4×4-Fahrzeugen mit erfahrenen einheimischen Guides, die den Busch wie eine Sprache lesen.',
-    image: '/images/gallery/safari-001.webp',
+    image: '/images/gallery/lion-sleeping-tree-branch-serengeti.webp',
     durationLabel: '5 – 14 Tage',
     highlights: ['Big Five im Ngorongoro-Krater', 'Kalben & Überquerungen der Großen Migration', 'Nachtfahrten in ausgewählten Parks', 'Erfahrene Suaheli-sprechende Guides'],
     priceFrom: '$2.450',
@@ -68,7 +68,7 @@ export const experiences: Experience[] = [
     tagline: 'Vom tropischen Dschungel zum arktischen Gipfel',
     description:
       'Mit 5.895 m ist der Kilimandscharo der höchste freistehende Berg der Erde — und der einzige Ort, an dem man in fünf Tagen vom Regenwald über Moorland, Wüste und Gletschereis wandern kann. Unser akklimatisierungsorientierter Ansatz und handverlesene Hochgebirgsführer geben Ihnen die beste Chance, den Uhuru Peak zu erreichen, und die unvergesslichste Reise auf dem Weg dorthin.',
-    image: '/images/gallery/safari-005.webp',
+    image: '/images/gallery/kilimanjaro-trekkers-giant-senecio.webp',
     durationLabel: '6 – 9 Tage',
     highlights: ['Machame-, Lemosho- & Rongai-Routen', 'Private Gruppen- & Einzelbesteigungen', 'Träger, Koch & Gipfelmannschaft', 'KINAPA-zertifizierte Guides'],
     priceFrom: '$1.850',
@@ -83,7 +83,7 @@ export const experiences: Experience[] = [
     tagline: 'Vom Busch an den Strand — die ultimative Flucht in Ostafrika',
     description:
       'Beenden Sie eine Safari auf ihrem Höhepunkt mit türkisfarbenem Indischem Ozean und zuckerweißem Sand. Sansibars Stone Town ist ein UNESCO-Labyrinth der Geschichte; Nungwi und Paje sind Weltklasse-Strände. Wir kombinieren nahtlos 4–6 Tage Tansania-Safari mit 3–4 Nächten auf der Insel. Ein Urlaub, zwei völlig verschiedene Welten.',
-    image: '/images/gallery/zanzibar-1.webp',
+    image: '/images/gallery/beachfront-candlelit-dinner-zanzibar.webp',
     durationLabel: '7 – 12 Tage',
     highlights: ['Serengeti-Safari + Sansibar-Strand', 'Gewürzmarkt-Tour in Stone Town', 'Schnorcheln & Tauchen am Mnemba-Atoll', 'Boutique-Strandlodge-Optionen'],
     priceFrom: '$3.600',
@@ -98,7 +98,7 @@ export const experiences: Experience[] = [
     tagline: 'Mit Absicht fotografieren. Mit außergewöhnlichen Bildern zurückkehren.',
     description:
       'Diese spezialisierten Reiserouten sind für Fotografen konzipiert — länger an jedem Sichtung, frühe Abfahrten aus dem Camp, perfekte Lichtjagd-Zeitpläne in der Dämmerung und Abenddämmerung. Wir positionieren Fahrzeuge für saubere Hintergründe und ungehinderte Aufnahmen. Maßgefertigte Dachluken-Fahrzeuge verfügbar. Geeignet für Enthusiasten bis Profis.',
-    image: '/images/gallery/safari-007.webp',
+    image: '/images/gallery/elephants-grazing-tall-grass-savanna.webp',
     durationLabel: '7 – 12 Tage',
     highlights: ['Verlängerte Zeit bei wichtigen Sichtungen', 'Goldene-Stunde-Fokusplanung', 'Spezialisierter Wildtier-Fotografie-Guide', 'Dachluken-Fahrzeuge verfügbar'],
     priceFrom: '$3.900',
@@ -158,7 +158,7 @@ export const experiences: Experience[] = [
     tagline: 'Wo sich die Erde seit tausend Jahren nicht verändert hat',
     description:
       'Die meisten Besucher verlassen nie den Nördlichen Rundkurs. Ruaha und Katavi sind Tansanias bestgehütete Geheimnisse — riesige Löwenrudel, große Büffel- und Elefantenherden, Wildhundterritorien und kein weiteres Fahrzeug in Sicht. Rau, echt und völlig ungehetzt. Für diejenigen, die Afrika so wollen, wie es vor den Massen war.',
-    image: '/images/gallery/safari-013.webp',
+    image: '/images/gallery/baobab-tree-sunset-silhouette.webp',
     durationLabel: '5 – 8 Tage',
     highlights: ['Tansanias größte Löwenpopulation', 'Wildhund-Bau (saisonal)', 'Nilpferd-gefüllte Flüsse in Katavi', 'Exklusiver Einflug-Zugang nur'],
     priceFrom: '$4.200',
@@ -173,7 +173,7 @@ export const experiences: Experience[] = [
     tagline: 'Bei ersten Tageslicht über die Serengeti gleiten',
     description:
       'Start von einer morgendämmerungsbeleuchteten Landebahn, stiller Aufstieg über Akazien und Kopjes, während sich die Serengeti von oben offenbart — Herden, die durch Gras ziehen, Flüsse, die silbern glitzern, eine Welt, die unendlich erscheint. Eine Stunde schwebender Stille über Afrika. Gefolgt von einem Busch-Champagnerfrühstück, serviert von weißbehandschuhtem Personal. Unverzichtbar.',
-    image: '/images/gallery/migr1.webp',
+    image: '/images/gallery/great-migration-across-grasslands.webp',
     durationLabel: 'Halbtages-Zusatz',
     highlights: ['Serengeti-Sonnenaufgangs-Ballonflug', 'Busch-Champagnerfrühstück', 'Flugzertifikat', 'Mit jedem Safari-Paket kombinierbar'],
     priceFrom: '$550',
@@ -188,7 +188,7 @@ export const experiences: Experience[] = [
     tagline: 'Busch am Tag, Strand am Abend — die Hochzeitsreise, für die Ostafrika gemacht wurde',
     description:
       'Fünf Tage durch Tarangire, die zentrale Serengeti und den Ngorongoro-Krater, im perfekten Tempo für zwei — nie gehetzt, immer privat. Danach vier entspannte Nächte an Sansibars Nungwi-Küste zum Ausklang. Jedes Detail, von Candle-Light-Dinnern bis zu Honeymoon-Aufmerksamkeiten in Ihrer Lodge, ist arrangiert, bevor Sie landen.',
-    image: '/images/gallery/honey.webp',
+    image: '/images/gallery/leopards-interacting-fallen-log.webp',
     durationLabel: '9 Tage',
     highlights: ['Privater Guide & Fahrzeug während der gesamten Reise', 'Big Five im Ngorongoro-Krater', '4 Nächte am Nungwi Beach, Sansibar', 'Honeymoon-Extras auf Wunsch (Torte, Blumen, privates Dinner)'],
     priceFrom: '$3.847',
@@ -203,7 +203,7 @@ export const experiences: Experience[] = [
     tagline: 'Tierwelt und Kultur, zu gleichen Teilen',
     description:
       'Die meisten Safaris zeigen Ihnen die Tiere. Diese zeigt Ihnen die Menschen, die dieses Land am längsten mit ihnen teilen. Die Elefantenherden von Tarangire und die Big Five des Ngorongoro-Kraters, verbunden mit einem respektvollen, geführten Nachmittag bei den Hadzabe — einer der letzten Jäger-und-Sammler-Gemeinschaften der Erde — und den Datoga-Schmieden am Eyasi-See.',
-    image: '/images/gallery/maa1.webp',
+    image: '/images/gallery/maasai-warriors-jumping-dance-boma.webp',
     durationLabel: '4 Tage',
     highlights: ['Besuch der Jäger-und-Sammler-Gemeinschaft der Hadzabe', 'Schmiedetradition der Datoga', 'Big Five im Ngorongoro-Krater', 'Ethische, von der Gemeinschaft geführte Besuche'],
     priceFrom: '$1.250',
@@ -218,7 +218,7 @@ export const experiences: Experience[] = [
     tagline: 'Sparen Sie sich die Fahrt. Landen Sie mitten im Geschehen.',
     description:
       'Fliegen Sie direkt von Arusha ins Herz der zentralen Serengeti und tauschen Sie einen ganzen Tag auf der Straße gegen einen ganzen Tag Tierbeobachtung. Zwei Nächte tief im besten Raubtiergebiet, ein geführter Abstieg in den Ngorongoro-Krater und ein Stopp am Manyara-See — alles in fünf effizienten, erlebnisreichen Tagen.',
-    image: '/images/gallery/Central-Serengeti-1.webp',
+    image: '/images/gallery/serengeti-wildebeest-herd-acacia-woodland.webp',
     durationLabel: '5 Tage',
     highlights: ['Direktflug in die zentrale Serengeti', 'Zwei volle Tage im besten Raubtiergebiet', 'Abstieg in den Ngorongoro-Krater', 'Ideal für kürzere Reisen, maximale Safari-Zeit'],
     priceFrom: '$2.475',
