@@ -3,7 +3,7 @@ import { MapPin, Users, Star, Shield } from 'lucide-react'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
-export default function WhyChooseUs() {
+export default function WhyChooseUs({ gold = false }: { gold?: boolean }) {
   const t = useTranslations('home')
 
   const reasons = [
@@ -14,16 +14,16 @@ export default function WhyChooseUs() {
   ]
 
   return (
-    <section className="py-20 bg-light-green">
+    <section className={`py-20 ${gold ? 'bg-gold' : 'bg-light-green'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="text-center mb-14">
-          <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-3">
+          <span className={`inline-block font-semibold text-xs uppercase tracking-widest mb-3 ${gold ? 'text-brand/70' : 'text-gold-label'}`}>
             {t('whyTravelWithUs')}
           </span>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-brand mb-4">
+          <h2 className="text-3xl lg:text-4xl font-semibold mb-4 text-brand">
             {t('ourDifference')}
           </h2>
-          <p className="text-text-muted max-w-xl mx-auto">{t('weAreTanzania')}</p>
+          <p className={`max-w-xl mx-auto ${gold ? 'text-brand/80' : 'text-text-muted'}`}>{t('weAreTanzania')}</p>
         </Reveal>
 
         <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

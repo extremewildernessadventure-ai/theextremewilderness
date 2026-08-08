@@ -14,13 +14,14 @@ interface FaqItem {
 
 interface Props {
   faqs: FaqItem[]
+  columns?: 1 | 2
 }
 
-export default function FaqAccordion({ faqs }: Props) {
+export default function FaqAccordion({ faqs, columns = 1 }: Props) {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <div className="space-y-3">
+    <div className={columns === 2 ? 'grid grid-cols-1 md:grid-cols-2 gap-3 items-start' : 'space-y-3'}>
       {faqs.map((faq, i) => (
         <div
           key={i}

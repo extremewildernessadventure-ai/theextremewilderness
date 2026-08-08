@@ -1,9 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { Clock, Users, MapPin, ArrowRight } from 'lucide-react'
+import type { PricingTierRow } from '@/data/packages'
 
 interface PackageData {
   slug: string
@@ -14,6 +16,7 @@ interface PackageData {
   destinations: string[]
   groupSize?: { min: number; max: number }
   badge?: string | null
+  pricingTiers?: PricingTierRow[]
 }
 
 interface Props {
@@ -31,6 +34,10 @@ interface Props {
     filterRwanda: string
     filterCombined: string
     filterTanzaniaRwanda: string
+    tierLabel: string
+    tierTrail: string
+    tierReserve: string
+    tierSovereign: string
     days: string
     max: string
     pax: string
@@ -56,6 +63,17 @@ type DurBucket = '2-5' | '6-9' | '10+'
 // dedicated filter button today, so it never gets bucketed together with a pair
 // it doesn't actually match.
 type CountryKey = 'all' | 'tanzania' | 'kenya' | 'rwanda' | 'tanzania-kenya' | 'tanzania-rwanda' | 'combined'
+type TierKey = 'all' | 'trail' | 'reserve' | 'sovereign'
+
+// Same tier-presence check as PriceTierSwitcher's `availableTiers`, applied at
+// the package level: a package "has" a tier if any pricing row carries it.
+function pkgHasTier(pricingTiers: PricingTierRow[] | undefined, tier: 'trail' | 'reserve' | 'sovereign'): boolean {
+  return !!pricingTiers?.some((row) => row[tier] !== undefined && row[tier]! > 0)
+}
+
+function isTierKey(v: string | null): v is TierKey {
+  return v === 'trail' || v === 'reserve' || v === 'sovereign'
+}
 
 function pkgCountry(dests: string[]): CountryKey {
   const hasK = dests.some((d) => KENYA_DESTS.includes(d))
@@ -79,6 +97,9 @@ function getDurBucket(days: number): DurBucket {
 }
 
 export default function FilteredPackageGrid({ packages, labels }: Props) {
+  const searchParams = useSearchParams()
+  const initialTier = searchParams.get('tier')
+
   const prices = packages.map((p) => p.priceFrom)
   const globalMin = Math.floor(Math.min(...prices) / 100) * 100
   const globalMax = Math.ceil(Math.max(...prices) / 100) * 100
@@ -87,6 +108,7 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
   const [priceMin, setPriceMin] = useState(globalMin)
   const [priceMax, setPriceMax] = useState(globalMax)
   const [country, setCountry] = useState<CountryKey>('all')
+  const [tier, setTier] = useState<TierKey>(isTierKey(initialTier) ? initialTier : 'all')
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
 
   const resetVisible = () => setVisibleCount(PAGE_SIZE)
@@ -95,6 +117,7 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
     if (durFilters.size > 0 && !durFilters.has(getDurBucket(p.duration))) return false
     if (p.priceFrom < priceMin || p.priceFrom > priceMax) return false
     if (country !== 'all' && pkgCountry(p.destinations) !== country) return false
+    if (tier !== 'all' && !pkgHasTier(p.pricingTiers, tier)) return false
     return true
   })
 
@@ -134,6 +157,13 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
     ...(hasCombo('tanzania-rwanda') ? [{ key: 'tanzania-rwanda' as const, label: labels.filterTanzaniaRwanda }] : []),
   ]
 
+  const tiers: { key: TierKey; label: string }[] = [
+    { key: 'all', label: labels.filterAll },
+    { key: 'trail', label: labels.tierTrail },
+    { key: 'reserve', label: labels.tierReserve },
+    { key: 'sovereign', label: labels.tierSovereign },
+  ]
+
   const showingText = labels.showingOf
     .replace('[shown]', String(Math.min(visibleCount, filtered.length)))
     .replace('[total]', String(filtered.length))
@@ -142,7 +172,7 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
     <div>
       {/* ── Filter Panel ── */}
       <div className="filter-panel-dark bg-brand rounded-2xl border border-white/10 shadow-sm p-6 mb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
 
           {/* Duration */}
           <div>
@@ -227,6 +257,29 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
                   onClick={() => { setCountry(key); resetVisible() }}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all ${
                     country === key
+                      ? 'bg-gold text-brand border-gold shadow-sm'
+                      : 'bg-transparent text-gold border-gold/40 hover:border-gold hover:bg-gold/10'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Tier */}
+          <div>
+            <p className="text-[10px] font-black text-gold uppercase tracking-[0.15em] mb-3">
+              {labels.tierLabel}
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {tiers.map(({ key, label }) => (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => { setTier(key); resetVisible() }}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all ${
+                    tier === key
                       ? 'bg-gold text-brand border-gold shadow-sm'
                       : 'bg-transparent text-gold border-gold/40 hover:border-gold hover:bg-gold/10'
                   }`}

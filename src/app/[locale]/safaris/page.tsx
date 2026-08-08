@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { ArrowRight, CheckCircle2, Calendar, Compass, HelpCircle, Clock, Users, MapPin } from 'lucide-react'
+import { ArrowRight, Clock, Users, MapPin } from 'lucide-react'
 import { getPackages } from '@/data/packages.i18n'
 import NewsletterForm from '@/components/home/NewsletterForm'
+import WhyChooseUs from '@/components/home/WhyChooseUs'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { MONTHS } from '@/lib/seasonData'
 import PlanBuilderEntryCard from '@/components/plan/PlanBuilderEntryCard'
 import FilteredPackageGrid from '@/components/itineraries/FilteredPackageGrid'
-import NationalParksGrid from '@/components/itineraries/NationalParksGrid'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
@@ -59,6 +59,13 @@ export default async function SafarisPage({ params }: Props) {
   const packages = await getPackages(locale)
   const t = await getTranslations('itineraries')
   const tc = await getTranslations('common')
+  const ts = await getTranslations('safari')
+
+  const tierCards = [
+    { key: 'trail' as const,     kicker: t('tierKicker1'), name: ts('tierTrail'),     desc: t('tierTrailDesc') },
+    { key: 'reserve' as const,   kicker: t('tierKicker2'), name: ts('tierReserve'),   desc: t('tierReserveDesc') },
+    { key: 'sovereign' as const, kicker: t('tierKicker3'), name: ts('tierSovereign'), desc: t('tierSovereignDesc') },
+  ]
 
   const findPkg = (slug: string) => packages.find((p) => p.slug === slug)!
   const smallGroupSafaris = t('smallGroupSafaris')
@@ -96,13 +103,6 @@ export default async function SafarisPage({ params }: Props) {
   // Trekking-type packages (e.g. Kilimanjaro Machame) have their own dedicated
   // /trekking pages and don't belong in this general safari-itinerary grid.
   const extraSlugs = new Set<string>(EXTRA_META.map((e) => e.slug))
-  const tSteps = [
-    { num: '01', title: t('step1Title'), desc: t('step1Desc') },
-    { num: '02', title: t('step2Title'), desc: t('step2Desc') },
-    { num: '03', title: t('step3Title'), desc: t('step3Desc') },
-    { num: '04', title: t('step4Title'), desc: t('step4Desc') },
-  ]
-  const tIncluded = [t('included1'), t('included2'), t('included3'), t('included4'), t('included5'), t('included6'), t('included7')]
   const tFaqs = [
     { q: t('faq1q'), a: t('faq1a') },
     { q: t('faq2q'), a: t('faq2a') },
@@ -116,22 +116,6 @@ export default async function SafarisPage({ params }: Props) {
     { q: t('faq10q'), a: t('faq10a') },
   ]
 
-  const tanzaniaParks = [
-    { name: t('park1Name'), desc: t('park1Desc'), image: '/images/gallery/serengeti.webp' },
-    { name: t('park2Name'), desc: t('park2Desc'), image: '/images/gallery/ngorongoro-crater-landscape.webp' },
-    { name: t('park3Name'), desc: t('park3Desc'), image: '/images/gallery/tarangire-1.webp' },
-    { name: t('park4Name'), desc: t('park4Desc'), image: '/images/gallery/tarangire-elephants-baobab.webp' },
-    { name: t('park5Name'), desc: t('park5Desc'), image: '/images/gallery/Ruaha-National-Park.webp' },
-    { name: t('park6Name'), desc: t('park6Desc'), image: '/images/gallery/nyerere.webp' },
-  ]
-  const kenyaParks = [
-    { name: t('park7Name'),  desc: t('park7Desc'),  image: '/images/gallery/maasai-mara.webp' },
-    { name: t('park8Name'),  desc: t('park8Desc'),  image: '/images/gallery/amboseli.webp' },
-    { name: t('park9Name'),  desc: t('park9Desc'),  image: '/images/gallery/samburu.webp' },
-    { name: t('park10Name'), desc: t('park10Desc'), image: '/images/gallery/tsavo.webp' },
-    { name: t('park11Name'), desc: t('park11Desc'), image: '/images/gallery/nakuru.webp' },
-  ]
-  const tGettingHereTips = [t('gettingHereTip1'), t('gettingHereTip2'), t('gettingHereTip3'), t('gettingHereTip4'), t('gettingHereTip5')]
   const tBullets = [t('heroBullet1'), t('heroBullet2'), t('heroBullet3'), t('heroBullet4')]
   const tStats = [
     { value: t('stat1Value'), label: t('stat1Label') },
@@ -231,14 +215,12 @@ export default async function SafarisPage({ params }: Props) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Section header */}
-          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
-            <div>
-              <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('signatureEditionsEyebrow')}</span>
-              <h2 className="font-semibold text-brand mt-2" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
-                {t('signatureEditionsHeading')}
-              </h2>
-            </div>
-            <p className="text-text-muted text-base max-w-sm leading-relaxed sm:text-right">
+          <Reveal className="text-center max-w-xl mx-auto mb-12">
+            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('signatureEditionsEyebrow')}</span>
+            <h2 className="font-semibold text-brand mt-2" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)' }}>
+              {t('signatureEditionsHeading')}
+            </h2>
+            <p className="text-text-muted text-base leading-relaxed mt-3">
               {t('signatureEditionsSubtitle')}
             </p>
           </Reveal>
@@ -323,6 +305,37 @@ export default async function SafarisPage({ params }: Props) {
         </div>
       </section>
 
+      {/* ── 3b. THREE WAYS TO TRAVEL (tier explainer) ────────────────────────── */}
+      <section className="bg-light-green py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center mb-14">
+            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('tierExplainerEyebrow')}</span>
+            <h2 className="text-brand font-semibold text-3xl lg:text-4xl mt-2">{t('tierExplainerHeading')}</h2>
+            <p className="text-text-muted mt-3 max-w-lg mx-auto text-base leading-relaxed">
+              {t('tierExplainerSubtitle')}
+            </p>
+          </Reveal>
+
+          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 divide-y-2 md:divide-y-0 md:divide-x-2 divide-gold border-y-2 border-gold">
+            {tierCards.map(({ key, kicker, name, desc }) => (
+              <RevealItem key={key} className="p-9">
+                <p className="text-gold-label font-semibold text-[11px] uppercase tracking-[0.2em] mb-4">
+                  {kicker}
+                </p>
+                <h3 className="text-brand font-semibold text-2xl mb-3">{name}</h3>
+                <p className="text-text-muted text-base leading-relaxed mb-5">{desc}</p>
+                <Link
+                  href={`/safaris?tier=${key}#itineraries`}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand border-b border-gold pb-0.5 hover:text-gold transition-colors"
+                >
+                  {t('tierBrowsePrefix')} {name} <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
+
       {/* ── 4. ALL PACKAGES (filterable by country) ──────────────────────────── */}
       <section className="bg-light-green py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -335,6 +348,7 @@ export default async function SafarisPage({ params }: Props) {
             </p>
           </Reveal>
 
+          <Suspense fallback={null}>
           <FilteredPackageGrid
             packages={[
               ...packages
@@ -348,6 +362,7 @@ export default async function SafarisPage({ params }: Props) {
                   destinations: pkg.destinations,
                   groupSize: pkg.groupSize,
                   badge: pkg.badge ?? null,
+                  pricingTiers: pkg.pricingTiers,
                 })),
               ...extra.map((it) => ({
                 slug: it.slug,
@@ -357,6 +372,7 @@ export default async function SafarisPage({ params }: Props) {
                 image: it.image,
                 destinations: [it.destinations[0]?.toLowerCase() ?? ''],
                 badge: it.badge ?? null,
+                pricingTiers: findPkg(it.slug.replace('/safaris/', '')).pricingTiers,
               })),
             ]}
             labels={{
@@ -372,6 +388,10 @@ export default async function SafarisPage({ params }: Props) {
               filterRwanda:   t('filterRwanda'),
               filterCombined: t('filterCombined'),
               filterTanzaniaRwanda: t('filterTanzaniaRwanda'),
+              tierLabel:      t('filterTierLabel'),
+              tierTrail:      ts('tierTrail'),
+              tierReserve:    ts('tierReserve'),
+              tierSovereign:  ts('tierSovereign'),
               days:           t('daysLabel'),
               max:            t('maxLabel'),
               pax:            t('paxLabel'),
@@ -382,172 +402,21 @@ export default async function SafarisPage({ params }: Props) {
               noResults:      t('filterNoResults'),
             }}
           />
+          </Suspense>
         </div>
       </section>
 
-      {/* ── 4b. NATIONAL PARKS ───────────────────────────────────────────────── */}
-      <NationalParksGrid
-        eyebrow={t('parksEyebrow')}
-        heading={t('parksHeading')}
-        tanzaniaLabel={t('parksTanzaniaLabel')}
-        kenyaLabel={t('parksKenyaLabel')}
-        tanzaniaParks={tanzaniaParks}
-        kenyaParks={kenyaParks}
-      />
+      {/* ── 6b. WHY BOOK WITH US ─────────────────────────────────────────────── */}
+      <WhyChooseUs gold />
 
-      {/* ── 5. HOW WE CRAFT YOUR JOURNEY ─────────────────────────────────────── */}
-      <section className="bg-brand py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.07]">
-          <Image src="/images/gallery/safari-120.webp" alt="" fill sizes="100vw" className="object-cover" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-16">
-            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('processEyebrow')}</span>
-            <h2 className="text-white font-semibold text-3xl lg:text-4xl mt-2">{t('processHeading')}</h2>
-            <p className="text-white/60 mt-3 max-w-md mx-auto text-base leading-relaxed">
-              {t('processSubtitle')}
-            </p>
-          </Reveal>
-
-          <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-            {tSteps.map((step, i) => (
-              <RevealItem key={step.num} className="relative">
-                {/* Connector line */}
-                {i < tSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-6 left-12 right-0 h-px bg-white/15" />
-                )}
-                <div className="w-12 h-12 rounded-full bg-gold flex items-center justify-center mb-5 text-brand font-bold text-sm relative z-10">
-                  {step.num}
-                </div>
-                <h3 className="text-white font-semibold text-lg mb-3">{step.title}</h3>
-                <p className="text-white/75 text-base leading-relaxed">{step.desc}</p>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-
-          <div className="text-center mt-14">
-            <BookNowButton
-              packageName="Custom Safari"
-              packageType={tc('packageTypes.safari')}
-              label={t('letsStartPlanning')}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg text-base"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. PLANNING GUIDE ────────────────────────────────────────────────── */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          <Reveal className="text-center mb-14">
-            <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('planningGuideEyebrow')}</span>
-            <h2 className="text-brand font-semibold text-3xl lg:text-4xl mt-2">{t('planningGuideHeading')}</h2>
-          </Reveal>
-
-          <Reveal className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-            {/* Card A — When to Go */}
-            <div className="bg-light-green rounded-3xl p-8">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 bg-brand rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Calendar className="w-5 h-5 text-gold" />
-                </div>
-                <h3 className="text-brand font-semibold text-lg">{t('whenToGoTitle')}</h3>
-              </div>
-              <p className="text-text-muted text-base leading-relaxed mb-6">
-                {t('whenToGoText')}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {MONTHS.map(({ m, type }) => (
-                  <span
-                    key={m}
-                    className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide ${
-                      type === 'prime'
-                        ? 'bg-brand text-white'
-                        : type === 'good'
-                        ? 'bg-brand/20 text-brand'
-                        : 'bg-gray-100 text-gray-400'
-                    }`}
-                  >
-                    {m}
-                  </span>
-                ))}
-              </div>
-              <div className="flex flex-wrap gap-4 mt-4 text-[10px] font-semibold uppercase tracking-wide">
-                <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-brand inline-block" />{t('legendPrime')}</span>
-                <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-brand/20 inline-block" />{t('legendGood')}</span>
-                <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-gray-200 inline-block" />{t('legendRainy')}</span>
-              </div>
-            </div>
-
-            {/* Card B — What's Included */}
-            <div className="bg-brand rounded-3xl p-8">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <CheckCircle2 className="w-5 h-5 text-gold" />
-                </div>
-                <h3 className="text-white font-semibold text-lg">{t('whatsIncludedTitle')}</h3>
-              </div>
-              <ul className="space-y-3">
-                {tIncluded.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/75 text-base">
-                    <span className="text-gold flex-shrink-0 mt-0.5">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Card C — Common Questions */}
-            <div className="bg-light-green rounded-3xl p-8">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 bg-brand rounded-xl flex items-center justify-center flex-shrink-0">
-                  <HelpCircle className="w-5 h-5 text-gold" />
-                </div>
-                <h3 className="text-brand font-semibold text-lg">{t('commonQuestionsTitle')}</h3>
-              </div>
-              <div className="space-y-5">
-                {tFaqs.map((faq) => (
-                  <div key={faq.q} className="border-b border-brand/10 pb-5 last:border-0 last:pb-0">
-                    <p className="text-brand font-semibold text-base mb-1.5">{faq.q}</p>
-                    <p className="text-text-muted text-base leading-relaxed">{faq.a}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Card D — Getting Here */}
-            <div className="bg-light-green rounded-3xl p-8">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 bg-brand rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Compass className="w-5 h-5 text-gold" />
-                </div>
-                <h3 className="text-brand font-semibold text-lg">{t('gettingHereTitle')}</h3>
-              </div>
-              <ul className="space-y-4">
-                {tGettingHereTips.map((tip) => (
-                  <li key={tip} className="flex items-start gap-3 text-text-muted text-base">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-1.5" />
-                    {tip}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── 6b. FAQ ──────────────────────────────────────────────────────────── */}
+      {/* ── 6c. FAQ ──────────────────────────────────────────────────────────── */}
       <section className="py-24 bg-light-green">
-        <Reveal className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('faqEyebrow')}</span>
             <h2 className="text-brand font-semibold text-3xl lg:text-4xl mt-2">{t('faqHeading')}</h2>
           </div>
-          <FaqAccordion faqs={tFaqs} />
+          <FaqAccordion faqs={tFaqs} columns={2} />
         </Reveal>
       </section>
 

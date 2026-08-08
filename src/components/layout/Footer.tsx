@@ -193,7 +193,7 @@ export default async function Footer() {
 
             <div className="flex gap-6 shrink-0">
               {([
-                { value: '97%',  label: t('trustFiveStar') },
+                { value: '98%',  label: t('trustFiveStar') },
                 { value: '40+',  label: t('trustCountries') },
                 { value: '100%', label: t('trustBigFive') },
               ] as const).map(({ value, label }) => (
