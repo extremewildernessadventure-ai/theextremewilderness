@@ -46,13 +46,6 @@ export default async function ExperiencesPage({ params }: Props) {
   const experiences = await getExperiences(locale)
   const t = await getTranslations('experiences')
 
-  const experienceTypeIcons = ['🦁', '🦓', '🐵', '🦍', '🏔️', '🌊', '📷', '🚶', '💎', '👨‍👩‍👧', '🌍', '🎈', '💍', '🏺', '✈️', '🦜']
-  const stats = [
-    { value: '50+', label: t('stat1Label') },
-    { value: '5+', label: t('stat2Label') },
-    { value: '20+', label: t('stat3Label') },
-    { value: '98%', label: t('stat4Label') },
-  ]
   const steps = [
     { step: '01', title: t('step1Title'), desc: t('step1Desc') },
     { step: '02', title: t('step2Title'), desc: t('step2Desc') },
@@ -96,31 +89,21 @@ export default async function ExperiencesPage({ params }: Props) {
           <p className="text-white/75 text-lg max-w-xl">
             {t('heroSubtitle')}
           </p>
-
-          {/* Quick type pills — jump to the matching card below */}
-          <div className="flex flex-wrap gap-2 mt-8">
-            {experiences.map((exp, i) => (
-              <a
-                key={exp.slug}
-                href={`#${anchorId(exp.slug)}`}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs font-medium hover:bg-white/25 transition-colors"
-              >
-                <span aria-hidden="true">{experienceTypeIcons[i]}</span> {exp.category}
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* ── STAT STRIP ───────────────────────────────────────────────────── */}
+      {/* ── QUICK TYPE PILLS — jump to the matching card below ─────────────── */}
       <section className="bg-brand py-8 border-t border-white/10">
         <Reveal className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            {stats.map(({ value, label }) => (
-              <div key={label} className="flex flex-col items-center gap-1">
-                <span className="text-gold text-3xl lg:text-4xl font-bold">{value}</span>
-                <span className="text-white/60 text-xs uppercase tracking-wider">{label}</span>
-              </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            {experiences.map((exp) => (
+              <a
+                key={exp.slug}
+                href={`#${anchorId(exp.slug)}`}
+                className="inline-flex items-center px-3 py-1.5 bg-white/15 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs font-medium hover:bg-white/25 transition-colors"
+              >
+                {exp.category}
+              </a>
             ))}
           </div>
         </Reveal>
