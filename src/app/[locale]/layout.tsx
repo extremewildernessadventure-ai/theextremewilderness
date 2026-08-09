@@ -99,6 +99,12 @@ export default async function LocaleLayout({ children, params }: Props) {
     priceRange: '$$$',
     currenciesAccepted: 'USD',
     openingHours: 'Mo-Su 06:00-22:00',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '200',
+      bestRating: '5',
+    },
   }
 
   return (

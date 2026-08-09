@@ -50,4 +50,12 @@ export const packageTags: Record<string, string[]> = {
   '5-day-kenya-safari': ['bigfive', 'migration', 'classic'],
   '9-day-honeymoon-safari-zanzibar': ['honeymoon', 'beach', 'bigfive', 'luxury'],
   '10-day-ultimate-great-migration-mara-river-crossing': ['migration', 'bigfive', 'photography', 'luxury'],
+  '4-day-rwanda-gorilla-trekking': ['gorilla', 'trekking', 'remote'],
+  '5-day-gombe-chimpanzee-trekking': ['trekking', 'remote'],
+  '12-day-seniors-anniversary-groups-safari': ['classic', 'family', 'bigfive'],
+  '7-day-photography-adventure-safari': ['photography', 'bigfive', 'classic'],
+  'tanzania-photographic-safari': ['photography', 'bigfive', 'classic'],
+  'authentic-exclusive-kenya': ['bigfive', 'luxury', 'classic'],
+  'classic-kenya-safari': ['bigfive', 'classic'],
+  'off-the-beaten-track-photography-safari': ['photography', 'remote', 'bigfive'],
 }
