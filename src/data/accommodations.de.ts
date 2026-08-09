@@ -361,7 +361,7 @@ export const accommodations: Accommodation[] = [
     name: 'La Palme Hotel',
     tier: 'reserve',
     location: 'Musanze, Ruanda',
-    description: 'Ein Stadthotel in Kigali, das eine komfortable, zentrale Basis vor der Weiterreise zu Ruandas Nationalparks bietet.',
+    description: 'Eine komfortable, zentrale Basis in Musanze vor dem Gorilla-Trekking im Vulkane-Nationalpark.',
     amenities: ['Kostenloses WLAN', 'Vollservice-Restaurant', 'Gartenanlage'],
     images: [{ src: '/images/lodges/la-palme-hotel.webp', alt: 'Street view of La Palme Hotel\'s building and signage in Musanze, Rwanda at dusk' }, { src: '/images/lodges/la-palme-hotel-entrance-facade.webp', alt: 'Brick facade and covered entrance of La Palme Hotel with its paved parking court' }, { src: '/images/lodges/la-palme-hotel-guest-room.webp', alt: 'Guest room at La Palme Hotel with an orange and gold bedspread and writing desk' }, { src: '/images/lodges/la-palme-hotel-guest-room-gold-curtains.webp', alt: 'Guest room at La Palme Hotel with sheer gold curtains and a wood-framed bed' }, { src: '/images/lodges/la-palme-hotel-garden-terrace.webp', alt: 'Garden terrace at La Palme Hotel with outdoor seating beneath green umbrellas' }],
     featuredIn: [{ label: '12 Tage Ruanda, Tansania & Sansibar', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }],

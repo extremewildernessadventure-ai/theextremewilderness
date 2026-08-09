@@ -361,7 +361,7 @@ export const accommodations: Accommodation[] = [
     name: 'La Palme Hotel',
     tier: 'reserve',
     location: '卢旺达穆桑泽',
-    description: '这是基加利一家城市酒店，提供舒适、位置中心的基地，方便前往卢旺达各国家公园。',
+    description: '位于穆桑泽的舒适中心基地，方便前往火山国家公园追踪大猩猩。',
     amenities: ['免费WiFi', '全套服务餐厅', '花园庭院'],
     images: [{ src: '/images/lodges/la-palme-hotel.webp', alt: 'Street view of La Palme Hotel\'s building and signage in Musanze, Rwanda at dusk' }, { src: '/images/lodges/la-palme-hotel-entrance-facade.webp', alt: 'Brick facade and covered entrance of La Palme Hotel with its paved parking court' }, { src: '/images/lodges/la-palme-hotel-guest-room.webp', alt: 'Guest room at La Palme Hotel with an orange and gold bedspread and writing desk' }, { src: '/images/lodges/la-palme-hotel-guest-room-gold-curtains.webp', alt: 'Guest room at La Palme Hotel with sheer gold curtains and a wood-framed bed' }, { src: '/images/lodges/la-palme-hotel-garden-terrace.webp', alt: 'Garden terrace at La Palme Hotel with outdoor seating beneath green umbrellas' }],
     featuredIn: [{ label: '12日卢旺达、坦桑尼亚与桑给巴尔', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }],

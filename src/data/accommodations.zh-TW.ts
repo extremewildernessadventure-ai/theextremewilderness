@@ -361,7 +361,7 @@ export const accommodations: Accommodation[] = [
     name: 'La Palme Hotel',
     tier: 'reserve',
     location: '盧安達穆桑澤',
-    description: '這是吉佳利一家城市飯店，提供舒適、位置中心的基地，方便前往盧安達各國家公園。',
+    description: '位於穆桑澤的舒適中心基地，方便前往火山國家公園追蹤大猩猩。',
     amenities: ['免費WiFi', '全套服務餐廳', '花園庭院'],
     images: [{ src: '/images/lodges/la-palme-hotel.webp', alt: 'Street view of La Palme Hotel\'s building and signage in Musanze, Rwanda at dusk' }, { src: '/images/lodges/la-palme-hotel-entrance-facade.webp', alt: 'Brick facade and covered entrance of La Palme Hotel with its paved parking court' }, { src: '/images/lodges/la-palme-hotel-guest-room.webp', alt: 'Guest room at La Palme Hotel with an orange and gold bedspread and writing desk' }, { src: '/images/lodges/la-palme-hotel-guest-room-gold-curtains.webp', alt: 'Guest room at La Palme Hotel with sheer gold curtains and a wood-framed bed' }, { src: '/images/lodges/la-palme-hotel-garden-terrace.webp', alt: 'Garden terrace at La Palme Hotel with outdoor seating beneath green umbrellas' }],
     featuredIn: [{ label: '12日盧安達、坦尚尼亞與尚吉巴', href: '/safaris/12-days-rwanda-tanzania-zanzibar' }],
