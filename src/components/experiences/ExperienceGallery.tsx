@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import type { ExperienceGalleryImage } from '@/data/experiencePages/types'
+import { useFocusTrap } from '@/hooks/useFocusTrap'
 
 interface Props {
   images: ExperienceGalleryImage[]
@@ -32,7 +33,6 @@ export default function ExperienceGallery({ images, labels, variant = 'featured'
   useEffect(() => {
     if (current === null) return
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') close()
       if (e.key === 'ArrowLeft') prev()
       if (e.key === 'ArrowRight') next()
     }
@@ -42,7 +42,9 @@ export default function ExperienceGallery({ images, labels, variant = 'featured'
       window.removeEventListener('keydown', handler)
       document.body.style.overflow = ''
     }
-  }, [current, close, prev, next])
+  }, [current, prev, next])
+
+  const lightboxRef = useFocusTrap<HTMLDivElement>(current !== null, close)
 
   return (
     <>
@@ -87,6 +89,8 @@ export default function ExperienceGallery({ images, labels, variant = 'featured'
       {/* ── Lightbox ── */}
       {current !== null && (
         <div
+          ref={lightboxRef}
+          tabIndex={-1}
           className="fixed inset-0 z-[200] flex items-center justify-center"
           role="dialog"
           aria-modal="true"

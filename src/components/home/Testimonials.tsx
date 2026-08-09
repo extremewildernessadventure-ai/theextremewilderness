@@ -27,7 +27,13 @@ function getInitials(name: string) {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function Testimonials() {
+interface Props {
+  /** Live Google rating, when available — falls back to the static "4.9 / 5" / "200+" figures otherwise. */
+  liveRating?: number
+  liveReviewCount?: number
+}
+
+export default function Testimonials({ liveRating, liveReviewCount }: Props) {
   const t = useTranslations('home')
   const tc = useTranslations('common')
   const [page, setPage]   = useState(0)
@@ -53,8 +59,8 @@ export default function Testimonials() {
   ]
 
   const stats = [
-    { value: '4.9 / 5', label: t('averageRating'),    Icon: Star,  iconClass: 'fill-gold text-gold' },
-    { value: '200+',    label: t('happyGuests'),       Icon: Users, iconClass: 'text-brand' },
+    { value: liveRating ? `${liveRating.toFixed(1)} / 5` : '4.9 / 5', label: t('averageRating'),    Icon: Star,  iconClass: 'fill-gold text-gold' },
+    { value: liveReviewCount ? `${liveReviewCount}+` : '200+',        label: t('happyGuests'),       Icon: Users, iconClass: 'text-brand' },
     { value: '40+',     label: t('countriesServed'),   Icon: Globe, iconClass: 'text-brand' },
     { value: '100%',    label: t('bigFiveSightings'),  Icon: Award, iconClass: 'text-brand' },
   ]

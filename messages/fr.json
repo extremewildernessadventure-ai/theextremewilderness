@@ -2701,6 +2701,8 @@
     "noPostsInCategory": "Aucun article dans cette catégorie pour l'instant.",
     "read": "Lire",
     "updated": "Mis à jour",
+    "byAuthor": "Par {name}",
+    "authorRole": "Guide principal, EWA Safari Outfitters",
     "basedInArusha": "Basé à Arusha, Tanzanie",
     "readyToExperience": "Prêt à le vivre en personne ?",
     "customItinerariesText": "Notre équipe d'experts crée des itinéraires sur mesure pour tous les budgets. Obtenez votre devis personnalisé dans les 24 heures.",

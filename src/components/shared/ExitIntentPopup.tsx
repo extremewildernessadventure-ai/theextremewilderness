@@ -6,6 +6,7 @@ import { X, Check } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useBooking } from '@/context/BookingContext'
 import { trackEvent, trackFormFillConversion } from '@/lib/analytics'
+import { useFocusTrap } from '@/hooks/useFocusTrap'
 
 const COOKIE_NAME = 'exit-intent-seen'
 const COOKIE_DAYS = 30
@@ -97,10 +98,14 @@ export default function ExitIntentPopup() {
     }
   }
 
+  const modalRef = useFocusTrap<HTMLDivElement>(visible, dismiss)
+
   if (!visible) return null
 
   return (
     <div
+      ref={modalRef}
+      tabIndex={-1}
       className="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/60"
       role="dialog"
       aria-modal="true"

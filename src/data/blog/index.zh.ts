@@ -15,7 +15,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '15分钟阅读',
     heroImage: '/images/gallery/Wildebeest-Migration.jpg',
     heroImageAlt: '大迁徙期间穿越塞伦盖蒂开阔平原的角马群',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['动物大迁徙', '角马迁徙', '马拉河渡河', '塞伦盖蒂迁徙', '坦桑尼亚游猎', '何时看大迁徙', '东非迁徙', '最佳迁徙游猎', '迁徙坦桑尼亚肯尼亚', '角马渡河时间', '大迁徙月份', '非洲野生动物奇观'],
   },
   {
@@ -30,7 +30,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分钟阅读',
     heroImage: '/images/gallery/lion-sleeping-tree-branch-serengeti.jpg',
     heroImageAlt: '坦桑尼亚游客乘游猎车观赏大象',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦桑尼亚游猎费用', '游猎要花多少钱', '坦桑尼亚游猎预算', '非洲游猎价格', '游猎费用拆解', '非洲游猎全包费用', '坦桑尼亚游猎每天', '非洲游猎多少钱', '坦桑尼亚游猎2026价格', '坦桑尼亚游猎性价比'],
   },
   {
@@ -45,7 +45,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '10分钟阅读',
     heroImage: '/images/gallery/wildebeest-herd-migration-serengeti-plains.jpg',
     heroImageAlt: '日落时金色的塞伦盖蒂平原与金合欢树',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['塞伦盖蒂最佳造访时间', '塞伦盖蒂季节', '何时去塞伦盖蒂', '塞伦盖蒂逐月', '坦桑尼亚旱季', '塞伦盖蒂雨季', '塞伦盖蒂绿色季节', '塞伦盖蒂最佳月份', '塞伦盖蒂高峰季', '坦桑尼亚游猎日历'],
   },
   {
@@ -60,7 +60,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13分钟阅读',
     heroImage: '/images/gallery/gorilla.jpg',
     heroImageAlt: '卢旺达雾气缭绕的维龙加山脉中的山地大猩猩',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['卢旺达大猩猩徒步', '卢旺达大猩猩许可证', '山地大猩猩徒步', '火山国家公园', '非洲大猩猩游猎', '卢旺达大猩猩许可证价格', '大猩猩徒步许可证费用', '预订卢旺达大猩猩徒步', '大猩猩徒步体验', '卢旺达大猩猩安全'],
   },
   {
@@ -75,7 +75,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '14分钟阅读',
     heroImage: '/images/gallery/kilimanjaro1.jpg',
     heroImageAlt: '日出时云海之上的乞力马扎罗山峰顶',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['如何攀登乞力马扎罗', '乞力马扎罗路线', '乞力马扎罗费用', '乞力马扎罗训练', '乞力马扎罗指南', '乞力马扎罗路线比较', '乞力马扎罗难度', '乞力马扎罗天气', '乞力马扎罗装备清单', '乞力马扎罗登顶之夜'],
   },
   {
@@ -90,7 +90,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分钟阅读',
     heroImage: '/images/gallery/serengeti-lions-under-acacia.jpg',
     heroImageAlt: '开阔草原上的狮群——终极的坦桑尼亚与肯尼亚游猎场景',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦桑尼亚vs肯尼亚游猎', '坦桑尼亚还是肯尼亚', '坦桑尼亚肯尼亚比较', '最佳东非游猎国家', '塞伦盖蒂还是马赛马拉', '坦桑尼亚肯尼亚野生动物', '塞伦盖蒂马赛马拉区别', '东非游猎选择', '肯尼亚vs坦桑尼亚费用', '坦桑尼亚肯尼亚动物'],
   },
   {
@@ -105,7 +105,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分钟阅读',
     heroImage: '/images/gallery/black-rhino-savanna-grassland.jpg',
     heroImageAlt: '坦桑尼亚黄金时刻整装待发的游猎车辆',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['游猎打包清单', '游猎带什么', '游猎穿什么', '游猎装备', '游猎着装指南', '游猎衣物清单', '游猎穿什么鞋', '游猎行李重量', '非洲打包', '游猎必需品清单'],
   },
   {
@@ -119,7 +119,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分钟阅读',
     heroImage: '/images/gallery/elephants.jpg',
     heroImageAlt: '坦桑尼亚水坑边的非洲象群',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['非洲五大兽', '坦桑尼亚五大兽', '哪里看五大兽', '狮子花豹大象水牛犀牛', '非洲野生动物指南', '五大兽坦桑尼亚公园', '坦桑尼亚哪里看犀牛', '五大兽野生动物', '坦桑尼亚狮子游猎', '五大兽非洲地点'],
   },
   {
@@ -134,7 +134,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13分钟阅读',
     heroImage: '/images/gallery/zanzibar.jpg',
     heroImageAlt: '桑给巴尔清澈碧绿的海水和白沙海滩',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['桑给巴尔旅行指南', '桑给巴尔海滩', '桑给巴尔石头城', '桑给巴尔游猎组合', '桑给巴尔最佳海滩', '桑给巴尔海岛指南', '桑给巴尔签证', '桑给巴尔天气最佳时间', '桑给巴尔预算', '从英国到桑给巴尔', '桑给巴尔浮潜深潜'],
   },
   {
@@ -149,7 +149,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分钟阅读',
     heroImage: '/images/gallery/safari-vehicle-sunset-guests.jpg',
     heroImageAlt: '坦桑尼亚浪漫的游猎日落与车辆剪影',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦桑尼亚游猎蜜月', '浪漫非洲游猎', '非洲蜜月游猎', '坦桑尼亚蜜月', '豪华坦桑尼亚蜜月', '非洲蜜月游猎费用', '最佳蜜月游猎', '坦桑尼亚蜜月套餐', '浪漫非洲游猎', '非洲蜜月假期'],
   },
   {
@@ -164,7 +164,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分钟阅读',
     heroImage: '/images/gallery/elephant-drinking-at-waterhole.jpg',
     heroImageAlt: '一家人在坦桑尼亚从游猎车上观赏大象',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['非洲家庭游猎', '带孩子游猎', '适合家庭的非洲游猎', '最佳坦桑尼亚家庭游猎', '孩子游猎', '家庭游猎打包清单', '孩子游猎最佳年龄', '非洲家庭游猎费用', '亲子友好游猎公园', '非洲学校假期游猎'],
   },
   {
@@ -179,7 +179,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分钟阅读',
     heroImage: '/images/gallery/lion-atop-boulder.jpg',
     heroImageAlt: '恩戈罗恩戈罗保护区岩石地带上的狮子',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['恩戈罗恩戈罗火山口指南', '造访恩戈罗恩戈罗', '恩戈罗恩戈罗游猎', '恩戈罗恩戈罗保护区', '世界最大火山破火山口', '恩戈罗恩戈罗一日游', '恩戈罗恩戈罗过夜', '恩戈罗恩戈罗犀牛', '恩戈罗恩戈罗高地', '恩戈罗恩戈罗旅馆'],
   },
   {
@@ -194,7 +194,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '10分钟阅读',
     heroImage: '/images/gallery/serengeti-lion-pride.jpg',
     heroImageAlt: '天空壮丽的开阔塞伦盖蒂平原',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['塞伦盖蒂vs马赛马拉', '马赛马拉vs塞伦盖蒂', '塞伦盖蒂和马赛马拉哪个更好', '坦桑尼亚还是肯尼亚游猎公园', '塞伦盖蒂大型猫科', '马赛马拉五大兽', '马拉河vs塞伦盖蒂', '肯尼亚迁徙vs坦桑尼亚', '非洲最佳迁徙公园'],
   },
   {
@@ -209,7 +209,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分钟阅读',
     heroImage: '/images/gallery/lion-pride-roadside-rest.jpg',
     heroImageAlt: '穿越坦桑尼亚荒野红土路上的游猎车辆',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['7天坦桑尼亚游猎行程', '坦桑尼亚行程', '坦桑尼亚一周', '坦桑尼亚北方环线', '坦桑尼亚游猎规划', '坦桑尼亚7天费用', '东非一周', '7天游猎预算', '坦桑尼亚一周游猎', '坦桑尼亚首次游猎'],
   },
   {
@@ -224,7 +224,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分钟阅读',
     heroImage: '/images/gallery/bush-airstrip-landscape.jpg',
     heroImageAlt: '经济型游猎中日出时分的坦桑尼亚游猎车辆',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['经济型坦桑尼亚游猎', '便宜坦桑尼亚游猎', '实惠非洲游猎', '坦桑尼亚游猎省钱贴士', '低成本非洲游猎', '最便宜非洲游猎', '1000美元以下坦桑尼亚游猎', '低预算坦桑尼亚', '坦桑尼亚实惠旅行', '非洲经济游猎'],
   },
   {
@@ -239,7 +239,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分钟阅读',
     heroImage: '/images/gallery/chimpanzees-resting-mossy-log-gombe.jpg',
     heroImageAlt: '坦桑尼亚贡贝溪国家公园森林中的黑猩猩',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦桑尼亚黑猩猩徒步', '贡贝溪黑猩猩', '马哈勒山黑猩猩', '非洲黑猩猩徒步', '珍古道尔坦桑尼亚', '贡贝溪坦桑尼亚', '马哈勒山坦桑尼亚', '坦桑尼亚黑猩猩', '非洲黑猩猩追踪', '珍古道尔贡贝'],
   },
   {
@@ -254,7 +254,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分钟阅读',
     heroImage: '/images/gallery/walking-safari-open-woodland.jpg',
     heroImageAlt: '黄金时刻塞伦盖蒂的豪华帐篷营地',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['豪华坦桑尼亚游猎', '坦桑尼亚豪华营地', '最佳豪华非洲游猎', '坦桑尼亚高端游猎', '坦桑尼亚私人游猎', '坦桑尼亚豪华旅馆', '坦桑尼亚五星游猎', '坦桑尼亚私人保护区', '坦桑尼亚定制游猎', '顶级豪华坦桑尼亚'],
   },
   {
@@ -269,7 +269,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13分钟阅读',
     heroImage: '/images/gallery/elephant-grazing-open-plains.jpg',
     heroImageAlt: '坦桑尼亚游猎巡游中近距离拍摄的狮子',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['游猎摄影贴士', '非洲野生动物摄影', '游猎相机设置', '游猎最佳相机', '野生动物摄影指南', '非洲野生动物相机', '游猎相机装备', '野生动物镜头推荐', '黄金时刻游猎', '非洲摄影之旅'],
   },
   {
@@ -284,7 +284,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分钟阅读',
     heroImage: '/images/gallery/ruaha-lions-affectionate.jpg',
     heroImageAlt: '坦桑尼亚鲁阿哈国家公园金色光线中的两只狮子',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['鲁阿哈国家公园', '鲁阿哈游猎指南', '坦桑尼亚南方环线', '坦桑尼亚隐秘公园', '最佳坦桑尼亚游猎公园', '鲁阿哈狮子坦桑尼亚', '鲁阿哈大象', '鲁阿哈游猎费用', '坦桑尼亚南部公园', '鲁阿哈旱季'],
   },
   {
@@ -299,7 +299,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分钟阅读',
     heroImage: '/images/gallery/masai-mara-lion-pride-sunset.jpg',
     heroImageAlt: '开阔塞伦盖蒂平原金色日落中的狮子',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦桑尼亚vs南非游猎', '坦桑尼亚还是南非', '塞伦盖蒂vs克鲁格', '非洲游猎比较', '最佳非洲游猎国家', '克鲁格vs塞伦盖蒂', '南非坦桑尼亚价格', '五大兽非洲选择', '南非坦桑尼亚比较', '非洲首次游猎最佳选择'],
   },
   {
@@ -313,7 +313,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '7分钟阅读',
     heroImage: '/images/gallery/mountain-biker-arusha-national-park.jpg',
     heroImageAlt: '山地骑行者在阿鲁沙国家公园小径上，背景是梅鲁山',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['阿鲁沙山地骑行', '阿鲁沙国家公园骑行', '坦桑尼亚冒险游猎', '坦桑尼亚骑行游猎', '阿鲁沙活动', '阿鲁沙活动', '阿鲁沙冒险', '坦桑尼亚冒险旅游', '阿鲁沙骑行', '阿鲁沙一日游'],
   },
   {
@@ -327,7 +327,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '8分钟阅读',
     heroImage: '/images/gallery/stone-town.jpg',
     heroImageAlt: '桑给巴尔石头城狭窄小巷中的雕花木门',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['桑给巴尔体验', '桑给巴尔石头城', '桑给巴尔香料农场', '桑给巴尔监狱岛', '桑给巴尔玩什么', '桑给巴尔文化', '桑给巴尔历史', '桑给巴尔独桅帆船', '桑给巴尔日落巡游', '桑给巴尔美食之旅'],
   },
   {
@@ -341,7 +341,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '9分钟阅读',
     heroImage: '/images/gallery/maasai-warriors-jumping-dance-boma.jpg',
     heroImageAlt: '坦桑尼亚身着传统红色束卡、佩戴珠饰的马赛战士',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦桑尼亚马赛人', '马赛文化', '马赛村落探访', '马赛战士', '坦桑尼亚文化', '马赛文化探访', '马赛博马', '传统马赛非洲', '马赛跳跃仪式', '肯尼亚坦桑尼亚马赛'],
   },
 ]

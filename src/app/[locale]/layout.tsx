@@ -4,6 +4,7 @@ import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { SITE_URL } from '@/lib/site'
+import { getGooglePlaceRating } from '@/lib/googlePlaces'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import BottomNav from '@/components/layout/BottomNav'
@@ -70,6 +71,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages()
   const clientMessages = pickMessages(messages, CLIENT_NAMESPACES)
   const tc = await getTranslations({ locale, namespace: 'common' })
+  const { rating, reviewCount } = await getGooglePlaceRating()
 
   const orgSchema = {
     '@context': 'https://schema.org',
@@ -101,8 +103,8 @@ export default async function LocaleLayout({ children, params }: Props) {
     openingHours: 'Mo-Su 06:00-22:00',
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '200',
+      ratingValue: String(rating),
+      reviewCount: String(reviewCount),
       bestRating: '5',
     },
   }

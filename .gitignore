@@ -57,5 +57,8 @@ next-env.d.ts
 # generated per-locale data assets (regenerated from src/data on every build)
 /public/locale-data/
 
+# generated content-freshness dates for the sitemap (regenerated from git log)
+/src/data/generated/
+
 # ad-hoc lighthouse audit output (scripts/lighthouse-audit.mjs)
 /lighthouse-reports/

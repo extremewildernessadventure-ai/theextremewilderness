@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { buildAlternates, localeUrl } from '@/lib/site'
+import { getGooglePlaceRating } from '@/lib/googlePlaces'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import HeroSection from '@/components/home/HeroSection'
 import TrustBar from '@/components/home/TrustBar'
@@ -45,6 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
+  const { rating: liveRating, reviewCount: liveReviewCount } = await getGooglePlaceRating()
 
   const websiteSchema = {
     '@context': 'https://schema.org',
@@ -76,7 +78,7 @@ export default async function HomePage({ params }: Props) {
       <DestinationCards />
       <FeaturedPackages />
       <WhyChooseUs />
-      <Testimonials />
+      <Testimonials liveRating={liveRating} liveReviewCount={liveReviewCount} />
       <PlanBuilderSection />
       <TravelByMonth />
       <BlogPreview />

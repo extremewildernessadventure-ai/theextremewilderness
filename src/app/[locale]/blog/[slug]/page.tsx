@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
-import { Clock, Calendar, Tag, MapPin, ArrowRight } from 'lucide-react'
+import { Clock, Calendar, Tag, MapPin, ArrowRight, User } from 'lucide-react'
 import { blogPosts } from '@/data/blog/index'
 import { getBlogPosts, getBlogPostMeta } from '@/data/blog/index.i18n'
 import { getLocalizedArticleContent } from '@/data/blog/articles.i18n'
@@ -180,7 +180,7 @@ export default async function BlogArticlePage({ params }: Props) {
     headline: post.title,
     description: post.metaDescription,
     image: buildImageObject(post.heroImage, post.heroImageAlt),
-    author: { '@type': 'Organization', name: 'EWA Safari Outfitters' },
+    author: { '@type': 'Person', name: post.author, worksFor: { '@type': 'Organization', name: 'EWA Safari Outfitters' } },
     publisher: { '@type': 'Organization', name: 'EWA Safari Outfitters', logo: { '@type': 'ImageObject', url: `${SITE_URL}/EWA%20logo.webp` } },
     datePublished: new Date(post.date).toISOString(),
     dateModified: new Date(post.lastUpdated ?? post.date).toISOString(),
@@ -212,6 +212,10 @@ export default async function BlogArticlePage({ params }: Props) {
             <span className="flex items-center gap-1 text-white/60 text-sm"><Clock size={13} />{post.readTime}</span>
           </div>
           <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white leading-tight max-w-4xl">{post.title}</h1>
+          <p className="flex items-center gap-1.5 text-white/70 text-sm mt-4">
+            <User size={13} />
+            {t('byAuthor', { name: post.author })} <span className="text-white/40">·</span> {t('authorRole')}
+          </p>
         </div>
       </section>
 

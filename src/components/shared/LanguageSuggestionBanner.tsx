@@ -40,12 +40,21 @@ export default function LanguageSuggestionBanner() {
     return () => clearTimeout(timer)
   }, [locale])
 
-  if (!suggested) return null
-
   const dismiss = () => {
     setVisible(false)
     setCookie(COOKIE_NAME, '1', 365)
   }
+
+  // Not a full focus trap — this is a non-blocking corner toast (no backdrop,
+  // rest of the page stays interactive), so only Escape-to-dismiss applies.
+  useEffect(() => {
+    if (!visible) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') dismiss() }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [visible])
+
+  if (!suggested) return null
 
   const switchLocale = () => {
     setCookie(COOKIE_NAME, '1', 365)

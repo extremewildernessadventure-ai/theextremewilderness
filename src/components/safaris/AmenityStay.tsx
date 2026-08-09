@@ -23,12 +23,7 @@ export default function AmenityStay({ label, stay }: { label: string; stay: Tier
   const inner = (
     <>
       <div className="relative aspect-video w-full bg-light-green">
-        {stay.image.startsWith('/') ? (
-          <Image src={stay.image} alt={stay.name} fill loading="lazy" className="object-cover" sizes="(max-width: 768px) 50vw, 256px" />
-        ) : (
-          // eslint-disable-next-line @next/next/no-img-element -- a small number of properties' photos couldn't be fetched during rehosting (dead/unreachable source); kept as a plain <img> fallback until a working photo is sourced
-          <img src={stay.image} alt={stay.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
-        )}
+        <Image src={stay.image} alt={stay.name} fill loading="lazy" className="object-cover" sizes="(max-width: 768px) 50vw, 256px" />
       </div>
       <div className="p-2.5">
         <p className="text-[10px] font-bold uppercase tracking-wide text-gold-label">{label}</p>

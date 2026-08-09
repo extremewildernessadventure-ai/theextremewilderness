@@ -10,6 +10,7 @@
  * always regenerated from the current *.ts/*.json source data, never
  * hand-edited.
  */
+import { execSync } from 'node:child_process'
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 
@@ -122,5 +123,42 @@ const messagesByLocale = Object.fromEntries(
   LOCALES.map((locale) => [locale, JSON.parse(readFileSync(join(process.cwd(), 'messages', `${locale}.json`), 'utf-8'))])
 ) as Record<Locale, unknown>
 writeByLocale('messages', messagesByLocale)
+
+// Sitemap lastmod accuracy — per-content-type dates derived from each data
+// file's real last-commit date, instead of one hand-bumped global constant.
+// This is build-time only (the deployed Worker has no git/filesystem access
+// at request time), so the result is written as a plain object sitemap.ts
+// imports like any other module — no runtime fetch involved.
+function gitLastModified(relPath: string): string | null {
+  try {
+    const out = execSync(`git log -1 --format=%aI -- "${relPath}"`, { cwd: process.cwd(), encoding: 'utf-8' }).trim()
+    return out || null
+  } catch {
+    return null
+  }
+}
+
+const CONTENT_DATE_SOURCES = {
+  packages: 'src/data/packages.ts',
+  destinations: 'src/data/destinations.ts',
+  experiencePages: 'src/data/experiencePages/content.en.ts',
+  trekking: 'src/app/[locale]/trekking/[route]/page.tsx',
+} as const
+
+// Falls back to a fixed date (not "now") if git history is unavailable
+// (e.g. a shallow checkout) — a stale-but-stable date beats a fresh
+// timestamp on every single build, which would make lastmod meaningless.
+const FALLBACK_DATE = '2025-07-16T00:00:00.000Z'
+
+const contentDates = Object.fromEntries(
+  Object.entries(CONTENT_DATE_SOURCES).map(([key, path]) => [key, gitLastModified(path) ?? FALLBACK_DATE])
+)
+
+mkdirSync(join(process.cwd(), 'src', 'data', 'generated'), { recursive: true })
+writeFileSync(
+  join(process.cwd(), 'src', 'data', 'generated', 'contentDates.json'),
+  JSON.stringify(contentDates, null, 2)
+)
+console.log('  content-dates:', contentDates)
 
 console.log('Locale data generation complete.')

@@ -15,7 +15,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '15 мин чтения',
     heroImage: '/images/gallery/Wildebeest-Migration.jpg',
     heroImageAlt: 'Стадо гну пересекает открытые равнины Серенгети во время Великой миграции',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Великая миграция', 'миграция гну', 'переправа через реку Мара', 'миграция Серенгети', 'сафари Танзания', 'когда увидеть Великую миграцию', 'миграция Восточная Африка', 'лучшее сафари на миграцию'],
   },
   {
@@ -30,7 +30,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 мин чтения',
     heroImage: '/images/gallery/lion-sleeping-tree-branch-serengeti.jpg',
     heroImageAlt: 'Сафари-автомобиль с туристами, наблюдающими за слонами в Танзании',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['стоимость сафари в Танзании', 'сколько стоит сафари', 'бюджет сафари Танзания', 'цена сафари в Африке', 'разбор стоимости сафари', 'сафари всё включено цена', 'сафари Танзания 2026 цены'],
   },
   {
@@ -45,7 +45,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '10 мин чтения',
     heroImage: '/images/gallery/wildebeest-herd-migration-serengeti-plains.jpg',
     heroImageAlt: 'Золотые равнины Серенгети на закате с акациями',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['лучшее время для Серенгети', 'сезоны Серенгети', 'когда ехать в Серенгети', 'Серенгети по месяцам', 'сухой сезон Танзания', 'зелёный сезон Серенгети', 'календарь сафари Танзания'],
   },
   {
@@ -60,7 +60,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13 мин чтения',
     heroImage: '/images/gallery/gorilla.jpg',
     heroImageAlt: 'Горная горилла в туманных горах Вирунга в Руанде',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['треккинг к гориллам Руанда', 'пермит к гориллам Руанда', 'треккинг к горным гориллам', 'национальный парк Вулканов', 'сафари к гориллам Африка', 'цена пермита к гориллам', 'опыт треккинга к гориллам'],
   },
   {
@@ -75,7 +75,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '14 мин чтения',
     heroImage: '/images/gallery/kilimanjaro1.jpg',
     heroImageAlt: 'Вершина Килиманджаро над облаками на рассвете',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['как подняться на Килиманджаро', 'маршруты Килиманджаро', 'стоимость Килиманджаро', 'подготовка к Килиманджаро', 'гид по Килиманджаро', 'сравнение маршрутов Килиманджаро', 'сложность Килиманджаро', 'штурмовая ночь Килиманджаро'],
   },
   {
@@ -90,7 +90,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 мин чтения',
     heroImage: '/images/gallery/serengeti-lions-under-acacia.jpg',
     heroImageAlt: 'Львиный прайд в открытой саванне — квинтэссенция сафари в Танзании и Кении',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Танзания или Кения сафари', 'сравнение Танзании и Кении', 'лучшая страна для сафари', 'Серенгети или Масаи-Мара', 'животные Танзании и Кении', 'выбор сафари Восточная Африка'],
   },
   {
@@ -105,7 +105,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 мин чтения',
     heroImage: '/images/gallery/black-rhino-savanna-grassland.jpg',
     heroImageAlt: 'Сафари-автомобиль, собранный для выезда, в золотой час в Танзании',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['список вещей для сафари', 'что взять на сафари', 'что надеть на сафари', 'снаряжение для сафари', 'одежда для сафари', 'сборы в Африку', 'самое необходимое для сафари'],
   },
   {
@@ -119,7 +119,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 мин чтения',
     heroImage: '/images/gallery/elephants.jpg',
     heroImageAlt: 'Стадо африканских слонов у водопоя в Танзании',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Большая пятёрка Африка', 'Большая пятёрка Танзания', 'где увидеть Большую пятёрку', 'лев леопард слон буйвол носорог', 'гид по дикой природе Африки', 'где увидеть носорога в Танзании'],
   },
   {
@@ -134,7 +134,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13 мин чтения',
     heroImage: '/images/gallery/zanzibar.jpg',
     heroImageAlt: 'Кристально чистая бирюзовая вода и белоснежный пляж на Занзибаре',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['гид по Занзибару', 'пляжи Занзибара', 'Стоун-Таун Занзибар', 'Занзибар и сафари', 'лучшие пляжи Занзибара', 'Занзибар когда ехать', 'снорклинг дайвинг Занзибар'],
   },
   {
@@ -149,7 +149,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 мин чтения',
     heroImage: '/images/gallery/safari-vehicle-sunset-guests.jpg',
     heroImageAlt: 'Романтичный сафари-закат с силуэтом автомобиля в Танзании',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['медовый месяц сафари Танзания', 'романтическое сафари Африка', 'медовый месяц в Африке', 'медовый месяц Танзания', 'люкс медовый месяц Танзания', 'лучшее сафари для медового месяца'],
   },
   {
@@ -164,7 +164,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 мин чтения',
     heroImage: '/images/gallery/elephant-drinking-at-waterhole.jpg',
     heroImageAlt: 'Семья наблюдает за слонами из сафари-автомобиля в Танзании',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['семейное сафари Африка', 'сафари с детьми', 'сафари для семей', 'лучшее семейное сафари Танзания', 'дети на сафари', 'подходящий возраст для сафари', 'семейное сафари цена'],
   },
   {
@@ -179,7 +179,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 мин чтения',
     heroImage: '/images/gallery/lion-atop-boulder.jpg',
     heroImageAlt: 'Лев на каменистой местности в заповеднике Нгоронгоро',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['гид по кратеру Нгоронгоро', 'посещение Нгоронгоро', 'сафари Нгоронгоро', 'заповедник Нгоронгоро', 'крупнейшая вулканическая кальдера', 'носорог Нгоронгоро', 'лодж Нгоронгоро'],
   },
   {
@@ -194,7 +194,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '10 мин чтения',
     heroImage: '/images/gallery/serengeti-lion-pride.jpg',
     heroImageAlt: 'Широкие открытые равнины Серенгети под драматичным небом',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Серенгети или Масаи-Мара', 'Масаи-Мара против Серенгети', 'что лучше Серенгети или Масаи-Мара', 'большие кошки Серенгети', 'Большая пятёрка Масаи-Мара', 'лучший парк миграции Африки'],
   },
   {
@@ -209,7 +209,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 мин чтения',
     heroImage: '/images/gallery/lion-pride-roadside-rest.jpg',
     heroImageAlt: 'Сафари-автомобиль на красной грунтовой дороге в дикой Танзании',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['7-дневная программа сафари Танзания', 'маршрут по Танзании', 'неделя в Танзании', 'Северный круг Танзания', 'планирование сафари в Танзании', 'первое сафари в Танзании'],
   },
   {
@@ -224,7 +224,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 мин чтения',
     heroImage: '/images/gallery/bush-airstrip-landscape.jpg',
     heroImageAlt: 'Сафари-автомобиль на рассвете в Танзании в бюджетном сафари',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['бюджетное сафари Танзания', 'дешёвое сафари Танзания', 'доступное сафари Африка', 'советы по бюджету сафари', 'недорогое сафари в Африке', 'сафари в Африке недорого'],
   },
   {
@@ -239,7 +239,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 мин чтения',
     heroImage: '/images/gallery/chimpanzees-resting-mossy-log-gombe.jpg',
     heroImageAlt: 'Шимпанзе в лесу национального парка Гомбе-Стрим в Танзании',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['треккинг к шимпанзе Танзания', 'шимпанзе Гомбе-Стрим', 'шимпанзе гор Махале', 'треккинг к шимпанзе Африка', 'Джейн Гудолл Танзания', 'шимпанзе Танзании'],
   },
   {
@@ -254,7 +254,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 мин чтения',
     heroImage: '/images/gallery/walking-safari-open-woodland.jpg',
     heroImageAlt: 'Люксовый палаточный лагерь в Серенгети в золотой час',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['люкс-сафари Танзания', 'люксовые лагеря Танзании', 'лучшее люкс-сафари Африки', 'частное сафари Танзания', 'пятизвёздочное сафари Танзания', 'индивидуальное люкс-сафари'],
   },
   {
@@ -269,7 +269,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13 мин чтения',
     heroImage: '/images/gallery/elephant-grazing-open-plains.jpg',
     heroImageAlt: 'Лев, снятый с близкого расстояния во время сафари-выезда в Танзании',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['советы по сафари-фотографии', 'фотография дикой природы Африка', 'настройки камеры для сафари', 'лучшая камера для сафари', 'фототехника для сафари', 'золотой час сафари'],
   },
   {
@@ -284,7 +284,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 мин чтения',
     heroImage: '/images/gallery/ruaha-lions-affectionate.jpg',
     heroImageAlt: 'Два льва в золотом свете в национальном парке Руаха в Танзании',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['национальный парк Руаха', 'гид по сафари в Руахе', 'южный круг Танзании', 'скрытые парки Танзании', 'лучшие сафари-парки Танзании', 'львы Руахи'],
   },
   {
@@ -299,7 +299,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 мин чтения',
     heroImage: '/images/gallery/masai-mara-lion-pride-sunset.jpg',
     heroImageAlt: 'Львы на золотом закате на открытых равнинах Серенгети',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Танзания или ЮАР сафари', 'Серенгети или Крюгер', 'сравнение сафари в Африке', 'лучшая страна для сафари в Африке', 'первое сафари в Африке'],
   },
   {
@@ -313,7 +313,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '7 мин чтения',
     heroImage: '/images/gallery/mountain-biker-arusha-national-park.jpg',
     heroImageAlt: 'Велосипедист на тропе в национальном парке Аруша на фоне горы Меру',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['горный велосипед Аруша', 'велосипед в парке Аруша', 'приключенческое сафари Танзания', 'велосафари Танзания', 'чем заняться в Аруше', 'приключенческий туризм Танзания'],
   },
   {
@@ -327,7 +327,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '8 мин чтения',
     heroImage: '/images/gallery/stone-town.jpg',
     heroImageAlt: 'Узкий переулок Стоун-Тауна на Занзибаре с резными деревянными дверями',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Занзибар впечатления', 'Стоун-Таун Занзибар', 'ферма специй Занзибар', 'остров Призон Занзибар', 'чем заняться на Занзибаре', 'культура Занзибара', 'закатный круиз на доу'],
   },
   {
@@ -341,7 +341,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '9 мин чтения',
     heroImage: '/images/gallery/maasai-warriors-jumping-dance-boma.jpg',
     heroImageAlt: 'Воин масаи в традиционной красной шуке с бисерными украшениями в Танзании',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['племя масаи Танзания', 'культура масаев', 'визит в бома масаев', 'воины масаи', 'культура Танзании', 'церемония прыжков масаев'],
   },
 ]

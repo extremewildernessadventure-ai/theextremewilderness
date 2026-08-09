@@ -15,7 +15,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '15分鐘閱讀',
     heroImage: '/images/gallery/Wildebeest-Migration.jpg',
     heroImageAlt: '大遷徙期間穿越塞倫蓋提開闊平原的牛羚群',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['動物大遷徙', '牛羚遷徙', '馬拉河渡河', '塞倫蓋提遷徙', '坦尚尼亞獵遊', '何時看大遷徙', '東非遷徙', '最佳遷徙獵遊', '遷徙坦尚尼亞肯亞', '牛羚渡河時間', '大遷徙月份', '非洲野生動物奇觀'],
   },
   {
@@ -30,7 +30,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分鐘閱讀',
     heroImage: '/images/gallery/lion-sleeping-tree-branch-serengeti.jpg',
     heroImageAlt: '坦尚尼亞遊客搭乘獵遊車觀賞大象',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦尚尼亞獵遊費用', '獵遊要花多少錢', '坦尚尼亞獵遊預算', '非洲獵遊價格', '獵遊費用拆解', '非洲獵遊全包費用', '坦尚尼亞獵遊每天', '非洲獵遊多少錢', '坦尚尼亞獵遊2026價格', '坦尚尼亞獵遊性價比'],
   },
   {
@@ -45,7 +45,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '10分鐘閱讀',
     heroImage: '/images/gallery/wildebeest-herd-migration-serengeti-plains.jpg',
     heroImageAlt: '日落時金色的塞倫蓋提平原與金合歡樹',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['塞倫蓋提最佳造訪時間', '塞倫蓋提季節', '何時去塞倫蓋提', '塞倫蓋提逐月', '坦尚尼亞旱季', '塞倫蓋提雨季', '塞倫蓋提綠色季節', '塞倫蓋提最佳月份', '塞倫蓋提高峰季', '坦尚尼亞獵遊日曆'],
   },
   {
@@ -60,7 +60,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13分鐘閱讀',
     heroImage: '/images/gallery/gorilla.jpg',
     heroImageAlt: '盧安達霧氣繚繞的維龍加山脈中的山地大猩猩',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['盧安達大猩猩健行', '盧安達大猩猩許可證', '山地大猩猩健行', '火山國家公園', '非洲大猩猩獵遊', '盧安達大猩猩許可證價格', '大猩猩健行許可證費用', '預訂盧安達大猩猩健行', '大猩猩健行體驗', '盧安達大猩猩安全'],
   },
   {
@@ -75,7 +75,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '14分鐘閱讀',
     heroImage: '/images/gallery/kilimanjaro1.jpg',
     heroImageAlt: '日出時雲海之上的吉力馬札羅山峰頂',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['如何攀登吉力馬札羅', '吉力馬札羅路線', '吉力馬札羅費用', '吉力馬札羅訓練', '吉力馬札羅指南', '吉力馬札羅路線比較', '吉力馬札羅難度', '吉力馬札羅天氣', '吉力馬札羅裝備清單', '吉力馬札羅登頂之夜'],
   },
   {
@@ -90,7 +90,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分鐘閱讀',
     heroImage: '/images/gallery/serengeti-lions-under-acacia.jpg',
     heroImageAlt: '開闊草原上的獅群——終極的坦尚尼亞與肯亞獵遊場景',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦尚尼亞vs肯亞獵遊', '坦尚尼亞還是肯亞', '坦尚尼亞肯亞比較', '最佳東非獵遊國家', '塞倫蓋提還是馬賽馬拉', '坦尚尼亞肯亞野生動物', '塞倫蓋提馬賽馬拉區別', '東非獵遊選擇', '肯亞vs坦尚尼亞費用', '坦尚尼亞肯亞動物'],
   },
   {
@@ -105,7 +105,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分鐘閱讀',
     heroImage: '/images/gallery/black-rhino-savanna-grassland.jpg',
     heroImageAlt: '坦尚尼亞黃金時刻整裝待發的獵遊車輛',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['獵遊打包清單', '獵遊帶什麼', '獵遊穿什麼', '獵遊裝備', '獵遊著裝指南', '獵遊衣物清單', '獵遊穿什麼鞋', '獵遊行李重量', '非洲打包', '獵遊必需品清單'],
   },
   {
@@ -119,7 +119,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分鐘閱讀',
     heroImage: '/images/gallery/elephants.jpg',
     heroImageAlt: '坦尚尼亞水坑邊的非洲象群',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['非洲五大獸', '坦尚尼亞五大獸', '哪裡看五大獸', '獅子花豹大象水牛犀牛', '非洲野生動物指南', '五大獸坦尚尼亞公園', '坦尚尼亞哪裡看犀牛', '五大獸野生動物', '坦尚尼亞獅子獵遊', '五大獸非洲地點'],
   },
   {
@@ -134,7 +134,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13分鐘閱讀',
     heroImage: '/images/gallery/zanzibar.jpg',
     heroImageAlt: '尚吉巴清澈碧綠的海水和白沙海灘',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['尚吉巴旅行指南', '尚吉巴海灘', '尚吉巴石頭城', '尚吉巴獵遊組合', '尚吉巴最佳海灘', '尚吉巴海島指南', '尚吉巴簽證', '尚吉巴天氣最佳時間', '尚吉巴預算', '從英國到尚吉巴', '尚吉巴浮潛深潛'],
   },
   {
@@ -149,7 +149,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分鐘閱讀',
     heroImage: '/images/gallery/safari-vehicle-sunset-guests.jpg',
     heroImageAlt: '坦尚尼亞浪漫的獵遊日落與車輛剪影',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦尚尼亞獵遊蜜月', '浪漫非洲獵遊', '非洲蜜月獵遊', '坦尚尼亞蜜月', '豪華坦尚尼亞蜜月', '非洲蜜月獵遊費用', '最佳蜜月獵遊', '坦尚尼亞蜜月套餐', '浪漫非洲獵遊', '非洲蜜月假期'],
   },
   {
@@ -164,7 +164,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分鐘閱讀',
     heroImage: '/images/gallery/elephant-drinking-at-waterhole.jpg',
     heroImageAlt: '一家人在坦尚尼亞從獵遊車上觀賞大象',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['非洲家庭獵遊', '帶孩子獵遊', '適合家庭的非洲獵遊', '最佳坦尚尼亞家庭獵遊', '孩子獵遊', '家庭獵遊打包清單', '孩子獵遊最佳年齡', '非洲家庭獵遊費用', '親子友善獵遊公園', '非洲學校假期獵遊'],
   },
   {
@@ -179,7 +179,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分鐘閱讀',
     heroImage: '/images/gallery/lion-atop-boulder.jpg',
     heroImageAlt: '恩戈羅恩戈羅保護區岩石地帶上的獅子',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['恩戈羅恩戈羅火山口指南', '造訪恩戈羅恩戈羅', '恩戈羅恩戈羅獵遊', '恩戈羅恩戈羅保護區', '世界最大火山破火山口', '恩戈羅恩戈羅一日遊', '恩戈羅恩戈羅過夜', '恩戈羅恩戈羅犀牛', '恩戈羅恩戈羅高地', '恩戈羅恩戈羅旅館'],
   },
   {
@@ -194,7 +194,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '10分鐘閱讀',
     heroImage: '/images/gallery/serengeti-lion-pride.jpg',
     heroImageAlt: '天空壯麗的開闊塞倫蓋提平原',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['塞倫蓋提vs馬賽馬拉', '馬賽馬拉vs塞倫蓋提', '塞倫蓋提和馬賽馬拉哪個更好', '坦尚尼亞還是肯亞獵遊公園', '塞倫蓋提大型貓科', '馬賽馬拉五大獸', '馬拉河vs塞倫蓋提', '肯亞遷徙vs坦尚尼亞', '非洲最佳遷徙公園'],
   },
   {
@@ -209,7 +209,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分鐘閱讀',
     heroImage: '/images/gallery/lion-pride-roadside-rest.jpg',
     heroImageAlt: '穿越坦尚尼亞荒野紅土路上的獵遊車輛',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['7天坦尚尼亞獵遊行程', '坦尚尼亞行程', '坦尚尼亞一週', '坦尚尼亞北方環線', '坦尚尼亞獵遊規劃', '坦尚尼亞7天費用', '東非一週', '7天獵遊預算', '坦尚尼亞一週獵遊', '坦尚尼亞首次獵遊'],
   },
   {
@@ -224,7 +224,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分鐘閱讀',
     heroImage: '/images/gallery/bush-airstrip-landscape.jpg',
     heroImageAlt: '經濟型獵遊中日出時分的坦尚尼亞獵遊車輛',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['經濟型坦尚尼亞獵遊', '便宜坦尚尼亞獵遊', '實惠非洲獵遊', '坦尚尼亞獵遊省錢貼士', '低成本非洲獵遊', '最便宜非洲獵遊', '1000美元以下坦尚尼亞獵遊', '低預算坦尚尼亞', '坦尚尼亞實惠旅行', '非洲經濟獵遊'],
   },
   {
@@ -239,7 +239,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分鐘閱讀',
     heroImage: '/images/gallery/chimpanzees-resting-mossy-log-gombe.jpg',
     heroImageAlt: '坦尚尼亞貢貝溪國家公園森林中的黑猩猩',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦尚尼亞黑猩猩健行', '貢貝溪黑猩猩', '馬哈勒山黑猩猩', '非洲黑猩猩健行', '珍古德爾坦尚尼亞', '貢貝溪坦尚尼亞', '馬哈勒山坦尚尼亞', '坦尚尼亞黑猩猩', '非洲黑猩猩追蹤', '珍古德爾貢貝'],
   },
   {
@@ -254,7 +254,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11分鐘閱讀',
     heroImage: '/images/gallery/walking-safari-open-woodland.jpg',
     heroImageAlt: '黃金時刻塞倫蓋提的豪華帳篷營地',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['豪華坦尚尼亞獵遊', '坦尚尼亞豪華營地', '最佳豪華非洲獵遊', '坦尚尼亞高端獵遊', '坦尚尼亞私人獵遊', '坦尚尼亞豪華旅館', '坦尚尼亞五星獵遊', '坦尚尼亞私人保護區', '坦尚尼亞客製獵遊', '頂級豪華坦尚尼亞'],
   },
   {
@@ -269,7 +269,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13分鐘閱讀',
     heroImage: '/images/gallery/elephant-grazing-open-plains.jpg',
     heroImageAlt: '坦尚尼亞獵遊巡遊中近距離拍攝的獅子',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['獵遊攝影貼士', '非洲野生動物攝影', '獵遊相機設定', '獵遊最佳相機', '野生動物攝影指南', '非洲野生動物相機', '獵遊相機裝備', '野生動物鏡頭推薦', '黃金時刻獵遊', '非洲攝影之旅'],
   },
   {
@@ -284,7 +284,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分鐘閱讀',
     heroImage: '/images/gallery/ruaha-lions-affectionate.jpg',
     heroImageAlt: '坦尚尼亞魯阿哈國家公園金色光線中的兩隻獅子',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['魯阿哈國家公園', '魯阿哈獵遊指南', '坦尚尼亞南方環線', '坦尚尼亞隱密公園', '最佳坦尚尼亞獵遊公園', '魯阿哈獅子坦尚尼亞', '魯阿哈大象', '魯阿哈獵遊費用', '坦尚尼亞南部公園', '魯阿哈旱季'],
   },
   {
@@ -299,7 +299,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12分鐘閱讀',
     heroImage: '/images/gallery/masai-mara-lion-pride-sunset.jpg',
     heroImageAlt: '開闊塞倫蓋提平原金色日落中的獅子',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦尚尼亞vs南非獵遊', '坦尚尼亞還是南非', '塞倫蓋提vs克魯格', '非洲獵遊比較', '最佳非洲獵遊國家', '克魯格vs塞倫蓋提', '南非坦尚尼亞價格', '五大獸非洲選擇', '南非坦尚尼亞比較', '非洲首次獵遊最佳選擇'],
   },
   {
@@ -313,7 +313,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '7分鐘閱讀',
     heroImage: '/images/gallery/mountain-biker-arusha-national-park.jpg',
     heroImageAlt: '山地騎行者在阿魯沙國家公園小徑上，背景是梅魯山',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['阿魯沙山地騎行', '阿魯沙國家公園騎行', '坦尚尼亞冒險獵遊', '坦尚尼亞騎行獵遊', '阿魯沙活動', '阿魯沙活動', '阿魯沙冒險', '坦尚尼亞冒險旅遊', '阿魯沙騎行', '阿魯沙一日遊'],
   },
   {
@@ -327,7 +327,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '8分鐘閱讀',
     heroImage: '/images/gallery/stone-town.jpg',
     heroImageAlt: '尚吉巴石頭城狹窄小巷中的雕花木門',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['尚吉巴體驗', '尚吉巴石頭城', '尚吉巴香料農場', '尚吉巴監獄島', '尚吉巴玩什麼', '尚吉巴文化', '尚吉巴歷史', '尚吉巴獨桅帆船', '尚吉巴日落巡遊', '尚吉巴美食之旅'],
   },
   {
@@ -341,7 +341,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '9分鐘閱讀',
     heroImage: '/images/gallery/maasai-warriors-jumping-dance-boma.jpg',
     heroImageAlt: '坦尚尼亞身著傳統紅色束卡、佩戴珠飾的馬賽戰士',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['坦尚尼亞馬賽人', '馬賽文化', '馬賽村落探訪', '馬賽戰士', '坦尚尼亞文化', '馬賽文化探訪', '馬賽博馬', '傳統馬賽非洲', '馬賽跳躍儀式', '肯亞坦尚尼亞馬賽'],
   },
 ]

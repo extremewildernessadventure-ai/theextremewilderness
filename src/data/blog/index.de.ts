@@ -15,7 +15,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '15 Min. Lesezeit',
     heroImage: '/images/gallery/Wildebeest-Migration.jpg',
     heroImageAlt: 'Gnuherde überquert die offenen Serengetiplains während der Großen Migration',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Große Migration', 'Gnu-Migration', 'Mara-Fluss Überquerung', 'Serengeti Migration', 'Tansania Safari', 'wann Große Migration sehen'],
   },
   {
@@ -30,7 +30,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 Min. Lesezeit',
     heroImage: '/images/gallery/lion-sleeping-tree-branch-serengeti.jpg',
     heroImageAlt: 'Safariwagen mit Touristen, die Elefanten in Tansania beobachten',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Tansania Safari Kosten', 'wie viel kostet eine Safari', 'Tansania Safari Budget', 'Afrika Safari Preis', 'Safari Kostenübersicht'],
   },
   {
@@ -45,7 +45,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '10 Min. Lesezeit',
     heroImage: '/images/gallery/wildebeest-herd-migration-serengeti-plains.jpg',
     heroImageAlt: 'Goldene Serengetiplains bei Sonnenuntergang mit Akazienbäumen',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['beste Reisezeit Serengeti', 'Serengeti Jahreszeiten', 'wann Serengeti besuchen', 'Serengeti Monat für Monat', 'Tansania Trockenzeit'],
   },
   {
@@ -60,7 +60,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13 Min. Lesezeit',
     heroImage: '/images/gallery/gorilla.jpg',
     heroImageAlt: 'Berggorilla in den nebligen Virunga-Bergen Ruandas',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Gorilla-Trekking Ruanda', 'Ruanda Gorilla-Genehmigung', 'Berggorilla-Trekking', 'Volcans-Nationalpark', 'Gorilla-Safari Afrika'],
   },
   {
@@ -75,7 +75,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '14 Min. Lesezeit',
     heroImage: '/images/gallery/kilimanjaro1.jpg',
     heroImageAlt: 'Kilimandscharo-Gipfel über den Wolken bei Sonnenaufgang',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['wie man Kilimandscharo besteigt', 'Kilimandscharo Routen', 'Kilimandscharo Kosten', 'Kilimandscharo Training', 'Kilimandscharo Leitfaden'],
   },
   {
@@ -90,7 +90,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 Min. Lesezeit',
     heroImage: '/images/gallery/serengeti-lions-under-acacia.jpg',
     heroImageAlt: 'Löwenrudel in der offenen Savanne — die ultimative Tansania- und Kenia-Safarikulisse',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Tansania vs Kenia Safari', 'Tansania oder Kenia', 'Tansania Kenia Vergleich', 'bestes Ostafrika-Safariland', 'Serengeti oder Masai Mara'],
   },
   {
@@ -105,7 +105,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 Min. Lesezeit',
     heroImage: '/images/gallery/black-rhino-savanna-grassland.jpg',
     heroImageAlt: 'Safariwagen für eine Game Drive in der goldenen Stunde in Tansania ausgerüstet',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Safari Packliste', 'was auf Safari einpacken', 'was auf Safari tragen', 'Safari Ausrüstung', 'Safari Kleidungsleitfaden'],
   },
   {
@@ -119,7 +119,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 Min. Lesezeit',
     heroImage: '/images/gallery/elephants.jpg',
     heroImageAlt: 'Afrikanische Elefantenherde an einem Wasserloch in Tansania',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ["Big Five Afrika", 'Big Five Tansania', 'wo Big Five sehen', 'Löwe Leopard Elefant Büffel Nashorn', 'Afrika Wildtier-Leitfaden'],
   },
   {
@@ -134,7 +134,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13 Min. Lesezeit',
     heroImage: '/images/gallery/zanzibar.jpg',
     heroImageAlt: 'Kristallklares türkisfarbenes Wasser und weißer Sandstrand auf Sansibar',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Sansibar Reiseführer', 'Sansibar Strände', 'Stone Town Sansibar', 'Sansibar Safari-Kombination', 'beste Strände Sansibar', 'Sansibar Insel Leitfaden'],
   },
   {
@@ -149,7 +149,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 Min. Lesezeit',
     heroImage: '/images/gallery/safari-vehicle-sunset-guests.jpg',
     heroImageAlt: 'Romantischer Safari-Sonnenuntergang mit Fahrzeugsilhouette in Tansania',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Safari Flitterwochen Tansania', 'romantische Afrika Safari', 'Flitterwochen Safari Afrika', 'Tansania Flitterwochen', 'Luxus-Flitterwochen Tansania'],
   },
   {
@@ -164,7 +164,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 Min. Lesezeit',
     heroImage: '/images/gallery/elephant-drinking-at-waterhole.jpg',
     heroImageAlt: 'Familie beobachtet Elefanten von einem Safariwagen in Tansania',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Familiensafari Afrika', 'Safari mit Kindern', 'Afrika Safari für Familien', 'bester Familiensafari Tansania', 'Kinder auf Safari'],
   },
   {
@@ -179,7 +179,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 Min. Lesezeit',
     heroImage: '/images/gallery/lion-atop-boulder.jpg',
     heroImageAlt: 'Löwe auf felsigem Gelände im Ngorongoro-Schutzgebiet',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Ngorongoro-Krater Leitfaden', 'Ngorongoro besuchen', 'Ngorongoro Safari', 'Ngorongoro-Schutzgebiet', 'weltgrößte Vulkancaldera'],
   },
   {
@@ -194,7 +194,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '10 Min. Lesezeit',
     heroImage: '/images/gallery/serengeti-lion-pride.jpg',
     heroImageAlt: 'Weite offene Serengetiplains mit dramatischem Himmel',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Serengeti vs Masai Mara', 'Masai Mara vs Serengeti', 'welches ist besser Serengeti oder Masai Mara', 'Safaripark Tansania oder Kenia'],
   },
   {
@@ -209,7 +209,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 Min. Lesezeit',
     heroImage: '/images/gallery/lion-pride-roadside-rest.jpg',
     heroImageAlt: 'Safariwagen auf rotem Erdweg durch tansanische Wildnis',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['7 Tage Tansania Safari Reiseprogramm', 'Tansania Reiseprogramm', 'eine Woche Tansania', 'Nördlicher Stromkreis Tansania', 'Tansania Safari Planung'],
   },
   {
@@ -224,7 +224,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 Min. Lesezeit',
     heroImage: '/images/gallery/bush-airstrip-landscape.jpg',
     heroImageAlt: 'Safariwagen bei Sonnenaufgang in Tansania bei einer Budget-Safari',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Budget-Safari Tansania', 'günstige Tansania-Safari', 'erschwingliche Afrika-Safari', 'Tansania Safari Budget-Tipps', 'günstige Safari Afrika'],
   },
   {
@@ -239,7 +239,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 Min. Lesezeit',
     heroImage: '/images/gallery/chimpanzees-resting-mossy-log-gombe.jpg',
     heroImageAlt: 'Schimpansen im Wald des Gombe-Stream-Nationalparks Tansania',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Schimpansen-Trekking Tansania', 'Gombe Stream Schimpansen', 'Mahale Mountains Schimpansen', 'Schimpansen-Trekking Afrika', 'Jane Goodall Tansania'],
   },
   {
@@ -254,7 +254,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '11 Min. Lesezeit',
     heroImage: '/images/gallery/walking-safari-open-woodland.jpg',
     heroImageAlt: 'Luxuszeltcamp im Serengeti zur goldenen Stunde',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Luxus-Safari Tansania', 'Tansania Luxus-Camps', 'bester Luxus-Safari Afrika', 'Tansania Hochklassen-Safari', 'private Safari Tansania'],
   },
   {
@@ -269,7 +269,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '13 Min. Lesezeit',
     heroImage: '/images/gallery/elephant-grazing-open-plains.jpg',
     heroImageAlt: 'Löwe aus nächster Nähe fotografiert während einer Tansania-Game-Drive',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Safari Fotografietipps', 'Wildtierfotografie Afrika', 'Kameraeinstellungen für Safari', 'beste Kamera für Safari', 'Wildtier-Foto-Leitfaden'],
   },
   {
@@ -284,7 +284,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 Min. Lesezeit',
     heroImage: '/images/gallery/ruaha-lions-affectionate.jpg',
     heroImageAlt: 'Zwei Löwen im goldenen Licht im Ruaha-Nationalpark Tansania',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Ruaha-Nationalpark', 'Ruaha Safari-Leitfaden', 'Tansanias Südlicher Stromkreis', 'verborgene Parks Tansania', 'beste Tansania-Safariparks'],
   },
   {
@@ -299,7 +299,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '12 Min. Lesezeit',
     heroImage: '/images/gallery/masai-mara-lion-pride-sunset.jpg',
     heroImageAlt: 'Löwen bei goldenem Sonnenuntergang auf den offenen Serengetiplains',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Tansania vs Südafrika Safari', 'Tansania oder Südafrika', 'Serengeti vs Kruger', 'Afrika Safari Vergleich', 'bestes Safariland Afrika'],
   },
   {
@@ -313,7 +313,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '7 Min. Lesezeit',
     heroImage: '/images/gallery/mountain-biker-arusha-national-park.jpg',
     heroImageAlt: 'Mountainbiker auf Trail durch den Arusha-Nationalpark mit Mount Meru im Hintergrund',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Mountainbiking Arusha', 'Arusha-Nationalpark Radfahren', 'Tansania Abenteuer-Safari', 'Radfahren Safari Tansania', 'Arusha Aktivitäten'],
   },
   {
@@ -327,7 +327,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '8 Min. Lesezeit',
     heroImage: '/images/gallery/stone-town.jpg',
     heroImageAlt: 'Enge Gasse in Stone Town Sansibar mit geschnitzten Holztüren',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Sansibar-Erlebnis', 'Stone Town Sansibar', 'Sansibar Gewürzfarm', 'Gefängnisinsel Sansibar', 'was man in Sansibar tut'],
   },
   {
@@ -341,7 +341,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '9 Min. Lesezeit',
     heroImage: '/images/gallery/maasai-warriors-jumping-dance-boma.jpg',
     heroImageAlt: 'Massai-Krieger in traditioneller roter Shuka mit Perlenschmuck in Tansania',
-    author: 'EWA Safari Outfitters Team',
+    author: 'Nixon',
     keywords: ['Massai-Stamm Tansania', 'Massai-Kultur', 'Massai-Boma-Besuch', 'Massai-Krieger', 'Tansania-Kultur'],
   },
 ]

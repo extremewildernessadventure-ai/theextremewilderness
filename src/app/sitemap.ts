@@ -5,6 +5,7 @@ import { getBlogPosts } from '@/data/blog/index.i18n'
 import { packages } from '@/data/packages'
 import { destinations } from '@/data/destinations'
 import { experiencePagesEn } from '@/data/experiencePages/content.en'
+import contentDates from '@/data/generated/contentDates.json'
 
 // Image paths are identical across locales (same photos regardless of
 // language), so these are built once from the English data and reused for
@@ -17,9 +18,17 @@ const destinationImages = Object.fromEntries(
   destinations.map((d) => [d.slug, [`${SITE_URL}${d.heroImage}`]])
 )
 
-// Bumped only when the underlying data files actually change, so unrelated
-// pages don't get a fresh lastModified on every deploy.
-const CONTENT_LAST_UPDATED = new Date('2025-07-16')
+// Per-content-type dates derived from each data file's real last-commit date
+// (computed at build time by scripts/generate-locale-data.ts, since the
+// deployed Worker has no git access at request time). Static pages with no
+// single associated data file (privacy, terms, contact, etc.) fall back to
+// a fixed date rather than "now", so they don't get a fresh lastModified on
+// every deploy regardless of whether their content actually changed.
+const STATIC_PAGE_FALLBACK_DATE = new Date('2025-07-16')
+const PACKAGES_LAST_UPDATED = new Date(contentDates.packages)
+const DESTINATIONS_LAST_UPDATED = new Date(contentDates.destinations)
+const EXPERIENCE_PAGES_LAST_UPDATED = new Date(contentDates.experiencePages)
+const TREKKING_LAST_UPDATED = new Date(contentDates.trekking)
 
 const LOCALES = ['en', 'fr', 'es', 'de', 'ru', 'zh', 'zh-TW'] as const
 
@@ -65,7 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, path),
-        lastModified: CONTENT_LAST_UPDATED,
+        lastModified: STATIC_PAGE_FALLBACK_DATE,
         changeFrequency,
         priority,
         alternates: {
@@ -83,7 +92,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, `/safaris/${slug}`),
-        lastModified: CONTENT_LAST_UPDATED,
+        lastModified: PACKAGES_LAST_UPDATED,
         changeFrequency: 'monthly',
         priority: 0.8,
         images: packageImages[slug],
@@ -102,7 +111,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, `/destinations/${slug}`),
-        lastModified: CONTENT_LAST_UPDATED,
+        lastModified: DESTINATIONS_LAST_UPDATED,
         changeFrequency: 'monthly',
         priority: 0.7,
         images: destinationImages[slug],
@@ -121,7 +130,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, `/trekking/${route}`),
-        lastModified: CONTENT_LAST_UPDATED,
+        lastModified: TREKKING_LAST_UPDATED,
         changeFrequency: 'monthly',
         priority: 0.7,
         alternates: {
@@ -139,7 +148,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     for (const locale of LOCALES) {
       entries.push({
         url: localeUrl(locale, `/experiences/${slug}`),
-        lastModified: CONTENT_LAST_UPDATED,
+        lastModified: EXPERIENCE_PAGES_LAST_UPDATED,
         changeFrequency: 'monthly',
         priority: slug === 'honeymoon-safari' ? 0.9 : 0.7,
         alternates: {
@@ -168,7 +177,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const localesWithSlug = LOCALES.filter((l) => blogPostsByLocale[l].some((p) => p.slug === slug))
     const englishPost = blogPosts.find((p) => p.slug === slug)
     const postDate = englishPost?.lastUpdated ?? englishPost?.date
-    const lastModified = postDate ? new Date(postDate) : CONTENT_LAST_UPDATED
+    const lastModified = postDate ? new Date(postDate) : STATIC_PAGE_FALLBACK_DATE
     for (const locale of localesWithSlug) {
       const localePost = blogPostsByLocale[locale].find((p) => p.slug === slug)
       entries.push({
