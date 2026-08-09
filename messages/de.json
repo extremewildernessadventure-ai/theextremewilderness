@@ -3719,6 +3719,18 @@
     "s14callout": "Unsere Nutzung und Weitergabe von Informationen, die wir von Google-APIs erhalten, entspricht der Google API Services User Data Policy, einschließlich der Limited-Use-Anforderungen.",
     "breadcrumbLabel": "Datenschutzrichtlinie"
   },
+  "appInfo": {
+    "metaTitle": "App-Informationen",
+    "metaDescription": "Informationen über das interne Buchungsverwaltungs-Dashboard von EWA Safari Outfitters und dessen Nutzung von Google-APIs.",
+    "eyebrow": "App-Informationen",
+    "subtitle": "Internes Anfragen-Dashboard — Nutzung der Google-API",
+    "purposeP1": "EWA Safari Outfitters ist ein in Tansania ansässiger Safari-Reiseveranstalter. Diese Seite beschreibt ein internes Tool, das von unserem eigenen Team genutzt wird: ein privates Buchungsverwaltungs-Dashboard, das sich über die Gmail-API mit einem einzigen Firmen-E-Mail-Postfach verbindet, ausschließlich um zu erkennen, wann unser Team auf eine Kundenanfrage geantwortet hat, damit wir Antwortzeiten intern nachverfolgen können.",
+    "dataHeading": "Auf welche Daten diese App zugreift",
+    "dataP1": "Das Dashboard fordert ausschließlich lesenden Zugriff auf Gmail-Nachrichtenmetadaten an — Absender, Empfänger, Betreffzeile und Datum. Es liest niemals Nachrichteninhalte oder Anhänge und greift niemals auf das persönliche Gmail-Konto eines Kunden zu. Diese Verbindung betrifft ausschließlich unser eigenes internes Support-Postfach.",
+    "moreInfoPrefix": "Weitere Details finden Sie in unserer",
+    "privacyLinkLabel": "Datenschutzrichtlinie",
+    "backToHome": "Zurück zur Startseite"
+  },
   "terms": {
     "metaTitle": "Allgemeine Geschäftsbedingungen",
     "metaDescription": "Allgemeine Geschäftsbedingungen für die Buchung von Safaris, Trekkingtouren und Reiseerlebnissen bei EWA Safari Outfitters. Enthält Stornierungsbedingungen, Haftung und Versicherungsanforderungen.",

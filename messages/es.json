@@ -3719,6 +3719,18 @@
     "s14callout": "El uso y la transferencia de información que recibimos de las API de Google se rigen por la Política de Datos de Usuario de los Servicios de la API de Google, incluidos los requisitos de Uso Limitado (Limited Use).",
     "breadcrumbLabel": "Política de privacidad"
   },
+  "appInfo": {
+    "metaTitle": "Información de la aplicación",
+    "metaDescription": "Información sobre el panel interno de gestión de reservas de EWA Safari Outfitters y su uso de las API de Google.",
+    "eyebrow": "Información de la aplicación",
+    "subtitle": "Panel interno de solicitudes — Uso de la API de Google",
+    "purposeP1": "EWA Safari Outfitters es un operador turístico de safaris con sede en Tanzania. Esta página describe una herramienta interna utilizada por nuestro propio equipo: un panel privado de gestión de reservas que se conecta a una única bandeja de entrada de correo de la empresa a través de la API de Gmail, únicamente para detectar cuándo nuestro equipo ha respondido a una consulta de un cliente, con el fin de hacer seguimiento interno de los tiempos de respuesta.",
+    "dataHeading": "Qué datos accede esta aplicación",
+    "dataP1": "El panel solicita acceso de solo lectura únicamente a los metadatos de los mensajes de Gmail — remitente, destinatario, asunto y fecha. Nunca lee el contenido de los mensajes ni los archivos adjuntos, y nunca accede a la cuenta personal de Gmail de ningún cliente. Esta conexión se aplica únicamente a nuestra propia bandeja de entrada de soporte interno.",
+    "moreInfoPrefix": "Para más detalles, consulte nuestra",
+    "privacyLinkLabel": "Política de privacidad",
+    "backToHome": "Volver al inicio"
+  },
   "terms": {
     "metaTitle": "Términos y Condiciones",
     "metaDescription": "Términos y condiciones para reservar safaris, trekking y experiencias de viaje con EWA Safari Outfitters. Incluye política de cancelación, responsabilidad y requisitos de seguro.",

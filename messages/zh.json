@@ -3719,6 +3719,18 @@
     "s14callout": "我们对从 Google API 获取的信息的使用和传输，均遵守 Google API 服务用户数据政策，包括其中的有限使用（Limited Use）要求。",
     "breadcrumbLabel": "隐私政策"
   },
+  "appInfo": {
+    "metaTitle": "应用信息",
+    "metaDescription": "关于 EWA Safari Outfitters 内部预订管理仪表盘及其 Google API 使用情况的信息。",
+    "eyebrow": "应用信息",
+    "subtitle": "内部询价仪表盘 — Google API 使用说明",
+    "purposeP1": "EWA Safari Outfitters 是一家总部位于坦桑尼亚的野生动物园旅游运营商。本页面介绍我们团队内部使用的一款工具：一个私有的预订管理仪表盘，透过 Gmail API 连接到公司唯一的一个邮箱，目的仅在于侦测我们团队何时回复了客户咨询，以便内部追踪回覆时间。",
+    "dataHeading": "此应用会存取哪些数据",
+    "dataP1": "该仪表盘仅请求对 Gmail 邮件元数据的只读访问权限——发件人、收件人、主题和日期。它绝不读取邮件内容或附件，也绝不访问任何客户的个人 Gmail 账户。此连接仅适用于我们自己的内部客服邮箱。",
+    "moreInfoPrefix": "详情请参阅我们的",
+    "privacyLinkLabel": "隐私政策",
+    "backToHome": "返回首页"
+  },
   "terms": {
     "metaTitle": "条款与条件",
     "metaDescription": "在EWA Safari Outfitters预订野生动物园、徒步旅行和旅游体验的条款和条件。包括取消政策、责任和保险要求。",
