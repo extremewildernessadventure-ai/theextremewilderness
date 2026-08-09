@@ -1,5 +1,6 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
+import { saveLead, markLeadEmailSent } from '@/lib/leads'
 
 const FROM = process.env.RESEND_FROM ?? 'EWA Enquiries <noreply@theextremewilderness.com>'
 const TO   = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
@@ -98,17 +99,36 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    const resend = new Resend(process.env.RESEND_API_KEY)
-    const { error } = await resend.emails.send({
-      from: FROM,
-      to: TO,
-      replyTo: String(email),
-      subject: `New Enquiry: ${String(firstName)} ${String(lastName)} — ${String(body.tripType || 'Safari')}`,
-      html: buildHtml(body),
+    const { id: leadId } = await saveLead({
+      type: 'enquiry',
+      name: `${String(firstName)} ${String(lastName)}`,
+      email: String(email),
+      phone: body.phone ? String(body.phone) : null,
+      subject: String(body.packageName || body.tripType || 'Safari'),
+      payload: body,
     })
 
-    if (error) {
-      console.error('Resend error:', error)
+    let emailOk = false
+    try {
+      const resend = new Resend(process.env.RESEND_API_KEY)
+      const { error } = await resend.emails.send({
+        from: FROM,
+        to: TO,
+        replyTo: String(email),
+        subject: `New Enquiry: ${String(firstName)} ${String(lastName)} — ${String(body.tripType || 'Safari')}`,
+        html: buildHtml(body),
+      })
+      if (error) {
+        console.error('Resend error:', error)
+      } else {
+        emailOk = true
+        if (leadId) await markLeadEmailSent(leadId)
+      }
+    } catch (err) {
+      console.error('Resend send threw:', err)
+    }
+
+    if (!emailOk && !leadId) {
       return NextResponse.json({ error: 'Email failed' }, { status: 500 })
     }
 

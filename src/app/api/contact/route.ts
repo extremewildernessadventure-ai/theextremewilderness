@@ -1,5 +1,6 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
+import { saveLead, markLeadEmailSent } from '@/lib/leads'
 
 const FROM = process.env.RESEND_FROM ?? 'EWA Contact <noreply@theextremewilderness.com>'
 const TO   = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
@@ -39,17 +40,38 @@ export async function POST(req: NextRequest) {
 </body>
 </html>`
 
-    const resend = new Resend(process.env.RESEND_API_KEY)
-    const { error } = await resend.emails.send({
-      from: FROM,
-      to: TO,
-      replyTo: emailStr,
-      subject: `Contact: ${String(fullName)} — ${subject ? String(subject) : 'General Enquiry'}`,
-      html,
+    // Persist first — this is the durable path, and must not depend on the
+    // Resend call below succeeding or even completing.
+    const { id: leadId } = await saveLead({
+      type: 'contact',
+      name: String(fullName),
+      email: emailStr,
+      phone: phone ? String(phone) : null,
+      subject: subject ? String(subject) : 'General Enquiry',
+      payload: body,
     })
 
-    if (error) {
-      console.error('Resend error:', error)
+    let emailOk = false
+    try {
+      const resend = new Resend(process.env.RESEND_API_KEY)
+      const { error } = await resend.emails.send({
+        from: FROM,
+        to: TO,
+        replyTo: emailStr,
+        subject: `Contact: ${String(fullName)} — ${subject ? String(subject) : 'General Enquiry'}`,
+        html,
+      })
+      if (error) {
+        console.error('Resend error:', error)
+      } else {
+        emailOk = true
+        if (leadId) await markLeadEmailSent(leadId)
+      }
+    } catch (err) {
+      console.error('Resend send threw:', err)
+    }
+
+    if (!emailOk && !leadId) {
       return NextResponse.json({ error: 'Email failed' }, { status: 500 })
     }
 

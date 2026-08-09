@@ -20,6 +20,9 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
             <Link href="/admin/invoices" className="text-sm text-gray-600 hover:text-brand transition-colors">
               Invoices
             </Link>
+            <Link href="/admin/leads" className="text-sm text-gray-600 hover:text-brand transition-colors">
+              Leads
+            </Link>
             <LogoutButton />
           </nav>
         </div>

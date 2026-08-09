@@ -1,12 +1,12 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 import { computeDiscountCode } from '@/lib/discountCode'
+import { saveLead, markLeadEmailSent } from '@/lib/leads'
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, source } = await req.json() as {
-      name?: string; email?: string; source?: string
-    }
+    const body = await req.json() as { name?: string; email?: string; source?: string }
+    const { name, email, source } = body
 
     if (!email) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 })
@@ -14,6 +14,14 @@ export async function POST(req: NextRequest) {
 
     const [firstName, ...rest] = (name ?? '').trim().split(' ')
     const lastName = rest.join(' ')
+
+    const { id: leadId } = await saveLead({
+      type: 'newsletter',
+      name: name ?? null,
+      email,
+      subject: 'Newsletter signup',
+      payload: body,
+    })
 
     const resend = new Resend(process.env.RESEND_API_KEY)
     const { error } = await resend.contacts.create({
@@ -26,7 +34,9 @@ export async function POST(req: NextRequest) {
 
     if (error) {
       console.error('Resend contact error:', error)
-      return NextResponse.json({ error: 'Subscription failed' }, { status: 500 })
+      if (!leadId) return NextResponse.json({ error: 'Subscription failed' }, { status: 500 })
+    } else if (leadId) {
+      await markLeadEmailSent(leadId)
     }
 
     if (source === 'exit-intent') {

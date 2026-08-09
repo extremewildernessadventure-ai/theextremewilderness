@@ -11,7 +11,7 @@ export interface D1PreparedStatement {
   bind(...values: unknown[]): D1PreparedStatement
   all<T = unknown>(): Promise<{ results: T[] }>
   first<T = unknown>(): Promise<T | null>
-  run(): Promise<{ success: boolean }>
+  run(): Promise<{ success: boolean; meta?: { last_row_id?: number } }>
 }
 
 declare global {

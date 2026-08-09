@@ -1,6 +1,7 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 import { localeUrl } from '@/lib/site'
+import { saveLead, markLeadEmailSent } from '@/lib/leads'
 
 const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID ?? ''
 const TO = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
@@ -10,9 +11,10 @@ const LOCALES = ['en', 'fr', 'es', 'de', 'ru', 'zh', 'zh-TW'] as const
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, phone, context, locale: rawLocale } = await req.json() as {
+    const body = await req.json() as {
       name?: string; email?: string; phone?: string; context?: string; locale?: string
     }
+    const { name, email, phone, context, locale: rawLocale } = body
     const locale = LOCALES.includes(rawLocale as typeof LOCALES[number]) ? rawLocale! : 'en'
 
     if (!name?.trim() || !email?.trim()) {
@@ -25,6 +27,16 @@ export async function POST(req: NextRequest) {
     // Client-supplied — escape before embedding in the HTML email.
     const trimContext = (context?.trim() ?? '').slice(0, 120)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+
+    const { id: leadId } = await saveLead({
+      type: 'pdf-lead',
+      name: trimName,
+      email: trimEmail,
+      phone: trimPhone || null,
+      subject: trimContext || 'PDF guide request',
+      locale,
+      payload: body,
+    })
 
     const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -88,8 +100,15 @@ export async function POST(req: NextRequest) {
 </html>`,
     })
 
+    let emailOk = false
     if (error) {
       console.error('Resend error:', error)
+    } else {
+      emailOk = true
+      if (leadId) await markLeadEmailSent(leadId)
+    }
+
+    if (!emailOk && !leadId) {
       return NextResponse.json({ error: 'Email failed' }, { status: 500 })
     }
 
