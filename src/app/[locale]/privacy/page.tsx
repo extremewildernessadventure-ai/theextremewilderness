@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Link } from '@/i18n/navigation'
-import { Mail, Phone, ChevronRight, ShieldCheck, Eye, Share2, Globe, Clock, UserCheck, Lock, Baby, RefreshCw, Cookie, MessageCircle } from 'lucide-react'
+import { Mail, Phone, ChevronRight, ShieldCheck, Eye, Share2, Globe, Clock, UserCheck, Lock, Baby, RefreshCw, Cookie, MessageCircle, Inbox } from 'lucide-react'
 import TableOfContents from '@/components/legal/TableOfContents'
 import { buildAlternates } from '@/lib/site'
 
@@ -86,6 +86,7 @@ export default async function PrivacyPage({ params }: Props) {
     { id: 'security',     title: t('s11Title') },
     { id: 'changes',      title: t('s12Title') },
     { id: 'contact',      title: t('s13Title') },
+    { id: 'google-api',   title: t('s14Title') },
   ]
 
   const rights = [
@@ -318,6 +319,16 @@ export default async function PrivacyPage({ params }: Props) {
                   {t('contactPageBtn')}
                   <ChevronRight className="w-4 h-4" />
                 </Link>
+              </div>
+            </section>
+
+            {/* 14. Google API Services & Gmail Integration */}
+            <section id="google-api" className="scroll-mt-28 py-10 border-t border-gray-100">
+              <SectionHeading number="14" title={t('s14Title')} icon={Inbox} sectionLabel={sl} />
+              <p className="text-gray-700 leading-relaxed mb-5">{t('s14p1')}</p>
+              <GoldBulletList items={[t('s14item1'), t('s14item2'), t('s14item3'), t('s14item4')]} />
+              <div className="mt-6">
+                <Callout>{t('s14callout')}</Callout>
               </div>
             </section>
 

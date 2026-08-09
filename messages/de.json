@@ -3710,6 +3710,13 @@
     "s11tip": "Unsere Website verwendet HTTPS-Verschlüsselung für alle Datenübertragungen. Zahlungsdaten werden von PCI-DSS-konformen Prozessoren verarbeitet — wir sehen oder speichern niemals Kartennummern.",
     "s12p1": "Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren. Das Datum oben auf dieser Seite wird die neueste Überarbeitung widerspiegeln. Wir empfehlen Ihnen, diese Seite regelmäßig zu überprüfen. Die weitere Nutzung unserer Website nach der Veröffentlichung von Änderungen stellt eine Annahme der aktualisierten Richtlinie dar.",
     "s13p1": "Wenn Sie Fragen zu dieser Datenschutzrichtlinie oder zur Handhabung Ihrer Daten haben, kontaktieren Sie uns bitte — wir streben an, innerhalb von 2 Werktagen zu antworten.",
+    "s14Title": "14. Google-API-Dienste & Gmail-Integration",
+    "s14p1": "Unser internes Buchungsverwaltungs-Dashboard verbindet sich über die Gmail-API mit einem einzigen Firmen-E-Mail-Postfach, ausschließlich um zu erkennen, wann unser Team auf eine Kundenanfrage geantwortet hat, damit wir Antwortzeiten intern nachverfolgen können. Dieser Abschnitt erläutert diese Integration, wie es die Google API Services User Data Policy vorschreibt.",
+    "s14item1": "Wir fordern ausschließlich lesenden Zugriff auf Nachrichtenmetadaten an (Absender, Empfänger, Betreffzeile und Datum) — niemals den Inhalt einer E-Mail, deren Anhänge oder Ihr persönliches Gmail-Konto.",
+    "s14item2": "Diese Verbindung betrifft ausschließlich unser eigenes internes Support-Postfach, nicht die Gmail-Konten von Kunden, Partnern oder Website-Besuchern.",
+    "s14item3": "Diese Daten werden ausschließlich verwendet, um eine Kundenanfrage in unserem internen Dashboard als „beantwortet\" zu markieren — sie werden niemals über diese Statuskennzeichnung hinaus gespeichert, weitergegeben, verkauft oder für Werbezwecke genutzt.",
+    "s14item4": "Der Zugriff kann von unserem Team jederzeit über die Google-Kontoberechtigungen widerrufen werden und wird aus Sicherheitsgründen regelmäßig neu autorisiert.",
+    "s14callout": "Unsere Nutzung und Weitergabe von Informationen, die wir von Google-APIs erhalten, entspricht der Google API Services User Data Policy, einschließlich der Limited-Use-Anforderungen.",
     "breadcrumbLabel": "Datenschutzrichtlinie"
   },
   "terms": {

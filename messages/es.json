@@ -3710,6 +3710,13 @@
     "s11tip": "Nuestro sitio web usa encriptación HTTPS para todas las transmisiones de datos. Los datos de pago son manejados por procesadores compatibles con PCI-DSS — nunca vemos ni almacenamos números de tarjeta.",
     "s12p1": "Podemos actualizar esta Política de Privacidad de vez en cuando. La fecha efectiva en la parte superior de esta página reflejará la revisión más reciente. Le animamos a revisar esta página periódicamente. El uso continuado de nuestro sitio web después de publicar los cambios constituye la aceptación de la política actualizada.",
     "s13p1": "Si tiene alguna pregunta sobre esta Política de Privacidad o cómo manejamos sus datos, contáctenos — nuestro objetivo es responder dentro de 2 días hábiles.",
+    "s14Title": "14. Servicios de la API de Google e integración con Gmail",
+    "s14p1": "Nuestro panel interno de gestión de reservas se conecta a una única bandeja de entrada de correo de la empresa a través de la API de Gmail, únicamente para detectar cuándo nuestro equipo ha respondido a una consulta de un cliente, con el fin de hacer seguimiento interno de los tiempos de respuesta. Esta sección explica esa integración, tal como lo exige la Política de Datos de Usuario de los Servicios de la API de Google.",
+    "s14item1": "Solicitamos acceso de solo lectura únicamente a los metadatos del mensaje (remitente, destinatario, asunto y fecha) — nunca al contenido de ningún correo, sus archivos adjuntos, ni a su cuenta personal de Gmail.",
+    "s14item2": "Esta conexión se aplica únicamente a nuestra propia bandeja de entrada de soporte interno, no a las cuentas de Gmail de clientes, socios o visitantes del sitio web.",
+    "s14item3": "Estos datos se usan exclusivamente para marcar una consulta de cliente como \"respondida\" dentro de nuestro panel interno — nunca se almacenan más allá de ese indicador de estado, ni se comparten, venden o usan con fines publicitarios.",
+    "s14item4": "El acceso puede ser revocado en cualquier momento por nuestro equipo a través de los permisos de la Cuenta de Google, y se reautoriza periódicamente por seguridad.",
+    "s14callout": "El uso y la transferencia de información que recibimos de las API de Google se rigen por la Política de Datos de Usuario de los Servicios de la API de Google, incluidos los requisitos de Uso Limitado (Limited Use).",
     "breadcrumbLabel": "Política de privacidad"
   },
   "terms": {

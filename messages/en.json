@@ -3639,6 +3639,13 @@
     "s11tip": "Our website uses HTTPS encryption for all data transmissions. Payment data is handled by PCI-DSS compliant processors — we never see or store card numbers.",
     "s12p1": "We may update this Privacy Policy from time to time. The effective date at the top of this page will reflect the most recent revision. We encourage you to review this page periodically. Continued use of our website after changes are posted constitutes acceptance of the updated policy.",
     "s13p1": "If you have any questions about this Privacy Policy or how we handle your data, please contact us — we aim to respond within 2 working days.",
+    "s14Title": "14. Google API Services & Gmail Integration",
+    "s14p1": "Our internal booking-management dashboard connects to a single company email inbox via the Gmail API, solely to detect when our team has replied to a customer enquiry so we can track response times internally. This section explains that integration, as required by Google's API Services User Data Policy.",
+    "s14item1": "We request read-only access to message metadata only (sender, recipient, subject line, and date) — never the content of any email, attachments, or your personal Gmail account.",
+    "s14item2": "This connection applies only to our own internal support inbox, not to the Gmail accounts of customers, partners, or website visitors.",
+    "s14item3": "The data is used exclusively to mark a customer enquiry as \"responded to\" inside our internal dashboard — it is never stored beyond that status flag, shared, sold, or used for advertising.",
+    "s14item4": "Access can be revoked at any time by our team through Google Account permissions, and is re-authorised periodically for security.",
+    "s14callout": "Our use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy, including the Limited Use requirements.",
     "breadcrumbLabel": "Privacy Policy"
   },
   "terms": {
