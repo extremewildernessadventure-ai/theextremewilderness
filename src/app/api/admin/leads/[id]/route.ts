@@ -26,12 +26,29 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   const { id } = await params
-  const { status } = await req.json() as { status?: string }
-  if (!status || !VALID_STATUSES.has(status)) {
+  const { status, notes } = await req.json() as { status?: string; notes?: string }
+
+  if (status !== undefined && !VALID_STATUSES.has(status)) {
     return NextResponse.json({ error: 'Invalid status' }, { status: 400 })
   }
+
+  const fields: string[] = []
+  const values: unknown[] = []
+  if (status !== undefined) {
+    fields.push('status = ?')
+    values.push(status)
+  }
+  if (notes !== undefined) {
+    fields.push('notes = ?')
+    values.push(notes)
+  }
+  if (fields.length === 0) {
+    return NextResponse.json({ error: 'No fields to update' }, { status: 400 })
+  }
+  fields.push('updated_at = CURRENT_TIMESTAMP')
+
   const db = await getDb()
-  await db.prepare('UPDATE leads SET status = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?').bind(status, id).run()
+  await db.prepare(`UPDATE leads SET ${fields.join(', ')} WHERE id = ?`).bind(...values, id).run()
   return NextResponse.json({ success: true })
 }
 

@@ -30,6 +30,9 @@ jobs:
           CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          GMAIL_CLIENT_ID: ${{ secrets.GMAIL_CLIENT_ID }}
+          GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
 
       # Pings Bing/Yandex/etc so new or changed pages get (re)indexed promptly
       # instead of waiting for a crawl. Non-fatal — a submission hiccup here

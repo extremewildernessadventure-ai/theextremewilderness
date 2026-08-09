@@ -5,6 +5,7 @@ import type { Lead } from '@/lib/leads'
 import TypeBadge from '../TypeBadge'
 import LeadStatusSelect from '../LeadStatusSelect'
 import DeleteLeadButton from './DeleteLeadButton'
+import LeadNotes from './LeadNotes'
 
 export const dynamic = 'force-dynamic'
 
@@ -95,9 +96,16 @@ export default async function LeadDetailPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-xl p-7">
-          <h2 className="text-sm font-bold text-brand mb-4">Status</h2>
-          <LeadStatusSelect leadId={lead.id} currentStatus={lead.status} />
+        <div className="space-y-6">
+          <div className="bg-white border border-gray-200 rounded-xl p-7">
+            <h2 className="text-sm font-bold text-brand mb-4">Status</h2>
+            <LeadStatusSelect leadId={lead.id} currentStatus={lead.status} />
+          </div>
+
+          <div className="bg-white border border-gray-200 rounded-xl p-7">
+            <h2 className="text-sm font-bold text-brand mb-4">Notes</h2>
+            <LeadNotes leadId={lead.id} initialNotes={lead.notes ?? ''} />
+          </div>
         </div>
       </div>
     </div>

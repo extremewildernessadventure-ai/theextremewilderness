@@ -22,6 +22,7 @@ export interface Lead {
   locale: string | null
   payload: string
   email_sent: number
+  notes: string | null
   created_at: string
   updated_at: string | null
 }

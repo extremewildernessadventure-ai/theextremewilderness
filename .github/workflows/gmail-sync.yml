@@ -1,0 +1,15 @@
+name: Gmail Reply Sync
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Gmail reply sync
+        run: |
+          curl -f -X POST https://www.theextremewilderness.com/api/cron/gmail-sync \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"

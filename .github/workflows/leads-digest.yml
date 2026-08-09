@@ -1,0 +1,16 @@
+name: Leads Digest
+
+on:
+  schedule:
+    # 7am East Africa Time (UTC+3)
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger leads digest
+        run: |
+          curl -f -X POST https://www.theextremewilderness.com/api/cron/leads-digest \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"

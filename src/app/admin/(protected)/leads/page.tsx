@@ -4,6 +4,7 @@ import type { Lead, LeadType } from '@/lib/leads'
 import TypeBadge from './TypeBadge'
 import LeadStatusSelect from './LeadStatusSelect'
 import SearchBar from './SearchBar'
+import GmailStatusBanner from './GmailStatusBanner'
 
 export const dynamic = 'force-dynamic'
 
@@ -82,6 +83,8 @@ export default async function LeadsListPage({ searchParams }: Props) {
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-brand">Leads</h1>
       </div>
+
+      <GmailStatusBanner />
 
       {/* Stat strip — "Needs follow-up" is the number that actually matters:
           new leads sitting unactioned for 48h+, i.e. at risk of being dropped. */}
