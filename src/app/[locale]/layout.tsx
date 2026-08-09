@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { SITE_URL } from '@/lib/site'
 import { getGooglePlaceRating } from '@/lib/googlePlaces'
+import { ogLocale } from '@/lib/ogLocale'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import BottomNav from '@/components/layout/BottomNav'
@@ -16,10 +17,6 @@ import ExitIntentPopup from '@/components/shared/ExitIntentPopup'
 type Props = {
   children: React.ReactNode
   params: Promise<{ locale: string }>
-}
-
-const OG_LOCALE: Record<string, string> = {
-  en: 'en_US', fr: 'fr_FR', es: 'es_ES', de: 'de_DE', ru: 'ru_RU', zh: 'zh_CN', 'zh-TW': 'zh_TW',
 }
 
 // The full messages/{locale}.json catalog also holds every server-only page
@@ -51,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   return {
     openGraph: {
-      locale: OG_LOCALE[locale] ?? 'en_US',
+      locale: ogLocale(locale),
     },
   }
 }
@@ -63,7 +60,7 @@ export function generateStaticParams() {
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params
 
-  if (!routing.locales.includes(locale as 'en' | 'fr' | 'es' | 'de' | 'ru' | 'zh' | 'zh-TW')) {
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
     notFound()
   }
 

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { routing } from '@/i18n/routing'
 import { localeUrl, SITE_URL } from '@/lib/site'
 import { blogPosts } from '@/data/blog/index'
 import { getBlogPosts } from '@/data/blog/index.i18n'
@@ -30,7 +31,7 @@ const DESTINATIONS_LAST_UPDATED = new Date(contentDates.destinations)
 const EXPERIENCE_PAGES_LAST_UPDATED = new Date(contentDates.experiencePages)
 const TREKKING_LAST_UPDATED = new Date(contentDates.trekking)
 
-const LOCALES = ['en', 'fr', 'es', 'de', 'ru', 'zh', 'zh-TW'] as const
+const LOCALES = routing.locales
 
 // Derived directly from the source data files rather than hand-maintained —
 // a hardcoded copy of these slugs previously drifted silently out of sync
@@ -80,7 +81,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         alternates: {
           languages: {
             ...Object.fromEntries(LOCALES.map((l) => [l, localeUrl(l, path)])),
-            'x-default': localeUrl('en', path),
+            'x-default': localeUrl(routing.defaultLocale, path),
           },
         },
       })
@@ -99,7 +100,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         alternates: {
           languages: {
             ...Object.fromEntries(LOCALES.map((l) => [l, localeUrl(l, `/safaris/${slug}`)])),
-            'x-default': localeUrl('en', `/safaris/${slug}`),
+            'x-default': localeUrl(routing.defaultLocale, `/safaris/${slug}`),
           },
         },
       })
@@ -118,7 +119,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         alternates: {
           languages: {
             ...Object.fromEntries(LOCALES.map((l) => [l, localeUrl(l, `/destinations/${slug}`)])),
-            'x-default': localeUrl('en', `/destinations/${slug}`),
+            'x-default': localeUrl(routing.defaultLocale, `/destinations/${slug}`),
           },
         },
       })
@@ -136,7 +137,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         alternates: {
           languages: {
             ...Object.fromEntries(LOCALES.map((l) => [l, localeUrl(l, `/trekking/${route}`)])),
-            'x-default': localeUrl('en', `/trekking/${route}`),
+            'x-default': localeUrl(routing.defaultLocale, `/trekking/${route}`),
           },
         },
       })
@@ -154,7 +155,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         alternates: {
           languages: {
             ...Object.fromEntries(LOCALES.map((l) => [l, localeUrl(l, `/experiences/${slug}`)])),
-            'x-default': localeUrl('en', `/experiences/${slug}`),
+            'x-default': localeUrl(routing.defaultLocale, `/experiences/${slug}`),
           },
         },
       })
@@ -191,7 +192,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             ...Object.fromEntries(localesWithSlug.map((l) => [l, localeUrl(l, `/blog/${slug}`)])),
             // Only claim x-default → English if English actually has this
             // post; a locale-exclusive post has no sensible x-default.
-            ...(localesWithSlug.includes('en') ? { 'x-default': localeUrl('en', `/blog/${slug}`) } : {}),
+            ...(localesWithSlug.includes(routing.defaultLocale) ? { 'x-default': localeUrl(routing.defaultLocale, `/blog/${slug}`) } : {}),
           },
         },
       })

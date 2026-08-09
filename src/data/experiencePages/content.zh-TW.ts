@@ -1,6 +1,6 @@
 import type { ExperiencePage } from './types'
 
-export const experiencePagesZh: ExperiencePage[] = [
+export const experiencePagesZhTW: ExperiencePage[] = [
   {
     slug: 'classic-game-drive-safari',
     title: '經典獵遊巡遊',

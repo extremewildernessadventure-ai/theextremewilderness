@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { ogLocale } from '@/lib/ogLocale'
 import {
   ArrowRight, Check, ChevronDown, Clock, MapPin, Mountain, Plane,
   ShieldCheck, Star, Sun, Ticket, TrendingUp, Users, X,
@@ -33,8 +34,6 @@ export async function generateStaticParams() {
   )
 }
 
-const OG_LOCALES: Record<string, string> = { en: 'en_US', fr: 'fr_FR', es: 'es_ES', de: 'de_DE', ru: 'ru_RU', zh: 'zh_CN', 'zh-TW': 'zh_TW' }
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params
   const page = await getExperiencePage(slug, locale)
@@ -47,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
-      locale: OG_LOCALES[locale] ?? 'en_US',
+      locale: ogLocale(locale),
       images: [{ url: page.heroImage, width: 1200, height: 630, alt: page.title }],
     },
     twitter: {

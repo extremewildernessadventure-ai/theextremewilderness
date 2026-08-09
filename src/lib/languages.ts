@@ -6,6 +6,7 @@ export const LANGUAGES: Record<string, { code: string; native: string; flag: str
   ru: { code: 'RU', native: 'Русский', flag: '🇷🇺' },
   zh: { code: 'ZH', native: '简体中文', flag: '🇨🇳' },
   'zh-TW': { code: 'TW', native: '繁體中文', flag: '🇹🇼' },
+  it: { code: 'IT', native: 'Italiano', flag: '🇮🇹' },
 }
 
 // Maps a browser navigator.language tag (e.g. "fr-FR", "zh-Hant-TW", "pt-BR")

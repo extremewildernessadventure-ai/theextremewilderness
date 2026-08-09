@@ -11,15 +11,17 @@ import { buildAlternates } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 import CtaBanner from '@/components/home/CtaBanner'
+import type { routing } from '@/i18n/routing'
 
 type Props = { params: Promise<{ locale: string }> }
+type Locale = (typeof routing.locales)[number]
 
 // Page-specific long-tail keywords, one per genuinely distinct topic this
 // page covers (visa/entry, health, currency, safari packing, Kilimanjaro
 // packing, seasons/migration, climbing season, safety, practicalities) —
 // natively authored per locale, not translated from English, matching the
 // market-phrasing convention established in src/data/coreKeywords.ts.
-const TRAVEL_INFO_KEYWORDS: Record<string, string[]> = {
+const TRAVEL_INFO_KEYWORDS: Record<Locale, string[]> = {
   en: [
     'Tanzania visa requirements',
     'Tanzania travel tips',
@@ -190,6 +192,30 @@ const TRAVEL_INFO_KEYWORDS: Record<string, string[]> = {
     '坦尚尼亞先令匯率',
     '獵遊該穿什麼',
   ],
+  it: [
+    'visto per la Tanzania',
+    'consigli di viaggio Tanzania',
+    'vaccinazioni per la Tanzania',
+    'lista bagaglio safari',
+    'periodo migliore per un safari in Tanzania',
+    'meteo safari Serengeti',
+    'valuta della Tanzania',
+    'prevenzione malaria Tanzania',
+    'requisiti di ingresso Tanzania',
+    'cosa portare in un safari',
+    'assicurazione viaggio Africa',
+    'certificato febbre gialla Tanzania',
+    'consigli per viaggiare in Tanzania',
+    'periodo migliore per scalare il Kilimanjaro',
+    'lista attrezzatura Kilimanjaro',
+    'quando scalare il Kilimanjaro',
+    'voltaggio elettrico Tanzania',
+    'mance guida safari',
+    'la Tanzania è sicura per i turisti',
+    'migrazione degli gnu per mese',
+    'cambio scellino tanzaniano',
+    'cosa indossare in un safari',
+  ],
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -209,7 +235,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('twitterTitle'),
       images: ['/images/gallery/serengeti-lions-under-acacia.jpg'],
     },
-    keywords: TRAVEL_INFO_KEYWORDS[locale] ?? TRAVEL_INFO_KEYWORDS.en,
+    keywords: TRAVEL_INFO_KEYWORDS[locale as keyof typeof TRAVEL_INFO_KEYWORDS] ?? TRAVEL_INFO_KEYWORDS.en,
   }
 }
 

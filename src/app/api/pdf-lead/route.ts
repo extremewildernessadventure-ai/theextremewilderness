@@ -1,5 +1,6 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
+import { routing } from '@/i18n/routing'
 import { localeUrl } from '@/lib/site'
 import { saveLead, markLeadEmailSent } from '@/lib/leads'
 
@@ -7,15 +8,13 @@ const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID ?? ''
 const TO = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
 const FROM = process.env.RESEND_FROM ?? 'EWA Guide <noreply@theextremewilderness.com>'
 
-const LOCALES = ['en', 'fr', 'es', 'de', 'ru', 'zh', 'zh-TW'] as const
-
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json() as {
       name?: string; email?: string; phone?: string; context?: string; locale?: string
     }
     const { name, email, phone, context, locale: rawLocale } = body
-    const locale = LOCALES.includes(rawLocale as typeof LOCALES[number]) ? rawLocale! : 'en'
+    const locale = routing.locales.includes(rawLocale as (typeof routing.locales)[number]) ? rawLocale! : routing.defaultLocale
 
     if (!name?.trim() || !email?.trim()) {
       return NextResponse.json({ error: 'Name and email are required' }, { status: 400 })

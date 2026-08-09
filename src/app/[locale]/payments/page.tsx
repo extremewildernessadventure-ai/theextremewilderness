@@ -6,12 +6,14 @@ import {
   ArrowRight, Lock, CreditCard, ShieldCheck, Banknote, Clock, Mail, Phone,
 } from 'lucide-react'
 import { buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import type { routing } from '@/i18n/routing'
 
 const PESAPAL_URL = 'https://payments.pesapal.com/theextremewilderness'
 
 type Props = { params: Promise<{ locale: string }> }
+type Locale = (typeof routing.locales)[number]
 
-const PAYMENTS_KEYWORDS: Record<string, string[]> = {
+const PAYMENTS_KEYWORDS: Record<Locale, string[]> = {
   en: [
     'pay safari deposit online', 'EWA Safari Outfitters payment', 'Pesapal safari payment',
     'Tanzania safari payment methods', 'pay Tanzania safari balance', 'safari deposit payment Tanzania',
@@ -41,6 +43,10 @@ const PAYMENTS_KEYWORDS: Record<string, string[]> = {
     '線上支付獵遊訂金', 'EWA Safari Outfitters付款', 'Pesapal獵遊付款',
     '坦尚尼亞獵遊付款方式', '支付獵遊尾款', '獵遊行動支付',
   ],
+  it: [
+    'pagare acconto safari online', 'pagamento EWA Safari Outfitters', 'pagamento safari Pesapal',
+    'metodi di pagamento safari Tanzania', 'saldare il safari', 'pagamento mobile money safari',
+  ],
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -60,7 +66,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('twitterTitle'),
       images: ['/images/gallery/serengeti-lions-under-acacia.jpg'],
     },
-    keywords: PAYMENTS_KEYWORDS[locale] ?? PAYMENTS_KEYWORDS.en,
+    keywords: PAYMENTS_KEYWORDS[locale as keyof typeof PAYMENTS_KEYWORDS] ?? PAYMENTS_KEYWORDS.en,
     // A payment-processing utility page, not content worth surfacing in
     // search results — clients reach it via a direct link (footer, an
     // invoice), not by searching. `follow: true` so crawlers can still

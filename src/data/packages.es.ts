@@ -5044,7 +5044,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
-    metaTitle: 'Safari Auténtico y Exclusivo en Kenia | Amboseli, Samburu y Masai Mara | The Extreme Wilderness',
+    metaTitle: 'Safari Auténtico y Exclusivo en Kenia | Amboseli, Samburu y Masai Mara | EWA Safari Outfitters',
     metaDescription: 'Un safari privado de 9 días por Kenia a través de Amboseli, Samburu y el tranquilo suroeste del Masai Mara — campamentos exclusivos, dos guías dedicados y una auténtica inmersión cultural. Diseñado a medida por un operador de safaris de África Oriental de propiedad local.',
     overview: [
       "Kenia recompensa a los viajeros que buscan tranquilidad y privacidad — y este itinerario está construido enteramente en torno a esa idea. Nueve días, tres paisajes, y nada compartido con nadie fuera de su propio grupo: campamentos de uso exclusivo instalados a la sombra del Kilimanjaro en Amboseli, una estancia culturalmente rica en el árido norte de Samburu, y un rincón privado del Masai Mara al que la mayoría de los visitantes nunca llega.",
@@ -5227,7 +5227,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
-    metaTitle: 'Safari Clásico de Kenia | Masai Mara, Valle del Rift y Amboseli | The Extreme Wilderness',
+    metaTitle: 'Safari Clásico de Kenia | Masai Mara, Valle del Rift y Amboseli | EWA Safari Outfitters',
     metaDescription: 'Un safari clásico de 7 días por Kenia a través del Masai Mara, un lago de soda del Valle del Rift y el telón de fondo del Kilimanjaro en Amboseli — privado, bien planificado y hecho a medida por un operador de safaris de África Oriental de propiedad local.',
     overview: [
       'Hay una razón por la que a esta ruta la siguen llamando "clásica" — es el itinerario que realmente se gana la palabra. Siete días, tres paisajes, y cada uno de ellos una cara genuinamente distinta de Kenia: el drama de las llanuras del Masai Mara, la orilla tranquila y rica en aves de un lago sódico del Valle del Rift, y el paisaje de postal de elefantes y el Kilimanjaro de Amboseli para cerrar el recorrido.',

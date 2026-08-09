@@ -4966,7 +4966,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
-    metaTitle: 'Authentische, exklusive Kenia-Safari | Amboseli, Samburu & Masai Mara | The Extreme Wilderness',
+    metaTitle: 'Authentische, exklusive Kenia-Safari | Amboseli, Samburu & Masai Mara | EWA Safari Outfitters',
     metaDescription: 'Eine 9-tägige private Kenia-Safari durch Amboseli, Samburu und den ruhigen Südwesten der Masai Mara — exklusive Camps, zwei erfahrene Guides und echte kulturelle Begegnungen. Maßgeschneidert von einem lokal geführten Reiseveranstalter für Ostafrika.',
     overview: [
       "Kenia belohnt Reisende, die auf Ruhe und Privatsphäre setzen — und genau um diese Idee ist dieser Reiseplan herum aufgebaut. Neun Tage, drei Landschaften, und nichts, was Sie mit einer anderen Gruppe teilen: exklusiv genutzte Camps im Schatten des Kilimandscharo in Amboseli, ein kulturell reicher Aufenthalt im trockenen Norden Samburus und eine private Ecke der Masai Mara, die die meisten Besucher nie erreichen.",
@@ -5357,7 +5357,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
-    metaTitle: 'Klassische Kenia-Safari | Masai Mara, Rift Valley & Amboseli | The Extreme Wilderness',
+    metaTitle: 'Klassische Kenia-Safari | Masai Mara, Rift Valley & Amboseli | EWA Safari Outfitters',
     metaDescription: 'Eine 7-tägige klassische Kenia-Safari durch die Masai Mara, einen Sodasee im Rift Valley und die Kilimandscharo-Kulisse von Amboseli — privat, gut getaktet und maßgeschneidert von einem lokal geführten Ostafrika-Reiseveranstalter.',
     overview: [
       'Es gibt einen Grund, warum diese Route immer wieder „klassisch" genannt wird — es ist der Reiseplan, der sich das Wort tatsächlich verdient. Sieben Tage, drei Landschaften, und jede von ihnen ein wirklich anderes Gesicht Kenias: die Ebenendramatik der Masai Mara, das stille, vogelreiche Ufer eines Soda-Sees im Rift Valley, und die Postkartenkulisse aus Elefanten und Kilimandscharo in Amboseli zum Abschluss.',

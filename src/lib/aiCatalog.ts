@@ -59,6 +59,7 @@ const LOCALE_LANGUAGE: Record<string, string> = {
   ru: 'Russian',
   zh: 'Simplified Chinese',
   'zh-TW': 'Traditional Chinese',
+  it: 'Italian',
 }
 
 export const RESULTS_SENTINEL = '<<<RESULTS>>>'

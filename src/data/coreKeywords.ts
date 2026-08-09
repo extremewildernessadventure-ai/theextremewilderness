@@ -55,4 +55,10 @@ export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
     '非洲蜜月狩獵之旅', '坦尚尼亞旅遊價格', '私人嚮導野生動物園', '尚吉巴海灘度假',
     '恩戈羅恩戈羅火山口野生動物園', '非洲奢華旅行', '馬查美路線吉力馬札羅', '非洲家庭野生動物園',
   ],
+  it: [
+    'safari in Tanzania', 'safari di lusso in Africa', 'scalata del Kilimanjaro',
+    'trekking gorilla Ruanda', 'periodo migliore safari Serengeti', 'prezzo safari Tanzania',
+    'safari luna di miele', 'safari Serengeti Ngorongoro', 'tour operator Tanzania',
+    'safari in famiglia Africa', 'via Machame Kilimanjaro', 'Zanzibar mare e safari',
+  ],
 }

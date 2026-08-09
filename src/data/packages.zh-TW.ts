@@ -5877,7 +5877,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
-    metaTitle: '原真獨享肯亞獵遊 | 安波塞利、桑布魯與馬賽馬拉 | The Extreme Wilderness',
+    metaTitle: '原真獨享肯亞獵遊 | 安波塞利、桑布魯與馬賽馬拉 | EWA Safari Outfitters',
     metaDescription: '一趟9日私人肯亞獵遊，穿越安波塞利、桑布魯，以及馬賽馬拉寧靜的西南部——獨享營地、兩位專屬嚮導，以及真正的文化沉浸體驗。由本地運營的東非獵遊公司量身定製。',
     overview: [
       '肯亞回饋那些選擇安靜、選擇私享的旅行者——這條行程正是完全圍繞這一理念打造的。九天，三片景觀，全程沒有與您團組之外的任何人共享：獨享營地紮營於安波塞利吉力馬札羅的陰影之下，一段文化底蘊豐厚的桑布魯北方乾旱地區之旅，以及大多數遊客從未抵達的馬賽馬拉一隅私享領地。',
@@ -6060,7 +6060,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
-    metaTitle: '經典肯亞獵遊 | 馬賽馬拉、大裂谷與安波塞利 | The Extreme Wilderness',
+    metaTitle: '經典肯亞獵遊 | 馬賽馬拉、大裂谷與安波塞利 | EWA Safari Outfitters',
     metaDescription: '一趟7日經典肯亞獵遊，穿越馬賽馬拉、大裂谷的一處蘇打湖，以及安波塞利的吉力馬札羅背景——私人出行、節奏得宜，由本地運營的東非獵遊公司量身定製。',
     overview: [
       '這條路線之所以一直被稱為"經典"，是有原因的——它是真正配得上這個稱號的行程。七天，三片景觀，每一處都是肯亞真正不同的一面：馬賽馬拉平原上的戲劇性場面、大裂谷蘇打湖靜謐而鳥類豐富的湖岸，以及最後以安波塞利明信片般的象群與吉力馬札羅風光收尾。',

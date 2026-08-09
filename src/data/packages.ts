@@ -6000,7 +6000,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
-    metaTitle: 'Authentic, Exclusive Kenya Safari | Amboseli, Samburu & Masai Mara | The Extreme Wilderness',
+    metaTitle: 'Authentic, Exclusive Kenya Safari | Amboseli, Samburu & Masai Mara | EWA Safari Outfitters',
     metaDescription: "A 9-day private Kenya safari through Amboseli, Samburu, and the Masai Mara's quiet south-west — exclusive-use camps, two dedicated guides, and genuine cultural immersion. Tailor-made by a locally owned East Africa safari operator.",
     overview: [
       "Kenya rewards travelers who go quiet and go private — and this itinerary is built entirely around that idea. Nine days, three landscapes, and nothing shared with anyone outside your own group: exclusive-use camps pitched in Amboseli's shadow of Kilimanjaro, a culturally rich stay in Samburu's dry northern country, and a private corner of the Masai Mara most visitors never reach.",
@@ -6183,7 +6183,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'first-time', 'wildlife-enthusiasts'],
-    metaTitle: 'Classic Kenya Safari | Masai Mara, Rift Valley & Amboseli | The Extreme Wilderness',
+    metaTitle: 'Classic Kenya Safari | Masai Mara, Rift Valley & Amboseli | EWA Safari Outfitters',
     metaDescription: "A 7-day classic Kenya safari through the Masai Mara, a Rift Valley soda lake, and Amboseli's Kilimanjaro backdrop — private, well-paced, and tailor-made by a locally owned East Africa safari operator.",
     overview: [
       'There\'s a reason this route keeps getting called "classic" — it\'s the itinerary that actually earns the word. Seven days, three landscapes, and every one of them a genuinely different face of Kenya: the plains drama of the Masai Mara, the still, birdlife-rich shoreline of a Rift Valley soda lake, and the elephant-and-Kilimanjaro postcard scenery of Amboseli to close things out.',
