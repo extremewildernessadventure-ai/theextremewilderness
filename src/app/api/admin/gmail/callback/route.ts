@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { hasValidAdminSession } from '@/lib/adminAuth'
 import { exchangeCodeForTokens, saveTokens } from '@/lib/gmail'
 import { GMAIL_STATE_COOKIE } from '../connect/route'
 
 export const dynamic = 'force-dynamic'
 
+// No hasValidAdminSession() check here: this is a top-level redirect back
+// from accounts.google.com, and the admin session cookie is SameSite=Strict
+// (set by the pre-existing admin login), so it's dropped on exactly this
+// kind of cross-site redirect — checking it here would 401 every real user.
+// The matching `state` cookie (SameSite=Lax, set by /connect) is sufficient
+// proof this callback belongs to a flow an authenticated admin started,
+// since only /connect (which does require admin auth) could have set it.
 export async function GET(req: NextRequest) {
-  if (!(await hasValidAdminSession())) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
-
   const { searchParams } = req.nextUrl
   const code = searchParams.get('code')
   const state = searchParams.get('state')
