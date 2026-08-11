@@ -67,4 +67,10 @@ export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
     'huwelijksreis safari', 'safari Serengeti Ngorongoro', 'reisorganisatie Tanzania',
     'gezinssafari Afrika', 'Machame route Kilimanjaro', 'Zanzibar strand en safari',
   ],
+  pt: [
+    'safari na Tanzânia', 'safari de luxo em África', 'escalada ao Kilimanjaro',
+    'trekking de gorilas no Ruanda', 'melhor época para safari no Serengeti', 'preço do safari na Tanzânia',
+    'safari em lua de mel', 'safari Serengeti Ngorongoro', 'operador turístico Tanzânia',
+    'safari em família África', 'rota Machame Kilimanjaro', 'Zanzibar praia e safari',
+  ],
 }
