@@ -316,6 +316,57 @@ const SAFARI_KEYWORDS_BY_LOCALE: Partial<Record<string, Partial<Record<string, s
       '坦尚尼亞頂級獵遊行程', '非洲此生必訪獵遊', '坦尚尼亞私人嚮導獵遊', '2027坦尚尼亞獵遊預訂',
     ],
   },
+  it: {
+    'off-the-beaten-track-photography-safari': [
+      'safari fotografico Tanzania fuori dai sentieri battuti', 'safari fotografico Ndutu predatori residenti', 'safari privato Tanzania piccoli gruppi',
+      'tour fotografico natura selvaggia Africa', 'safari cratere Ngorongoro e Ndutu', 'safari autentico Tanzania bassa stagione',
+      'safari guidato su misura Tanzania', 'safari Tanzania per content creator', 'safari Tanzania senza folla', 'prenotare safari Tanzania 2027',
+    ],
+    'rwanda-primates-zanzibar-seniors-groups': [
+      'trekking gorilla Ruanda e Zanzibar', 'safari primati e vacanza al mare', 'safari per anziani Ruanda',
+      'safari anniversario Africa', 'safari di gruppo Ruanda Zanzibar', 'combinato di lusso Ruanda Zanzibar',
+      'trekking gorilla con estensione mare', 'safari multigenerazionale', 'safari privato guidato Ruanda', 'prenotare safari Ruanda 2027',
+    ],
+    '7-days-crown-jewels': [
+      'safari gioielli della corona Tanzania', 'miglior safari in Tanzania', 'safari in mongolfiera Tanzania',
+      'safari Tarangire Ngorongoro Serengeti', 'safari di lusso Tanzania 7 giorni', 'game drive notturno Tanzania',
+      'safari premium Tanzania', 'safari imperdibile Africa', 'safari privato guidato Tanzania', 'prenotare safari Tanzania 2027',
+    ],
+  },
+  nl: {
+    'off-the-beaten-track-photography-safari': [
+      'fotosafari Tanzania onbekende paden', 'fotosafari Ndutu roofdieren', 'privé safari Tanzania kleine groep',
+      'fotografiereis wilde dieren Afrika', 'safari Ngorongoro en Ndutu combinatie', 'authentieke safari Tanzania laagseizoen',
+      'op maat gemaakte safari met gids Tanzania', 'safari Tanzania voor contentmakers', 'safari Tanzania zonder drukte', 'safari Tanzania boeken 2027',
+    ],
+    'rwanda-primates-zanzibar-seniors-groups': [
+      'gorilla trekking Rwanda en Zanzibar', 'primatensafari en strandvakantie', 'seniorensafari Rwanda',
+      'jubileumsafari Afrika', 'groepssafari Rwanda Zanzibar', 'luxe combinatiereis Rwanda Zanzibar',
+      'gorilla trekking met strandverlenging', 'safari voor meerdere generaties', 'privé safari met gids Rwanda', 'safari Rwanda boeken 2027',
+    ],
+    '7-days-crown-jewels': [
+      'kroonjuwelen safari Tanzania', 'beste safari Tanzania', 'luchtballonvaart safari Tanzania',
+      'safari Tarangire Ngorongoro Serengeti', 'luxe safari Tanzania 7 dagen', 'nachtelijke game drive Tanzania',
+      'premium safari Tanzania', 'bucketlist safari Afrika', 'privé safari met gids Tanzania', 'safari Tanzania boeken 2027',
+    ],
+  },
+  pt: {
+    'off-the-beaten-track-photography-safari': [
+      'safari fotográfico na Tanzânia longe das rotas turísticas', 'safari fotográfico em Ndutu predadores residentes', 'safari privado na Tanzânia em pequeno grupo',
+      'viagem fotográfica de vida selvagem em África', 'safari combinado Ngorongoro e Ndutu', 'safari autêntico na Tanzânia em época baixa',
+      'safari privado com guia à medida na Tanzânia', 'safari na Tanzânia para criadores de conteúdo', 'safari na Tanzânia sem multidões', 'reservar safari na Tanzânia 2027',
+    ],
+    'rwanda-primates-zanzibar-seniors-groups': [
+      'trekking de gorilas no Ruanda e Zanzibar', 'safari de primatas e férias de praia', 'safari para seniores no Ruanda',
+      'safari de aniversário em África', 'safari em grupo Ruanda Zanzibar', 'combinado de luxo Ruanda Zanzibar',
+      'trekking de gorilas com extensão de praia', 'safari multigeracional', 'safari privado com guia no Ruanda', 'reservar safari no Ruanda 2027',
+    ],
+    '7-days-crown-jewels': [
+      'safari joias da coroa Tanzânia', 'melhor safari na Tanzânia', 'safari de balão de ar quente na Tanzânia',
+      'safari Tarangire Ngorongoro Serengeti', 'safari de luxo na Tanzânia 7 dias', 'game drive noturno na Tanzânia',
+      'safari premium na Tanzânia', 'safari imperdível em África', 'safari privado com guia na Tanzânia', 'reservar safari na Tanzânia 2027',
+    ],
+  },
 }
 
 const SAFARI_BLOG_MAP: Record<string, string> = {

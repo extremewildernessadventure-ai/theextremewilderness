@@ -6,6 +6,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare'
 // API (https://developers.cloudflare.com/d1/worker-api/).
 export interface D1Database {
   prepare(query: string): D1PreparedStatement
+  batch<T = unknown>(statements: D1PreparedStatement[]): Promise<Array<{ success: boolean; results: T[] }>>
 }
 export interface D1PreparedStatement {
   bind(...values: unknown[]): D1PreparedStatement
@@ -27,11 +28,50 @@ export interface Invoice {
   client_email: string | null
   booking_reference: string | null
   amount: number
+  amount_paid: number
   currency: string
   description: string | null
   status: 'unpaid' | 'partial' | 'paid' | 'cancelled'
   due_date: string | null
   notes: string | null
+  created_at: string
+  updated_at: string | null
+}
+
+export interface InvoiceItem {
+  id: number
+  invoice_id: number
+  description: string
+  quantity: number
+  unit_price: number
+  sort_order: number
+  created_at: string
+  updated_at: string | null
+}
+
+export interface InvoicePayment {
+  id: number
+  invoice_id: number
+  amount: number
+  currency: string
+  method: 'pesapal' | 'bank_transfer' | 'other' | 'correction'
+  reference: string | null
+  pesapal_order_tracking_id: string | null
+  confirmed_at: string
+  recorded_by: string | null
+  notes: string | null
+  created_at: string
+}
+
+export interface InvoicePesapalOrder {
+  id: number
+  invoice_id: number
+  order_tracking_id: string
+  merchant_reference: string
+  redirect_url: string
+  amount: number
+  currency: string
+  status: string
   created_at: string
   updated_at: string | null
 }

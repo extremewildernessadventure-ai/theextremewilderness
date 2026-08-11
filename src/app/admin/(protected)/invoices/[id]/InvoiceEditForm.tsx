@@ -15,9 +15,7 @@ export default function InvoiceEditForm({ invoice }: { invoice: Invoice }) {
     clientName: invoice.client_name,
     clientEmail: invoice.client_email ?? '',
     bookingReference: invoice.booking_reference ?? '',
-    amount: String(invoice.amount),
     currency: invoice.currency,
-    description: invoice.description ?? '',
     dueDate: invoice.due_date ?? '',
     status: invoice.status,
     notes: invoice.notes ?? '',
@@ -36,7 +34,7 @@ export default function InvoiceEditForm({ invoice }: { invoice: Invoice }) {
     await fetch(`/api/admin/invoices/${invoice.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...form, amount: parseFloat(form.amount) }),
+      body: JSON.stringify(form),
     })
     setSaving(false)
     setSaved(true)
@@ -60,20 +58,13 @@ export default function InvoiceEditForm({ invoice }: { invoice: Invoice }) {
           <input value={form.bookingReference} onChange={(e) => update('bookingReference', e.target.value)} className={inputCls} />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label className={labelCls}>Amount</label>
-          <input type="number" step="0.01" min="0" value={form.amount} onChange={(e) => update('amount', e.target.value)} className={inputCls} />
-        </div>
-        <div>
-          <label className={labelCls}>Currency</label>
-          <input value={form.currency} onChange={(e) => update('currency', e.target.value)} className={inputCls} />
-        </div>
-      </div>
       <div>
-        <label className={labelCls}>Description</label>
-        <textarea value={form.description} onChange={(e) => update('description', e.target.value)} rows={4} className={inputCls} />
+        <label className={labelCls}>Currency</label>
+        <input value={form.currency} onChange={(e) => update('currency', e.target.value)} className={`${inputCls} max-w-[140px]`} />
       </div>
+      <p className="text-xs text-gray-400 -mt-2">
+        Amount is calculated from line items — edit those in the panel below.
+      </p>
       <div>
         <label className={labelCls}>Due Date</label>
         <input type="date" value={form.dueDate} onChange={(e) => update('dueDate', e.target.value)} className={inputCls} />

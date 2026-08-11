@@ -1,7 +1,11 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getDb, type Invoice } from '@/lib/db'
+import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
 import InvoiceEditForm from './InvoiceEditForm'
+import InvoiceItemsEditor from './InvoiceItemsEditor'
+import PaymentPanel from './PaymentPanel'
+import PesapalPanel from './PesapalPanel'
+import PaymentOptionsPanel from './PaymentOptionsPanel'
 import DeleteInvoiceButton from './DeleteInvoiceButton'
 
 export const dynamic = 'force-dynamic'
@@ -15,6 +19,14 @@ export default async function InvoiceDetailPage({ params }: Props) {
 
   if (!invoice) notFound()
 
+  const [{ results: items }, { results: payments }, { results: pesapalOrders }] = await Promise.all([
+    db.prepare('SELECT * FROM invoice_items WHERE invoice_id = ? ORDER BY sort_order').bind(id).all<InvoiceItem>(),
+    db.prepare('SELECT * FROM invoice_payments WHERE invoice_id = ? ORDER BY confirmed_at DESC').bind(id).all<InvoicePayment>(),
+    db.prepare('SELECT * FROM invoice_pesapal_orders WHERE invoice_id = ? ORDER BY created_at DESC').bind(id).all<InvoicePesapalOrder>(),
+  ])
+
+  const latestOrder = pesapalOrders[0] ?? null
+
   return (
     <div className="max-w-5xl">
       <Link href="/admin/invoices" className="text-sm text-gray-500 hover:text-brand mb-4 inline-block">← Back to Invoices</Link>
@@ -22,8 +34,8 @@ export default async function InvoiceDetailPage({ params }: Props) {
       <p className="text-gray-500 text-sm mb-6">Created {new Date(invoice.created_at).toLocaleString()}</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-        <div>
-          <div className="bg-white border border-gray-200 rounded-xl p-7 mb-6 space-y-3 text-sm">
+        <div className="space-y-6">
+          <div className="bg-white border border-gray-200 rounded-xl p-7 space-y-3 text-sm">
             <div className="flex justify-between">
               <span className="text-gray-500">Client</span>
               <span className="font-medium text-brand">{invoice.client_name}</span>
@@ -50,17 +62,19 @@ export default async function InvoiceDetailPage({ params }: Props) {
                 <span className="text-gray-700">{invoice.due_date}</span>
               </div>
             )}
-            {invoice.description && (
-              <div>
-                <span className="text-gray-500 block mb-1">Description</span>
-                <p className="text-gray-700 whitespace-pre-wrap">{invoice.description}</p>
-              </div>
-            )}
           </div>
+
+          <InvoiceItemsEditor invoice={invoice} items={items} />
+
+          <PaymentPanel invoice={invoice} payments={payments} />
+
+          <PesapalPanel invoiceId={invoice.id} orders={pesapalOrders} />
+
+          <PaymentOptionsPanel latestOrder={latestOrder} />
 
           <Link
             href={`/admin/invoices/${invoice.id}/pdf`}
-            className="mb-6 inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
           >
             Print / Download PDF
           </Link>

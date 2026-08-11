@@ -30,6 +30,10 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     status?: string; dueDate?: string; notes?: string
   }
 
+  // `amount` is derived from invoice_items (see PUT .../items and
+  // src/lib/invoices.ts's recalculateInvoiceTotals) — the current admin UI
+  // no longer sends it here, but the column map is left in place since a
+  // direct PATCH with `amount` is still harmless to support.
   const columnMap: Record<string, unknown> = {
     client_name: body.clientName,
     client_email: body.clientEmail,
@@ -66,6 +70,14 @@ export async function DELETE(_req: NextRequest, { params }: Params) {
   }
   const { id } = await params
   const db = await getDb()
-  await db.prepare('DELETE FROM invoices WHERE id = ?').bind(id).run()
+  // Child rows (invoice_items/invoice_payments/invoice_pesapal_orders)
+  // reference invoices(id) without ON DELETE CASCADE, so they must be
+  // cleared first or D1's foreign-key enforcement rejects the delete.
+  await db.batch([
+    db.prepare('DELETE FROM invoice_items WHERE invoice_id = ?').bind(id),
+    db.prepare('DELETE FROM invoice_payments WHERE invoice_id = ?').bind(id),
+    db.prepare('DELETE FROM invoice_pesapal_orders WHERE invoice_id = ?').bind(id),
+    db.prepare('DELETE FROM invoices WHERE id = ?').bind(id),
+  ])
   return NextResponse.json({ success: true })
 }

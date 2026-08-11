@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
+import { replaceInvoiceItems, validateItems, type InvoiceItemInput } from '@/lib/invoices'
 
 export const dynamic = 'force-dynamic'
 
@@ -33,11 +34,15 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json() as {
     clientName?: string; clientEmail?: string; bookingReference?: string
-    amount?: number; currency?: string; description?: string; dueDate?: string; notes?: string
+    currency?: string; dueDate?: string; notes?: string; items?: InvoiceItemInput[]
   }
-  if (!body.clientName || !body.amount) {
-    return NextResponse.json({ error: 'clientName and amount are required' }, { status: 400 })
+  if (!body.clientName) {
+    return NextResponse.json({ error: 'clientName is required' }, { status: 400 })
   }
+  if (!validateItems(body.items)) {
+    return NextResponse.json({ error: 'At least one valid line item (description, quantity > 0, unitPrice >= 0) is required' }, { status: 400 })
+  }
+  const items = body.items
 
   const invoiceNumber = `INV-${new Date().getFullYear()}-${Date.now().toString().slice(-6)}`
   // Only auto-generated references are safe to silently retry on collision —
@@ -50,20 +55,33 @@ export async function POST(req: NextRequest) {
   const maxAttempts = 5
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
-      await db.prepare(
-        `INSERT INTO invoices (invoice_number, client_name, client_email, booking_reference, amount, currency, description, due_date, notes)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      // amount starts at 0 (the column is NOT NULL) — replaceInvoiceItems
+      // below sets the real, derived total from the line items.
+      const result = await db.prepare(
+        `INSERT INTO invoices (invoice_number, client_name, client_email, booking_reference, amount, currency, due_date, notes)
+         VALUES (?, ?, ?, ?, 0, ?, ?, ?)`
       ).bind(
         invoiceNumber,
         body.clientName,
         body.clientEmail ?? null,
         bookingReference,
-        body.amount,
         body.currency ?? 'USD',
-        body.description ?? null,
         body.dueDate ?? null,
         body.notes ?? null,
       ).run()
+
+      const invoiceId = result.meta?.last_row_id
+      if (!invoiceId) throw new Error('Invoice insert did not return an id')
+
+      try {
+        await replaceInvoiceItems(db, invoiceId, items)
+      } catch (itemsErr) {
+        // D1 can't wrap the invoice insert + item inserts in one transaction
+        // (batch() can't consume an id generated earlier in the same
+        // request) — compensate by deleting the now-orphaned invoice row.
+        await db.prepare('DELETE FROM invoices WHERE id = ?').bind(invoiceId).run()
+        throw itemsErr
+      }
 
       return NextResponse.json({ success: true, invoiceNumber })
     } catch (err) {
