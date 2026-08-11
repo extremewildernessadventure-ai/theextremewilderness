@@ -1,12 +1,6 @@
 import type { Invoice, InvoicePayment } from '@/lib/db'
+import { PAYMENT_METHOD_LABELS } from '@/lib/invoices'
 import RecordPaymentForm from './RecordPaymentForm'
-
-const METHOD_LABELS: Record<InvoicePayment['method'], string> = {
-  pesapal: 'Pesapal',
-  bank_transfer: 'Bank Transfer',
-  other: 'Other',
-  correction: 'Correction',
-}
 
 export default function PaymentPanel({ invoice, payments }: { invoice: Invoice; payments: InvoicePayment[] }) {
   const balanceDue = Math.max(0, invoice.amount - invoice.amount_paid)
@@ -37,7 +31,7 @@ export default function PaymentPanel({ invoice, payments }: { invoice: Invoice; 
               <div>
                 <span className="font-medium text-gray-900">{p.currency} {p.amount.toLocaleString()}</span>
                 <span className="text-gray-400 mx-1.5">·</span>
-                <span className="text-gray-500">{METHOD_LABELS[p.method]}</span>
+                <span className="text-gray-500">{PAYMENT_METHOD_LABELS[p.method]}</span>
                 {p.reference && <span className="text-gray-400"> ({p.reference})</span>}
               </div>
               <span className="text-xs text-gray-400">{new Date(p.confirmed_at).toLocaleDateString()}</span>

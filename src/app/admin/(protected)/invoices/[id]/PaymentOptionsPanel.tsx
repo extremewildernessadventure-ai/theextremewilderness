@@ -1,10 +1,43 @@
+import { CheckCircle2 } from 'lucide-react'
 import { BANK_DETAILS } from '@/lib/bankDetails'
-import type { InvoicePesapalOrder } from '@/lib/db'
+import { PAYMENT_METHOD_LABELS } from '@/lib/invoices'
+import type { Invoice, InvoicePayment, InvoicePesapalOrder } from '@/lib/db'
 
-// Read-only summary of "how this client can pay" — mirrors what also
-// appears on the printed invoice (pdf/page.tsx), for quick reference while
-// on the admin detail page without switching to the print view.
-export default function PaymentOptionsPanel({ latestOrder }: { latestOrder: InvoicePesapalOrder | null }) {
+// Read-only summary of "how this client can pay" (mirrors what also appears
+// on the printed invoice, pdf/page.tsx) — unless the invoice is already
+// paid, in which case there's nothing to instruct and a receipt note is
+// shown instead, referencing the payment that settled it.
+export default function PaymentOptionsPanel({
+  invoice,
+  payments,
+  latestOrder,
+}: {
+  invoice: Invoice
+  payments: InvoicePayment[]
+  latestOrder: InvoicePesapalOrder | null
+}) {
+  if (invoice.status === 'paid') {
+    const latestPayment = payments[0] ?? null
+    return (
+      <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+        <div className="flex items-start gap-3">
+          <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+          <div>
+            <h2 className="text-[10px] font-black uppercase tracking-widest text-green-700 mb-1">Paid in Full</h2>
+            {latestPayment ? (
+              <p className="text-sm text-green-800">
+                Paid via {PAYMENT_METHOD_LABELS[latestPayment.method]} on{' '}
+                {new Date(latestPayment.confirmed_at).toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' })}.
+              </p>
+            ) : (
+              <p className="text-sm text-green-800">This invoice has been paid in full.</p>
+            )}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="bg-brand/5 rounded-xl p-6 space-y-4">
       <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label">Payment Options</h2>

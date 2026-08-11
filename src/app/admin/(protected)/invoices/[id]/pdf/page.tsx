@@ -1,8 +1,10 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getDb, type Invoice, type InvoiceItem, type InvoicePesapalOrder } from '@/lib/db'
+import { CheckCircle2 } from 'lucide-react'
+import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
 import { BANK_DETAILS } from '@/lib/bankDetails'
+import { PAYMENT_METHOD_LABELS } from '@/lib/invoices'
 import PrintButton from './PrintButton'
 
 // Kept dynamic deliberately: the printed document shows today's date
@@ -32,9 +34,10 @@ export default async function InvoicePdfPage({ params }: Props) {
 
   if (!invoice) notFound()
 
-  const [{ results: items }, latestOrder] = await Promise.all([
+  const [{ results: items }, latestOrder, latestPayment] = await Promise.all([
     db.prepare('SELECT * FROM invoice_items WHERE invoice_id = ? ORDER BY sort_order').bind(id).all<InvoiceItem>(),
     db.prepare('SELECT * FROM invoice_pesapal_orders WHERE invoice_id = ? ORDER BY created_at DESC LIMIT 1').bind(id).first<InvoicePesapalOrder>(),
+    db.prepare('SELECT * FROM invoice_payments WHERE invoice_id = ? ORDER BY confirmed_at DESC LIMIT 1').bind(id).first<InvoicePayment>(),
   ])
   const balanceDue = Math.max(0, invoice.amount - invoice.amount_paid)
 
@@ -163,34 +166,54 @@ export default async function InvoicePdfPage({ params }: Props) {
           </div>
         </div>
 
-        {/* ── Payment instructions ── */}
-        <div className="mb-7 no-break bg-brand/5 rounded-lg p-5 space-y-4">
-          <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label">How to Pay</h2>
-
-          {latestOrder && (
-            <div>
-              <p className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Pay Online</p>
-              <p className="text-sm text-gray-700 leading-relaxed break-all">
-                {latestOrder.redirect_url}
-              </p>
+        {/* ── Payment instructions / paid receipt ── */}
+        {invoice.status === 'paid' ? (
+          <div className="mb-7 no-break bg-green-50 border border-green-200 rounded-lg p-5">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+              <div>
+                <h2 className="text-[10px] font-black uppercase tracking-widest text-green-700 mb-1">Paid in Full</h2>
+                {latestPayment ? (
+                  <p className="text-sm text-green-800 leading-relaxed">
+                    Paid via {PAYMENT_METHOD_LABELS[latestPayment.method]} on{' '}
+                    {new Date(latestPayment.confirmed_at).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}.
+                    Thank you for your business!
+                  </p>
+                ) : (
+                  <p className="text-sm text-green-800 leading-relaxed">This invoice has been paid in full. Thank you for your business!</p>
+                )}
+              </div>
             </div>
-          )}
-
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Bank Transfer</p>
-            <p className="text-sm text-gray-700 leading-relaxed">
-              Please reference invoice <span className="font-semibold text-gray-900">{invoice.invoice_number}</span> when paying.
-            </p>
-            <dl className="text-sm text-gray-700 mt-1 space-y-0.5">
-              <div><dt className="inline font-medium text-gray-900">Beneficiary: </dt><dd className="inline">{BANK_DETAILS.beneficiaryName}</dd></div>
-              <div><dt className="inline font-medium text-gray-900">Account: </dt><dd className="inline">{BANK_DETAILS.beneficiaryAccount}</dd></div>
-              <div><dt className="inline font-medium text-gray-900">SWIFT: </dt><dd className="inline">{BANK_DETAILS.swiftCode}</dd></div>
-              <div><dt className="inline font-medium text-gray-900">Bank: </dt><dd className="inline">{BANK_DETAILS.bankName}</dd></div>
-              <div><dt className="inline font-medium text-gray-900">Address: </dt><dd className="inline">{BANK_DETAILS.bankAddress}</dd></div>
-              <div className="pt-1"><dt className="inline font-medium text-gray-900">Correspondent bank: </dt><dd className="inline">{BANK_DETAILS.correspondentBank.name} · SWIFT {BANK_DETAILS.correspondentBank.swift} · Acc {BANK_DETAILS.correspondentBank.account}</dd></div>
-            </dl>
           </div>
-        </div>
+        ) : (
+          <div className="mb-7 no-break bg-brand/5 rounded-lg p-5 space-y-4">
+            <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label">How to Pay</h2>
+
+            {latestOrder && (
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Pay Online</p>
+                <p className="text-sm text-gray-700 leading-relaxed break-all">
+                  {latestOrder.redirect_url}
+                </p>
+              </div>
+            )}
+
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Bank Transfer</p>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                Please reference invoice <span className="font-semibold text-gray-900">{invoice.invoice_number}</span> when paying.
+              </p>
+              <dl className="text-sm text-gray-700 mt-1 space-y-0.5">
+                <div><dt className="inline font-medium text-gray-900">Beneficiary: </dt><dd className="inline">{BANK_DETAILS.beneficiaryName}</dd></div>
+                <div><dt className="inline font-medium text-gray-900">Account: </dt><dd className="inline">{BANK_DETAILS.beneficiaryAccount}</dd></div>
+                <div><dt className="inline font-medium text-gray-900">SWIFT: </dt><dd className="inline">{BANK_DETAILS.swiftCode}</dd></div>
+                <div><dt className="inline font-medium text-gray-900">Bank: </dt><dd className="inline">{BANK_DETAILS.bankName}</dd></div>
+                <div><dt className="inline font-medium text-gray-900">Address: </dt><dd className="inline">{BANK_DETAILS.bankAddress}</dd></div>
+                <div className="pt-1"><dt className="inline font-medium text-gray-900">Correspondent bank: </dt><dd className="inline">{BANK_DETAILS.correspondentBank.name} · SWIFT {BANK_DETAILS.correspondentBank.swift} · Acc {BANK_DETAILS.correspondentBank.account}</dd></div>
+              </dl>
+            </div>
+          </div>
+        )}
 
         {/* ── Footer ── */}
         <div className="border-t-2 border-brand pt-4 flex items-center justify-between no-break">

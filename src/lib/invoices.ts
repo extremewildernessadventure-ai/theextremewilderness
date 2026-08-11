@@ -1,8 +1,17 @@
-import type { D1Database, Invoice } from './db'
+import type { D1Database, Invoice, InvoicePayment } from './db'
 import { getTransactionStatus, isConfirmedPaid } from './pesapal'
 
 export function round2(n: number): number {
   return Math.round(n * 100) / 100
+}
+
+// Shared between PaymentPanel (payment history) and PaymentOptionsPanel /
+// the PDF view (paid-receipt note), so the wording can't drift between them.
+export const PAYMENT_METHOD_LABELS: Record<InvoicePayment['method'], string> = {
+  pesapal: 'Pesapal',
+  bank_transfer: 'Bank Transfer',
+  other: 'Other',
+  correction: 'Correction',
 }
 
 // 'cancelled' is the one status that isn't purely a function of amount vs

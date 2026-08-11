@@ -70,7 +70,7 @@ export default async function InvoiceDetailPage({ params }: Props) {
 
           <PesapalPanel invoiceId={invoice.id} orders={pesapalOrders} />
 
-          <PaymentOptionsPanel latestOrder={latestOrder} />
+          <PaymentOptionsPanel invoice={invoice} payments={payments} latestOrder={latestOrder} />
 
           <Link
             href={`/admin/invoices/${invoice.id}/pdf`}
