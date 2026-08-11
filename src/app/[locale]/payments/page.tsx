@@ -55,6 +55,10 @@ const PAYMENTS_KEYWORDS: Record<Locale, string[]> = {
     'pagar sinal de safari online', 'pagamento EWA Safari Outfitters', 'pagamento de safari Pesapal',
     'métodos de pagamento safari Tanzânia', 'pagar saldo do safari', 'pagamento mobile money safari',
   ],
+  ja: [
+    'サファリ 予約金 オンライン支払い', 'EWA Safari Outfitters 支払い', 'Pesapal サファリ 支払い',
+    'タンザニア サファリ 支払い方法', 'サファリ 残金 支払い', 'モバイルマネー サファリ 支払い',
+  ],
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

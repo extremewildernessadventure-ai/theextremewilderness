@@ -73,4 +73,10 @@ export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
     'safari em lua de mel', 'safari Serengeti Ngorongoro', 'operador turístico Tanzânia',
     'safari em família África', 'rota Machame Kilimanjaro', 'Zanzibar praia e safari',
   ],
+  ja: [
+    'タンザニア サファリ', 'タンザニア サファリ ツアー 2026', 'セレンゲティ サファリ', 'キリマンジャロ登山',
+    'ルワンダ ゴリラトレッキング', 'ラグジュアリー サファリ アフリカ', 'タンザニア サファリ 費用',
+    '新婚旅行 サファリ アフリカ', 'タンザニア 旅行会社', '東アフリカ サファリ',
+    'ザンジバル ビーチ サファリ', 'マラングルート キリマンジャロ',
+  ],
 }

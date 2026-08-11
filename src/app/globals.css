@@ -34,6 +34,11 @@ body {
   font-family: var(--font-geist-sans), 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
 }
 
+/* Geist has no Japanese glyphs — fall back to platform-native fonts for ja */
+:lang(ja) {
+  font-family: var(--font-geist-sans), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
+}
+
 input, textarea, select, [contenteditable] {
   user-select: text;
   -webkit-user-select: text;
