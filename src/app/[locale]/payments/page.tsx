@@ -59,6 +59,10 @@ const PAYMENTS_KEYWORDS: Record<Locale, string[]> = {
     'サファリ 予約金 オンライン支払い', 'EWA Safari Outfitters 支払い', 'Pesapal サファリ 支払い',
     'タンザニア サファリ 支払い方法', 'サファリ 残金 支払い', 'モバイルマネー サファリ 支払い',
   ],
+  ko: [
+    '사파리 예약금 온라인 결제', 'EWA Safari Outfitters 결제', 'Pesapal 사파리 결제',
+    '탄자니아 사파리 결제 방법', '사파리 잔금 결제', '모바일 머니 사파리 결제',
+  ],
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
