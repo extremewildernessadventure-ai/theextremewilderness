@@ -6,6 +6,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { LANGUAGES } from '@/lib/languages'
+import FlagIcon from '@/components/icons/FlagIcon'
 
 export default function LanguageSwitcher() {
   const locale = useLocale()
@@ -62,23 +63,25 @@ export default function LanguageSwitcher() {
               Language
             </span>
           </div>
-          {routing.locales.map((l) => (
-            <button
-              key={l}
-              role="option"
-              aria-selected={locale === l}
-              onClick={() => switchLocale(l)}
-              className={`w-full flex items-center gap-3 px-4 py-3 text-start border-b border-white/5 last:border-0 transition-colors ${
-                locale === l ? 'bg-white/10' : 'hover:bg-white/5'
-              }`}
-            >
-              <span className="text-lg flex-shrink-0">{LANGUAGES[l].flag}</span>
-              <span className={`text-sm flex-1 ${locale === l ? 'text-gold font-semibold' : 'text-white/80'}`}>
-                {LANGUAGES[l].native}
-              </span>
-              {locale === l && <Check className="w-3.5 h-3.5 text-gold flex-shrink-0" />}
-            </button>
-          ))}
+          <div className="max-h-[265px] overflow-y-auto scrollbar-hide">
+            {routing.locales.map((l) => (
+              <button
+                key={l}
+                role="option"
+                aria-selected={locale === l}
+                onClick={() => switchLocale(l)}
+                className={`w-full flex items-center gap-3 px-4 py-3 text-start border-b border-white/5 last:border-0 transition-colors ${
+                  locale === l ? 'bg-white/10' : 'hover:bg-white/5'
+                }`}
+              >
+                <FlagIcon code={LANGUAGES[l].flagCode} className="text-lg flex-shrink-0" />
+                <span className={`text-sm flex-1 ${locale === l ? 'text-gold font-semibold' : 'text-white/80'}`}>
+                  {LANGUAGES[l].native}
+                </span>
+                {locale === l && <Check className="w-3.5 h-3.5 text-gold flex-shrink-0" />}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>

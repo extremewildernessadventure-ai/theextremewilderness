@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Keeps a container scrollable while hiding the visual scrollbar track/thumb */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 @theme {
   --color-brand: #1C3A2A;
   --color-brand-dark: #152e20;

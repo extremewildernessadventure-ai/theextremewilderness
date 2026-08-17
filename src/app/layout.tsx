@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Geist } from 'next/font/google'
 import './globals.css'
+import 'flag-icons/css/flag-icons.min.css'
 import { SITE_URL } from '@/lib/site'
 import TrackingScripts from '@/components/analytics/TrackingScripts'
 

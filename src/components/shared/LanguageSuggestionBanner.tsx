@@ -5,6 +5,7 @@ import { X } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { LANGUAGES, detectPreferredLocale } from '@/lib/languages'
+import FlagIcon from '@/components/icons/FlagIcon'
 
 const COOKIE_NAME = 'lang-banner-seen'
 const SHOW_DELAY_MS = 1200
@@ -82,7 +83,7 @@ export default function LanguageSuggestionBanner() {
         </button>
 
         <div className="p-5 pe-9 flex items-start gap-3">
-          <span className="text-2xl leading-none flex-shrink-0 mt-0.5" aria-hidden="true">{lang.flag}</span>
+          <FlagIcon code={lang.flagCode} className="text-2xl leading-none flex-shrink-0 mt-0.5" />
           <div className="flex-1 min-w-0">
             <p className="text-gold-label text-[10px] font-bold uppercase tracking-widest mb-1.5">
               {t('langBannerEyebrow')}
