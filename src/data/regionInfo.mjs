@@ -14,6 +14,15 @@
 // "Songwe" (Tanzania) is intentionally kept even though this geoBoundaries release
 // doesn't include it as a separate ADM1 feature (it's folded into Mbeya in this dataset)
 // — it simply won't render on the map until/unless the source data adds it.
+//
+// LOCALIZATION: this file (keys, country, signature, hasPark) is the
+// locale-invariant structural source of truth — never localized. Only the
+// `text` field is user-facing, and its translations live separately in
+// regionInfo.<locale>.mjs, each exporting a flat REGION_TEXT = { [regionName]: text }
+// map (same keys as REGION_INFO here, translated text only — no structural
+// fields to keep in sync). scripts/generate-locale-data.ts combines the two
+// into public/locale-data/regionInfo/<locale>.json, which
+// EastAfricaRegionExplorer.jsx fetches at runtime by locale.
 export const REGION_INFO = {
   // ===== TANZANIA =====
   "Arusha": { country: "Tanzania", signature: true, hasPark: true, text: "Gateway to the northern safari circuit — Serengeti, Ngorongoro and Kilimanjaro all launch from here, alongside the Maasai communities of the surrounding plains." },

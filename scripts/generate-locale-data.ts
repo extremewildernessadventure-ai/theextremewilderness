@@ -1,7 +1,7 @@
 /**
  * Serializes every locale variant of the site's large content datasets
  * (safari packages, destinations, experiences, experience pages, blog posts,
- * blog article bodies, next-intl UI messages) to static JSON under
+ * blog article bodies, region descriptions, next-intl UI messages) to static JSON under
  * public/locale-data/, so the Cloudflare Worker can fetch a single locale's
  * data at request time via the ASSETS binding instead of bundling all
  * locales into the server script.
@@ -95,6 +95,27 @@ async function loadBlogIndex(): Promise<Record<Locale, unknown>> {
   return byLocale
 }
 
+// regionInfo.mjs (English) is the structural source of truth (keys, country,
+// signature, hasPark — fields that never change per locale, and are also
+// consumed directly by scripts/fetch-region-photos.mjs). Locale files only
+// ever hold the translatable `text` field, as a flat { regionName: text }
+// map — keeping structural fields out of 11+ locale files avoids them ever
+// drifting out of sync with the source of truth.
+async function loadRegionInfo(): Promise<Record<Locale, unknown>> {
+  const byLocale = {} as Record<Locale, unknown>
+  const { REGION_INFO } = await import('../src/data/regionInfo.mjs')
+  const enText = Object.fromEntries(Object.entries(REGION_INFO).map(([name, info]) => [name, info.text]))
+  for (const locale of LOCALES) {
+    if (locale === 'en') {
+      byLocale[locale] = enText
+    } else {
+      const mod = await import(`../src/data/regionInfo.${locale}.mjs`)
+      byLocale[locale] = mod.REGION_TEXT
+    }
+  }
+  return byLocale
+}
+
 async function main() {
   console.log('Generating locale data assets...')
 
@@ -103,6 +124,7 @@ async function main() {
   }
   writeByLocale('experience-pages', await loadExperiencePages())
   writeByLocale('blog-posts', await loadBlogIndex())
+  writeByLocale('regionInfo', await loadRegionInfo())
 
   // next-intl UI message catalogs — same all-locales-bundled-together problem as
   // the datasets above (src/i18n/request.ts previously did a template-literal

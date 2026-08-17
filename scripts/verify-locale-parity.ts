@@ -125,6 +125,27 @@ async function checkBlogArticles() {
   if (!missing.length && !extra.length) ok(`blog/articles: ${Object.keys(lc).length}/${Object.keys(en).length} article bodies match`)
 }
 
+async function checkRegionInfo() {
+  let en: Record<string, { text: string }>, lc: Record<string, string>
+  try {
+    en = (await import('../src/data/regionInfo.mjs'))['REGION_INFO']
+    lc = (await import(`../src/data/regionInfo.${locale}.mjs`))['REGION_TEXT']
+  } catch (err) {
+    fail(`regionInfo: failed to import — ${err instanceof Error ? err.message : err}`)
+    return
+  }
+  const enNames = new Set(Object.keys(en))
+  const lcNames = new Set(Object.keys(lc))
+  const { missing, extra } = diffSets(enNames, lcNames)
+  if (missing.length) fail(`regionInfo: missing regions in ${locale}: ${missing.join(', ')}`)
+  if (extra.length) fail(`regionInfo: unexpected extra regions in ${locale}: ${extra.join(', ')}`)
+  const empty = [...lcNames].filter((name) => !lc[name] || !lc[name].trim())
+  if (empty.length) fail(`regionInfo: empty text for regions in ${locale}: ${empty.join(', ')}`)
+  if (!missing.length && !extra.length && !empty.length) {
+    ok(`regionInfo: ${lcNames.size}/${enNames.size} region descriptions match`)
+  }
+}
+
 function flattenKeys(obj: unknown, prefix = ''): string[] {
   if (obj === null || typeof obj !== 'object') return [prefix]
   return Object.entries(obj as Record<string, unknown>).flatMap(([k, v]) =>
@@ -180,6 +201,7 @@ async function main() {
   await checkExperiencePages()
   await checkBlogIndex()
   await checkBlogArticles()
+  await checkRegionInfo()
   checkMessages()
 
   console.log()
