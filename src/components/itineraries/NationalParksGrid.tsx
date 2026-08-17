@@ -28,7 +28,7 @@ function ParkCard({ park }: { park: Park }) {
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 p-4">
+      <div className="absolute bottom-0 inset-x-0 p-4">
         <h4 className="text-white font-bold text-sm leading-tight mb-1">{park.name}</h4>
         <p className="text-white/65 text-xs leading-snug line-clamp-2">{park.desc}</p>
       </div>

@@ -46,7 +46,7 @@ export default function DestinationCard({
       <div className="absolute inset-0 bg-gradient-to-t from-brand/95 via-brand/50 to-transparent" />
 
       {featured && (
-        <div className="absolute top-4 left-4 z-10">
+        <div className="absolute top-4 start-4 z-10">
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gold text-brand text-[10px] font-bold uppercase tracking-widest rounded-full shadow">
             ★ {labels.featuredBadge}
           </span>

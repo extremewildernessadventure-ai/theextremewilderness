@@ -141,12 +141,12 @@ export default async function AboutPage({ params }: Props) {
             className="inline-flex items-center gap-2 px-7 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors self-start"
           >
             {t('planYourSafari')}
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </Link>
         </div>
 
-        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2">
-          <div className="absolute inset-y-0 left-0 w-32 z-10 bg-gradient-to-r from-brand to-transparent" />
+        <div className="hidden lg:block absolute end-0 top-0 bottom-0 w-1/2">
+          <div className="absolute inset-y-0 start-0 w-32 z-10 bg-gradient-to-r from-brand to-transparent" />
           <Image src="/images/gallery/ewa-guests-guide-forest.webp" alt={t('heroImageAlt')} fill className="object-cover" priority sizes="50vw" />
         </div>
         <div className="lg:hidden absolute inset-0 z-0">
@@ -180,7 +180,7 @@ export default async function AboutPage({ params }: Props) {
                 {t('whyChooseLocal')}
               </h2>
               <p className="text-text-muted leading-relaxed mb-5">{t('localDesc1')}</p>
-              <div className="bg-white rounded-2xl p-6 border-l-4 border-gold my-7 shadow-sm">
+              <div className="bg-white rounded-2xl p-6 border-s-4 border-gold my-7 shadow-sm">
                 <p className="text-brand font-semibold text-base italic leading-relaxed">
                   &ldquo;{t('pullQuote')}&rdquo;
                 </p>
@@ -195,7 +195,7 @@ export default async function AboutPage({ params }: Props) {
                 <Image src="/images/gallery/ewa-vehicle-bamboo-forest.webp" alt={t('storyImageAlt')} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand/40 to-transparent" />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100">
+              <div className="absolute -bottom-6 -start-6 bg-white rounded-2xl p-5 shadow-xl border border-gray-100">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-gold/10 rounded-xl flex items-center justify-center">
                     <Leaf className="w-5 h-5 text-gold" />
@@ -263,7 +263,7 @@ export default async function AboutPage({ params }: Props) {
                 <p className="text-text-muted text-sm leading-relaxed">{bio}</p>
                 {name === 'Nixon Massawe' && (
                   <a href="#guide-spotlight" className="inline-flex items-center gap-1 text-gold text-xs font-bold uppercase tracking-wider mt-4 hover:text-gold-dark transition-colors">
-                    {t('guideSpotlightCta')} <ArrowRight className="w-3 h-3" />
+                    {t('guideSpotlightCta')} <ArrowRight className="w-3 h-3 rtl:rotate-180" />
                   </a>
                 )}
               </RevealItem>
@@ -285,7 +285,7 @@ export default async function AboutPage({ params }: Props) {
                 <p className="text-text-muted text-sm font-medium mb-6">{t('guideSpotlightRole')}</p>
                 <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightP1')}</p>
                 <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightP2')}</p>
-                <div className="bg-light-green rounded-2xl p-6 border-l-4 border-gold my-7 shadow-sm">
+                <div className="bg-light-green rounded-2xl p-6 border-s-4 border-gold my-7 shadow-sm">
                   <p className="text-brand font-semibold text-base italic leading-relaxed">
                     &ldquo;{t('guideSpotlightQuote')}&rdquo;
                   </p>
@@ -343,7 +343,7 @@ export default async function AboutPage({ params }: Props) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                 >
-                  {t('getDirections')} <ArrowRight className="w-4 h-4" />
+                  {t('getDirections')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                 </a>
               </div>
             </Reveal>
@@ -378,7 +378,7 @@ export default async function AboutPage({ params }: Props) {
               <p className="text-white/70 leading-relaxed mb-8 text-base">{t('ctaDesc')}</p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/safaris" className="inline-flex items-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors">
-                  {t('viewSafariPackages')} <ArrowRight className="w-4 h-4" />
+                  {t('viewSafariPackages')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                 </Link>
                 <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3.5 border border-white/20 hover:bg-white/10 text-white font-semibold rounded-xl transition-colors">
                   {t('contactUs')}

@@ -18,7 +18,7 @@ export default function OurStorySection() {
             </h2>
             <p className="text-text-muted leading-relaxed mb-5">{t('ourStoryP1')}</p>
             <p className="text-text-muted leading-relaxed mb-5">{t('ourStoryP2Lead')}</p>
-            <div className="bg-white rounded-2xl p-6 border-l-4 border-gold my-7 shadow-sm">
+            <div className="bg-white rounded-2xl p-6 border-s-4 border-gold my-7 shadow-sm">
               <p className="text-brand font-semibold text-base italic leading-relaxed">
                 &ldquo;{t('ourStoryQuote')}&rdquo;
               </p>

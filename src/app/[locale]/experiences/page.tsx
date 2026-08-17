@@ -245,7 +245,7 @@ export default async function ExperiencesPage({ params }: Props) {
                   href="/contact"
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors"
                 >
-                  {t('ctaButton1')} <ArrowRight className="w-4 h-4" />
+                  {t('ctaButton1')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                 </Link>
                 <Link
                   href="/safaris"
@@ -285,14 +285,14 @@ function ExperienceCard({ exp, id, flip, locationLabel, fromLabel, perPersonLabe
           sizes="(max-width: 1024px) 100vw, 45vw"
         />
         {/* Badge */}
-        <div className="absolute top-4 left-4">
+        <div className="absolute top-4 start-4">
           <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full ${exp.badgeColor}`}>
             {exp.badge}
           </span>
         </div>
         {/* Category overlay */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/50 to-transparent" />
-        <div className="absolute bottom-4 left-4">
+        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-black/50 to-transparent" />
+        <div className="absolute bottom-4 start-4">
           <span className="text-white/80 text-xs font-semibold uppercase tracking-widest">{exp.category}</span>
         </div>
       </div>
@@ -339,7 +339,7 @@ function ExperienceCard({ exp, id, flip, locationLabel, fromLabel, perPersonLabe
             href={exp.slug}
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-xl transition-colors"
           >
-            {exploreButton} <ArrowRight className="w-3.5 h-3.5" />
+            {exploreButton} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
           </Link>
         </div>
       </div>

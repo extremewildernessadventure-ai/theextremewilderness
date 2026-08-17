@@ -329,7 +329,7 @@ export default async function TrekkingPage({ params }: Props) {
                   <div className="relative h-44">
                     <Image src={route.image} alt={route.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                     {route.badge && (
-                      <div className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-brand text-[10px] font-bold uppercase tracking-wider rounded-full">
+                      <div className="absolute top-3 start-3 px-2.5 py-1 bg-gold text-brand text-[10px] font-bold uppercase tracking-wider rounded-full">
                         {route.badge}
                       </div>
                     )}
@@ -352,7 +352,7 @@ export default async function TrekkingPage({ params }: Props) {
                         <span className="text-xs text-text-muted">{t('personLabel')}</span>
                       </div>
                       <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">
-                        {t('viewRoute')} <ArrowRight className="w-3.5 h-3.5" />
+                        {t('viewRoute')} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                       </span>
                     </div>
                   </div>
@@ -421,7 +421,7 @@ export default async function TrekkingPage({ params }: Props) {
             {GEAR_CATEGORIES.map(({ label, items }) => (
               <RevealItem key={label} className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8">
                 {/* Category label */}
-                <div className="sm:w-44 flex-shrink-0 border-l-2 border-gold pl-3">
+                <div className="sm:w-44 flex-shrink-0 border-s-2 border-gold ps-3">
                   <p className="text-white/60 text-xs font-bold uppercase tracking-widest leading-tight">{label}</p>
                 </div>
                 {/* Items */}
@@ -554,7 +554,7 @@ export default async function TrekkingPage({ params }: Props) {
               </p>
             </div>
             <Link href="/blog" className="flex-shrink-0 flex items-center gap-1.5 text-brand font-semibold text-sm hover:text-gold transition-colors">
-              {t('browseAllArticles')} <ArrowRight className="w-4 h-4" />
+              {t('browseAllArticles')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
             </Link>
           </Reveal>
 
@@ -582,7 +582,7 @@ export default async function TrekkingPage({ params }: Props) {
                 </h3>
                 <p className="text-white/65 text-sm mb-5 max-w-xl hidden sm:block">{ARTICLES[0].desc}</p>
                 <span className="inline-flex items-center gap-2 text-gold font-semibold text-sm group-hover:gap-3 transition-all">
-                  {t('readTheGuide')} <ArrowRight className="w-4 h-4" />
+                  {t('readTheGuide')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                 </span>
               </div>
             </Link>
@@ -613,7 +613,7 @@ export default async function TrekkingPage({ params }: Props) {
                     <div className="flex items-center justify-between mt-4 pt-3 border-t border-gray-100">
                       <span className="text-xs text-text-muted">{readTime}</span>
                       <span className="flex items-center gap-1 text-brand text-xs font-semibold group-hover:text-gold transition-colors">
-                        {t('readLabel')} <ArrowRight className="w-3 h-3" />
+                        {t('readLabel')} <ArrowRight className="w-3 h-3 rtl:rotate-180" />
                       </span>
                     </div>
                   </div>
@@ -638,7 +638,7 @@ export default async function TrekkingPage({ params }: Props) {
           <h2 className="text-3xl font-semibold text-white mb-4">{t('ctaHeading')}</h2>
           <p className="text-white/70 mb-8">{t('ctaSubtitle')}</p>
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors">
-            {t('ctaButton')} <ArrowRight className="w-4 h-4" />
+            {t('ctaButton')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </Link>
         </Reveal>
       </section>

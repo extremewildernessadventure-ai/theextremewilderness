@@ -35,11 +35,11 @@ export default async function InvoicesListPage() {
           <table className="w-full text-sm">
             <thead className="bg-gray-50 border-b border-gray-200">
               <tr>
-                <th className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Invoice #</th>
-                <th className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Client</th>
-                <th className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Amount</th>
-                <th className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Status</th>
-                <th className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Created</th>
+                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Invoice #</th>
+                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Client</th>
+                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Amount</th>
+                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Status</th>
+                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Created</th>
               </tr>
             </thead>
             <tbody>

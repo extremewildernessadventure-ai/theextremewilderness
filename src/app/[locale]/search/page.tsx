@@ -66,13 +66,13 @@ export default async function SearchPage({ params, searchParams }: Props) {
         <Breadcrumb items={breadcrumbItems} />
 
         <form action="/search" method="get" className="relative mt-6 mb-10 max-w-xl">
-          <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <SearchIcon className="absolute start-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input
             type="text"
             name="q"
             defaultValue={query}
             placeholder={t('placeholder')}
-            className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-gray-200 text-brand text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10"
+            className="w-full ps-11 pe-4 py-3.5 rounded-xl border border-gray-200 text-brand text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10"
           />
         </form>
 

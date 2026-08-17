@@ -182,7 +182,7 @@ export default async function PaymentsPage({ params }: Props) {
             </select>
           </div>
 
-          <div className="flex gap-3 bg-light-green rounded-xl border-l-4 border-gold p-4 mb-7">
+          <div className="flex gap-3 bg-light-green rounded-xl border-s-4 border-gold p-4 mb-7">
             <span className="text-gold shrink-0">ⓘ</span>
             <p className="text-text-muted text-xs leading-relaxed">{t('noteText')}</p>
           </div>
@@ -193,7 +193,7 @@ export default async function PaymentsPage({ params }: Props) {
             rel="noopener noreferrer"
             className="w-full inline-flex items-center justify-center gap-2 px-7 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors"
           >
-            {t('ctaButton')} <ArrowRight className="w-4 h-4" />
+            {t('ctaButton')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </a>
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6">

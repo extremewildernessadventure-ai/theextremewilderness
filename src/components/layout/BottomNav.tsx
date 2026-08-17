@@ -99,7 +99,7 @@ export default function BottomNav() {
       )}
 
       {moreOpen && (
-        <div className="tew-sheet-enter fixed bottom-16 left-0 right-0 z-[60] lg:hidden bg-brand rounded-t-2xl border-t border-white/10 max-h-[75vh] overflow-y-auto">
+        <div className="tew-sheet-enter fixed bottom-16 inset-x-0 z-[60] lg:hidden bg-brand rounded-t-2xl border-t border-white/10 max-h-[75vh] overflow-y-auto">
           <div className="p-5 pb-6">
             <div className="flex items-center justify-between mb-4">
               <span className="text-white/60 text-[11px] font-semibold uppercase tracking-widest">
@@ -122,7 +122,7 @@ export default function BottomNav() {
               >
                 <CalendarDays className="w-4 h-4" />
                 Plan My Safari
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 rtl:rotate-180" />
               </button>
             ) : (
               <Link
@@ -132,7 +132,7 @@ export default function BottomNav() {
               >
                 <CalendarDays className="w-4 h-4" />
                 Plan My Safari
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 rtl:rotate-180" />
               </Link>
             )}
 
@@ -185,7 +185,7 @@ export default function BottomNav() {
         </div>
       )}
 
-      <nav className="fixed bottom-0 left-0 right-0 z-50 lg:hidden h-16 bg-brand border-t border-white/10 flex items-stretch">
+      <nav className="fixed bottom-0 inset-x-0 z-50 lg:hidden h-16 bg-brand border-t border-white/10 flex items-stretch">
         <Link href="/" className={tabCls(isActive('/'))}>
           <Home className="w-5 h-5" />
           <span>{t('home')}</span>

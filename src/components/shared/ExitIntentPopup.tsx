@@ -116,7 +116,7 @@ export default function ExitIntentPopup() {
           type="button"
           onClick={dismiss}
           aria-label={t('dismissLabel')}
-          className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors z-10"
+          className="absolute top-4 end-4 text-white/50 hover:text-white transition-colors z-10"
         >
           <X className="w-5 h-5" />
         </button>

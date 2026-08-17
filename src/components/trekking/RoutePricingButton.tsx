@@ -29,7 +29,7 @@ export default function RoutePricingButton({ routeName, tier: _tier, price, dura
       }
       className="mt-4 w-full flex items-center justify-center gap-1.5 py-2.5 px-4 bg-gold hover:bg-gold-dark text-brand text-xs font-bold rounded-lg transition-colors"
     >
-      {label} <ArrowRight className="w-3 h-3" />
+      {label} <ArrowRight className="w-3 h-3 rtl:rotate-180" />
     </button>
   )
 }

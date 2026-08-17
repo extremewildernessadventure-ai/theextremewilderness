@@ -174,7 +174,7 @@ export default async function SafarisPage({ params }: Props) {
               href="#itineraries"
               className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors"
             >
-              {t('browseItinerariesButton')} <ArrowRight className="w-4 h-4" />
+              {t('browseItinerariesButton')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
             </a>
           </div>
 
@@ -241,13 +241,13 @@ export default async function SafarisPage({ params }: Props) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
 
-              <div className="absolute top-6 left-6">
+              <div className="absolute top-6 start-6">
                 <span className="px-3 py-1 bg-gold text-brand text-xs font-bold uppercase rounded-full">
                   {editions[0].badge}
                 </span>
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <div className="absolute bottom-0 inset-x-0 p-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
                 <div>
                   <p className="text-white/60 text-[10px] font-semibold uppercase tracking-widest mb-2">
                     {editions[0].subtitle}
@@ -255,11 +255,11 @@ export default async function SafarisPage({ params }: Props) {
                   <h3 className="text-white text-3xl sm:text-4xl font-semibold mb-2">{editions[0].label}</h3>
                   <p className="text-white/65 text-base">{editions[0].destinations}</p>
                 </div>
-                <div className="flex-shrink-0 sm:text-right">
+                <div className="flex-shrink-0 sm:text-end">
                   <p className="text-white/70 text-xs mb-1">{editions[0].duration} {t('durationSuffix')}</p>
                   <p className="text-gold text-2xl font-bold">${editions[0].priceFrom.toLocaleString('en-US')}</p>
                   <span className="mt-3 inline-flex items-center gap-1.5 text-white/80 text-sm font-semibold group-hover:text-gold transition-colors">
-                    {t('exploreJourney')} <ArrowRight className="w-4 h-4" />
+                    {t('exploreJourney')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                   </span>
                 </div>
               </div>
@@ -284,18 +284,18 @@ export default async function SafarisPage({ params }: Props) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                  <div className="absolute top-4 right-4">
+                  <div className="absolute top-4 end-4">
                     <span className="px-2.5 py-1 bg-gold text-brand text-[10px] font-bold uppercase rounded-full">
                       {ed.badge}
                     </span>
                   </div>
 
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <div className="absolute bottom-0 inset-x-0 p-5">
                     <p className="text-white/70 text-[10px] font-semibold uppercase tracking-widest mb-1">{ed.duration}</p>
                     <h3 className="text-white text-lg font-semibold mb-1">{ed.label}</h3>
                     <p className="text-white/60 text-xs mb-3">{ed.destinations}</p>
                     <span className="inline-flex items-center gap-1 text-gold text-sm font-semibold group-hover:gap-2 transition-all">
-                      {t('fromPrefix')} ${ed.priceFrom.toLocaleString('en-US')} <ArrowRight className="w-3.5 h-3.5" />
+                      {t('fromPrefix')} ${ed.priceFrom.toLocaleString('en-US')} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                     </span>
                   </div>
                 </Link>
@@ -328,7 +328,7 @@ export default async function SafarisPage({ params }: Props) {
                   href={`/safaris?tier=${key}#itineraries`}
                   className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand border-b border-gold pb-0.5 hover:text-gold transition-colors"
                 >
-                  {t('tierBrowsePrefix')} {name} <ArrowRight className="w-3.5 h-3.5" />
+                  {t('tierBrowsePrefix')} {name} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                 </Link>
               </RevealItem>
             ))}
@@ -502,7 +502,7 @@ function PackageCard({
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         {badge && (
-          <div className="absolute top-3 left-3">
+          <div className="absolute top-3 start-3">
             <span className="px-2.5 py-1 bg-gold text-brand text-[10px] font-bold uppercase tracking-wider rounded-full">
               {badge}
             </span>
@@ -532,7 +532,7 @@ function PackageCard({
             <span className="text-text-muted text-xs">/pp</span>
           </div>
           <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">
-            {viewLabel} <ArrowRight className="w-3.5 h-3.5" />
+            {viewLabel} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
           </span>
         </div>
       </div>

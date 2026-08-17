@@ -126,7 +126,7 @@ export default function PdfLeadModal({
             <button
               onClick={close}
               aria-label={tf('closeLabel')}
-              className="absolute top-3 right-3 z-30 w-9 h-9 rounded-full bg-black/25 backdrop-blur-sm flex items-center justify-center hover:bg-black/40 transition-colors group"
+              className="absolute top-3 end-3 z-30 w-9 h-9 rounded-full bg-black/25 backdrop-blur-sm flex items-center justify-center hover:bg-black/40 transition-colors group"
             >
               <X className="w-4 h-4 text-white" />
             </button>
@@ -147,14 +147,14 @@ export default function PdfLeadModal({
               <div className="absolute inset-0 bg-gradient-to-t from-brand via-brand/60 to-brand/10" />
 
               {/* FREE GUIDE ribbon */}
-              <div className="absolute top-0 left-0 overflow-hidden w-32 h-32 pointer-events-none">
-                <div className="absolute top-6 -left-8 w-36 bg-gold text-brand text-[9px] font-black uppercase tracking-[0.14em] text-center py-1.5 -rotate-45 shadow-lg">
+              <div className="absolute top-0 start-0 overflow-hidden w-32 h-32 pointer-events-none">
+                <div className="absolute top-6 -start-8 w-36 bg-gold text-brand text-[9px] font-black uppercase tracking-[0.14em] text-center py-1.5 -rotate-45 rtl:rotate-45 shadow-lg">
                   {badge ?? t('badge')}
                 </div>
               </div>
 
               {/* Panel content — hidden on mobile (image strip only) */}
-              <div className="absolute bottom-0 left-0 right-0 p-7 hidden sm:flex flex-col">
+              <div className="absolute inset-x-0 bottom-0 p-7 hidden sm:flex flex-col">
                 <p className="text-gold text-[10px] font-bold uppercase tracking-widest mb-2">
                   {t('imagePanelBrand')}
                 </p>
@@ -299,7 +299,7 @@ export default function PdfLeadModal({
                     ) : (
                       <>
                         {submitLabel ?? t('submitLabel')}
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                       </>
                     )}
                   </button>

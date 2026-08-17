@@ -3,12 +3,13 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { Clock, MapPin, Users, ArrowRight } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import { packages } from '@/data/packages'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
+import { isRtlLocale } from '@/lib/rtl'
 
 function PackageCard({ pkg, tc }: { pkg: (typeof packages)[number]; tc: ReturnType<typeof useTranslations> }) {
   return (
@@ -25,7 +26,7 @@ function PackageCard({ pkg, tc }: { pkg: (typeof packages)[number]; tc: ReturnTy
           sizes="(max-width: 768px) 100vw, 50vw"
         />
         {pkg.badge && (
-          <div className="absolute top-3 left-3">
+          <div className="absolute top-3 start-3">
             <Badge
               label={
                 pkg.badge === 'bestseller'
@@ -71,11 +72,11 @@ function PackageCard({ pkg, tc }: { pkg: (typeof packages)[number]; tc: ReturnTy
         <div className="flex items-center justify-between pt-3 border-t border-gray-100">
           <div>
             <span className="text-xs text-text-muted">{tc('from')}</span>
-            <span className="ml-1 text-brand font-bold text-lg">${pkg.priceFrom.toLocaleString('en-US')}</span>
+            <span className="ms-1 text-brand font-bold text-lg">${pkg.priceFrom.toLocaleString('en-US')}</span>
             <span className="text-xs text-text-muted"> / {tc('perPerson').split(' ')[0]}</span>
           </div>
           <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">
-            {tc('viewPackage')} <ArrowRight className="w-3.5 h-3.5" />
+            {tc('viewPackage')} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
           </span>
         </div>
       </div>
@@ -86,6 +87,7 @@ function PackageCard({ pkg, tc }: { pkg: (typeof packages)[number]; tc: ReturnTy
 export default function FeaturedPackages() {
   const t = useTranslations('home')
   const tc = useTranslations('common')
+  const rtl = isRtlLocale(useLocale())
 
   const pkgOverrides = [
     { name: t('pkg0Name'), highlights: [t('pkg0H0'), t('pkg0H1'), t('pkg0H2')] },
@@ -139,7 +141,7 @@ export default function FeaturedPackages() {
             href="/safaris"
             className="hidden sm:flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-secondary transition-colors"
           >
-            {tc('allPackages')} <ArrowRight className="w-4 h-4" />
+            {tc('allPackages')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </Link>
         </Reveal>
 
@@ -152,7 +154,7 @@ export default function FeaturedPackages() {
           >
             <div
               className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${active * 100}%)` }}
+              style={{ transform: `translateX(${rtl ? '' : '-'}${active * 100}%)` }}
             >
               {featured.map((pkg) => (
                 <div key={pkg.slug} className="flex-shrink-0 w-full">
@@ -193,7 +195,7 @@ export default function FeaturedPackages() {
             href="/safaris"
             className="inline-flex items-center gap-2 px-7 py-3.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand-secondary transition-colors"
           >
-            {t('viewAllPackages')} <ArrowRight className="w-4 h-4" />
+            {t('viewAllPackages')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </Link>
         </div>
       </div>

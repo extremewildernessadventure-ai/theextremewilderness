@@ -144,7 +144,7 @@ function renderSection(section: ExperienceSection, idx: number, chrome: { includ
       return <p key={idx} className="text-gray-700 leading-relaxed mb-5">{renderInline(section.text)}</p>
     case 'ul':
       return (
-        <ul key={idx} className="space-y-2 mb-6 ml-4">
+        <ul key={idx} className="space-y-2 mb-6 ms-4">
           {section.items.map((item, i) => (
             <li key={i} className="flex gap-2 text-gray-700">
               <span className="text-brand font-bold mt-0.5 flex-shrink-0">&#8250;</span>
@@ -155,7 +155,7 @@ function renderSection(section: ExperienceSection, idx: number, chrome: { includ
       )
     case 'ol':
       return (
-        <ol key={idx} className="list-decimal list-inside space-y-2 mb-6 ml-2">
+        <ol key={idx} className="list-decimal list-inside space-y-2 mb-6 ms-2">
           {section.items.map((item, i) => (
             <li key={i} className="text-gray-700 leading-relaxed">{renderInline(item)}</li>
           ))}
@@ -163,7 +163,7 @@ function renderSection(section: ExperienceSection, idx: number, chrome: { includ
       )
     case 'tip':
       return (
-        <div key={idx} className="bg-green-50 border-l-4 border-brand rounded-r-xl p-5 mb-6">
+        <div key={idx} className="bg-green-50 border-s-4 border-brand rounded-e-xl p-5 mb-6">
           <p className="font-semibold text-brand mb-1">{section.title}</p>
           <p className="text-gray-700 text-sm leading-relaxed">{renderInline(section.text)}</p>
         </div>
@@ -192,7 +192,7 @@ function renderSection(section: ExperienceSection, idx: number, chrome: { includ
             <thead>
               <tr className="bg-brand text-white">
                 {section.headers.map((h, i) => (
-                  <th key={i} className="px-4 py-3 text-left font-semibold">{h}</th>
+                  <th key={i} className="px-4 py-3 text-start font-semibold">{h}</th>
                 ))}
               </tr>
             </thead>
@@ -231,10 +231,10 @@ function renderSection(section: ExperienceSection, idx: number, chrome: { includ
       )
     case 'timeline':
       return (
-        <div key={idx} className="border-l-2 border-gray-200 pl-6 my-6 space-y-6">
+        <div key={idx} className="border-s-2 border-gray-200 ps-6 my-6 space-y-6">
           {section.items.map((item, i) => (
             <div key={i} className="relative">
-              <span className="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-gold ring-4 ring-white" aria-hidden />
+              <span className="absolute -start-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-gold ring-4 ring-white" aria-hidden />
               <p className="text-[11px] font-bold uppercase tracking-wide text-gold-label">{item.time}</p>
               <p className="font-semibold text-brand mt-0.5">{item.title}</p>
               <p className="text-sm text-text-muted leading-relaxed mt-0.5">{item.desc}</p>
@@ -587,7 +587,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
                   {relatedExperiences.map((exp) => (
                     <Link key={exp.slug} href={`/experiences/${exp.slug}`} className="flex items-center justify-between py-3 group">
                       <span className="text-sm font-medium text-gray-700 group-hover:text-brand transition-colors">{exp.title}</span>
-                      <span className="text-xs text-gold-label font-semibold flex-shrink-0 ml-3">
+                      <span className="text-xs text-gold-label font-semibold flex-shrink-0 ms-3">
                         {exp.priceFrom ? `${exp.priceFrom}${t('perPersonLabel')}` : t('priceOnRequest')}
                       </span>
                     </Link>
@@ -626,7 +626,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
                         {t('packageMeta', { days: pkg.duration, price: `$${pkg.priceFrom.toLocaleString('en-US')}` })}
                       </p>
                       <span className="inline-flex items-center gap-1 text-sm font-semibold text-brand mt-3 group-hover:gap-2 transition-all">
-                        {t('viewButton')} <ArrowRight size={14} className="text-gold" />
+                        {t('viewButton')} <ArrowRight size={14} className="text-gold rtl:rotate-180" />
                       </span>
                     </div>
                   </Link>
@@ -653,7 +653,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
             duration={page.durationLabel}
           />
           <Link href="/contact" className="inline-flex items-center gap-2 text-white/90 hover:text-white font-semibold text-sm transition-colors">
-            {tc('contactUs')} <ArrowRight size={15} className="text-gold" />
+            {tc('contactUs')} <ArrowRight size={15} className="text-gold rtl:rotate-180" />
           </Link>
         </div>
         </Reveal>

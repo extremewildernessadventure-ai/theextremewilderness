@@ -129,7 +129,7 @@ export default function SearchModal() {
         >
           <button
             onClick={closeSearch}
-            className="absolute top-3 right-3 w-8 h-8 bg-black/5 hover:bg-black/10 rounded-full flex items-center justify-center transition-colors z-10"
+            className="absolute top-3 end-3 w-8 h-8 bg-black/5 hover:bg-black/10 rounded-full flex items-center justify-center transition-colors z-10"
             aria-label={tf('closeLabel')}
           >
             <X className="w-4 h-4 text-brand" />
@@ -137,14 +137,14 @@ export default function SearchModal() {
 
           <form onSubmit={handleSubmit} className="flex-shrink-0 bg-brand px-5 pt-5 pb-4">
             <div className="relative">
-              <SearchIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
+              <SearchIcon className="absolute start-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50" />
               <input
                 ref={inputRef}
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t('placeholder')}
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/15 border border-white/20 text-white placeholder-white/50 text-sm focus:outline-none focus:border-gold"
+                className="w-full ps-10 pe-4 py-3 rounded-xl bg-white/15 border border-white/20 text-white placeholder-white/50 text-sm focus:outline-none focus:border-gold"
               />
             </div>
           </form>

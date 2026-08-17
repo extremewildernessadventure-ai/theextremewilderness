@@ -117,7 +117,7 @@ export default function NorthernCircuitMultiItinerary({
           {QUICK_FACT_KEYS.map((key) => (
             <div key={key} className="flex justify-between gap-3 text-sm">
               <span className="text-text-muted font-medium">{labels[key] ?? key}</span>
-              <span className="text-brand font-semibold text-right">{v.quickFacts[key] ?? '—'}</span>
+              <span className="text-brand font-semibold text-end">{v.quickFacts[key] ?? '—'}</span>
             </div>
           ))}
         </div>
@@ -260,9 +260,9 @@ export default function NorthernCircuitMultiItinerary({
             <div key={`${active}-${i}`} className="border border-gray-100 rounded-xl overflow-hidden">
               <button
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                className="flex items-center justify-between w-full p-4 bg-white hover:bg-light-green transition-colors text-left"
+                className="flex items-center justify-between w-full p-4 bg-white hover:bg-light-green transition-colors text-start"
               >
-                <span className="font-medium text-brand text-sm pr-4">{item.q}</span>
+                <span className="font-medium text-brand text-sm pe-4">{item.q}</span>
                 <ChevronDown className={`w-4 h-4 text-text-muted flex-shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
               </button>
               {openFaq === i && (

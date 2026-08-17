@@ -101,7 +101,7 @@ export default async function PdfPage({ params }: Props) {
             <h1 className="text-3xl font-bold text-gray-900 leading-tight">{routeContent.quickFacts.routeName}</h1>
             <p className="text-base text-gray-600 mt-1 italic">{routeContent.nickname}</p>
           </div>
-          <div className="text-right text-xs text-gray-400">
+          <div className="text-end text-xs text-gray-400">
             <p className="font-semibold text-gray-600">{trd('labels.downloadRouteGuide')}</p>
             <p className="mt-1">{new Date().toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}</p>
           </div>
@@ -109,7 +109,7 @@ export default async function PdfPage({ params }: Props) {
 
         {/* Overview */}
         <div className="mb-6 no-break">
-          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-l-4 border-gray-900 pl-3">{trd('labels.overview')}</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.overview')}</h2>
           {routeContent.intro.map((p, i) => (
             <p key={i} className="text-sm text-gray-700 leading-relaxed mb-2 last:mb-0">{p}</p>
           ))}
@@ -117,12 +117,12 @@ export default async function PdfPage({ params }: Props) {
 
         {/* Quick Facts */}
         <div className="mb-6 no-break">
-          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-l-4 border-gray-900 pl-3">{trd('labels.quickFacts')}</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.quickFacts')}</h2>
           <div className="grid grid-cols-2 gap-x-8 gap-y-1.5 bg-gray-50 rounded-lg p-4">
             {QUICK_FACT_KEYS.map((key) => (
               <div key={key} className="flex justify-between text-sm">
                 <span className="text-gray-500 font-medium">{trd(`labels.${key}`)}</span>
-                <span className="text-gray-900 font-semibold text-right max-w-[55%]">{routeContent.quickFacts[key]}</span>
+                <span className="text-gray-900 font-semibold text-end max-w-[55%]">{routeContent.quickFacts[key]}</span>
               </div>
             ))}
           </div>
@@ -130,7 +130,7 @@ export default async function PdfPage({ params }: Props) {
 
         {/* Itinerary */}
         <div className="mb-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-l-4 border-gray-900 pl-3">{trd('labels.itinerary')}</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.itinerary')}</h2>
 
           {/* Arrival day */}
           <div className="mb-3 no-break">
@@ -151,7 +151,7 @@ export default async function PdfPage({ params }: Props) {
         {/* Included / Excluded */}
         <div className="grid grid-cols-2 gap-6 mb-6 no-break page-break">
           <div>
-            <h2 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide border-l-4 border-gray-900 pl-3">{trd('labels.included')}</h2>
+            <h2 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.included')}</h2>
             <ul className="space-y-1">
               {routeContent.included.map((item) => (
                 <li key={item} className="flex items-start gap-1.5 text-xs text-gray-700">
@@ -162,7 +162,7 @@ export default async function PdfPage({ params }: Props) {
             </ul>
           </div>
           <div>
-            <h2 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide border-l-4 border-gray-900 pl-3">{trd('labels.notIncluded')}</h2>
+            <h2 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.notIncluded')}</h2>
             <ul className="space-y-1">
               {routeContent.excluded.map((item) => (
                 <li key={item} className="flex items-start gap-1.5 text-xs text-gray-700">
@@ -176,7 +176,7 @@ export default async function PdfPage({ params }: Props) {
 
         {/* Pricing */}
         <div className="mb-8 no-break">
-          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-l-4 border-gray-900 pl-3">{trd('labels.pricing')}</h2>
+          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.pricing')}</h2>
           <div className="grid grid-cols-3 gap-4">
             {([
               { label: trd('labels.solo'),  price: routeContent.pricing.solo  },

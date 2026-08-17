@@ -19,8 +19,8 @@ export default async function KilimanjaroPdfCard() {
         <div className="absolute inset-0 bg-brand/25" />
 
         {/* FREE GUIDE ribbon */}
-        <div className="absolute top-0 left-0 overflow-hidden w-32 h-32 pointer-events-none">
-          <div className="absolute top-6 -left-8 w-36 bg-gold text-brand text-[9px] font-black uppercase tracking-[0.12em] text-center py-1.5 -rotate-45 shadow-lg">
+        <div className="absolute top-0 start-0 overflow-hidden w-32 h-32 pointer-events-none">
+          <div className="absolute top-6 -start-8 w-36 bg-gold text-brand text-[9px] font-black uppercase tracking-[0.12em] text-center py-1.5 -rotate-45 rtl:rotate-45 shadow-lg">
             {t('pdfCardBadge')}
           </div>
         </div>

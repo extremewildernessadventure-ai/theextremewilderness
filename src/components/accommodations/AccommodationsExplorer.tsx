@@ -179,7 +179,7 @@ export default function AccommodationsExplorer({ accommodations }: Props) {
                           <ImageOff className="w-8 h-8" />
                         </div>
                       )}
-                      <span className="absolute top-3 left-3 bg-brand/85 text-gold-light text-[10px] font-semibold uppercase tracking-wide px-3 py-1.5 rounded-full">
+                      <span className="absolute top-3 start-3 bg-brand/85 text-gold-light text-[10px] font-semibold uppercase tracking-wide px-3 py-1.5 rounded-full">
                         {tierLabel(lodge.tier)}
                       </span>
                     </div>

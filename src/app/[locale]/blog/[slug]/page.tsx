@@ -85,7 +85,7 @@ function renderSection(section: SectionType, idx: number) {
       return <p key={idx} className="text-gray-700 leading-relaxed mb-5">{section.text}</p>
     case 'ul':
       return (
-        <ul key={idx} className="space-y-2 mb-6 ml-4">
+        <ul key={idx} className="space-y-2 mb-6 ms-4">
           {section.items.map((item, i) => (
             <li key={i} className="flex gap-2 text-gray-700">
               <span className="text-brand font-bold mt-0.5 flex-shrink-0">&#8250;</span>
@@ -96,7 +96,7 @@ function renderSection(section: SectionType, idx: number) {
       )
     case 'ol':
       return (
-        <ol key={idx} className="list-decimal list-inside space-y-2 mb-6 ml-2">
+        <ol key={idx} className="list-decimal list-inside space-y-2 mb-6 ms-2">
           {section.items.map((item, i) => (
             <li key={i} className="text-gray-700 leading-relaxed">{item}</li>
           ))}
@@ -104,7 +104,7 @@ function renderSection(section: SectionType, idx: number) {
       )
     case 'tip':
       return (
-        <div key={idx} className="bg-green-50 border-l-4 border-brand rounded-r-xl p-5 mb-6">
+        <div key={idx} className="bg-green-50 border-s-4 border-brand rounded-e-xl p-5 mb-6">
           <p className="font-semibold text-brand mb-1">{section.title}</p>
           <p className="text-gray-700 text-sm leading-relaxed">{section.text}</p>
         </div>
@@ -133,7 +133,7 @@ function renderSection(section: SectionType, idx: number) {
             <thead>
               <tr className="bg-brand text-white">
                 {section.headers.map((h, i) => (
-                  <th key={i} className="px-4 py-3 text-left font-semibold">{h}</th>
+                  <th key={i} className="px-4 py-3 text-start font-semibold">{h}</th>
                 ))}
               </tr>
             </thead>
@@ -281,7 +281,7 @@ export default async function BlogArticlePage({ params }: Props) {
                           <p className="text-white text-sm font-semibold leading-snug">{pkg.name}</p>
                           <p className="text-white/70 text-xs mt-0.5">{t('packageSummary', { days: pkg.duration, price: pkg.priceFrom?.toLocaleString('en-US') ?? '' })}</p>
                         </div>
-                        <ArrowRight size={14} className="text-gold flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                        <ArrowRight size={14} className="text-gold flex-shrink-0 group-hover:translate-x-0.5 transition-transform rtl:rotate-180" />
                       </Link>
                     ))}
                   </div>
@@ -312,7 +312,7 @@ export default async function BlogArticlePage({ params }: Props) {
                         className="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-white transition-colors group border border-transparent hover:border-gray-100"
                       >
                         <span className="text-sm font-medium text-gray-700 group-hover:text-brand transition-colors">{dest.name}</span>
-                        <ArrowRight size={12} className="text-gray-300 group-hover:text-brand transition-colors group-hover:translate-x-0.5" />
+                        <ArrowRight size={12} className="text-gray-300 group-hover:text-brand transition-colors group-hover:translate-x-0.5 rtl:rotate-180" />
                       </Link>
                     ))}
                   </div>
@@ -320,7 +320,7 @@ export default async function BlogArticlePage({ params }: Props) {
                     href="/destinations"
                     className="mt-3 flex items-center gap-1 text-xs font-semibold text-brand hover:text-brand-dark transition-colors"
                   >
-                    {t('viewAllDestinations')} <ArrowRight size={11} />
+                    {t('viewAllDestinations')} <ArrowRight size={11} className="rtl:rotate-180" />
                   </Link>
                 </div>
               )}

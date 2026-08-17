@@ -41,7 +41,7 @@ function AreaCardBlock({ area, countSuffix }: { area: AreaCard; countSuffix: str
             className="flex items-baseline justify-between gap-4 py-3 border-b border-dashed border-brand/10 last:border-0 group/row"
           >
             <span className="font-semibold text-brand group-hover/row:text-gold transition-colors">{d.name}</span>
-            <span className="text-text-muted text-xs text-right max-w-[55%]">{d.teaser}</span>
+            <span className="text-text-muted text-xs text-end max-w-[55%]">{d.teaser}</span>
           </Link>
         ))}
       </div>

@@ -74,7 +74,7 @@ function Callout({ children, warning }: { children: React.ReactNode; warning?: b
 
 function TipBox({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-green-50 border-l-4 border-brand rounded-r-xl p-5 text-sm text-gray-700 leading-relaxed">
+    <div className="bg-green-50 border-s-4 border-brand rounded-e-xl p-5 text-sm text-gray-700 leading-relaxed">
       {children}
     </div>
   )
@@ -226,8 +226,8 @@ export default async function TermsPage({ params }: Props) {
                   <table className="w-full text-sm">
                     <thead>
                       <tr className="bg-brand text-white">
-                        <th className="text-left px-5 py-3.5 font-semibold rounded-tl-2xl">{t('s4th1')}</th>
-                        <th className="text-left px-5 py-3.5 font-semibold rounded-tr-2xl">{t('s4th2')}</th>
+                        <th className="text-start px-5 py-3.5 font-semibold rounded-ss-2xl">{t('s4th1')}</th>
+                        <th className="text-start px-5 py-3.5 font-semibold rounded-se-2xl">{t('s4th2')}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -244,8 +244,8 @@ export default async function TermsPage({ params }: Props) {
                         <td className="px-5 py-4 font-semibold text-orange-700">{t('s4tr3c2')}</td>
                       </tr>
                       <tr className="bg-red-50">
-                        <td className="px-5 py-4 text-gray-700 font-medium rounded-bl-2xl">{t('s4tr4c1')}</td>
-                        <td className="px-5 py-4 font-bold text-red-700 rounded-br-2xl">{t('s4tr4c2')}</td>
+                        <td className="px-5 py-4 text-gray-700 font-medium rounded-es-2xl">{t('s4tr4c1')}</td>
+                        <td className="px-5 py-4 font-bold text-red-700 rounded-ee-2xl">{t('s4tr4c2')}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -369,7 +369,7 @@ export default async function TermsPage({ params }: Props) {
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-xl transition-colors"
                 >
                   {t('privacyPageBtn')}
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-4 h-4 rtl:rotate-180" />
                 </Link>
               </div>
             </section>
@@ -403,7 +403,7 @@ export default async function TermsPage({ params }: Props) {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                 >
                   {t('contactPageBtn')}
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-4 h-4 rtl:rotate-180" />
                 </Link>
               </div>
             </section>
@@ -417,10 +417,10 @@ export default async function TermsPage({ params }: Props) {
         {/* Cross-link bar */}
         <div className="mt-10 pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
           <Link href="/" className="text-brand hover:underline flex items-center gap-1">
-            <ChevronRight className="w-4 h-4 rotate-180" /> {t('backToHome')}
+            <ChevronRight className="w-4 h-4 rotate-180 rtl:rotate-0" /> {t('backToHome')}
           </Link>
           <Link href="/privacy" className="text-brand hover:underline flex items-center gap-1">
-            {t('privacyLink')} <ChevronRight className="w-4 h-4" />
+            {t('privacyLink')} <ChevronRight className="w-4 h-4 rtl:rotate-180" />
           </Link>
         </div>
       </div>

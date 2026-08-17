@@ -91,7 +91,7 @@ export default function KiliRouteMap({ route }: { route?: string } = {}) {
                   <button
                     key={r.id}
                     onClick={() => setSelectedId(r.id)}
-                    className={`w-full flex items-center gap-2.5 px-4 py-3.5 text-left transition-all duration-200 border-b border-white/10 last:border-0 ${
+                    className={`w-full flex items-center gap-2.5 px-4 py-3.5 text-start transition-all duration-200 border-b border-white/10 last:border-0 ${
                       activeId === r.id
                         ? 'bg-gold text-brand font-bold'
                         : 'text-white/80 hover:bg-white/15 hover:text-white'
@@ -100,7 +100,7 @@ export default function KiliRouteMap({ route }: { route?: string } = {}) {
                     <MapPin className={`w-3.5 h-3.5 flex-shrink-0 ${activeId === r.id ? 'text-brand' : 'text-gold'}`} />
                     <span className="text-sm leading-tight">{r.name}</span>
                     {activeId === r.id && (
-                      <ChevronRight className="w-3.5 h-3.5 ml-auto flex-shrink-0" />
+                      <ChevronRight className="w-3.5 h-3.5 ms-auto flex-shrink-0 rtl:rotate-180" />
                     )}
                   </button>
                 ))}
@@ -182,7 +182,7 @@ export default function KiliRouteMap({ route }: { route?: string } = {}) {
                   })}
                   className="flex items-center gap-2 px-5 py-2.5 bg-gold hover:bg-gold-dark text-brand font-bold text-sm rounded-xl transition-colors"
                 >
-                  {t('bookThisRoute')} <ArrowRight className="w-3.5 h-3.5" />
+                  {t('bookThisRoute')} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                 </button>
               </div>
             </div>

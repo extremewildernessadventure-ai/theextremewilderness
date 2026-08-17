@@ -54,7 +54,7 @@ export default function LanguageSwitcher() {
       {open && (
         <div
           role="listbox"
-          className="absolute right-0 top-full mt-2 w-52 bg-brand rounded-2xl shadow-2xl border border-white/10 overflow-hidden z-50"
+          className="absolute end-0 top-full mt-2 w-52 bg-brand rounded-2xl shadow-2xl border border-white/10 overflow-hidden z-50"
         >
           <div className="px-4 py-3 border-b border-white/10 flex items-center gap-2">
             <Globe className="w-3.5 h-3.5 text-gold" />
@@ -68,7 +68,7 @@ export default function LanguageSwitcher() {
               role="option"
               aria-selected={locale === l}
               onClick={() => switchLocale(l)}
-              className={`w-full flex items-center gap-3 px-4 py-3 text-left border-b border-white/5 last:border-0 transition-colors ${
+              className={`w-full flex items-center gap-3 px-4 py-3 text-start border-b border-white/5 last:border-0 transition-colors ${
                 locale === l ? 'bg-white/10' : 'hover:bg-white/5'
               }`}
             >

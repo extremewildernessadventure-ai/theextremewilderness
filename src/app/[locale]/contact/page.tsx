@@ -88,8 +88,8 @@ export default async function ContactPage({ params }: Props) {
             ))}
           </div>
         </div>
-        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/2">
-          <div className="absolute inset-y-0 left-0 w-28 z-10 bg-gradient-to-r from-brand to-transparent" />
+        <div className="hidden lg:block absolute end-0 top-0 bottom-0 w-1/2">
+          <div className="absolute inset-y-0 start-0 w-28 z-10 bg-gradient-to-r from-brand to-transparent" />
           <Image src="/images/gallery/lion-pride-resting-grassland.webp" alt={t('heroImageAlt')} fill className="object-cover" priority sizes="50vw" />
         </div>
         <div className="lg:hidden absolute inset-0 z-0">

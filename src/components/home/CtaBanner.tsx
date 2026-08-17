@@ -35,7 +35,7 @@ export default function CtaBanner() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          <Reveal className="text-center lg:text-left">
+          <Reveal className="text-center lg:text-start">
             <span className="inline-block text-gold font-semibold text-xs uppercase tracking-widest mb-4">
               {t('readyToGo')}
             </span>
@@ -50,7 +50,7 @@ export default function CtaBanner() {
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors"
               >
-                {t('exploreDest')} <ArrowRight className="w-4 h-4" />
+                {t('exploreDest')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
               </Link>
               <Link
                 href="/safaris"
@@ -62,7 +62,7 @@ export default function CtaBanner() {
             <p className="text-white/60 text-xs mt-6">{t('responseTimeNote')}</p>
           </Reveal>
 
-          <Reveal delay={0.15} className="lg:border-l lg:border-white/10 lg:pl-16">
+          <Reveal delay={0.15} className="lg:border-s lg:border-white/10 lg:ps-16">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-9 h-9 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
                 <Mail className="w-4 h-4 text-gold" />

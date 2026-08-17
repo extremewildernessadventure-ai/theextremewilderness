@@ -657,7 +657,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                       {QUICK_FACT_KEYS.map((key) => (
                         <div key={key} className="flex justify-between gap-3 text-sm">
                           <span className="text-text-muted font-medium">{trd(`labels.${key}`)}</span>
-                          <span className="text-brand font-semibold text-right">{routeContent!.quickFacts[key]}</span>
+                          <span className="text-brand font-semibold text-end">{routeContent!.quickFacts[key]}</span>
                         </div>
                       ))}
                     </div>
@@ -838,7 +838,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
                           className="flex items-center justify-between w-full px-4 py-2.5 rounded-full border border-brand/15 bg-light-green/40 text-brand hover:bg-brand hover:border-brand hover:text-white transition-all duration-200 group"
                         >
                           <span className="text-sm font-semibold">{t(`route${idx + 1}Name` as 'route1Name')}</span>
-                          <ArrowRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" />
+                          <ArrowRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200 rtl:rotate-180" />
                         </Link>
                       )
                     })}
@@ -866,7 +866,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
           <RevealGroup className="space-y-8">
             {GEAR_CATEGORIES.map(({ label, items }) => (
               <RevealItem key={label} className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8">
-                <div className="sm:w-44 flex-shrink-0 border-l-2 border-gold pl-3">
+                <div className="sm:w-44 flex-shrink-0 border-s-2 border-gold ps-3">
                   <p className="text-white/60 text-xs font-bold uppercase tracking-widest leading-tight">{label}</p>
                 </div>
                 <div className="flex flex-wrap gap-3">
@@ -972,7 +972,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
           <h2 className="text-3xl font-semibold text-white mb-4">{t('ctaHeading')}</h2>
           <p className="text-white/70 mb-8">{t('ctaSubtitle')}</p>
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors">
-            {t('ctaButton')} <ArrowRight className="w-4 h-4" />
+            {t('ctaButton')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </Link>
         </Reveal>
       </section>

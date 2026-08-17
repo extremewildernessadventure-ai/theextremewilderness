@@ -215,7 +215,7 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
             </div>
             {/* Dual-handle slider */}
             <div className="price-slider-track">
-              <div className="absolute left-0 right-0 h-1.5 bg-white/20 rounded-full" />
+              <div className="absolute inset-x-0 h-1.5 bg-white/20 rounded-full" />
               <div
                 className="absolute h-1.5 bg-gold rounded-full"
                 style={{ left: `${sliderPercMin}%`, right: `${100 - sliderPercMax}%` }}
@@ -320,7 +320,7 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {pkg.badge && (
-                    <div className="absolute top-3 left-3">
+                    <div className="absolute top-3 start-3">
                       <span className="px-2.5 py-1 bg-gold text-brand text-[10px] font-bold uppercase tracking-wider rounded-full">
                         {pkg.badge}
                       </span>
@@ -352,7 +352,7 @@ export default function FilteredPackageGrid({ packages, labels }: Props) {
                       <span className="text-text-muted text-xs">/pp</span>
                     </div>
                     <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">
-                      {labels.view} <ArrowRight className="w-3.5 h-3.5" />
+                      {labels.view} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                     </span>
                   </div>
                 </div>

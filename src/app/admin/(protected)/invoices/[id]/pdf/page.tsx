@@ -85,7 +85,7 @@ export default async function InvoicePdfPage({ params }: Props) {
               <p className="text-xs text-gray-500">Arusha, Tanzania</p>
             </div>
           </div>
-          <div className="text-right">
+          <div className="text-end">
             <h1 className="text-2xl font-black text-brand leading-tight">INVOICE</h1>
             <p className="text-sm text-gray-700 font-semibold mt-1">{invoice.invoice_number}</p>
             <p className="text-xs text-gray-400 mt-0.5">
@@ -102,7 +102,7 @@ export default async function InvoicePdfPage({ params }: Props) {
             {invoice.client_email && <p className="text-sm text-gray-600">{invoice.client_email}</p>}
             {invoice.booking_reference && <p className="text-xs text-gray-500 mt-1">Booking Ref: {invoice.booking_reference}</p>}
           </div>
-          <div className="text-right">
+          <div className="text-end">
             <span className={`inline-block text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full border ${STATUS_STYLES[invoice.status]}`}>
               {STATUS_LABELS[invoice.status]}
             </span>
@@ -119,10 +119,10 @@ export default async function InvoicePdfPage({ params }: Props) {
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-brand text-white">
-                <th className="text-left px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Description</th>
-                <th className="text-right px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Qty</th>
-                <th className="text-right px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Unit Price</th>
-                <th className="text-right px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Total</th>
+                <th className="text-start px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Description</th>
+                <th className="text-end px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Qty</th>
+                <th className="text-end px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Unit Price</th>
+                <th className="text-end px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Total</th>
               </tr>
             </thead>
             <tbody>
@@ -130,9 +130,9 @@ export default async function InvoicePdfPage({ params }: Props) {
                 items.map((item) => (
                   <tr key={item.id} className="border-b border-gray-200">
                     <td className="px-4 py-4 text-gray-700 whitespace-pre-wrap align-top">{item.description}</td>
-                    <td className="px-4 py-4 text-right text-gray-700 align-top whitespace-nowrap">{item.quantity}</td>
-                    <td className="px-4 py-4 text-right text-gray-700 align-top whitespace-nowrap">{item.unit_price.toLocaleString()}</td>
-                    <td className="px-4 py-4 text-right font-semibold text-gray-900 align-top whitespace-nowrap">
+                    <td className="px-4 py-4 text-end text-gray-700 align-top whitespace-nowrap">{item.quantity}</td>
+                    <td className="px-4 py-4 text-end text-gray-700 align-top whitespace-nowrap">{item.unit_price.toLocaleString()}</td>
+                    <td className="px-4 py-4 text-end font-semibold text-gray-900 align-top whitespace-nowrap">
                       {invoice.currency} {(item.quantity * item.unit_price).toLocaleString()}
                     </td>
                   </tr>

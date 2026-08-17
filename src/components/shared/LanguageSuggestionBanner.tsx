@@ -65,7 +65,7 @@ export default function LanguageSuggestionBanner() {
 
   return (
     <div
-      className={`fixed z-50 bottom-20 left-4 right-4 lg:left-auto lg:right-6 lg:bottom-6 lg:w-96 transition-all duration-500 ease-out ${
+      className={`fixed z-50 bottom-20 left-4 right-4 lg:start-auto lg:end-6 lg:bottom-6 lg:w-96 transition-all duration-500 ease-out ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       role="dialog"
@@ -76,12 +76,12 @@ export default function LanguageSuggestionBanner() {
           type="button"
           onClick={dismiss}
           aria-label={t('langBannerDismiss')}
-          className="absolute top-3 right-3 text-white/50 hover:text-white transition-colors"
+          className="absolute top-3 end-3 text-white/50 hover:text-white transition-colors"
         >
           <X className="w-4 h-4" />
         </button>
 
-        <div className="p-5 pr-9 flex items-start gap-3">
+        <div className="p-5 pe-9 flex items-start gap-3">
           <span className="text-2xl leading-none flex-shrink-0 mt-0.5" aria-hidden="true">{lang.flag}</span>
           <div className="flex-1 min-w-0">
             <p className="text-gold-label text-[10px] font-bold uppercase tracking-widest mb-1.5">

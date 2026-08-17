@@ -52,8 +52,8 @@ export default function BlogSuggestionCard({
 
         <div className="flex items-center justify-between pt-3 border-t border-white/20">
           {readTime && <span className="text-xs text-white/50">{readTime}</span>}
-          <span className="flex items-center gap-1.5 text-white text-xs font-semibold group-hover:text-gold transition-colors ml-auto">
-            {readLabel} <ArrowRight className="w-3 h-3" />
+          <span className="flex items-center gap-1.5 text-white text-xs font-semibold group-hover:text-gold transition-colors ms-auto">
+            {readLabel} <ArrowRight className="w-3 h-3 rtl:rotate-180" />
           </span>
         </div>
       </div>

@@ -104,7 +104,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
             </h1>
             <p className="text-sm text-gray-500 mt-1">{t('pdfCardEyebrow')} · 5,895 m / 19,341 ft</p>
           </div>
-          <div className="text-right text-xs text-gray-400">
+          <div className="text-end text-xs text-gray-400">
             <p className="font-bold text-gray-600 text-sm">{t('pdfCardBadge')}</p>
             <p className="mt-0.5">info@theextremewilderness.com</p>
             <p>{new Date().toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}</p>
@@ -118,17 +118,17 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
 
         {/* ── Routes at a glance ── */}
         <div className="mb-7 no-break">
-          <h2 className="text-base font-black text-gray-900 mb-3 uppercase tracking-wide border-l-4 border-gray-900 pl-3">
+          <h2 className="text-base font-black text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">
             {t('pdfGuideSectionRoutes')}
           </h2>
           <table className="w-full text-xs border-collapse">
             <thead>
               <tr className="bg-gray-900 text-white">
-                <th className="text-left px-3 py-2 font-bold">{trd('labels.routeTableHeader')}</th>
-                <th className="text-left px-3 py-2 font-bold">{trd('labels.duration')}</th>
-                <th className="text-left px-3 py-2 font-bold">{trd('labels.difficulty')}</th>
-                <th className="text-left px-3 py-2 font-bold">{trd('labels.successRate')}</th>
-                <th className="text-right px-3 py-2 font-bold">{trd('labels.from')}</th>
+                <th className="text-start px-3 py-2 font-bold">{trd('labels.routeTableHeader')}</th>
+                <th className="text-start px-3 py-2 font-bold">{trd('labels.duration')}</th>
+                <th className="text-start px-3 py-2 font-bold">{trd('labels.difficulty')}</th>
+                <th className="text-start px-3 py-2 font-bold">{trd('labels.successRate')}</th>
+                <th className="text-end px-3 py-2 font-bold">{trd('labels.from')}</th>
               </tr>
             </thead>
             <tbody>
@@ -138,7 +138,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
                   <td className="px-3 py-2 text-gray-700">{r.duration}</td>
                   <td className="px-3 py-2 text-gray-700">{r.difficulty}</td>
                   <td className="px-3 py-2 text-gray-700">{r.successRate}</td>
-                  <td className="px-3 py-2 text-right font-semibold text-gray-900">${r.priceGroup.toLocaleString('en-US')}</td>
+                  <td className="px-3 py-2 text-end font-semibold text-gray-900">${r.priceGroup.toLocaleString('en-US')}</td>
                 </tr>
               ))}
             </tbody>
@@ -149,7 +149,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
         {/* ── What's included / excluded ── */}
         <div className="grid grid-cols-2 gap-6 mb-7 no-break">
           <div>
-            <h2 className="text-base font-black text-gray-900 mb-2 uppercase tracking-wide border-l-4 border-gray-900 pl-3">
+            <h2 className="text-base font-black text-gray-900 mb-2 uppercase tracking-wide border-s-4 border-gray-900 ps-3">
               {trd('labels.included')}
             </h2>
             <ul className="space-y-0.5">
@@ -162,7 +162,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
             </ul>
           </div>
           <div>
-            <h2 className="text-base font-black text-gray-900 mb-2 uppercase tracking-wide border-l-4 border-gray-900 pl-3">
+            <h2 className="text-base font-black text-gray-900 mb-2 uppercase tracking-wide border-s-4 border-gray-900 ps-3">
               {trd('labels.notIncluded')}
             </h2>
             <ul className="space-y-0.5">
@@ -178,7 +178,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
 
         {/* ── Gear / Packing list ── */}
         <div className="mb-7 page-break no-break">
-          <h2 className="text-base font-black text-gray-900 mb-3 uppercase tracking-wide border-l-4 border-gray-900 pl-3">
+          <h2 className="text-base font-black text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">
             {t('pdfGuideSectionGear')}
           </h2>
           <div className="grid grid-cols-2 gap-x-8 gap-y-3">
@@ -201,7 +201,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
 
         {/* ── Best seasons ── */}
         <div className="mb-7 no-break">
-          <h2 className="text-base font-black text-gray-900 mb-3 uppercase tracking-wide border-l-4 border-gray-900 pl-3">
+          <h2 className="text-base font-black text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">
             {t('pdfGuideSectionSeasons')}
           </h2>
           <div className="grid grid-cols-3 gap-4">

@@ -324,7 +324,7 @@ export default async function DestinationsHubPage({ params }: Props) {
         />
         <div className="absolute inset-0 bg-brand/80" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-start">
             <span className="text-gold-label font-semibold text-xs uppercase tracking-widest">{t('finalCtaEyebrow')}</span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-white mt-3 mb-4">{t('finalCtaHeading')}</h2>
             <p className="text-white/70 mb-8">{t('finalCtaBody')}</p>

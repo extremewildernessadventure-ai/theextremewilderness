@@ -137,7 +137,7 @@ export default function NewInvoicePage() {
                   onChange={(e) => updateItem(i, 'unitPrice', e.target.value)}
                   className={inputCls} placeholder="Unit price"
                 />
-                <span className="text-sm text-gray-600 text-right whitespace-nowrap">
+                <span className="text-sm text-gray-600 text-end whitespace-nowrap">
                   {form.currency} {lineTotal(row).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
                 <button

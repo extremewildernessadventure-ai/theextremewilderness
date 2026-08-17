@@ -105,7 +105,7 @@ export default function InvoiceItemsEditor({ invoice, items }: { invoice: Invoic
               onChange={(e) => updateRow(i, 'unitPrice', e.target.value)}
               className={inputCls} placeholder="Unit price"
             />
-            <span className="text-sm text-gray-600 text-right whitespace-nowrap">
+            <span className="text-sm text-gray-600 text-end whitespace-nowrap">
               {invoice.currency} {lineTotal(row).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </span>
             <button

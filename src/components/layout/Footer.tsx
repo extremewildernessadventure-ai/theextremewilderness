@@ -57,7 +57,7 @@ export default async function Footer() {
   return (
     <footer className="bg-brand text-white">
       <div className="w-full px-6 sm:px-10 lg:px-16">
-        <div className="py-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.6fr_1fr_1fr_0.8fr_1fr] gap-6 lg:gap-8 text-center md:text-left">
+        <div className="py-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.6fr_1fr_1fr_0.8fr_1fr] gap-6 lg:gap-8 text-center md:text-start">
 
           {/* Brand column */}
           <div className="xl:row-span-2">
@@ -175,7 +175,7 @@ export default async function Footer() {
           </div>
 
           {/* Trust strip — fills empty space below nav columns */}
-          <div className="xl:col-start-2 xl:col-span-4 xl:self-end flex flex-col xl:flex-row items-center xl:items-start gap-5 xl:gap-6 pt-4 xl:pt-0 xl:pb-2 text-center xl:text-left">
+          <div className="xl:col-start-2 xl:col-span-4 xl:self-end flex flex-col xl:flex-row items-center xl:items-start gap-5 xl:gap-6 pt-4 xl:pt-0 xl:pb-2 text-center xl:text-start">
 
             <div className="shrink-0">
               <div className="flex gap-0.5 justify-center xl:justify-start mb-1">
@@ -206,7 +206,7 @@ export default async function Footer() {
 
             <div className="hidden xl:block w-px h-10 bg-white/10 shrink-0 self-center" />
 
-            <blockquote className="border-l-2 border-gold pl-3 text-left">
+            <blockquote className="border-s-2 border-gold ps-3 text-start">
               <p className="text-white/75 text-sm leading-relaxed italic">{t('trustQuote')}</p>
               <footer className="mt-1.5 text-gold text-xs font-semibold not-italic">{t('trustQuoteAuthor')}</footer>
             </blockquote>

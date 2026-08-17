@@ -146,7 +146,7 @@ export default async function KenyaPage({ params }: Props) {
                 href="#destinations"
                 className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors"
               >
-                {t('exploreDestinations')} <ArrowRight className="w-4 h-4" />
+                {t('exploreDestinations')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
               </a>
             </div>
           </div>
@@ -216,7 +216,7 @@ export default async function KenyaPage({ params }: Props) {
                       <p className="text-white font-bold text-sm">{d.label}</p>
                       <p className="text-white/70 text-xs truncate">{d.desc}</p>
                     </div>
-                    <ArrowRight className="w-3.5 h-3.5 text-white/60 group-hover:text-gold transition-colors flex-shrink-0" />
+                    <ArrowRight className="w-3.5 h-3.5 text-white/60 group-hover:text-gold transition-colors flex-shrink-0 rtl:rotate-180" />
                   </a>
                 ))}
               </div>
@@ -431,7 +431,7 @@ export default async function KenyaPage({ params }: Props) {
                   href="/destinations/tanzania"
                   className="inline-flex items-center gap-2 px-6 py-3 border border-brand text-brand hover:bg-brand hover:text-white font-semibold rounded-xl transition-colors"
                 >
-                  {t('tanzaniaDestinations')} <ArrowRight className="w-4 h-4" />
+                  {t('tanzaniaDestinations')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                 </Link>
               </div>
             </Reveal>
@@ -444,7 +444,7 @@ export default async function KenyaPage({ params }: Props) {
                 className="object-contain"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+              <div className="absolute bottom-4 inset-x-0 flex justify-center">
                 <span className="bg-brand/80 backdrop-blur-sm text-white text-xs font-medium px-4 py-2 rounded-full flex items-center gap-1.5">
                   <MapPin className="w-3 h-3 text-gold" />
                   {t('mapCaption')}
@@ -512,11 +512,11 @@ export default async function KenyaPage({ params }: Props) {
                   href="/destinations/tanzania"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors text-base"
                 >
-                  {t('exploreTanzaniaToo')} <ArrowRight className="w-4 h-4" />
+                  {t('exploreTanzaniaToo')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                 </Link>
               </div>
               <p className="text-white/60 text-xs mt-6">
-                <Users className="inline w-3 h-3 mr-1" />
+                <Users className="inline w-3 h-3 me-1" />
                 {t('footerDisclaimer')}
               </p>
             </Reveal>

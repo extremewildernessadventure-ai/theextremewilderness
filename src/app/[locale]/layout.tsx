@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing'
 import { SITE_URL } from '@/lib/site'
 import { getGooglePlaceRating } from '@/lib/googlePlaces'
 import { ogLocale } from '@/lib/ogLocale'
+import { isRtlLocale } from '@/lib/rtl'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import BottomNav from '@/components/layout/BottomNav'
@@ -110,12 +111,15 @@ export default async function LocaleLayout({ children, params }: Props) {
     <NextIntlClientProvider locale={locale} messages={clientMessages}>
       <Providers>
         {/* Root layout (above this segment) can't read `locale` without a
-            Dynamic API, so it hardcodes lang="en". This corrects it
-            synchronously for non-English locales before paint — no visible
-            flash, since it runs as the parser reaches it. */}
+            Dynamic API, so it hardcodes lang="en" dir="ltr". This corrects
+            both synchronously for non-English locales before paint — no
+            visible flash, since it runs as the parser reaches it (before
+            Navbar and everything else below). */}
         {locale !== 'en' && (
           <script
-            dangerouslySetInnerHTML={{ __html: `document.documentElement.lang=${JSON.stringify(locale)}` }}
+            dangerouslySetInnerHTML={{
+              __html: `document.documentElement.lang=${JSON.stringify(locale)};document.documentElement.dir=${JSON.stringify(isRtlLocale(locale) ? 'rtl' : 'ltr')}`,
+            }}
           />
         )}
         {/* Read by the Tawk reposition script in the root layout, which
@@ -131,7 +135,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-gold focus:text-brand focus:font-bold focus:rounded-lg"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:start-4 focus:px-4 focus:py-2 focus:bg-gold focus:text-brand focus:font-bold focus:rounded-lg"
         >
           Skip to main content
         </a>

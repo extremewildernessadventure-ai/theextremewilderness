@@ -39,7 +39,7 @@ function SelectWrapper({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative">
       {children}
-      <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+      <ChevronDown className="absolute end-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
     </div>
   )
 }
@@ -319,7 +319,7 @@ export default function EnquiryModal() {
         <div className="flex-shrink-0 bg-brand px-6 pt-6 pb-5">
           <button
             onClick={closeBooking}
-            className="absolute top-4 right-4 w-8 h-8 bg-white/15 hover:bg-white/25 rounded-full flex items-center justify-center transition-colors"
+            className="absolute top-4 end-4 w-8 h-8 bg-white/15 hover:bg-white/25 rounded-full flex items-center justify-center transition-colors"
             aria-label={t('closeLabel')}
           >
             <X className="w-4 h-4 text-white" />
@@ -402,7 +402,7 @@ export default function EnquiryModal() {
                   <div>
                     <Label htmlFor="enquiry-email">{t('emailLabel')}</Label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                      <Mail className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
                         id="enquiry-email"
                         type="email" required aria-required="true" value={email}
@@ -414,7 +414,7 @@ export default function EnquiryModal() {
                           if (email && !EMAIL_RE.test(email)) setFieldErrors((p) => ({ ...p, email: t('emailInvalid') }))
                         }}
                         placeholder="jane@email.com"
-                        className={inputCls + ' pl-10' + (fieldErrors.email ? ' !border-red-400 !ring-red-200' : '')}
+                        className={inputCls + ' ps-10' + (fieldErrors.email ? ' !border-red-400 !ring-red-200' : '')}
                       />
                     </div>
                     {fieldErrors.email && (
@@ -424,12 +424,12 @@ export default function EnquiryModal() {
                   <div>
                     <Label htmlFor="enquiry-phone">
                       {t('phoneLabel')}
-                      <span className="ml-1 text-gray-400 font-normal normal-case tracking-normal text-[11px]">
+                      <span className="ms-1 text-gray-400 font-normal normal-case tracking-normal text-[11px]">
                         ({t('optional')})
                       </span>
                     </Label>
                     <div className="relative">
-                      <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                      <Phone className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                       <input
                         id="enquiry-phone"
                         type="tel"
@@ -439,7 +439,7 @@ export default function EnquiryModal() {
                           if (fieldErrors.phone) setFieldErrors((p) => ({ ...p, phone: undefined }))
                         }}
                         placeholder="+1 555 000 0000"
-                        className={inputCls + ' pl-10' + (fieldErrors.phone ? ' !border-red-400 !ring-red-200' : '')}
+                        className={inputCls + ' ps-10' + (fieldErrors.phone ? ' !border-red-400 !ring-red-200' : '')}
                       />
                     </div>
                     {fieldErrors.phone && (

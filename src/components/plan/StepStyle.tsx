@@ -44,7 +44,7 @@ export default function StepStyle({
                 key={style}
                 type="button"
                 onClick={() => setField('style', style)}
-                className={`rounded-xl border px-4 py-4 text-left transition-colors ${
+                className={`rounded-xl border px-4 py-4 text-start transition-colors ${
                   active ? 'bg-brand text-white border-brand' : 'bg-white text-brand border-gray-200 hover:border-brand'
                 }`}
               >
@@ -70,7 +70,7 @@ export default function StepStyle({
                 key={pace}
                 type="button"
                 onClick={() => setField('pace', pace)}
-                className={`rounded-xl border px-4 py-4 text-left transition-colors ${
+                className={`rounded-xl border px-4 py-4 text-start transition-colors ${
                   active ? 'bg-brand text-white border-brand' : 'bg-white text-brand border-gray-200 hover:border-brand'
                 }`}
               >
@@ -90,14 +90,14 @@ export default function StepStyle({
           onClick={onBack}
           className="inline-flex items-center gap-2 px-6 py-3.5 border border-gray-200 text-brand font-semibold rounded-xl hover:border-brand transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" /> {t('backButton')}
+          <ArrowLeft className="w-4 h-4 rtl:rotate-180" /> {t('backButton')}
         </button>
         <button
           type="button"
           onClick={onNext}
           className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors"
         >
-          {t('nextButton')} <ArrowRight className="w-4 h-4" />
+          {t('nextButton')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
         </button>
       </div>
     </div>

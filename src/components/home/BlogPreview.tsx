@@ -58,7 +58,7 @@ export default function BlogPreview() {
             href="/blog"
             className="hidden sm:flex items-center gap-2 text-sm font-semibold text-brand hover:text-brand-secondary transition-colors"
           >
-            {tc('viewAll')} <ArrowRight className="w-4 h-4" />
+            {tc('viewAll')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </Link>
         </Reveal>
 
@@ -77,7 +77,7 @@ export default function BlogPreview() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-brand text-xs font-semibold rounded-full">
+                <span className="absolute top-3 start-3 px-2.5 py-1 bg-gold text-brand text-xs font-semibold rounded-full">
                   {post.category}
                 </span>
               </div>
@@ -115,7 +115,7 @@ export default function BlogPreview() {
             href="/blog"
             className="inline-flex items-center gap-2 text-sm font-semibold text-brand"
           >
-            {tc('viewAll')} <ArrowRight className="w-4 h-4" />
+            {tc('viewAll')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </Link>
         </div>
       </div>

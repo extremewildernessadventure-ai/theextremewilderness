@@ -736,7 +736,7 @@ export default async function SafariPackagePage({ params }: Props) {
                     <div className="overflow-x-auto rounded-xl border border-gray-100">
                       <table className="w-full text-base">
                         <thead>
-                          <tr className="bg-light-green text-left text-text-muted text-xs uppercase tracking-wide">
+                          <tr className="bg-light-green text-start text-text-muted text-xs uppercase tracking-wide">
                             <th className="px-4 py-2.5 font-semibold">{t('day')}</th>
                             <th className="px-4 py-2.5 font-semibold">{t('location')}</th>
                             <th className="px-4 py-2.5 font-semibold">{t('focus')}</th>
@@ -772,7 +772,7 @@ export default async function SafariPackagePage({ params }: Props) {
                         <p className="text-base text-text-muted leading-relaxed mb-3">{day.description}</p>
 
                         {day.insiderFact && (
-                          <div className="border-l-2 border-gold pl-3 mb-3">
+                          <div className="border-s-2 border-gold ps-3 mb-3">
                             <p className="text-[10px] font-bold uppercase tracking-wide text-gold-label mb-0.5">
                               {t('insiderFact')}
                             </p>
@@ -932,7 +932,7 @@ export default async function SafariPackagePage({ params }: Props) {
                   {pkg.faq.map((item, i) => (
                     <details key={i} className="group border border-gray-100 rounded-xl overflow-hidden">
                       <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
-                        <span className="font-medium text-brand text-base pr-4">{item.q}</span>
+                        <span className="font-medium text-brand text-base pe-4">{item.q}</span>
                         <ChevronDown className="w-4 h-4 text-text-muted flex-shrink-0 group-open:rotate-180 transition-transform" />
                       </summary>
                       <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">

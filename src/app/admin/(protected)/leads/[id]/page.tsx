@@ -85,7 +85,7 @@ export default async function LeadDetailPage({ params }: Props) {
               {payloadEntries.map(([key, value]) => (
                 <div key={key} className="flex justify-between gap-4">
                   <span className="text-gray-500 shrink-0">{formatFieldLabel(key)}</span>
-                  <span className="text-gray-700 text-right break-words">{formatFieldValue(value)}</span>
+                  <span className="text-gray-700 text-end break-words">{formatFieldValue(value)}</span>
                 </div>
               ))}
             </div>

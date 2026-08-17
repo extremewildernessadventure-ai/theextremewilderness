@@ -458,7 +458,7 @@ export default async function TravelInfoPage({ params }: Props) {
             {monthCards.map(({ m, label, season, highlight, style }) => (
               <RevealItem
                 key={m}
-                className={`bg-white border border-gray-200 border-l-4 ${SEASON_STYLE[style].border} rounded-xl p-4`}
+                className={`bg-white border border-gray-200 border-s-4 ${SEASON_STYLE[style].border} rounded-xl p-4`}
               >
                 <p className="text-brand font-bold text-xl mb-0.5">{label}</p>
                 <p className={`text-[10px] font-semibold uppercase tracking-wide mb-2 ${SEASON_STYLE[style].badge}`}>
@@ -495,7 +495,7 @@ export default async function TravelInfoPage({ params }: Props) {
               className="inline-flex items-center gap-1.5 text-brand font-semibold text-sm hover:text-gold-dark transition-colors"
             >
               {t('kiliSeasonLink')}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 rtl:rotate-180" />
             </Link>
           </Reveal>
         </div>
@@ -618,7 +618,7 @@ export default async function TravelInfoPage({ params }: Props) {
                 className="inline-flex items-center gap-1.5 text-brand font-semibold text-sm hover:text-gold-dark transition-colors"
               >
                 {t('kiliPackLink')}
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 rtl:rotate-180" />
               </Link>
             </div>
           </Reveal>
@@ -671,7 +671,7 @@ export default async function TravelInfoPage({ params }: Props) {
               className="inline-flex items-center gap-2 px-7 py-4 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors whitespace-nowrap shrink-0"
             >
               {t('ctaButton')}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 rtl:rotate-180" />
             </Link>
           </Reveal>
         </div>
@@ -699,7 +699,7 @@ export default async function TravelInfoPage({ params }: Props) {
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-brand/20 hover:bg-brand/5 text-brand font-semibold rounded-xl transition-colors"
               >
                 {t('contactBtn2')}
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 rtl:rotate-180" />
               </Link>
             </div>
           </Reveal>

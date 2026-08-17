@@ -79,7 +79,7 @@ export default function ExperienceGallery({ images, labels, variant = 'featured'
               }
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden />
-            <span className="absolute left-3 bottom-2.5 right-3 text-white text-xs font-semibold text-left opacity-0 group-hover:opacity-100 transition-opacity z-10">
+            <span className="absolute inset-x-3 bottom-2.5 text-white text-xs font-semibold text-start opacity-0 group-hover:opacity-100 transition-opacity z-10">
               {img.alt}
             </span>
           </button>
@@ -102,7 +102,7 @@ export default function ExperienceGallery({ images, labels, variant = 'featured'
             type="button"
             onClick={close}
             aria-label={labels.close}
-            className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors"
+            className="absolute top-4 end-4 z-30 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors"
           >
             <X className="w-5 h-5 text-white" />
           </button>
@@ -111,9 +111,9 @@ export default function ExperienceGallery({ images, labels, variant = 'featured'
             type="button"
             onClick={prev}
             aria-label={labels.prev}
-            className="absolute left-2 sm:left-6 z-30 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors"
+            className="absolute start-2 sm:start-6 z-30 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors"
           >
-            <ChevronLeft className="w-6 h-6 text-white" />
+            <ChevronLeft className="w-6 h-6 text-white rtl:rotate-180" />
           </button>
 
           <figure className="relative z-20 w-[92vw] max-w-5xl">
@@ -139,9 +139,9 @@ export default function ExperienceGallery({ images, labels, variant = 'featured'
             type="button"
             onClick={next}
             aria-label={labels.next}
-            className="absolute right-2 sm:right-6 z-30 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors"
+            className="absolute end-2 sm:end-6 z-30 w-11 h-11 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors"
           >
-            <ChevronRight className="w-6 h-6 text-white" />
+            <ChevronRight className="w-6 h-6 text-white rtl:rotate-180" />
           </button>
         </div>
       )}

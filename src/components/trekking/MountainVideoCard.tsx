@@ -47,7 +47,7 @@ export default function MountainVideoCard({ src, poster, label, orientation }: P
               <Play className="w-7 h-7 ml-1" fill="currentColor" />
             </span>
           </span>
-          <span className="absolute left-4 bottom-3 right-4 text-white text-sm font-semibold text-left">{label}</span>
+          <span className="absolute inset-x-4 bottom-3 text-white text-sm font-semibold text-start">{label}</span>
         </button>
       )}
     </div>

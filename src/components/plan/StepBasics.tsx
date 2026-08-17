@@ -151,7 +151,7 @@ export default function StepBasics({
         onClick={onNext}
         className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors"
       >
-        {t('nextButton')} <ArrowRight className="w-4 h-4" />
+        {t('nextButton')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
       </button>
     </div>
   )

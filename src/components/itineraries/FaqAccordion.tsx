@@ -30,7 +30,7 @@ export default function FaqAccordion({ faqs, columns = 1 }: Props) {
           <button
             type="button"
             onClick={() => setOpen(open === i ? null : i)}
-            className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+            className="w-full flex items-center justify-between gap-4 px-6 py-5 text-start"
           >
             <span className="font-semibold text-brand text-sm sm:text-base leading-snug">
               {faq.q}
@@ -69,7 +69,7 @@ export default function FaqAccordion({ faqs, columns = 1 }: Props) {
                         />
                       )}
                       <div className="absolute inset-0 bg-gradient-to-t from-brand/90 via-brand/30 to-transparent" />
-                      <span className="absolute bottom-3 left-4 right-4 text-white font-semibold text-sm leading-snug">
+                      <span className="absolute bottom-3 inset-x-4 text-white font-semibold text-sm leading-snug">
                         {link.label}
                       </span>
                     </Link>

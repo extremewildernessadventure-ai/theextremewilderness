@@ -39,6 +39,31 @@ body {
   font-family: var(--font-geist-sans), 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', 'Noto Sans JP', sans-serif;
 }
 
+/* Geist has no Korean glyphs — fall back to platform-native fonts for ko */
+:lang(ko) {
+  font-family: var(--font-geist-sans), 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
+}
+
+/* Geist has no Hindi/Devanagari glyphs — fall back to platform-native fonts for hi */
+:lang(hi) {
+  font-family: var(--font-geist-sans), 'Nirmala UI', 'Kohinoor Devanagari', 'Noto Sans Devanagari', sans-serif;
+}
+
+/* Geist has no Thai glyphs — fall back to platform-native fonts for th */
+:lang(th) {
+  font-family: var(--font-geist-sans), 'Leelawadee UI', 'Thonburi', 'Noto Sans Thai', sans-serif;
+}
+
+/* Geist has no Arabic glyphs — fall back to platform-native fonts for ar (RTL) */
+:lang(ar) {
+  font-family: var(--font-geist-sans), 'Segoe UI', 'Geeza Pro', 'Noto Sans Arabic', 'Tahoma', sans-serif;
+}
+
+/* Geist has no Hebrew glyphs — fall back to platform-native fonts for he (RTL) */
+:lang(he) {
+  font-family: var(--font-geist-sans), 'Segoe UI', 'Arial Hebrew', 'Noto Sans Hebrew', 'Tahoma', sans-serif;
+}
+
 input, textarea, select, [contenteditable] {
   user-select: text;
   -webkit-user-select: text;
@@ -81,6 +106,14 @@ button, a {
 
 /* ── Dual-handle price range slider ── */
 .price-slider-track {
+  /* Forced LTR regardless of page direction: this is a numeric min/max
+     widget built from two overlapping <input type="range"> elements whose
+     stacking depends on physical thumb order. Under dir="rtl" native range
+     inputs mirror their thumb travel direction, which would silently break
+     the min/max overlap logic. Keeping the control itself LTR is standard
+     practice for numeric sliders on RTL pages — only surrounding text/labels
+     follow the page direction. */
+  direction: ltr;
   position: relative;
   height: 20px;
   display: flex;

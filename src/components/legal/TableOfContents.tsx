@@ -55,7 +55,7 @@ export default function TableOfContents({ sections }: Props) {
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className={`flex items-center gap-3 px-5 py-2.5 text-sm transition-all border-l-2 ${
+                className={`flex items-center gap-3 px-5 py-2.5 text-sm transition-all border-s-2 ${
                   isActive
                     ? 'border-gold bg-gold/5 text-brand font-semibold'
                     : 'border-transparent text-text-muted hover:text-brand hover:bg-gray-50 hover:border-gray-200'

@@ -187,7 +187,7 @@ export default function AiAdvisor({
         <div aria-live="polite" className="bg-light-green rounded-2xl p-5 mb-2">
           <p className="text-sm text-brand leading-relaxed whitespace-pre-line">
             {narrative}
-            {isStreaming && <span className="inline-block w-1.5 h-4 ml-0.5 -mb-0.5 bg-brand animate-pulse" />}
+            {isStreaming && <span className="inline-block w-1.5 h-4 me-0.5 -mb-0.5 bg-brand animate-pulse" />}
           </p>
         </div>
       )}
@@ -223,7 +223,7 @@ export default function AiAdvisor({
           onClick={handleWizardHandoff}
           className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:text-gold transition-colors"
         >
-          {t('wizardCta')} <ArrowRight className="w-3.5 h-3.5" />
+          {t('wizardCta')} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
         </button>
       )}
     </div>

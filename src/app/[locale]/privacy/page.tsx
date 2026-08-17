@@ -60,7 +60,7 @@ function Callout({ children }: { children: React.ReactNode }) {
 
 function TipBox({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-green-50 border-l-4 border-brand rounded-r-xl p-5 text-sm text-gray-700 leading-relaxed">
+    <div className="bg-green-50 border-s-4 border-brand rounded-e-xl p-5 text-sm text-gray-700 leading-relaxed">
       {children}
     </div>
   )
@@ -317,7 +317,7 @@ export default async function PrivacyPage({ params }: Props) {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
                 >
                   {t('contactPageBtn')}
-                  <ChevronRight className="w-4 h-4" />
+                  <ChevronRight className="w-4 h-4 rtl:rotate-180" />
                 </Link>
               </div>
             </section>
@@ -341,10 +341,10 @@ export default async function PrivacyPage({ params }: Props) {
         {/* Cross-link bar */}
         <div className="mt-10 pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
           <Link href="/" className="text-brand hover:underline flex items-center gap-1">
-            <ChevronRight className="w-4 h-4 rotate-180" /> {t('backToHome')}
+            <ChevronRight className="w-4 h-4 rotate-180 rtl:rotate-0" /> {t('backToHome')}
           </Link>
           <Link href="/terms" className="text-brand hover:underline flex items-center gap-1">
-            {t('termsLink')} <ChevronRight className="w-4 h-4" />
+            {t('termsLink')} <ChevronRight className="w-4 h-4 rtl:rotate-180" />
           </Link>
         </div>
       </div>

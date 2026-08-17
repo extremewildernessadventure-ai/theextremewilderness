@@ -124,17 +124,17 @@ export default async function LeadsListPage({ searchParams }: Props) {
           <table className="w-full text-sm">
             <thead className="bg-gray-50 border-b border-gray-200">
               <tr>
-                <th className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Name</th>
-                <th className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Type</th>
-                <th className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Subject</th>
-                <th className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Status</th>
-                <th className="text-left px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Received</th>
+                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Name</th>
+                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Type</th>
+                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Subject</th>
+                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Status</th>
+                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Received</th>
               </tr>
             </thead>
             <tbody>
               {results.map((lead) => (
                 <tr key={lead.id} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
-                  <td className={`px-5 py-3 ${lead.status === 'new' ? 'border-l-2 border-l-gold' : ''}`}>
+                  <td className={`px-5 py-3 ${lead.status === 'new' ? 'border-s-2 border-s-gold' : ''}`}>
                     <Link href={`/admin/leads/${lead.id}`} className="text-brand font-medium hover:underline">
                       {lead.name || lead.email}
                     </Link>
