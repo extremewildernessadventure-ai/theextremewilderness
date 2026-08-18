@@ -27,6 +27,7 @@ export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
     'beste Reisezeit Serengeti', 'Gorillas Ruanda Trekking', 'Luxus Safari Afrika',
     'Sansibar Rundreise', 'Safari buchen Tansania', 'Kilimandscharo Trekking Machame Route',
     'Familiensafari Tansania', 'Flitterwochen Safari Afrika',
+    'TATO-zertifizierter Reiseveranstalter',
   ],
   es: [
     'safari en Tanzania', 'safari de lujo África', 'ascensión al Kilimanjaro',
