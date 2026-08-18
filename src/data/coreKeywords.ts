@@ -74,18 +74,20 @@ export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
     'gorilla trekking Rwanda', 'beste tijd safari Serengeti', 'safari Tanzania kosten',
     'huwelijksreis safari', 'safari Serengeti Ngorongoro', 'reisorganisatie Tanzania',
     'gezinssafari Afrika', 'Machame route Kilimanjaro', 'Zanzibar strand en safari',
+    'TATO-gecertificeerde reisorganisatie',
   ],
   pt: [
     'safari na Tanzânia', 'safari de luxo em África', 'escalada ao Kilimanjaro',
     'trekking de gorilas no Ruanda', 'melhor época para safari no Serengeti', 'preço do safari na Tanzânia',
     'safari em lua de mel', 'safari Serengeti Ngorongoro', 'operador turístico Tanzânia',
     'safari em família África', 'rota Machame Kilimanjaro', 'Zanzibar praia e safari',
+    'operador turístico certificado TATO',
   ],
   ja: [
     'タンザニア サファリ', 'タンザニア サファリ ツアー 2026', 'セレンゲティ サファリ', 'キリマンジャロ登山',
     'ルワンダ ゴリラトレッキング', 'ラグジュアリー サファリ アフリカ', 'タンザニア サファリ 費用',
     '新婚旅行 サファリ アフリカ', 'タンザニア 旅行会社', '東アフリカ サファリ',
-    'ザンジバル ビーチ サファリ', 'マラングルート キリマンジャロ',
+    'ザンジバル ビーチ サファリ', 'マラングルート キリマンジャロ', 'TATO認定 ツアーオペレーター',
   ],
   ko: [
     '탄자니아 사파리', '탄자니아 사파리 2026', '세렝게티 사파리', '킬리만자로 등반',
