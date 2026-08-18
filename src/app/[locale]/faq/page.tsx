@@ -62,6 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           'Kilimanjaro climbing routes',
           'Kenya or Tanzania safari',
           'Zanzibar safari combo',
+          'is EWA Safari Outfitters TATO certified',
         ]
       : CORE_KEYWORDS_BY_LOCALE[locale as keyof typeof CORE_KEYWORDS_BY_LOCALE],
   }

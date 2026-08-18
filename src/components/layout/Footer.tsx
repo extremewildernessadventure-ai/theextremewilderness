@@ -152,6 +152,7 @@ export default async function Footer() {
             <h2 className="font-semibold text-xs uppercase tracking-wider text-gold mb-4">{t('memberships')}</h2>
             <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
               {[
+                { src: '/Boards%20affiliated/TATO.png', alt: 'TATO — Tanzania Association of Tour Operators', href: 'https://tatotz.org/portfolio/ewa-safari-outfitters/' },
                 { src: '/Boards%20affiliated/Google%20reviews.png', alt: 'Google Reviews', href: 'https://www.google.com/maps/place/?q=place_id:ChIJnbSLRs8dNxgRpv1ntQKpCWs' },
                 { src: '/Boards%20affiliated/Tanapa.png', alt: 'TANAPA' },
                 { src: '/Boards%20affiliated/TripAdvisor.png', alt: 'TripAdvisor', href: 'https://www.tripadvisor.com/Attraction_Review-g297913-d24114818-Reviews-Extreme_Wilderness_Adventure-Arusha_Arusha_Region.html' },
@@ -159,8 +160,8 @@ export default async function Footer() {
                 { src: '/Boards%20affiliated/tanzania-tourist-board.png', alt: 'Tanzania Tourist Board' },
               ].map(({ src, alt, href }) => {
                 const badge = (
-                  <div className="relative h-14 w-14 flex-shrink-0">
-                    <Image src={src} alt={alt} fill className="object-contain opacity-80 hover:opacity-100 transition-opacity" />
+                  <div className="relative h-14 w-14 flex-shrink-0 bg-white rounded-lg p-2 shadow-sm hover:shadow-md transition-shadow">
+                    <Image src={src} alt={alt} fill className="object-contain p-1" />
                   </div>
                 )
                 return href ? (

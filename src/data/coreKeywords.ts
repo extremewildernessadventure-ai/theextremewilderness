@@ -20,6 +20,7 @@ export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
     'Tanzania safari', 'Tanzania safari 2026', 'Serengeti safari', 'Kilimanjaro trekking',
     'gorilla trekking Rwanda', 'luxury Tanzania safari', 'Tanzania safari cost',
     'honeymoon safari Africa', 'Tanzania tour operator', 'East Africa safari',
+    'TATO certified tour operator',
   ],
   de: [
     'Tansania Safari', 'Kilimandscharo Besteigung', 'Serengeti Safari', 'Safari Tansania Kosten',

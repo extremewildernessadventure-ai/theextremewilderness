@@ -96,6 +96,12 @@ export default async function LocaleLayout({ children, params }: Props) {
       'https://www.facebook.com/theextremewilderness/',
       'https://www.youtube.com/@ExtremeWildernessAdventure',
     ],
+    memberOf: {
+      '@type': 'Organization',
+      name: 'Tanzania Association of Tour Operators',
+      alternateName: 'TATO',
+      url: 'https://tatotz.org',
+    },
     priceRange: '$$$',
     currenciesAccepted: 'USD',
     openingHours: 'Mo-Su 06:00-22:00',
