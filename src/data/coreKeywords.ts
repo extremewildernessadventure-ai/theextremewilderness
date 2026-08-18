@@ -33,6 +33,7 @@ export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
     'gorilas Ruanda trekking', 'mejor época para safari Serengeti', 'precio safari Tanzania',
     'safari luna de miel', 'safari Serengeti Ngorongoro', 'tour Tanzania todo incluido',
     'safari en familia África', 'ruta Machame Kilimanjaro', 'Zanzíbar playa y safari',
+    'operador turístico certificado TATO',
   ],
   fr: [
     'safari en Tanzanie', 'safari de luxe Afrique', 'ascension du Kilimandjaro',
