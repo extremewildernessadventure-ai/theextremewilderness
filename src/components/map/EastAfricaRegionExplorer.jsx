@@ -373,12 +373,7 @@ export default function EastAfricaRegionExplorer({
         </div>
 
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.1fr 0.9fr",
-            gap: 32,
-            alignItems: "start",
-          }}
+          className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-6 md:gap-8 items-start"
         >
           <div
             style={{

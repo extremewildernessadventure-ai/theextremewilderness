@@ -9,6 +9,16 @@
   display: none;
 }
 
+/* Site-wide: hide the page's own scrollbar (mobile and desktop) — scrolling
+   still works via wheel/touch/keyboard, just no visible track/thumb. */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
 @theme {
   --color-brand: #1C3A2A;
   --color-brand-dark: #152e20;
