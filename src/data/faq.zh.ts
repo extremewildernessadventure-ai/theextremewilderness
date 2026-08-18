@@ -274,6 +274,15 @@ export const faqCategories: FaqCategory[] = [
         a: '是的——EWA Safari Outfitters已获得TATO认证（坦桑尼亚旅行社协会成员），该行业协会专门审核坦桑尼亚境内合法持牌的旅行社。选择TATO认证的旅行社，是确认一家坦桑尼亚游猎公司真正持牌经营、而非转售其他旅行社行程的未注册中介的最简单方式之一。',
       },
       {
+        q: 'TATO会员身份对我的预订而言究竟意味着什么？',
+        a: 'TATO自1983年以来一直代表并审核坦桑尼亚的旅行社，因此会员身份意味着EWA Safari Outfitters获得了坦桑尼亚政府与国际旅游贸易界共同信赖的同一个行业机构的认可——而不仅仅是一家自称持牌经营的公司。实际而言，这意味着一旦出现任何超出我们自身客服范围的问题，背后都有一个真实的行业协会为这笔预订撑腰，这也是为什么TATO会员身份，是注重安全的旅行者在预订坦桑尼亚游猎前都会做的标准核查之一。EWA具体被列入TATO的六个类别：Tour Operators、Mainland Tour Operators、DMC/Tour Operators、Mountain Trekking Operators、Zanzibar & Beach Holiday Operators，以及Cultural Experience Operators——涵盖了我们的游猎行程、乞力马扎罗登山、桑给巴尔延伸行程以及文化观光的方方面面。',
+      },
+      {
+        q: '我该如何自行核实EWA Safari Outfitters的TATO会员身份？',
+        a: '直接前往TATO官方网站查询——我们的名录信息是公开的，并非由我们自行控制或可能加以美化的内容。这是在预订前快速、独立地确认我们是真正持牌运营商的方式，而不必只凭任何一家运营商自己的说法。',
+        relatedLinks: [{ label: '查看我们的TATO会员名录', href: 'https://tatotz.org/portfolio/ewa-safari-outfitters/' }],
+      },
+      {
         q: 'EWA Safari Outfitters从事游猎业务多久了？',
         a: 'EWA Safari Outfitters自2022年起提供游猎服务（在品牌更名前后，以Extreme Wilderness Adventure之名累计运营已超过5年），已带领200多位旅行者游历坦桑尼亚、肯尼亚与卢旺达，TripAdvisor评分高达4.9分，客户遍布40多个国家——足够资深，深谙这些路线的每一处细节，同时规模依然精简，确保每一次行程都是量身定制，而非套用固定的团体行程模板。',
       },
