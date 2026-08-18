@@ -284,6 +284,15 @@ export const faqCategories: FaqCategory[] = [
         a: "Yes — EWA Safari Outfitters is TATO Certified (a member of the Tanzania Association of Tour Operators), the industry body that vets legitimate, licensed operators in Tanzania. Booking with a TATO-certified operator is one of the simplest ways to confirm a Tanzania safari company is properly licensed rather than an unregistered agent reselling other operators' trips.",
       },
       {
+        q: 'What does TATO membership actually mean for my booking?',
+        a: "TATO has represented and vetted Tanzania's tour operators since 1983, so membership means EWA Safari Outfitters is recognised by the same industry body the government and international travel trade both work with — not just a company that calls itself licensed. Practically, that means a real industry association standing behind the booking if something ever needs to be resolved beyond our own customer service, and it's why TATO membership is one of the standard checks safety-conscious travelers run before booking a Tanzania safari at all. EWA is listed under six TATO categories specifically — Tour Operators, Mainland Tour Operators, DMC/Tour Operators, Mountain Trekking Operators, Zanzibar & Beach Holiday Operators, and Cultural Experience Operators — covering our safari itineraries, Kilimanjaro climbs, Zanzibar extensions, and cultural excursions alike.",
+      },
+      {
+        q: "How can I verify EWA Safari Outfitters' TATO membership myself?",
+        a: "Directly on TATO's own website — our listing is public, not something we control or could misrepresent. It's a quick, independent way to confirm we're a genuine, licensed operator before you book, rather than taking any operator's word for it.",
+        relatedLinks: [{ label: 'View Our TATO Member Listing', href: 'https://tatotz.org/portfolio/ewa-safari-outfitters/' }],
+      },
+      {
         q: 'How long has EWA Safari Outfitters been running safaris?',
         a: "EWA Safari Outfitters has been running safaris since 2022 (5+ years operating under the Extreme Wilderness Adventure name before and through the rebrand), with 200+ travelers guided across Tanzania, Kenya, and Rwanda, a 4.9 TripAdvisor rating, and guests from 40+ countries — established enough to know these routes well, still small enough that every trip is planned individually rather than dropped into a fixed group itinerary.",
       },

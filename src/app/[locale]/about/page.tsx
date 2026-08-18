@@ -232,6 +232,42 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </section>
 
+      {/* ── TATO Membership ──────────────────────────────────────────────── */}
+      <section id="tato-membership" className="py-20 lg:py-28 bg-light-green">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 lg:p-14">
+            <div className="grid lg:grid-cols-[auto_1fr] gap-10 lg:gap-14 items-center">
+              <Reveal className="relative w-36 h-36 lg:w-44 lg:h-44 mx-auto lg:mx-0 flex-shrink-0 bg-white rounded-2xl border border-gray-100 p-6">
+                <Image
+                  src="/Boards%20affiliated/TATO.png"
+                  alt="TATO — Tanzania Association of Tour Operators"
+                  fill
+                  className="object-contain p-2"
+                />
+              </Reveal>
+              <Reveal delay={0.1} className="text-center lg:text-start">
+                <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">{t('tatoEyebrow')}</p>
+                <h2 className="text-3xl lg:text-4xl font-bold text-brand mb-6 leading-tight">
+                  {t('tatoHeading')}
+                </h2>
+                <p className="text-text-muted leading-relaxed mb-5">{t('tatoP1')}</p>
+                <p className="text-text-muted leading-relaxed mb-5">{t('tatoP2')}</p>
+                <p className="text-text-muted leading-relaxed mb-7">{t('tatoP3')}</p>
+                <a
+                  href="https://tatotz.org/portfolio/ewa-safari-outfitters/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
+                >
+                  {t('tatoCta')}
+                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                </a>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Gallery strip ────────────────────────────────────────────────── */}
       <RevealGroup className="grid grid-cols-3 lg:grid-cols-6">
         {galleryImages.map((src, i) => (

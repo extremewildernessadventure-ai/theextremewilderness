@@ -292,6 +292,30 @@
 .aboutCopy p:last-child { margin-bottom: 0; }
 .aboutCopy strong { color: var(--ink); font-weight: 600; }
 
+/* ---------- TATO ACCREDITATION ---------- */
+.tato {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.tatoLogo {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 20px;
+}
+.tatoLogoImg {
+  object-fit: contain;
+  padding: 8px;
+}
+@media (max-width: 780px) {
+  .tato { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+}
+
 /* ---------- WHY GRID ---------- */
 .whyGrid {
   display: grid;

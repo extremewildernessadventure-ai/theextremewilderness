@@ -9,6 +9,7 @@ import TrustBar from '@/components/home/TrustBar'
 import StatsRow from '@/components/home/StatsRow'
 import OurStorySection from '@/components/home/OurStorySection'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
+import TatoMembership from '@/components/home/TatoMembership'
 import PlanBuilderSection from '@/components/home/PlanBuilderSection'
 import TravelByMonth from '@/components/home/TravelByMonth'
 import BlogPreview from '@/components/home/BlogPreview'
@@ -78,6 +79,7 @@ export default async function HomePage({ params }: Props) {
       <DestinationCards />
       <FeaturedPackages />
       <WhyChooseUs />
+      <TatoMembership />
       <Testimonials liveRating={liveRating} liveReviewCount={liveReviewCount} />
       <PlanBuilderSection />
       <TravelByMonth />

@@ -38,6 +38,7 @@ export default async function TradePartnersPage({ params }: Props) {
 
   const jumpNav = [
     { id: 'about', label: t('navLabelAbout') },
+    { id: 'accreditation', label: t('navLabelAccreditation') },
     { id: 'working-together', label: t('navLabelWorking') },
     { id: 'guides-fleet', label: t('navLabelGuidesFleet') },
     { id: 'collection', label: t('navLabelCollection') },
@@ -180,6 +181,39 @@ export default async function TradePartnersPage({ params }: Props) {
               <p>{t('aboutBody1')}</p>
               <p>{t('aboutBody2')}</p>
               <p>{t('aboutBody3')}</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <hr className={styles.divider} />
+
+      {/* TATO Accreditation */}
+      <section id="accreditation" className={`${styles.section} ${styles.deep}`}>
+        <div className={styles.wrap}>
+          <Reveal className={styles.tato}>
+            <div className={styles.tatoLogo}>
+              <Image
+                src="/Boards%20affiliated/TATO.png"
+                alt="TATO — Tanzania Association of Tour Operators"
+                fill
+                className={styles.tatoLogoImg}
+              />
+            </div>
+            <div className={styles.aboutCopy}>
+              <span className={styles.eyebrow}>{t('accreditationEyebrow')}</span>
+              <h2>{t('accreditationTitle')}</h2>
+              <div className={styles.rule} />
+              <p>{t('accreditationBody1')}</p>
+              <p>{t('accreditationBody2')}</p>
+              <a
+                href="https://tatotz.org/portfolio/ewa-safari-outfitters/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.btn} ${styles.solid}`}
+              >
+                {t('accreditationCta')}
+              </a>
             </div>
           </Reveal>
         </div>
