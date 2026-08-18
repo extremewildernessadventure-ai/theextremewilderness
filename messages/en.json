@@ -598,7 +598,7 @@
         },
         {
           "q": "Can I combine a Lemosho climb with a safari or Zanzibar extension?",
-          "a": "Yes — many climbers add a safari or beach stay either before or after their trek. Since you'll already be acclimatised to Tanzania's time zone and travel rhythm, it's an efficient way to extend the trip."
+          "a": "Yes — many climbers add a safari or beach stay either before or after their trek. Since you'll already be acclimatised to Tanzania's time zone and travel rhythm, it's an efficient way to extend the trip. Our 5-Day Kilimanjaro Extension Safari is built specifically for this — pickup from Moshi itself, no flight home first — and the 8-day Lemosho climb also pairs directly into our 14-day Kilimanjaro Lemosho Climb & Safari combo, one continuous booking covering the mountain and a 5-day fly-in Serengeti and Ngorongoro safari."
         }
       ],
       "tabLabels": {
@@ -2369,6 +2369,10 @@
     "team2Bio": "Nicky grew up on Kilimanjaro's slopes in Machame and trained at Mweka Wildlife College. Eighteen years on, he reads a landscape like a language — pacing every drive around photographers chasing the perfect shot and families discovering the bush together.",
     "team3Role": "Mountain Guide",
     "team3Bio": "Joshua has led hundreds of climbers to the Kilimanjaro summit across all major routes. His deep knowledge of altitude, weather patterns, and pacing keeps every trekker safe and on track.",
+    "team4Role": "Field Safari Guide (English & Spanish-speaking)",
+    "team4Bio": "Born and raised on the foothills of Mount Meru, Nathan has spent over eighteen years tracking wildlife and leading small groups across Northern Tanzania. A Mweka Wildlife College graduate with a deep specialty in the Serengeti-Mara ecosystem, he's guided international partners including TUI Spain and Kobo, bringing sharp tracking instincts and fluent English and Spanish to every guest he leads.",
+    "team5Role": "Senior Field Guide (French-Speaking)",
+    "team5Bio": "Richard's fun-loving energy makes him a favorite with kids, teens, and adults alike. He joined EWA Safari Outfitters in 2023 after years as a head guide with four other safari companies, and today he's our senior French-speaking field guide — leading Francophone travelers through the Serengeti with the same warmth he brings to every vehicle.",
     "guideSpotlightCta": "Meet Nicky",
     "guideSpotlightEyebrow": "Guide Spotlight",
     "guideSpotlightHeading": "Meet Nixon \"Nicky\" Massawe",
@@ -2381,6 +2385,25 @@
     "guideSpotlightQuoteAuthor": "— Nixon Massawe, Lead Safari Guide",
     "guideSpotlightClosing": "Eighteen years in, Nicky Massawe still guides like every drive is his first — because to him, in some sense, it still is.",
     "guideSpotlightImageAlt": "Nixon \"Nicky\" Massawe, EWA Safari Outfitters' lead safari guide, standing in the Serengeti",
+    "guideSpotlightNathanCta": "Meet Nathan",
+    "guideSpotlightNathanEyebrow": "Guide Spotlight",
+    "guideSpotlightNathanHeading": "Meet Nathan Urassa",
+    "guideSpotlightNathanRole": "Field Safari Guide, English & Spanish-Speaking",
+    "guideSpotlightNathanP1": "Nathan Urassa grew up on the slopes of Mount Meru, in the highlands just outside Arusha — close enough to the bush that wildlife wasn't something he had to travel to find, it was simply the backdrop of his childhood. That proximity shaped him early: long before he ever led a paying guest through the Serengeti, he'd already spent a lifetime reading the land around him.",
+    "guideSpotlightNathanP2": "The classroom came later, at Mweka Wildlife College, where he earned his Ordinary Diploma in Tour Guide Operations. But it's the eighteen-plus years since that have actually built his reputation. Nathan's real specialty is tracking — large mammals in particular, the kind of work that rewards a guide who notices what almost nobody else in the vehicle would: a shift in a herd's grazing pattern, a set of fresh tracks crossing the road, the particular quiet that means something is close. That instinct is sharpest in the terrain he knows best, the Serengeti-Mara ecosystem, where he's built a deep, close-up understanding of how the wildlife, the land, and the seasons all move together.",
+    "guideSpotlightNathanP3": "That expertise has traveled internationally. Nathan has guided for global travel brands including TUI Spain and Kobo, handling their Spanish-speaking clients directly — a role that requires more than translation. It means understanding what a Spanish traveler notices, asks, and needs reassurance about, and delivering the Northern Circuit experience in a way that genuinely lands for them. Fluent in both English and Spanish, Nathan is one of the few guides on our team who can lead an entire safari — briefing, drives, tracking, and every question in between — without a language gap standing between a guest and the experience.",
+    "guideSpotlightNathanClosing": "For guests traveling with Nathan, that combination shows up in the small things: a guide who finds what others miss, explains not just what you're seeing but how he found it, and brings two decades of Serengeti-Mara knowledge to bear on every drive.",
+    "guideSpotlightNathanImageAlt": "Nathan Urassa, EWA Safari Outfitters' English and Spanish-speaking field safari guide, in the Serengeti",
+    "guideSpotlightRichardCta": "Meet Richard",
+    "guideSpotlightRichardEyebrow": "Guide Spotlight",
+    "guideSpotlightRichardHeading": "Meet Richard Bahati",
+    "guideSpotlightRichardRole": "Senior Field Guide, French-Speaking",
+    "guideSpotlightRichardP1": "Ask anyone who's shared a vehicle with Richard and they'll tell you the same thing before you even ask about wildlife: he's fun. The kind of guide who has a nine-year-old belly-laughing over a warthog joke one minute and is quietly, expertly reading a lion's body language the next. Kids adore him, teenagers relax around him, and grandparents trust him — a rare range for one guide to hold, and the thing people tend to remember most after their trip ends.",
+    "guideSpotlightRichardP2": "That warmth sits on top of real, hard-won experience. Before joining EWA Safari Outfitters in 2023, Richard spent years working as a head guide, moving through four different safari companies and picking up the instincts that only come from leading trip after trip across Northern Tanzania. He's our senior French-speaking field guide — the guide we put forward whenever a Francophone traveler is in the vehicle, because he doesn't just translate the safari for them, he makes sure nothing about the experience gets lost in the switch between languages.",
+    "guideSpotlightRichardP3": "Out in the field, Richard's favorite moment is always the same: big cats. Lion, leopard, cheetah — whichever one shows up, he's the guide quietly angling the vehicle for the best possible view before anyone else has even spotted movement in the grass.",
+    "guideSpotlightRichardP4": "Off duty, Richard is exactly who you'd expect from everything above: a devoted father to his three children, a soccer fan who's just as happy playing a match as watching one, and someone who always has Bongo Flavor — Tanzania's own homegrown hip-hop — playing somewhere nearby.",
+    "guideSpotlightRichardClosing": "It's why guests ask for him by name months before their trip even begins — not just for the guiding, but for the whole experience of being in a vehicle with someone who loves this work as much as he does.",
+    "guideSpotlightRichardImageAlt": "Richard Bahati, EWA Safari Outfitters' senior French-speaking field guide, in the Serengeti",
     "metaTitle": "About Us | Best Tanzania Safari Operator 2026",
     "metaDescription": "Tanzania-born, locally owned, TATO-registered safari operator. Expert guides, small group safaris, and 100% personalised itineraries. Rated 4.9/5 by 200+ guests.",
     "metaKeywords": [

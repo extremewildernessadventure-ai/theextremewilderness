@@ -893,7 +893,7 @@ export const experiencePagesRu: ExperiencePage[] = [
     ],
     ctaHeading: 'Готовы к сафари, которое подчиняется только вам?',
     ctaText: 'Расскажите, кто едет и ради чего поездка, — мы спроектируем вокруг этого что-то частное, с индивидуальным предложением в вашей почте в течение 24 часов.',
-    relatedPackageSlugs: ['12-days-grand-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
+    relatedPackageSlugs: ['14-days-kilimanjaro-lemosho-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
     relatedExperienceSlugs: ['honeymoon-safari', 'fly-in-safari', 'wildlife-photography-safari', 'family-safari'],
   },
   {

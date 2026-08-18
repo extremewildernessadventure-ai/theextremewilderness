@@ -893,7 +893,7 @@ export const experiencePagesJa: ExperiencePage[] = [
     ],
     ctaHeading: 'あなただけに応えるサファリの準備はできましたか？',
     ctaText: "どなたがご参加になるか、そして旅の目的をお知らせください — それに合わせてプライベートな旅を設計し、24時間以内にカスタマイズしたご提案をメールでお届けします。",
-    relatedPackageSlugs: ['12-days-grand-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
+    relatedPackageSlugs: ['14-days-kilimanjaro-lemosho-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
     relatedExperienceSlugs: ['honeymoon-safari', 'fly-in-safari', 'wildlife-photography-safari', 'family-safari'],
   },
   {

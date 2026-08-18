@@ -893,7 +893,7 @@ export const experiencePagesFr: ExperiencePage[] = [
     ],
     ctaHeading: "Prêt pour un safari qui ne répond qu'à vous ?",
     ctaText: "Dites-nous qui vient et ce que célèbre le voyage — nous concevrons quelque chose de privé autour, avec une proposition sur mesure sous 24 heures.",
-    relatedPackageSlugs: ['12-days-grand-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
+    relatedPackageSlugs: ['14-days-kilimanjaro-lemosho-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
     relatedExperienceSlugs: ['honeymoon-safari', 'fly-in-safari', 'wildlife-photography-safari', 'family-safari'],
   },
   {
