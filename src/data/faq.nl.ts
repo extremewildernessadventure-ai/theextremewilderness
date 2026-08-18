@@ -271,6 +271,15 @@ export const faqCategories: FaqCategory[] = [
         a: "Ja — EWA Safari Outfitters is TATO-gecertificeerd (lid van de Tanzania Association of Tour Operators), de brancheorganisatie die legitieme, gelicentieerde reisorganisaties in Tanzania keurt. Boeken bij een TATO-gecertificeerde reisorganisatie is een van de eenvoudigste manieren om te bevestigen dat een Tanzania-safaribedrijf goed gelicentieerd is, in plaats van een niet-geregistreerde tussenpersoon die reizen van andere reisorganisaties doorverkoopt.",
       },
       {
+        q: 'Wat betekent TATO-lidmaatschap eigenlijk voor mijn boeking?',
+        a: "TATO vertegenwoordigt en screent Tanzania's reisorganisaties al sinds 1983, dus lidmaatschap betekent dat EWA Safari Outfitters wordt erkend door dezelfde brancheorganisatie waarmee zowel de overheid als de internationale reisbranche werken — niet zomaar een bedrijf dat zichzelf gelicentieerd noemt. In de praktijk betekent dat een echte brancheorganisatie die achter de boeking staat als er ooit iets moet worden opgelost buiten onze eigen klantenservice om, en het is waarom TATO-lidmaatschap een van de standaardcontroles is die veiligheidsbewuste reizigers uitvoeren voordat ze überhaupt een Tanzania-safari boeken. EWA staat vermeld onder specifiek zes TATO-categorieën — Tour Operators, Mainland Tour Operators, DMC/Tour Operators, Mountain Trekking Operators, Zanzibar & Beach Holiday Operators, en Cultural Experience Operators — die onze safarireisroutes, Kilimanjaro-beklimmingen, Zanzibar-verlengingen en culturele excursies allemaal dekken.",
+      },
+      {
+        q: 'Hoe kan ik het TATO-lidmaatschap van EWA Safari Outfitters zelf verifiëren?',
+        a: "Rechtstreeks op TATO's eigen website — onze vermelding is openbaar, geen document dat wij beheren of onjuist zouden kunnen voorstellen. Het is een snelle, onafhankelijke manier om te bevestigen dat we een echte, gelicentieerde reisorganisatie zijn voordat je boekt, in plaats van op het woord van een willekeurige reisorganisatie te vertrouwen.",
+        relatedLinks: [{ label: 'Bekijk Onze TATO-Ledenvermelding', href: 'https://tatotz.org/portfolio/ewa-safari-outfitters/' }],
+      },
+      {
         q: "Hoelang organiseert EWA Safari Outfitters al safari's?",
         a: "EWA Safari Outfitters organiseert al sinds 2022 safari's (5+ jaar actief onder de naam Extreme Wilderness Adventure vóór en tijdens de naamsverandering), met 200+ begeleide reizigers door Tanzania, Kenia en Rwanda, een 4,9-beoordeling op TripAdvisor, en gasten uit 40+ landen — gevestigd genoeg om deze routes goed te kennen, maar nog altijd klein genoeg dat elke reis individueel wordt gepland in plaats van ingepast in een vaste groepsreisroute.",
       },
