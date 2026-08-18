@@ -54,17 +54,20 @@ export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
     '坦桑尼亚豪华野生动物园', '乞力马扎罗山攀登', '卢旺达大猩猩徒步', '塞伦盖蒂野生动物园',
     '非洲蜜月游猎', '坦桑尼亚旅游价格', '私人向导野生动物园', '桑给巴尔海滩度假',
     '恩戈罗恩戈罗火山口野生动物园', '非洲奢华旅行', '马查梅路线乞力马扎罗', '家庭野生动物园非洲',
+    'TATO认证旅游运营商',
   ],
   'zh-TW': [
     '坦尚尼亞豪華野生動物園', '吉力馬札羅山攀登', '盧安達大猩猩健行', '塞倫蓋提野生動物園',
     '非洲蜜月狩獵之旅', '坦尚尼亞旅遊價格', '私人嚮導野生動物園', '尚吉巴海灘度假',
     '恩戈羅恩戈羅火山口野生動物園', '非洲奢華旅行', '馬查美路線吉力馬札羅', '非洲家庭野生動物園',
+    'TATO認證旅行社',
   ],
   it: [
     'safari in Tanzania', 'safari di lusso in Africa', 'scalata del Kilimanjaro',
     'trekking gorilla Ruanda', 'periodo migliore safari Serengeti', 'prezzo safari Tanzania',
     'safari luna di miele', 'safari Serengeti Ngorongoro', 'tour operator Tanzania',
     'safari in famiglia Africa', 'via Machame Kilimanjaro', 'Zanzibar mare e safari',
+    'tour operator certificato TATO',
   ],
   nl: [
     'safari Tanzania', 'luxe safari Afrika', 'Kilimanjaro beklimmen',
