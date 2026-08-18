@@ -39,6 +39,7 @@ export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
     'trek gorilles Rwanda', 'meilleure période safari Serengeti', 'prix safari Tanzanie',
     'safari voyage de noces', 'safari Serengeti Ngorongoro', 'circuit Tanzanie sur mesure',
     'safari en famille Afrique', 'voie Machame Kilimandjaro', 'Zanzibar plage et safari',
+    'tour-opérateur certifié TATO',
   ],
   ru: [
     'сафари в Танзании', 'восхождение на Килиманджаро', 'гориллы Руанда трекинг',
