@@ -893,7 +893,7 @@ export const experiencePagesNl: ExperiencePage[] = [
     ],
     ctaHeading: "Klaar voor een safari die alleen aan u verantwoording aflegt?",
     ctaText: "Vertel ons wie er meekomt en waarvoor de reis dient — wij ontwerpen er iets privés omheen, met een voorstel op maat binnen 24 uur in uw inbox.",
-    relatedPackageSlugs: ['12-days-grand-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
+    relatedPackageSlugs: ['14-days-kilimanjaro-lemosho-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
     relatedExperienceSlugs: ['honeymoon-safari', 'fly-in-safari', 'wildlife-photography-safari', 'family-safari'],
   },
   {

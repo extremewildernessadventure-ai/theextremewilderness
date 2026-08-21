@@ -490,7 +490,7 @@ export const packages: SafariPackage[] = [
   },
   {
     slug: "10-day-safari-zanzibar",
-    name: "10일 사파리 & 잔지바르 비치",
+    name: "10일 탄자니아 사파리 & 잔지바르 비치",
     duration: 10,
     destinations: [
       "tarangire",
@@ -499,10 +499,10 @@ export const packages: SafariPackage[] = [
       "zanzibar"
     ],
     type: "combination",
-    priceFrom: 4650,
+    priceFrom: 4413.96,
     groupSize: {
-      min: 1,
-      max: 8
+      min: 2,
+      max: 6
     },
     badge: "bestseller",
     bestFor: [
@@ -510,49 +510,53 @@ export const packages: SafariPackage[] = [
       "honeymoon",
       "families"
     ],
+    tagline: "2027년 시즌에 맞춰 업데이트되었습니다.",
+    metaTitle: "10일 탄자니아 사파리 & 잔지바르 비치 | EWA Safari Outfitters",
+    metaDescription: "타랑기레, 응고롱고로, 세렝게티를 잇는 6일과 잔지바르 눙위 해안에서의 3박. 10일 9박, 1인당 $4,413.96부터.",
     overview: [
-      "10일은 깔끔하게 둘로 나뉩니다. 전반 6일은 탄자니아 북부 최고의 야생동물 서식지를 누비고, 후반 4박은 잔지바르 눙위 해안에서 여정을 마무리합니다. 사파리 구간에서는 고대 바오밥나무 아래 타랑기레의 코끼리 무리를 따라가고, 지구 굴지의 밀도를 자랑하는 응고롱고로 크레이터로 내려가며, 세렝게티의 일급 포식자 서식지에서 온전한 이틀을 보낸 뒤, 차량 이동은 짧은 비행과 백사장으로 전환됩니다.",
-      "눙위는 잔지바르 섬 북단에 위치해 동해안을 괴롭히는 썰물 때의 얕은 물 문제를 피할 수 있는 지역입니다. 체류 기간 전체가 올인클루시브로 운영되므로, 6일간의 이른 기상과 늦은 선다우너를 마친 뒤에는 리프에서 다이빙을 할지, 석양의 다우선을 탈지, 아니면 아무것도 하지 않을지 고르기만 하면 됩니다."
+      "10일은 성격이 전혀 다른 두 가지 경험으로 깔끔하게 나뉘며, 각각에 스쳐 지나가듯 맛만 보는 것이 아니라 실제로 온전히 젖어들 수 있을 만큼 충분한 시간이 주어집니다. 앞선 6일은 탄자니아의 대표 순환 루트를 따라 북쪽으로 이어집니다 — 타랑기레, 응고롱고로 고지대, 세렝게티 — 각 국립공원이 저마다 뚜렷이 구분되어, '사파리'는 하나의 막연한 개념이 아니라 명확히 구별되는 세 곳의 구체적인 장소가 됩니다. 마지막 3박은 아무것도 요구하지 않습니다. 잔지바르의 눙위 해안까지는 또 하루의 육로 이동 대신 짧은 비행으로 도착합니다.",
+      "타랑기레는 자체적으로 온전한 반나절을 확보하며 여정을 엽니다. 여기에 음토와음부에서의 정류와 마사이 공동체 방문이 덧붙이는 요소가 아니라 루트 자체에 포함되어 있습니다 — 건기에는 강을 따라 무리가 집중되는, 동아프리카 최대 규모의 코끼리 개체군을 자랑하는 지역입니다. 응고롱고로 크레이터는 서둘러 지나가는 오전 정차가 아니라 온전한 하루를 배정받습니다: 면적 약 260km²의 함몰된 화산 칼데라로, 벽이 가팔라 내부에 사는 동물 대부분은 평생 밖으로 나가지 않으며, 이 여정에서 가장 밀도 높은 야생동물 관찰의 하루가 됩니다. 이어서 세렝게티의 정착 포식자 서식지에서 온전한 이틀을 보낸 뒤, 아루샤를 경유하는 유람 비행이 차량을 대신해 눙위의 백사장에서 보내는 예정 없는 3박으로 이어집니다."
     ],
-    pricingTiersProvisional: true,
+    pricingTiersProvisional: false,
     pricingTiers: [
       {
         pax: 2,
-        trail: 4650,
-        reserve: 6200,
-        sovereign: 9610
+        trail: 5286.88,
+        reserve: 6979.38,
+        sovereign: 10863.13
       },
       {
         pax: 3,
-        trail: 4380,
-        reserve: 5840,
-        sovereign: 9050
+        trail: 4850.42,
+        reserve: 6542.92,
+        sovereign: 10426.67
       },
       {
         pax: 4,
-        trail: 4145,
-        reserve: 5525,
-        sovereign: 8565
+        trail: 4632.19,
+        reserve: 6324.69,
+        sovereign: 10208.44
       },
       {
         pax: 5,
-        trail: 4085,
-        reserve: 5445,
-        sovereign: 8440
+        trail: 4501.25,
+        reserve: 6193.75,
+        sovereign: 10077.5
       },
       {
         pax: 6,
-        trail: 3975,
-        reserve: 5300,
-        sovereign: 8215
+        trail: 4413.96,
+        reserve: 6106.46,
+        sovereign: 9990.21
       }
     ],
     highlights: [
-      "고대 바오밥나무 아래 타랑기레의 코끼리 무리",
-      "지구 굴지의 야생동물 밀도를 자랑하는 응고롱고로 크레이터 완전 하강 투어",
-      "세렝게티의 일급 포식자 서식지에서 보내는 온전한 이틀",
-      "여정의 마무리로 잔지바르 눙위 해안에서 보내는 4박",
-      "사파리와 해변 체류 전체에 걸친 올인클루시브 식사"
+      "고대 바오밥나무 아래 타랑기레의 코끼리 무리 — 그냥 지나치지 않고 온전한 반나절을 들여",
+      "응고롱고로 고지대로 향하는 길에 있는 진짜 마사이 공동체 방문과 음토와음부 문화 정류",
+      "지구 굴지의 야생동물 밀도를 자랑하는 응고롱고로 크레이터에서 보내는 온전한 하루",
+      "세렝게티의 일급 포식자 서식지에서 보내는 온전한 이틀 — 되돌아가지 않고 순환 루트를 앞으로 나아가며 도달",
+      "세렝게티에서 잔지바르로 이어지는 유람 비행 — 길고 긴 마지막 육로 구간 대신 하늘에서 보내는 시간과 바다 전망",
+      "여정을 온전히 이완된 상태로 마무리하는, 잔지바르 눙위 해안에서의 올인클루시브 3박"
     ],
     heroImage: "/images/gallery/zanzibar-nungwi-aerial.jpg",
     heroImageAlt: "Aerial view of a beachfront resort with thatched roofs, palm trees, and turquoise lagoon waters at Nungwi, Zanzibar",
@@ -567,17 +571,17 @@ export const packages: SafariPackage[] = [
       }
     ],
     included: [
-      "전 국립공원 입장료",
+      "전 국립공원 및 보호구역 입장료",
       "프라이빗 4WD 차량으로 진행되는 전 게임 드라이브",
       "사파리 전 일정 함께하는 전문 가이드",
-      "아루샤에서 잔지바르까지의 항공편",
+      "세렝게티–아루샤–잔지바르 항공편",
       "명시된 전 식사",
       "일정표 기재 숙박 시설",
       "공항 이동 및 시설 간 이동"
     ],
     includedCategorized: {
       transfers: [
-        "아루샤에서 잔지바르까지의 항공편",
+        "세렝게티–아루샤–잔지바르 항공편",
         "공항 이동 및 시설 간 이동"
       ],
       accommodationMeals: [
@@ -585,7 +589,7 @@ export const packages: SafariPackage[] = [
         "일정표 기재 숙박 시설"
       ],
       guidingGameDrives: [
-        "전 국립공원 입장료",
+        "전 국립공원 및 보호구역 입장료",
         "프라이빗 4WD 차량으로 진행되는 전 게임 드라이브",
         "사파리 전 일정 함께하는 전문 가이드"
       ]
@@ -606,15 +610,42 @@ export const packages: SafariPackage[] = [
     ],
     notes: [
       "표시된 요금은 더블 또는 트윈룸을 2인이 공유할 경우 1인당 요금입니다. 싱글룸 이용 시 추가 요금이 발생합니다.",
-      "잔지바르 선택 액티비티(별도 요금, 7~9일 차 이용 가능): 리프에서의 스쿠버다이빙 또는 스노클링 투어, 석양 다우선 크루즈, 스톤타운 역사 도보 투어, 스파이스 팜 투어, 원양 낚시 차터.",
+      "표시된 모든 인원 규모에서 이는 처음부터 끝까지 완전한 프라이빗 사파리입니다 — 전용 차량과 가이드가 전 일정 함께합니다. 인원수에 따라 달라지는 것은 동일한 프라이빗 비용을 몇 명이 나누어 부담하는가뿐입니다.",
+      "잔지바르 선택 액티비티(별도 요금, 8~9일 차 이용 가능): 리프에서의 스쿠버다이빙 또는 스노클링 투어, 석양 다우선 크루즈, 스톤타운 역사 도보 투어, 스파이스 팜 투어, 원양 낚시 차터.",
       "숙박 시설 및 요금은 예약 가능 여부에 따라 달라지며, 동일 시즌 내에서도 실제 여행 날짜에 따라 변동될 수 있습니다."
+    ],
+    faq: [
+      {
+        q: "3개 등급 모두 같은 루트와 일정을 따르나요?",
+        a: "네 — 윌더니스 트레일, 윌더니스 리저브, 윌더니스 소버린 모두 일정, 진행 속도, 액티비티가 동일합니다. 달라지는 것은 캠프와 로지, 편안함의 수준이지 여정 자체가 아닙니다."
+      },
+      {
+        q: "마사이 공동체 방문은 실제로 어떤 모습인가요?",
+        a: "3일 차, 타랑기레에서 응고롱고로 고지대로 향하는 길에 이루어지는 진짜 방문입니다. 시장 마을 음토와음부에서 보내는 시간과 함께, 유료 부대 활동이 아니라 루트 자체에 포함되어 있습니다."
+      },
+      {
+        q: "왜 아루샤로 육로로 돌아가지 않고 세렝게티에서 잔지바르로 비행하나요?",
+        a: "육로로 전 구간을 되돌아가면 이미 지나온 하루 반 분량의 길을 다시 밟게 됩니다. 아루샤를 경유하는 비행편을 이용하면 순환 루트를 거슬러 올라가지 않고도 당일에 해안에 도착할 수 있습니다."
+      },
+      {
+        q: "연장하거나 단축할 수 있나요?",
+        a: "기본 구성은 각 구간에 충분한 시간을 배정합니다 — 세렝게티와 크레이터는 서둘러 지나가면 실질적인 가치를 잃습니다. 연장(잔지바르 1박 추가, 스톤타운 투어 추가)은 쉽게 더할 수 있습니다. 일정에 제약이 있어 단축을 원하신다면 담당 컨설턴트에게 문의해 주세요."
+      },
+      {
+        q: "요금에 포함되는 것과 포함되지 않는 것은 무엇인가요?",
+        a: "포함: 전 국립공원 및 보호구역 요금, 사파리 전 일정의 차량·가이드·연료, 세렝게티–아루샤–잔지바르 항공편, 명시된 전 액티비티, 9박 전체의 명시된 숙박 시설. 미포함: 국제선 항공권, 비자 신청료, 여행자 보험, 팁, 잔지바르 선택 액티비티."
+      },
+      {
+        q: "인원수에 따라 요금이 얼마나 달라지나요?",
+        a: "차량, 가이드, 디젤 비용은 그룹 전체가 함께 부담하므로 참여 인원이 늘어날수록 1인당 요금은 낮아집니다 — 위의 요금표를 참고해 주세요."
+      }
     ],
     itinerary: [
       {
         day: 1,
-        title: "아루샤",
-        description: "킬리만자로 국제공항에 도착 후 프라이빗 차량으로 아루샤로 이동해 1박합니다.",
-        accommodation: "Gran Melia, Arusha",
+        title: "아루샤 도착",
+        description: "킬리만자로 국제공항에 도착해 프라이빗 차량으로 아루샤로 이동, 다음 날 시작될 사파리에 앞서 1박합니다.",
+        accommodation: "아루샤, 등급별 상이",
         meals: "조식 포함",
         accommodationByTier: {
           trail: {
@@ -627,7 +658,7 @@ export const packages: SafariPackage[] = [
             ]
           },
           reserve: {
-            name: "Gran Melia, Arusha",
+            name: "Gran Meliá, Arusha",
             image: "/images/lodges/gran-melia-arusha.webp",
             amenities: [
               "wifi",
@@ -648,24 +679,24 @@ export const packages: SafariPackage[] = [
       },
       {
         day: 2,
-        title: "타랑기레 국립공원",
-        description: "타랑기레로 향합니다. 탄자니아 최대 규모의 코끼리 무리가 고대 바오밥나무 아래 모이는 곳입니다.",
-        accommodation: "Kitela Lodge",
+        title: "아루샤에서 타랑기레 국립공원으로",
+        description: "남쪽으로 이동해 타랑기레로 향합니다. 탄자니아 최대 규모의 코끼리 무리 일부가 고대 바오밥나무 아래에 모이는 곳으로, 우기를 제외한 시기에는 강을 따라 무리가 집중되며 아프리카 최고 수준의 코끼리 밀도를 자랑합니다.",
+        accommodation: "타랑기레, 등급별 상이",
         meals: "올인클루시브",
         insiderFact: "우기를 제외하면 타랑기레는 아프리카에서도 손꼽히는 코끼리 밀도를 자랑하며, 무리는 강을 따라 집중적으로 모입니다.",
         accommodationByTier: {
           trail: {
-            name: "Tloma Lodge",
-            image: "/images/lodges/tloma-lodge.webp",
+            name: "Tarangire Katikati Tented Camp",
+            image: "https://placehold.co/800x600/1C3A2A/D4A853?text=Tarangire+Katikati",
             amenities: [
-              "wifi",
+              "ensuite",
               "restaurant",
-              "garden"
+              "wildlife-view"
             ]
           },
           reserve: {
-            name: "Kitela Lodge",
-            image: "/images/lodges/kitela-lodge.webp",
+            name: "Elephant Springs",
+            image: "/images/lodges/elephant-springs-exterior-view.webp",
             amenities: [
               "pool",
               "view",
@@ -673,101 +704,27 @@ export const packages: SafariPackage[] = [
             ]
           },
           sovereign: {
-            name: "Gibb's Farm",
-            image: "/images/lodges/gibbs-farm-cottage-exterior.webp",
+            name: "Elewana Treetops",
+            image: "https://placehold.co/800x600/1C3A2A/D4A853?text=Elewana+Treetops",
             amenities: [
+              "pool",
               "spa",
-              "view",
-              "organic-farm"
+              "view"
             ]
           }
         }
       },
       {
         day: 3,
-        title: "응고롱고로 크레이터에서 세렝게티로",
-        description: "가이드 동반 응고롱고로 크레이터 하강 투어 후, 세렝게티로 이동해 1박합니다.",
-        accommodation: "Kubu Kubu Tented Lodge",
-        meals: "올인클루시브",
-        insiderFact: "응고롱고로 크레이터는 약 260km² 규모의 폐쇄된 생태계로, 이곳에 서식하는 동물 대부분은 평생 크레이터 밖으로 나가지 않습니다.",
-        accommodationByTier: {
-          trail: {
-            name: "Serengeti Queens Camp",
-            image: "/images/lodges/serengeti-queens-camp-firepit.webp",
-            amenities: [
-              "ensuite",
-              "restaurant",
-              "wildlife-view"
-            ]
-          },
-          reserve: {
-            name: "Kubu Kubu Tented Lodge",
-            image: "/images/lodges/kubukubu-tented-lodge.webp",
-            amenities: [
-              "pool",
-              "view",
-              "restaurant"
-            ]
-          },
-          sovereign: {
-            name: "Four Seasons Safari Lodge Serengeti",
-            image: "/images/lodges/four-seasons-safari-lodge-serengeti-terrace-waterhole.webp",
-            amenities: [
-              "pool",
-              "spa",
-              "view"
-            ]
-          }
-        }
-      },
-      {
-        day: 4,
-        title: "세렝게티 국립공원",
-        description: "세렝게티 일급 포식자 서식지에서 하루 종일 가이드 동반 게임 드라이브를 진행합니다.",
-        accommodation: "Kubu Kubu Tented Lodge",
+        title: "타랑기레 반나절, 마사이 공동체 & 음토와음부",
+        description: "고지대로 향하는 이동에 앞서 타랑기레에서 보내는 마지막 반나절입니다. 진짜 마사이 공동체 방문과 시장 마을 음토와음부에서의 정류가 더해집니다 — 나중에 끼워 넣은 것이 아니라 루트 자체에 포함된 진짜 문화 체험 시간입니다.",
+        accommodation: "응고롱고로 고지대, 등급별 상이",
         meals: "올인클루시브",
         accommodationByTier: {
           trail: {
-            name: "Serengeti Queens Camp",
-            image: "/images/lodges/serengeti-queens-camp-firepit.webp",
+            name: "Ngorongoro Farm House",
+            image: "/images/lodges/ngorongoro-farm-house.webp",
             amenities: [
-              "ensuite",
-              "restaurant",
-              "wildlife-view"
-            ]
-          },
-          reserve: {
-            name: "Kubu Kubu Tented Lodge",
-            image: "/images/lodges/kubukubu-tented-lodge.webp",
-            amenities: [
-              "pool",
-              "view",
-              "restaurant"
-            ]
-          },
-          sovereign: {
-            name: "Four Seasons Safari Lodge Serengeti",
-            image: "/images/lodges/four-seasons-safari-lodge-serengeti-terrace-waterhole.webp",
-            amenities: [
-              "pool",
-              "spa",
-              "view"
-            ]
-          }
-        }
-      },
-      {
-        day: 5,
-        title: "세렝게티에서 카라투로",
-        description: "세렝게티에서 마지막 게임 드라이브를 진행한 뒤, 카라투로 이동해 1박합니다.",
-        accommodation: "Kitela Lodge",
-        meals: "올인클루시브",
-        accommodationByTier: {
-          trail: {
-            name: "Tloma Lodge",
-            image: "/images/lodges/tloma-lodge.webp",
-            amenities: [
-              "wifi",
               "restaurant",
               "garden"
             ]
@@ -782,70 +739,140 @@ export const packages: SafariPackage[] = [
             ]
           },
           sovereign: {
-            name: "Gibb's Farm",
-            image: "/images/lodges/gibbs-farm-cottage-exterior.webp",
+            name: "The Manor at Ngorongoro",
+            image: "/images/lodges/the-manor-at-ngorongoro.webp",
             amenities: [
               "spa",
               "view",
-              "organic-farm"
+              "restaurant"
+            ]
+          }
+        }
+      },
+      {
+        day: 4,
+        title: "응고롱고로 크레이터 종일 투어",
+        description: "응고롱고로 크레이터로 내려가는 온전한 하루입니다. 면적 약 260km²의 폐쇄된 생태계로, 이곳에 서식하는 동물 대부분은 평생 밖으로 나가지 않으며, 지구상에서 손꼽히는 확률로 진짜 빅파이브를 만날 수 있는 장소 중 하나입니다.",
+        accommodation: "응고롱고로 고지대, 등급별 상이",
+        meals: "올인클루시브",
+        insiderFact: "응고롱고로 크레이터는 약 260km² 규모의 폐쇄된 생태계로, 이곳에 서식하는 동물 대부분은 평생 밖으로 나가지 않습니다. 이 지역에서 가장 신뢰도 높은 검은코뿔소 관찰지 중 한 곳이기도 합니다.",
+        accommodationByTier: {
+          trail: {
+            name: "Ngorongoro Farm House",
+            image: "/images/lodges/ngorongoro-farm-house.webp",
+            amenities: [
+              "restaurant",
+              "garden"
+            ]
+          },
+          reserve: {
+            name: "Kitela Lodge",
+            image: "/images/lodges/kitela-lodge.webp",
+            amenities: [
+              "pool",
+              "view",
+              "restaurant"
+            ]
+          },
+          sovereign: {
+            name: "The Manor at Ngorongoro",
+            image: "/images/lodges/the-manor-at-ngorongoro.webp",
+            amenities: [
+              "spa",
+              "view",
+              "restaurant"
+            ]
+          }
+        }
+      },
+      {
+        day: 5,
+        title: "카라투에서 세렝게티로",
+        description: "세렝게티 본토로 들어가는 이동으로, 지구상에서 가장 중요한 고인류학 유적지 중 하나인 올두바이 협곡에서 잠시 멈춘 뒤 캠프로 이어집니다.",
+        accommodation: "세렝게티 중앙, 등급별 상이",
+        meals: "올인클루시브",
+        accommodationByTier: {
+          trail: {
+            name: "Serengeti Katikati Tented Camp",
+            image: "/images/lodges/serengeti-katikati-camp.webp",
+            amenities: [
+              "ensuite",
+              "restaurant",
+              "wildlife-view"
+            ]
+          },
+          reserve: {
+            name: "Kubukubu Tented Lodge",
+            image: "/images/lodges/kubukubu-tented-lodge.webp",
+            amenities: [
+              "pool",
+              "view",
+              "restaurant"
+            ]
+          },
+          sovereign: {
+            name: "Serengeti Explorer Lodge",
+            image: "/images/lodges/serengeti-explorer.webp",
+            amenities: [
+              "view",
+              "wildlife-view"
             ]
           }
         }
       },
       {
         day: 6,
-        title: "카라투에서 잔지바르로",
-        description: "아루샤 공항으로 이동해 잔지바르행 항공편에 탑승한 뒤, 섬 북쪽 해안의 눙위로 이동합니다.",
-        accommodation: "Royal Zanzibar",
+        title: "세렝게티 국립공원 종일 투어",
+        description: "세렝게티의 일급 포식자 서식지를 온전히 하루 동안 가이드와 함께 탐험합니다 — 사자, 표범, 치타 모두 연중 현실적으로 만날 수 있는 곳입니다.",
+        accommodation: "세렝게티 중앙, 등급별 상이",
         meals: "올인클루시브",
         accommodationByTier: {
           trail: {
-            name: "Makofi Guest House",
-            image: "/images/lodges/makofi-guest-house-thatched-cottage-exterior.webp",
+            name: "Serengeti Katikati Tented Camp",
+            image: "/images/lodges/serengeti-katikati-camp.webp",
             amenities: [
+              "ensuite",
               "restaurant",
-              "beachfront"
+              "wildlife-view"
             ]
           },
           reserve: {
-            name: "Royal Zanzibar",
-            image: "/images/lodges/royal-zanzibar.webp",
+            name: "Kubukubu Tented Lodge",
+            image: "/images/lodges/kubukubu-tented-lodge.webp",
             amenities: [
-              "all-inclusive",
-              "beachfront",
-              "pool"
+              "pool",
+              "view",
+              "restaurant"
             ]
           },
           sovereign: {
-            name: "Kilindi Zanzibar",
-            image: "/images/lodges/kilindi-zanzibar.webp",
+            name: "Serengeti Explorer Lodge",
+            image: "/images/lodges/serengeti-explorer.webp",
             amenities: [
-              "pool",
-              "spa",
-              "beachfront"
+              "view",
+              "wildlife-view"
             ]
           }
         }
       },
       {
         day: 7,
-        title: "잔지바르 눙위",
-        description: "자유 일정입니다. 리프에서의 스쿠버·스노클링, 석양 다우선 크루즈, 스톤타운 역사 투어, 스파이스 팜 투어를 더하거나 그저 해변에서 하루를 보내셔도 좋습니다.",
-        accommodation: "Royal Zanzibar",
+        title: "아루샤 경유 잔지바르행 비행",
+        description: "이른 아침 유람 비행이 아루샤를 경유해 잔지바르로 향합니다 — 사파리 위에 또 다른 긴 육로 이동을 더하지 않습니다. 도착 후 섬 북쪽 해안의 눙위로 이동합니다.",
+        accommodation: "잔지바르 눙위, 등급별 상이",
         meals: "올인클루시브",
-        insiderFact: "눙위는 잔지바르 북단에 위치해, 동해안에서 썰물 때 수영객을 곤란하게 하는 조수의 영향을 거의 받지 않습니다.",
         accommodationByTier: {
           trail: {
-            name: "Makofi Guest House",
-            image: "/images/lodges/makofi-guest-house-thatched-cottage-exterior.webp",
+            name: "Nungwi Dreams By Mantis",
+            image: "/images/lodges/nungwi-dreams-by-mantis.webp",
             amenities: [
               "restaurant",
               "beachfront"
             ]
           },
           reserve: {
-            name: "Royal Zanzibar",
-            image: "/images/lodges/royal-zanzibar.webp",
+            name: "Diamond Mapenzi Beach Resort",
+            image: "https://placehold.co/800x600/1C3A2A/D4A853?text=Diamond+Mapenzi",
             amenities: [
               "all-inclusive",
               "beachfront",
@@ -866,21 +893,22 @@ export const packages: SafariPackage[] = [
       {
         day: 8,
         title: "잔지바르 눙위",
-        description: "눙위 해안에서 보내는 또 하루의 자유 일정입니다 — 리프 다이빙, 석양 다우선 항해, 혹은 그저 휴식을 취하셔도 좋습니다.",
-        accommodation: "Royal Zanzibar",
+        description: "자유 일정입니다: 리프에서의 스쿠버·스노클링, 석양 다우선 크루즈, 스톤타운 역사 투어, 스파이스 팜 투어를 더하거나 그저 해변에서 보내셔도 좋습니다. 눙위는 잔지바르 북단에 위치해, 동해안에서 썰물 때 수영객을 곤란하게 하는 조수의 영향을 거의 받지 않습니다.",
+        accommodation: "잔지바르 눙위, 등급별 상이",
         meals: "올인클루시브",
+        insiderFact: "눙위는 잔지바르 북단에 위치해, 동해안에서 썰물 때 수영객을 곤란하게 하는 조수의 영향을 거의 받지 않습니다.",
         accommodationByTier: {
           trail: {
-            name: "Makofi Guest House",
-            image: "/images/lodges/makofi-guest-house-thatched-cottage-exterior.webp",
+            name: "Nungwi Dreams By Mantis",
+            image: "/images/lodges/nungwi-dreams-by-mantis.webp",
             amenities: [
               "restaurant",
               "beachfront"
             ]
           },
           reserve: {
-            name: "Royal Zanzibar",
-            image: "/images/lodges/royal-zanzibar.webp",
+            name: "Diamond Mapenzi Beach Resort",
+            image: "https://placehold.co/800x600/1C3A2A/D4A853?text=Diamond+Mapenzi",
             amenities: [
               "all-inclusive",
               "beachfront",
@@ -901,21 +929,21 @@ export const packages: SafariPackage[] = [
       {
         day: 9,
         title: "잔지바르 눙위",
-        description: "출발 전, 잔지바르 백사장 해안에서 보내는 마지막 온전한 자유 일정입니다.",
-        accommodation: "Royal Zanzibar",
+        description: "잔지바르의 백사장 해안에서 보내는 마지막 온전한 자유 일정입니다 — 리프 다이빙, 석양 다우선 항해, 혹은 그저 아무것도 하지 않으셔도 좋습니다.",
+        accommodation: "잔지바르 눙위, 등급별 상이",
         meals: "올인클루시브",
         accommodationByTier: {
           trail: {
-            name: "Makofi Guest House",
-            image: "/images/lodges/makofi-guest-house-thatched-cottage-exterior.webp",
+            name: "Nungwi Dreams By Mantis",
+            image: "/images/lodges/nungwi-dreams-by-mantis.webp",
             amenities: [
               "restaurant",
               "beachfront"
             ]
           },
           reserve: {
-            name: "Royal Zanzibar",
-            image: "/images/lodges/royal-zanzibar.webp",
+            name: "Diamond Mapenzi Beach Resort",
+            image: "https://placehold.co/800x600/1C3A2A/D4A853?text=Diamond+Mapenzi",
             amenities: [
               "all-inclusive",
               "beachfront",
@@ -936,9 +964,9 @@ export const packages: SafariPackage[] = [
       {
         day: 10,
         title: "출발",
-        description: "다음 여정 또는 귀국을 위한 프라이빗 이동입니다.",
+        description: "눙위에서 잔지바르 공항까지 프라이빗 이동 후 다음 여정 또는 귀국을 위해 출발합니다.",
         accommodation: "해당 없음",
-        meals: "조식 및 중식"
+        meals: "조식"
       }
     ]
   },
@@ -4242,20 +4270,19 @@ export const packages: SafariPackage[] = [
   },
   {
     slug: "ultimate-tanzania-safari",
-    name: "얼티메이트 탄자니아 사파리",
-    duration: 12,
+    name: "얼티메이트 탄자니아 사파리 & 곰베 침팬지 트레킹",
+    duration: 11,
     destinations: [
       "arusha",
       "tarangire",
       "ngorongoro",
-      "serengeti",
-      "zanzibar"
+      "gombe"
     ],
     type: "combination",
-    priceFrom: 6800,
+    priceFrom: 5908.96,
     groupSize: {
-      min: 1,
-      max: 8
+      min: 2,
+      max: 6
     },
     badge: "bestseller",
     bestFor: [
@@ -4264,109 +4291,170 @@ export const packages: SafariPackage[] = [
       "solo",
       "wildlife-enthusiasts"
     ],
+    tagline: "2027년 시즌에 맞춰 업데이트되었습니다.",
+    metaTitle: "얼티메이트 탄자니아 사파리 & 곰베 침팬지 트레킹 | EWA Safari Outfitters",
+    metaDescription: "노던 서킷 야생동물 사파리와 곰베 침팬지 트레킹을 하나로 엮은 일정 — 탄자니아 사파리 시장에서 흔치 않은 조합입니다. 11일, 1인당 $5,908.96부터.",
     overview: [
-      "탄자니아의 야생동물과 해안 중 하나를 선택하고 싶지 않은, 그리고 노던 서킷의 대표 명소 중 어느 것도 목록에서 빼고 싶지 않은 여행자를 위한 일정입니다. 12일은 워밍업 삼아 아루샤 국립공원으로 시작해, 타랑기레의 코끼리 무리, 응고롱고로 크레이터로의 완전한 하강, 올두바이 협곡에서의 정류장, 그리고 세렝게티에서 보내는 온전한 5일을 거칩니다. 대이동의 리듬, 정착 대형 고양잇과 동물, 그리고 누 떼의 행렬 모두가 급하게 서두르는 하루 오후로 압축되지 않고 저마다의 모습을 드러낼 만큼 충분한 시간입니다.",
-      "그런 다음 여행은 완전히 다른 분위기로 전환됩니다: 잔지바르에서의 3일이며, 산호석으로 지어진 스톤타운의 골목길, 정향과 바닐라 농원을 지나는 스파이스 팜 투어, 그리고 해변에서 보내는 온전한 자유의 날로 마무리됩니다. 사바나, 크레이터, 평원, 그리고 바다까지, 탄자니아 이야기 전체가 하나의 예약 안에 순서대로 담겨 있어 그 무엇도 뒷전으로 느껴지지 않습니다."
+      "이 일정은 대부분의 여행사가 따로 운영하는 탄자니아의 두 영역을 하나로 엮습니다: 노던 서킷과 곰베 스트림입니다. 탄자니아의 정통 야생동물 루트로 여정을 열어 — 도입부로서의 아루샤 국립공원, 오래된 바오밥나무 아래 타랑기레의 코끼리 무리, 응고롱고로 크레이터에서 보내는 온전한 하루 — 이어서 다르에스살람을 거쳐 키고마까지 서쪽으로 계속 이동해, 탕가니카 호숫가에 자리한 곰베 스트림 국립공원에 도착합니다. 이곳은 제인 구달의 최초 침팬지 연구가 시작된 곳입니다.",
+      "곰베에서 보내는 온전한 이틀은 침팬지 트레킹을 위해 배정되며, 그녀의 연구가 이루어졌던 바로 그 숲길을 걷게 됩니다. 곰베까지 가려면 두 번째 국내선 항공편과 호수 횡단이 필요한데, 이는 대부분의 노던 서킷 중심 여행사가 일상적으로 다루는 물류의 범위를 벗어나는 것으로, 이 조합이 흔치 않은 이유이기도 합니다. 대부분의 탄자니아 여행사는 노던 서킷 사파리 또는 잔지바르 해변 연장 일정 중 하나만 운영합니다 — 저희는 이 여정의 두 절반을 하나의 연속된 예약으로, 하나의 가이드 관계 아래 운영하므로 여행자가 두 개의 서로 다른 여행사를 조율할 필요가 없습니다. 표준적인 탄자니아 사파리를 이미 경험하고 그다음 무엇을 볼지 고민하는 고객을 위해, 이 일정은 바로 그 답이 되도록 설계되었습니다."
     ],
     highlights: [
-      "완전한 탄자니아 야생동물 서킷",
-      "워밍업으로 시작하는 아루샤 국립공원",
-      "올두바이 협곡 — 인류의 요람",
-      "세렝게티에서 보내는 5일",
-      "잔지바르에서 보내는 3일 — 해변, 문화, 스톤타운"
+      "흔치 않은 조합 — 노던 서킷 야생동물 사파리와 곰베 침팬지 트레킹을 하나의 연속된 일정으로",
+      "여정을 여는 아루샤 국립공원, 도보로 진행되는 반나절 가이드 워크 포함",
+      "타랑기레의 코끼리 무리와 마사이 공동체 방문",
+      "응고롱고로 크레이터에서 보내는 온전한 하루 — 이 지역에서 빅파이브를 만날 확률이 가장 높은 곳 중 하나",
+      "제인 구달의 연구가 시작된 바로 그 숲길에서 진행되는 곰베 스트림 침팬지 트레킹 온전한 이틀",
+      "루트의 부수적인 요소가 아니라 여정 그 자체의 일부인 탕가니카 호수 횡단"
     ],
-    heroImage: "/images/gallery/lion-portrait.webp",
-    heroImageAlt: "Portrait of a male lion's mane and profile in warm golden light",
-    gallery: [],
+    heroImage: "/images/gallery/gombe-stream.webp",
+    heroImageAlt: "Chimpanzees resting on a moss-covered log in Gombe Stream's forest",
+    gallery: [
+      {
+        src: "/images/gallery/chimpanzees-resting-mossy-log-gombe.jpg",
+        alt: "Chimpanzees resting together on a moss-covered log in Gombe Stream National Park"
+      },
+      {
+        src: "/images/gallery/tarangire-elephants-baobab.webp",
+        alt: "Two elephants with tusks foraging together in tall grass in Tarangire National Park"
+      }
+    ],
+    pricingTiersProvisional: false,
+    pricingTiers: [
+      {
+        pax: 2,
+        reserve: 7156.88
+      },
+      {
+        pax: 3,
+        reserve: 6532.92
+      },
+      {
+        pax: 4,
+        reserve: 6220.94
+      },
+      {
+        pax: 5,
+        reserve: 6033.75
+      },
+      {
+        pax: 6,
+        reserve: 5908.96
+      }
+    ],
     included: [
-      "전 국립공원 입장료",
+      "전 국립공원 및 보호구역 요금",
       "전 게임 드라이브",
-      "잔지바르 호텔(해변가)",
+      "침팬지 트레킹 퍼밋",
+      "국내선 전 구간(아루샤–다르에스살람–키고마 왕복)",
+      "명시된 숙박 시설",
       "사파리 중 전 식사",
-      "잔지바르 조식",
-      "국내선 및 섬 간 항공편",
       "공항 이동"
     ],
     excluded: [
       "국제선 항공권",
       "비자 발급 비용",
       "여행자 보험",
-      "팁",
-      "잔지바르 중식 및 석식"
+      "팁"
     ],
     notes: [
       "표시된 요금은 더블/트윈룸 2인 공유 기준 1인당 요금입니다. 싱글룸 이용 시 추가 요금이 발생합니다.",
-      "잔지바르 숙박은 조식만 포함됩니다. 중식과 석식은 별도 부담입니다.",
-      "숙박 시설 및 요금은 예약 가능 여부에 따라 달라지며, 동일 시즌 내에서도 정확한 여행 날짜에 따라 변동될 수 있습니다.",
-      "탄자니아 국립공원 및 보호구역 입장료는 정부가 책정하며 사전 통보 없이 변경될 수 있습니다."
+      "곰베는 하루에 배정되는 트레킹 퍼밋 수가 제한되어 있습니다 — 6월~10월 성수기에는 최소 3개월 전 예약을 권장합니다.",
+      "키고마 구간의 소형 항공기는 일반 국내선보다 수하물 허용량이 적습니다. 곰베 구간은 하드케이스 대신 소프트 더플백에 짐을 꾸리시길 권합니다.",
+      "숙박 시설 및 요금은 예약 가능 여부에 따라 달라지며, 동일 시즌 내에서도 정확한 여행 날짜에 따라 변동될 수 있습니다."
+    ],
+    faq: [
+      {
+        q: "이 조합이 사파리 업계에서 흔치 않은 이유는 무엇인가요?",
+        a: "표준 노던 서킷 사파리와 곰베 스트림 여행은 서로 다른 루트를 사용하기 때문입니다. 곰베는 탄자니아 서부 탕가니카 호숫가에 위치하며, 다르에스살람을 거쳐 키고마까지 비행해야 도달할 수 있습니다 — 북부의 게임 드라이브 서킷과는 완전히 별개의 물류 체계입니다. 대부분의 여행사는 둘 중 하나만 운영하며, 두 가지를 하나의 연속된 일정으로 엮는 곳은 많지 않습니다."
+      },
+      {
+        q: "곰베 침팬지 트레킹은 체력적으로 얼마나 힘든가요?",
+        a: "트레킹은 가파르고 고르지 않을 수 있는 숲길을 따라 진행되며, 침팬지를 찾아 걷는 시간은 공동체가 밤새 이동한 위치에 따라 30분에서 몇 시간까지 다양합니다. 어느 정도의 체력이 도움이 되지만, 이는 기술적이거나 극한의 트레킹은 아닙니다."
+      },
+      {
+        q: "이 여정은 탄자니아 첫 방문자에게 적합한가요, 아니면 재방문자에게 더 어울리나요?",
+        a: "둘 다 가능하지만, 이미 표준 사파리를 경험하고 전형적인 서킷을 넘어선 무언가를 찾는 여행자에게 특히 잘 맞습니다 — 노던 서킷 절반은 여전히 클래식한 야생동물 경험을 선사하며, 곰베는 대부분의 첫 방문자가 존재조차 알지 못하는 완전히 다른 종류의 만남을 더합니다."
+      },
+      {
+        q: "이 일정에 가장 좋은 시기는 언제인가요?",
+        a: "건기(대략 6월에서 10월)가 여정의 두 절반 모두에 가장 좋은 조건을 제공합니다 — 노던 서킷에서는 더 수월한 야생동물 관찰이, 곰베에서는 더 쾌적한 트레킹 여건이 가능합니다."
+      },
+      {
+        q: "요금에 포함되는 것과 포함되지 않는 것은 무엇인가요?",
+        a: "포함: 전 국립공원 및 보호구역 요금, 전 게임 드라이브, 침팬지 트레킹 퍼밋, 국내선 전 구간(아루샤–다르에스살람–키고마 왕복), 명시된 숙박 시설, 사파리 중 전 식사, 공항 이동. 미포함: 국제선 항공권, 비자 발급 비용, 여행자 보험, 팁."
+      },
+      {
+        q: "연장하거나 잔지바르와 결합할 수 있나요?",
+        a: "네 — 11일 차 이후 잔지바르 해변 연장을 추가해 해안에서 며칠 여유롭게 마무리할 수 있습니다. 담당 컨설턴트에게 문의해 주세요."
+      }
     ],
     itinerary: [
       {
         day: 1,
         title: "아루샤 도착",
-        description: "킬리만자로 국제공항에 도착해 아루샤 호텔로 이동합니다. 저녁 식사와 함께 가이드를 만나 전체 사파리 브리핑을 받습니다.",
-        accommodation: "Arusha Coffee Lodge",
+        description: "킬리만자로 국제공항에 도착해 므루산 기슭의 농경지와 커피 농원을 지나 아루샤로 이동합니다. 여장을 푼 뒤에는 가이드와 함께 저녁 식사를 하며 앞으로 11일간의 여정에 대한 전체 브리핑을 받습니다.",
+        accommodation: "Kahawa House",
         meals: "석식",
         accommodationByTier: {
           reserve: {
-            name: "Arusha Coffee Lodge",
-            image: "/images/lodges/arusha-coffee-lodge-garden-path.webp",
+            name: "Kahawa House",
+            image: "/images/lodges/kahawa-house.webp",
             amenities: [
-              "garden",
+              "wifi",
               "restaurant",
-              "wifi"
+              "garden"
             ]
           }
         }
       },
       {
         day: 2,
-        title: "아루샤 국립공원 데이 트립",
-        description: "아루샤 국립공원에서 아침 게임 드라이브를 진행합니다 — 좁고 아름다운 지역 안에 기린, 얼룩말, 콜로부스 원숭이, 표범, 홍학까지 다채롭게 만날 수 있는 공원입니다. 오후는 아루샤에서 자유롭게 보내며, 선택적으로 공예품 시장을 방문할 수 있습니다.",
-        accommodation: "Arusha Coffee Lodge",
+        title: "아루샤 국립공원 반나절 도보 투어",
+        description: "무장 레인저를 동반해 도보로 진행하는 가이드 워크로, 탄자니아에서 연중 도보 사파리가 가능한 몇 안 되는 공원 중 한 곳을 걷습니다. 루트는 보통 모멜라 호수를 지나며, 기린과 버팔로를 가까운 거리에서 만날 수 있고, 콜로부스 원숭이가 머리 위 숲 캐노피를 이동하는 모습도 볼 수 있습니다.",
+        accommodation: "Kahawa House",
         meals: "전 식사",
         accommodationByTier: {
           reserve: {
-            name: "Arusha Coffee Lodge",
-            image: "/images/lodges/arusha-coffee-lodge-garden-path.webp",
+            name: "Kahawa House",
+            image: "/images/lodges/kahawa-house.webp",
             amenities: [
-              "garden",
+              "wifi",
               "restaurant",
-              "wifi"
+              "garden"
             ]
           }
         }
       },
       {
         day: 3,
-        title: "타랑기레 국립공원",
-        description: "남쪽으로 이동해 탄자니아 최대 규모의 코끼리 무리와 함께 하루를 보냅니다. 타랑기레강은 건기 동안 수천 마리의 동물을 끌어들이며, 고대의 바오밥 숲은 아프리카에서 가장 사진 찍기 좋은 배경 중 하나를 선사합니다.",
-        accommodation: "Tarangire Tented Camp",
+        title: "아루샤에서 타랑기레 국립공원으로",
+        description: "남쪽으로 향하는 이동은 마쿠야니를 지나 바오밥나무로 뒤덮인 타랑기레의 평원으로 이어지며, 탄자니아 최대 규모의 코끼리 무리 일부가 서식하는 곳입니다. 도착 후 오후 게임 드라이브에서는 공원의 건기 생명줄인 타랑기레강을 둘러봅니다.",
+        accommodation: "Tarangire Katikati Camp",
         meals: "전 식사",
         accommodationByTier: {
           reserve: {
-            name: "Lemala Nanyukie",
-            image: "/images/lodges/lemala-nanyukie.webp",
+            name: "Tarangire Katikati Tented Camp",
+            image: "https://placehold.co/800x600/1C3A2A/D4A853?text=Tarangire+Katikati",
             amenities: [
-              "wildlife-view",
-              "view"
+              "ensuite",
+              "restaurant",
+              "wildlife-view"
             ]
           }
         }
       },
       {
         day: 4,
-        title: "응고롱고로 크레이터",
-        description: "응고롱고로 크레이터로 하루 종일 빅파이브와 함께 내려갑니다. 폐쇄된 칼데라 안에서는 사자, 코끼리, 버팔로, 표범, 검은코뿔소를 하루 만에 만날 가능성이 사실상 보장됩니다.",
-        accommodation: "Ngorongoro Serena Lodge",
+        title: "타랑기레 & 마사이 공동체 방문",
+        description: "서쪽으로 향하는 이동에 앞서 타랑기레에서 보내는 마지막 반나절의 게임 관찰입니다. 대지구대 단층애를 올라 응고롱고로 고지대로 향하는 길에는 마사이 공동체 방문이 포함되어, 보마에서 시간을 보내고 보호구역 내 목축 생활에 관한 대화를 나눕니다.",
+        accommodation: "Ngorongoro Farm House",
         meals: "전 식사",
         accommodationByTier: {
           reserve: {
-            name: "Kitela Lodge",
-            image: "/images/lodges/kitela-lodge.webp",
+            name: "Ngorongoro Farm House",
+            image: "/images/lodges/ngorongoro-farm-house.webp",
             amenities: [
-              "pool",
-              "view",
+              "restaurant",
               "garden"
             ]
           }
@@ -4374,17 +4462,16 @@ export const packages: SafariPackage[] = [
       },
       {
         day: 5,
-        title: "응고롱고로 — 올두바이 협곡",
-        description: "아침에는 크레이터에서 게임 드라이브를 진행하고, 이어서 180만 년 전 인류 화석이 최초로 발견된 고인류학 유적지 올두바이 협곡을 방문합니다. 작은 박물관이 이 대지가 인류 진화에 지닌 의미를 훌륭하게 설명해 줍니다.",
-        accommodation: "Ngorongoro Serena Lodge",
+        title: "응고롱고로 크레이터 데이 투어",
+        description: "크레이터 내부에서 보내는 온전한 하루입니다 — 면적 약 260km²의 독립된 생태계로, 바닥에서 400~600m 솟은 벽으로 둘러싸여 있습니다. 밀집된 야생동물 개체군과 좁은 면적이 어우러져, 검은코뿔소를 포함한 빅파이브를 만나기에 동아프리카에서 가장 안정적인 장소 중 한 곳이 됩니다.",
+        accommodation: "Ngorongoro Farm House",
         meals: "전 식사",
         accommodationByTier: {
           reserve: {
-            name: "Kitela Lodge",
-            image: "/images/lodges/kitela-lodge.webp",
+            name: "Ngorongoro Farm House",
+            image: "/images/lodges/ngorongoro-farm-house.webp",
             amenities: [
-              "pool",
-              "view",
+              "restaurant",
               "garden"
             ]
           }
@@ -4392,52 +4479,68 @@ export const packages: SafariPackage[] = [
       },
       {
         day: 6,
-        title: "세렝게티 — 도착",
-        description: "세렝게티로 이동해 중앙의 세로네라 지역에 도착, 오후 게임 드라이브를 진행합니다. 이곳에서는 연중 사자와 치타를 신뢰도 높게 관찰할 수 있습니다.",
-        accommodation: "Serengeti Tented Camp",
+        title: "카라투에서 다르에스살람으로",
+        description: "아침 이동으로 아루샤 공항으로 돌아간 뒤, 동쪽 다르에스살람으로 향하는 정기 항공편에 탑승합니다 — 노던 서킷에서 곰베로 향하는 여정으로의 전환점입니다.",
+        accommodation: "Dar es Salaam Serena Hotel",
         meals: "전 식사",
         accommodationByTier: {
           reserve: {
-            name: "Siringiti Serengeti Camp",
-            image: "/images/lodges/siringiti-serengeti-camp.webp",
+            name: "Dar es Salaam Serena Hotel",
+            image: "/images/lodges/dar-es-salaam-serena-hotel-entrance-night.webp",
             amenities: [
-              "wifi",
-              "view",
-              "restaurant"
+              "pool",
+              "restaurant",
+              "wifi"
             ]
           }
         }
       },
       {
         day: 7,
-        title: "세렝게티 — 온전한 하루",
-        description: "세렝게티에서 아침과 오후 게임 드라이브로 하루를 온전히 보냅니다. 가이드가 탁 트인 평원을 사냥하는 사자, 표범, 치타를 추적합니다. 방대한 누 떼와 얼룩말 무리가 전형적인 동아프리카 파노라마를 완성합니다.",
-        accommodation: "Serengeti Tented Camp",
+        title: "다르에스살람에서 곰베 스트림으로",
+        description: "나라의 폭을 가로지르는 비행으로 탕가니카 호숫가의 키고마에 도착한 뒤, 보트로 호숫가를 거슬러 올라가 곰베 스트림 국립공원에 도착합니다 — 이 공원에는 도로가 닿지 않기에, 개장 이래 모든 방문객이 밟아온 것과 같은 경로입니다.",
+        accommodation: "Mbali Mbali Gombe",
         meals: "전 식사",
         accommodationByTier: {
           reserve: {
-            name: "Siringiti Serengeti Camp",
-            image: "/images/lodges/siringiti-serengeti-camp.webp",
+            name: "Mbali Mbali Gombe Tented Camp",
+            image: "/images/lodges/mbalimbali-gombe-tented-camp.webp",
             amenities: [
-              "wifi",
-              "view",
-              "restaurant"
+              "restaurant",
+              "wildlife-view"
             ]
           }
         }
       },
       {
         day: 8,
-        title: "세렝게티 — 심화 탐험",
-        description: "세렝게티에서 또 하루를 온전히 보내며, 현재 야생동물의 분포에 따라 공원의 다른 지역을 탐험합니다. 웨스턴 코리도와 노던 평원은 각각 독특한 서식지와 종을 선보입니다.",
-        accommodation: "Serengeti Tented Camp",
+        title: "곰베 국립공원 침팬지 트레킹",
+        description: "무장 공원 레인저와 함께 곰베의 순치된 침팬지 공동체를 찾아 나서는 온전한 하루입니다 — 아프리카에서 가장 면밀히 연구된 야생 침팬지 개체군 중 하나입니다. 트레일은 호숫가에서 시작해 숲으로 뒤덮인 능선으로 꾸준히 올라가며, 무리를 찾은 뒤에는 감독하에 최대 한 시간만 함께할 수 있습니다.",
+        accommodation: "Mbali Mbali Gombe",
+        meals: "전 식사",
+        insiderFact: "곰베의 침팬지 공동체는 지구상에서 가장 면밀히 연구된 야생 영장류 개체군 중 하나입니다 — 1960년 제인 구달의 최초 연구 이래 지속적인 연구가 이어지고 있습니다.",
+        accommodationByTier: {
+          reserve: {
+            name: "Mbali Mbali Gombe Tented Camp",
+            image: "/images/lodges/mbalimbali-gombe-tented-camp.webp",
+            amenities: [
+              "restaurant",
+              "wildlife-view"
+            ]
+          }
+        }
+      },
+      {
+        day: 9,
+        title: "곰베에서 키고마 시내로",
+        description: "호숫가 루트를 되짚어 키고마로 돌아가는 이동입니다.",
+        accommodation: "Kigoma Hilltop Hotel",
         meals: "전 식사",
         accommodationByTier: {
           reserve: {
-            name: "Siringiti Serengeti Camp",
-            image: "/images/lodges/siringiti-serengeti-camp.webp",
+            name: "Kigoma Hilltop",
+            image: "/images/lodges/kigoma-hilltop.webp",
             amenities: [
-              "wifi",
               "view",
               "restaurant"
             ]
@@ -4445,63 +4548,27 @@ export const packages: SafariPackage[] = [
         }
       },
       {
-        day: 9,
-        title: "잔지바르로 비행",
-        description: "아침 세렝게티 게임 드라이브 후 잔지바르로 비행합니다. 해변가 호텔로 이동해 오후는 섬의 시간에 여유롭게 적응하며 보냅니다.",
-        accommodation: "Zanzibar Beach Resort",
-        meals: "조식",
-        accommodationByTier: {
-          reserve: {
-            name: "Royal Zanzibar",
-            image: "/images/lodges/royal-zanzibar.webp",
-            amenities: [
-              "pool",
-              "all-inclusive",
-              "view"
-            ]
-          }
-        }
-      },
-      {
         day: 10,
-        title: "잔지바르 — 스톤타운과 스파이스 투어",
-        description: "오전에는 조각된 목재 문, 산호석 건축, 살아 숨 쉬는 스와힐리 문화가 어우러진 미로 같은 스톤타운을 가이드와 함께 둘러봅니다. 오후에는 정향, 바닐라, 시나몬 농원을 지나는 스파이스 팜 투어를 진행합니다.",
-        accommodation: "Zanzibar Beach Resort",
-        meals: "조식",
+        title: "키고마에서 다르에스살람으로",
+        description: "나라를 가로질러 다르에스살람으로 돌아가는 비행이며, 도착 후에는 짧은 시내 투어를 즐긴 뒤 저녁에는 여유롭게 휴식합니다.",
+        accommodation: "Dar es Salaam Serena Hotel",
+        meals: "전 식사",
         accommodationByTier: {
           reserve: {
-            name: "Royal Zanzibar",
-            image: "/images/lodges/royal-zanzibar.webp",
+            name: "Dar es Salaam Serena Hotel",
+            image: "/images/lodges/dar-es-salaam-serena-hotel-entrance-night.webp",
             amenities: [
               "pool",
-              "all-inclusive",
-              "view"
+              "restaurant",
+              "wifi"
             ]
           }
         }
       },
       {
         day: 11,
-        title: "잔지바르 — 해변에서의 하루",
-        description: "잔지바르의 전설적인 해변에서 보내는 온전한 자유의 날입니다. 청록빛 바다, 백사장, 흔들리는 야자수는 세렝게티의 강렬함과 완벽한 대비를 이룹니다. 선택적으로 스노클링, 돌고래 관찰, 전통 다우선 항해도 즐길 수 있습니다.",
-        accommodation: "Zanzibar Beach Resort",
-        meals: "조식",
-        accommodationByTier: {
-          reserve: {
-            name: "Royal Zanzibar",
-            image: "/images/lodges/royal-zanzibar.webp",
-            amenities: [
-              "pool",
-              "all-inclusive",
-              "view"
-            ]
-          }
-        }
-      },
-      {
-        day: 12,
         title: "출발",
-        description: "아침에는 해변에서 시간을 보낸 뒤, 잔지바르 공항으로 이동해 귀국 국제선에 탑승합니다.",
+        description: "귀국 국제선 연결을 위해 공항으로 이동합니다.",
         accommodation: "해당 없음",
         meals: "조식"
       }
@@ -4851,44 +4918,91 @@ export const packages: SafariPackage[] = [
   },
   {
     slug: "8-days-flight-migration",
-    name: "마이그레이션 유람비행 사파리 8일",
+    name: "8일 누 떼 리버 크로싱 사파리",
     duration: 8,
     destinations: [
       "serengeti",
       "ngorongoro"
     ],
     type: "wildlife",
-    priceFrom: 4500,
+    priceFrom: 3852.29,
     groupSize: {
-      min: 1,
+      min: 2,
       max: 6
     },
+    badge: "popular",
     bestFor: [
       "couples",
       "solo",
       "wildlife-enthusiasts"
     ],
+    tagline: "2027년 시즌에 맞춰 업데이트되었습니다.",
+    metaTitle: "8일 누 떼 리버 크로싱 사파리 | EWA Safari Outfitters",
+    metaDescription: "마라강 도하 지점으로 곧장 비행한 뒤, 세렝게티와 응고롱고로 크레이터를 지나 남쪽으로 이동합니다. 3개 등급, 1인당 $3,852.29부터.",
     overview: [
       "7월과 10월 사이, 노던 세렝게티는 대이동에서 가장 극적인 한 장면을 연출합니다: 수십만 마리의 누가 마라강 둑에 모여든 뒤, 이미 기다리고 있는 나일악어가 있는 물속으로 뛰어듭니다. 이 일정은 도하 지점에서 불과 45분 거리인 코가텐데 활주로로 곧장 비행해, 그곳까지 하루 반나절을 육로로 이동하는 대신, 그 지역에서 온전한 이틀을 머무르며 가이드가 단 하나의 관찰에 매달리기보다 무리의 움직임에 맞춰 대응할 수 있도록 합니다.",
-      "그곳에서 루트는 세렝게티의 정착 야생동물을 따라 남쪽으로 이어집니다 — 사자 무리, 강가 숲의 표범, 탁 트인 초원의 새끼 딸린 치타입니다 — 그런 다음 응고롱고로 크레이터에서 보내는 온전한 하루가 탄자니아에서도 손꼽히는 밀집된 사자 개체군과 신뢰도 높은 검은코뿔소 관찰로 여행을 마무리합니다."
+      "그곳에서 루트는 세렝게티의 정착 야생동물을 따라 남쪽으로 이어집니다 — 사자 무리, 강가 숲의 표범, 탁 트인 초원의 새끼 딸린 치타입니다 — 이어서 응고롱고로 크레이터에서 보내는 온전한 이틀 밤이, 진짜 마사이 공동체 방문과 아루샤로 돌아가는 길의 음토와음부 정류로 마무리됩니다. 윌더니스 트레일, 윌더니스 리저브, 윌더니스 소버린 3개 등급으로 제공되며, 동일한 8일 루트를 따르되 머무는 캠프와 로지의 수준만 달라집니다."
     ],
     highlights: [
-      "노던 세렝게티로 곧장 비행",
-      "마라강 누 떼 도하(7월~10월)",
-      "도하 지점의 악어와 대형 고양잇과 동물",
-      "중앙 세렝게티의 연중 포식자",
-      "응고롱고로 크레이터 완전 하강"
+      "노던 세렝게티로 곧장 비행 — 육로로 하루 반나절 걸리는 대신 마라강 도하 지점에서 45분 거리",
+      "도하 지점에서 보내는 온전한 이틀 — 단 하나의 관찰에 매달리지 않고 무리의 움직임에 맞춰 대응할 시간을 가이드에게",
+      "도하 지점에서 활동하는 악어와 대형 고양잇과 동물 — 대이동 시즌 내내 마라강은 두 무리 모두로 붐빕니다",
+      "남하하는 길의 중앙 세렝게티 연중 정착 포식자",
+      "응고롱고로 크레이터에서 보내는 온전한 이틀 밤 — 신뢰도 높은 검은코뿔소 관찰과 탄자니아에서도 손꼽히는 밀집된 사자 개체군",
+      "아루샤로 향하는 마지막 여정에서의 진짜 마사이 공동체 방문과 음토와음부 정류"
     ],
-    heroImage: "/images/gallery/impala-close-up.webp",
-    heroImageAlt: "Alert impalas with large ears raised, standing together in tall grass",
-    gallery: [],
+    heroImage: "/images/gallery/mara-river-crossing.webp",
+    heroImageAlt: "Wildebeest and zebra herds crossing the Mara River during the great migration",
+    gallery: [
+      {
+        src: "/images/gallery/impala-close-up.webp",
+        alt: "Alert impalas with large ears raised, standing together in tall grass"
+      },
+      {
+        src: "/images/gallery/maasai-mara.webp",
+        alt: "Wildebeest and zebras crossing a river in a cloud of dust in the Maasai Mara"
+      }
+    ],
+    pricingTiersProvisional: false,
+    pricingTiers: [
+      {
+        pax: 2,
+        trail: 4829.38,
+        reserve: 6128.13,
+        sovereign: 10141.88
+      },
+      {
+        pax: 3,
+        trail: 4340.83,
+        reserve: 5639.58,
+        sovereign: 9653.33
+      },
+      {
+        pax: 4,
+        trail: 4096.56,
+        reserve: 5395.31,
+        sovereign: 9409.06
+      },
+      {
+        pax: 5,
+        trail: 3950,
+        reserve: 5194.75,
+        sovereign: 9262.5
+      },
+      {
+        pax: 6,
+        trail: 3852.29,
+        reserve: 5151.04,
+        sovereign: 9164.79
+      }
+    ],
     included: [
-      "전 국립공원 요금",
-      "국내선 전세기",
+      "전 국립공원 및 특별보호구역 요금",
+      "아루샤–코가텐데 항공편",
       "전 게임 드라이브",
-      "전문 가이드",
+      "전 일정 함께하는 전문 가이드",
       "전 식사",
-      "숙박",
+      "명시된 숙박 시설",
       "공항 이동"
     ],
     excluded: [
@@ -4899,26 +5013,77 @@ export const packages: SafariPackage[] = [
     ],
     notes: [
       "표시된 요금은 더블/트윈룸 2인 공유 기준 1인당 요금입니다. 싱글룸 이용 시 추가 요금이 발생합니다.",
-      "국내선 전세기가 운항하려면 최소 그룹 인원 2명이 필요합니다.",
       "마라강 도하는 7월과 10월 사이에 가장 신뢰도가 높으며 특정 날짜를 보장할 수는 없습니다.",
       "숙박 시설 및 요금은 예약 가능 여부에 따라 달라지며, 동일 시즌 내에서도 정확한 여행 날짜에 따라 변동될 수 있습니다.",
       "탄자니아 국립공원 및 보호구역 입장료는 정부가 책정하며 사전 통보 없이 변경될 수 있습니다."
+    ],
+    faq: [
+      {
+        q: "이 사파리는 얼마인가요?",
+        a: "윌더니스 트레일은 1인당 $3,852.29부터 시작합니다(6인 기준, 트윈 셰어), 2인이 단둘이 여행할 경우 $4,829.38까지 오릅니다. 윌더니스 리저브는 $5,151.04부터 시작해 $6,128.13까지, 윌더니스 소버린은 $9,164.79부터 시작해 $10,141.88까지 오릅니다. 모든 사파리는 맞춤 제작되므로, 여행 날짜에 맞는 정확한 요금은 개인 맞춤 견적을 요청해 주세요."
+      },
+      {
+        q: "3개 등급의 차이는 무엇인가요?",
+        a: "루트, 액티비티, 도하 지점에서의 일정은 3개 등급 모두 동일합니다. 달라지는 것은 캠프와 로지입니다: 윌더니스 트레일은 직관적이고 편안하며, 윌더니스 리저브는 여유로운 공간과 세심한 서비스를 더하고, 윌더니스 소버린은 이 루트에서 가장 특별한 숙박 시설로 안내합니다."
+      },
+      {
+        q: "리버 크로싱은 보장되나요?",
+        a: "특정 날짜에 특정 야생동물 이벤트를 보장할 수 있는 책임 있는 여행사는 없습니다 — 도하는 7월에서 10월 사이 가장 신뢰도가 높지만, 시기는 매년 달라지는 강수 패턴과 무리 이동에 따라 달라집니다. 이 일정은 확률을 최대화하기 위해 도하 지점에서 온전한 이틀을 배정합니다."
+      },
+      {
+        q: "왜 마라강까지 육로 대신 비행으로 이동하나요?",
+        a: "아루샤에서 노던 세렝게티까지 육로로는 편도 하루 반이 걸립니다. 코가텐데까지 비행하면 아루샤를 떠난 당일 오후에 현장에 들어설 수 있으며, 도하 지점에서 몇 시간이 아닌 45분 거리에 머무를 수 있습니다."
+      },
+      {
+        q: "이 사파리에 가장 좋은 시기는 언제인가요?",
+        a: "7월부터 10월까지가 대이동의 마라강 도하 시즌이며, 이 일정은 바로 그 시기에 맞춰 설계되었습니다."
+      },
+      {
+        q: "빅파이브를 볼 수 있나요?",
+        a: "응고롱고로 크레이터는 멸종 위기종인 검은코뿔소를 포함한 완전한 빅파이브를 만날 최고의 확률을 이 지역에서 제공하며, 중앙 세렝게티의 연중 정착 사자, 표범, 치타 개체군도 함께 만날 수 있습니다."
+      },
+      {
+        q: "요금에 포함되는 것과 포함되지 않는 것은 무엇인가요?",
+        a: "포함: 전 국립공원 및 특별보호구역 요금, 아루샤–코가텐데 항공편, 전 게임 드라이브, 전 일정 함께하는 전문 가이드, 전 식사, 명시된 숙박 시설, 공항 이동. 미포함: 국제선 항공권, 비자 발급 비용, 여행자 보험, 팁."
+      },
+      {
+        q: "다른 목적지와 결합할 수 있나요?",
+        a: "네 — 이 일정은 잔지바르 해변 연장과 자연스럽게 어울리며, 탄자니아의 두 지역을 모두 경험하고 싶은 여행자를 위해 서던 서킷 사파리와 결합할 수도 있습니다."
+      }
     ],
     itinerary: [
       {
         day: 1,
         title: "아루샤 도착",
-        description: "킬리만자로 국제공항에 도착해 아루샤 호텔로 이동합니다. 저녁 식사와 함께 사파리 브리핑을 진행합니다.",
-        accommodation: "Arusha Hotel",
+        description: "킬리만자로 국제공항에 도착해 아루샤로 이동합니다. 저녁 식사와 함께 사파리 브리핑을 진행합니다.",
+        accommodation: "아루샤, 등급별 상이",
         meals: "석식",
         accommodationByTier: {
+          trail: {
+            name: "Kahawa House",
+            image: "/images/lodges/kahawa-house.webp",
+            amenities: [
+              "wifi",
+              "restaurant",
+              "garden"
+            ]
+          },
           reserve: {
+            name: "Gran Meliá Arusha",
+            image: "/images/lodges/gran-melia-arusha.webp",
+            amenities: [
+              "wifi",
+              "pool",
+              "spa"
+            ]
+          },
+          sovereign: {
             name: "Arusha Coffee Lodge",
             image: "/images/lodges/arusha-coffee-lodge-garden-path.webp",
             amenities: [
-              "garden",
-              "restaurant",
-              "wifi"
+              "wifi",
+              "pool",
+              "view"
             ]
           }
         }
@@ -4926,47 +5091,100 @@ export const packages: SafariPackage[] = [
       {
         day: 2,
         title: "노던 세렝게티 — 코가텐데로 비행",
-        description: "아루샤에서 경비행기에 탑승합니다. 비행 경로는 응고롱고로 크레이터 림 위를 지나가며, 저 아래로는 고대의 칼데라가 축소된 모습으로 드러납니다. 세렝게티 최북단의 코가텐데 활주로에 착륙합니다 — 마라강 도하 지점에서 불과 45분 거리입니다. 오후 게임 드라이브로 분위기를 잡습니다.",
-        accommodation: "Northern Serengeti Camp",
-        meals: "중식, 석식",
+        description: "아루샤에서 경비행기에 탑승합니다. 비행 경로는 응고롱고로 크레이터 림 바로 위를 지나가며, 저 아래로는 고대의 칼데라가 축소된 모습으로 드러납니다. 마라강 도하 지점에서 불과 45분 거리인 코가텐데 활주로에 착륙합니다. 오후 게임 드라이브로 분위기를 잡습니다.",
+        accommodation: "노던 세렝게티, 등급별 상이",
+        meals: "전 식사",
         accommodationByTier: {
+          trail: {
+            name: "Mara Katikati Camp",
+            image: "/images/lodges/mara-katikati-tented-camp.webp",
+            amenities: [
+              "ensuite",
+              "wildlife-view"
+            ]
+          },
           reserve: {
-            name: "Mara Mara Tented Lodge",
-            image: "/images/lodges/mara-mara-tented-lodge.webp",
+            name: "Mara Under Canvas Tented Camp",
+            image: "/images/lodges/mara-under-canvas.webp",
             amenities: [
               "wildlife-view",
               "view"
+            ]
+          },
+          sovereign: {
+            name: "Lemala Kuria Hills",
+            image: "/images/lodges/lemala-kuria-hills-aerial-kopje-camp.webp",
+            amenities: [
+              "pool",
+              "view",
+              "wildlife-view"
             ]
           }
         }
       },
       {
         day: 3,
-        title: "마라강 도하",
-        description: "7월과 10월 사이 노던 세렝게티는 대이동에서 가장 극적인 장면을 연출합니다. 수십만 마리의 누가 강둑에 모여든 뒤, 거대한 나일악어가 아래에서 덮치는 물속으로 뛰어듭니다. 가이드가 하루 동안 무리의 움직임에 따라 최적의 관찰 지점에 여러분을 위치시킵니다.",
-        accommodation: "Northern Serengeti Camp",
+        title: "세렝게티 북부에서 보내는 온전한 하루",
+        description: "마라강 도하 지점에서 보내는 온전한 하루입니다 — 수십만 마리의 누가 강둑에 모여든 뒤, 이미 기다리고 있는 나일악어가 있는 물속으로 뛰어듭니다. 가이드가 정해진 일정이 아니라 하루 동안의 무리 움직임에 따라 여러분을 위치시킵니다.",
+        accommodation: "노던 세렝게티, 등급별 상이",
         meals: "전 식사",
+        insiderFact: "도하는 하루 중 어느 시간에도 일어날 수 있고 단 몇 분 만에 끝납니다 — 가이드는 알려진 도하 지점에 차량을 세우고 무리가 결심할 때까지 때로 몇 시간이고 기다립니다.",
         accommodationByTier: {
+          trail: {
+            name: "Mara Katikati Camp",
+            image: "/images/lodges/mara-katikati-tented-camp.webp",
+            amenities: [
+              "ensuite",
+              "wildlife-view"
+            ]
+          },
           reserve: {
-            name: "Mara Mara Tented Lodge",
-            image: "/images/lodges/mara-mara-tented-lodge.webp",
+            name: "Mara Under Canvas Tented Camp",
+            image: "/images/lodges/mara-under-canvas.webp",
             amenities: [
               "wildlife-view",
               "view"
+            ]
+          },
+          sovereign: {
+            name: "Lemala Kuria Hills",
+            image: "/images/lodges/lemala-kuria-hills-aerial-kopje-camp.webp",
+            amenities: [
+              "pool",
+              "view",
+              "wildlife-view"
             ]
           }
         }
       },
       {
         day: 4,
-        title: "코가텐데 — 마이그레이션 온전한 하루",
-        description: "노던 세렝게티에서 또 하루를 온전히 보냅니다. 도하가 잠시 소강 상태라면 주변 평원이 놀라운 야생동물을 선사합니다: 거대한 사자 무리, 강가 숲의 표범, 탁 트인 초원의 새끼 딸린 치타입니다. 마라강에는 언제나 하마와 악어가 늘어서 있습니다.",
-        accommodation: "Northern Serengeti Camp",
+        title: "노던 세렝게티에서 중앙 세렝게티로",
+        description: "도하 지점에서 마지막 반나절을 보낸 뒤 남쪽으로 이동합니다. 이 구간에서는 코끼리와 기린을 흔히 볼 수 있어, 단순한 이동일이 아니라 활기찬 하루가 됩니다.",
+        accommodation: "중앙 세렝게티, 등급별 상이",
         meals: "전 식사",
         accommodationByTier: {
+          trail: {
+            name: "Serengeti Katikati Camp",
+            image: "/images/lodges/serengeti-katikati-camp.webp",
+            amenities: [
+              "ensuite",
+              "restaurant",
+              "wildlife-view"
+            ]
+          },
           reserve: {
-            name: "Mara Mara Tented Lodge",
-            image: "/images/lodges/mara-mara-tented-lodge.webp",
+            name: "Kubukubu Tented Lodge",
+            image: "/images/lodges/kubukubu-tented-lodge.webp",
+            amenities: [
+              "pool",
+              "view",
+              "restaurant"
+            ]
+          },
+          sovereign: {
+            name: "Lemala Nanyukie",
+            image: "/images/lodges/lemala-nanyukie.webp",
             amenities: [
               "wildlife-view",
               "view"
@@ -4976,60 +5194,113 @@ export const packages: SafariPackage[] = [
       },
       {
         day: 5,
-        title: "노던 세렝게티 — 마지막 드라이브",
-        description: "북쪽에서 아침 게임 드라이브를 진행한 뒤 중앙 세렝게티로 남하합니다. 이 루트를 따라 이어지는 정착 야생동물 — 특히 북부의 코끼리와 기린 — 이 여정 내내 풍부한 관찰을 선사합니다.",
-        accommodation: "Serengeti Central Camp",
+        title: "중앙 세렝게티에서 응고롱고로로",
+        description: "연중 정착하는 세로네라의 대형 고양잇과 동물을 둘러보는 반나절입니다 — 사자, 표범, 치타 모두 계절과 무관하게 현실적으로 만날 수 있는 곳입니다 — 이후 응고롱고로 고지대로 이동합니다.",
+        accommodation: "응고롱고로 고지대, 등급별 상이",
         meals: "전 식사",
         accommodationByTier: {
+          trail: {
+            name: "Tortils Ngorongoro Camp",
+            image: "/images/lodges/tortils-ngorongoro-camp.webp",
+            amenities: [
+              "restaurant",
+              "wildlife-view"
+            ]
+          },
           reserve: {
-            name: "Kubu Kubu Tented Lodge",
-            image: "/images/lodges/kubukubu-tented-lodge.webp",
+            name: "Ngorongoro Serena Safari Lodge",
+            image: "/images/lodges/ngorongoro-serena-safari-lodge.webp",
             amenities: [
               "view",
               "restaurant"
+            ]
+          },
+          sovereign: {
+            name: "Melia Ngorongoro Lodge",
+            image: "/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection.webp",
+            amenities: [
+              "view",
+              "restaurant",
+              "spa"
             ]
           }
         }
       },
       {
         day: 6,
-        title: "중앙 세렝게티 — 세로네라",
-        description: "세로네라 주변의 중앙 세렝게티에서 하루를 온전히 보냅니다. 연중 탄자니아에서 가장 신뢰도 높은 대형 고양잇과 동물 서식지입니다 — 사자, 치타, 표범을 거의 확실하게 만날 수 있습니다. 방대한 얼룩말과 버팔로 무리가 평원을 가득 채웁니다.",
-        accommodation: "Serengeti Central Camp",
+        title: "응고롱고로 크레이터 데이 투어",
+        description: "크레이터 바닥으로 내려가는 온전한 하루입니다 — 하나의 폐쇄된 생태계 안에 밀집된 야생동물, 신뢰도 높은 검은코뿔소 관찰, 그리고 탄자니아에서도 손꼽히는 밀집된 사자 무리까지 만날 수 있습니다.",
+        accommodation: "응고롱고로 고지대, 등급별 상이",
         meals: "전 식사",
+        insiderFact: "응고롱고로 크레이터는 약 260km² 규모의 폐쇄된 생태계로, 이곳에 서식하는 동물 대부분은 평생 밖으로 나가지 않습니다. 이 지역에서 가장 신뢰도 높은 검은코뿔소 관찰지 중 한 곳이기도 합니다.",
         accommodationByTier: {
+          trail: {
+            name: "Tortils Ngorongoro Camp",
+            image: "/images/lodges/tortils-ngorongoro-camp.webp",
+            amenities: [
+              "restaurant",
+              "wildlife-view"
+            ]
+          },
           reserve: {
-            name: "Kubu Kubu Tented Lodge",
-            image: "/images/lodges/kubukubu-tented-lodge.webp",
+            name: "Ngorongoro Serena Safari Lodge",
+            image: "/images/lodges/ngorongoro-serena-safari-lodge.webp",
             amenities: [
               "view",
               "restaurant"
+            ]
+          },
+          sovereign: {
+            name: "Melia Ngorongoro Lodge",
+            image: "/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection.webp",
+            amenities: [
+              "view",
+              "restaurant",
+              "spa"
             ]
           }
         }
       },
       {
         day: 7,
-        title: "응고롱고로 크레이터",
-        description: "응고롱고로로 이동해 크레이터로 내려갑니다. 빅파이브 모두가 이 폐쇄된 칼데라 안에 서식합니다. 검은코뿔소는 이곳에서 신뢰도가 높으며, 탄자니아에서도 손꼽히는 밀집된 사자 무리도 함께합니다. 마사이 목축민들이 크레이터 림을 따라 소 떼를 몰고 다니는 모습은 이 지역의 이중적인 유산을 상기시켜 줍니다.",
-        accommodation: "Ngorongoro Crater Lodge",
+        title: "마사이 공동체 & 음토와음부",
+        description: "진짜 마사이 공동체 방문에 이어, 아루샤로 돌아가는 길에 시장 마을 음토와음부에서 정류합니다 — 게임 드라이브 사이에 짜여진 각본이 아니라 진짜 문화 체험 시간입니다.",
+        accommodation: "아루샤, 등급별 상이",
         meals: "전 식사",
         accommodationByTier: {
-          reserve: {
-            name: "The Manor at Ngorongoro",
-            image: "/images/lodges/the-manor-at-ngorongoro.webp",
+          trail: {
+            name: "Kahawa House",
+            image: "/images/lodges/kahawa-house.webp",
             amenities: [
-              "view",
+              "wifi",
               "restaurant",
-              "ensuite"
+              "garden"
+            ]
+          },
+          reserve: {
+            name: "Gran Meliá Arusha",
+            image: "/images/lodges/gran-melia-arusha.webp",
+            amenities: [
+              "wifi",
+              "pool",
+              "spa"
+            ]
+          },
+          sovereign: {
+            name: "Arusha Coffee Lodge",
+            image: "/images/lodges/arusha-coffee-lodge-garden-path.webp",
+            amenities: [
+              "wifi",
+              "pool",
+              "view"
             ]
           }
         }
       },
       {
         day: 8,
-        title: "킬리만자로로 비행 — 출발",
-        description: "여유로운 아침을 보낸 뒤, 킬리만자로 국제공항으로 비행 또는 육로 이동해 귀국 항공편을 탑니다.",
+        title: "아루샤 시티 투어 & 출발",
+        description: "킬리만자로 국제공항으로 이동해 귀국 항공편을 타기 전, 아루샤에서 보내는 마지막 아침입니다.",
         accommodation: "해당 없음",
         meals: "조식"
       }
@@ -5814,70 +6085,128 @@ export const packages: SafariPackage[] = [
   },
   {
     slug: "12-days-rwanda-primates",
-    name: "르완다 영장류 익스피리언스 12일",
+    name: "르완다 영장류 사파리 & 잔지바르 비치 이스케이프",
     duration: 12,
     destinations: [
       "kigali",
-      "akagera",
       "nyungwe",
-      "volcanoes"
+      "volcanoes",
+      "zanzibar"
     ],
-    type: "wildlife",
-    priceFrom: 7500,
+    type: "combination",
+    priceFrom: 7742.08,
     groupSize: {
-      min: 1,
-      max: 8
+      min: 2,
+      max: 6
     },
     bestFor: [
       "couples",
-      "solo",
+      "honeymoon",
       "wildlife-enthusiasts"
     ],
+    tagline: "2027년 시즌에 맞춰 업데이트되었습니다.",
+    metaTitle: "르완다 영장류 사파리 & 잔지바르 비치 이스케이프 | EWA Safari Outfitters",
+    metaDescription: "르완다에서의 침팬지, 고릴라, 골든몽키 트레킹에 이어 잔지바르 해변에서 보내는 4박. 하나의 매끄러운 예약, 1인당 $7,742.08부터.",
     overview: [
-      "대부분의 방문객이 만족하는 고릴라 트레킹 하나만이 아닌, 르완다의 완전한 영장류 서킷입니다. 12일 동안 르완다 유일의 사바나 공원인 아카게라의 사바나와 호수 생태계를 이헤마 호수 보트 사파리와 사향고양이·서벌이 등장하는 나이트 드라이브와 함께 둘러본 뒤, 니웅궤 숲에서 침팬지 트래킹, 숲 바닥에서 50미터 높이의 캐노피 워크웨이, 그리고 아프리카 최대 규모인 약 400마리의 앙골라콜로부스 무리를 만납니다.",
-      "비룽가 산맥은 별도의 날에 마운틴고릴라 트레킹과 골든몽키 트래킹을 모두 진행하며 여정을 마무리하고, 마지막 정류장인 키부 호수에서는 해 질 녘 콩고 국경을 바라보며 호숫가를 카약으로 누비면서 11일간의 여정 끝에 더 조용한 마무리 음을 더합니다."
+      "르완다에는 대부분의 여행자가 단 하나만 보고 마는 세 종의 영장류가 있습니다. 이 일정은 그 세 가지 모두를 추적합니다 — 니웅궤 숲 캐노피를 이동하는 침팬지, 무산제 위 안개 낀 산비탈의 마운틴고릴라, 화산 국립공원의 대나무 숲을 누비는 골든몽키 — 그런 다음 잔지바르 해변에서 아무것도 하지 않는 4박으로 마무리됩니다.",
+      "두 절반은 완전히 다른 톤을 지니고 있으며, 이 일정은 그 둘을 뒤섞지 않고 각각을 존중하도록 설계되었습니다. 르완다는 여러분에게 무언가를 요구합니다: 때로는 고지대에서 이루어지는 진짜 숲 하이킹, 한 번 예약하면 서두르거나 재조정할 수 없는 퍼밋 기반의 트레킹 일자입니다. 잔지바르는 아무것도 요구하지 않습니다. 두 트레킹 지역 사이에는 의도적인 휴지기로서 키부 호수 보트 횡단이 자리하고, 스톤타운에서 보내는 아침이 해변 구간을 열며 이후 일정은 완전히 비워집니다. 침팬지와 고릴라 트레킹은 앉아서 하는 게임 드라이브가 아니라 신체적으로 부담이 큰 액티비티입니다 — 추가 지원이 필요하면 포터를 고용할 수 있으며, 트레킹 자체는 쉽게 만들 수 없는 대신 르완다 전 일정에 걸친 진짜 2박 체류로 피로를 줄이도록 설계되었습니다."
     ],
     highlights: [
-      "화산 국립공원에서의 고릴라 트레킹",
-      "비룽가에서의 골든몽키 트래킹",
-      "니웅궤 숲에서의 침팬지 트래킹",
-      "아카게라 국립공원 — 사바나와 호수 생태계",
-      "키부 호수 카약과 호숫가 일몰"
+      "르완다의 세 가지 영장류 — 침팬지, 마운틴고릴라, 골든몽키 — 각각이 저마다 뚜렷이 구별되는 트레킹 경험",
+      "두 트레킹 지역 사이의 키부 호수 보트 이동 — 단순한 이동일이 아니라 휴식일로 설계",
+      "고릴라 트레킹 날에 더해지는 문화 교류 — 서둘러 끼워 넣은 부대 활동이 아니라 진짜 맥락을 더하는 시간",
+      "잔지바르에서 보내는 온전한 4박 — 스톤타운에서의 아침과 예정 없는 해변 3일 포함",
+      "르완다 전 일정에 걸친 진짜 2박 체류 — 1박짜리 정류 없이, 다음 이동 전 제대로 자리 잡을 시간"
     ],
     heroImage: "/images/gallery/golden-monkey.jpg",
     heroImageAlt: "Close-up portrait of a golden monkey in Rwanda's bamboo forest",
-    gallery: [],
+    gallery: [
+      {
+        src: "/images/gallery/chimpanzees-resting-mossy-log-gombe.jpg",
+        alt: "Chimpanzees resting together on a moss-covered log"
+      }
+    ],
+    pricingTiersProvisional: false,
+    pricingTiers: [
+      {
+        pax: 2,
+        reserve: 8533.75
+      },
+      {
+        pax: 3,
+        reserve: 8137.92
+      },
+      {
+        pax: 4,
+        reserve: 7940
+      },
+      {
+        pax: 5,
+        reserve: 7821.25
+      },
+      {
+        pax: 6,
+        reserve: 7742.08
+      }
+    ],
     included: [
-      "전 국립공원 및 영장류 퍼밋 요금",
-      "전 게임 드라이브 및 보트 투어",
-      "전문 가이드",
-      "전 식사",
-      "숙박",
+      "전 국립공원 및 트레킹 퍼밋 요금",
+      "전 일정의 차량, 가이드, 연료",
+      "명시된 전 액티비티",
+      "명시된 숙박 시설",
+      "키갈리–카멤베 및 키갈리–잔지바르 항공편",
       "공항 이동"
     ],
     excluded: [
       "국제선 항공권",
       "비자 발급 비용",
       "여행자 보험",
-      "팁"
+      "팁",
+      "개인 경비"
     ],
     notes: [
       "표시된 요금은 더블/트윈룸 2인 공유 기준 1인당 요금입니다. 싱글룸 이용 시 추가 요금이 발생합니다.",
       "고릴라, 침팬지, 골든몽키 트레킹은 각각 르완다 개발청이 사전에 배정하는 제한된 퍼밋 기반 액티비티입니다.",
-      "숙박 시설 및 요금은 예약 가능 여부에 따라 달라지며, 동일 시즌 내에서도 정확한 여행 날짜에 따라 변동될 수 있습니다.",
-      "르완다 국립공원 및 보호구역 요금은 정부가 책정하며 사전 통보 없이 변경될 수 있습니다."
+      "고릴라 및 침팬지 트레킹에는 최소 연령이 있으며, 이는 르완다 공원 당국이 정한 기준으로 변경될 수 있습니다 — 예약 시 담당 컨설턴트에게 현재 연령 기준을 확인해 주세요.",
+      "숙박 시설 및 요금은 예약 가능 여부에 따라 달라지며, 동일 시즌 내에서도 정확한 여행 날짜에 따라 변동될 수 있습니다."
+    ],
+    faq: [
+      {
+        q: "이 일정은 체력적으로 힘든가요?",
+        a: "르완다 구간은 확실히 힘듭니다 — 침팬지와 고릴라 트레킹은 때로는 가파르거나 고르지 않은 지형에서, 때로는 고지대에서 이루어지는 진짜 숲 하이킹입니다. 잔지바르 구간은 아무것도 요구하지 않습니다. 르완다 트레킹에서 추가 지원이 필요하면 포터를 고용할 수 있습니다."
+      },
+      {
+        q: "세 가지 영장류 트레킹의 차이는 무엇인가요?",
+        a: "니웅궤에서의 침팬지 트레킹은 더 빠르게 움직이고 더 활발하게 소리 내는 영장류를 찾아 더 빽빽한 숲을 누빕니다. 무산제 위의 고릴라 트레킹은 순치된 가족과 함께하는, 엄격하게 규제된 한 시간의 만남입니다. 골든몽키 트레킹은 셋 중 가장 활기차고 빠른 속도로, 대나무 숲을 무대로 진행됩니다."
+      },
+      {
+        q: "왜 이 일정에는 키부 호수 보트 이동이 포함되나요?",
+        a: "두 트레킹 지역 사이의 의도적인 휴지기입니다 — 단순한 이동이 아니라 진정으로 쉬어가는 하루이자, 아프리카 대호수 중 한 곳을 건너는 경관 좋은 하루이기도 합니다."
+      },
+      {
+        q: "요금에 포함되는 것과 포함되지 않는 것은 무엇인가요?",
+        a: "포함: 전 국립공원 및 트레킹 퍼밋 요금, 전 일정의 차량·가이드·연료, 명시된 전 액티비티, 명시된 숙박 시설, 키갈리–카멤베 및 키갈리–잔지바르 항공편, 공항 이동. 미포함: 국제선 항공권, 비자 발급 비용, 여행자 보험, 팁, 개인 경비."
+      },
+      {
+        q: "일정을 단축할 수 있나요, 아니면 12일 전체가 꼭 필요한가요?",
+        a: "전체 일정은 두 절반 모두에 적절한 시간을 배정합니다 — 르완다 구간을 서두르면 퍼밋을 놓치거나 해변으로 넘어가기 전 그룹이 지칠 위험이 있고, 잔지바르를 단축하면 이 여정이 마무리로 설계된 휴식을 훼손합니다. 구체적인 시간 제약이 있으시면 담당 컨설턴트에게 문의해 주세요."
+      },
+      {
+        q: "인원수에 따라 요금이 얼마나 달라지나요?",
+        a: "차량, 가이드, 디젤 비용은 그룹 전체가 함께 부담하므로 참여 인원이 늘어날수록 1인당 요금은 낮아집니다 — 위의 요금표를 참고해 주세요."
+      }
     ],
     itinerary: [
       {
         day: 1,
         title: "키갈리 도착",
-        description: "키갈리 국제공항에 도착해 호텔로 이동합니다. 깨끗한 거리와 활기찬 음식 문화 덕분에 키갈리는 아프리카에서 가장 놀라운 수도 중 하나로 꼽힙니다.",
-        accommodation: "Kigali Hotel",
+        description: "키갈리에 도착해 첫날 저녁은 여유롭게 보내십시오 — 처음 방문하는 대부분의 여행자를 놀라게 하는, 깨끗하고 질서정연한 수도입니다.",
+        accommodation: "Kigali Serena Hotel",
         meals: "석식",
         accommodationByTier: {
           reserve: {
-            name: "Radisson Blu Hotel & Convention Centre, Kigali",
-            image: "/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp",
+            name: "Kigali Serena",
+            image: "/images/lodges/kigali-serena.webp",
             amenities: [
               "pool",
               "restaurant",
@@ -5888,14 +6217,82 @@ export const packages: SafariPackage[] = [
       },
       {
         day: 2,
-        title: "키갈리 대학살 추모관",
-        description: "키갈리 대학살 추모관을 방문합니다. 25만 명의 희생자가 안장된 전시관과 정원을 거니는 것은 르완다가 비극에서 아프리카에서 가장 진보적인 국가 중 하나로 나아가는 여정을 이해하는 데 있어 엄숙하지만 반드시 필요한 체험입니다.",
-        accommodation: "Kigali Hotel",
-        meals: "조식, 석식",
+        title: "키갈리에서 니웅궤 국립공원으로",
+        description: "카멤베행 항공편이 긴 육로 이동을 대신해, 내일 트레킹에 앞서 숲 가까이에서 여유롭게 자리 잡을 수 있는 오후를 선사합니다.",
+        accommodation: "Munazi Eco Lodge",
+        meals: "전 식사",
         accommodationByTier: {
           reserve: {
-            name: "Radisson Blu Hotel & Convention Centre, Kigali",
-            image: "/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp",
+            name: "Munazi Eco Lodge",
+            image: "https://placehold.co/800x600/1C3A2A/D4A853?text=Munazi+Eco+Lodge",
+            amenities: [
+              "restaurant",
+              "wildlife-view"
+            ]
+          }
+        }
+      },
+      {
+        day: 3,
+        title: "니웅궤에서의 침팬지 트레킹",
+        description: "아프리카에서 가장 오래된 우림 중 한 곳을 가이드와 함께 걸으며 니웅궤의 침팬지 공동체를 찾아 나섭니다 — 마운틴고릴라보다 더 빠르게 움직이고 더 활발하게 소리 내는 만큼, 완전히 다른 트레킹의 리듬을 경험하게 됩니다.",
+        accommodation: "Munazi Eco Lodge",
+        meals: "전 식사",
+        accommodationByTier: {
+          reserve: {
+            name: "Munazi Eco Lodge",
+            image: "https://placehold.co/800x600/1C3A2A/D4A853?text=Munazi+Eco+Lodge",
+            amenities: [
+              "restaurant",
+              "wildlife-view"
+            ]
+          }
+        }
+      },
+      {
+        day: 4,
+        title: "니웅궤 보트 투어와 무산제로 이동",
+        description: "의도적으로 여유로운 하루입니다 — 무산제로 향하는 이동에 앞서 키부 호수를 가로지르는 보트 투어가 이어지며, 무산제는 비룽가 화산군의 그늘 아래 자리합니다.",
+        accommodation: "Ingagi Lodge",
+        meals: "전 식사",
+        accommodationByTier: {
+          reserve: {
+            name: "Ingagi Lodge",
+            image: "/images/lodges/ingagi-lodge.webp",
+            amenities: [
+              "view",
+              "garden"
+            ]
+          }
+        }
+      },
+      {
+        day: 5,
+        title: "고릴라 트레킹과 문화 교류",
+        description: "트래커들이 숲속으로 앞장서 순치된 마운틴고릴라 가족을 찾아 나섭니다. 무리를 찾으면 엄격하게 규제된 한 시간 동안 실버백, 새끼를 안은 어미, 뛰노는 어린 개체들을 곁에서 지켜봅니다. 오후에는 지역 공동체와의 문화 교류가 이어집니다.",
+        accommodation: "Ingagi Lodge",
+        meals: "전 식사",
+        accommodationByTier: {
+          reserve: {
+            name: "Ingagi Lodge",
+            image: "/images/lodges/ingagi-lodge.webp",
+            amenities: [
+              "view",
+              "garden"
+            ]
+          }
+        }
+      },
+      {
+        day: 6,
+        title: "골든몽키 트레킹과 키갈리로 이동",
+        description: "고릴라 트레킹보다 더 빠르고 활기찬 아침입니다 — 골든몽키는 대나무 캐노피를 빠르게 이동하므로, 트레킹은 인내심만큼이나 속도를 맞추는 일이 됩니다.",
+        accommodation: "Kigali Serena",
+        meals: "전 식사",
+        accommodationByTier: {
+          reserve: {
+            name: "Kigali Serena",
+            image: "/images/lodges/kigali-serena.webp",
             amenities: [
               "pool",
               "restaurant",
@@ -5905,87 +6302,18 @@ export const packages: SafariPackage[] = [
         }
       },
       {
-        day: 3,
-        title: "아카게라로 이동 — 대학살 생존자 공동체",
-        description: "동쪽 아카게라 국립공원을 향해 이동합니다. 도중에는 대학살 생존자들이 운영하는 여성 농업 협동조합에 들릅니다 — 화해와 회복력을 보여주는 놀라운 사례입니다. 이 공동체는 방문객을 환영하며 협동조합의 가이드 투어를 통해 그들의 이야기를 나눕니다.",
-        accommodation: "Akagera Game Lodge",
-        meals: "전 식사",
-        accommodationByTier: {
-          reserve: {
-            name: "Ruzizi Tented Lodge",
-            image: "/images/lodges/ruzizi-tented-lodge.webp",
-            amenities: [
-              "view",
-              "wildlife-view"
-            ]
-          }
-        }
-      },
-      {
-        day: 4,
-        title: "아카게라 국립공원 — 사바나 게임 드라이브",
-        description: "아카게라에서 아침과 오후 게임 드라이브를 진행합니다 — 최근 사자와 검은코뿔소를 재도입한 르완다 유일의 사바나 공원입니다. 코끼리는 파피루스 습지를 헤치며 이동하고, 하마는 호숫가 얕은 물을 차지하며, 악어는 강둑에서 일광욕을 즐깁니다. 이 공원의 다양한 서식지는 480종이 넘는 조류를 지탱합니다.",
-        accommodation: "Akagera Game Lodge",
-        meals: "전 식사",
-        accommodationByTier: {
-          reserve: {
-            name: "Ruzizi Tented Lodge",
-            image: "/images/lodges/ruzizi-tented-lodge.webp",
-            amenities: [
-              "view",
-              "wildlife-view"
-            ]
-          }
-        }
-      },
-      {
-        day: 5,
-        title: "아카게라 — 보트 사파리와 나이트 드라이브",
-        description: "이헤마 호수에서의 아침 보트 사파리로 하마, 악어, 밀집된 물새 군집을 가까이서 만납니다. 오후에는 공원 완충 지대를 자전거로 둘러봅니다. 저녁의 나이트 드라이브에서는 어둠 속을 사냥하는 사향고양이, 제넷, 서벌, 갈라고를 만날 수 있습니다.",
-        accommodation: "Akagera Game Lodge",
-        meals: "전 식사",
-        accommodationByTier: {
-          reserve: {
-            name: "Ruzizi Tented Lodge",
-            image: "/images/lodges/ruzizi-tented-lodge.webp",
-            amenities: [
-              "view",
-              "wildlife-view"
-            ]
-          }
-        }
-      },
-      {
-        day: 6,
-        title: "니웅궤 숲으로 이동",
-        description: "르완다를 가로질러 남서쪽 니웅궤 숲 국립공원까지 7시간을 이동합니다. 도중에는 니안자에 재건된 르완다 왕가의 궁전을 방문하며 왕실 무용단의 전통 무용 공연도 관람합니다. 저녁 무렵 니웅궤에 도착합니다.",
-        accommodation: "Nyungwe Forest Lodge",
-        meals: "전 식사",
-        accommodationByTier: {
-          reserve: {
-            name: "One&Only Nyungwe House",
-            image: "/images/lodges/one-only-nyungwe-house.webp",
-            amenities: [
-              "view",
-              "spa",
-              "restaurant"
-            ]
-          }
-        }
-      },
-      {
         day: 7,
-        title: "니웅궤 숲 — 침팬지 트래킹",
-        description: "니웅궤는 아프리카에서 가장 오래되고 가장 큰 산악 우림 중 하나로, 13종의 영장류를 품고 있습니다. 오늘의 중심은 침팬지 트래킹으로, 빽빽한 숲 캐노피를 지나 순치된 공동체를 따라갑니다. 이곳에서는 300종이 넘는 조류가 기록되어 있으며, 알베르틴 리프트 고유종도 포함됩니다.",
-        accommodation: "Nyungwe Forest Lodge",
-        meals: "전 식사",
+        title: "키갈리에서 잔지바르로",
+        description: "키갈리에서 잔지바르로 향하는 비행이 여정의 모험적인 절반을 마무리하고 휴식의 절반을 엽니다.",
+        accommodation: "Zanzibar Serena",
+        meals: "조식",
         accommodationByTier: {
           reserve: {
-            name: "One&Only Nyungwe House",
-            image: "/images/lodges/one-only-nyungwe-house.webp",
+            name: "Zanzibar Serena",
+            image: "https://placehold.co/800x600/1C3A2A/D4A853?text=Zanzibar+Serena",
             amenities: [
-              "view",
-              "spa",
+              "pool",
+              "beachfront",
               "restaurant"
             ]
           }
@@ -5993,78 +6321,76 @@ export const packages: SafariPackage[] = [
       },
       {
         day: 8,
-        title: "니웅궤 — 캐노피 워크웨이와 콜로부스 원숭이",
-        description: "숲 바닥에서 50미터 높이에 매달린 니웅궤 캐노피 브리지를 걸으며 우림을 새의 눈으로 조망합니다. 오후에는 가이드 동반 트레일을 따라 아프리카 최대 규모인 약 400마리의 앙골라콜로부스 무리를 찾아 나섭니다.",
-        accommodation: "Nyungwe Forest Lodge",
-        meals: "전 식사",
+        title: "스톤타운 투어",
+        description: "스톤타운의 구불구불한 골목길, 스파이스 마켓, 스와힐리-아랍 건축을 둘러보는 아침 이후 해변으로 향합니다.",
+        accommodation: "Nungwi Dreams By Mantis",
+        meals: "조식",
         accommodationByTier: {
           reserve: {
-            name: "One&Only Nyungwe House",
-            image: "/images/lodges/one-only-nyungwe-house.webp",
+            name: "Nungwi Dreams By Mantis",
+            image: "/images/lodges/nungwi-dreams-by-mantis.webp",
             amenities: [
-              "view",
-              "spa",
-              "restaurant"
+              "restaurant",
+              "beachfront"
             ]
           }
         }
       },
       {
         day: 9,
-        title: "고릴라 트레킹 — 화산 국립공원",
-        description: "북쪽 키니기로 이동해 비룽가의 대나무 숲에서 순치된 마운틴고릴라 가족을 추적합니다. 이 위대한 유인원들 곁에서 보내는 한 시간 — 실버백, 새끼를 안은 어미, 호기심 많은 어린 개체들을 지켜보는 시간 — 은 인생을 바꿀 만한 만남입니다. 이후 무헤자 고릴라 수의학 프로젝트를 방문합니다.",
-        accommodation: "Ruhengeri Hotel",
-        meals: "전 식사",
+        title: "해변에서의 휴식",
+        description: "일정에 아무것도 없는 온전한 3일 중 첫날입니다. 해변만이 전부입니다.",
+        accommodation: "Nungwi Dreams By Mantis",
+        meals: "조식",
         accommodationByTier: {
           reserve: {
-            name: "Kinigi Guest House",
-            image: "/images/lodges/kinigi-guest-house.webp",
+            name: "Nungwi Dreams By Mantis",
+            image: "/images/lodges/nungwi-dreams-by-mantis.webp",
             amenities: [
-              "view",
-              "garden"
+              "restaurant",
+              "beachfront"
             ]
           }
         }
       },
       {
         day: 10,
-        title: "골든몽키 트래킹",
-        description: "화산 국립공원으로 돌아가 골든몽키 트래킹을 진행합니다. 알베르틴 리프트에서만 발견되는 이 화려한 색채의 영장류는 대나무 숲을 빠르게 이동하는 무리를 이루어, 흥미진진하고 사진 찍기 좋은 피사체가 되어 줍니다.",
-        accommodation: "Ruhengeri Hotel",
-        meals: "전 식사",
+        title: "해변에서의 휴식",
+        description: "잔지바르 백사장 해안에서 보내는 두 번째 온전한 자유의 날입니다.",
+        accommodation: "Nungwi Dreams By Mantis",
+        meals: "조식",
         accommodationByTier: {
           reserve: {
-            name: "Kinigi Guest House",
-            image: "/images/lodges/kinigi-guest-house.webp",
+            name: "Nungwi Dreams By Mantis",
+            image: "/images/lodges/nungwi-dreams-by-mantis.webp",
             amenities: [
-              "view",
-              "garden"
+              "restaurant",
+              "beachfront"
             ]
           }
         }
       },
       {
         day: 11,
-        title: "키부 호수 — 루바부",
-        description: "키부 호수 호숫가의 루바부(기세니)로 이동합니다. 에메랄드빛의 이 칼데라 호수는 아프리카 대호수 중 하나로, 식민지 시대의 저택과 활기찬 어촌 공동체가 어우러져 있습니다. 오후에는 호수에서 카약을 즐기고, 물 위로 마지막 빛이 사라질 무렵 콩고 국경을 바라보며 선다우너 칵테일을 즐깁니다.",
-        accommodation: "Lake Kivu Serena Hotel",
-        meals: "전 식사",
+        title: "해변에서의 휴식",
+        description: "마지막 온전한 해변의 날입니다 — 리프 다이빙, 석양 다우선 항해, 혹은 그저 아무것도 하지 않으셔도 좋습니다.",
+        accommodation: "Nungwi Dreams By Mantis",
+        meals: "조식",
         accommodationByTier: {
           reserve: {
-            name: "Lake Kivu Serena Hotel",
-            image: "/images/lodges/lake-kivu-serena-hotel.webp",
+            name: "Nungwi Dreams By Mantis",
+            image: "/images/lodges/nungwi-dreams-by-mantis.webp",
             amenities: [
-              "pool",
-              "view",
-              "restaurant"
+              "restaurant",
+              "beachfront"
             ]
           }
         }
       },
       {
         day: 12,
-        title: "출발 — 키갈리",
-        description: "귀국 항공편을 위해 키갈리 국제공항으로 이동합니다. 아프리카에서 가장 특별한 국가 중 한 곳을 가로지르며 영장류와의 만남, 깊은 문화 체험, 자연의 아름다움을 담은 12일간의 여정입니다.",
+        title: "출발",
+        description: "귀국 국제선 연결을 위해 잔지바르 공항으로 이동합니다.",
         accommodation: "해당 없음",
         meals: "조식"
       }
@@ -8148,49 +8474,69 @@ export const packages: SafariPackage[] = [
     ]
   },
   {
-    slug: "12-days-grand-safari",
-    name: "12일 그랜드 사파리",
-    duration: 12,
+    slug: "14-days-kilimanjaro-lemosho-safari",
+    name: "킬리만자로 레모쇼 등반 & 5일 하이라이트 사파리",
+    duration: 14,
     destinations: [
-      "nyerere",
-      "ruaha",
+      "arusha",
       "serengeti",
       "ngorongoro"
     ],
-    type: "wildlife",
-    priceFrom: 7800,
+    type: "combination",
+    priceFrom: 6607.58,
     groupSize: {
-      min: 1,
-      max: 8
+      min: 2,
+      max: 4
     },
-    badge: "bestseller",
+    badge: "new",
     bestFor: [
       "couples",
       "solo",
       "wildlife-enthusiasts"
     ],
+    tagline: "2027년 시즌에 맞춰 업데이트되었습니다.",
+    metaTitle: "킬리만자로 등반 & 사파리 | 레모쇼 루트 + 세렝게티 & 응고롱고로 | EWA Safari Outfitters",
+    metaDescription: "레모쇼 루트로 킬리만자로 정상에 오른 뒤, 곧장 세렝게티와 응고롱고로 크레이터로 비행합니다. 14일, 하나의 매끄러운 예약. 1인당 $6,607.58부터.",
     overview: [
-      "'그랜드 사파리'라 부르는 이유는, 저희가 제공하는 일정 중 실제로 탄자니아를 처음부터 끝까지 아우르는 유일한 여정이기 때문입니다 — 거칠고 인적 드문 남부와 유명하고 붐비는 북부를 한 번의 여행으로 모두 만나봅니다.",
-      "여정은 니에레레 국립공원 깊숙한 곳에서 며칠을 보내는 것으로 시작됩니다. 탄자니아 최대 규모의 보호구역을 게임 드라이브와 루피지 강 보트 사파리로 탐험한 뒤, 미쿠미를 거쳐 루아하로 이어집니다. 루아하는 탄자니아 최대의 국립공원이자 진지한 야생동물 애호가들에게 가장 흥미진진한 곳으로, 수천 마리의 코끼리와 함께 국내 최고 밀도의 사자, 표범, 치타, 리카온이 서식합니다. 국내선 항공편으로 북부 순환 루트로 이동한 뒤, 세렝게티의 끝없는 평원과 응고롱고로 크레이터로의 완전한 하강으로 여정을 마무리합니다. 12일, 5개의 국립공원, 그리고 아무도 찾지 않는 원시 자연부터 모두가 찾는 보석 같은 명소까지, 탄자니아가 실제로 제공하는 모든 것에 대한 완벽한 답입니다."
+      "이 일정은 등반가들이 그 어떤 질문보다도 자주 던지는 물음에 답합니다: 정상 정복 후에는 무엇이 남는가? 가이드들 사이에서 킬리만자로에서 가장 완전한 루트이자 가장 높은 등정 성공률을 자랑하는 것으로 널리 평가받는 레모쇼 루트에서의 8일에 이어, 아루샤에서의 완전한 휴식일, 그리고 세렝게티로 곧장 비행해 응고롱고로 크레이터에서 보내는 온전한 하루로 이어집니다.",
+      "두 절반은 의도적으로 순서가 짜여 있습니다. 레모쇼를 마친 등반가들은 신체적으로 완전히 지친 상태이므로, 이 일정은 사파리를 시작하기 전에 진짜 회복 시간을 확보해 두었으며, 또다시 긴 육로 이동 대신 비행기로 이들을 다시 야생 속으로 옮겨줍니다. 14일, 하나의 연속된 예약, 별도의 트레킹 여행사와 별도의 사파리 여행사를 조율할 필요가 없습니다."
     ],
     highlights: [
-      "탄자니아 완전 일주 — 남부에서 북부까지",
-      "니에레레, 미쿠미, 루아하, 세렝게티, 응고롱고로",
-      "니에레레의 루피지 강 보트 사파리",
-      "루아하 — 탄자니아에서 가장 장엄한 원시 자연",
-      "북부 세렝게티와 응고롱고로로 마무리"
+      "레모쇼 루트의 완전한 8일 고도순응 프로파일 — 킬리만자로에서도 가장 높은 등정 성공률(약 90~95%)",
+      "생략되지 않는 진짜 휴식일 — 사파리 시작 전 실질적인 회복 시간",
+      "아루샤에서 세렝게티로 곧장 이어지는 비행 — 두 번째 긴 육로 이동을 피합니다",
+      "응고롱고로 크레이터에서 보내는 온전한 하루 — 이 지역에서 빅파이브를 만날 확률이 가장 높은 곳 중 하나",
+      "하나의 연속된 예약, 하나의 가이드 관계 — 트레킹 여행사와 사파리 여행사를 따로 조율할 필요 없음"
     ],
     heroImage: "/images/gallery/Grand-Tanzania-Safari-lion.jpg",
     heroImageAlt: "Lioness resting alertly on a fallen tree trunk in Tarangire's savanna",
     gallery: [],
+    pricingTiersProvisional: true,
+    pricingTiers: [
+      {
+        pax: 2,
+        reserve: 6607.58,
+        sovereign: 8290.98
+      },
+      {
+        pax: 3,
+        reserve: 6607.58,
+        sovereign: 8290.98
+      },
+      {
+        pax: 4,
+        reserve: 6607.58,
+        sovereign: 8290.98
+      }
+    ],
     included: [
-      "모든 국립공원 입장료",
-      "모든 게임 드라이브 및 보트 사파리",
-      "탄자니아 국내선 항공편",
-      "전문 가이드",
-      "전 일정 식사",
-      "숙박",
-      "공항 송영"
+      "전 킬리만자로 국립공원 요금",
+      "KINAPA 인증 가이드 및 전체 산악 크루",
+      "산행 중 장비 및 식사",
+      "아루샤–세로네라 항공편",
+      "전 사파리 국립공원 및 보호구역 요금",
+      "게임 드라이브",
+      "13박 전체의 명시된 숙박 시설"
     ],
     excluded: [
       "국제선 항공권",
@@ -8199,177 +8545,148 @@ export const packages: SafariPackage[] = [
       "팁"
     ],
     notes: [
-      "표시된 요금은 더블/트윈룸을 2인이 함께 사용할 경우 1인당 요금이며, 싱글룸 이용 시 추가 요금이 적용됩니다.",
-      "일정 중반, 남부 순환 루트에서 북부 세렝게티로 이동할 때는 국내 전세기를 이용합니다.",
-      "숙박시설 및 요금은 예약 가능 여부에 따라 달라질 수 있으며, 같은 시즌 내에서도 정확한 여행 날짜에 따라 변동될 수 있습니다.",
-      "탄자니아 국립공원 및 보전구역 입장료는 정부가 책정하며, 사전 예고 없이 변경될 수 있습니다."
+      "표시된 요금은 더블/트윈룸 2인 공유 기준 1인당 요금입니다. 싱글룸 이용 시 추가 요금이 발생합니다.",
+      "표시된 요금은 2~4인 기준이며, 5~6인 요금은 담당 컨설턴트에게 별도로 문의해 주세요.",
+      "더 합리적인 옵션(윌더니스 트레일 수준의 숙박에 해당)은 정식 등급으로 게시되는 대신 요청 시 제공됩니다 — 담당 컨설턴트에게 견적을 문의해 주세요.",
+      "숙박 시설 및 요금은 예약 가능 여부에 따라 달라지며, 동일 시즌 내에서도 정확한 여행 날짜에 따라 변동될 수 있습니다."
+    ],
+    faq: [
+      {
+        q: "왜 킬리만자로를 사파리와 따로 예약하지 않고 결합하나요?",
+        a: "트레킹 여행사와 별도의 사파리 여행사를 조율하려면 두 번의 예약, 두 세트의 물류, 그리고 그 사이의 전환이 제대로 처리된다는 보장도 없습니다. 이 일정은 두 여정을 하나의 연속된 예약으로 운영하며, 여러분이 직접 준비할 필요 없이 그 사이에 휴식일을 미리 넣어 둡니다."
+      },
+      {
+        q: "등반과 사파리 사이에 휴식일이 꼭 필요한가요?",
+        a: "강력히 권장합니다. 부담이 큰 정상 정복 밤을 포함한 산에서의 8일은 대부분의 등반가에게 확실한 피로를 남깁니다 — 사파리를 시작하기 전 진짜 회복의 하루를 가지면, 곧바로 이어서 진행하는 것보다 여정의 후반부를 훨씬 더 즐길 수 있습니다."
+      },
+      {
+        q: "왜 세렝게티까지 육로 대신 비행으로 이동하나요?",
+        a: "8일간의 트레킹 이후 또 다른 긴 육로 이동은 적절한 다음 단계가 아닙니다. 아루샤에서의 비행편은 당일에 현장으로 들어설 수 있게 하며, 등반의 신체적 부담 위에 차량에서 보내는 시간을 더 얹지 않습니다."
+      },
+      {
+        q: "이 일정의 등정 성공률은 어느 정도인가요?",
+        a: "레모쇼 루트의 8일 일정은 약 90~95%의 성공률을 기록하며, 이는 산에 있는 표준 루트 중에서도 가장 높은 수준입니다 — 확장된 고도순응 프로파일이 직접적인 원인입니다."
+      },
+      {
+        q: "이 조합에서 다른 레모쇼 일정(6일 또는 7일)을 선택할 수 있나요?",
+        a: "네 — 6일 및 7일 레모쇼 옵션으로 대체할 수 있습니다. 다만 이어지는 사파리와의 조합에서는 성공률이 더 높은 8일 버전이 일반적으로 더 나은 선택입니다."
+      },
+      {
+        q: "요금에 포함되는 것과 포함되지 않는 것은 무엇인가요?",
+        a: "포함: 전 킬리만자로 국립공원 요금, KINAPA 인증 가이드 및 전체 산악 크루, 산행 중 장비 및 식사, 아루샤–세로네라 항공편, 전 사파리 국립공원 및 보호구역 요금, 게임 드라이브, 13박 전체의 명시된 숙박 시설. 미포함: 국제선 항공권, 비자 발급 비용, 여행자 보험, 팁."
+      },
+      {
+        q: "잔지바르나 르완다로 더 연장할 수 있나요?",
+        a: "네 — 14일 차 이후 잔지바르 해변 연장은 여정을 완전히 이완된 상태로 마무리하는 인기 있는 방법입니다. 이 연장이나 르완다 고릴라 트레킹 연장 추가에 대해 담당 컨설턴트에게 문의해 주세요."
+      }
     ],
     itinerary: [
       {
         day: 1,
-        title: "니에레레 국립공원 도착",
-        description: "다르에스살람의 줄리어스 니에레레 국제공항에 도착한 후 육로로 니에레레 국립공원까지 이동해, 루피지 강변에 자리한 로지에 여장을 풉니다. 선택 가능한 선셋 보트 투어를 통해 하마, 악어, 물새를 가까이서 만나보는 첫 야생동물 체험을 즐길 수 있습니다.",
-        accommodation: "Rufiji River Camp",
-        meals: "석식",
-        accommodationByTier: {
-          reserve: {
-            name: "Rufiji River Camp",
-            image: "/images/lodges/rufiji-river-camp.webp",
-            amenities: [
-              "view",
-              "wildlife-view"
-            ]
-          }
-        }
+        title: "모시 도착",
+        description: "모시의 호텔로 이동합니다. 리드 가이드가 등반 전 전체 브리핑을 위해 여러분을 만납니다 — 장비 점검, 루트 개요, 고도 안전 프로토콜, 정상 정복 전략까지 안내합니다.",
+        accommodation: "모시 소재 호텔",
+        meals: "석식"
       },
       {
         day: 2,
-        title: "니에레레 — 사자 무리와 코끼리 떼",
-        description: "탄자니아 최대 규모의 국립공원에서 종일 게임 드라이브를 즐깁니다. 사자 무리가 탁 트인 평원을 순찰하고, 코끼리 떼가 강과 삼림지대 사이를 오가며, 쿠두, 기린, 버팔로가 사방을 가득 채웁니다. 이 공원은 정말로 한적해서, 몇 시간 동안 다른 차량을 마주치지 않을 수도 있습니다.",
-        accommodation: "Rufiji River Camp",
-        meals: "전 일정 식사",
-        accommodationByTier: {
-          reserve: {
-            name: "Rufiji River Camp",
-            image: "/images/lodges/rufiji-river-camp.webp",
-            amenities: [
-              "view",
-              "wildlife-view"
-            ]
-          }
-        }
+        title: "모시 → 론도로시 게이트 → 음티 음쿠부 캠프",
+        description: "레모쇼 국립공원 게이트까지 차량으로 이동한 뒤, 울창한 산악림을 도보로 지나 음티 음쿠부('큰 나무') 캠프사이트에 도착합니다 — 꾸준하고 완만한 첫날입니다.",
+        accommodation: "Mti Mkubwa Camp",
+        meals: "전 식사",
+        location: "고도: 2,650m(8,694ft)"
       },
       {
         day: 3,
-        title: "니에레레 — 루피지 강 선다우너",
-        description: "오전에는 공원의 더 외진 삼림지대에서 게임 드라이브를 즐기고, 오후 내내 루피지 강에서 보트 사파리를 즐깁니다. 모래톱은 하마 무리가 차지하고, 악어는 강둑에서 일광욕을 즐기며, 빽빽한 물새 군락이 나무를 가득 메웁니다. 강물이 금빛으로 물들 때 보트 위에서 선다우너가 제공됩니다.",
-        accommodation: "Rufiji River Camp",
-        meals: "전 일정 식사",
-        accommodationByTier: {
-          reserve: {
-            name: "Rufiji River Camp",
-            image: "/images/lodges/rufiji-river-camp.webp",
-            amenities: [
-              "view",
-              "wildlife-view"
-            ]
-          }
-        }
+        title: "음티 음쿠부 캠프 → 시라 2 캠프",
+        description: "트레일은 거대한 히스 관목지대와 황무지로 가팔라지며, 시라 능선을 넘어 탁 트인 황무지 초원의 시라 2 캠프에 도착합니다. 상당한 고도 상승이 이어지는 구간입니다.",
+        accommodation: "Shira 2 Camp",
+        meals: "전 식사",
+        location: "고도: 3,850m(12,631ft)"
       },
       {
         day: 4,
-        title: "미쿠미 국립공원으로 이동",
-        description: "니에레레에서 오전 게임 드라이브를 즐긴 후 북쪽으로 이동해 미쿠미 국립공원으로 향합니다. 미쿠미는 남부와 북부 순환 루트를 잇는 훌륭한 전환점으로, 코끼리, 일런드, 기린, 대형 고양잇과 동물을 탁 트인 므카타 평원의 주요 도로에서도 볼 수 있습니다.",
-        accommodation: "Mikumi Wildlife Lodge",
-        meals: "전 일정 식사",
-        accommodationByTier: {
-          reserve: {
-            name: "Mikumi Wildlife Lodge",
-            image: "/images/lodges/mikumi-wildlife-lodge.webp",
-            amenities: [
-              "pool",
-              "view",
-              "restaurant"
-            ]
-          }
-        }
+        title: "시라 2 캠프 → 바랑코 캠프",
+        description: "시라 고원을 동쪽으로 가로질러 해발 4,650m(15,256ft)의 라바 타워에 도착한 뒤 바랑코 캠프로 내려갑니다 — '높이 올라갔다가 낮게 자는' 전형적인 고도 순응일입니다.",
+        accommodation: "Barranco Camp",
+        meals: "전 식사",
+        location: "고도: 4,000m(13,123ft)"
       },
       {
         day: 5,
-        title: "미쿠미 국립공원 — 므카타 평원",
-        description: "오전과 오후 게임 드라이브로 므카타 범람원에서 온전한 하루를 보냅니다. 코끼리들이 가족 단위로 풀을 뜯고, 사자 무리는 그늘나무 아래에서 휴식을 취하며, 치타는 높이 솟은 흰개미 둔덕 위에서 주변을 살핍니다. 탁 트인 지형 덕분에 동물을 발견하기 쉽고 만족스러운 경험이 됩니다.",
-        accommodation: "Mikumi Wildlife Lodge",
-        meals: "전 일정 식사",
-        accommodationByTier: {
-          reserve: {
-            name: "Mikumi Wildlife Lodge",
-            image: "/images/lodges/mikumi-wildlife-lodge.webp",
-            amenities: [
-              "pool",
-              "view",
-              "restaurant"
-            ]
-          }
-        }
+        title: "바랑코 캠프 → 카랑가 캠프",
+        description: "바랑코 월(기술적인 등반이 아닌 스크램블 구간)을 올라 산에서 마지막 수원인 카랑가 계곡에 도착합니다.",
+        accommodation: "Karanga Camp",
+        meals: "전 식사",
+        location: "고도: 4,050m(13,287ft)"
       },
       {
         day: 6,
-        title: "루아하 국립공원으로 이동",
-        description: "서쪽으로 이동해 남부 고지대의 아름다운 풍경을 지나 루아하 국립공원으로 향합니다. 탄자니아 최대 국립공원에 들어서면서 경작지 언덕이 야생의 미옴보 삼림지대로 바뀌어 갑니다.",
-        accommodation: "Ruaha River Lodge",
-        meals: "전 일정 식사",
-        accommodationByTier: {
-          reserve: {
-            name: "Ruaha River Lodge",
-            image: "/images/lodges/ruaha-river-lodge-dining-pavilion.webp",
-            amenities: [
-              "view",
-              "wildlife-view"
-            ]
-          }
-        }
+        title: "카랑가 캠프 → 바라푸 캠프",
+        description: "정상이 한눈에 펼쳐지는 바라푸 캠프까지 짧게 이동합니다. 휴식, 이른 저녁 식사, 그리고 정상 정복 밤을 위한 최종 준비가 이어집니다.",
+        accommodation: "Barafu Camp",
+        meals: "전 식사",
+        location: "고도: 4,700m(15,420ft)"
       },
       {
         day: 7,
-        title: "루아하 — 대형 고양잇과 동물과 강의 야생동물",
-        description: "그레이트 루아하 강을 따라가는 루아하에서의 온전한 하루입니다. 탄자니아 최대 규모의 사자, 표범, 치타, 리카온 개체군이 이 공원에 서식합니다. 코끼리 떼는 수천 마리에 이릅니다. 아담한 규모의 캠프와 붐비지 않는 환경 덕분에 루아하는 경험 많은 사파리 여행자들에게 탄자니아에서 가장 흥미진진한 공원으로 꼽힙니다.",
-        accommodation: "Ruaha River Lodge",
-        meals: "전 일정 식사",
-        accommodationByTier: {
-          reserve: {
-            name: "Ruaha River Lodge",
-            image: "/images/lodges/ruaha-river-lodge-dining-pavilion.webp",
-            amenities: [
-              "view",
-              "wildlife-view"
-            ]
-          }
-        }
+        title: "정상 정복 밤 → 우후루 피크 → 음웨카 캠프",
+        description: "자정에서 새벽 2시 사이에 출발해, 렙만 빙하와 라첼 빙하 사이를 지나 스텔라 포인트에 도착한 뒤 우후루 피크로 향합니다 — 원정 전체에서 가장 힘든 구간이자 정상입니다. 이후 음웨카 캠프까지 하산합니다.",
+        accommodation: "Mweka Camp",
+        meals: "전 식사",
+        insiderFact: "해발 5,895m(19,341ft)의 우후루 피크는 아프리카 최고봉입니다.",
+        location: "고도: 정상 5,895m(19,341ft), 하산 후 3,090m(10,138ft)"
       },
       {
         day: 8,
-        title: "세렝게티로 비행",
-        description: "루아하에서 오전 게임 드라이브를 즐긴 후 경비행기에 탑승해 탄자니아 사바나 상공을 지나 세렝게티 중앙의 세로네라 활주로로 북상합니다. 오후 게임 드라이브에서는 저녁 햇살이 평원에 긴 그림자를 드리우는 가운데 곧바로 사자와 치타의 영역으로 들어갑니다.",
-        accommodation: "Serengeti Tented Camp",
-        meals: "중식, 석식",
-        accommodationByTier: {
-          reserve: {
-            name: "Siringiti Serengeti Camp",
-            image: "/images/lodges/siringiti-serengeti-camp.webp",
-            amenities: [
-              "wifi",
-              "view",
-              "restaurant"
-            ]
-          }
-        }
+        title: "음웨카 캠프 → 음웨카 게이트 → 호텔",
+        description: "음웨카 게이트까지 하산해 정상 정복 인증서를 수령한 뒤, 모시의 호텔로 돌아갑니다.",
+        accommodation: "모시 소재 호텔",
+        meals: "전 식사"
       },
       {
         day: 9,
-        title: "세렝게티 — 오전 및 오후 드라이브",
-        description: "세렝게티 중심부에서 보내는 온전한 하루입니다. 세로네라 강 합류 지점은 연중 아프리카에서 가장 풍요로운 야생동물 회랑 중 하나입니다. 표범은 소시지나무 위에 늘어져 있고, 치타는 톰슨가젤을 쫓아 질주하며, 사자 무리는 탁 트인 초원을 천천히 행렬을 이루며 이동합니다.",
-        accommodation: "Serengeti Tented Camp",
-        meals: "전 일정 식사",
+        title: "휴식일, 모시에서 아루샤로",
+        description: "진짜 회복을 위한 온전한 하루입니다 — 제대로 된 침대, 진짜 샤워, 일정 없는 하루입니다. 오후 또는 저녁에 아루샤로 이동해, 다음 날 세렝게티행 비행에 앞서 자리 잡습니다. 윌더니스 소버린 투숙객은 아루샤 커피 로지에서의 저녁 커피 산책으로 하루를 마무리합니다.",
+        accommodation: "아루샤, 등급별 상이",
+        meals: "전 식사",
         accommodationByTier: {
           reserve: {
-            name: "Siringiti Serengeti Camp",
-            image: "/images/lodges/siringiti-serengeti-camp.webp",
+            name: "Kahawa House",
+            image: "/images/lodges/kahawa-house.webp",
             amenities: [
               "wifi",
-              "view",
-              "restaurant"
+              "restaurant",
+              "garden"
+            ]
+          },
+          sovereign: {
+            name: "Arusha Coffee Lodge",
+            image: "/images/lodges/arusha-coffee-lodge-garden-path.webp",
+            amenities: [
+              "wifi",
+              "pool",
+              "view"
             ]
           }
         }
       },
       {
         day: 10,
-        title: "세렝게티 — 추가 탐험",
-        description: "세렝게티에서 보내는 또 한 번의 온전한 하루로, 야생동물 정보를 바탕으로 사람의 발길이 뜸한 지역까지 깊숙이 들어갑니다. 서부 회랑과 북부 평원은 각각 중앙 지역에서는 볼 수 없는 고유한 서식지와 동물종을 선보입니다.",
-        accommodation: "Serengeti Tented Camp",
-        meals: "전 일정 식사",
+        title: "세렝게티로 비행",
+        description: "경비행기가 아루샤에서 세렝게티의 세로네라 활주로까지 데려다줍니다 — 추가 육로 이동이 필요 없습니다. 이어서 오후 게임 드라이브가 진행됩니다.",
+        accommodation: "세렝게티 중앙, 등급별 상이",
+        meals: "전 식사",
         accommodationByTier: {
           reserve: {
+            name: "Lahia Tented Lodge",
+            image: "/images/lodges/lahia-tented-lodge.webp",
+            amenities: [
+              "view",
+              "restaurant"
+            ]
+          },
+          sovereign: {
             name: "Siringiti Serengeti Camp",
             image: "/images/lodges/siringiti-serengeti-camp.webp",
             amenities: [
@@ -8382,17 +8699,25 @@ export const packages: SafariPackage[] = [
       },
       {
         day: 11,
-        title: "응고롱고로 크레이터",
-        description: "응고롱고로로 이동해 600미터를 내려가 크레이터 안에서 빅파이브와 함께 온전한 하루를 보냅니다. 이 폐쇄된 칼데라는 지구상에서 가장 밀집된 야생동물 관찰 경험 중 하나를 선사합니다. 사자 무리가 탁 트인 곳에서 사냥을 하고, 검은코뿔소는 소다 호수 근처에서 풀을 뜯으며, 거대한 버팔로 무리가 크레이터 바닥을 천천히 대열을 이루며 이동합니다. 매력적인 고지대 마을 카라투에서 1박합니다.",
-        accommodation: "Karatu Lodge",
-        meals: "전 일정 식사",
+        title: "세렝게티 종일 투어",
+        description: "세렝게티의 정착 사자와 표범 개체군, 그리고 계절에 따라서는 누 떼의 대이동까지 추적하는 온전한 하루입니다.",
+        accommodation: "세렝게티 중앙, 등급별 상이",
+        meals: "전 식사",
         accommodationByTier: {
           reserve: {
-            name: "Tloma Lodge, Karatu",
-            image: "/images/lodges/tloma-lodge.webp",
+            name: "Lahia Tented Lodge",
+            image: "/images/lodges/lahia-tented-lodge.webp",
             amenities: [
-              "organic-farm",
-              "garden",
+              "view",
+              "restaurant"
+            ]
+          },
+          sovereign: {
+            name: "Siringiti Serengeti Camp",
+            image: "/images/lodges/siringiti-serengeti-camp.webp",
+            amenities: [
+              "wifi",
+              "view",
               "restaurant"
             ]
           }
@@ -8400,10 +8725,263 @@ export const packages: SafariPackage[] = [
       },
       {
         day: 12,
+        title: "세렝게티에서 응고롱고로로",
+        description: "응고롱고로 고지대로 향하는 이동이며, 도중에 게임 드라이브가 포함됩니다.",
+        accommodation: "응고롱고로 고지대, 등급별 상이",
+        meals: "전 식사",
+        accommodationByTier: {
+          reserve: {
+            name: "Ngorongoro Serena Lodge",
+            image: "/images/lodges/ngorongoro-serena-safari-lodge.webp",
+            amenities: [
+              "view",
+              "restaurant"
+            ]
+          },
+          sovereign: {
+            name: "Melia Ngorongoro Lodge",
+            image: "/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection.webp",
+            amenities: [
+              "view",
+              "restaurant",
+              "spa"
+            ]
+          }
+        }
+      },
+      {
+        day: 13,
+        title: "응고롱고로 크레이터 데이 투어",
+        description: "크레이터로 내려가는 온전한 하루입니다 — 하나의 폐쇄된 생태계 안에 대륙에서도 손꼽히는 밀집된 야생동물이 모여 있습니다.",
+        accommodation: "응고롱고로 고지대, 등급별 상이",
+        meals: "전 식사",
+        accommodationByTier: {
+          reserve: {
+            name: "Kitela Lodge",
+            image: "/images/lodges/kitela-lodge.webp",
+            amenities: [
+              "pool",
+              "view",
+              "restaurant"
+            ]
+          },
+          sovereign: {
+            name: "Melia Ngorongoro Lodge",
+            image: "/images/lodges/ngorongoro-lodge-the-rim-room-melia-collection.webp",
+            amenities: [
+              "view",
+              "restaurant",
+              "spa"
+            ]
+          }
+        }
+      },
+      {
+        day: 14,
         title: "출발",
-        description: "카라투에서 킬리만자로 국제공항으로 이동해 귀국 국제선에 탑승합니다. 탄자니아의 남부 원시 자연부터 북부의 보석 같은 명소까지 아우른 12일간의 여정입니다.",
-        accommodation: "N/A",
+        description: "마지막 아침 게임 드라이브 후, 아루샤로 돌아가 귀국 국제선에 탑승합니다.",
+        accommodation: "해당 없음",
         meals: "조식"
+      }
+    ]
+  },
+  {
+    slug: "kilimanjaro-extension-safari",
+    name: "5일 킬리만자로 익스텐션 사파리",
+    duration: 5,
+    destinations: [
+      "arusha",
+      "tarangire",
+      "serengeti",
+      "ngorongoro"
+    ],
+    type: "wildlife",
+    priceFrom: 2118.96,
+    groupSize: {
+      min: 2,
+      max: 6
+    },
+    badge: "new",
+    bestFor: [
+      "solo",
+      "couples",
+      "wildlife-enthusiasts"
+    ],
+    tagline: "2027년 시즌에 맞춰 업데이트되었습니다.",
+    metaTitle: "킬리만자로 익스텐션 사파리 | 등반 후 5일 | EWA Safari Outfitters",
+    metaDescription: "이제 막 하산하셨나요? 타랑기레, 세렝게티, 응고롱고로 크레이터로 곧장 이어집니다 — 모시에서 픽업, 먼저 귀국할 필요 없이. 1인당 $2,118.96부터.",
+    overview: [
+      "대부분의 등반가는 산을 준비하는 데 몇 달을 쏟으면서도, 그 이후에 무엇을 할지는 거의 생각하지 않습니다. 이 일정은 바로 그 여정의 후반부를 위해 만들어졌습니다 — 공항이 아닌 모시 시내에서의 픽업으로 시작하는 5일이 타랑기레의 코끼리 무리로, 세렝게티에서의 온전한 하루로, 응고롱고로 크레이터로의 하강으로, 그리고 킬리만자로 국제공항으로 이동하기 전 음토와음부에서의 마무리 문화 체험 아침으로 곧장 이어집니다.",
+      "논리는 간단합니다: 여러분은 이미 탄자니아에 있고, 이미 집을 떠난 상태에 적응해 있으며, 노던 서킷의 관문 도시들은 대부분의 트레킹이 끝나는 지점에서 짧은 거리에 있습니다. 이 여정을 하나의 연속된 여행으로 예약하는 것 — 귀국 후 별도의 재방문을 계획하는 대신 — 은 보통 그 대안보다 더 저렴하고 더 간단합니다. 특히 정상 정복 밤이 부담이 큰 8일 루트를 마친 뒤라면, 시작 전 모시에서 최소 하루의 휴식일을 권장합니다."
+    ],
+    highlights: [
+      "아루샤나 공항이 아니라 모시에서 시작 — 산에서 곧장 내려온 등반가를 위해 특별히 설계",
+      "타랑기레의 코끼리 무리와 고대 바오밥나무, 노던 서킷의 클래식한 첫 장",
+      "탁 트인 평원에서 사자와 치타를 추적하는 세렝게티 종일 투어",
+      "동아프리카에서 빅파이브를 만나기에 가장 신뢰도 높은 장소 중 한 곳인 응고롱고로 크레이터 완전 하강",
+      "여정을 마무리하는 음토와음부 문화 체험 아침, 킬리만자로 국제공항으로의 이동에 앞서",
+      "먼저 귀국할 필요 없음 — 별도의 재방문을 계획하는 것보다 대개 더 간단하고 비용 효율적인 하나의 연속된 여행"
+    ],
+    heroImage: "/images/gallery/tarangire-elephants-baobab.webp",
+    heroImageAlt: "Two elephants with tusks foraging together in tall grass in Tarangire National Park",
+    gallery: [
+      {
+        src: "/images/gallery/serengeti-lion-pride.webp",
+        alt: "Lion pride with a maned male leading lionesses through golden grass on the Serengeti plains"
+      }
+    ],
+    pricingTiersProvisional: false,
+    pricingTiers: [
+      {
+        pax: 2,
+        trail: 2789.38
+      },
+      {
+        pax: 3,
+        trail: 2454.17
+      },
+      {
+        pax: 4,
+        trail: 2286.56
+      },
+      {
+        pax: 5,
+        trail: 2186
+      },
+      {
+        pax: 6,
+        trail: 2118.96
+      }
+    ],
+    included: [
+      "전 국립공원 및 보호구역 요금",
+      "전 일정의 차량, 가이드, 연료",
+      "사파리 시설에서의 풀보드",
+      "첫날 밤 조식 포함",
+      "식수",
+      "AMREF 플라잉 닥터스 응급 보장"
+    ],
+    excluded: [
+      "국제선 항공권",
+      "비자 발급 비용",
+      "여행자 보험",
+      "팁",
+      "선택 액티비티"
+    ],
+    notes: [
+      "표시된 요금은 더블/트윈룸 2인 공유 기준 1인당 요금입니다. 싱글룸 이용 시 추가 요금이 발생합니다.",
+      "차량, 가이드, 디젤 비용은 그룹 전체가 함께 부담하므로 참여 인원이 늘어날수록 1인당 요금이 확연히 낮아집니다.",
+      "이 일정은 대부분의 킬리만자로 트레킹이 마무리되는 모시에서 시작하도록 설계되었습니다 — 픽업은 투숙 호텔에서 바로 이루어집니다.",
+      "숙박 시설 및 요금은 예약 가능 여부에 따라 달라지며, 동일 시즌 내에서도 정확한 여행 날짜에 따라 변동될 수 있습니다."
+    ],
+    faq: [
+      {
+        q: "사파리를 시작하기 전에 먼저 귀국해야 하나요?",
+        a: "아닙니다 — 이 일정은 대부분의 킬리만자로 트레킹이 마무리되는 모시에서 시작하도록 특별히 설계되었습니다. 픽업은 투숙 호텔에서 바로 이루어지며, 먼저 킬리만자로 국제공항을 경유할 필요가 없습니다."
+      },
+      {
+        q: "정상 정복 후 얼마나 지나서 사파리를 시작할 수 있나요?",
+        a: "특히 정상 정복 밤이 부담이 큰 루트를 마친 뒤라면, 시작 전 모시에서 최소 하루의 휴식일을 권장합니다. 그 외에는 준비가 되는 대로 이 일정을 시작할 수 있습니다 — 등반 일정에 맞는 정확한 타이밍은 담당 컨설턴트와 상의해 주세요."
+      },
+      {
+        q: "큰 등반을 마친 후 5일이면 제대로 된 사파리로 충분한가요?",
+        a: "네 — 이 일정은 서두르는 느낌 없이 효율적으로 진행되도록 설계되었습니다: 타랑기레와 세렝게티에서 각각 온전한 하루, 응고롱고로에서 온전한 크레이터 데이, 그리고 진짜 문화 체험까지 5일 안에 모두 담겨 있습니다."
+      },
+      {
+        q: "등반으로 지쳐서 곧바로 사파리를 즐기지 못하지는 않을까요?",
+        a: "대부분의 등반가는 트레킹보다 사파리 일정이 훨씬 수월하다고 느낍니다 — 걷는 대신 차량에 앉아 있고, 진행 속도도 완전히 다릅니다. 그래도 다리가 힘들다면 시작 전 휴식일을 권장합니다."
+      },
+      {
+        q: "인원수에 따라 요금이 얼마나 달라지나요?",
+        a: "차량, 가이드, 디젤 비용은 그룹 전체가 함께 부담하므로 참여 인원이 늘어날수록 1인당 요금이 확연히 낮아집니다 — 위의 요금표를 참고해 주세요."
+      },
+      {
+        q: "요금에 포함되는 것과 포함되지 않는 것은 무엇인가요?",
+        a: "포함: 전 국립공원 및 보호구역 요금, 전 일정의 차량·가이드·연료, 사파리 시설에서의 풀보드, 첫날 밤 조식, 식수, AMREF 플라잉 닥터스 응급 보장. 미포함: 국제선 항공권, 비자 발급 비용, 여행자 보험, 팁, 선택 액티비티."
+      },
+      {
+        q: "특정 킬리만자로 루트와 결합할 수 있나요?",
+        a: "네 — 이 익스텐션은 저희가 제공하는 6개 킬리만자로 루트 어디와도 결합할 수 있습니다. 아직 등반을 예약하지 않으셨다면, 담당 컨설턴트에게 레모쇼, 마차메 등 다른 루트와 이 사파리를 직접 연결하는 방법을 문의해 주세요."
+      }
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "모시에서 아루샤로",
+        description: "모시의 투숙 호텔에서 바로 픽업합니다 — 별도의 공항 이동이나 항공편을 준비할 필요가 없습니다. 아루샤로 향하는 이동은 므루산 기슭의 농경지와 커피 농원을 지나며, 다음 날 이른 아침 공원으로 출발하기 전 휴식할 시간을 드립니다.",
+        accommodation: "Kahawa House",
+        meals: "조식 포함",
+        accommodationByTier: {
+          trail: {
+            name: "Kahawa House",
+            image: "/images/lodges/kahawa-house.webp",
+            amenities: [
+              "wifi",
+              "restaurant",
+              "garden"
+            ]
+          }
+        }
+      },
+      {
+        day: 2,
+        title: "아루샤에서 타랑기레 국립공원으로",
+        description: "남쪽으로 향하는 이동은 바오밥나무로 뒤덮인 타랑기레의 평원으로 이어지며, 탄자니아 최대 규모의 코끼리 무리가 서식하는 곳입니다 — 며칠간 산을 올려다보는 데 익숙했던 시선이 탁 트인 관목지대를 바라보는 것으로 확연히 전환되는 순간입니다.",
+        accommodation: "Lake Burunge Baobab Tented Lodge",
+        meals: "풀보드",
+        accommodationByTier: {
+          trail: {
+            name: "Lake Burunge Baobab Tented Lodge",
+            image: "/images/lodges/lake-burunge-baobab-tented-lodge.webp",
+            amenities: [
+              "restaurant",
+              "wildlife-view"
+            ]
+          }
+        }
+      },
+      {
+        day: 3,
+        title: "카라투에서 세렝게티로",
+        description: "응고롱고로 보호구역을 가로질러 세렝게티 본토로 진입하는 온전한 이동일입니다 — 아프리카에서 가장 유명한 평원이며, 많은 등반가에게 사파리 연장을 계획할 만한 가치가 있었다고 느끼게 하는 바로 그 이유입니다.",
+        accommodation: "Serengeti Katikati Camp",
+        meals: "풀보드",
+        accommodationByTier: {
+          trail: {
+            name: "Serengeti Katikati Camp",
+            image: "/images/lodges/serengeti-katikati-camp.webp",
+            amenities: [
+              "ensuite",
+              "restaurant",
+              "wildlife-view"
+            ]
+          }
+        }
+      },
+      {
+        day: 4,
+        title: "세렝게티에서 응고롱고로 크레이터로",
+        description: "응고롱고로로 되돌아가는 이동이며, 크레이터 바닥으로 내려가 지구상에서 가장 밀집된 대형 포유류 개체군 중 하나 속에서 빅파이브와 함께 온전한 하루를 보냅니다.",
+        accommodation: "Ngorongoro Farm House",
+        meals: "풀보드",
+        insiderFact: "응고롱고로 크레이터는 약 260km² 규모의 폐쇄된 생태계로, 이곳에 서식하는 동물 대부분은 평생 밖으로 나가지 않습니다.",
+        accommodationByTier: {
+          trail: {
+            name: "Ngorongoro Farm House",
+            image: "/images/lodges/ngorongoro-farm-house.webp",
+            amenities: [
+              "restaurant",
+              "garden"
+            ]
+          }
+        }
+      },
+      {
+        day: 5,
+        title: "음토와음부 문화 체험 & JRO 공항으로 이동",
+        description: "시장 마을 음토와음부에서 보내는 마지막 문화 체험 아침입니다 — 서둘러 지나가는 사진 촬영이 아니라 여유로운 진짜 방문입니다 — 이후 킬리만자로 국제공항으로 이동해 다음 여정을 준비합니다.",
+        accommodation: "해당 없음",
+        meals: "풀보드"
       }
     ]
   },

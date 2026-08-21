@@ -610,7 +610,7 @@
         },
         {
           "q": "Posso combinare una scalata della Lemosho con un'estensione safari o a Zanzibar?",
-          "a": "Sì — molti scalatori aggiungono un safari o un soggiorno al mare prima o dopo il trekking. Dato che sarai già acclimatato al fuso orario e al ritmo di viaggio della Tanzania, è un modo efficiente per prolungare il viaggio."
+          "a": "Sì — molti scalatori aggiungono un safari o un soggiorno al mare prima o dopo il trekking. Dato che sarai già acclimatato al fuso orario e al ritmo di viaggio della Tanzania, è un modo efficiente per prolungare il viaggio. Il nostro Safari di Estensione di 5 Giorni al Kilimanjaro è pensato appositamente per questo — il ritiro avviene direttamente da Moshi, senza dover prima rientrare a casa in aereo — e anche la scalata di 8 giorni via Lemosho si abbina direttamente al nostro pacchetto combinato di 14 giorni Scalata del Kilimanjaro via Lemosho e Safari, un'unica prenotazione continua che copre la montagna e un safari di 5 giorni con volo interno nel Serengeti e nel Ngorongoro."
         }
       ],
       "tabLabels": {
@@ -2059,6 +2059,10 @@
     "team2Bio": "Nicky è cresciuto sulle pendici del Kilimanjaro, a Machame, e si è formato al Mweka Wildlife College. Diciotto anni dopo, legge il paesaggio come una lingua — scandendo il ritmo di ogni game drive sia per i fotografi a caccia dello scatto perfetto sia per le famiglie che scoprono insieme la savana.",
     "team3Role": "Guida di Montagna",
     "team3Bio": "Joshua ha condotto centinaia di scalatori fino alla vetta del Kilimanjaro attraverso tutti i principali percorsi. La sua profonda conoscenza dell'altitudine, dei modelli meteorologici e del ritmo di marcia mantiene ogni escursionista al sicuro e sulla giusta rotta.",
+    "team4Role": "Guida Safari di Terreno (parla Inglese e Spagnolo)",
+    "team4Bio": "Nato e cresciuto alle pendici del Monte Meru, Nathan traccia la fauna selvatica e guida piccoli gruppi in tutta la Tanzania settentrionale da oltre diciotto anni. Diplomato al Mweka Wildlife College con una profonda specializzazione nell'ecosistema Serengeti-Mara, ha guidato partner internazionali tra cui TUI Spagna e Kobo, portando a ogni ospite un fiuto acuto per il tracciamento e una perfetta padronanza dell'inglese e dello spagnolo.",
+    "team5Role": "Guida di Terreno Senior (parla Francese)",
+    "team5Bio": "L'energia gioiosa di Richard lo rende un favorito tra bambini, adolescenti e adulti allo stesso modo. Si è unito a EWA Safari Outfitters nel 2023 dopo anni come guida capo presso altre quattro compagnie safari, e oggi è la nostra guida di terreno senior francofona — che accompagna i viaggiatori francofoni nel Serengeti con lo stesso calore che porta in ogni veicolo.",
     "guideSpotlightCta": "Conosci Nicky",
     "guideSpotlightEyebrow": "Riflettori sulla Guida",
     "guideSpotlightHeading": "Conosci Nixon «Nicky» Massawe",
@@ -2071,6 +2075,25 @@
     "guideSpotlightQuoteAuthor": "— Nixon Massawe, Guida Capo Safari",
     "guideSpotlightClosing": "Diciotto anni dopo, Nicky Massawe guida ancora come se ogni game drive fosse il primo — perché per lui, in un certo senso, lo è ancora.",
     "guideSpotlightImageAlt": "Nixon «Nicky» Massawe, guida capo safari di EWA Safari Outfitters, in piedi nel Serengeti",
+    "guideSpotlightNathanCta": "Conosci Nathan",
+    "guideSpotlightNathanEyebrow": "Riflettori sulla Guida",
+    "guideSpotlightNathanHeading": "Conosci Nathan Urassa",
+    "guideSpotlightNathanRole": "Guida Safari di Terreno, parla Inglese e Spagnolo",
+    "guideSpotlightNathanP1": "Nathan Urassa è cresciuto sulle pendici del Monte Meru, sugli altopiani appena fuori Arusha — abbastanza vicino alla savana da non dover mai andare a cercare la fauna selvatica: era semplicemente lo sfondo della sua infanzia. Questa vicinanza lo ha plasmato fin da subito: molto prima di guidare il suo primo cliente pagante attraverso il Serengeti, aveva già trascorso una vita intera a leggere il territorio che lo circondava.",
+    "guideSpotlightNathanP2": "L'aula è arrivata dopo, al Mweka Wildlife College, dove ha conseguito il suo Ordinary Diploma in Gestione delle Operazioni Turistiche. Ma sono i diciotto e più anni trascorsi da allora ad aver davvero costruito la sua reputazione. La vera specialità di Nathan è il tracciamento — soprattutto dei grandi mammiferi, il tipo di lavoro che premia una guida capace di notare ciò che quasi nessun altro nel veicolo noterebbe: un cambiamento nel modo in cui una mandria pascola, un set di tracce fresche che attraversano la pista, quel particolare silenzio che significa che qualcosa è vicino. Questo istinto è più affilato nel territorio che conosce meglio, l'ecosistema Serengeti-Mara, dove ha costruito una comprensione profonda e ravvicinata di come la fauna selvatica, il territorio e le stagioni si muovano insieme.",
+    "guideSpotlightNathanP3": "Questa competenza ha viaggiato a livello internazionale. Nathan ha guidato per marchi turistici globali tra cui TUI Spagna e Kobo, occupandosi direttamente dei loro clienti di lingua spagnola — un ruolo che richiede ben più della traduzione. Significa capire cosa un viaggiatore spagnolo nota, chiede e su cosa ha bisogno di essere rassicurato, e offrire l'esperienza del Circuito Nord in un modo che per lui risulti davvero autentico. Perfettamente bilingue in inglese e spagnolo, Nathan è una delle poche guide del nostro team in grado di condurre un intero safari — briefing, game drive, tracciamento e ogni domanda intermedia — senza che alcuna barriera linguistica si frapponga tra un ospite e l'esperienza.",
+    "guideSpotlightNathanClosing": "Per gli ospiti che viaggiano con Nathan, questa combinazione si manifesta nelle piccole cose: una guida che trova ciò che altri non notano, che spiega non solo cosa stai vedendo ma come lo ha scoperto, e che porta due decenni di conoscenza del Serengeti-Mara in ogni game drive.",
+    "guideSpotlightNathanImageAlt": "Nathan Urassa, guida safari di terreno di EWA Safari Outfitters che parla inglese e spagnolo, nel Serengeti",
+    "guideSpotlightRichardCta": "Conosci Richard",
+    "guideSpotlightRichardEyebrow": "Riflettori sulla Guida",
+    "guideSpotlightRichardHeading": "Conosci Richard Bahati",
+    "guideSpotlightRichardRole": "Guida di Terreno Senior, parla Francese",
+    "guideSpotlightRichardP1": "Chiedi a chiunque abbia condiviso un veicolo con Richard e ti diranno la stessa cosa ancor prima di parlare della fauna selvatica: è divertente. Il tipo di guida che fa scoppiare a ridere un bambino di nove anni con una battuta su un facocero, e un attimo dopo legge con calma ed esperienza il linguaggio del corpo di un leone. I bambini lo adorano, gli adolescenti si sentono a loro agio con lui, e i nonni si fidano di lui — una versatilità rara per una singola guida, e la cosa che le persone tendono a ricordare di più dopo la fine del loro viaggio.",
+    "guideSpotlightRichardP2": "Questo calore poggia su un'esperienza reale, conquistata sul campo. Prima di unirsi a EWA Safari Outfitters nel 2023, Richard ha trascorso anni lavorando come guida capo, passando per quattro diverse compagnie safari e affinando gli istinti che si acquisiscono solo conducendo viaggio dopo viaggio attraverso la Tanzania settentrionale. È la nostra guida di terreno senior francofona — la guida che proponiamo ogni volta che un viaggiatore francofono sale a bordo, perché non si limita a tradurre il safari per lui: si assicura che nulla dell'esperienza vada perso nel passaggio da una lingua all'altra.",
+    "guideSpotlightRichardP3": "Sul campo, il momento preferito di Richard è sempre lo stesso: i grandi felini. Leone, leopardo, ghepardo — qualunque sia quello che si mostra, è lui la guida che sta già orientando con calma il veicolo per la vista migliore possibile, prima ancora che chiunque altro noti un movimento tra l'erba.",
+    "guideSpotlightRichardP4": "Fuori servizio, Richard è esattamente ciò che ti aspetteresti da tutto quanto sopra: un padre devoto ai suoi tre figli, un appassionato di calcio felice tanto di giocare una partita quanto di guardarla, e qualcuno che ha sempre del Bongo Flavor — l'hip-hop tanzaniano nato in casa — che suona da qualche parte nei dintorni.",
+    "guideSpotlightRichardClosing": "Per questo gli ospiti lo richiedono per nome mesi prima ancora che il loro viaggio inizi — non solo per la guida in sé, ma per l'intera esperienza di stare in un veicolo con qualcuno che ama questo lavoro tanto quanto lui.",
+    "guideSpotlightRichardImageAlt": "Richard Bahati, guida di terreno senior francofona di EWA Safari Outfitters, nel Serengeti",
     "metaTitle": "Chi Siamo | Miglior Operatore Safari in Tanzania 2026",
     "metaDescription": "Operatore safari nato in Tanzania, di proprietà locale, registrato TATO. Guide esperte, safari in piccoli gruppi e itinerari 100% personalizzati. Valutato 4,9/5 da oltre 200 ospiti.",
     "metaKeywords": [

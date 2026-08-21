@@ -622,7 +622,7 @@
         },
         {
           "q": "我可以把莱莫肖攀登与游猎或桑给巴尔之旅结合吗？",
-          "a": "可以——许多登山者在徒步前后增加游猎或海滩行程。由于你已适应坦桑尼亚的时区和旅行节奏，这是延长行程的高效方式。"
+          "a": "可以——许多登山者在徒步前后增加游猎或海滩行程。由于你已适应坦桑尼亚的时区和旅行节奏，这是延长行程的高效方式。我们为期5天的乞力马扎罗延伸游猎正是为此而设——直接从莫希接您出发，无需先飞回家——而8天的莱莫肖攀登也可直接衔接我们为期14天的莱莫肖登山与游猎组合套餐，一次预订即可涵盖整座大山的攀登，以及一段5天飞行往返塞伦盖蒂与恩戈罗恩戈罗的游猎之旅。"
         }
       ],
       "tabLabels": {
@@ -2452,6 +2452,10 @@
     "team2Bio": "Nicky在乞力马扎罗山麓的马查梅长大，毕业于姆维卡野生动物学院，拥有十八年游猎经验。他读懂地貌与野生动物的方式如同读懂一门语言，无论是追逐完美镜头的摄影客人，还是携家同行的旅人，都能被他妥善安排好每一程节奏。",
     "team3Role": "登山向导",
     "team3Bio": "Joshua带领数百名登山者经由所有主要路线登上乞力马扎罗峰顶。他对海拔、天气规律和节奏的深刻理解让每位徒步者都安全且步入正轨。",
+    "team4Role": "游猎向导（英语、西班牙语）",
+    "team4Bio": "Nathan在梅鲁山山麓出生长大，十八年来一直在坦桑尼亚北部追踪野生动物、带领小团出行。他毕业于姆维卡野生动物学院，深耕塞伦盖蒂-马拉生态系统，曾为TUI西班牙、Kobo等国际合作伙伴担任向导，以敏锐的追踪本能和流利的英语、西班牙语为每一位客人服务。",
+    "team5Role": "资深向导（法语）",
+    "team5Bio": "Richard活泼风趣，深受孩子、青少年和成年客人的喜爱。他于2023年加入EWA Safari Outfitters，此前曾在另外四家游猎公司担任首席向导多年。如今，他是我们的资深法语向导，以同样的热忱带领每一位法语游客穿越塞伦盖蒂。",
     "guideSpotlightCta": "认识 Nicky",
     "guideSpotlightEyebrow": "向导专访",
     "guideSpotlightHeading": "认识 Nixon“Nicky”Massawe",
@@ -2464,6 +2468,25 @@
     "guideSpotlightQuoteAuthor": "——Nixon Massawe，首席游猎向导",
     "guideSpotlightClosing": "入行十八年，Nicky Massawe依然带着初次出发般的热忱去带每一程游猎——因为在某种意义上，对他而言，每一次都确实是第一次。",
     "guideSpotlightImageAlt": "Nixon（昵称Nicky）Massawe，EWA Safari Outfitters首席游猎向导，站在塞伦盖蒂草原上",
+    "guideSpotlightNathanCta": "认识 Nathan",
+    "guideSpotlightNathanEyebrow": "向导专访",
+    "guideSpotlightNathanHeading": "认识 Nathan Urassa",
+    "guideSpotlightNathanRole": "游猎向导 · 英语与西班牙语",
+    "guideSpotlightNathanP1": "Nathan Urassa在梅鲁山山坡上长大，家就在阿鲁沙城外的高地——离丛林如此之近，野生动物从不是需要长途跋涉才能见到的东西，而是他童年生活本身的背景。这份天然的亲近很早就塑造了他：早在他第一次带领付费客人穿越塞伦盖蒂之前，他已经用一生的时间读懂了身边的这片土地。",
+    "guideSpotlightNathanP2": "课堂教育来得晚一些——他就读于姆维卡野生动物学院，取得旅游向导管理普通文凭。但真正成就他今日声誉的，是此后十八年有余的历练。Nathan真正的专长是追踪——尤其是大型哺乳动物，这项工作回报的正是那些能察觉到车上几乎没人会注意到的细节的向导：兽群觅食方式的细微变化、横穿道路的新鲜足迹、那种意味着有动物正在附近的特殊寂静。这份直觉在他最熟悉的地形——塞伦盖蒂-马拉生态系统——中最为敏锐，在那里，他对野生动物、地貌与季节如何彼此联动，建立起深刻而细致的理解。",
+    "guideSpotlightNathanP3": "这份专业能力也走向了国际。Nathan曾为TUI西班牙、Kobo等全球旅游品牌担任向导，直接负责接待他们的西班牙语客户——这个角色所需要的远不止翻译。它意味着要理解西班牙语游客会注意到什么、会问什么问题、需要在哪些方面得到安心保证，并以真正能触动他们的方式呈现北方环线的体验。Nathan英语、西班牙语俱佳，是我们团队中少数能够独自带完整场游猎的向导之一——从行前简报、车程讲解到追踪与随时解答的各种问题，客人与体验之间不会出现任何语言隔阂。",
+    "guideSpotlightNathanClosing": "对与Nathan同行的客人来说，这种综合能力体现在种种细节里：他能找到别人错过的东西，不仅告诉你眼前看到了什么，还会解释他是如何发现的，并将二十年对塞伦盖蒂-马拉的了解，运用到每一次game drive之中。",
+    "guideSpotlightNathanImageAlt": "Nathan Urassa，EWA Safari Outfitters的英语与西班牙语游猎向导，在塞伦盖蒂草原",
+    "guideSpotlightRichardCta": "认识 Richard",
+    "guideSpotlightRichardEyebrow": "向导专访",
+    "guideSpotlightRichardHeading": "认识 Richard Bahati",
+    "guideSpotlightRichardRole": "资深向导 · 法语",
+    "guideSpotlightRichardP1": "问问任何一位和Richard同车游猎过的客人，他们不等你问起野生动物，就会先告诉你同一件事：他很好玩。前一刻，他能用一个疣猪的笑话逗得九岁小朋友捧腹大笑；下一刻，他又能安静而专业地读懂一头狮子的肢体语言。孩子们喜欢他，青少年在他身边很放松，祖父母辈也信任他——能同时兼顾这么广的客群，对一位向导来说十分难得，也是旅程结束后人们最常记住的一点。",
+    "guideSpotlightRichardP2": "这份亲和力背后，是真正历练出来的丰富经验。在2023年加入EWA Safari Outfitters之前，Richard多年担任首席向导，先后供职于四家不同的游猎公司，在坦桑尼亚北部一次又一次地带团中，磨练出只有实战才能带来的直觉。他是我们的资深法语向导——只要车上有法语游客，我们首先想到的就是他，因为他做的不只是把游猎“翻译”给客人听，更要确保体验的每一个细节都不会在语言转换中丢失。",
+    "guideSpotlightRichardP3": "在野外，Richard最喜欢的时刻始终如一：大型猫科动物。无论出现的是狮子、豹子还是猎豹，他总能在其他人还没注意到草丛中的动静之前，就已经不动声色地把车调整到最佳观赏角度。",
+    "guideSpotlightRichardP4": "下班之后的Richard，正如你从以上种种所能想象的那样：他是三个孩子的贴心父亲，一位足球迷，无论是踢球还是看球都乐在其中，而且身边总少不了Bongo Flavor——坦桑尼亚本土的嘻哈音乐——的旋律。",
+    "guideSpotlightRichardClosing": "这也是为什么许多客人在行程开始前几个月，就已经点名指定要他带队——不只是为了他的向导技巧，更是为了与一位如此热爱这份工作的人同车出行的整体体验。",
+    "guideSpotlightRichardImageAlt": "Richard Bahati，EWA Safari Outfitters的资深法语向导，在塞伦盖蒂草原",
     "metaTitle": "关于我们 | 2026年最佳坦桑尼亚游猎运营商",
     "metaDescription": "生于坦桑尼亚、本地所有、TATO注册的游猎运营商。资深向导、小团游猎、100%个性化行程。200多位客人给出4.9/5评分。",
     "metaKeywords": [

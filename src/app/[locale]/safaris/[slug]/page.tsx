@@ -34,8 +34,13 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
   ],
   '10-day-safari-zanzibar': [
     'Tanzania safari and beach', 'Zanzibar safari combo', 'Tanzania and Zanzibar holiday',
-    'safari beach package Tanzania', 'Zanzibar holiday 2026', 'Africa beach safari',
+    'safari beach package Tanzania', 'Zanzibar holiday 2027', 'Africa beach safari',
     'Tanzania Indian Ocean', '10 day Africa holiday', 'best Tanzania beach safari', 'safari Zanzibar combination',
+  ],
+  'kilimanjaro-extension-safari': [
+    'Kilimanjaro extension safari', 'what to do after climbing Kilimanjaro', 'safari after Kilimanjaro climb',
+    'post-climb safari Tanzania', 'Moshi to Serengeti safari', 'Kilimanjaro and safari package',
+    'combine Kilimanjaro with safari', 'Tanzania safari from Moshi', 'climb Kilimanjaro then safari', 'book Tanzania safari 2027',
   ],
   '5-day-serengeti-fly-in': [
     'Serengeti fly-in safari', 'flying safari Tanzania', 'Serengeti 5 days',
@@ -88,9 +93,9 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'best Great Migration safari', 'Serengeti river crossing', 'Africa migration tourism', 'northern Serengeti safari',
   ],
   'ultimate-tanzania-safari': [
-    'ultimate Tanzania safari', 'Tanzania grand safari', 'best of East Africa safari',
-    'Tanzania complete safari', 'Africa dream safari', 'Tanzania top safari package',
-    'East Africa ultimate tour', 'Tanzania luxury ultimate', 'African safari bucket list', 'Tanzania premium 12 days',
+    'Tanzania safari and chimpanzee trekking', 'Gombe safari combination', 'ultimate Tanzania safari',
+    'rare Tanzania safari itinerary', 'Northern Circuit and Gombe', 'Jane Goodall Gombe safari',
+    'Tanzania bucket list safari', 'exclusive Tanzania itinerary', 'private guided Tanzania safari', 'book Tanzania safari 2027',
   ],
   '7-days-gems-of-north': [
     'Tanzania north gems safari', 'Tarangire Serengeti safari', 'Lake Manyara safari',
@@ -103,9 +108,9 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'Africa calving safari', 'Tanzania fly-in Ndutu', 'Serengeti Ndutu February', 'migration calving Tanzania',
   ],
   '8-days-flight-migration': [
-    'fly-in migration safari Tanzania', 'Tanzania flying safari migration', '8 days Great Migration',
-    'Serengeti migration flying', 'Africa luxury migration safari', 'Tanzania air safari 8 days',
-    'migration safari bucket list', 'Tanzania fly-in wildlife', 'best Africa migration', 'Serengeti fly-in 8 days',
+    'wildebeest river crossing safari', 'Mara River crossing Tanzania', 'fly-in migration safari Tanzania',
+    'Tanzania flying safari migration', 'Kogatende safari', 'Serengeti migration flying',
+    'Africa luxury migration safari', 'Tanzania air safari 8 days', 'migration safari bucket list', 'book Tanzania safari 2027',
   ],
   'off-the-beaten-track-photography-safari': [
     'off the beaten track Tanzania safari', 'Ndutu predator photography safari', 'resident predator safari Africa',
@@ -123,9 +128,9 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'gorilla trek and beach holiday', 'ultimate East Africa safari', 'Africa gorilla safari honeymoon', 'three country East Africa tour',
   ],
   '12-days-rwanda-primates': [
-    'Rwanda primate safari', 'gorilla chimpanzee trekking Rwanda', 'Rwanda 12 days',
-    'mountain gorilla Rwanda', 'golden monkey Rwanda', 'chimpanzee Rwanda',
-    'Rwanda primate experience', 'Africa gorilla holiday', 'Rwanda wildlife primates', 'Rwanda gorilla 12 days',
+    'Rwanda gorilla trekking and Zanzibar', 'primate safari and beach holiday', 'Rwanda chimpanzee gorilla golden monkey safari',
+    'Rwanda Zanzibar combination safari', 'gorilla trekking beach extension', 'Africa primate and beach trip',
+    'private guided safari Rwanda', 'luxury Rwanda safari', 'Nyungwe Volcanoes Zanzibar', 'book Rwanda safari 2027',
   ],
   '11-days-kenya-undisputed': [
     'Kenya safari 11 days', 'Masai Mara Amboseli safari', 'Kenya Tanzania safari',
@@ -147,10 +152,10 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'Serengeti Masai Mara safari', 'Kenya Tanzania tour 2026', 'Africa two countries safari',
     'East Africa 12 day tour', 'Tanzania Kenya comparison safari', 'best of Africa safari', 'dual country Africa safari',
   ],
-  '12-days-grand-safari': [
-    'Tanzania grand safari 12 days', 'ultimate Tanzania grand tour', 'Africa grand safari',
-    'Tanzania best wildlife 12 days', 'Tanzania everything safari', 'Africa bucket list grand',
-    'Tanzania grandest safari', '12 night Tanzania safari', 'Tanzania comprehensive safari', 'best Africa 12 day safari',
+  '14-days-kilimanjaro-lemosho-safari': [
+    'Kilimanjaro climb and safari', 'Lemosho and safari combo', 'Kilimanjaro safari package',
+    'climb Kilimanjaro then safari', 'Tanzania trek and safari', 'Kilimanjaro Serengeti combination',
+    'best Kilimanjaro safari combo', 'Africa climb and safari trip', 'private guided Kilimanjaro safari', 'book Kilimanjaro safari 2027',
   ],
   '5-day-comfort-tanzania-safari': [
     '5 day Tanzania safari', 'Tanzania Northern Circuit safari', 'Tarangire Serengeti Ngorongoro safari',
@@ -373,6 +378,9 @@ const SAFARI_BLOG_MAP: Record<string, string> = {
   '7-day-serengeti-ngorongoro':          'best-time-to-visit-serengeti',
   '10-day-northern-circuit':             'great-migration-guide',
   '10-day-safari-zanzibar':              'zanzibar-travel-guide',
+  'kilimanjaro-extension-safari':        'kilimanjaro-climbing-guide',
+  '14-days-kilimanjaro-lemosho-safari':  'kilimanjaro-climbing-guide',
+  'ultimate-tanzania-safari':            'chimpanzee-trekking-tanzania',
   '5-day-serengeti-fly-in':              'best-time-to-visit-serengeti',
   '5-days-highlights-safari':            'great-migration-guide',
   '7-days-crown-jewels':                 'ngorongoro-crater-guide',

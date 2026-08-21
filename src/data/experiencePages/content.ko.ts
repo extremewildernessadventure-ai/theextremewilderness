@@ -893,7 +893,7 @@ export const experiencePagesKo: ExperiencePage[] = [
     ],
     ctaHeading: '오직 당신에게만 응답하는 사파리, 준비되셨나요?',
     ctaText: "누구와 함께하는지, 어떤 목적의 여행인지 알려주시면, 그에 맞춰 프라이빗한 여정을 설계해 드립니다 — 24시간 이내에 맞춤 제안서를 이메일로 보내드립니다.",
-    relatedPackageSlugs: ['12-days-grand-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
+    relatedPackageSlugs: ['14-days-kilimanjaro-lemosho-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
     relatedExperienceSlugs: ['honeymoon-safari', 'fly-in-safari', 'wildlife-photography-safari', 'family-safari'],
   },
   {

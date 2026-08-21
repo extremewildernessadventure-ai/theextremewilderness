@@ -892,7 +892,7 @@ export const experiencePagesZhTW: ExperiencePage[] = [
     ],
     ctaHeading: '準備好迎接只聽命於您的獵遊了嗎？',
     ctaText: '告訴我們誰會同行、這趟旅程是為了什麼——我們會圍繞它設計私人行程，量身定制的方案將在24小時內送達您的收件箱。',
-    relatedPackageSlugs: ['12-days-grand-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
+    relatedPackageSlugs: ['14-days-kilimanjaro-lemosho-safari', 'ultimate-tanzania-safari', '7-days-crown-jewels'],
     relatedExperienceSlugs: ['honeymoon-safari', 'fly-in-safari', 'wildlife-photography-safari', 'family-safari'],
   },
   {

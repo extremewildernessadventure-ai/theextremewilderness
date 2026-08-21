@@ -622,7 +622,7 @@
         },
         {
           "q": "Kann ich eine Besteigung mit einer Safari oder einem Sansibar-Aufenthalt verbinden?",
-          "a": "Ja — viele Bergsteiger fügen eine Safari oder einen Strandaufenthalt vor oder nach dem Trek hinzu."
+          "a": "Ja — viele Bergsteiger fügen eine Safari oder einen Strandaufenthalt vor oder nach dem Trek hinzu. Da Sie bereits an Tansanias Zeitzone und Reiserhythmus gewöhnt sind, lässt sich die Reise so besonders effizient verlängern. Unsere 5-tägige Kilimandscharo-Anschluss-Safari ist genau dafür konzipiert — Abholung direkt in Moshi, ohne vorherigen Flug nach Hause —, und die 8-tägige Lemosho-Besteigung lässt sich auch direkt mit unserer 14-tägigen Kombination aus Kilimandscharo-Lemosho-Besteigung und Safari verbinden: eine durchgehende Buchung, die den Berg sowie eine 5-tägige Fly-in-Safari in Serengeti und Ngorongoro abdeckt."
         }
       ],
       "tabLabels": {
@@ -2452,6 +2452,10 @@
     "team2Bio": "Nicky wuchs an den Hängen des Kilimandscharo in Machame auf und ließ sich am Mweka Wildlife College ausbilden. Achtzehn Jahre später liest er jede Landschaft wie eine Sprache und stimmt das Tempo jeder Pirschfahrt auf Fotografen und entdeckungsfreudige Familien ab.",
     "team3Role": "Bergführer",
     "team3Bio": "Joshua hat Hunderte von Kletterern über alle wichtigen Routen zum Kilimandscharo-Gipfel geführt. Sein tiefes Wissen über Höhe, Wettermuster und Tempo hält jeden Trekker sicher und auf Kurs.",
+    "team4Role": "Safari-Guide (Englisch- und Spanischsprachig)",
+    "team4Bio": "Nathan wurde an den Ausläufern des Mount Meru geboren und ist dort aufgewachsen. Seit über achtzehn Jahren verfolgt er Wildtierspuren und führt kleine Reisegruppen durch ganz Nordtansania. Als Absolvent des Mweka Wildlife College mit einer ausgeprägten Spezialisierung auf das Serengeti-Mara-Ökosystem hat er bereits internationale Partner wie TUI Spain und Kobo geführt und bringt jedem Gast sein scharfes Gespür für die Fährtensuche sowie fließendes Englisch und Spanisch mit.",
+    "team5Role": "Senior-Guide (Französischsprachig)",
+    "team5Bio": "Richards lebensfrohe Art macht ihn bei Kindern, Jugendlichen und Erwachsenen gleichermaßen beliebt. Er kam 2023 zu EWA Safari Outfitters, nachdem er jahrelang als Chefguide bei vier anderen Safari-Unternehmen gearbeitet hatte, und ist heute unser Senior-Guide für französischsprachige Gäste — er führt frankophone Reisende mit derselben Wärme durch die Serengeti, die er in jedes Fahrzeug mitbringt.",
     "guideSpotlightCta": "Nicky kennenlernen",
     "guideSpotlightEyebrow": "Guide im Portrait",
     "guideSpotlightHeading": "Lernen Sie Nixon „Nicky\" Massawe kennen",
@@ -2464,6 +2468,25 @@
     "guideSpotlightQuoteAuthor": "— Nixon Massawe, Leitender Safari-Guide",
     "guideSpotlightClosing": "Auch nach achtzehn Jahren führt Nicky Massawe noch immer jede Fahrt wie seine erste — denn in gewisser Weise ist sie das für ihn bis heute.",
     "guideSpotlightImageAlt": "Nixon „Nicky\" Massawe, leitender Safari-Guide von EWA Safari Outfitters, stehend in der Serengeti",
+    "guideSpotlightNathanCta": "Nathan kennenlernen",
+    "guideSpotlightNathanEyebrow": "Guide im Portrait",
+    "guideSpotlightNathanHeading": "Lernen Sie Nathan Urassa kennen",
+    "guideSpotlightNathanRole": "Safari-Guide, Englisch- und Spanischsprachig",
+    "guideSpotlightNathanP1": "Nathan Urassa wuchs an den Hängen des Mount Meru auf, im Hochland gleich vor den Toren Arushas — so nah am Busch, dass Wildtiere für ihn nichts waren, wofür er erst reisen musste, sondern schlicht die Kulisse seiner Kindheit. Diese Nähe prägte ihn früh: Lange bevor er je einen zahlenden Gast durch die Serengeti führte, hatte er bereits ein ganzes Leben damit verbracht, das Land um sich herum zu lesen.",
+    "guideSpotlightNathanP2": "Das Klassenzimmer kam erst später, am Mweka Wildlife College, wo er sein Ordinary Diploma in Tour Guide Operations erwarb. Doch eigentlich sind es die über achtzehn Jahre seither, die seinen Ruf begründet haben. Nathans eigentliche Spezialität ist das Fährtenlesen — vor allem bei Großsäugern, eine Arbeit, die einem Guide zugutekommt, der bemerkt, was fast niemand sonst im Fahrzeug bemerken würde: eine Veränderung im Grasverhalten einer Herde, frische Spuren, die den Weg kreuzen, die besondere Stille, die bedeutet, dass etwas ganz in der Nähe ist. Dieses Gespür ist am schärfsten in dem Gelände, das er am besten kennt, dem Serengeti-Mara-Ökosystem, wo er ein tiefes, unmittelbares Verständnis dafür entwickelt hat, wie Wildtiere, Land und Jahreszeiten miteinander im Einklang stehen.",
+    "guideSpotlightNathanP3": "Dieses Können hat ihn auch international gefragt gemacht. Nathan hat für globale Reisemarken wie TUI Spain und Kobo gearbeitet und dabei deren spanischsprachige Kunden direkt betreut — eine Aufgabe, die mehr verlangt als reine Übersetzung. Sie bedeutet zu verstehen, was ein spanischer Reisender bemerkt, wonach er fragt und wobei er Beruhigung braucht, und das Northern-Circuit-Erlebnis so zu vermitteln, dass es bei ihm wirklich ankommt. Fließend in Englisch und Spanisch, ist Nathan einer der wenigen Guides in unserem Team, der eine komplette Safari — Briefing, Fahrten, Fährtenlesen und jede Frage dazwischen — leiten kann, ohne dass eine Sprachbarriere zwischen Gast und Erlebnis steht.",
+    "guideSpotlightNathanClosing": "Für Gäste, die mit Nathan unterwegs sind, zeigt sich diese Kombination in den kleinen Dingen: ein Guide, der findet, was andere übersehen, der nicht nur erklärt, was man gerade sieht, sondern auch, wie er es gefunden hat, und der bei jeder Fahrt auf zwei Jahrzehnte Wissen über die Serengeti-Mara zurückgreift.",
+    "guideSpotlightNathanImageAlt": "Nathan Urassa, EWA Safari Outfitters' English and Spanish-speaking field safari guide, in the Serengeti",
+    "guideSpotlightRichardCta": "Richard kennenlernen",
+    "guideSpotlightRichardEyebrow": "Guide im Portrait",
+    "guideSpotlightRichardHeading": "Lernen Sie Richard Bahati kennen",
+    "guideSpotlightRichardRole": "Senior-Guide, Französischsprachig",
+    "guideSpotlightRichardP1": "Fragen Sie jeden, der schon einmal mit Richard in einem Fahrzeug saß, und er wird Ihnen dasselbe erzählen, noch bevor Sie überhaupt nach den Wildtieren fragen: Er macht Spaß. Die Sorte Guide, bei der ein Neunjähriger im einen Moment über einen Warzenschwein-Witz vor Lachen brüllt und Richard im nächsten Moment still und routiniert die Körpersprache eines Löwen liest. Kinder lieben ihn, Teenager entspannen sich in seiner Nähe, und Großeltern vertrauen ihm — eine seltene Bandbreite für einen einzigen Guide, und das, woran sich die Leute nach ihrer Reise am meisten erinnern.",
+    "guideSpotlightRichardP2": "Diese Herzlichkeit ruht auf echter, hart erarbeiteter Erfahrung. Bevor er 2023 zu EWA Safari Outfitters kam, arbeitete Richard jahrelang als Chefguide und wechselte durch vier verschiedene Safari-Unternehmen, wobei er sich die Instinkte aneignete, die nur entstehen, wenn man Fahrt um Fahrt durch ganz Nordtansania führt. Er ist unser Senior-Guide für französischsprachige Gäste — der Guide, den wir immer vorschlagen, wenn ein frankophoner Reisender im Fahrzeug sitzt, denn er übersetzt die Safari für ihn nicht nur, er sorgt dafür, dass beim Wechsel zwischen den Sprachen nichts vom Erlebnis verloren geht.",
+    "guideSpotlightRichardP3": "Draußen im Feld ist Richards liebster Moment immer derselbe: die großen Katzen. Löwe, Leopard, Gepard — welche von ihnen auch auftaucht, er ist der Guide, der das Fahrzeug still und geschickt für die beste Sicht positioniert, noch bevor sonst jemand überhaupt eine Bewegung im Gras bemerkt hat.",
+    "guideSpotlightRichardP4": "Abseits der Arbeit ist Richard genau der Mensch, den man nach alldem erwarten würde: ein hingebungsvoller Vater seiner drei Kinder, ein Fußballfan, der genauso gern selbst ein Spiel bestreitet wie zuschaut, und jemand, bei dem irgendwo in der Nähe immer Bongo Flavor läuft — Tansanias eigener, hausgemachter Hip-Hop.",
+    "guideSpotlightRichardClosing": "Deshalb fragen Gäste schon Monate vor Reisebeginn namentlich nach ihm — nicht nur wegen seiner Guiding-Fähigkeiten, sondern wegen des ganzen Erlebnisses, mit jemandem im Fahrzeug zu sitzen, der diese Arbeit genauso liebt wie er.",
+    "guideSpotlightRichardImageAlt": "Richard Bahati, EWA Safari Outfitters' senior French-speaking field guide, in the Serengeti",
     "metaTitle": "Über uns | Bester Tansania-Safari-Anbieter 2026",
     "metaDescription": "In Tansania geborener, lokal geführter und TATO-registrierter Safari-Anbieter. Erfahrene Guides, Kleingruppen-Safaris und 100% personalisierte Reiserouten. Bewertet mit 4,9/5 von über 200 Gästen.",
     "metaKeywords": [

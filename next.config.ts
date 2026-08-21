@@ -130,8 +130,10 @@ const nextConfig: NextConfig = {
       // Safari package pages
       { source: '/ultimate-tanzania-safari', destination: '/safaris/ultimate-tanzania-safari', permanent: true },
       { source: '/ultimate-tanzania-safari/', destination: '/safaris/ultimate-tanzania-safari', permanent: true },
-      { source: '/tanzania-safari-12-days-the-grand-safari', destination: '/safaris/12-days-grand-safari', permanent: true },
-      { source: '/tanzania-safari-12-days-the-grand-safari/', destination: '/safaris/12-days-grand-safari', permanent: true },
+      { source: '/tanzania-safari-12-days-the-grand-safari', destination: '/safaris/14-days-kilimanjaro-lemosho-safari', permanent: true },
+      { source: '/tanzania-safari-12-days-the-grand-safari/', destination: '/safaris/14-days-kilimanjaro-lemosho-safari', permanent: true },
+      { source: '/safaris/12-days-grand-safari', destination: '/safaris/14-days-kilimanjaro-lemosho-safari', permanent: true },
+      { source: '/safaris/12-days-grand-safari/', destination: '/safaris/14-days-kilimanjaro-lemosho-safari', permanent: true },
       { source: '/luxury-safari-holidays-in-tanzania-7-days-crown-jewels-safari', destination: '/safaris/7-days-crown-jewels', permanent: true },
       { source: '/luxury-safari-holidays-in-tanzania-7-days-crown-jewels-safari/', destination: '/safaris/7-days-crown-jewels', permanent: true },
       { source: '/luxury-rwanda-tanzania-safari', destination: '/safaris/11-days-rwanda-tanzania', permanent: true },

@@ -77,10 +77,22 @@ export default async function AboutPage({ params }: Props) {
       bio: t('team2Bio'),
     },
     {
-      image: '/Team/Joshua Meela.jpeg',
+      image: '/Team/Josh Meela4.jpeg',
       name: 'Josh Meela',
       role: t('team3Role'),
       bio: t('team3Bio'),
+    },
+    {
+      image: '/Team/Nathan Urassa.jpeg',
+      name: 'Nathan Urassa',
+      role: t('team4Role'),
+      bio: t('team4Bio'),
+    },
+    {
+      image: '/Team/Richard Bahati.jpeg',
+      name: 'Richard Bahati',
+      role: t('team5Role'),
+      bio: t('team5Bio'),
     },
   ]
 
@@ -107,6 +119,36 @@ export default async function AboutPage({ params }: Props) {
     },
   }
 
+  const guideSpotlightNathanSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Nathan Urassa',
+    jobTitle: t('guideSpotlightNathanRole'),
+    description: t('guideSpotlightNathanP1'),
+    image: `${SITE_URL}/Team/Nathan Urassa.jpeg`,
+    url: localeUrl(locale, '/about#guide-spotlight-nathan'),
+    worksFor: {
+      '@type': 'Organization',
+      name: 'EWA Safari Outfitters',
+      url: SITE_URL,
+    },
+  }
+
+  const guideSpotlightRichardSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Richard Bahati',
+    jobTitle: t('guideSpotlightRichardRole'),
+    description: t('guideSpotlightRichardP1'),
+    image: `${SITE_URL}/Team/Richard Bahati2.jpeg`,
+    url: localeUrl(locale, '/about#guide-spotlight-richard'),
+    worksFor: {
+      '@type': 'Organization',
+      name: 'EWA Safari Outfitters',
+      url: SITE_URL,
+    },
+  }
+
   return (
     <main>
       <script
@@ -116,6 +158,14 @@ export default async function AboutPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(guideSpotlightSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(guideSpotlightNathanSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(guideSpotlightRichardSchema) }}
       />
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
@@ -302,6 +352,16 @@ export default async function AboutPage({ params }: Props) {
                     {t('guideSpotlightCta')} <ArrowRight className="w-3 h-3 rtl:rotate-180" />
                   </a>
                 )}
+                {name === 'Nathan Urassa' && (
+                  <a href="#guide-spotlight-nathan" className="inline-flex items-center gap-1 text-gold text-xs font-bold uppercase tracking-wider mt-4 hover:text-gold-dark transition-colors">
+                    {t('guideSpotlightNathanCta')} <ArrowRight className="w-3 h-3 rtl:rotate-180" />
+                  </a>
+                )}
+                {name === 'Richard Bahati' && (
+                  <a href="#guide-spotlight-richard" className="inline-flex items-center gap-1 text-gold text-xs font-bold uppercase tracking-wider mt-4 hover:text-gold-dark transition-colors">
+                    {t('guideSpotlightRichardCta')} <ArrowRight className="w-3 h-3 rtl:rotate-180" />
+                  </a>
+                )}
               </RevealItem>
             ))}
           </RevealGroup>
@@ -334,6 +394,61 @@ export default async function AboutPage({ params }: Props) {
               <Reveal delay={0.15} className="relative">
                 <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                   <Image src="/Team/Nixon Massawe.jpeg" alt={t('guideSpotlightImageAlt')} fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand/30 to-transparent" />
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Guide Spotlight: Nathan ─────────────────────────────────────── */}
+      <section id="guide-spotlight-nathan" className="py-10 lg:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 lg:p-14">
+            <div className="grid lg:grid-cols-2 gap-14 items-center">
+              <Reveal delay={0.15} className="relative lg:order-1">
+                <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                  <Image src="/Team/Nathan Urassa.jpeg" alt={t('guideSpotlightNathanImageAlt')} fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand/30 to-transparent" />
+                </div>
+              </Reveal>
+              <Reveal className="lg:order-2">
+                <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">{t('guideSpotlightNathanEyebrow')}</p>
+                <h2 className="text-3xl lg:text-4xl font-bold text-brand mb-2 leading-tight">
+                  {t('guideSpotlightNathanHeading')}
+                </h2>
+                <p className="text-text-muted text-sm font-medium mb-6">{t('guideSpotlightNathanRole')}</p>
+                <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightNathanP1')}</p>
+                <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightNathanP2')}</p>
+                <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightNathanP3')}</p>
+                <p className="text-brand font-semibold leading-relaxed">{t('guideSpotlightNathanClosing')}</p>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Guide Spotlight: Richard ────────────────────────────────────── */}
+      <section id="guide-spotlight-richard" className="py-10 lg:py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 lg:p-14">
+            <div className="grid lg:grid-cols-2 gap-14 items-center">
+              <Reveal>
+                <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-3">{t('guideSpotlightRichardEyebrow')}</p>
+                <h2 className="text-3xl lg:text-4xl font-bold text-brand mb-2 leading-tight">
+                  {t('guideSpotlightRichardHeading')}
+                </h2>
+                <p className="text-text-muted text-sm font-medium mb-6">{t('guideSpotlightRichardRole')}</p>
+                <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightRichardP1')}</p>
+                <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightRichardP2')}</p>
+                <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightRichardP3')}</p>
+                <p className="text-text-muted leading-relaxed mb-5">{t('guideSpotlightRichardP4')}</p>
+                <p className="text-brand font-semibold leading-relaxed">{t('guideSpotlightRichardClosing')}</p>
+              </Reveal>
+              <Reveal delay={0.15} className="relative">
+                <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+                  <Image src="/Team/Richard Bahati2.jpeg" alt={t('guideSpotlightRichardImageAlt')} fill className="object-cover object-top" sizes="(max-width: 1024px) 100vw, 50vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand/30 to-transparent" />
                 </div>
               </Reveal>
