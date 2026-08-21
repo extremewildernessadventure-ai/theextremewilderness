@@ -622,7 +622,7 @@
         },
         {
           "q": "Posso combinar uma subida pela Lemosho com uma extensão de safari ou Zanzibar?",
-          "a": "Sim — muitos montanhistas acrescentam um safari ou uma estadia de praia antes ou depois do trekking. Como já estará aclimatizado ao fuso horário e ao ritmo de viagem da Tanzânia, é uma forma eficiente de prolongar a viagem."
+          "a": "Sim — muitos montanhistas acrescentam um safari ou uma estadia de praia antes ou depois do trekking. Como já estará aclimatizado ao fuso horário e ao ritmo de viagem da Tanzânia, é uma forma eficiente de prolongar a viagem. O nosso Safari de Extensão do Kilimanjaro de 5 Dias foi concebido especificamente para isto — recolha em Moshi, sem necessidade de regressar a casa primeiro — e a subida de 8 dias pela Lemosho também se articula diretamente com o nosso combinado de 14 dias Subida do Kilimanjaro pela Lemosho e Safari, uma única reserva contínua que abrange a montanha e um safari fly-in de 5 dias pelo Serengeti e Ngorongoro."
         }
       ],
       "tabLabels": {
@@ -2048,6 +2048,10 @@
     "team2Bio": "O Nicky cresceu nas encostas do Kilimanjaro, em Machame, e formou-se no Mweka Wildlife College. Dezoito anos depois, lê a paisagem como quem lê uma língua — ajustando o ritmo de cada passeio consoante fotógrafos em busca da fotografia perfeita ou famílias a descobrir a savana juntas.",
     "team3Role": "Guia de Montanha",
     "team3Bio": "O Joshua já liderou centenas de alpinistas até ao cume do Kilimanjaro, em todas as principais rotas. O seu profundo conhecimento sobre altitude, padrões climáticos e ritmo mantém cada caminhante seguro e no caminho certo.",
+    "team4Role": "Guia de Safári de Terreno (falante de Inglês e Espanhol)",
+    "team4Bio": "Nascido e criado nas encostas do Monte Meru, o Nathan já leva mais de dezoito anos a rastrear vida selvagem e a guiar pequenos grupos pelo Norte da Tanzânia. Formado pelo Mweka Wildlife College, com uma especialização profunda no ecossistema Serengeti-Mara, já guiou parceiros internacionais como a TUI Espanha e a Kobo, trazendo a cada cliente um instinto de rastreio apurado e um domínio fluente do inglês e do espanhol.",
+    "team5Role": "Guia de Terreno Sénior (falante de Francês)",
+    "team5Bio": "A energia divertida do Richard fá-lo cair nas boas graças de crianças, adolescentes e adultos. Juntou-se à EWA Safari Outfitters em 2023, após anos como guia principal em quatro outras empresas de safári, e é hoje o nosso guia de terreno sénior de língua francesa — acompanhando viajantes francófonos pelo Serengeti com o mesmo calor humano que traz a cada veículo.",
     "guideSpotlightCta": "Conheça o Nicky",
     "guideSpotlightEyebrow": "Em Destaque",
     "guideSpotlightHeading": "Conheça Nixon \"Nicky\" Massawe",
@@ -2060,6 +2064,25 @@
     "guideSpotlightQuoteAuthor": "— Nixon Massawe, Guia Principal de Safári",
     "guideSpotlightClosing": "Dezoito anos depois, o Nicky Massawe continua a guiar como se cada passeio fosse o primeiro — porque, de certa forma, para ele ainda é.",
     "guideSpotlightImageAlt": "Nixon \"Nicky\" Massawe, guia principal de safári da EWA Safari Outfitters, de pé no Serengeti",
+    "guideSpotlightNathanCta": "Conheça o Nathan",
+    "guideSpotlightNathanEyebrow": "Em Destaque",
+    "guideSpotlightNathanHeading": "Conheça Nathan Urassa",
+    "guideSpotlightNathanRole": "Guia de Safári de Terreno, Falante de Inglês e Espanhol",
+    "guideSpotlightNathanP1": "O Nathan Urassa cresceu nas encostas do Monte Meru, nas terras altas mesmo às portas de Arusha — suficientemente perto da savana para que a vida selvagem não fosse algo que tivesse de ir procurar, mas simplesmente o cenário de fundo da sua infância. Essa proximidade moldou-o cedo: muito antes de guiar o primeiro cliente pelo Serengeti, já tinha passado uma vida inteira a ler a paisagem à sua volta.",
+    "guideSpotlightNathanP2": "A sala de aula veio mais tarde, no Mweka Wildlife College, onde obteve o seu Diploma Ordinário em Operações de Guia Turístico. Mas foram os mais de dezoito anos desde então que realmente construíram a sua reputação. A verdadeira especialidade do Nathan é o rastreio — de grandes mamíferos, em particular —, o tipo de trabalho que recompensa um guia capaz de notar aquilo que quase mais ninguém no veículo notaria: uma mudança no padrão de pastagem de uma manada, um rasto fresco a atravessar a estrada, aquele silêncio particular que significa que algo está próximo. Esse instinto é mais aguçado no terreno que ele conhece melhor, o ecossistema Serengeti-Mara, onde construiu uma compreensão profunda e próxima de como a vida selvagem, a paisagem e as estações se movem em conjunto.",
+    "guideSpotlightNathanP3": "Essa experiência viajou internacionalmente. O Nathan já guiou para marcas de viagens globais, incluindo a TUI Espanha e a Kobo, atendendo diretamente os seus clientes de língua espanhola — um papel que exige mais do que tradução. Significa compreender o que um viajante espanhol repara, pergunta e sobre o que precisa de ser tranquilizado, e apresentar a experiência do Circuito Norte de uma forma que realmente lhe chegue. Fluente em inglês e espanhol, o Nathan é um dos poucos guias da nossa equipa capaz de conduzir um safári inteiro — briefing, passeios, rastreio e todas as perguntas pelo meio — sem que qualquer barreira linguística se interponha entre o cliente e a experiência.",
+    "guideSpotlightNathanClosing": "Para os clientes que viajam com o Nathan, essa combinação revela-se nos pequenos detalhes: um guia que encontra o que outros não veem, que explica não só o que se está a ver, mas como o descobriu, e que traz duas décadas de conhecimento do Serengeti-Mara a cada passeio.",
+    "guideSpotlightNathanImageAlt": "Nathan Urassa, guia de safári de terreno da EWA Safari Outfitters, falante de inglês e espanhol, no Serengeti",
+    "guideSpotlightRichardCta": "Conheça o Richard",
+    "guideSpotlightRichardEyebrow": "Em Destaque",
+    "guideSpotlightRichardHeading": "Conheça Richard Bahati",
+    "guideSpotlightRichardRole": "Guia de Terreno Sénior, Falante de Francês",
+    "guideSpotlightRichardP1": "Pergunte a quem já partilhou um veículo com o Richard e dir-lhe-ão o mesmo, ainda antes de falarem de vida selvagem: ele é divertido. O tipo de guia capaz de fazer uma criança de nove anos rir às gargalhadas com uma piada sobre um javali, e no minuto seguinte estar a ler, com calma e perícia, a linguagem corporal de um leão. As crianças adoram-no, os adolescentes sentem-se à vontade com ele, e os avós confiam nele — um registo raro para um só guia dominar, e aquilo de que as pessoas mais se lembram depois de a viagem terminar.",
+    "guideSpotlightRichardP2": "Esse calor humano assenta numa experiência real, conquistada com muito trabalho. Antes de se juntar à EWA Safari Outfitters em 2023, o Richard passou anos como guia principal, passando por quatro empresas de safári diferentes e adquirindo os instintos que só vêm de liderar viagem após viagem pelo Norte da Tanzânia. É o nosso guia de terreno sénior de língua francesa — o guia que escalamos sempre que há um viajante francófono no veículo, porque não se limita a traduzir o safári para ele: garante que nada da experiência se perde na mudança de língua.",
+    "guideSpotlightRichardP3": "No terreno, o momento favorito do Richard é sempre o mesmo: os grandes felinos. Leão, leopardo, chita — seja qual for o que aparece, é ele quem, tranquilamente, já está a posicionar o veículo para a melhor vista possível antes de qualquer outra pessoa ter sequer reparado num movimento na erva.",
+    "guideSpotlightRichardP4": "Fora de serviço, o Richard é exatamente quem se esperaria a partir de tudo isto: um pai dedicado aos seus três filhos, um adepto de futebol tão feliz a jogar uma partida como a assisti-la, e alguém que tem sempre Bongo Flavor — o hip-hop genuinamente tanzaniano — a tocar algures por perto.",
+    "guideSpotlightRichardClosing": "É por isso que os clientes o pedem pelo nome meses antes de a viagem sequer começar — não só pela forma como guia, mas por toda a experiência de estar num veículo com alguém que ama este trabalho tanto quanto ele.",
+    "guideSpotlightRichardImageAlt": "Richard Bahati, guia de terreno sénior de língua francesa da EWA Safari Outfitters, no Serengeti",
     "metaTitle": "Sobre Nós | Melhor Operador de Safári na Tanzânia 2026",
     "metaDescription": "Operador de safári nascido na Tanzânia, de propriedade local e registado na TATO. Guias especializados, safáris em pequenos grupos e itinerários 100% personalizados. Classificação de 4,9/5 por mais de 200 hóspedes.",
     "metaKeywords": [
