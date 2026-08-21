@@ -622,7 +622,7 @@
         },
         {
           "q": "Kan ik een Lemosho-klim combineren met een safari of verblijf op Zanzibar?",
-          "a": "Ja — veel klimmers voegen voor of na hun trektocht een safari of strandverblijf toe. Omdat je dan al gewend bent aan de tijdzone en het reisritme van Tanzania, is dat een efficiënte manier om de reis te verlengen."
+          "a": "Ja — veel klimmers voegen voor of na hun trektocht een safari of strandverblijf toe. Omdat je dan al gewend bent aan de tijdzone en het reisritme van Tanzania, is dat een efficiënte manier om de reis te verlengen. Onze 5-daagse Kilimanjaro Extensie-Safari is speciaal hiervoor ontworpen — ophalen direct vanuit Moshi, zonder eerst naar huis te vliegen — en de 8-daagse Lemosho-klim sluit ook rechtstreeks aan op onze 14-daagse combinatie Kilimanjaro Lemosho-klim & Safari, één doorlopende boeking die zowel de berg als een 5-daagse safari per vliegtuig naar de Serengeti en de Ngorongoro-krater omvat."
         }
       ],
       "tabLabels": {
@@ -2048,6 +2048,10 @@
     "team2Bio": "Nicky groeide op tegen de hellingen van de Kilimanjaro, in Machame, en volgde een opleiding aan het Mweka Wildlife College. Achttien jaar later leest hij een landschap als een taal — hij stemt het tempo van elke rit af op fotografen die op zoek zijn naar de perfecte foto en op gezinnen die samen de bush ontdekken.",
     "team3Role": "Berggids",
     "team3Bio": "Joshua heeft honderden klimmers via alle belangrijke routes naar de top van de Kilimanjaro geleid. Zijn diepgaande kennis van hoogte, weerpatronen en tempo houdt elke trekker veilig en op koers.",
+    "team4Role": "Safarigids in het veld (Engels- en Spaanssprekend)",
+    "team4Bio": "Geboren en getogen aan de voet van de Mount Meru, spoort Nathan al meer dan achttien jaar wildlife op en leidt hij kleine groepen door heel Noord-Tanzania. Als afgestudeerde van het Mweka Wildlife College met een diepgaande specialisatie in het Serengeti-Mara-ecosysteem heeft hij internationale partners begeleid, waaronder TUI Spanje en Kobo, en brengt hij scherpe spoorzoekersinstincten en vloeiend Engels en Spaans mee voor elke gast die hij leidt.",
+    "team5Role": "Senior gids in het veld (Franssprekend)",
+    "team5Bio": "Richards vrolijke, speelse energie maakt hem een favoriet bij kinderen, tieners en volwassenen. Hij kwam in 2023 bij EWA Safari Outfitters na jarenlang hoofdgids te zijn geweest bij vier andere safaribedrijven, en is tegenwoordig onze senior Franssprekende gids in het veld — hij leidt Franstalige reizigers door de Serengeti met dezelfde warmte die hij in elk voertuig meebrengt.",
     "guideSpotlightCta": "Maak kennis met Nicky",
     "guideSpotlightEyebrow": "Gids in de schijnwerpers",
     "guideSpotlightHeading": "Maak kennis met Nixon \"Nicky\" Massawe",
@@ -2060,6 +2064,25 @@
     "guideSpotlightQuoteAuthor": "— Nixon Massawe, hoofdgids",
     "guideSpotlightClosing": "Na achttien jaar gidst Nicky Massawe nog steeds alsof elke rit zijn eerste is — want voor hem is dat, in zekere zin, nog altijd zo.",
     "guideSpotlightImageAlt": "Nixon \"Nicky\" Massawe, hoofdgids van EWA Safari Outfitters, staand in de Serengeti",
+    "guideSpotlightNathanCta": "Maak kennis met Nathan",
+    "guideSpotlightNathanEyebrow": "Gids in de schijnwerpers",
+    "guideSpotlightNathanHeading": "Maak kennis met Nathan Urassa",
+    "guideSpotlightNathanRole": "Safarigids in het veld, Engels- en Spaanssprekend",
+    "guideSpotlightNathanP1": "Nathan Urassa groeide op tegen de hellingen van de Mount Meru, in de hooglanden net buiten Arusha — dicht genoeg bij de bush dat wildlife niets was waar hij voor hoefde te reizen, het was simpelweg het decor van zijn jeugd. Die nabijheid vormde hem al vroeg: lang voordat hij ooit een betalende gast door de Serengeti leidde, had hij al een heel leven besteed aan het lezen van het land om hem heen.",
+    "guideSpotlightNathanP2": "Het klaslokaal kwam later, aan het Mweka Wildlife College, waar hij zijn Ordinary Diploma in Tour Guide Operations behaalde. Maar het zijn de ruim achttien jaar sindsdien die zijn reputatie echt hebben opgebouwd. Nathans ware specialiteit is spoorzoeken — vooral van grote zoogdieren, het soort werk dat een gids beloont die opmerkt wat vrijwel niemand anders in het voertuig zou zien: een verandering in het grazgedrag van een kudde, verse sporen die de weg kruisen, de specifieke stilte die betekent dat er iets dichtbij is. Dat instinct is het scherpst in het terrein dat hij het beste kent, het Serengeti-Mara-ecosysteem, waar hij een diepgaand, close-up begrip heeft opgebouwd van hoe de wildlife, het land en de seizoenen samen bewegen.",
+    "guideSpotlightNathanP3": "Die expertise heeft internationaal gereisd. Nathan heeft gegidst voor wereldwijde reismerken, waaronder TUI Spanje en Kobo, waarbij hij rechtstreeks hun Spaanssprekende klanten begeleidde — een rol die meer vraagt dan alleen vertalen. Het betekent begrijpen wat een Spaanse reiziger opvalt, waar hij naar vraagt en waarover hij gerustgesteld wil worden, en de Northern Circuit-ervaring op een manier overbrengen die echt aankomt. Vloeiend in zowel Engels als Spaans is Nathan een van de weinige gidsen in ons team die een volledige safari kan leiden — briefing, ritten, spoorzoeken en elke vraag daartussenin — zonder dat een taalbarrière tussen een gast en de ervaring in staat.",
+    "guideSpotlightNathanClosing": "Voor gasten die met Nathan op reis gaan, komt die combinatie tot uiting in de kleine dingen: een gids die vindt wat anderen missen, die niet alleen uitlegt wat je ziet maar ook hoe hij het heeft gevonden, en die twee decennia aan Serengeti-Mara-kennis inzet tijdens elke rit.",
+    "guideSpotlightNathanImageAlt": "Nathan Urassa, Engels- en Spaanssprekende safarigids in het veld van EWA Safari Outfitters, in de Serengeti",
+    "guideSpotlightRichardCta": "Maak kennis met Richard",
+    "guideSpotlightRichardEyebrow": "Gids in de schijnwerpers",
+    "guideSpotlightRichardHeading": "Maak kennis met Richard Bahati",
+    "guideSpotlightRichardRole": "Senior gids in het veld, Franssprekend",
+    "guideSpotlightRichardP1": "Vraag wie dan ook die ooit een voertuig met Richard heeft gedeeld, en ze vertellen je hetzelfde nog voordat je iets over wildlife hebt gevraagd: hij is leuk. Het soort gids die een negenjarige het ene moment laat schateren om een grap over een wrattenzwijn, en het volgende moment rustig en vakkundig de lichaamstaal van een leeuw leest. Kinderen zijn dol op hem, tieners voelen zich op hun gemak bij hem, en grootouders vertrouwen hem — een zeldzame breedte voor één gids, en het ding dat mensen zich na afloop van hun reis het meest herinneren.",
+    "guideSpotlightRichardP2": "Die warmte rust op echte, hard verdiende ervaring. Voordat hij in 2023 bij EWA Safari Outfitters kwam, werkte Richard jarenlang als hoofdgids, bij vier verschillende safaribedrijven, en deed hij de instincten op die alleen ontstaan door reis na reis door Noord-Tanzania te leiden. Hij is onze senior Franssprekende gids in het veld — de gids die we naar voren schuiven zodra er een Franstalige reiziger in het voertuig zit, want hij vertaalt de safari niet alleen voor hen, hij zorgt ervoor dat er niets van de ervaring verloren gaat bij het wisselen tussen talen.",
+    "guideSpotlightRichardP3": "In het veld is Richards favoriete moment altijd hetzelfde: de grote katten. Leeuw, luipaard, jachtluipaard — welke het ook is die zich laat zien, hij is de gids die stilletjes het voertuig al in positie brengt voor het best mogelijke uitzicht, nog voordat iemand anders zelfs maar beweging in het gras heeft opgemerkt.",
+    "guideSpotlightRichardP4": "Buiten werktijd is Richard precies wie je op basis van bovenstaande zou verwachten: een toegewijde vader van zijn drie kinderen, een voetballiefhebber die net zo graag zelf een wedstrijd speelt als er een kijkt, en iemand die altijd wel ergens Bongo Flavor — Tanzania's eigen homegrown hiphop — heeft opstaan.",
+    "guideSpotlightRichardClosing": "Daarom vragen gasten al maanden voor hun reis begint specifiek naar hem — niet alleen om zijn gidsen, maar om de hele ervaring van in een voertuig te zitten met iemand die net zoveel van dit werk houdt als hij.",
+    "guideSpotlightRichardImageAlt": "Richard Bahati, senior Franssprekende gids in het veld van EWA Safari Outfitters, in de Serengeti",
     "metaTitle": "Over ons | Beste Tanzania-safariorganisatie 2026",
     "metaDescription": "In Tanzania geboren, lokaal geleide, TATO-geregistreerde safariorganisatie. Deskundige gidsen, kleinschalige safari's en 100% persoonlijke reisroutes. Beoordeeld met 4,9/5 door meer dan 200 gasten.",
     "metaKeywords": [
