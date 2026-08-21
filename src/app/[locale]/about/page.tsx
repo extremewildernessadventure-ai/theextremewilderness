@@ -336,9 +336,9 @@ export default async function AboutPage({ params }: Props) {
             <h2 className="text-3xl lg:text-4xl font-bold text-brand mb-3">{t('meetTheTeam')}</h2>
             <p className="text-text-muted max-w-xl mx-auto text-sm leading-relaxed">{t('teamDesc')}</p>
           </Reveal>
-          <RevealGroup className="grid grid-cols-1 md:grid-cols-3 gap-7">
+          <RevealGroup className="flex flex-wrap justify-center gap-7">
             {team.map(({ image, name, role, bio }) => (
-              <RevealItem key={name} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all text-center group">
+              <RevealItem key={name} className="w-full md:w-[calc((100%-3.5rem)/3)] bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all text-center group">
                 <div className="flex justify-center mb-5">
                   <div className="w-32 h-32 rounded-full overflow-hidden ring-4 ring-gold/30 group-hover:ring-gold/60 transition-all flex-shrink-0">
                     <Image src={image} alt={name} width={128} height={128} className="w-full h-full object-cover object-top" />
