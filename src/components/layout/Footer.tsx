@@ -216,8 +216,15 @@ export default async function Footer() {
 
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/10 py-6 flex flex-col items-center gap-3 text-sm text-white/70 sm:flex-row sm:justify-between">
+        {/* Bottom bar. Extra bottom padding (beyond the symmetric py-6 this
+            row would otherwise have) keeps this content clear of the fixed
+            WhatsAppButton, which floats independently of scroll and isn't
+            covered by the mobile BottomNav spacer in app/[locale]/layout.tsx
+            (that spacer only reserves BottomNav's own height, not the
+            button's, which sits higher). Sized to clear the button's
+            bottom-6+h-14 zone on desktop and its bottom-20+h-14 zone on
+            mobile net of that existing BottomNav spacer. */}
+        <div className="border-t border-white/10 pt-6 pb-20 flex flex-col items-center gap-3 text-sm text-white/70 sm:flex-row sm:justify-between">
           <p>{t('copyright', { year: new Date().getFullYear() })}</p>
           <div className="flex items-center gap-5">
             <Link href="/privacy" className="hover:text-white transition-colors">{t('privacy')}</Link>
