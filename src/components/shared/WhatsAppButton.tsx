@@ -18,10 +18,10 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t('whatsAppAriaLabel')}
-      className="fixed bottom-20 lg:bottom-6 start-6 z-50 group flex items-center gap-3"
+      className="fixed bottom-20 lg:bottom-6 left-6 z-50 group flex items-center gap-3"
     >
       {/* Tooltip */}
-      <span className="hidden sm:block opacity-0 group-hover:opacity-100 -translate-x-2 rtl:translate-x-2 group-hover:translate-x-0 transition-all duration-200 bg-gray-900 text-white text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none order-last">
+      <span className="hidden sm:block opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-200 bg-gray-900 text-white text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none order-last">
         {t('whatsAppTooltip')}
       </span>
 
