@@ -65,6 +65,7 @@ const LOCALE_LANGUAGE: Record<string, string> = {
   ja: 'Japanese',
   ko: 'Korean',
   ar: 'Modern Standard Arabic',
+  he: 'Hebrew',
 }
 
 export const RESULTS_SENTINEL = '<<<RESULTS>>>'
