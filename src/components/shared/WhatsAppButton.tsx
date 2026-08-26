@@ -18,6 +18,16 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t('whatsAppAriaLabel')}
+      // Forced LTR regardless of page direction: this widget is always
+      // pinned to the physical-left edge (see left-6 above — Tawk's chat
+      // bubble permanently occupies the right corner site-wide, so this
+      // never mirrors for RTL). Without this, dir="rtl" reverses which end
+      // of the flex row `order-last` resolves to, so the invisible tooltip
+      // span (still occupying layout space at opacity-0) lands *ahead* of
+      // the icon instead of trailing it — visibly shoving the green button
+      // inward from the pinned edge by the tooltip's own width. Same fix
+      // class as .price-slider-track in globals.css.
+      dir="ltr"
       className="fixed bottom-20 lg:bottom-6 left-6 z-50 group flex items-center gap-3"
     >
       {/* Tooltip */}
