@@ -43,7 +43,7 @@ export const ADMIN_NAV: AdminNavGroup[] = [
   {
     label: 'Compliance & Safety',
     links: [
-      { label: 'Permits', href: '/admin/permits' },
+      { label: 'Permits & Certifications', href: '/admin/permits' },
       { label: 'Incidents', href: '/admin/incidents' },
     ],
   },
@@ -51,6 +51,8 @@ export const ADMIN_NAV: AdminNavGroup[] = [
     label: 'HR & Payroll',
     links: [
       { label: 'Staff', href: '/admin/staff' },
+      { label: 'Certifications', href: '/admin/certifications' },
+      { label: 'Leave Calendar', href: '/admin/leave-calendar' },
       { label: 'Payroll', href: '/admin/payroll' },
     ],
   },
