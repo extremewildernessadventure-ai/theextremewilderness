@@ -39,4 +39,11 @@ export const ADMIN_NAV: AdminNavGroup[] = [
       { label: 'Refunds', href: '/admin/refunds' },
     ],
   },
+  {
+    label: 'Compliance & Safety',
+    links: [
+      { label: 'Permits', href: '/admin/permits' },
+      { label: 'Incidents', href: '/admin/incidents' },
+    ],
+  },
 ]
