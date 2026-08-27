@@ -26,7 +26,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   }
   const { id } = await params
   const body = await req.json() as {
-    category?: string; vehicleId?: number | null; departureId?: number | null; amount?: number
+    category?: string; vehicleId?: number | null; staffMemberId?: number | null; departureId?: number | null; amount?: number
     currency?: string; exchangeRateToUsd?: number; description?: string
     paidAt?: string; paymentMethod?: string; reference?: string
   }
@@ -57,6 +57,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   const columnMap: Record<string, unknown> = {
     category: body.category,
     vehicle_id: body.vehicleId,
+    staff_member_id: body.staffMemberId,
     departure_id: body.departureId,
     amount: body.amount,
     currency: body.currency,

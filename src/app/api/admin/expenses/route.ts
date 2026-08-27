@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   const body = await req.json() as {
-    category?: string; vehicleId?: number; departureId?: number; amount?: number
+    category?: string; vehicleId?: number; staffMemberId?: number; departureId?: number; amount?: number
     currency?: string; exchangeRateToUsd?: number; description?: string
     paidAt?: string; paymentMethod?: string; reference?: string
   }
@@ -36,10 +36,10 @@ export async function POST(req: NextRequest) {
 
   const db = await getDb()
   const result = await db.prepare(
-    `INSERT INTO expenses (category, vehicle_id, departure_id, amount, currency, exchange_rate_to_usd, amount_usd, description, paid_at, payment_method, reference)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    `INSERT INTO expenses (category, vehicle_id, staff_member_id, departure_id, amount, currency, exchange_rate_to_usd, amount_usd, description, paid_at, payment_method, reference)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   ).bind(
-    body.category, body.vehicleId ?? null, body.departureId ?? null, body.amount,
+    body.category, body.vehicleId ?? null, body.staffMemberId ?? null, body.departureId ?? null, body.amount,
     currency, exchangeRateToUsd, amountUsd, body.description ?? null,
     body.paidAt ?? null, body.paymentMethod ?? null, body.reference ?? null,
   ).run()

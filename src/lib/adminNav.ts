@@ -46,4 +46,11 @@ export const ADMIN_NAV: AdminNavGroup[] = [
       { label: 'Incidents', href: '/admin/incidents' },
     ],
   },
+  {
+    label: 'HR & Payroll',
+    links: [
+      { label: 'Staff', href: '/admin/staff' },
+      { label: 'Payroll', href: '/admin/payroll' },
+    ],
+  },
 ]

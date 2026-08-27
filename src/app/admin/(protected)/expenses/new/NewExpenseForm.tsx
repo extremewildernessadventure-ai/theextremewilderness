@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { EXPENSE_CATEGORIES, type ExpenseCategory } from '@/lib/finance'
 import type { Vehicle } from '@/lib/ops'
 import type { Departure } from '@/lib/departures'
+import type { StaffMember } from '@/lib/hr'
 import { packages } from '@/data/packages'
 
 const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
@@ -21,11 +22,11 @@ function departureLabel(d: Departure): string {
   return `${pkg?.name ?? d.package_slug} (${d.start_date})`
 }
 
-export default function NewExpenseForm({ vehicles, departures }: { vehicles: Vehicle[]; departures: Departure[] }) {
+export default function NewExpenseForm({ vehicles, departures, staff }: { vehicles: Vehicle[]; departures: Departure[]; staff: StaffMember[] }) {
   const router = useRouter()
   const [form, setForm] = useState({
     category: 'fuel' as ExpenseCategory,
-    vehicleId: '', departureId: '', amount: '', currency: 'USD', exchangeRateToUsd: '1',
+    vehicleId: '', staffMemberId: '', departureId: '', amount: '', currency: 'USD', exchangeRateToUsd: '1',
     description: '', paidAt: '', paymentMethod: '', reference: '',
   })
   const [error, setError] = useState('')
@@ -53,6 +54,7 @@ export default function NewExpenseForm({ vehicles, departures }: { vehicles: Veh
           amount,
           exchangeRateToUsd: parseFloat(form.exchangeRateToUsd) || 1,
           vehicleId: form.vehicleId ? Number(form.vehicleId) : undefined,
+          staffMemberId: form.staffMemberId ? Number(form.staffMemberId) : undefined,
           departureId: form.departureId ? Number(form.departureId) : undefined,
         }),
       })
@@ -97,6 +99,15 @@ export default function NewExpenseForm({ vehicles, departures }: { vehicles: Veh
             </select>
           </div>
         </div>
+        {form.category === 'wages' && (
+          <div>
+            <label className={labelCls}>Staff Member</label>
+            <select value={form.staffMemberId} onChange={(e) => update('staffMemberId', e.target.value)} className={inputCls}>
+              <option value="">—</option>
+              {staff.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
+            </select>
+          </div>
+        )}
         <div className="grid grid-cols-3 gap-4">
           <div>
             <label className={labelCls}>Amount *</label>
