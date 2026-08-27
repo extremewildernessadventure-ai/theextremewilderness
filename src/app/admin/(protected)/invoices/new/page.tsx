@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { Suspense, useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Plus, Trash2 } from 'lucide-react'
 
@@ -21,12 +21,27 @@ function lineTotal(row: ItemRow): number {
   return qty * price
 }
 
-export default function NewInvoicePage() {
+function NewInvoiceForm() {
   const router = useRouter()
+  const searchParams = useSearchParams()
+  // Pre-fill from a Quote's "Convert to Invoice" link (/admin/quotes/[id]) —
+  // a plain query-param deep-link, not a fetch, so no extra round-trip.
   const [form, setForm] = useState({
-    clientName: '', clientEmail: '', bookingReference: '', currency: 'USD', dueDate: '', notes: '',
+    clientName: searchParams.get('clientName') ?? '',
+    clientEmail: searchParams.get('clientEmail') ?? '',
+    bookingReference: '',
+    currency: searchParams.get('currency') || 'USD',
+    dueDate: '',
+    notes: '',
   })
-  const [items, setItems] = useState<ItemRow[]>([emptyRow()])
+  const [items, setItems] = useState<ItemRow[]>(() => {
+    const description = searchParams.get('itemDescription')
+    const price = searchParams.get('itemPrice')
+    if (description && price) {
+      return [{ description, quantity: '1', unitPrice: price }]
+    }
+    return [emptyRow()]
+  })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -184,5 +199,13 @@ export default function NewInvoicePage() {
         </button>
       </form>
     </div>
+  )
+}
+
+export default function NewInvoicePage() {
+  return (
+    <Suspense fallback={null}>
+      <NewInvoiceForm />
+    </Suspense>
   )
 }
