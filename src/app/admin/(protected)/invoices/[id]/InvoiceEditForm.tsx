@@ -3,19 +3,27 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { Invoice } from '@/lib/db'
+import type { Departure } from '@/lib/departures'
+import { packages } from '@/data/packages'
 
 const STATUSES = ['unpaid', 'partial', 'paid', 'cancelled'] as const
 
 const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
 const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5'
 
-export default function InvoiceEditForm({ invoice }: { invoice: Invoice }) {
+function departureLabel(d: Departure): string {
+  const pkg = packages.find((p) => p.slug === d.package_slug)
+  return `${pkg?.name ?? d.package_slug} (${d.start_date})`
+}
+
+export default function InvoiceEditForm({ invoice, departures }: { invoice: Invoice; departures: Departure[] }) {
   const router = useRouter()
   const [form, setForm] = useState({
     clientName: invoice.client_name,
     clientEmail: invoice.client_email ?? '',
     bookingReference: invoice.booking_reference ?? '',
     currency: invoice.currency,
+    departureId: invoice.departure_id ? String(invoice.departure_id) : '',
     dueDate: invoice.due_date ?? '',
     status: invoice.status,
     notes: invoice.notes ?? '',
@@ -34,7 +42,7 @@ export default function InvoiceEditForm({ invoice }: { invoice: Invoice }) {
     await fetch(`/api/admin/invoices/${invoice.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
+      body: JSON.stringify({ ...form, departureId: form.departureId ? Number(form.departureId) : null }),
     })
     setSaving(false)
     setSaved(true)
@@ -58,9 +66,18 @@ export default function InvoiceEditForm({ invoice }: { invoice: Invoice }) {
           <input value={form.bookingReference} onChange={(e) => update('bookingReference', e.target.value)} className={inputCls} />
         </div>
       </div>
-      <div>
-        <label className={labelCls}>Currency</label>
-        <input value={form.currency} onChange={(e) => update('currency', e.target.value)} className={`${inputCls} max-w-[140px]`} />
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className={labelCls}>Currency</label>
+          <input value={form.currency} onChange={(e) => update('currency', e.target.value)} className={inputCls} />
+        </div>
+        <div>
+          <label className={labelCls}>Departure</label>
+          <select value={form.departureId} onChange={(e) => update('departureId', e.target.value)} className={inputCls}>
+            <option value="">—</option>
+            {departures.map((d) => <option key={d.id} value={d.id}>{departureLabel(d)}</option>)}
+          </select>
+        </div>
       </div>
       <p className="text-xs text-gray-400 -mt-2">
         Amount is calculated from line items — edit those in the panel below.

@@ -64,6 +64,29 @@ export async function DELETE(_req: NextRequest, { params }: Params) {
   }
   const { id } = await params
   const db = await getDb()
+
+  // Departures are referenced by bookings/invoices/expenses/supplier_payments
+  // — D1 enforces those FK constraints at DELETE time, and unlike an
+  // invoice's own item/payment rows (which are safe to cascade-clear because
+  // they only exist to describe the invoice itself), these are independent
+  // financial/operational records that must never be silently deleted as a
+  // side effect. Block instead, with a clear reason.
+  const [bookingCount, invoiceCount, expenseCount] = await Promise.all([
+    db.prepare('SELECT COUNT(*) as count FROM bookings WHERE departure_id = ?').bind(id).first<{ count: number }>(),
+    db.prepare('SELECT COUNT(*) as count FROM invoices WHERE departure_id = ?').bind(id).first<{ count: number }>(),
+    db.prepare('SELECT COUNT(*) as count FROM expenses WHERE departure_id = ?').bind(id).first<{ count: number }>(),
+  ])
+  const blockers: string[] = []
+  if ((bookingCount?.count ?? 0) > 0) blockers.push('bookings')
+  if ((invoiceCount?.count ?? 0) > 0) blockers.push('invoices')
+  if ((expenseCount?.count ?? 0) > 0) blockers.push('expenses')
+  if (blockers.length > 0) {
+    return NextResponse.json(
+      { error: `Cannot delete this departure — it has linked ${blockers.join(', ')}. Remove or reassign those first.` },
+      { status: 409 }
+    )
+  }
+
   await db.prepare('DELETE FROM departures WHERE id = ?').bind(id).run()
   return NextResponse.json({ success: true })
 }

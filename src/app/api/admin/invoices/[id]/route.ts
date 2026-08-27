@@ -26,7 +26,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   const { id } = await params
   const body = await req.json() as {
     clientName?: string; clientEmail?: string; bookingReference?: string
-    amount?: number; currency?: string; description?: string
+    amount?: number; currency?: string; description?: string; departureId?: number | null
     status?: string; dueDate?: string; notes?: string
   }
 
@@ -41,6 +41,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     amount: body.amount,
     currency: body.currency,
     description: body.description,
+    departure_id: body.departureId,
     status: body.status,
     due_date: body.dueDate,
     notes: body.notes,

@@ -22,7 +22,13 @@ export default function DeleteButton({
   async function handleDelete() {
     if (!confirm(confirmMessage)) return
     setDeleting(true)
-    await fetch(endpoint, { method: 'DELETE' })
+    const res = await fetch(endpoint, { method: 'DELETE' })
+    if (!res.ok) {
+      setDeleting(false)
+      const data = await res.json().catch(() => ({}))
+      alert(data.error ?? 'Failed to delete. Please try again.')
+      return
+    }
     router.push(redirectTo)
     router.refresh()
   }

@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
+import type { Departure } from '@/lib/departures'
 import InvoiceEditForm from './InvoiceEditForm'
 import InvoiceItemsEditor from './InvoiceItemsEditor'
 import PaymentPanel from './PaymentPanel'
@@ -20,10 +21,11 @@ export default async function InvoiceDetailPage({ params }: Props) {
 
   if (!invoice) notFound()
 
-  const [{ results: items }, { results: payments }, { results: pesapalOrders }] = await Promise.all([
+  const [{ results: items }, { results: payments }, { results: pesapalOrders }, { results: departures }] = await Promise.all([
     db.prepare('SELECT * FROM invoice_items WHERE invoice_id = ? ORDER BY sort_order').bind(id).all<InvoiceItem>(),
     db.prepare('SELECT * FROM invoice_payments WHERE invoice_id = ? ORDER BY confirmed_at DESC').bind(id).all<InvoicePayment>(),
     db.prepare('SELECT * FROM invoice_pesapal_orders WHERE invoice_id = ? ORDER BY created_at DESC').bind(id).all<InvoicePesapalOrder>(),
+    db.prepare("SELECT * FROM departures WHERE status != 'cancelled' ORDER BY start_date DESC").all<Departure>(),
   ])
 
   const latestOrder = pesapalOrders[0] ?? null
@@ -85,7 +87,7 @@ export default async function InvoiceDetailPage({ params }: Props) {
           </div>
         </>
       }
-      sidebar={<InvoiceEditForm invoice={invoice} />}
+      sidebar={<InvoiceEditForm invoice={invoice} departures={departures} />}
     />
   )
 }

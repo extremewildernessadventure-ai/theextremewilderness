@@ -31,6 +31,7 @@ export interface Invoice {
   amount_paid: number
   currency: string
   description: string | null
+  departure_id: number | null
   status: 'unpaid' | 'partial' | 'paid' | 'cancelled'
   due_date: string | null
   notes: string | null

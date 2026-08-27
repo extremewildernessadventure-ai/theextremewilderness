@@ -32,4 +32,11 @@ export const ADMIN_NAV: AdminNavGroup[] = [
       { label: 'Suppliers', href: '/admin/suppliers' },
     ],
   },
+  {
+    label: 'Finance',
+    links: [
+      { label: 'Expenses', href: '/admin/expenses' },
+      { label: 'Refunds', href: '/admin/refunds' },
+    ],
+  },
 ]
