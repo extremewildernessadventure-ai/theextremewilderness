@@ -22,11 +22,6 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
         </svg>
         <div className="topbar-inner">
           <Link href="/admin" className="brand">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-              <path d="M12 2 3 20h18L12 2Z" />
-              <path d="M8 14l2.5-3 2 2 1.5-2 2 3" />
-              <path d="M12 2v6" />
-            </svg>
             <span className="brand-text">EWA Admin</span>
           </Link>
           <div className="nav-links">
