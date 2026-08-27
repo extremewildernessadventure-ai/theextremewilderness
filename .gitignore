@@ -40,6 +40,11 @@ next-start.log
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# `wrangler types` / `npm run cf-typegen` output — deliberately not used by
+# this project (declares a global Response/Body that conflicts with
+# lib.dom's, breaking `res.json()` typing everywhere `fetch` is called; see
+# src/lib/r2.ts and src/lib/db.ts for the hand-written-types alternative).
+cloudflare-env.d.ts
 
 # compression script (dev only)
 /scripts/compress-images.mjs
