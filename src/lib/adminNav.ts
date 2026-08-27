@@ -25,6 +25,7 @@ export const ADMIN_NAV: AdminNavGroup[] = [
     label: 'Operations',
     links: [
       { label: 'Departures', href: '/admin/departures' },
+      { label: 'Bookings', href: '/admin/bookings' },
       { label: 'Guides', href: '/admin/guides' },
       { label: 'Vehicles', href: '/admin/vehicles' },
       { label: 'Lodges', href: '/admin/lodges' },
