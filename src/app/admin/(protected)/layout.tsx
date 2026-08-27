@@ -1,7 +1,10 @@
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { hasValidAdminSession } from '@/lib/adminAuth'
+import { ADMIN_NAV } from '@/lib/adminNav'
 import LogoutButton from '../LogoutButton'
+import AdminNavDropdown from '../AdminNavDropdown'
+import AdminMobileNav from '../AdminMobileNav'
 
 export default async function ProtectedAdminLayout({ children }: { children: React.ReactNode }) {
   const authed = await hasValidAdminSession()
@@ -16,13 +19,14 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
           <Link href="/admin/invoices" className="font-bold text-brand">
             EWA Admin
           </Link>
-          <nav className="flex items-center gap-6">
-            <Link href="/admin/invoices" className="text-sm text-gray-600 hover:text-brand transition-colors">
-              Invoices
-            </Link>
-            <Link href="/admin/leads" className="text-sm text-gray-600 hover:text-brand transition-colors">
-              Leads
-            </Link>
+          <nav className="hidden sm:flex items-center gap-6">
+            {ADMIN_NAV.map((group) => (
+              <AdminNavDropdown key={group.label} group={group} />
+            ))}
+            <LogoutButton />
+          </nav>
+          <nav className="flex sm:hidden items-center gap-4">
+            <AdminMobileNav groups={ADMIN_NAV} />
             <LogoutButton />
           </nav>
         </div>

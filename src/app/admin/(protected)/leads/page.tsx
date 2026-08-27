@@ -1,10 +1,12 @@
-import Link from 'next/link'
 import { getDb } from '@/lib/db'
 import type { Lead, LeadType } from '@/lib/leads'
 import TypeBadge from './TypeBadge'
 import LeadStatusSelect from './LeadStatusSelect'
 import SearchBar from './SearchBar'
 import GmailStatusBanner from './GmailStatusBanner'
+import AdminTable, { type AdminTableColumn } from '@/components/admin/AdminTable'
+import Pager from '@/components/admin/Pager'
+import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
@@ -78,6 +80,30 @@ export default async function LeadsListPage({ searchParams }: Props) {
     return `?${params.toString()}`
   }
 
+  const columns: AdminTableColumn<Lead>[] = [
+    {
+      header: 'Name',
+      className: (lead) => (lead.status === 'new' ? 'border-s-2 border-s-gold' : ''),
+      render: (lead) => (
+        <Link href={`/admin/leads/${lead.id}`} className="text-brand font-medium hover:underline">
+          {lead.name || lead.email}
+        </Link>
+      ),
+    },
+    { header: 'Type', render: (lead) => <TypeBadge type={lead.type} /> },
+    {
+      header: 'Subject',
+      className: 'text-gray-700 max-w-[220px] truncate',
+      render: (lead) => lead.subject ?? '—',
+    },
+    { header: 'Status', render: (lead) => <LeadStatusSelect leadId={lead.id} currentStatus={lead.status} compact /> },
+    {
+      header: 'Received',
+      className: 'text-gray-500 whitespace-nowrap',
+      render: (lead) => <span title={lead.created_at}>{formatRelativeTime(lead.created_at)}</span>,
+    },
+  ]
+
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
@@ -115,52 +141,14 @@ export default async function LeadsListPage({ searchParams }: Props) {
         <SearchBar initialQuery={q ?? ''} />
       </div>
 
-      {results.length === 0 ? (
-        <div className="bg-white border border-gray-200 rounded-xl p-10 text-center text-gray-500 text-sm">
-          No leads {type || q ? 'match this filter' : 'yet'}.
-        </div>
-      ) : (
-        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="bg-gray-50 border-b border-gray-200">
-              <tr>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Name</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Type</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Subject</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Status</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Received</th>
-              </tr>
-            </thead>
-            <tbody>
-              {results.map((lead) => (
-                <tr key={lead.id} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
-                  <td className={`px-5 py-3 ${lead.status === 'new' ? 'border-s-2 border-s-gold' : ''}`}>
-                    <Link href={`/admin/leads/${lead.id}`} className="text-brand font-medium hover:underline">
-                      {lead.name || lead.email}
-                    </Link>
-                  </td>
-                  <td className="px-5 py-3"><TypeBadge type={lead.type} /></td>
-                  <td className="px-5 py-3 text-gray-700 max-w-[220px] truncate">{lead.subject ?? '—'}</td>
-                  <td className="px-5 py-3">
-                    <LeadStatusSelect leadId={lead.id} currentStatus={lead.status} compact />
-                  </td>
-                  <td className="px-5 py-3 text-gray-500 whitespace-nowrap" title={lead.created_at}>
-                    {formatRelativeTime(lead.created_at)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+      <AdminTable
+        columns={columns}
+        rows={results}
+        rowKey={(lead) => lead.id}
+        emptyMessage={`No leads ${type || q ? 'match this filter' : 'yet'}.`}
+      />
 
-      {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-4 mt-6 text-sm">
-          {page > 1 && <Link href={pageHref(page - 1)} className="text-brand hover:underline">← Prev</Link>}
-          <span className="text-gray-500">Page {page} of {totalPages}</span>
-          {page < totalPages && <Link href={pageHref(page + 1)} className="text-brand hover:underline">Next →</Link>}
-        </div>
-      )}
+      <Pager page={page} totalPages={totalPages} makeHref={pageHref} />
     </div>
   )
 }

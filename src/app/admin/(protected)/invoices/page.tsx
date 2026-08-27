@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getDb, type Invoice } from '@/lib/db'
+import AdminTable, { type AdminTableColumn } from '@/components/admin/AdminTable'
 
 export const dynamic = 'force-dynamic'
 
@@ -9,6 +10,28 @@ const STATUS_STYLES: Record<Invoice['status'], string> = {
   paid: 'bg-green-100 text-green-700',
   cancelled: 'bg-gray-100 text-gray-500',
 }
+
+const columns: AdminTableColumn<Invoice>[] = [
+  {
+    header: 'Invoice #',
+    render: (inv) => (
+      <Link href={`/admin/invoices/${inv.id}`} className="text-brand font-medium hover:underline">
+        {inv.invoice_number}
+      </Link>
+    ),
+  },
+  { header: 'Client', className: 'text-gray-700', render: (inv) => inv.client_name },
+  { header: 'Amount', className: 'text-gray-700', render: (inv) => `${inv.currency} ${inv.amount.toLocaleString()}` },
+  {
+    header: 'Status',
+    render: (inv) => (
+      <span className={`inline-flex px-2.5 py-1 rounded-full text-xs font-semibold capitalize ${STATUS_STYLES[inv.status]}`}>
+        {inv.status}
+      </span>
+    ),
+  },
+  { header: 'Created', className: 'text-gray-500', render: (inv) => new Date(inv.created_at).toLocaleDateString() },
+]
 
 export default async function InvoicesListPage() {
   const db = await getDb()
@@ -26,44 +49,7 @@ export default async function InvoicesListPage() {
         </Link>
       </div>
 
-      {results.length === 0 ? (
-        <div className="bg-white border border-gray-200 rounded-xl p-10 text-center text-gray-500 text-sm">
-          No invoices yet.
-        </div>
-      ) : (
-        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="bg-gray-50 border-b border-gray-200">
-              <tr>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Invoice #</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Client</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Amount</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Status</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Created</th>
-              </tr>
-            </thead>
-            <tbody>
-              {results.map((inv) => (
-                <tr key={inv.id} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
-                  <td className="px-5 py-3">
-                    <Link href={`/admin/invoices/${inv.id}`} className="text-brand font-medium hover:underline">
-                      {inv.invoice_number}
-                    </Link>
-                  </td>
-                  <td className="px-5 py-3 text-gray-700">{inv.client_name}</td>
-                  <td className="px-5 py-3 text-gray-700">{inv.currency} {inv.amount.toLocaleString()}</td>
-                  <td className="px-5 py-3">
-                    <span className={`inline-flex px-2.5 py-1 rounded-full text-xs font-semibold capitalize ${STATUS_STYLES[inv.status]}`}>
-                      {inv.status}
-                    </span>
-                  </td>
-                  <td className="px-5 py-3 text-gray-500">{new Date(inv.created_at).toLocaleDateString()}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+      <AdminTable columns={columns} rows={results} rowKey={(inv) => inv.id} emptyMessage="No invoices yet." />
     </div>
   )
 }

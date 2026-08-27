@@ -7,6 +7,7 @@ import PaymentPanel from './PaymentPanel'
 import PesapalPanel from './PesapalPanel'
 import PaymentOptionsPanel from './PaymentOptionsPanel'
 import DeleteInvoiceButton from './DeleteInvoiceButton'
+import DetailTwoColumn from '@/components/admin/DetailTwoColumn'
 
 export const dynamic = 'force-dynamic'
 
@@ -28,13 +29,13 @@ export default async function InvoiceDetailPage({ params }: Props) {
   const latestOrder = pesapalOrders[0] ?? null
 
   return (
-    <div className="max-w-5xl">
-      <Link href="/admin/invoices" className="text-sm text-gray-500 hover:text-brand mb-4 inline-block">← Back to Invoices</Link>
-      <h1 className="text-2xl font-bold text-brand mb-1">{invoice.invoice_number}</h1>
-      <p className="text-gray-500 text-sm mb-6">Created {new Date(invoice.created_at).toLocaleString()}</p>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-        <div className="space-y-6">
+    <DetailTwoColumn
+      backHref="/admin/invoices"
+      backLabel="Back to Invoices"
+      title={invoice.invoice_number}
+      subtitle={`Created ${new Date(invoice.created_at).toLocaleString()}`}
+      main={
+        <>
           <div className="bg-white border border-gray-200 rounded-xl p-7 space-y-3 text-sm">
             <div className="flex justify-between">
               <span className="text-gray-500">Client</span>
@@ -82,10 +83,9 @@ export default async function InvoiceDetailPage({ params }: Props) {
           <div className="pt-6 border-t border-gray-200">
             <DeleteInvoiceButton invoiceId={invoice.id} invoiceNumber={invoice.invoice_number} />
           </div>
-        </div>
-
-        <InvoiceEditForm invoice={invoice} />
-      </div>
-    </div>
+        </>
+      }
+      sidebar={<InvoiceEditForm invoice={invoice} />}
+    />
   )
 }
