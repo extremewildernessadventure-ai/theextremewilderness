@@ -37,6 +37,7 @@ export const ADMIN_NAV: AdminNavGroup[] = [
     links: [
       { label: 'Expenses', href: '/admin/expenses' },
       { label: 'Refunds', href: '/admin/refunds' },
+      { label: 'Profitability', href: '/admin/reports/profitability' },
     ],
   },
   {
@@ -59,6 +60,13 @@ export const ADMIN_NAV: AdminNavGroup[] = [
       { label: 'Clients', href: '/admin/clients' },
       { label: 'Documents', href: '/admin/documents' },
       { label: 'Reviews', href: '/admin/reviews' },
+    ],
+  },
+  {
+    label: 'Marketing',
+    links: [
+      { label: 'Newsletter', href: '/admin/newsletter' },
+      { label: 'Lead Sources', href: '/admin/reports/sources' },
     ],
   },
 ]

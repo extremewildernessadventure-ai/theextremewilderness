@@ -24,7 +24,7 @@ export default function AdminLoginPage() {
         setLoading(false)
         return
       }
-      router.push('/admin/invoices')
+      router.push('/admin')
       router.refresh()
     } catch {
       setError('Something went wrong. Please try again.')
