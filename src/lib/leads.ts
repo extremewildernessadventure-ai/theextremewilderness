@@ -11,6 +11,38 @@ export type LeadType =
 
 export type LeadStatus = 'new' | 'contacted' | 'converted' | 'archived'
 
+export type CommunicationChannel = 'whatsapp' | 'email' | 'call' | 'in_person'
+export const COMMUNICATION_CHANNELS: CommunicationChannel[] = ['whatsapp', 'email', 'call', 'in_person']
+
+export type LeadUpdateCategory = 'accommodation' | 'flight' | 'payment' | 'document' | 'general'
+export const LEAD_UPDATE_CATEGORIES: LeadUpdateCategory[] = ['accommodation', 'flight', 'payment', 'document', 'general']
+
+// Internal staff-only contact log — distinct from LeadUpdate below. This is
+// "what did we say to this person and when," never shown to a client.
+export interface CommunicationLogEntry {
+  id: number
+  lead_id: number
+  channel: CommunicationChannel
+  summary: string
+  logged_by: string | null
+  created_at: string
+}
+
+// Staff-visible-only trip-progress timeline entry. proof_channel/proof_note
+// record how a promised update was actually confirmed, not just that it was
+// logged — see the admin-parity plan's friction notes for why this has no
+// client-facing view on this project (no accounts/portal system exists).
+export interface LeadUpdate {
+  id: number
+  lead_id: number
+  category: LeadUpdateCategory
+  title: string
+  body: string | null
+  proof_channel: CommunicationChannel | null
+  proof_note: string | null
+  created_at: string
+}
+
 export interface Lead {
   id: number
   type: LeadType
@@ -23,6 +55,8 @@ export interface Lead {
   payload: string
   email_sent: number
   notes: string | null
+  trip_start_date: string | null
+  trip_end_date: string | null
   created_at: string
   updated_at: string | null
 }

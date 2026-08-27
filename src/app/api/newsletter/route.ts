@@ -2,6 +2,7 @@ import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 import { computeDiscountCode } from '@/lib/discountCode'
 import { saveLead, markLeadEmailSent } from '@/lib/leads'
+import { upsertSubscriber } from '@/lib/newsletter'
 
 export async function POST(req: NextRequest) {
   try {
@@ -38,6 +39,8 @@ export async function POST(req: NextRequest) {
     } else if (leadId) {
       await markLeadEmailSent(leadId)
     }
+
+    await upsertSubscriber(email, source ?? 'newsletter')
 
     if (source === 'exit-intent') {
       return NextResponse.json({ success: true, code: computeDiscountCode(email) })

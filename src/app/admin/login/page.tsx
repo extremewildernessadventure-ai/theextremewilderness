@@ -24,7 +24,7 @@ export default function AdminLoginPage() {
         setLoading(false)
         return
       }
-      router.push('/admin/invoices')
+      router.push('/admin')
       router.refresh()
     } catch {
       setError('Something went wrong. Please try again.')
@@ -33,15 +33,16 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
-        <h1 className="text-xl font-bold text-brand mb-1">EWA Admin</h1>
-        <p className="text-sm text-gray-500 mb-6">Sign in to manage invoices.</p>
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 16px' }}>
+      <div className="panel" style={{ width: '100%', maxWidth: 384, boxShadow: 'var(--shadow)' }}>
+        <div className="brand" style={{ marginBottom: 16 }}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2 3 20h18L12 2Z" /><path d="M8 14l2.5-3 2 2 1.5-2 2 3" /><path d="M12 2v6" /></svg>
+          <span className="brand-text">EWA Admin</span>
+        </div>
+        <p className="text-sm mb-6" style={{ color: 'var(--grey)' }}>Sign in to manage the dashboard.</p>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="password" className="block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">
-              Password
-            </label>
+            <label htmlFor="password" className="field-label">Password</label>
             <input
               id="password"
               type="password"
@@ -49,15 +50,11 @@ export default function AdminLoginPage() {
               autoFocus
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10"
+              className="field-input"
             />
           </div>
           {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
-          <button
-            type="submit"
-            disabled={loading || !password}
-            className="w-full py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white font-semibold rounded-lg transition-colors text-sm"
-          >
+          <button type="submit" disabled={loading || !password} className="btn-primary" style={{ width: '100%', justifyContent: 'center', opacity: loading || !password ? 0.5 : 1 }}>
             {loading ? 'Signing in…' : 'Sign In'}
           </button>
         </form>

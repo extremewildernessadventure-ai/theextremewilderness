@@ -1,10 +1,12 @@
-import Link from 'next/link'
 import { getDb } from '@/lib/db'
 import type { Lead, LeadType } from '@/lib/leads'
 import TypeBadge from './TypeBadge'
 import LeadStatusSelect from './LeadStatusSelect'
 import SearchBar from './SearchBar'
 import GmailStatusBanner from './GmailStatusBanner'
+import AdminTable, { type AdminTableColumn } from '@/components/admin/AdminTable'
+import Pager from '@/components/admin/Pager'
+import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
@@ -57,18 +59,11 @@ export default async function LeadsListPage({ searchParams }: Props) {
   const statsRow = await db.prepare(`
     SELECT
       COUNT(*) as total,
-      SUM(CASE WHEN status = 'new' THEN 1 ELSE 0 END) as newCount,
       SUM(CASE WHEN created_at >= datetime('now', '-7 days') THEN 1 ELSE 0 END) as thisWeek,
-      SUM(CASE WHEN status = 'new' AND created_at <= datetime('now', '-2 days') THEN 1 ELSE 0 END) as needsFollowUp
+      SUM(CASE WHEN status IN ('new', 'contacted') AND NOT EXISTS (SELECT 1 FROM quotes WHERE quotes.lead_id = leads.id) THEN 1 ELSE 0 END) as awaitingQuote,
+      SUM(CASE WHEN status = 'converted' AND updated_at >= date('now', 'start of month') THEN 1 ELSE 0 END) as wonThisMonth
     FROM leads
-  `).first<{ total: number; newCount: number; thisWeek: number; needsFollowUp: number }>()
-
-  const stats = [
-    { label: 'Total leads', value: statsRow?.total ?? 0, accent: 'text-brand' },
-    { label: 'New', value: statsRow?.newCount ?? 0, accent: 'text-amber-600' },
-    { label: 'This week', value: statsRow?.thisWeek ?? 0, accent: 'text-blue-600' },
-    { label: 'Needs follow-up', value: statsRow?.needsFollowUp ?? 0, accent: 'text-red-600' },
-  ]
+  `).first<{ total: number; thisWeek: number; awaitingQuote: number; wonThisMonth: number }>()
 
   function pageHref(nextPage: number) {
     const params = new URLSearchParams()
@@ -78,89 +73,80 @@ export default async function LeadsListPage({ searchParams }: Props) {
     return `?${params.toString()}`
   }
 
+  const columns: AdminTableColumn<Lead>[] = [
+    {
+      header: 'Lead',
+      render: (lead) => (
+        <Link href={`/admin/leads/${lead.id}`} className="text-brand font-medium hover:underline">
+          {lead.name || lead.email}
+        </Link>
+      ),
+    },
+    { header: 'Contact', className: 'text-gray-700', render: (lead) => lead.email },
+    { header: 'Source', render: (lead) => <TypeBadge type={lead.type} /> },
+    { header: 'Status', render: (lead) => <LeadStatusSelect leadId={lead.id} currentStatus={lead.status} compact /> },
+    {
+      header: 'Last Activity',
+      className: 'dates-cell',
+      render: (lead) => <span title={lead.created_at}>{formatRelativeTime(lead.created_at)}</span>,
+    },
+  ]
+
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-brand">Leads</h1>
+      <div className="page-head">
+        <div>
+          <h1>Leads</h1>
+          <p>{total} total · {statsRow?.awaitingQuote ?? 0} awaiting quote</p>
+        </div>
       </div>
 
       <GmailStatusBanner />
 
-      {/* Stat strip — "Needs follow-up" is the number that actually matters:
-          new leads sitting unactioned for 48h+, i.e. at risk of being dropped. */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        {stats.map((s) => (
-          <div key={s.label} className="bg-white border border-gray-200 rounded-xl p-5">
-            <p className={`text-2xl font-bold ${s.accent}`}>{s.value}</p>
-            <p className="text-xs text-gray-500 uppercase tracking-wide mt-1">{s.label}</p>
-          </div>
-        ))}
+      {/* "Awaiting Quote" is the number that actually matters: leads still
+          being worked with no quote sent yet. */}
+      <div className="stats-row">
+        <div className="stat-card">
+          <div className="stat-label">Total Leads</div>
+          <div className="stat-num">{statsRow?.total ?? 0}</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-label">New This Week</div>
+          <div className="stat-num">{statsRow?.thisWeek ?? 0}</div>
+        </div>
+        <div className="stat-card gold">
+          <div className="stat-label">Awaiting Quote</div>
+          <div className="stat-num">{statsRow?.awaitingQuote ?? 0}</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-label">Won This Month</div>
+          <div className="stat-num">{statsRow?.wonThisMonth ?? 0}</div>
+        </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+      <div className="filter-bar">
+        <SearchBar initialQuery={q ?? ''} />
         <form method="get" className="flex items-center gap-2">
           {q && <input type="hidden" name="q" value={q} />}
-          <select
-            name="type"
-            defaultValue={type ?? ''}
-            className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10"
-          >
-            <option value="">All types</option>
-            {TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
-          </select>
-          <button type="submit" className="px-4 py-2 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors">
-            Filter
-          </button>
+          <div className="select-field">
+            <select name="type" defaultValue={type ?? ''}>
+              <option value="">All types</option>
+              {TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
+            </select>
+          </div>
+          <button type="submit" className="btn-outline">Filter</button>
         </form>
-        <SearchBar initialQuery={q ?? ''} />
       </div>
 
-      {results.length === 0 ? (
-        <div className="bg-white border border-gray-200 rounded-xl p-10 text-center text-gray-500 text-sm">
-          No leads {type || q ? 'match this filter' : 'yet'}.
-        </div>
-      ) : (
-        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="bg-gray-50 border-b border-gray-200">
-              <tr>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Name</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Type</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Subject</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Status</th>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Received</th>
-              </tr>
-            </thead>
-            <tbody>
-              {results.map((lead) => (
-                <tr key={lead.id} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
-                  <td className={`px-5 py-3 ${lead.status === 'new' ? 'border-s-2 border-s-gold' : ''}`}>
-                    <Link href={`/admin/leads/${lead.id}`} className="text-brand font-medium hover:underline">
-                      {lead.name || lead.email}
-                    </Link>
-                  </td>
-                  <td className="px-5 py-3"><TypeBadge type={lead.type} /></td>
-                  <td className="px-5 py-3 text-gray-700 max-w-[220px] truncate">{lead.subject ?? '—'}</td>
-                  <td className="px-5 py-3">
-                    <LeadStatusSelect leadId={lead.id} currentStatus={lead.status} compact />
-                  </td>
-                  <td className="px-5 py-3 text-gray-500 whitespace-nowrap" title={lead.created_at}>
-                    {formatRelativeTime(lead.created_at)}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+      <AdminTable
+        columns={columns}
+        rows={results}
+        rowKey={(lead) => lead.id}
+        emptyMessage={`No leads ${type || q ? 'match this filter' : 'yet'}.`}
+        rowClassName={(lead) => (lead.status === 'new' ? 'warn' : undefined)}
+      />
 
-      {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-4 mt-6 text-sm">
-          {page > 1 && <Link href={pageHref(page - 1)} className="text-brand hover:underline">← Prev</Link>}
-          <span className="text-gray-500">Page {page} of {totalPages}</span>
-          {page < totalPages && <Link href={pageHref(page + 1)} className="text-brand hover:underline">Next →</Link>}
-        </div>
-      )}
+      <Pager page={page} totalPages={totalPages} makeHref={pageHref} />
     </div>
   )
 }

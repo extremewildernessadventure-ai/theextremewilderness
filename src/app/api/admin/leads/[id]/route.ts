@@ -26,7 +26,9 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   const { id } = await params
-  const { status, notes } = await req.json() as { status?: string; notes?: string }
+  const { status, notes, tripStartDate, tripEndDate } = await req.json() as {
+    status?: string; notes?: string; tripStartDate?: string; tripEndDate?: string
+  }
 
   if (status !== undefined && !VALID_STATUSES.has(status)) {
     return NextResponse.json({ error: 'Invalid status' }, { status: 400 })
@@ -41,6 +43,14 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   if (notes !== undefined) {
     fields.push('notes = ?')
     values.push(notes)
+  }
+  if (tripStartDate !== undefined) {
+    fields.push('trip_start_date = ?')
+    values.push(tripStartDate || null)
+  }
+  if (tripEndDate !== undefined) {
+    fields.push('trip_end_date = ?')
+    values.push(tripEndDate || null)
   }
   if (fields.length === 0) {
     return NextResponse.json({ error: 'No fields to update' }, { status: 400 })

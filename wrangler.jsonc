@@ -35,5 +35,15 @@
 			"database_name": "ewa-invoices",
 			"database_id": "5e76d144-3c2b-4d35-8bc1-763aa1f67f36"
 		}
+	],
+	// NOTE: this bucket does not exist in the real Cloudflare account yet —
+	// run `wrangler r2 bucket create ewa-documents` before this branch is
+	// ever deployed. Local dev/testing works today without it: `--local`
+	// uses Miniflare's local R2 simulator, same as D1's `--local` flag.
+	"r2_buckets": [
+		{
+			"binding": "DOCS",
+			"bucket_name": "ewa-documents"
+		}
 	]
 }

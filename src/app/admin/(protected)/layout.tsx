@@ -1,7 +1,10 @@
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { hasValidAdminSession } from '@/lib/adminAuth'
+import { ADMIN_NAV } from '@/lib/adminNav'
 import LogoutButton from '../LogoutButton'
+import AdminDepartmentTabs from '../AdminDepartmentTabs'
+import AdminSubNavPills from '../AdminSubNavPills'
 
 export default async function ProtectedAdminLayout({ children }: { children: React.ReactNode }) {
   const authed = await hasValidAdminSession()
@@ -10,26 +13,32 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/admin/invoices" className="font-bold text-brand">
-            EWA Admin
+    <>
+      <div className="topbar">
+        <svg className="topo-strip" viewBox="0 0 1400 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,110 Q150,60 300,100 T600,90 T900,110 T1200,85 T1400,100" fill="none" stroke="#1C3A2A" strokeWidth="2" />
+          <path d="M0,80 Q150,30 300,70 T600,60 T900,80 T1200,55 T1400,70" fill="none" stroke="#1C3A2A" strokeWidth="2" />
+          <path d="M0,50 Q150,10 300,40 T600,30 T900,50 T1200,25 T1400,40" fill="none" stroke="#1C3A2A" strokeWidth="2" />
+        </svg>
+        <div className="topbar-inner">
+          <Link href="/admin" className="brand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <path d="M12 2 3 20h18L12 2Z" />
+              <path d="M8 14l2.5-3 2 2 1.5-2 2 3" />
+              <path d="M12 2v6" />
+            </svg>
+            <span className="brand-text">EWA Admin</span>
           </Link>
-          <nav className="flex items-center gap-6">
-            <Link href="/admin/invoices" className="text-sm text-gray-600 hover:text-brand transition-colors">
-              Invoices
-            </Link>
-            <Link href="/admin/leads" className="text-sm text-gray-600 hover:text-brand transition-colors">
-              Leads
-            </Link>
+          <div className="nav-links">
+            <AdminDepartmentTabs groups={ADMIN_NAV} />
             <LogoutButton />
-          </nav>
+          </div>
         </div>
-      </header>
-      <main className="max-w-6xl mx-auto px-6 py-10">
+      </div>
+      <AdminSubNavPills groups={ADMIN_NAV} />
+      <div className="main">
         {children}
-      </main>
-    </div>
+      </div>
+    </>
   )
 }

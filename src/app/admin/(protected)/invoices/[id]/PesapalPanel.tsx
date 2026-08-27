@@ -48,15 +48,10 @@ export default function PesapalPanel({ invoiceId, orders }: { invoiceId: number;
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7">
+    <div className="panel">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-bold text-brand">Pesapal</h2>
-        <button
-          type="button"
-          onClick={handleGenerate}
-          disabled={generating}
-          className="px-4 py-2 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-xs font-semibold rounded-lg transition-colors"
-        >
+        <h2>Pesapal</h2>
+        <button type="button" onClick={handleGenerate} disabled={generating} className="btn-primary" style={{ padding: '8px 16px', fontSize: 12, opacity: generating ? 0.5 : 1 }}>
           {generating ? 'Generating…' : 'Get Payment Link'}
         </button>
       </div>

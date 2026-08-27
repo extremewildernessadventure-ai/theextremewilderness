@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation'
 import { Plus, Trash2 } from 'lucide-react'
 import type { Invoice, InvoiceItem } from '@/lib/db'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5'
+const inputCls = 'field-input'
+const labelCls = 'field-label'
 
 type Row = { description: string; quantity: string; unitPrice: string }
 
@@ -83,8 +83,8 @@ export default function InvoiceItemsEditor({ invoice, items }: { invoice: Invoic
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7 space-y-3">
-      <h2 className="text-sm font-bold text-brand mb-1">Line Items</h2>
+    <div className="panel space-y-3">
+      <h2 className="mb-1">Line Items</h2>
       <label className={labelCls}>Items</label>
       <div className="space-y-2">
         {rows.map((row, i) => (
@@ -105,7 +105,7 @@ export default function InvoiceItemsEditor({ invoice, items }: { invoice: Invoic
               onChange={(e) => updateRow(i, 'unitPrice', e.target.value)}
               className={inputCls} placeholder="Unit price"
             />
-            <span className="text-sm text-gray-600 text-end whitespace-nowrap">
+            <span className="text-sm text-gray-600 text-end whitespace-nowrap mono">
               {invoice.currency} {lineTotal(row).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </span>
             <button
@@ -129,9 +129,9 @@ export default function InvoiceItemsEditor({ invoice, items }: { invoice: Invoic
       </button>
 
       <div className="flex justify-end pt-2 border-t border-gray-100">
-        <div className="w-full max-w-[220px] flex justify-between items-baseline bg-brand/5 rounded-lg px-4 py-3">
-          <span className="text-xs font-bold uppercase tracking-wide text-gold-label">Total</span>
-          <span className="text-lg font-black text-brand">
+        <div className="w-full max-w-[220px] flex justify-between items-baseline rounded-lg px-4 py-3" style={{ background: 'var(--green-bg)' }}>
+          <span className="text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--pine)' }}>Total</span>
+          <span className="text-lg font-black text-brand mono">
             {invoice.currency} {total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </span>
         </div>
@@ -139,12 +139,7 @@ export default function InvoiceItemsEditor({ invoice, items }: { invoice: Invoic
 
       {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
       <div className="flex items-center gap-3">
-        <button
-          type="button"
-          onClick={handleSave}
-          disabled={saving}
-          className="px-5 py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors"
-        >
+        <button type="button" onClick={handleSave} disabled={saving} className="btn-primary" style={{ opacity: saving ? 0.5 : 1 }}>
           {saving ? 'Saving…' : 'Save Items'}
         </button>
         {saved && <span className="text-green-600 text-sm">Saved</span>}

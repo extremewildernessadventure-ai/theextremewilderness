@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1'
+const inputCls = 'field-input'
+const labelCls = 'field-label'
 
 export default function RecordPaymentForm({ invoiceId }: { invoiceId: number }) {
   const router = useRouter()
@@ -66,11 +66,7 @@ export default function RecordPaymentForm({ invoiceId }: { invoiceId: number }) 
         <input value={notes} onChange={(e) => setNotes(e.target.value)} className={inputCls} />
       </div>
       {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
-      <button
-        type="submit"
-        disabled={saving}
-        className="px-4 py-2 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-xs font-semibold rounded-lg transition-colors"
-      >
+      <button type="submit" disabled={saving} className="btn-primary" style={{ padding: '8px 16px', fontSize: 12, opacity: saving ? 0.5 : 1 }}>
         {saving ? 'Recording…' : 'Record Payment'}
       </button>
     </form>
