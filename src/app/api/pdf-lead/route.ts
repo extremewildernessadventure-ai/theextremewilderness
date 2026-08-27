@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { routing } from '@/i18n/routing'
 import { localeUrl } from '@/lib/site'
 import { saveLead, markLeadEmailSent } from '@/lib/leads'
+import { upsertSubscriber } from '@/lib/newsletter'
 
 const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID ?? ''
 const TO = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
@@ -49,6 +50,7 @@ export async function POST(req: NextRequest) {
         lastName: rest.join(' ') || '',
         unsubscribed: false,
       }).catch(() => {})   // ignore duplicate-contact errors
+      await upsertSubscriber(trimEmail, 'pdf-lead')
     }
 
     // Notify the team
