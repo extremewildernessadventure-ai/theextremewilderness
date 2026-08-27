@@ -5,8 +5,8 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { packages } from '@/data/packages'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5'
+const inputCls = 'field-input'
+const labelCls = 'field-label'
 
 function NewQuoteForm() {
   const router = useRouter()
@@ -69,19 +69,19 @@ function NewQuoteForm() {
     <div className="max-w-2xl">
       <Link
         href={leadId ? `/admin/leads/${leadId}` : '/admin/quotes'}
-        className="text-sm text-gray-500 hover:text-brand mb-4 inline-block"
+        className="detail-back"
       >
         ← Back
       </Link>
-      <h1 className="text-2xl font-bold text-brand mb-6">New Quote</h1>
+      <h1 className="mb-6">New Quote</h1>
 
       {!leadId && (
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 text-sm text-amber-800">
+        <div className="panel mb-6 text-sm" style={{ borderLeft: '4px solid var(--gold)' }}>
           No lead selected. Open this page via the &quot;New Quote&quot; action on a lead&apos;s detail page.
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-white border border-gray-200 rounded-xl p-7 space-y-4">
+      <form onSubmit={handleSubmit} className="panel space-y-4">
         <div>
           <label className={labelCls}>Package (optional)</label>
           <select value={form.packageSlug} onChange={(e) => update('packageSlug', e.target.value)} className={inputCls}>
@@ -108,11 +108,7 @@ function NewQuoteForm() {
           <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} rows={3} className={inputCls} />
         </div>
         {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
-        <button
-          type="submit"
-          disabled={loading || !leadId}
-          className="w-full py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white font-semibold rounded-lg transition-colors text-sm"
-        >
+        <button type="submit" disabled={loading || !leadId} className="btn-primary" style={{ width: '100%', justifyContent: 'center', opacity: loading || !leadId ? 0.5 : 1 }}>
           {loading ? 'Creating…' : 'Create Quote'}
         </button>
       </form>

@@ -37,46 +37,40 @@ export default async function QuoteDetailPage({ params }: Props) {
       subtitle={`Created ${new Date(quote.created_at).toLocaleString()}`}
       main={
         <>
-          <div className="bg-white border border-gray-200 rounded-xl p-7 space-y-3 text-sm">
+          <div className="panel space-y-3 text-sm">
             {lead && (
               <div className="flex justify-between">
-                <span className="text-gray-500">Client</span>
+                <span style={{ color: 'var(--grey)' }}>Client</span>
                 <span className="font-medium text-brand">{lead.name || lead.email}</span>
               </div>
             )}
             <div className="flex justify-between">
-              <span className="text-gray-500">Package</span>
-              <span className="text-gray-700">{pkg?.name ?? '—'}</span>
+              <span style={{ color: 'var(--grey)' }}>Package</span>
+              <span>{pkg?.name ?? '—'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-500">Price</span>
-              <span className="font-semibold text-brand">{quote.currency} {quote.price.toLocaleString()}</span>
+              <span style={{ color: 'var(--grey)' }}>Price</span>
+              <span className="font-semibold text-brand mono">{quote.currency} {quote.price.toLocaleString()}</span>
             </div>
             {quote.valid_until && (
               <div className="flex justify-between">
-                <span className="text-gray-500">Valid Until</span>
-                <span className="text-gray-700">{quote.valid_until}</span>
+                <span style={{ color: 'var(--grey)' }}>Valid Until</span>
+                <span>{quote.valid_until}</span>
               </div>
             )}
             {quote.notes && (
               <div className="pt-2 border-t border-gray-100">
-                <span className="text-gray-500 block mb-1">Internal Notes</span>
-                <p className="text-gray-700 whitespace-pre-wrap">{quote.notes}</p>
+                <span className="block mb-1" style={{ color: 'var(--grey)' }}>Internal Notes</span>
+                <p className="whitespace-pre-wrap">{quote.notes}</p>
               </div>
             )}
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <Link
-              href={`/admin/quotes/${quote.id}/pdf`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
-            >
+            <Link href={`/admin/quotes/${quote.id}/pdf`} className="btn-primary">
               Print / Download PDF
             </Link>
-            <Link
-              href={`/admin/invoices/new?${convertParams.toString()}`}
-              className="inline-flex items-center gap-2 px-5 py-2.5 border border-brand text-brand hover:bg-brand/5 text-sm font-semibold rounded-lg transition-colors"
-            >
+            <Link href={`/admin/invoices/new?${convertParams.toString()}`} className="btn-outline">
               Convert to Invoice
             </Link>
           </div>

@@ -1,13 +1,15 @@
 'use client'
 
 import { REFUND_STATUSES, type RefundStatus } from '@/lib/finance'
-import InlineStatusSelect from '@/components/admin/InlineStatusSelect'
+import InlineStatusSelect, { type PillClass } from '@/components/admin/InlineStatusSelect'
 
-const STATUS_STYLES: Record<RefundStatus, string> = {
-  requested: 'bg-amber-100 text-amber-700',
-  approved: 'bg-blue-100 text-blue-700',
-  processed: 'bg-green-100 text-green-700',
-  denied: 'bg-red-100 text-red-700',
+// requested = awaiting action; approved = on track; processed = complete;
+// denied = declined/failed.
+const PILL_CLASS: Record<RefundStatus, PillClass> = {
+  requested: 'few',
+  approved: 'open',
+  processed: 'full',
+  denied: 'cancelled',
 }
 
 export default function RefundStatusSelect({ refundId, currentStatus, compact = false }: {
@@ -19,7 +21,7 @@ export default function RefundStatusSelect({ refundId, currentStatus, compact = 
     <InlineStatusSelect
       endpoint={`/api/admin/refunds/${refundId}`}
       statuses={REFUND_STATUSES}
-      statusStyles={STATUS_STYLES}
+      pillClass={PILL_CLASS}
       currentStatus={currentStatus}
       compact={compact}
     />

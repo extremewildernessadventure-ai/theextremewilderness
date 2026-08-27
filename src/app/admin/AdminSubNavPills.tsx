@@ -10,18 +10,12 @@ export default function AdminSubNavPills({ groups }: { groups: AdminNavGroup[] }
   if (!activeGroup) return null
 
   return (
-    <div className="border-t border-gray-100 bg-gray-50/60">
-      <div className="max-w-6xl mx-auto px-6 py-2.5 flex items-center gap-2 overflow-x-auto">
+    <div className="subtabs-wrap">
+      <div className="subtabs">
         {activeGroup.links.map((link) => {
           const isActive = pathname.startsWith(link.href)
           return (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`whitespace-nowrap text-xs font-semibold px-3 py-1.5 rounded-full transition-colors ${
-                isActive ? 'bg-brand text-white' : 'bg-white border border-gray-200 text-gray-600 hover:text-brand hover:border-brand/30'
-              }`}
-            >
+            <Link key={link.href} href={link.href} className={`subtab${isActive ? ' active' : ''}`}>
               {link.label}
             </Link>
           )

@@ -16,6 +16,11 @@ const CATEGORY_LABELS: Record<ExpenseCategory, string> = {
 
 const columns: AdminTableColumn<Expense>[] = [
   {
+    header: 'Date',
+    className: 'dates-cell',
+    render: (e) => e.paid_at ?? '—',
+  },
+  {
     header: 'Category',
     render: (e) => (
       <Link href={`/admin/expenses/${e.id}`} className="text-brand font-medium hover:underline">
@@ -24,29 +29,51 @@ const columns: AdminTableColumn<Expense>[] = [
     ),
   },
   { header: 'Description', className: 'text-gray-700 max-w-[260px] truncate', render: (e) => e.description ?? '—' },
-  { header: 'Amount', className: 'text-gray-700', render: (e) => `${e.currency} ${e.amount.toLocaleString()}` },
-  { header: 'Amount (USD)', className: 'text-gray-700', render: (e) => `$${e.amount_usd.toLocaleString(undefined, { maximumFractionDigits: 2 })}` },
-  { header: 'Paid', className: 'text-gray-500', render: (e) => e.paid_at ?? '—' },
+  { header: 'Amount', className: 'mono', render: (e) => `${e.currency} ${e.amount.toLocaleString()} ($${e.amount_usd.toLocaleString(undefined, { maximumFractionDigits: 2 })})` },
 ]
 
 export default async function ExpensesListPage() {
   const db = await getDb()
   const { results } = await db.prepare('SELECT * FROM expenses ORDER BY paid_at DESC, created_at DESC').all<Expense>()
-  const totalUsd = results.reduce((sum, e) => sum + e.amount_usd, 0)
+
+  const statsRow = await db.prepare(`
+    SELECT
+      SUM(CASE WHEN created_at >= datetime('now', '-30 days') THEN amount_usd ELSE 0 END) as total30d,
+      SUM(CASE WHEN category = 'fuel' AND created_at >= datetime('now', '-30 days') THEN amount_usd ELSE 0 END) as fuel30d,
+      SUM(CASE WHEN category = 'vehicle_maintenance' AND created_at >= datetime('now', '-30 days') THEN amount_usd ELSE 0 END) as maintenance30d,
+      SUM(CASE WHEN category = 'wages' AND created_at >= datetime('now', '-30 days') THEN amount_usd ELSE 0 END) as wages30d
+    FROM expenses
+  `).first<{ total30d: number; fuel30d: number; maintenance30d: number; wages30d: number }>()
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="page-head">
         <div>
-          <h1 className="text-2xl font-bold text-brand">Expenses</h1>
-          <p className="text-sm text-gray-500 mt-1">Total: ${totalUsd.toLocaleString(undefined, { maximumFractionDigits: 2 })} USD</p>
+          <h1>Expenses</h1>
         </div>
-        <Link
-          href="/admin/expenses/new"
-          className="px-4 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
-        >
-          + New Expense
+        <Link href="/admin/expenses/new" className="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M12 5v14M5 12h14" /></svg>
+          New Expense
         </Link>
+      </div>
+
+      <div className="stats-row">
+        <div className="stat-card">
+          <div className="stat-label">Total Expenses (30d)</div>
+          <div className="stat-num">${(statsRow?.total30d ?? 0).toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-label">Fuel</div>
+          <div className="stat-num">${(statsRow?.fuel30d ?? 0).toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-label">Maintenance</div>
+          <div className="stat-num">${(statsRow?.maintenance30d ?? 0).toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-label">Wages</div>
+          <div className="stat-num">${(statsRow?.wages30d ?? 0).toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+        </div>
       </div>
 
       <AdminTable columns={columns} rows={results} rowKey={(e) => e.id} emptyMessage="No expenses yet." />

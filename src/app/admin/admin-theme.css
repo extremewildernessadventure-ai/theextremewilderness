@@ -1,0 +1,216 @@
+/* EWA Admin design system — ewa-admin-design-system.md.
+   Deliberately NOT added to globals.css's @theme block: the public site
+   already has --color-gold (#D4A853) and --color-brand (#1C3A2A) tokens
+   that are close to but not identical to this system's --pine/--gold
+   (--pine matches --color-brand exactly; --gold does NOT match
+   --color-gold — a real collision avoided by keeping this fully separate,
+   scoped under .ewa-admin, imported only in src/app/admin/layout.tsx).
+   Every selector below is deliberately scoped under .ewa-admin — bare
+   selectors (table, h1, p, button, etc.) would otherwise leak into any
+   future non-admin usage of this stylesheet via normal CSS cascade rules,
+   which don't respect React/Next.js component boundaries. */
+
+.ewa-admin {
+  --pine: #1C3A2A;
+  --pine-deep: #12281E;
+  --pine-light: #2F5C46;
+  --sand: #F3EEE1;
+  --sand-2: #E8DFC8;
+  --khaki: #A9906B;
+  --rust: #B5502E;
+  --rust-bg: #F7E9E3;
+  --gold: #C9A227;
+  --gold-bg: #F8F1DC;
+  --ink: #1E1E1A;
+  --grey: #6B685F;
+  --line: rgba(30, 30, 26, 0.12);
+  --white: #FFFFFF;
+  --green-bg: #E6EFE8;
+  --shadow: 0 16px 36px -18px rgba(18, 40, 30, 0.28);
+
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.ewa-admin * { box-sizing: border-box; }
+.ewa-admin h1, .ewa-admin h2, .ewa-admin .display {
+  font-family: var(--font-bitter), serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--ink);
+}
+.ewa-admin .mono { font-family: var(--font-jetbrains-mono), monospace; }
+.ewa-admin p { margin: 0; }
+.ewa-admin a { color: inherit; text-decoration: none; }
+.ewa-admin button { font-family: var(--font-inter), sans-serif; }
+
+/* ===== topo header ===== */
+.ewa-admin .topbar { position: relative; background: var(--white); border-bottom: 1px solid var(--line); overflow: hidden; }
+.ewa-admin .topo-strip { position: absolute; inset: 0; opacity: 0.05; pointer-events: none; }
+.ewa-admin .topbar-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; gap: 24px; }
+.ewa-admin .brand { display: flex; align-items: center; gap: 11px; flex-shrink: 0; }
+.ewa-admin .brand svg { width: 34px; height: 34px; color: var(--pine); }
+.ewa-admin .brand-text { font-family: var(--font-bitter), serif; font-weight: 800; font-size: 20px; color: var(--pine); letter-spacing: -0.01em; }
+
+.ewa-admin .nav-links { display: flex; align-items: center; overflow-x: auto; }
+.ewa-admin .nav-link {
+  font-size: 14px; font-weight: 600; color: var(--grey); padding: 6px 0; margin-right: 32px; position: relative; cursor: pointer;
+  white-space: nowrap; background: none; border: none;
+}
+.ewa-admin .nav-link:last-of-type { margin-right: 0; }
+.ewa-admin .nav-link:hover { color: var(--ink); }
+.ewa-admin .nav-link.active { color: var(--pine); }
+.ewa-admin .nav-link.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2.5px; background: var(--gold); border-radius: 2px; }
+.ewa-admin .nav-logout { font-size: 13.5px; font-weight: 600; color: var(--rust); cursor: pointer; background: none; border: none; margin-left: 32px; flex-shrink: 0; }
+
+/* ===== sub tabs ===== */
+.ewa-admin .subtabs-wrap { background: var(--white); border-bottom: 1px solid var(--line); padding: 16px 40px; }
+.ewa-admin .subtabs { display: flex; gap: 10px; flex-wrap: wrap; }
+.ewa-admin .subtab {
+  display: flex; align-items: center; gap: 7px; padding: 9px 18px; border-radius: 7px;
+  font-size: 13.5px; font-weight: 700; cursor: pointer; border: 1.5px solid var(--line); color: var(--grey);
+  background: var(--white); transition: all .15s ease;
+}
+.ewa-admin .subtab svg { width: 15px; height: 15px; opacity: .75; }
+.ewa-admin .subtab:hover { border-color: var(--pine-light); color: var(--pine); }
+.ewa-admin .subtab.active { background: var(--pine); border-color: var(--pine); color: var(--white); box-shadow: var(--shadow); }
+.ewa-admin .subtab.active svg { opacity: 1; }
+
+/* ===== main ===== */
+.ewa-admin .main { padding: 36px 40px 60px; max-width: 1400px; margin: 0 auto; }
+.ewa-admin .page-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 16px; }
+.ewa-admin .page-head h1 { font-size: 30px; }
+.ewa-admin .page-head p { color: var(--grey); font-size: 13.5px; margin-top: 6px; }
+.ewa-admin .btn-primary {
+  display: inline-flex; align-items: center; gap: 9px; background: var(--pine); color: var(--white);
+  font-weight: 700; font-size: 13.5px; padding: 13px 22px; border-radius: 8px; border: none; cursor: pointer;
+  box-shadow: var(--shadow); transition: all .15s ease;
+}
+.ewa-admin .btn-primary:hover { background: var(--pine-deep); transform: translateY(-1px); }
+.ewa-admin .btn-primary svg { width: 15px; height: 15px; }
+.ewa-admin .btn-outline {
+  display: inline-flex; align-items: center; gap: 9px; background: var(--white); color: var(--ink);
+  font-weight: 700; font-size: 13.5px; padding: 13px 22px; border-radius: 8px; border: 1.5px solid var(--line); cursor: pointer;
+  transition: all .15s ease;
+}
+.ewa-admin .btn-outline:hover { border-color: var(--pine-light); color: var(--pine); }
+
+/* ===== stat cards ===== */
+.ewa-admin .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 26px; }
+.ewa-admin .stat-card {
+  background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--pine);
+  border-radius: 8px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px;
+}
+.ewa-admin .stat-card.gold { border-left-color: var(--gold); }
+.ewa-admin .stat-card.rust { border-left-color: var(--rust); }
+.ewa-admin .stat-card.grey { border-left-color: var(--khaki); }
+.ewa-admin .stat-label { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey); }
+.ewa-admin .stat-num { font-family: var(--font-jetbrains-mono), monospace; font-weight: 700; font-size: 28px; color: var(--ink); }
+.ewa-admin .stat-sub { font-size: 11.5px; color: var(--grey); }
+@media (max-width: 1100px) { .ewa-admin .stats-row { grid-template-columns: repeat(2, 1fr); } }
+
+/* ===== filter bar ===== */
+.ewa-admin .filter-bar {
+  display: flex; gap: 12px; align-items: center; margin-bottom: 18px; flex-wrap: wrap;
+  background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px;
+}
+.ewa-admin .search-field {
+  flex: 1; min-width: 220px; display: flex; align-items: center; gap: 10px; background: var(--sand);
+  border: 1px solid var(--line); border-radius: 6px; padding: 9px 14px;
+}
+.ewa-admin .search-field svg { width: 15px; height: 15px; color: var(--grey); flex-shrink: 0; }
+.ewa-admin .search-field input {
+  border: none; background: none; outline: none; font-size: 13.5px; color: var(--ink); width: 100%; font-family: var(--font-inter), sans-serif;
+}
+.ewa-admin .select-field { position: relative; display: flex; align-items: center; }
+.ewa-admin .select-field select {
+  appearance: none; font-family: var(--font-inter), sans-serif; font-size: 13px; font-weight: 600; color: var(--ink);
+  background: var(--sand); border: 1px solid var(--line); border-radius: 6px; padding: 9px 32px 9px 14px; cursor: pointer;
+}
+.ewa-admin .select-field::after {
+  content: ""; position: absolute; right: 12px; width: 8px; height: 8px; border-right: 1.6px solid var(--grey); border-bottom: 1.6px solid var(--grey);
+  transform: rotate(45deg) translateY(-3px); pointer-events: none;
+}
+
+/* ===== table ===== */
+.ewa-admin .table-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; overflow-x: auto; }
+.ewa-admin table { width: 100%; border-collapse: collapse; }
+.ewa-admin thead th {
+  text-align: left; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--grey); padding: 13px 18px; border-bottom: 1px solid var(--line); background: var(--sand); white-space: nowrap;
+}
+.ewa-admin tbody td { padding: 16px 18px; border-bottom: 1px solid var(--line); font-size: 13.5px; vertical-align: middle; }
+.ewa-admin tbody tr:last-child td { border-bottom: none; }
+.ewa-admin tbody tr { transition: background .12s ease; }
+.ewa-admin tbody tr:hover { background: var(--sand); }
+.ewa-admin tbody tr.warn { border-left: 3px solid var(--gold); }
+
+.ewa-admin .pkg-name { font-weight: 700; color: var(--ink); font-family: var(--font-bitter), serif; font-size: 14.5px; }
+.ewa-admin .pkg-sub { font-size: 11.5px; color: var(--grey); margin-top: 2px; }
+.ewa-admin .dates-cell { font-family: var(--font-jetbrains-mono), monospace; font-size: 12px; color: var(--ink); }
+
+.ewa-admin .capacity-cell { display: flex; flex-direction: column; gap: 6px; min-width: 110px; }
+.ewa-admin .capacity-num { font-family: var(--font-jetbrains-mono), monospace; font-size: 12px; font-weight: 700; color: var(--ink); }
+.ewa-admin .capacity-bar { height: 6px; border-radius: 4px; background: var(--sand-2); overflow: hidden; }
+.ewa-admin .capacity-fill { height: 100%; border-radius: 4px; background: var(--pine); }
+.ewa-admin .capacity-fill.warn { background: var(--gold); }
+.ewa-admin .capacity-fill.full { background: var(--khaki); }
+
+.ewa-admin .pill { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; padding: 5px 11px; border-radius: 20px; border: none; }
+.ewa-admin .pill i { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+.ewa-admin .pill.open { background: var(--green-bg); color: var(--pine); } .ewa-admin .pill.open i { background: var(--pine); }
+.ewa-admin .pill.few { background: var(--gold-bg); color: #8A6E1B; } .ewa-admin .pill.few i { background: var(--gold); }
+.ewa-admin .pill.full { background: #EFEBE1; color: var(--khaki); } .ewa-admin .pill.full i { background: var(--khaki); }
+.ewa-admin .pill.departed { background: #E9EEF2; color: #4A6478; } .ewa-admin .pill.departed i { background: #4A6478; }
+.ewa-admin .pill.cancelled { background: var(--rust-bg); color: var(--rust); } .ewa-admin .pill.cancelled i { background: var(--rust); }
+/* select-as-pill (InlineStatusSelect) needs the same look but stays a real <select> for editability */
+.ewa-admin select.pill { appearance: none; cursor: pointer; }
+
+.ewa-admin .row-actions { display: flex; gap: 6px; justify-content: flex-end; }
+.ewa-admin .action-btn {
+  width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center;
+  color: var(--grey); cursor: pointer; transition: all .15s ease; background: transparent; border: none;
+}
+.ewa-admin .action-btn:hover { background: var(--sand-2); color: var(--pine); }
+.ewa-admin .action-btn svg { width: 15px; height: 15px; }
+
+.ewa-admin .table-footer { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: var(--sand); font-size: 12px; color: var(--grey); flex-wrap: wrap; gap: 10px; }
+.ewa-admin .pager { display: flex; gap: 6px; align-items: center; }
+.ewa-admin .pager a, .ewa-admin .pager span {
+  min-width: 30px; height: 30px; padding: 0 8px; border-radius: 6px; border: 1px solid var(--line); background: var(--white);
+  color: var(--grey); font-size: 12.5px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+}
+.ewa-admin .pager a:hover { background: var(--sand-2); }
+
+.ewa-admin .empty-state { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 40px; text-align: center; color: var(--grey); font-size: 13.5px; }
+
+/* ===== detail pages: forms/panels ===== */
+.ewa-admin .panel { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 22px 24px; }
+.ewa-admin .panel h2 { font-size: 15px; margin-bottom: 14px; }
+.ewa-admin .field-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey); margin-bottom: 6px; }
+.ewa-admin .field-input {
+  width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 9px 12px; font-size: 13.5px; color: var(--ink);
+  font-family: var(--font-inter), sans-serif; background: var(--white); outline: none; transition: border-color .12s ease;
+}
+.ewa-admin .field-input:focus { border-color: var(--pine-light); }
+.ewa-admin .btn-danger {
+  display: inline-flex; align-items: center; gap: 9px; background: var(--white); color: var(--rust);
+  font-weight: 700; font-size: 13.5px; padding: 11px 20px; border-radius: 8px; border: 1.5px solid var(--rust-bg); cursor: pointer;
+  transition: all .15s ease;
+}
+.ewa-admin .btn-danger:hover { background: var(--rust-bg); }
+
+.ewa-admin .mockup-note { text-align: center; font-size: 11px; color: var(--grey); font-style: italic; margin-top: 16px; }
+
+/* ===== detail-page two-column layout ===== */
+.ewa-admin .detail-back { font-size: 13.5px; color: var(--grey); margin-bottom: 16px; display: inline-block; }
+.ewa-admin .detail-back:hover { color: var(--pine); }
+.ewa-admin .detail-title-row { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+.ewa-admin .detail-subtitle { color: var(--grey); font-size: 13.5px; margin-bottom: 24px; }
+.ewa-admin .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.ewa-admin .detail-col { display: flex; flex-direction: column; gap: 20px; }
+@media (max-width: 900px) { .ewa-admin .detail-grid { grid-template-columns: 1fr; } }

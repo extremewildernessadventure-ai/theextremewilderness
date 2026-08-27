@@ -1,15 +1,17 @@
 'use client'
 
 import type { LeadStatus } from '@/lib/leads'
-import InlineStatusSelect from '@/components/admin/InlineStatusSelect'
+import InlineStatusSelect, { type PillClass } from '@/components/admin/InlineStatusSelect'
 
 const STATUSES: LeadStatus[] = ['new', 'contacted', 'converted', 'archived']
 
-const STATUS_STYLES: Record<LeadStatus, string> = {
-  new: 'bg-amber-100 text-amber-700',
-  contacted: 'bg-blue-100 text-blue-700',
-  converted: 'bg-green-100 text-green-700',
-  archived: 'bg-gray-100 text-gray-500',
+// new = unactioned, most urgent; contacted = actively worked; converted =
+// closed out successfully; archived = no longer pursued (historical).
+const PILL_CLASS: Record<LeadStatus, PillClass> = {
+  new: 'few',
+  contacted: 'open',
+  converted: 'full',
+  archived: 'departed',
 }
 
 export default function LeadStatusSelect({ leadId, currentStatus, compact = false }: {
@@ -21,7 +23,7 @@ export default function LeadStatusSelect({ leadId, currentStatus, compact = fals
     <InlineStatusSelect
       endpoint={`/api/admin/leads/${leadId}`}
       statuses={STATUSES}
-      statusStyles={STATUS_STYLES}
+      pillClass={PILL_CLASS}
       currentStatus={currentStatus}
       compact={compact}
     />

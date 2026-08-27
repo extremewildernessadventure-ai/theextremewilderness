@@ -1,12 +1,12 @@
 'use client'
 
 import { REVIEW_STATUSES, type ReviewStatus } from '@/lib/reviews'
-import InlineStatusSelect from '@/components/admin/InlineStatusSelect'
+import InlineStatusSelect, { type PillClass } from '@/components/admin/InlineStatusSelect'
 
-const STATUS_STYLES: Record<ReviewStatus, string> = {
-  pending: 'bg-amber-100 text-amber-700',
-  approved: 'bg-blue-100 text-blue-700',
-  published: 'bg-green-100 text-green-700',
+const PILL_CLASS: Record<ReviewStatus, PillClass> = {
+  pending: 'few',
+  approved: 'open',
+  published: 'full',
 }
 
 export default function ReviewStatusSelect({ reviewId, currentStatus, compact = false }: {
@@ -18,7 +18,7 @@ export default function ReviewStatusSelect({ reviewId, currentStatus, compact = 
     <InlineStatusSelect
       endpoint={`/api/admin/reviews/${reviewId}`}
       statuses={REVIEW_STATUSES}
-      statusStyles={STATUS_STYLES}
+      pillClass={PILL_CLASS}
       currentStatus={currentStatus}
       compact={compact}
     />

@@ -24,13 +24,13 @@ export default async function LodgesListPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-brand">Lodges</h1>
-        <Link
-          href="/admin/lodges/new"
-          className="px-4 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
-        >
-          + New Lodge
+      <div className="page-head">
+        <div>
+          <h1>Lodges</h1>
+        </div>
+        <Link href="/admin/lodges/new" className="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M12 5v14M5 12h14" /></svg>
+          New Lodge
         </Link>
       </div>
 

@@ -5,9 +5,6 @@ import { useRouter } from 'next/navigation'
 import { QUOTE_STATUSES, type Quote } from '@/lib/quotes'
 import { packages } from '@/data/packages'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5'
-
 export default function QuoteEditForm({ quote }: { quote: Quote }) {
   const router = useRouter()
   const [form, setForm] = useState({
@@ -47,46 +44,41 @@ export default function QuoteEditForm({ quote }: { quote: Quote }) {
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7 space-y-4">
-      <h2 className="text-sm font-bold text-brand mb-1">Edit Quote</h2>
+    <div className="panel space-y-4">
+      <h2 className="mb-1">Edit Quote</h2>
       <div>
-        <label className={labelCls}>Package</label>
-        <select value={form.packageSlug} onChange={(e) => update('packageSlug', e.target.value)} className={inputCls}>
+        <label className="field-label">Package</label>
+        <select value={form.packageSlug} onChange={(e) => update('packageSlug', e.target.value)} className="field-input">
           <option value="">— No specific package —</option>
           {packages.map((p) => <option key={p.slug} value={p.slug}>{p.name}</option>)}
         </select>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className={labelCls}>Price</label>
-          <input type="number" min="0" step="0.01" value={form.price} onChange={(e) => update('price', e.target.value)} className={inputCls} />
+          <label className="field-label">Price</label>
+          <input type="number" min="0" step="0.01" value={form.price} onChange={(e) => update('price', e.target.value)} className="field-input" />
         </div>
         <div>
-          <label className={labelCls}>Currency</label>
-          <input value={form.currency} onChange={(e) => update('currency', e.target.value)} className={inputCls} />
+          <label className="field-label">Currency</label>
+          <input value={form.currency} onChange={(e) => update('currency', e.target.value)} className="field-input" />
         </div>
       </div>
       <div>
-        <label className={labelCls}>Valid Until</label>
-        <input type="date" value={form.validUntil} onChange={(e) => update('validUntil', e.target.value)} className={inputCls} />
+        <label className="field-label">Valid Until</label>
+        <input type="date" value={form.validUntil} onChange={(e) => update('validUntil', e.target.value)} className="field-input" />
       </div>
       <div>
-        <label className={labelCls}>Status</label>
-        <select value={form.status} onChange={(e) => update('status', e.target.value)} className={`${inputCls} capitalize`}>
+        <label className="field-label">Status</label>
+        <select value={form.status} onChange={(e) => update('status', e.target.value)} className="field-input capitalize">
           {QUOTE_STATUSES.map((s) => <option key={s} value={s} className="capitalize">{s}</option>)}
         </select>
       </div>
       <div>
-        <label className={labelCls}>Internal Notes</label>
-        <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} rows={4} className={inputCls} />
+        <label className="field-label">Internal Notes</label>
+        <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} rows={4} className="field-input" />
       </div>
       <div className="flex items-center gap-3">
-        <button
-          type="button"
-          onClick={handleSave}
-          disabled={saving}
-          className="px-5 py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors"
-        >
+        <button type="button" onClick={handleSave} disabled={saving} className="btn-primary" style={{ opacity: saving ? 0.5 : 1 }}>
           {saving ? 'Saving…' : 'Save Changes'}
         </button>
         {saved && <span className="text-green-600 text-sm">Saved</span>}

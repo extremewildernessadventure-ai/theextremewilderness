@@ -16,12 +16,7 @@ export default function DeleteQuoteButton({ quoteId }: { quoteId: number }) {
   }
 
   return (
-    <button
-      type="button"
-      onClick={handleDelete}
-      disabled={deleting}
-      className="px-5 py-2.5 border border-red-200 text-red-600 hover:bg-red-50 disabled:opacity-50 text-sm font-semibold rounded-lg transition-colors"
-    >
+    <button type="button" onClick={handleDelete} disabled={deleting} className="btn-danger" style={{ opacity: deleting ? 0.5 : 1 }}>
       {deleting ? 'Deleting…' : 'Delete Quote'}
     </button>
   )

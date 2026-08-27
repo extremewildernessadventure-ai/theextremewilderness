@@ -17,8 +17,8 @@ export default async function VehicleDetailPage({ params }: Props) {
 
   return (
     <div className="max-w-xl">
-      <Link href="/admin/vehicles" className="text-sm text-gray-500 hover:text-brand mb-4 inline-block">← Back to Vehicles</Link>
-      <h1 className="text-2xl font-bold text-brand mb-6">{vehicle.plate_number}</h1>
+      <Link href="/admin/vehicles" className="detail-back">← Back to Vehicles</Link>
+      <h1 className="mb-6">{vehicle.plate_number}</h1>
 
       <div className="space-y-6">
         <VehicleEditForm vehicle={vehicle} />

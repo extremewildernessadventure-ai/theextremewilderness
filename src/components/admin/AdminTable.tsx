@@ -9,42 +9,38 @@ export default function AdminTable<T>({
   rows,
   rowKey,
   emptyMessage,
+  rowClassName,
 }: {
   columns: AdminTableColumn<T>[]
   rows: T[]
   rowKey: (row: T) => string | number
   emptyMessage: string
+  // e.g. 'warn' for rows needing attention (expiring soon, nearly full) —
+  // matches the .ewa-admin design system's tr.warn convention (gold left
+  // border), reused across Departures/Permits/Certifications-style lists.
+  rowClassName?: (row: T) => string | undefined
 }) {
   if (rows.length === 0) {
-    return (
-      <div className="bg-white border border-gray-200 rounded-xl p-10 text-center text-gray-500 text-sm">
-        {emptyMessage}
-      </div>
-    )
+    return <div className="empty-state">{emptyMessage}</div>
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl overflow-hidden overflow-x-auto">
-      <table className="w-full text-sm">
-        <thead className="bg-gray-50 border-b border-gray-200">
+    <div className="table-card">
+      <table>
+        <thead>
           <tr>
             {columns.map((col) => (
-              <th
-                key={col.header}
-                className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500"
-              >
-                {col.header}
-              </th>
+              <th key={col.header}>{col.header}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {rows.map((row) => (
-            <tr key={rowKey(row)} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
+            <tr key={rowKey(row)} className={rowClassName?.(row)}>
               {columns.map((col) => {
                 const cellClassName = typeof col.className === 'function' ? col.className(row) : col.className
                 return (
-                  <td key={col.header} className={`px-5 py-3 ${cellClassName ?? ''}`}>
+                  <td key={col.header} className={cellClassName}>
                     {col.render(row)}
                   </td>
                 )

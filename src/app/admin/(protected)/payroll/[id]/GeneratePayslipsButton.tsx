@@ -22,12 +22,7 @@ export default function GeneratePayslipsButton({ periodId }: { periodId: number 
 
   return (
     <div className="flex items-center gap-3">
-      <button
-        type="button"
-        onClick={handleGenerate}
-        disabled={generating}
-        className="px-5 py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors"
-      >
+      <button type="button" onClick={handleGenerate} disabled={generating} className="btn-primary" style={{ opacity: generating ? 0.5 : 1 }}>
         {generating ? 'Generating…' : 'Generate Payslips'}
       </button>
       {result && (

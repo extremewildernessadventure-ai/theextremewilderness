@@ -1,12 +1,12 @@
 'use client'
 
 import { PAYROLL_PERIOD_STATUSES, type PayrollPeriodStatus } from '@/lib/hr'
-import InlineStatusSelect from '@/components/admin/InlineStatusSelect'
+import InlineStatusSelect, { type PillClass } from '@/components/admin/InlineStatusSelect'
 
-const STATUS_STYLES: Record<PayrollPeriodStatus, string> = {
-  open: 'bg-amber-100 text-amber-700',
-  processed: 'bg-blue-100 text-blue-700',
-  paid: 'bg-green-100 text-green-700',
+const PILL_CLASS: Record<PayrollPeriodStatus, PillClass> = {
+  open: 'open',
+  processed: 'few',
+  paid: 'full',
 }
 
 export default function PayrollPeriodStatusSelect({ periodId, currentStatus, compact = false }: {
@@ -18,7 +18,7 @@ export default function PayrollPeriodStatusSelect({ periodId, currentStatus, com
     <InlineStatusSelect
       endpoint={`/api/admin/payroll/${periodId}`}
       statuses={PAYROLL_PERIOD_STATUSES}
-      statusStyles={STATUS_STYLES}
+      pillClass={PILL_CLASS}
       currentStatus={currentStatus}
       compact={compact}
     />

@@ -38,31 +38,31 @@ export default async function InvoiceDetailPage({ params }: Props) {
       subtitle={`Created ${new Date(invoice.created_at).toLocaleString()}`}
       main={
         <>
-          <div className="bg-white border border-gray-200 rounded-xl p-7 space-y-3 text-sm">
+          <div className="panel space-y-3 text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-500">Client</span>
+              <span style={{ color: 'var(--grey)' }}>Client</span>
               <span className="font-medium text-brand">{invoice.client_name}</span>
             </div>
             {invoice.client_email && (
               <div className="flex justify-between">
-                <span className="text-gray-500">Email</span>
-                <span className="text-gray-700">{invoice.client_email}</span>
+                <span style={{ color: 'var(--grey)' }}>Email</span>
+                <span>{invoice.client_email}</span>
               </div>
             )}
             {invoice.booking_reference && (
               <div className="flex justify-between">
-                <span className="text-gray-500">Booking Ref</span>
-                <span className="text-gray-700">{invoice.booking_reference}</span>
+                <span style={{ color: 'var(--grey)' }}>Booking Ref</span>
+                <span>{invoice.booking_reference}</span>
               </div>
             )}
             <div className="flex justify-between">
-              <span className="text-gray-500">Amount</span>
-              <span className="font-semibold text-brand">{invoice.currency} {invoice.amount.toLocaleString()}</span>
+              <span style={{ color: 'var(--grey)' }}>Amount</span>
+              <span className="font-semibold text-brand mono">{invoice.currency} {invoice.amount.toLocaleString()}</span>
             </div>
             {invoice.due_date && (
               <div className="flex justify-between">
-                <span className="text-gray-500">Due Date</span>
-                <span className="text-gray-700">{invoice.due_date}</span>
+                <span style={{ color: 'var(--grey)' }}>Due Date</span>
+                <span>{invoice.due_date}</span>
               </div>
             )}
           </div>
@@ -75,10 +75,7 @@ export default async function InvoiceDetailPage({ params }: Props) {
 
           <PaymentOptionsPanel invoice={invoice} payments={payments} latestOrder={latestOrder} />
 
-          <Link
-            href={`/admin/invoices/${invoice.id}/pdf`}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
-          >
+          <Link href={`/admin/invoices/${invoice.id}/pdf`} className="btn-primary">
             Print / Download PDF
           </Link>
 

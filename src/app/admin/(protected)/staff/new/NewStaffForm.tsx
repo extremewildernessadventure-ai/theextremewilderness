@@ -6,8 +6,8 @@ import Link from 'next/link'
 import { PAY_TYPES, type PayType } from '@/lib/hr'
 import type { Guide } from '@/lib/ops'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5'
+const inputCls = 'field-input'
+const labelCls = 'field-label'
 
 const PAY_TYPE_LABELS: Record<PayType, string> = { salary: 'Salary', daily_rate: 'Daily Rate', per_trip: 'Per Trip' }
 
@@ -54,9 +54,9 @@ export default function NewStaffForm({ guides }: { guides: Guide[] }) {
 
   return (
     <div className="max-w-2xl">
-      <Link href="/admin/staff" className="text-sm text-gray-500 hover:text-brand mb-4 inline-block">← Back to Staff</Link>
-      <h1 className="text-2xl font-bold text-brand mb-6">New Staff Member</h1>
-      <form onSubmit={handleSubmit} className="bg-white border border-gray-200 rounded-xl p-7 space-y-4">
+      <Link href="/admin/staff" className="detail-back">← Back to Staff</Link>
+      <h1 className="mb-6">New Staff Member</h1>
+      <form onSubmit={handleSubmit} className="panel space-y-4">
         <div>
           <label className={labelCls}>Name *</label>
           <input required value={form.name} onChange={(e) => update('name', e.target.value)} className={inputCls} />
@@ -91,7 +91,7 @@ export default function NewStaffForm({ guides }: { guides: Guide[] }) {
           </div>
         </div>
         {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
-        <button type="submit" disabled={loading} className="w-full py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white font-semibold rounded-lg transition-colors text-sm">
+        <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.5 : 1 }}>
           {loading ? 'Creating…' : 'Create Staff Member'}
         </button>
       </form>

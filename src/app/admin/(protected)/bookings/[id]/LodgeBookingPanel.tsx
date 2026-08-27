@@ -4,16 +4,16 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { LodgeBooking } from '@/lib/bookings'
 import type { OpsLodge } from '@/lib/ops'
-import InlineStatusSelect from '@/components/admin/InlineStatusSelect'
+import InlineStatusSelect, { type PillClass } from '@/components/admin/InlineStatusSelect'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1'
+const inputCls = 'field-input'
+const labelCls = 'field-label'
 
-const STATUS_STYLES = {
-  pending: 'bg-amber-100 text-amber-700',
-  confirmed: 'bg-green-100 text-green-700',
-  cancelled: 'bg-red-100 text-red-700',
-} as const
+const PILL_CLASS: Record<'pending' | 'confirmed' | 'cancelled', PillClass> = {
+  pending: 'few',
+  confirmed: 'open',
+  cancelled: 'cancelled',
+}
 
 export default function LodgeBookingPanel({ bookingId, lodgeBookings, lodges }: {
   bookingId: number
@@ -50,10 +50,10 @@ export default function LodgeBookingPanel({ bookingId, lodgeBookings, lodges }: 
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7">
+    <div className="panel">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-bold text-brand">Lodge Stays</h2>
-        <button type="button" onClick={() => setOpen((v) => !v)} className="text-xs font-semibold text-brand hover:underline">
+        <h2>Lodge Stays</h2>
+        <button type="button" onClick={() => setOpen((v) => !v)} className="text-xs font-semibold hover:underline" style={{ color: 'var(--pine)' }}>
           {open ? 'Cancel' : '+ Add Lodge Stay'}
         </button>
       </div>
@@ -72,7 +72,7 @@ export default function LodgeBookingPanel({ bookingId, lodgeBookings, lodges }: 
               <InlineStatusSelect
                 endpoint={`/api/admin/bookings/${bookingId}/lodge/${lb.id}`}
                 statuses={['pending', 'confirmed', 'cancelled']}
-                statusStyles={STATUS_STYLES}
+                pillClass={PILL_CLASS}
                 currentStatus={lb.status}
                 compact
               />
@@ -106,12 +106,7 @@ export default function LodgeBookingPanel({ bookingId, lodgeBookings, lodges }: 
             <label className={labelCls}>Confirmation Ref</label>
             <input value={form.confirmationRef} onChange={(e) => update('confirmationRef', e.target.value)} className={inputCls} />
           </div>
-          <button
-            type="button"
-            onClick={handleAdd}
-            disabled={saving || !form.lodgeId}
-            className="px-4 py-2 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors"
-          >
+          <button type="button" onClick={handleAdd} disabled={saving || !form.lodgeId} className="btn-primary" style={{ opacity: saving || !form.lodgeId ? 0.5 : 1 }}>
             {saving ? 'Adding…' : 'Add Lodge Stay'}
           </button>
         </div>

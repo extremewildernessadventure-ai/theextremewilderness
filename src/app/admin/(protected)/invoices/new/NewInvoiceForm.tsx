@@ -7,8 +7,8 @@ import { Plus, Trash2 } from 'lucide-react'
 import type { Departure } from '@/lib/departures'
 import { packages } from '@/data/packages'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5'
+const inputCls = 'field-input'
+const labelCls = 'field-label'
 
 type ItemRow = { description: string; quantity: string; unitPrice: string }
 
@@ -121,9 +121,9 @@ export default function NewInvoiceForm({ departures }: { departures: Departure[]
 
   return (
     <div className="max-w-2xl">
-      <Link href="/admin/invoices" className="text-sm text-gray-500 hover:text-brand mb-4 inline-block">← Back to Invoices</Link>
-      <h1 className="text-2xl font-bold text-brand mb-6">New Invoice</h1>
-      <form onSubmit={handleSubmit} className="bg-white border border-gray-200 rounded-xl p-7 space-y-4">
+      <Link href="/admin/invoices" className="detail-back">← Back to Invoices</Link>
+      <h1 className="mb-6">New Invoice</h1>
+      <form onSubmit={handleSubmit} className="panel space-y-4">
         <div>
           <label className={labelCls}>Client Name *</label>
           <input required value={form.clientName} onChange={(e) => update('clientName', e.target.value)} className={inputCls} />
@@ -173,7 +173,7 @@ export default function NewInvoiceForm({ departures }: { departures: Departure[]
                   onChange={(e) => updateItem(i, 'unitPrice', e.target.value)}
                   className={inputCls} placeholder="Unit price"
                 />
-                <span className="text-sm text-gray-600 text-end whitespace-nowrap">
+                <span className="text-sm text-gray-600 text-end whitespace-nowrap mono">
                   {form.currency} {lineTotal(row).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
                 <button
@@ -198,9 +198,9 @@ export default function NewInvoiceForm({ departures }: { departures: Departure[]
         </div>
 
         <div className="flex justify-end pt-2 border-t border-gray-100">
-          <div className="w-full max-w-[220px] flex justify-between items-baseline bg-brand/5 rounded-lg px-4 py-3">
-            <span className="text-xs font-bold uppercase tracking-wide text-gold-label">Total</span>
-            <span className="text-lg font-black text-brand">
+          <div className="w-full max-w-[220px] flex justify-between items-baseline rounded-lg px-4 py-3" style={{ background: 'var(--green-bg)' }}>
+            <span className="text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--pine)' }}>Total</span>
+            <span className="text-lg font-black text-brand mono">
               {form.currency} {total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </span>
           </div>
@@ -215,7 +215,7 @@ export default function NewInvoiceForm({ departures }: { departures: Departure[]
           <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} className={inputCls} rows={3} />
         </div>
         {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
-        <button type="submit" disabled={loading} className="w-full py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white font-semibold rounded-lg transition-colors text-sm">
+        <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.5 : 1 }}>
           {loading ? 'Creating…' : 'Create Invoice'}
         </button>
       </form>

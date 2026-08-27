@@ -18,19 +18,17 @@ export default function DetailTwoColumn({
   sidebar: React.ReactNode
 }) {
   return (
-    <div className="max-w-5xl">
-      <Link href={backHref} className="text-sm text-gray-500 hover:text-brand mb-4 inline-block">
-        ← {backLabel}
-      </Link>
-      <div className="flex items-center gap-3 mb-1">
-        <h1 className="text-2xl font-bold text-brand">{title}</h1>
+    <div style={{ maxWidth: 960 }}>
+      <Link href={backHref} className="detail-back">&larr; {backLabel}</Link>
+      <div className="detail-title-row">
+        <h1 style={{ fontSize: 26 }}>{title}</h1>
         {titleBadge}
       </div>
-      {subtitle && <p className="text-gray-500 text-sm mb-6">{subtitle}</p>}
+      {subtitle && <p className="detail-subtitle">{subtitle}</p>}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-        <div className="space-y-6">{main}</div>
-        <div className="space-y-6">{sidebar}</div>
+      <div className="detail-grid">
+        <div className="detail-col">{main}</div>
+        <div className="detail-col">{sidebar}</div>
       </div>
     </div>
   )

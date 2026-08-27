@@ -29,57 +29,69 @@ export default async function ProfitabilityReportPage() {
     ORDER BY d.start_date DESC
   `).all<ProfitabilityRow>()
 
+  const totalRevenue = results.reduce((sum, r) => sum + r.revenue, 0)
+  const totalCosts = results.reduce((sum, r) => sum + r.expense_total + r.supplier_total, 0)
+  const totalMargin = totalRevenue - totalCosts
+  const totalMarginPct = totalRevenue > 0 ? (totalMargin / totalRevenue) * 100 : null
+
   return (
     <div>
-      <h1 className="text-2xl font-bold text-brand mb-1">Profitability Report</h1>
-      <p className="text-sm text-gray-500 mb-6">
-        Paid invoice revenue minus expenses minus paid supplier bills, per departure. All figures treated as USD —
-        expenses are pre-converted via their entered exchange rate, but revenue/supplier figures assume USD.
-        Untagged invoices/expenses/payments (no departure link) are excluded.
-      </p>
+      <div className="page-head">
+        <div>
+          <h1>Profitability Report</h1>
+          <p>
+            Paid invoice revenue minus expenses minus paid supplier bills, per departure. All figures treated as
+            USD — expenses are pre-converted via their entered exchange rate, but revenue/supplier figures assume
+            USD. Untagged invoices/expenses/payments (no departure link) are excluded.
+          </p>
+        </div>
+      </div>
+
+      <div className="stats-row">
+        <div className="stat-card">
+          <div className="stat-label">Revenue</div>
+          <div className="stat-num">${totalRevenue.toLocaleString()}</div>
+        </div>
+        <div className="stat-card rust">
+          <div className="stat-label">Costs</div>
+          <div className="stat-num">${totalCosts.toLocaleString()}</div>
+        </div>
+        <div className={`stat-card ${totalMargin >= 0 ? '' : 'rust'}`}>
+          <div className="stat-label">Margin</div>
+          <div className="stat-num">${totalMargin.toLocaleString()}</div>
+        </div>
+        <div className={`stat-card ${totalMargin >= 0 ? '' : 'rust'}`}>
+          <div className="stat-label">Margin %</div>
+          <div className="stat-num">{totalMarginPct !== null ? `${totalMarginPct.toFixed(1)}%` : '—'}</div>
+        </div>
+      </div>
 
       {results.length === 0 ? (
-        <div className="bg-white border border-gray-200 rounded-xl p-10 text-center text-gray-500 text-sm">
-          No departures yet.
-        </div>
+        <div className="empty-state">No departures yet.</div>
       ) : (
-        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="bg-gray-50 border-b border-gray-200">
-              <tr>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Departure</th>
-                <th className="text-end px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Revenue</th>
-                <th className="text-end px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Expenses</th>
-                <th className="text-end px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Supplier Bills</th>
-                <th className="text-end px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Margin</th>
-                <th className="text-end px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Margin %</th>
-              </tr>
-            </thead>
-            <tbody>
-              {results.map((r) => {
-                const margin = r.revenue - r.expense_total - r.supplier_total
-                const marginPct = r.revenue > 0 ? (margin / r.revenue) * 100 : null
-                const positive = margin >= 0
-                return (
-                  <tr key={r.id} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
-                    <td className="px-5 py-3">
-                      <span className="text-brand font-medium">{packageName(r.package_slug)}</span>
-                      <span className="text-gray-400 text-xs block">{r.start_date} → {r.end_date}</span>
-                    </td>
-                    <td className="px-5 py-3 text-end text-gray-700">${r.revenue.toLocaleString()}</td>
-                    <td className="px-5 py-3 text-end text-gray-700">${r.expense_total.toLocaleString()}</td>
-                    <td className="px-5 py-3 text-end text-gray-700">${r.supplier_total.toLocaleString()}</td>
-                    <td className={`px-5 py-3 text-end font-semibold ${positive ? 'text-green-600' : 'text-red-600'}`}>
-                      ${margin.toLocaleString()}
-                    </td>
-                    <td className={`px-5 py-3 text-end font-semibold ${positive ? 'text-green-600' : 'text-red-600'}`}>
-                      {marginPct !== null ? `${marginPct.toFixed(1)}%` : '—'}
-                    </td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
+        <div className="table-card" style={{ padding: '8px 0' }}>
+          {results.map((r) => {
+            const costs = r.expense_total + r.supplier_total
+            const margin = r.revenue - costs
+            const marginPct = r.revenue > 0 ? (margin / r.revenue) * 100 : null
+            const revenuePct = r.revenue + costs > 0 ? Math.round((r.revenue / (r.revenue + costs)) * 100) : 0
+            return (
+              <div key={r.id} className="capacity-cell" style={{ padding: '14px 18px', borderBottom: '1px solid var(--line)' }}>
+                <div className="flex justify-between items-baseline">
+                  <div>
+                    <span className="pkg-name">{packageName(r.package_slug)}</span>
+                    <span className="pkg-sub" style={{ marginLeft: 8 }}>{r.start_date} → {r.end_date}</span>
+                  </div>
+                  <span className="capacity-num" style={{ color: margin >= 0 ? 'var(--pine)' : 'var(--rust)' }}>
+                    ${r.revenue.toLocaleString()} rev · ${costs.toLocaleString()} cost · {marginPct !== null ? `${marginPct.toFixed(1)}%` : '—'} margin
+                  </span>
+                </div>
+                <div className="capacity-bar">
+                  <div className={`capacity-fill ${margin >= 0 ? '' : 'warn'}`} style={{ width: `${revenuePct}%` }} />
+                </div>
+              </div>
+            )
+          })}
         </div>
       )}
     </div>

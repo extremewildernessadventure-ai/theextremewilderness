@@ -4,10 +4,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { GUIDE_AVAILABILITY_TYPES, type GuideAvailabilityType, type GuideAvailability } from '@/lib/hr'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1'
-
 const TYPE_LABELS: Record<GuideAvailabilityType, string> = { leave: 'Leave', unavailable: 'Unavailable', booked: 'Booked' }
+const TYPE_PILL_CLASS: Record<GuideAvailabilityType, string> = { leave: 'few', unavailable: 'cancelled', booked: 'open' }
 
 export default function GuideAvailabilityPanel({ guideId, availability }: { guideId: number; availability: GuideAvailability[] }) {
   const router = useRouter()
@@ -36,9 +34,9 @@ export default function GuideAvailabilityPanel({ guideId, availability }: { guid
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7">
+    <div className="panel">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-bold text-brand">Availability</h2>
+        <h2>Availability</h2>
         <button type="button" onClick={() => setOpen((v) => !v)} className="text-xs font-semibold text-brand hover:underline">
           {open ? 'Cancel' : '+ Add Entry'}
         </button>
@@ -49,7 +47,7 @@ export default function GuideAvailabilityPanel({ guideId, availability }: { guid
           {availability.map((a) => (
             <li key={a.id} className="flex items-center justify-between text-sm">
               <span className="text-gray-700">{a.start_date} → {a.end_date}</span>
-              <span className="capitalize text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">{TYPE_LABELS[a.type]}</span>
+              <span className={`pill ${TYPE_PILL_CLASS[a.type]}`}><i />{TYPE_LABELS[a.type]}</span>
             </li>
           ))}
         </ul>
@@ -61,30 +59,25 @@ export default function GuideAvailabilityPanel({ guideId, availability }: { guid
         <div className="mt-4 pt-4 border-t border-gray-100 space-y-3">
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className={labelCls}>Start Date</label>
-              <input type="date" value={form.startDate} onChange={(e) => update('startDate', e.target.value)} className={inputCls} />
+              <label className="field-label">Start Date</label>
+              <input type="date" value={form.startDate} onChange={(e) => update('startDate', e.target.value)} className="field-input" />
             </div>
             <div>
-              <label className={labelCls}>End Date</label>
-              <input type="date" value={form.endDate} onChange={(e) => update('endDate', e.target.value)} className={inputCls} />
+              <label className="field-label">End Date</label>
+              <input type="date" value={form.endDate} onChange={(e) => update('endDate', e.target.value)} className="field-input" />
             </div>
           </div>
           <div>
-            <label className={labelCls}>Type</label>
-            <select value={form.type} onChange={(e) => update('type', e.target.value as GuideAvailabilityType)} className={inputCls}>
+            <label className="field-label">Type</label>
+            <select value={form.type} onChange={(e) => update('type', e.target.value as GuideAvailabilityType)} className="field-input">
               {GUIDE_AVAILABILITY_TYPES.map((t) => <option key={t} value={t}>{TYPE_LABELS[t]}</option>)}
             </select>
           </div>
           <div>
-            <label className={labelCls}>Notes</label>
-            <input value={form.notes} onChange={(e) => update('notes', e.target.value)} className={inputCls} />
+            <label className="field-label">Notes</label>
+            <input value={form.notes} onChange={(e) => update('notes', e.target.value)} className="field-input" />
           </div>
-          <button
-            type="button"
-            onClick={handleAdd}
-            disabled={saving || !form.startDate || !form.endDate}
-            className="px-4 py-2 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors"
-          >
+          <button type="button" onClick={handleAdd} disabled={saving || !form.startDate || !form.endDate} className="btn-primary" style={{ opacity: saving || !form.startDate || !form.endDate ? 0.5 : 1 }}>
             {saving ? 'Adding…' : 'Add Entry'}
           </button>
         </div>

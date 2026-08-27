@@ -22,35 +22,37 @@ export default async function LeadSourcesReportPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-brand mb-1">Lead Sources</h1>
-      <p className="text-sm text-gray-500 mb-6">
-        Grouped by UTM source, falling back to referrer, falling back to &quot;Direct / Unknown&quot;. UTM/referrer
-        capture is not yet wired into the public lead-capture forms — expect most leads to show as Direct/Unknown
-        until that&apos;s built.
-      </p>
+      <div className="page-head">
+        <div>
+          <h1>Lead Sources</h1>
+          <p>
+            Grouped by UTM source, falling back to referrer, falling back to &quot;Direct / Unknown&quot;. UTM/referrer
+            capture is not yet wired into the public lead-capture forms — expect most leads to show as Direct/Unknown
+            until that&apos;s built.
+          </p>
+        </div>
+      </div>
 
       {results.length === 0 ? (
-        <div className="bg-white border border-gray-200 rounded-xl p-10 text-center text-gray-500 text-sm">
-          No leads yet.
-        </div>
+        <div className="empty-state">No leads yet.</div>
       ) : (
-        <div className="bg-white border border-gray-200 rounded-xl overflow-hidden overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead className="bg-gray-50 border-b border-gray-200">
+        <div className="table-card">
+          <table>
+            <thead>
               <tr>
-                <th className="text-start px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Source</th>
-                <th className="text-end px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Total Leads</th>
-                <th className="text-end px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Converted</th>
-                <th className="text-end px-5 py-3 font-semibold text-xs uppercase tracking-wide text-gray-500">Conversion Rate</th>
+                <th>Source</th>
+                <th style={{ textAlign: 'right' }}>Total Leads</th>
+                <th style={{ textAlign: 'right' }}>Converted</th>
+                <th style={{ textAlign: 'right' }}>Conversion Rate</th>
               </tr>
             </thead>
             <tbody>
               {results.map((r) => (
-                <tr key={r.source} className="border-b border-gray-100 last:border-0 hover:bg-gray-50">
-                  <td className="px-5 py-3 text-brand font-medium">{r.source}</td>
-                  <td className="px-5 py-3 text-end text-gray-700">{r.total}</td>
-                  <td className="px-5 py-3 text-end text-gray-700">{r.converted}</td>
-                  <td className="px-5 py-3 text-end text-gray-700">
+                <tr key={r.source}>
+                  <td className="text-brand font-medium">{r.source}</td>
+                  <td className="mono" style={{ textAlign: 'right' }}>{r.total}</td>
+                  <td className="mono" style={{ textAlign: 'right' }}>{r.converted}</td>
+                  <td className="mono" style={{ textAlign: 'right' }}>
                     {r.total > 0 ? `${((r.converted / r.total) * 100).toFixed(1)}%` : '—'}
                   </td>
                 </tr>

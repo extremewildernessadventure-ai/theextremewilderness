@@ -4,15 +4,12 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { GuideCertification } from '@/lib/hr'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1'
-
-function certificationStatus(expiresAt: string | null): { label: string; className: string } | null {
+function certificationStatus(expiresAt: string | null): { label: string; pillClass: string } | null {
   if (!expiresAt) return null
   const daysLeft = (new Date(expiresAt).getTime() - Date.now()) / (1000 * 60 * 60 * 24)
-  if (daysLeft < 0) return { label: 'Expired', className: 'bg-red-100 text-red-700' }
-  if (daysLeft < 60) return { label: 'Expiring soon', className: 'bg-amber-100 text-amber-700' }
-  return { label: 'Valid', className: 'bg-green-100 text-green-700' }
+  if (daysLeft < 0) return { label: 'Expired', pillClass: 'cancelled' }
+  if (daysLeft < 60) return { label: 'Expiring soon', pillClass: 'few' }
+  return { label: 'Valid', pillClass: 'open' }
 }
 
 export default function GuideCertificationsPanel({ guideId, certifications }: { guideId: number; certifications: GuideCertification[] }) {
@@ -42,9 +39,9 @@ export default function GuideCertificationsPanel({ guideId, certifications }: { 
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7">
+    <div className="panel">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-bold text-brand">Certifications</h2>
+        <h2>Certifications</h2>
         <button type="button" onClick={() => setOpen((v) => !v)} className="text-xs font-semibold text-brand hover:underline">
           {open ? 'Cancel' : '+ Add Certification'}
         </button>
@@ -61,11 +58,7 @@ export default function GuideCertificationsPanel({ guideId, certifications }: { 
                   {c.issuing_body && <span className="text-gray-500"> — {c.issuing_body}</span>}
                   {c.expires_at && <p className="text-xs text-gray-400 mt-0.5">Expires {c.expires_at}</p>}
                 </div>
-                {status && (
-                  <span className={`inline-flex px-2.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${status.className}`}>
-                    {status.label}
-                  </span>
-                )}
+                {status && <span className={`pill ${status.pillClass}`}><i />{status.label}</span>}
               </li>
             )
           })}
@@ -78,34 +71,29 @@ export default function GuideCertificationsPanel({ guideId, certifications }: { 
         <div className="mt-4 pt-4 border-t border-gray-100 space-y-3">
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className={labelCls}>Type *</label>
-              <input value={form.type} onChange={(e) => update('type', e.target.value)} placeholder="e.g. First Aid, Driving Guide License" className={inputCls} />
+              <label className="field-label">Type *</label>
+              <input value={form.type} onChange={(e) => update('type', e.target.value)} placeholder="e.g. First Aid, Driving Guide License" className="field-input" />
             </div>
             <div>
-              <label className={labelCls}>Issuing Body</label>
-              <input value={form.issuingBody} onChange={(e) => update('issuingBody', e.target.value)} className={inputCls} />
+              <label className="field-label">Issuing Body</label>
+              <input value={form.issuingBody} onChange={(e) => update('issuingBody', e.target.value)} className="field-input" />
             </div>
           </div>
           <div>
-            <label className={labelCls}>Certificate Number</label>
-            <input value={form.certNumber} onChange={(e) => update('certNumber', e.target.value)} className={inputCls} />
+            <label className="field-label">Certificate Number</label>
+            <input value={form.certNumber} onChange={(e) => update('certNumber', e.target.value)} className="field-input" />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className={labelCls}>Issued</label>
-              <input type="date" value={form.issuedAt} onChange={(e) => update('issuedAt', e.target.value)} className={inputCls} />
+              <label className="field-label">Issued</label>
+              <input type="date" value={form.issuedAt} onChange={(e) => update('issuedAt', e.target.value)} className="field-input" />
             </div>
             <div>
-              <label className={labelCls}>Expires</label>
-              <input type="date" value={form.expiresAt} onChange={(e) => update('expiresAt', e.target.value)} className={inputCls} />
+              <label className="field-label">Expires</label>
+              <input type="date" value={form.expiresAt} onChange={(e) => update('expiresAt', e.target.value)} className="field-input" />
             </div>
           </div>
-          <button
-            type="button"
-            onClick={handleAdd}
-            disabled={saving || !form.type.trim()}
-            className="px-4 py-2 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors"
-          >
+          <button type="button" onClick={handleAdd} disabled={saving || !form.type.trim()} className="btn-primary" style={{ opacity: saving || !form.type.trim() ? 0.5 : 1 }}>
             {saving ? 'Adding…' : 'Add Certification'}
           </button>
         </div>

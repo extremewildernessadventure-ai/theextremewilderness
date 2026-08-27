@@ -4,9 +4,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { Guide } from '@/lib/ops'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5'
-
 export default function GuideEditForm({ guide }: { guide: Guide }) {
   const router = useRouter()
   const [form, setForm] = useState({
@@ -40,45 +37,40 @@ export default function GuideEditForm({ guide }: { guide: Guide }) {
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7 space-y-4">
-      <h2 className="text-sm font-bold text-brand mb-1">Edit Guide</h2>
+    <div className="panel space-y-4">
+      <h2 className="mb-1">Edit Guide</h2>
       <div>
-        <label className={labelCls}>Name</label>
-        <input value={form.name} onChange={(e) => update('name', e.target.value)} className={inputCls} />
+        <label className="field-label">Name</label>
+        <input value={form.name} onChange={(e) => update('name', e.target.value)} className="field-input" />
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className={labelCls}>Phone</label>
-          <input value={form.phone} onChange={(e) => update('phone', e.target.value)} className={inputCls} />
+          <label className="field-label">Phone</label>
+          <input value={form.phone} onChange={(e) => update('phone', e.target.value)} className="field-input" />
         </div>
         <div>
-          <label className={labelCls}>Email</label>
-          <input type="email" value={form.email} onChange={(e) => update('email', e.target.value)} className={inputCls} />
+          <label className="field-label">Email</label>
+          <input type="email" value={form.email} onChange={(e) => update('email', e.target.value)} className="field-input" />
         </div>
       </div>
       <div>
-        <label className={labelCls}>Languages</label>
-        <input value={form.languages} onChange={(e) => update('languages', e.target.value)} className={inputCls} />
+        <label className="field-label">Languages</label>
+        <input value={form.languages} onChange={(e) => update('languages', e.target.value)} className="field-input" />
       </div>
       <div>
-        <label className={labelCls}>Specialty</label>
-        <input value={form.specialty} onChange={(e) => update('specialty', e.target.value)} className={inputCls} />
+        <label className="field-label">Specialty</label>
+        <input value={form.specialty} onChange={(e) => update('specialty', e.target.value)} className="field-input" />
       </div>
       <div>
-        <label className={labelCls}>Notes</label>
-        <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} rows={3} className={inputCls} />
+        <label className="field-label">Notes</label>
+        <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} rows={3} className="field-input" />
       </div>
-      <label className="flex items-center gap-2 text-sm text-gray-700">
+      <label className="flex items-center gap-2 text-sm" style={{ color: 'var(--ink)' }}>
         <input type="checkbox" checked={form.active} onChange={(e) => update('active', e.target.checked)} className="rounded border-gray-300 text-brand focus:ring-brand/20" />
         Active
       </label>
       <div className="flex items-center gap-3">
-        <button
-          type="button"
-          onClick={handleSave}
-          disabled={saving}
-          className="px-5 py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors"
-        >
+        <button type="button" onClick={handleSave} disabled={saving} className="btn-primary" style={{ opacity: saving ? 0.5 : 1 }}>
           {saving ? 'Saving…' : 'Save Changes'}
         </button>
         {saved && <span className="text-green-600 text-sm">Saved</span>}

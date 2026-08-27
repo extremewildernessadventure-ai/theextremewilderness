@@ -4,9 +4,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { SupplierContract } from '@/lib/ops'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1'
-
 export default function SupplierContractPanel({ supplierId, contracts }: { supplierId: number; contracts: SupplierContract[] }) {
   const router = useRouter()
   const [open, setOpen] = useState(false)
@@ -36,9 +33,9 @@ export default function SupplierContractPanel({ supplierId, contracts }: { suppl
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7">
+    <div className="panel">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-bold text-brand">Contracts</h2>
+        <h2>Contracts</h2>
         <button type="button" onClick={() => setOpen((v) => !v)} className="text-xs font-semibold text-brand hover:underline">
           {open ? 'Cancel' : '+ Add Contract'}
         </button>
@@ -68,34 +65,29 @@ export default function SupplierContractPanel({ supplierId, contracts }: { suppl
         <div className="mt-4 pt-4 border-t border-gray-100 space-y-3">
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className={labelCls}>Negotiated Rate</label>
-              <input type="number" min="0" step="0.01" value={form.negotiatedRate} onChange={(e) => update('negotiatedRate', e.target.value)} className={inputCls} />
+              <label className="field-label">Negotiated Rate</label>
+              <input type="number" min="0" step="0.01" value={form.negotiatedRate} onChange={(e) => update('negotiatedRate', e.target.value)} className="field-input" />
             </div>
             <div>
-              <label className={labelCls}>Currency</label>
-              <input value={form.currency} onChange={(e) => update('currency', e.target.value)} className={inputCls} />
+              <label className="field-label">Currency</label>
+              <input value={form.currency} onChange={(e) => update('currency', e.target.value)} className="field-input" />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className={labelCls}>Valid From</label>
-              <input type="date" value={form.validFrom} onChange={(e) => update('validFrom', e.target.value)} className={inputCls} />
+              <label className="field-label">Valid From</label>
+              <input type="date" value={form.validFrom} onChange={(e) => update('validFrom', e.target.value)} className="field-input" />
             </div>
             <div>
-              <label className={labelCls}>Valid To</label>
-              <input type="date" value={form.validTo} onChange={(e) => update('validTo', e.target.value)} className={inputCls} />
+              <label className="field-label">Valid To</label>
+              <input type="date" value={form.validTo} onChange={(e) => update('validTo', e.target.value)} className="field-input" />
             </div>
           </div>
           <div>
-            <label className={labelCls}>Notes</label>
-            <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} rows={2} className={inputCls} />
+            <label className="field-label">Notes</label>
+            <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} rows={2} className="field-input" />
           </div>
-          <button
-            type="button"
-            onClick={handleAdd}
-            disabled={saving}
-            className="px-4 py-2 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors"
-          >
+          <button type="button" onClick={handleAdd} disabled={saving} className="btn-primary" style={{ opacity: saving ? 0.5 : 1 }}>
             {saving ? 'Adding…' : 'Add Contract'}
           </button>
         </div>

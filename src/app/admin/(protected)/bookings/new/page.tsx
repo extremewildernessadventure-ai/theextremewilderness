@@ -4,8 +4,8 @@ import { Suspense, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5'
+const inputCls = 'field-input'
+const labelCls = 'field-label'
 
 function NewBookingForm() {
   const router = useRouter()
@@ -59,19 +59,19 @@ function NewBookingForm() {
     <div className="max-w-2xl">
       <Link
         href={departureId ? `/admin/departures/${departureId}` : '/admin/bookings'}
-        className="text-sm text-gray-500 hover:text-brand mb-4 inline-block"
+        className="detail-back"
       >
         ← Back
       </Link>
-      <h1 className="text-2xl font-bold text-brand mb-6">New Booking</h1>
+      <h1 className="mb-6">New Booking</h1>
 
       {!departureId && (
-        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 text-sm text-amber-800">
+        <div className="panel mb-6 text-sm" style={{ borderLeft: '4px solid var(--gold)', color: 'var(--ink)' }}>
           No departure selected. Open this page via the &quot;+ New Booking&quot; action on a departure&apos;s detail page.
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-white border border-gray-200 rounded-xl p-7 space-y-4">
+      <form onSubmit={handleSubmit} className="panel space-y-4">
         <div>
           <label className={labelCls}>Client Name *</label>
           <input required value={form.clientName} onChange={(e) => update('clientName', e.target.value)} className={inputCls} />
@@ -91,11 +91,7 @@ function NewBookingForm() {
           <input type="number" min="1" step="1" required value={form.guestsCount} onChange={(e) => update('guestsCount', e.target.value)} className={`${inputCls} max-w-[140px]`} />
         </div>
         {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
-        <button
-          type="submit"
-          disabled={loading || !departureId}
-          className="w-full py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white font-semibold rounded-lg transition-colors text-sm"
-        >
+        <button type="submit" disabled={loading || !departureId} className="btn-primary" style={{ width: '100%', justifyContent: 'center', opacity: loading || !departureId ? 0.5 : 1 }}>
           {loading ? 'Creating…' : 'Create Booking'}
         </button>
       </form>

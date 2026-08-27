@@ -46,29 +46,27 @@ export default async function DocumentsListPage({ searchParams }: Props) {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-brand">Documents</h1>
-        <Link
-          href="/admin/documents/new"
-          className="px-4 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
-        >
-          + Upload Document
+      <div className="page-head">
+        <div>
+          <h1>Documents</h1>
+        </div>
+        <Link href="/admin/documents/new" className="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M12 5v14M5 12h14" /></svg>
+          Upload Document
         </Link>
       </div>
 
-      <form method="get" className="flex items-center gap-2 mb-4">
-        <select
-          name="status"
-          defaultValue={status ?? ''}
-          className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10"
-        >
-          <option value="">All statuses</option>
-          {DOCUMENT_STATUSES.map((s) => <option key={s} value={s} className="capitalize">{s}</option>)}
-        </select>
-        <button type="submit" className="px-4 py-2 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors">
-          Filter
-        </button>
-      </form>
+      <div className="filter-bar">
+        <form method="get" className="flex items-center gap-2">
+          <div className="select-field">
+            <select name="status" defaultValue={status ?? ''}>
+              <option value="">All statuses</option>
+              {DOCUMENT_STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
+            </select>
+          </div>
+          <button type="submit" className="btn-outline">Filter</button>
+        </form>
+      </div>
 
       <AdminTable
         columns={columns}

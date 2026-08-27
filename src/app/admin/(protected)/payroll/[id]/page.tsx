@@ -33,22 +33,23 @@ export default async function PayrollPeriodDetailPage({ params }: Props) {
         </Link>
       ),
     },
-    { header: 'Base', className: 'text-gray-700', render: (p) => `${p.currency} ${p.base_amount.toLocaleString()}` },
-    { header: 'Trip Pay', className: 'text-gray-700', render: (p) => `${p.currency} ${p.trip_pay_total.toLocaleString()}` },
-    { header: 'Net', className: 'text-gray-700 font-semibold', render: (p) => `${p.currency} ${p.net_amount.toLocaleString()}` },
+    { header: 'Base', className: 'mono', render: (p) => `${p.currency} ${p.base_amount.toLocaleString()}` },
+    { header: 'Trip Pay', className: 'mono', render: (p) => `${p.currency} ${p.trip_pay_total.toLocaleString()}` },
+    { header: 'Net', className: 'mono font-semibold', render: (p) => `${p.currency} ${p.net_amount.toLocaleString()}` },
     {
       header: 'Status',
-      render: (p) => (
-        <span className="capitalize inline-flex px-2.5 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">{p.status}</span>
-      ),
+      render: (p) => {
+        const pillClass = p.status === 'paid' ? 'full' : p.status === 'approved' ? 'open' : 'few'
+        return <span className={`pill ${pillClass}`}><i />{p.status}</span>
+      },
     },
   ]
 
   return (
     <div>
-      <Link href="/admin/payroll" className="text-sm text-gray-500 hover:text-brand mb-4 inline-block">← Back to Payroll</Link>
-      <h1 className="text-2xl font-bold text-brand mb-1">{period.period_start} → {period.period_end}</h1>
-      <p className="text-gray-500 text-sm mb-6 capitalize">Status: {period.status}</p>
+      <Link href="/admin/payroll" className="detail-back">← Back to Payroll</Link>
+      <h1 className="mb-1">{period.period_start} → {period.period_end}</h1>
+      <p className="text-sm mb-6 capitalize" style={{ color: 'var(--grey)' }}>Status: {period.status}</p>
 
       <div className="mb-6">
         <GeneratePayslipsButton periodId={period.id} />

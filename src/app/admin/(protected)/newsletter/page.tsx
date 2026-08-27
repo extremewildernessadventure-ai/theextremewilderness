@@ -24,11 +24,7 @@ export default async function NewsletterListPage({ searchParams }: Props) {
     { header: 'Source', className: 'text-gray-500', render: (s) => s.source ?? '—' },
     {
       header: 'Status',
-      render: (s) => (
-        <span className={`inline-flex px-2.5 py-1 rounded-full text-xs font-semibold ${s.status === 'subscribed' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
-          {s.status}
-        </span>
-      ),
+      render: (s) => <span className={`pill ${s.status === 'subscribed' ? 'open' : 'full'}`}><i />{s.status}</span>,
     },
     { header: 'Subscribed', className: 'text-gray-500', render: (s) => new Date(s.created_at).toLocaleDateString() },
     { header: '', render: (s) => <DeleteSubscriberButton subscriberId={s.id} /> },
@@ -36,29 +32,23 @@ export default async function NewsletterListPage({ searchParams }: Props) {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="page-head">
         <div>
-          <h1 className="text-2xl font-bold text-brand">Newsletter</h1>
-          <p className="text-sm text-gray-500 mt-1">{subscribedCount} subscribed / {results.length} total</p>
+          <h1>Newsletter</h1>
+          <p>{subscribedCount} subscribed / {results.length} total</p>
         </div>
         <div className="flex items-center gap-3">
           {/* Plain <a>, not <Link> — this is a file download, not a page transition. */}
-          <a
-            href="/api/admin/newsletter/export"
-            className="px-4 py-2.5 border border-gray-200 text-gray-700 hover:bg-gray-50 text-sm font-semibold rounded-lg transition-colors"
-          >
+          <a href="/api/admin/newsletter/export" className="btn-outline">
             Export CSV
           </a>
-          <Link
-            href="/admin/newsletter/blast"
-            className="px-4 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
-          >
+          <Link href="/admin/newsletter/blast" className="btn-primary">
             Send Blast
           </Link>
         </div>
       </div>
 
-      <div className="mb-4">
+      <div className="filter-bar">
         <SearchBar basePath="/admin/newsletter" initialQuery={q ?? ''} placeholder="Search email…" />
       </div>
 

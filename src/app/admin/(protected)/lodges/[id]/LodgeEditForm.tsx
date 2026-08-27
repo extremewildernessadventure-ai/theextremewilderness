@@ -4,9 +4,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { OpsLodge } from '@/lib/ops'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5'
-
 export default function LodgeEditForm({ lodge }: { lodge: OpsLodge }) {
   const router = useRouter()
   const [form, setForm] = useState({
@@ -37,31 +34,26 @@ export default function LodgeEditForm({ lodge }: { lodge: OpsLodge }) {
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7 space-y-4">
-      <h2 className="text-sm font-bold text-brand mb-1">Edit Lodge</h2>
+    <div className="panel space-y-4">
+      <h2 className="mb-1">Edit Lodge</h2>
       <div>
-        <label className={labelCls}>Name</label>
-        <input value={form.name} onChange={(e) => update('name', e.target.value)} className={inputCls} />
+        <label className="field-label">Name</label>
+        <input value={form.name} onChange={(e) => update('name', e.target.value)} className="field-input" />
       </div>
       <div>
-        <label className={labelCls}>Location</label>
-        <input value={form.location} onChange={(e) => update('location', e.target.value)} className={inputCls} />
+        <label className="field-label">Location</label>
+        <input value={form.location} onChange={(e) => update('location', e.target.value)} className="field-input" />
       </div>
       <div>
-        <label className={labelCls}>Contact Info</label>
-        <input value={form.contactInfo} onChange={(e) => update('contactInfo', e.target.value)} className={inputCls} />
+        <label className="field-label">Contact Info</label>
+        <input value={form.contactInfo} onChange={(e) => update('contactInfo', e.target.value)} className="field-input" />
       </div>
       <div>
-        <label className={labelCls}>Rate Notes</label>
-        <textarea value={form.rateNotes} onChange={(e) => update('rateNotes', e.target.value)} rows={3} className={inputCls} />
+        <label className="field-label">Rate Notes</label>
+        <textarea value={form.rateNotes} onChange={(e) => update('rateNotes', e.target.value)} rows={3} className="field-input" />
       </div>
       <div className="flex items-center gap-3">
-        <button
-          type="button"
-          onClick={handleSave}
-          disabled={saving}
-          className="px-5 py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors"
-        >
+        <button type="button" onClick={handleSave} disabled={saving} className="btn-primary" style={{ opacity: saving ? 0.5 : 1 }}>
           {saving ? 'Saving…' : 'Save Changes'}
         </button>
         {saved && <span className="text-green-600 text-sm">Saved</span>}

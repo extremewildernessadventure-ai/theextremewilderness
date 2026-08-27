@@ -4,16 +4,23 @@ import AdminTable, { type AdminTableColumn } from '@/components/admin/AdminTable
 
 export const dynamic = 'force-dynamic'
 
-const STATUS_STYLES: Record<Invoice['status'], string> = {
-  unpaid: 'bg-amber-100 text-amber-700',
-  partial: 'bg-blue-100 text-blue-700',
-  paid: 'bg-green-100 text-green-700',
-  cancelled: 'bg-gray-100 text-gray-500',
+// unpaid = needs attention; partial = payment in progress; paid = closed out
+// successfully; cancelled = void.
+const PILL_CLASS: Record<Invoice['status'], string> = {
+  unpaid: 'few',
+  partial: 'open',
+  paid: 'full',
+  cancelled: 'cancelled',
+}
+
+function isOverdue(inv: Invoice): boolean {
+  return (inv.status === 'unpaid' || inv.status === 'partial') && !!inv.due_date && inv.due_date < new Date().toISOString().slice(0, 10)
 }
 
 const columns: AdminTableColumn<Invoice>[] = [
   {
-    header: 'Invoice #',
+    header: 'Invoice No.',
+    className: 'mono',
     render: (inv) => (
       <Link href={`/admin/invoices/${inv.id}`} className="text-brand font-medium hover:underline">
         {inv.invoice_number}
@@ -21,35 +28,68 @@ const columns: AdminTableColumn<Invoice>[] = [
     ),
   },
   { header: 'Client', className: 'text-gray-700', render: (inv) => inv.client_name },
-  { header: 'Amount', className: 'text-gray-700', render: (inv) => `${inv.currency} ${inv.amount.toLocaleString()}` },
-  {
-    header: 'Status',
-    render: (inv) => (
-      <span className={`inline-flex px-2.5 py-1 rounded-full text-xs font-semibold capitalize ${STATUS_STYLES[inv.status]}`}>
-        {inv.status}
-      </span>
-    ),
-  },
-  { header: 'Created', className: 'text-gray-500', render: (inv) => new Date(inv.created_at).toLocaleDateString() },
+  { header: 'Amount', className: 'mono', render: (inv) => `${inv.currency} ${inv.amount.toLocaleString()}` },
+  { header: 'Due Date', className: 'dates-cell', render: (inv) => inv.due_date ?? '—' },
+  { header: 'Status', render: (inv) => <span className={`pill ${PILL_CLASS[inv.status]}`}><i />{inv.status}</span> },
 ]
 
 export default async function InvoicesListPage() {
   const db = await getDb()
   const { results } = await db.prepare('SELECT * FROM invoices ORDER BY created_at DESC').all<Invoice>()
 
+  // Summed in USD only — invoices in other currencies aren't converted, so
+  // mixing them into one total would misrepresent the figure.
+  const statsRow = await db.prepare(`
+    SELECT
+      SUM(CASE WHEN currency = 'USD' AND created_at >= datetime('now', '-30 days') THEN amount ELSE 0 END) as totalInvoiced30d,
+      SUM(CASE WHEN currency = 'USD' AND status = 'paid' THEN amount ELSE 0 END) as paid,
+      SUM(CASE WHEN currency = 'USD' AND status IN ('unpaid', 'partial') THEN amount ELSE 0 END) as outstanding
+    FROM invoices
+  `).first<{ totalInvoiced30d: number; paid: number; outstanding: number }>()
+
+  const overdueCount = results.filter(isOverdue).length
+
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-brand">Invoices</h1>
-        <Link
-          href="/admin/invoices/new"
-          className="px-4 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
-        >
-          + New Invoice
+      <div className="page-head">
+        <div>
+          <h1>Invoices</h1>
+        </div>
+        <Link href="/admin/invoices/new" className="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M12 5v14M5 12h14" /></svg>
+          New Invoice
         </Link>
       </div>
 
-      <AdminTable columns={columns} rows={results} rowKey={(inv) => inv.id} emptyMessage="No invoices yet." />
+      <div className="stats-row">
+        <div className="stat-card">
+          <div className="stat-label">Total Invoiced (30d)</div>
+          <div className="stat-num">${(statsRow?.totalInvoiced30d ?? 0).toLocaleString()}</div>
+          <div className="stat-sub">USD only</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-label">Paid</div>
+          <div className="stat-num">${(statsRow?.paid ?? 0).toLocaleString()}</div>
+          <div className="stat-sub">USD only</div>
+        </div>
+        <div className="stat-card gold">
+          <div className="stat-label">Outstanding</div>
+          <div className="stat-num">${(statsRow?.outstanding ?? 0).toLocaleString()}</div>
+          <div className="stat-sub">USD only</div>
+        </div>
+        <div className="stat-card rust">
+          <div className="stat-label">Overdue</div>
+          <div className="stat-num">{overdueCount}</div>
+        </div>
+      </div>
+
+      <AdminTable
+        columns={columns}
+        rows={results}
+        rowKey={(inv) => inv.id}
+        emptyMessage="No invoices yet."
+        rowClassName={(inv) => (isOverdue(inv) ? 'warn' : undefined)}
+      />
     </div>
   )
 }

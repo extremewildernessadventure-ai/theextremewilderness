@@ -19,18 +19,18 @@ export default function PaymentOptionsPanel({
   if (invoice.status === 'paid') {
     const latestPayment = payments[0] ?? null
     return (
-      <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+      <div className="panel" style={{ background: 'var(--green-bg)', borderColor: 'transparent' }}>
         <div className="flex items-start gap-3">
-          <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+          <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--pine)' }} />
           <div>
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-green-700 mb-1">Paid in Full</h2>
+            <h2 className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color: 'var(--pine)', fontFamily: 'var(--font-inter)' }}>Paid in Full</h2>
             {latestPayment ? (
-              <p className="text-sm text-green-800">
+              <p className="text-sm" style={{ color: 'var(--pine-deep)' }}>
                 Paid via {PAYMENT_METHOD_LABELS[latestPayment.method]} on{' '}
                 {new Date(latestPayment.confirmed_at).toLocaleDateString(undefined, { day: 'numeric', month: 'long', year: 'numeric' })}.
               </p>
             ) : (
-              <p className="text-sm text-green-800">This invoice has been paid in full.</p>
+              <p className="text-sm" style={{ color: 'var(--pine-deep)' }}>This invoice has been paid in full.</p>
             )}
           </div>
         </div>
@@ -39,8 +39,8 @@ export default function PaymentOptionsPanel({
   }
 
   return (
-    <div className="bg-brand/5 rounded-xl p-6 space-y-4">
-      <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label">Payment Options</h2>
+    <div className="panel space-y-4" style={{ background: 'var(--sand)' }}>
+      <h2 className="text-[10px] font-black uppercase tracking-widest" style={{ color: 'var(--gold)', fontFamily: 'var(--font-inter)' }}>Payment Options</h2>
 
       {latestOrder && (
         <div>

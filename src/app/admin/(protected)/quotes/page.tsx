@@ -40,6 +40,15 @@ export default async function QuotesListPage({ searchParams }: Props) {
     ORDER BY quotes.created_at DESC
   `).bind(...args).all<QuoteRow>()
 
+  const statsRow = await db.prepare(`
+    SELECT
+      SUM(CASE WHEN status = 'sent' AND created_at >= datetime('now', '-30 days') THEN 1 ELSE 0 END) as sent30d,
+      SUM(CASE WHEN status = 'sent' THEN 1 ELSE 0 END) as awaitingResponse,
+      SUM(CASE WHEN status = 'accepted' THEN 1 ELSE 0 END) as accepted,
+      SUM(CASE WHEN status = 'expired' THEN 1 ELSE 0 END) as expired
+    FROM quotes
+  `).first<{ sent30d: number; awaitingResponse: number; accepted: number; expired: number }>()
+
   const columns: AdminTableColumn<QuoteRow>[] = [
     {
       header: 'Client',
@@ -50,33 +59,50 @@ export default async function QuotesListPage({ searchParams }: Props) {
       ),
     },
     { header: 'Package', className: 'text-gray-700', render: (row) => packageName(row.package_slug) },
-    { header: 'Price', className: 'text-gray-700', render: (row) => `${row.currency} ${row.price.toLocaleString()}` },
+    { header: 'Amount', className: 'mono', render: (row) => `${row.currency} ${row.price.toLocaleString()}` },
+    { header: 'Sent Date', className: 'dates-cell', render: (row) => new Date(row.created_at).toLocaleDateString() },
     { header: 'Status', render: (row) => <QuoteStatusSelect quoteId={row.id} currentStatus={row.status} compact /> },
-    { header: 'Created', className: 'text-gray-500', render: (row) => new Date(row.created_at).toLocaleDateString() },
   ]
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-brand">Quotes</h1>
+      <div className="page-head">
+        <div>
+          <h1>Quotes</h1>
+        </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+      <div className="stats-row">
+        <div className="stat-card">
+          <div className="stat-label">Quotes Sent (30d)</div>
+          <div className="stat-num">{statsRow?.sent30d ?? 0}</div>
+        </div>
+        <div className="stat-card gold">
+          <div className="stat-label">Awaiting Response</div>
+          <div className="stat-num">{statsRow?.awaitingResponse ?? 0}</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-label">Accepted</div>
+          <div className="stat-num">{statsRow?.accepted ?? 0}</div>
+        </div>
+        <div className="stat-card rust">
+          <div className="stat-label">Expired</div>
+          <div className="stat-num">{statsRow?.expired ?? 0}</div>
+        </div>
+      </div>
+
+      <div className="filter-bar">
+        <SearchBar basePath="/admin/quotes" initialQuery={q ?? ''} placeholder="Search client name or email…" />
         <form method="get" className="flex items-center gap-2">
           {q && <input type="hidden" name="q" value={q} />}
-          <select
-            name="status"
-            defaultValue={status ?? ''}
-            className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10"
-          >
-            <option value="">All statuses</option>
-            {QUOTE_STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
-          </select>
-          <button type="submit" className="px-4 py-2 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors">
-            Filter
-          </button>
+          <div className="select-field">
+            <select name="status" defaultValue={status ?? ''}>
+              <option value="">All statuses</option>
+              {QUOTE_STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
+            </select>
+          </div>
+          <button type="submit" className="btn-outline">Filter</button>
         </form>
-        <SearchBar basePath="/admin/quotes" initialQuery={q ?? ''} placeholder="Search client name or email…" />
       </div>
 
       <AdminTable

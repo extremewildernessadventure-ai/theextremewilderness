@@ -11,8 +11,6 @@ const CHANNEL_LABELS: Record<CommunicationChannel, string> = {
   in_person: 'In Person',
 }
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-
 export default function CommunicationLogPanel({ leadId, entries }: { leadId: number; entries: CommunicationLogEntry[] }) {
   const router = useRouter()
   const [channel, setChannel] = useState<CommunicationChannel>('whatsapp')
@@ -35,8 +33,8 @@ export default function CommunicationLogPanel({ leadId, entries }: { leadId: num
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7">
-      <h2 className="text-sm font-bold text-brand mb-4">Communication Log</h2>
+    <div className="panel">
+      <h2 className="mb-1">Communication Log</h2>
       <p className="text-xs text-gray-400 mb-4">Internal-only — never shown to the client.</p>
 
       {entries.length > 0 && (
@@ -57,7 +55,7 @@ export default function CommunicationLogPanel({ leadId, entries }: { leadId: num
         <select
           value={channel}
           onChange={(e) => setChannel(e.target.value as CommunicationChannel)}
-          className={`${inputCls} sm:w-36`}
+          className="field-input sm:w-36"
         >
           {COMMUNICATION_CHANNELS.map((c) => <option key={c} value={c}>{CHANNEL_LABELS[c]}</option>)}
         </select>
@@ -65,14 +63,9 @@ export default function CommunicationLogPanel({ leadId, entries }: { leadId: num
           value={summary}
           onChange={(e) => setSummary(e.target.value)}
           placeholder="e.g. Called, no answer, will try again Monday"
-          className={inputCls}
+          className="field-input"
         />
-        <button
-          type="button"
-          onClick={handleAdd}
-          disabled={saving || !summary.trim()}
-          className="px-4 py-2 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors whitespace-nowrap"
-        >
+        <button type="button" onClick={handleAdd} disabled={saving || !summary.trim()} className="btn-primary" style={{ whiteSpace: 'nowrap', opacity: saving || !summary.trim() ? 0.5 : 1 }}>
           {saving ? 'Adding…' : 'Log'}
         </button>
       </div>

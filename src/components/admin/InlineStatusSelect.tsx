@@ -3,19 +3,30 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
+// The 5 semantic pill classes from ewa-admin-design-system.md — every
+// status enum in this app maps onto one of these by MEANING, not name:
+//   open      pine/green  — active, healthy, on track
+//   few       gold        — needs attention soon, not urgent yet
+//   full      khaki/grey  — complete, at capacity, closed out normally
+//   departed  blue-grey   — historical/completed record
+//   cancelled rust        — cancelled, declined, failed, overdue
+export type PillClass = 'open' | 'few' | 'full' | 'departed' | 'cancelled'
+
 export default function InlineStatusSelect<S extends string>({
   endpoint,
   field = 'status',
   statuses,
-  statusStyles,
+  pillClass,
   currentStatus,
   compact = false,
 }: {
   endpoint: string
   field?: string
   statuses: readonly S[]
-  statusStyles: Record<S, string>
+  pillClass: Record<S, PillClass>
   currentStatus: S
+  // true: small pill (table rows). false: full-width field-styled select
+  // (detail-page edit forms, next to other .field-input controls).
   compact?: boolean
 }) {
   const router = useRouter()
@@ -45,12 +56,11 @@ export default function InlineStatusSelect<S extends string>({
       onChange={(e) => handleChange(e.target.value)}
       disabled={saving}
       onClick={(e) => e.stopPropagation()}
-      className={`capitalize font-semibold rounded-full border-0 disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-brand/20 ${statusStyles[status]} ${compact ? 'text-xs px-2.5 py-1' : 'text-sm px-3 py-2.5 w-full'}`}
+      className={compact ? `pill ${pillClass[status]}` : 'field-input'}
+      style={compact ? { opacity: saving ? 0.5 : 1 } : undefined}
     >
       {statuses.map((s) => (
-        <option key={s} value={s} className="bg-white text-gray-700">
-          {s}
-        </option>
+        <option key={s} value={s}>{s}</option>
       ))}
     </select>
   )

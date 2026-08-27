@@ -25,6 +25,7 @@ export default async function DepartureDetailPage({ params }: Props) {
 
   const pkg = packages.find((p) => p.slug === departure.package_slug)
   const occupancyPct = departure.capacity > 0 ? Math.min(100, Math.round((departure.seats_booked / departure.capacity) * 100)) : 0
+  const fillClass = departure.status === 'few_left' ? 'warn' : departure.status === 'full' ? 'full' : ''
 
   return (
     <DetailTwoColumn
@@ -34,19 +35,19 @@ export default async function DepartureDetailPage({ params }: Props) {
       subtitle={`${departure.start_date} → ${departure.end_date}`}
       main={
         <>
-          <div className="bg-white border border-gray-200 rounded-xl p-7 space-y-4 text-sm">
-            <div className="flex justify-between items-center mb-1">
-              <span className="text-gray-500">Occupancy</span>
-              <span className="font-semibold text-brand">{departure.seats_booked} / {departure.capacity} seats</span>
-            </div>
-            <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-              <div className="h-full bg-brand rounded-full" style={{ width: `${occupancyPct}%` }} />
+          <div className="panel space-y-3 text-sm">
+            <div className="capacity-cell" style={{ minWidth: 0 }}>
+              <div className="flex justify-between items-center">
+                <span style={{ color: 'var(--grey)' }}>Occupancy</span>
+                <span className="capacity-num">{departure.seats_booked} / {departure.capacity} seats</span>
+              </div>
+              <div className="capacity-bar"><div className={`capacity-fill ${fillClass}`} style={{ width: `${occupancyPct}%` }} /></div>
             </div>
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-xl p-7">
+          <div className="panel">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-sm font-bold text-brand">Bookings</h2>
+              <h2>Bookings</h2>
               <Link href={`/admin/bookings/new?departureId=${departure.id}`} className="text-xs font-semibold text-brand hover:underline">
                 + New Booking
               </Link>

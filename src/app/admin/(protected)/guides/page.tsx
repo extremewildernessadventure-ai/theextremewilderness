@@ -19,9 +19,7 @@ const columns: AdminTableColumn<Guide>[] = [
   {
     header: 'Status',
     render: (g) => (
-      <span className={`inline-flex px-2.5 py-1 rounded-full text-xs font-semibold ${g.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
-        {g.active ? 'Active' : 'Inactive'}
-      </span>
+      <span className={`pill ${g.active ? 'open' : 'full'}`}><i />{g.active ? 'Active' : 'Inactive'}</span>
     ),
   },
 ]
@@ -32,13 +30,13 @@ export default async function GuidesListPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-brand">Guides</h1>
-        <Link
-          href="/admin/guides/new"
-          className="px-4 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
-        >
-          + New Guide
+      <div className="page-head">
+        <div>
+          <h1>Guides</h1>
+        </div>
+        <Link href="/admin/guides/new" className="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M12 5v14M5 12h14" /></svg>
+          New Guide
         </Link>
       </div>
 

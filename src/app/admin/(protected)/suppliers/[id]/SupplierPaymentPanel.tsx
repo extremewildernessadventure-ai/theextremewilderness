@@ -3,12 +3,12 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { SupplierPayment } from '@/lib/ops'
-import InlineStatusSelect from '@/components/admin/InlineStatusSelect'
+import InlineStatusSelect, { type PillClass } from '@/components/admin/InlineStatusSelect'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1'
+const inputCls = 'field-input'
+const labelCls = 'field-label'
 
-const STATUS_STYLES = { owed: 'bg-amber-100 text-amber-700', paid: 'bg-green-100 text-green-700' } as const
+const PILL_CLASS: Record<'owed' | 'paid', PillClass> = { owed: 'few', paid: 'full' }
 
 export default function SupplierPaymentPanel({ supplierId, payments }: { supplierId: number; payments: SupplierPayment[] }) {
   const router = useRouter()
@@ -38,10 +38,10 @@ export default function SupplierPaymentPanel({ supplierId, payments }: { supplie
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7">
+    <div className="panel">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-bold text-brand">Payments Owed</h2>
-        <button type="button" onClick={() => setOpen((v) => !v)} className="text-xs font-semibold text-brand hover:underline">
+        <h2>Payments Owed</h2>
+        <button type="button" onClick={() => setOpen((v) => !v)} className="text-xs font-semibold hover:underline" style={{ color: 'var(--pine)' }}>
           {open ? 'Cancel' : '+ Add Payment'}
         </button>
       </div>
@@ -58,7 +58,7 @@ export default function SupplierPaymentPanel({ supplierId, payments }: { supplie
               <InlineStatusSelect
                 endpoint={`/api/admin/suppliers/${supplierId}/payments/${p.id}`}
                 statuses={['owed', 'paid']}
-                statusStyles={STATUS_STYLES}
+                pillClass={PILL_CLASS}
                 currentStatus={p.status}
                 compact
               />
@@ -89,12 +89,7 @@ export default function SupplierPaymentPanel({ supplierId, payments }: { supplie
             <label className={labelCls}>Notes</label>
             <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} rows={2} className={inputCls} />
           </div>
-          <button
-            type="button"
-            onClick={handleAdd}
-            disabled={saving}
-            className="px-4 py-2 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors"
-          >
+          <button type="button" onClick={handleAdd} disabled={saving} className="btn-primary" style={{ opacity: saving ? 0.5 : 1 }}>
             {saving ? 'Adding…' : 'Add Payment'}
           </button>
         </div>

@@ -32,18 +32,14 @@ export default async function ReviewsListPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="page-head">
         <div>
-          <h1 className="text-2xl font-bold text-brand">Reviews</h1>
-          <p className="text-sm text-gray-500 mt-1">
-            Only paste verbatim quotes from a verified external review (TripAdvisor, Google) — never invented or paraphrased.
-          </p>
+          <h1>Reviews</h1>
+          <p>Only paste verbatim quotes from a verified external review (TripAdvisor, Google) — never invented or paraphrased.</p>
         </div>
-        <Link
-          href="/admin/reviews/new"
-          className="px-4 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors whitespace-nowrap"
-        >
-          + New Review
+        <Link href="/admin/reviews/new" className="btn-primary" style={{ whiteSpace: 'nowrap' }}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M12 5v14M5 12h14" /></svg>
+          New Review
         </Link>
       </div>
 

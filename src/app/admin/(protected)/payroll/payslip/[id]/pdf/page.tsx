@@ -44,7 +44,7 @@ export default async function PayslipPdfPage({ params }: Props) {
       {/* Screen-only header bar */}
       <div className="max-w-3xl mx-auto px-4 py-6 print:hidden flex items-center justify-between border-b border-gray-100">
         <div>
-          <Link href={`/admin/payroll/payslip/${payslip.id}`} className="text-sm text-gray-500 hover:text-brand mb-1 inline-block">
+          <Link href={`/admin/payroll/payslip/${payslip.id}`} className="detail-back">
             ← Back to Payslip
           </Link>
           <h1 className="text-xl font-bold text-brand">{staffMember?.name ?? 'Payslip'}</h1>

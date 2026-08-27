@@ -1,13 +1,15 @@
 'use client'
 
 import { PERMIT_STATUSES, type PermitStatus } from '@/lib/compliance'
-import InlineStatusSelect from '@/components/admin/InlineStatusSelect'
+import InlineStatusSelect, { type PillClass } from '@/components/admin/InlineStatusSelect'
 
-const STATUS_STYLES: Record<PermitStatus, string> = {
-  pending: 'bg-amber-100 text-amber-700',
-  paid: 'bg-blue-100 text-blue-700',
-  confirmed: 'bg-green-100 text-green-700',
-  expired: 'bg-red-100 text-red-700',
+// pending = awaiting action; paid = in progress; confirmed = fully secured
+// (complete); expired = a real compliance risk, needs urgent renewal.
+const PILL_CLASS: Record<PermitStatus, PillClass> = {
+  pending: 'few',
+  paid: 'open',
+  confirmed: 'full',
+  expired: 'cancelled',
 }
 
 export default function PermitStatusSelect({ permitId, currentStatus, compact = false }: {
@@ -19,7 +21,7 @@ export default function PermitStatusSelect({ permitId, currentStatus, compact = 
     <InlineStatusSelect
       endpoint={`/api/admin/permits/${permitId}`}
       statuses={PERMIT_STATUSES}
-      statusStyles={STATUS_STYLES}
+      pillClass={PILL_CLASS}
       currentStatus={currentStatus}
       compact={compact}
     />

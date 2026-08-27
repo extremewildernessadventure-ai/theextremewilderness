@@ -24,12 +24,11 @@ export default async function ClientsListPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-brand">Clients</h1>
-        <Link
-          href="/admin/clients/new"
-          className="px-4 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
-        >
+      <div className="page-head">
+        <div>
+          <h1>Clients</h1>
+        </div>
+        <Link href="/admin/clients/new" className="btn-primary">
           + New Client
         </Link>
       </div>

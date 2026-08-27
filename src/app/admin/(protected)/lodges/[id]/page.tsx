@@ -17,8 +17,8 @@ export default async function LodgeDetailPage({ params }: Props) {
 
   return (
     <div className="max-w-xl">
-      <Link href="/admin/lodges" className="text-sm text-gray-500 hover:text-brand mb-4 inline-block">← Back to Lodges</Link>
-      <h1 className="text-2xl font-bold text-brand mb-6">{lodge.name}</h1>
+      <Link href="/admin/lodges" className="detail-back">← Back to Lodges</Link>
+      <h1 className="mb-6">{lodge.name}</h1>
 
       <div className="space-y-6">
         <LodgeEditForm lodge={lodge} />

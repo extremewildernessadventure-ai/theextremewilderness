@@ -8,9 +8,6 @@ import { packages } from '@/data/packages'
 
 const STATUSES = ['unpaid', 'partial', 'paid', 'cancelled'] as const
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5'
-
 function departureLabel(d: Departure): string {
   const pkg = packages.find((p) => p.slug === d.package_slug)
   return `${pkg?.name ?? d.package_slug} (${d.start_date})`
@@ -50,30 +47,30 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
   }
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7 space-y-4">
-      <h2 className="text-sm font-bold text-brand mb-1">Edit Invoice</h2>
+    <div className="panel space-y-4">
+      <h2 className="mb-1">Edit Invoice</h2>
       <div>
-        <label className={labelCls}>Client Name</label>
-        <input value={form.clientName} onChange={(e) => update('clientName', e.target.value)} className={inputCls} />
+        <label className="field-label">Client Name</label>
+        <input value={form.clientName} onChange={(e) => update('clientName', e.target.value)} className="field-input" />
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className={labelCls}>Client Email</label>
-          <input type="email" value={form.clientEmail} onChange={(e) => update('clientEmail', e.target.value)} className={inputCls} />
+          <label className="field-label">Client Email</label>
+          <input type="email" value={form.clientEmail} onChange={(e) => update('clientEmail', e.target.value)} className="field-input" />
         </div>
         <div>
-          <label className={labelCls}>Booking Reference</label>
-          <input value={form.bookingReference} onChange={(e) => update('bookingReference', e.target.value)} className={inputCls} />
+          <label className="field-label">Booking Reference</label>
+          <input value={form.bookingReference} onChange={(e) => update('bookingReference', e.target.value)} className="field-input" />
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className={labelCls}>Currency</label>
-          <input value={form.currency} onChange={(e) => update('currency', e.target.value)} className={inputCls} />
+          <label className="field-label">Currency</label>
+          <input value={form.currency} onChange={(e) => update('currency', e.target.value)} className="field-input" />
         </div>
         <div>
-          <label className={labelCls}>Departure</label>
-          <select value={form.departureId} onChange={(e) => update('departureId', e.target.value)} className={inputCls}>
+          <label className="field-label">Departure</label>
+          <select value={form.departureId} onChange={(e) => update('departureId', e.target.value)} className="field-input">
             <option value="">—</option>
             {departures.map((d) => <option key={d.id} value={d.id}>{departureLabel(d)}</option>)}
           </select>
@@ -83,35 +80,21 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
         Amount is calculated from line items — edit those in the panel below.
       </p>
       <div>
-        <label className={labelCls}>Due Date</label>
-        <input type="date" value={form.dueDate} onChange={(e) => update('dueDate', e.target.value)} className={inputCls} />
+        <label className="field-label">Due Date</label>
+        <input type="date" value={form.dueDate} onChange={(e) => update('dueDate', e.target.value)} className="field-input" />
       </div>
       <div>
-        <label className={labelCls}>Status</label>
-        <select
-          value={form.status}
-          onChange={(e) => update('status', e.target.value)}
-          className={`${inputCls} capitalize`}
-        >
+        <label className="field-label">Status</label>
+        <select value={form.status} onChange={(e) => update('status', e.target.value)} className="field-input capitalize">
           {STATUSES.map((s) => <option key={s} value={s} className="capitalize">{s}</option>)}
         </select>
       </div>
       <div>
-        <label className={labelCls}>Internal Notes</label>
-        <textarea
-          value={form.notes}
-          onChange={(e) => update('notes', e.target.value)}
-          rows={4}
-          className={inputCls}
-        />
+        <label className="field-label">Internal Notes</label>
+        <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} rows={4} className="field-input" />
       </div>
       <div className="flex items-center gap-3">
-        <button
-          type="button"
-          onClick={handleSave}
-          disabled={saving}
-          className="px-5 py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white text-sm font-semibold rounded-lg transition-colors"
-        >
+        <button type="button" onClick={handleSave} disabled={saving} className="btn-primary" style={{ opacity: saving ? 0.5 : 1 }}>
           {saving ? 'Saving…' : 'Save Changes'}
         </button>
         {saved && <span className="text-green-600 text-sm">Saved</span>}

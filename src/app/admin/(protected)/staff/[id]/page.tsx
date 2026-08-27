@@ -20,8 +20,8 @@ export default async function StaffDetailPage({ params }: Props) {
 
   return (
     <div className="max-w-xl">
-      <Link href="/admin/staff" className="text-sm text-gray-500 hover:text-brand mb-4 inline-block">← Back to Staff</Link>
-      <h1 className="text-2xl font-bold text-brand mb-6">{staffMember.name}</h1>
+      <Link href="/admin/staff" className="detail-back">← Back to Staff</Link>
+      <h1 className="mb-6">{staffMember.name}</h1>
 
       <div className="space-y-6">
         <StaffEditForm staffMember={staffMember} guides={guides} />

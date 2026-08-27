@@ -18,14 +18,10 @@ const columns: AdminTableColumn<StaffMember>[] = [
   },
   { header: 'Role', className: 'text-gray-700', render: (s) => s.role_title ?? '—' },
   { header: 'Pay Type', className: 'text-gray-700', render: (s) => PAY_TYPE_LABELS[s.pay_type] },
-  { header: 'Base Rate', className: 'text-gray-700', render: (s) => `${s.currency} ${s.base_rate.toLocaleString()}` },
+  { header: 'Base Rate', className: 'mono', render: (s) => `${s.currency} ${s.base_rate.toLocaleString()}` },
   {
     header: 'Status',
-    render: (s) => (
-      <span className={`inline-flex px-2.5 py-1 rounded-full text-xs font-semibold ${s.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
-        {s.active ? 'Active' : 'Inactive'}
-      </span>
-    ),
+    render: (s) => <span className={`pill ${s.active ? 'open' : 'full'}`}><i />{s.active ? 'Active' : 'Inactive'}</span>,
   },
 ]
 
@@ -35,13 +31,13 @@ export default async function StaffListPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-brand">Staff</h1>
-        <Link
-          href="/admin/staff/new"
-          className="px-4 py-2.5 bg-brand hover:bg-brand-secondary text-white text-sm font-semibold rounded-lg transition-colors"
-        >
-          + New Staff Member
+      <div className="page-head">
+        <div>
+          <h1>Staff</h1>
+        </div>
+        <Link href="/admin/staff/new" className="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M12 5v14M5 12h14" /></svg>
+          New Staff Member
         </Link>
       </div>
 

@@ -21,9 +21,9 @@ function LinkedSection({ title, addHref, addLabel, children, empty }: {
   empty: boolean
 }) {
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-7">
+    <div className="panel">
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-sm font-bold text-brand">{title}</h2>
+        <h2>{title}</h2>
         {addHref && <Link href={addHref} className="text-xs font-semibold text-brand hover:underline">{addLabel}</Link>}
       </div>
       {empty ? <p className="text-sm text-gray-400">None linked yet.</p> : children}
@@ -93,7 +93,7 @@ export default async function ClientDetailPage({ params }: Props) {
               {documents.map((d) => (
                 <li key={d.id} className="flex items-center justify-between text-sm">
                   <span className="text-gray-700">{d.filename}</span>
-                  <span className="capitalize text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{d.status}</span>
+                  <span className={`pill ${d.status === 'verified' ? 'open' : d.status === 'rejected' ? 'cancelled' : 'few'}`}>{d.status}</span>
                 </li>
               ))}
             </ul>

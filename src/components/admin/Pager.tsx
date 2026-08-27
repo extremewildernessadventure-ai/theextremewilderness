@@ -12,20 +12,13 @@ export default function Pager({
   if (totalPages <= 1) return null
 
   return (
-    <div className="flex items-center justify-center gap-4 mt-6 text-sm">
-      {page > 1 && (
-        <Link href={makeHref(page - 1)} className="text-brand hover:underline">
-          ← Prev
-        </Link>
-      )}
-      <span className="text-gray-500">
-        Page {page} of {totalPages}
-      </span>
-      {page < totalPages && (
-        <Link href={makeHref(page + 1)} className="text-brand hover:underline">
-          Next →
-        </Link>
-      )}
+    <div className="table-footer" style={{ borderRadius: 8, marginTop: 12 }}>
+      <span>Page {page} of {totalPages}</span>
+      <div className="pager">
+        {page > 1 && <Link href={makeHref(page - 1)}>&lsaquo;</Link>}
+        <span>{page}</span>
+        {page < totalPages && <Link href={makeHref(page + 1)}>&rsaquo;</Link>}
+      </div>
     </div>
   )
 }

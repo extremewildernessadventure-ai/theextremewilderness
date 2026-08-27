@@ -26,8 +26,10 @@ export default async function BookingsListPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-brand">Bookings</h1>
+      <div className="page-head">
+        <div>
+          <h1>Bookings</h1>
+        </div>
       </div>
 
       <AdminTable columns={columns} rows={results} rowKey={(b) => b.id} emptyMessage="No bookings yet." />

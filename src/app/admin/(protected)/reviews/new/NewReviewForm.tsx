@@ -6,8 +6,8 @@ import Link from 'next/link'
 import type { Client } from '@/lib/clients'
 import type { Booking } from '@/lib/bookings'
 
-const inputCls = 'w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10'
-const labelCls = 'block text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5'
+const inputCls = 'field-input'
+const labelCls = 'field-label'
 
 export default function NewReviewForm({ clients, bookings }: { clients: Client[]; bookings: Booking[] }) {
   const router = useRouter()
@@ -56,12 +56,12 @@ export default function NewReviewForm({ clients, bookings }: { clients: Client[]
 
   return (
     <div className="max-w-2xl">
-      <Link href="/admin/reviews" className="text-sm text-gray-500 hover:text-brand mb-4 inline-block">← Back to Reviews</Link>
-      <h1 className="text-2xl font-bold text-brand mb-2">New Review</h1>
-      <p className="text-sm text-gray-500 mb-6">
+      <Link href="/admin/reviews" className="detail-back">← Back to Reviews</Link>
+      <h1 className="mb-2">New Review</h1>
+      <p className="text-sm mb-6" style={{ color: 'var(--grey)' }}>
         Paste the quote verbatim from a verified external review — never invent or paraphrase it.
       </p>
-      <form onSubmit={handleSubmit} className="bg-white border border-gray-200 rounded-xl p-7 space-y-4">
+      <form onSubmit={handleSubmit} className="panel space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className={labelCls}>Client (optional)</label>
@@ -99,7 +99,7 @@ export default function NewReviewForm({ clients, bookings }: { clients: Client[]
           </div>
         </div>
         {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
-        <button type="submit" disabled={loading} className="w-full py-2.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 text-white font-semibold rounded-lg transition-colors text-sm">
+        <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.5 : 1 }}>
           {loading ? 'Creating…' : 'Create Review'}
         </button>
       </form>

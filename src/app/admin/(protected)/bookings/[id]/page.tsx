@@ -38,27 +38,27 @@ export default async function BookingDetailPage({ params }: Props) {
       subtitle={`Created ${new Date(booking.created_at).toLocaleString()}`}
       main={
         <>
-          <div className="bg-white border border-gray-200 rounded-xl p-7 space-y-3 text-sm">
+          <div className="panel space-y-3 text-sm">
             {departure && (
               <div className="flex justify-between">
-                <span className="text-gray-500">Departure</span>
-                <span className="text-gray-700">{pkg?.name ?? departure.package_slug} ({departure.start_date} → {departure.end_date})</span>
+                <span style={{ color: 'var(--grey)' }}>Departure</span>
+                <span>{pkg?.name ?? departure.package_slug} ({departure.start_date} → {departure.end_date})</span>
               </div>
             )}
             {booking.client_email && (
               <div className="flex justify-between">
-                <span className="text-gray-500">Email</span>
-                <span className="text-gray-700">{booking.client_email}</span>
+                <span style={{ color: 'var(--grey)' }}>Email</span>
+                <span>{booking.client_email}</span>
               </div>
             )}
             {booking.client_phone && (
               <div className="flex justify-between">
-                <span className="text-gray-500">Phone</span>
-                <span className="text-gray-700">{booking.client_phone}</span>
+                <span style={{ color: 'var(--grey)' }}>Phone</span>
+                <span>{booking.client_phone}</span>
               </div>
             )}
             <div className="flex justify-between">
-              <span className="text-gray-500">Guests</span>
+              <span style={{ color: 'var(--grey)' }}>Guests</span>
               <span className="font-semibold text-brand">{booking.guests_count}</span>
             </div>
           </div>
