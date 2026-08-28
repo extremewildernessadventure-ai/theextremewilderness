@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { GUIDE_AVAILABILITY_TYPES, type GuideAvailabilityType, type GuideAvailability } from '@/lib/hr'
+import { todayIso } from '@/lib/dates'
 
 const TYPE_LABELS: Record<GuideAvailabilityType, string> = { leave: 'Leave', unavailable: 'Unavailable', booked: 'Booked' }
 const TYPE_PILL_CLASS: Record<GuideAvailabilityType, string> = { leave: 'few', unavailable: 'cancelled', booked: 'open' }
@@ -60,11 +61,11 @@ export default function GuideAvailabilityPanel({ guideId, availability }: { guid
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="field-label">Start Date</label>
-              <input type="date" value={form.startDate} onChange={(e) => update('startDate', e.target.value)} className="field-input" />
+              <input type="date" min={todayIso()} value={form.startDate} onChange={(e) => update('startDate', e.target.value)} className="field-input" />
             </div>
             <div>
               <label className="field-label">End Date</label>
-              <input type="date" value={form.endDate} onChange={(e) => update('endDate', e.target.value)} className="field-input" />
+              <input type="date" min={todayIso()} value={form.endDate} onChange={(e) => update('endDate', e.target.value)} className="field-input" />
             </div>
           </div>
           <div>

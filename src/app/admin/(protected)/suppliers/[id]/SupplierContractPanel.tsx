@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { SupplierContract } from '@/lib/ops'
+import { todayIso } from '@/lib/dates'
 
 export default function SupplierContractPanel({ supplierId, contracts }: { supplierId: number; contracts: SupplierContract[] }) {
   const router = useRouter()
@@ -76,11 +77,11 @@ export default function SupplierContractPanel({ supplierId, contracts }: { suppl
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="field-label">Valid From</label>
-              <input type="date" value={form.validFrom} onChange={(e) => update('validFrom', e.target.value)} className="field-input" />
+              <input type="date" min={todayIso()} value={form.validFrom} onChange={(e) => update('validFrom', e.target.value)} className="field-input" />
             </div>
             <div>
               <label className="field-label">Valid To</label>
-              <input type="date" value={form.validTo} onChange={(e) => update('validTo', e.target.value)} className="field-input" />
+              <input type="date" min={todayIso()} value={form.validTo} onChange={(e) => update('validTo', e.target.value)} className="field-input" />
             </div>
           </div>
           <div>

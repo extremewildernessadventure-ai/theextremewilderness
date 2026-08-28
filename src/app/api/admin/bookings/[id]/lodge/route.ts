@@ -26,7 +26,7 @@ export async function POST(req: NextRequest, { params }: Params) {
   const body = await req.json() as {
     lodgeId?: number | null; lodgeNameOther?: string | null
     checkIn?: string; checkOut?: string; confirmationRef?: string
-    roomType?: string; inclusions?: string
+    roomType?: string; inclusions?: string; contactInfo?: string
   }
   if (!body.lodgeId && !body.lodgeNameOther) {
     return NextResponse.json({ error: 'lodgeId or lodgeNameOther is required' }, { status: 400 })
@@ -39,8 +39,8 @@ export async function POST(req: NextRequest, { params }: Params) {
   }
 
   const result = await db.prepare(
-    `INSERT INTO lodge_bookings (booking_id, lodge_id, lodge_name_other, check_in, check_out, confirmation_ref, room_type, inclusions)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+    `INSERT INTO lodge_bookings (booking_id, lodge_id, lodge_name_other, check_in, check_out, confirmation_ref, room_type, inclusions, contact_info)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
   ).bind(
     id,
     body.lodgeId ?? null,
@@ -50,6 +50,7 @@ export async function POST(req: NextRequest, { params }: Params) {
     body.confirmationRef ?? null,
     body.roomType ?? null,
     body.inclusions ?? null,
+    body.contactInfo ?? null,
   ).run()
 
   return NextResponse.json({ success: true, id: result.meta?.last_row_id })

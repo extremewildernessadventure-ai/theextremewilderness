@@ -44,6 +44,7 @@ export default async function BookingVoucherPage({ params }: Props) {
   const vehicleLabel = vehicle?.plate_number ?? (booking.vehicle_notes_other ? sanitizeForPdf(booking.vehicle_notes_other) : null)
   const clientName = sanitizeForPdf(booking.client_name)
   const specialRequests = booking.special_requests ? sanitizeForPdf(booking.special_requests) : null
+  const customDescription = booking.custom_description ? sanitizeForPdf(booking.custom_description) : null
 
   return (
     <>
@@ -74,7 +75,14 @@ export default async function BookingVoucherPage({ params }: Props) {
           </div>
         </div>
 
-        {departure && (
+        {booking.booking_type === 'custom' ? (
+          customDescription && (
+            <div className="mb-7 no-break">
+              <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-2">What&apos;s Booked</h2>
+              <p className="text-sm text-gray-700 whitespace-pre-wrap">{customDescription}</p>
+            </div>
+          )
+        ) : departure && (
           <div className="mb-7 no-break">
             <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-2">Trip</h2>
             <p className="text-sm font-bold text-gray-900">{pkg?.name ?? departure.package_slug}</p>
@@ -101,6 +109,7 @@ export default async function BookingVoucherPage({ params }: Props) {
                       {(lb.check_in || lb.check_out) && <p>{lb.check_in ?? '…'} → {lb.check_out ?? '…'}</p>}
                       {lb.room_type && <p>Room Type: {sanitizeForPdf(lb.room_type)}</p>}
                       {lb.confirmation_ref && <p>Confirmation Ref: {sanitizeForPdf(lb.confirmation_ref)}</p>}
+                      {lb.contact_info && <p className="font-semibold text-gray-800">Contact: {sanitizeForPdf(lb.contact_info)}</p>}
                       {lb.inclusions && <p className="whitespace-pre-wrap">Includes: {sanitizeForPdf(lb.inclusions)}</p>}
                     </div>
                   </div>

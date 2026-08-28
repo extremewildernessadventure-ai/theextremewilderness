@@ -173,7 +173,18 @@
 .ewa-admin .pill.departed { background: #E9EEF2; color: #4A6478; } .ewa-admin .pill.departed i { background: #4A6478; }
 .ewa-admin .pill.cancelled { background: var(--rust-bg); color: var(--rust); } .ewa-admin .pill.cancelled i { background: var(--rust); }
 /* select-as-pill (InlineStatusSelect) needs the same look but stays a real <select> for editability */
-.ewa-admin select.pill { appearance: none; cursor: pointer; }
+.ewa-admin select.pill {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 22px; /* room for the chevron */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 4.5L6 7.5L9 4.5' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  background-size: 10px;
+  transition: filter 0.12s ease;
+}
+.ewa-admin select.pill:hover { filter: brightness(0.94); }
+.ewa-admin select.pill:focus-visible { outline: 2px solid var(--pine-light); outline-offset: 1px; }
 
 .ewa-admin .row-actions { display: flex; gap: 6px; justify-content: flex-end; }
 .ewa-admin .action-btn {

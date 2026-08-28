@@ -8,22 +8,31 @@ import { useBooking } from '@/context/BookingContext'
 import { trackEvent, trackFormFillConversion } from '@/lib/analytics'
 import { useFocusTrap } from '@/hooks/useFocusTrap'
 
-const COOKIE_NAME = 'exit-intent-seen'
-const COOKIE_DAYS = 30
+// sessionStorage, not a multi-day cookie: the popup should reappear on every
+// fresh visit (a new tab, a reopened browser — even the same calendar day),
+// while still not nagging repeatedly within one continuous session. Wrapped
+// in try/catch since sessionStorage can throw in some private-browsing /
+// embedded-iframe contexts — fails safe (worst case it just won't suppress
+// a repeat trigger within the session, never crashes).
+const SESSION_KEY = 'exit-intent-shown'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 type ClaimStatus = 'idle' | 'claiming' | 'claimed' | 'error'
 
-function getCookie(name: string): string | undefined {
-  return document.cookie
-    .split('; ')
-    .find((row) => row.startsWith(`${name}=`))
-    ?.split('=')[1]
+function hasShownThisSession(): boolean {
+  try {
+    return sessionStorage.getItem(SESSION_KEY) === '1'
+  } catch {
+    return false
+  }
 }
 
-function setCookie(name: string, value: string, days: number) {
-  const expires = new Date(Date.now() + days * 864e5).toUTCString()
-  document.cookie = `${name}=${value}; expires=${expires}; path=/; SameSite=Lax`
+function markShownThisSession() {
+  try {
+    sessionStorage.setItem(SESSION_KEY, '1')
+  } catch {
+    // ignore — see note above
+  }
 }
 
 export default function ExitIntentPopup() {
@@ -39,16 +48,16 @@ export default function ExitIntentPopup() {
 
   const trigger = useCallback(() => {
     setVisible(true)
-    setCookie(COOKIE_NAME, '1', COOKIE_DAYS)
+    markShownThisSession()
     trackEvent('exit_intent_shown')
   }, [])
 
   useEffect(() => {
-    if (getCookie(COOKIE_NAME)) return
+    if (hasShownThisSession()) return
     if (bookingIsOpen) return
 
     const onMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !bookingIsOpen && !getCookie(COOKIE_NAME)) {
+      if (e.clientY <= 0 && !bookingIsOpen && !hasShownThisSession()) {
         trigger()
       }
     }

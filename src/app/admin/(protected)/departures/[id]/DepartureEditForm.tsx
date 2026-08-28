@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { DEPARTURE_STATUSES, type Departure } from '@/lib/departures'
+import { todayIso } from '@/lib/dates'
 
 const inputCls = 'field-input'
 const labelCls = 'field-label'
@@ -42,11 +43,11 @@ export default function DepartureEditForm({ departure }: { departure: Departure 
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className={labelCls}>Start Date</label>
-          <input type="date" value={form.startDate} onChange={(e) => update('startDate', e.target.value)} className={inputCls} />
+          <input type="date" min={todayIso()} value={form.startDate} onChange={(e) => update('startDate', e.target.value)} className={inputCls} />
         </div>
         <div>
           <label className={labelCls}>End Date</label>
-          <input type="date" value={form.endDate} onChange={(e) => update('endDate', e.target.value)} className={inputCls} />
+          <input type="date" min={todayIso()} value={form.endDate} onChange={(e) => update('endDate', e.target.value)} className={inputCls} />
         </div>
       </div>
       <div>

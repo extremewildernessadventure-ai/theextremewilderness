@@ -29,6 +29,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   const body = await req.json() as {
     clientName?: string; clientEmail?: string; clientPhone?: string
     guestsCount?: number; status?: string; cancellationReason?: string; specialRequests?: string
+    customDescription?: string
   }
 
   if (body.status !== undefined && !BOOKING_STATUSES.includes(body.status as Booking['status'])) {
@@ -43,6 +44,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     status: body.status,
     cancellation_reason: body.cancellationReason,
     special_requests: body.specialRequests,
+    custom_description: body.customDescription,
   }
   const fields: string[] = []
   const values: unknown[] = []
@@ -58,7 +60,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   fields.push('updated_at = CURRENT_TIMESTAMP')
 
   const db = await getDb()
-  const booking = await db.prepare('SELECT departure_id FROM bookings WHERE id = ?').bind(id).first<{ departure_id: number }>()
+  const booking = await db.prepare('SELECT departure_id FROM bookings WHERE id = ?').bind(id).first<{ departure_id: number | null }>()
   if (!booking) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 })
   }
@@ -66,8 +68,9 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   await db.prepare(`UPDATE bookings SET ${fields.join(', ')} WHERE id = ?`).bind(...values, id).run()
 
   // status/guestsCount changes both affect how many seats this booking
-  // occupies — recalculate whenever either could have changed.
-  if (body.status !== undefined || body.guestsCount !== undefined) {
+  // occupies — recalculate whenever either could have changed. No-op for
+  // custom bookings, which have no departure to hold a seat count.
+  if ((body.status !== undefined || body.guestsCount !== undefined) && booking.departure_id !== null) {
     await recalculateSeatsBooked(db, booking.departure_id)
   }
 
@@ -80,7 +83,7 @@ export async function DELETE(_req: NextRequest, { params }: Params) {
   }
   const { id } = await params
   const db = await getDb()
-  const booking = await db.prepare('SELECT departure_id FROM bookings WHERE id = ?').bind(id).first<{ departure_id: number }>()
+  const booking = await db.prepare('SELECT departure_id FROM bookings WHERE id = ?').bind(id).first<{ departure_id: number | null }>()
   if (!booking) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 })
   }
@@ -89,7 +92,9 @@ export async function DELETE(_req: NextRequest, { params }: Params) {
     db.prepare('DELETE FROM lodge_bookings WHERE booking_id = ?').bind(id),
     db.prepare('DELETE FROM bookings WHERE id = ?').bind(id),
   ])
-  await recalculateSeatsBooked(db, booking.departure_id)
+  if (booking.departure_id !== null) {
+    await recalculateSeatsBooked(db, booking.departure_id)
+  }
 
   return NextResponse.json({ success: true })
 }

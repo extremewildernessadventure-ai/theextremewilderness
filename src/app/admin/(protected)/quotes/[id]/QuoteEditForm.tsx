@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { QUOTE_STATUSES, type Quote } from '@/lib/quotes'
 import { packages } from '@/data/packages'
 import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
+import { todayIso } from '@/lib/dates'
 
 const isKnownPackage = (slug: string) => packages.some((p) => p.slug === slug)
 
@@ -81,7 +82,7 @@ export default function QuoteEditForm({ quote }: { quote: Quote }) {
       </div>
       <div>
         <label className="field-label">Valid Until</label>
-        <input type="date" value={form.validUntil} onChange={(e) => update('validUntil', e.target.value)} className="field-input" />
+        <input type="date" min={todayIso()} value={form.validUntil} onChange={(e) => update('validUntil', e.target.value)} className="field-input" />
       </div>
       <div>
         <label className="field-label">Status</label>

@@ -7,6 +7,7 @@ import { PERMIT_TYPES, type PermitType } from '@/lib/compliance'
 import type { Departure } from '@/lib/departures'
 import { packages } from '@/data/packages'
 import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
+import { todayIso } from '@/lib/dates'
 
 const inputCls = 'field-input'
 const labelCls = 'field-label'
@@ -116,11 +117,11 @@ export default function NewPermitForm({ departures }: { departures: Departure[] 
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className={labelCls}>Valid From</label>
-            <input type="date" value={form.validFrom} onChange={(e) => update('validFrom', e.target.value)} className={inputCls} />
+            <input type="date" min={todayIso()} value={form.validFrom} onChange={(e) => update('validFrom', e.target.value)} className={inputCls} />
           </div>
           <div>
             <label className={labelCls}>Valid To</label>
-            <input type="date" value={form.validTo} onChange={(e) => update('validTo', e.target.value)} className={inputCls} />
+            <input type="date" min={todayIso()} value={form.validTo} onChange={(e) => update('validTo', e.target.value)} className={inputCls} />
           </div>
         </div>
         <div>

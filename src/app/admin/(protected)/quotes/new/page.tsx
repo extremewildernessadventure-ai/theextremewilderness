@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { packages } from '@/data/packages'
 import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
+import { todayIso } from '@/lib/dates'
 
 const inputCls = 'field-input'
 const labelCls = 'field-label'
@@ -116,7 +117,7 @@ function NewQuoteForm() {
         </div>
         <div>
           <label className={labelCls}>Valid Until</label>
-          <input type="date" value={form.validUntil} onChange={(e) => update('validUntil', e.target.value)} className={inputCls} />
+          <input type="date" min={todayIso()} value={form.validUntil} onChange={(e) => update('validUntil', e.target.value)} className={inputCls} />
         </div>
         <div>
           <label className={labelCls}>Internal Notes</label>

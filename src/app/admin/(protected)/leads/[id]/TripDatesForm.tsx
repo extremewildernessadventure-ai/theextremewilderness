@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { todayIso } from '@/lib/dates'
 
 export default function TripDatesForm({ leadId, initialStart, initialEnd }: {
   leadId: number
@@ -36,11 +37,11 @@ export default function TripDatesForm({ leadId, initialStart, initialEnd }: {
       <div className="grid grid-cols-2 gap-3 mb-3">
         <div>
           <label className="field-label">Start</label>
-          <input type="date" value={start} onChange={(e) => { setStart(e.target.value); setSaved(false) }} className="field-input" />
+          <input type="date" min={todayIso()} value={start} onChange={(e) => { setStart(e.target.value); setSaved(false) }} className="field-input" />
         </div>
         <div>
           <label className="field-label">End</label>
-          <input type="date" value={end} onChange={(e) => { setEnd(e.target.value); setSaved(false) }} className="field-input" />
+          <input type="date" min={todayIso()} value={end} onChange={(e) => { setEnd(e.target.value); setSaved(false) }} className="field-input" />
         </div>
       </div>
       <div className="flex items-center gap-3">

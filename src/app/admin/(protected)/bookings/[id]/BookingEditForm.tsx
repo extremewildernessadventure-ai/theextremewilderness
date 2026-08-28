@@ -17,6 +17,7 @@ export default function BookingEditForm({ booking }: { booking: Booking }) {
     status: booking.status,
     cancellationReason: booking.cancellation_reason ?? '',
     specialRequests: booking.special_requests ?? '',
+    customDescription: booking.custom_description ?? '',
   })
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -42,6 +43,17 @@ export default function BookingEditForm({ booking }: { booking: Booking }) {
   return (
     <div className="panel space-y-4">
       <h2 className="mb-1">Edit Booking</h2>
+      {booking.booking_type === 'custom' && (
+        <div>
+          <label className={labelCls}>What&apos;s Booked</label>
+          <textarea
+            value={form.customDescription}
+            onChange={(e) => update('customDescription', e.target.value)}
+            rows={2}
+            className={inputCls}
+          />
+        </div>
+      )}
       <div>
         <label className={labelCls}>Client Name</label>
         <input value={form.clientName} onChange={(e) => update('clientName', e.target.value)} className={inputCls} />

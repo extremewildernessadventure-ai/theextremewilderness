@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { GuideCertification } from '@/lib/hr'
+import { todayIso } from '@/lib/dates'
 
 function certificationStatus(expiresAt: string | null): { label: string; pillClass: string } | null {
   if (!expiresAt) return null
@@ -90,7 +91,7 @@ export default function GuideCertificationsPanel({ guideId, certifications }: { 
             </div>
             <div>
               <label className="field-label">Expires</label>
-              <input type="date" value={form.expiresAt} onChange={(e) => update('expiresAt', e.target.value)} className="field-input" />
+              <input type="date" min={todayIso()} value={form.expiresAt} onChange={(e) => update('expiresAt', e.target.value)} className="field-input" />
             </div>
           </div>
           <button type="button" onClick={handleAdd} disabled={saving || !form.type.trim()} className="btn-primary" style={{ opacity: saving || !form.type.trim() ? 0.5 : 1 }}>

@@ -40,7 +40,14 @@ export default async function BookingDetailPage({ params }: Props) {
       main={
         <>
           <div className="panel space-y-3 text-sm">
-            {departure && (
+            {booking.booking_type === 'custom' ? (
+              booking.custom_description && (
+                <div className="flex justify-between gap-4">
+                  <span style={{ color: 'var(--grey)' }}>What&apos;s Booked</span>
+                  <span className="text-right whitespace-pre-wrap">{booking.custom_description}</span>
+                </div>
+              )
+            ) : departure && (
               <div className="flex justify-between">
                 <span style={{ color: 'var(--grey)' }}>Departure</span>
                 <span>{pkg?.name ?? departure.package_slug} ({departure.start_date} → {departure.end_date})</span>

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { packages } from '@/data/packages'
+import { todayIso } from '@/lib/dates'
 import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 export default function NewDeparturePage() {
@@ -84,11 +85,11 @@ export default function NewDeparturePage() {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="field-label">Start Date *</label>
-            <input type="date" required value={form.startDate} onChange={(e) => update('startDate', e.target.value)} className="field-input" />
+            <input type="date" required min={todayIso()} value={form.startDate} onChange={(e) => update('startDate', e.target.value)} className="field-input" />
           </div>
           <div>
             <label className="field-label">End Date *</label>
-            <input type="date" required value={form.endDate} onChange={(e) => update('endDate', e.target.value)} className="field-input" />
+            <input type="date" required min={todayIso()} value={form.endDate} onChange={(e) => update('endDate', e.target.value)} className="field-input" />
           </div>
         </div>
         <div>
