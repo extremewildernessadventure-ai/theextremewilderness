@@ -18,7 +18,7 @@ export default function DetailTwoColumn({
   sidebar: React.ReactNode
 }) {
   return (
-    <div style={{ maxWidth: 960 }}>
+    <div className="detail-page-shell">
       <Link href={backHref} className="detail-back">&larr; {backLabel}</Link>
       <div className="detail-title-row">
         <h1 style={{ fontSize: 26 }}>{title}</h1>

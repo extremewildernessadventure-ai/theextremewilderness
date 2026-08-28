@@ -8,6 +8,7 @@ import type { Vehicle } from '@/lib/ops'
 import type { Departure } from '@/lib/departures'
 import type { StaffMember } from '@/lib/hr'
 import { packages } from '@/data/packages'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 const inputCls = 'field-input'
 const labelCls = 'field-label'
@@ -26,7 +27,10 @@ export default function NewExpenseForm({ vehicles, departures, staff }: { vehicl
   const router = useRouter()
   const [form, setForm] = useState({
     category: 'fuel' as ExpenseCategory,
-    vehicleId: '', staffMemberId: '', departureId: '', amount: '', currency: 'USD', exchangeRateToUsd: '1',
+    vehicleId: '', vehicleNotesOther: '',
+    staffMemberId: '', staffMemberOther: '',
+    departureId: '', departureNotesOther: '',
+    amount: '', currency: 'USD', exchangeRateToUsd: '1',
     description: '', paidAt: '', paymentMethod: '', reference: '',
   })
   const [error, setError] = useState('')
@@ -46,6 +50,9 @@ export default function NewExpenseForm({ vehicles, departures, staff }: { vehicl
     setLoading(true)
     setError('')
     try {
+      const isCustomVehicle = form.vehicleId === CUSTOM_OPTION_VALUE
+      const isCustomStaff = form.staffMemberId === CUSTOM_OPTION_VALUE
+      const isCustomDeparture = form.departureId === CUSTOM_OPTION_VALUE
       const res = await fetch('/api/admin/expenses', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -53,9 +60,12 @@ export default function NewExpenseForm({ vehicles, departures, staff }: { vehicl
           ...form,
           amount,
           exchangeRateToUsd: parseFloat(form.exchangeRateToUsd) || 1,
-          vehicleId: form.vehicleId ? Number(form.vehicleId) : undefined,
-          staffMemberId: form.staffMemberId ? Number(form.staffMemberId) : undefined,
-          departureId: form.departureId ? Number(form.departureId) : undefined,
+          vehicleId: isCustomVehicle || !form.vehicleId ? undefined : Number(form.vehicleId),
+          vehicleNotesOther: isCustomVehicle ? form.vehicleNotesOther.trim() : undefined,
+          staffMemberId: isCustomStaff || !form.staffMemberId ? undefined : Number(form.staffMemberId),
+          staffMemberOther: isCustomStaff ? form.staffMemberOther.trim() : undefined,
+          departureId: isCustomDeparture || !form.departureId ? undefined : Number(form.departureId),
+          departureNotesOther: isCustomDeparture ? form.departureNotesOther.trim() : undefined,
         }),
       })
       if (!res.ok) {
@@ -86,26 +96,47 @@ export default function NewExpenseForm({ vehicles, departures, staff }: { vehicl
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className={labelCls}>Vehicle (optional)</label>
-            <select value={form.vehicleId} onChange={(e) => update('vehicleId', e.target.value)} className={inputCls}>
-              <option value="">—</option>
-              {vehicles.map((v) => <option key={v.id} value={v.id}>{v.plate_number}</option>)}
-            </select>
+            <SelectWithCustom
+              options={vehicles}
+              getOptionValue={(v) => String(v.id)}
+              getOptionLabel={(v) => v.plate_number}
+              value={form.vehicleId}
+              onChange={(v) => update('vehicleId', v)}
+              customValue={form.vehicleNotesOther}
+              onCustomChange={(v) => update('vehicleNotesOther', v)}
+              placeholder="—"
+              customPlaceholder="Enter vehicle details…"
+            />
           </div>
           <div>
             <label className={labelCls}>Departure (optional)</label>
-            <select value={form.departureId} onChange={(e) => update('departureId', e.target.value)} className={inputCls}>
-              <option value="">—</option>
-              {departures.map((d) => <option key={d.id} value={d.id}>{departureLabel(d)}</option>)}
-            </select>
+            <SelectWithCustom
+              options={departures}
+              getOptionValue={(d) => String(d.id)}
+              getOptionLabel={(d) => departureLabel(d)}
+              value={form.departureId}
+              onChange={(v) => update('departureId', v)}
+              customValue={form.departureNotesOther}
+              onCustomChange={(v) => update('departureNotesOther', v)}
+              placeholder="—"
+              customPlaceholder="Enter departure details…"
+            />
           </div>
         </div>
         {form.category === 'wages' && (
           <div>
             <label className={labelCls}>Staff Member</label>
-            <select value={form.staffMemberId} onChange={(e) => update('staffMemberId', e.target.value)} className={inputCls}>
-              <option value="">—</option>
-              {staff.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
-            </select>
+            <SelectWithCustom
+              options={staff}
+              getOptionValue={(s) => String(s.id)}
+              getOptionLabel={(s) => s.name}
+              value={form.staffMemberId}
+              onChange={(v) => update('staffMemberId', v)}
+              customValue={form.staffMemberOther}
+              onCustomChange={(v) => update('staffMemberOther', v)}
+              placeholder="—"
+              customPlaceholder="Enter staff member name…"
+            />
           </div>
         )}
         <div className="grid grid-cols-3 gap-4">

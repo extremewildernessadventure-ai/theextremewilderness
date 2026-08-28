@@ -19,7 +19,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   const body = await req.json() as {
-    bookingId?: number; departureId?: number; guideId?: number; clientName?: string; clientEmail?: string
+    bookingId?: number
+    departureId?: number; departureNotesOther?: string
+    guideId?: number; guideNameOther?: string
+    clientName?: string; clientEmail?: string
     type?: string; severity?: string; description?: string; actionTaken?: string
     amrefEvacuation?: boolean; reportedBy?: string; occurredAt?: string
   }
@@ -36,10 +39,12 @@ export async function POST(req: NextRequest) {
   const db = await getDb()
   const result = await db.prepare(
     `INSERT INTO incident_reports
-      (booking_id, departure_id, guide_id, client_name, client_email, type, severity, description, action_taken, amref_evacuation, reported_by, occurred_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      (booking_id, departure_id, departure_notes_other, guide_id, guide_name_other, client_name, client_email, type, severity, description, action_taken, amref_evacuation, reported_by, occurred_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   ).bind(
-    body.bookingId ?? null, body.departureId ?? null, body.guideId ?? null,
+    body.bookingId ?? null,
+    body.departureId ?? null, body.departureId ? null : (body.departureNotesOther || null),
+    body.guideId ?? null, body.guideId ? null : (body.guideNameOther || null),
     body.clientName ?? null, body.clientEmail ?? null, body.type, body.severity,
     body.description.trim(), body.actionTaken ?? null, body.amrefEvacuation ? 1 : 0,
     body.reportedBy ?? null, body.occurredAt ?? null,

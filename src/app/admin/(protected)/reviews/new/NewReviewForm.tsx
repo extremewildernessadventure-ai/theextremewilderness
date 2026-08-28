@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import type { Client } from '@/lib/clients'
 import type { Booking } from '@/lib/bookings'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 const inputCls = 'field-input'
 const labelCls = 'field-label'
@@ -12,7 +13,7 @@ const labelCls = 'field-label'
 export default function NewReviewForm({ clients, bookings }: { clients: Client[]; bookings: Booking[] }) {
   const router = useRouter()
   const [form, setForm] = useState({
-    clientId: '', bookingId: '', rating: '5', quoteText: '', source: '', parkTag: '',
+    clientId: '', clientNameOther: '', bookingId: '', bookingRefOther: '', rating: '5', quoteText: '', source: '', parkTag: '',
   })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -30,14 +31,18 @@ export default function NewReviewForm({ clients, bookings }: { clients: Client[]
     setLoading(true)
     setError('')
     try {
+      const isCustomClient = form.clientId === CUSTOM_OPTION_VALUE
+      const isCustomBooking = form.bookingId === CUSTOM_OPTION_VALUE
       const res = await fetch('/api/admin/reviews', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
           rating: Number(form.rating),
-          clientId: form.clientId ? Number(form.clientId) : undefined,
-          bookingId: form.bookingId ? Number(form.bookingId) : undefined,
+          clientId: isCustomClient || !form.clientId ? undefined : Number(form.clientId),
+          clientNameOther: isCustomClient ? form.clientNameOther.trim() : undefined,
+          bookingId: isCustomBooking || !form.bookingId ? undefined : Number(form.bookingId),
+          bookingRefOther: isCustomBooking ? form.bookingRefOther.trim() : undefined,
         }),
       })
       if (!res.ok) {
@@ -65,17 +70,31 @@ export default function NewReviewForm({ clients, bookings }: { clients: Client[]
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className={labelCls}>Client (optional)</label>
-            <select value={form.clientId} onChange={(e) => update('clientId', e.target.value)} className={inputCls}>
-              <option value="">—</option>
-              {clients.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
-            </select>
+            <SelectWithCustom
+              options={clients}
+              getOptionValue={(c) => String(c.id)}
+              getOptionLabel={(c) => c.name}
+              value={form.clientId}
+              onChange={(v) => update('clientId', v)}
+              customValue={form.clientNameOther}
+              onCustomChange={(v) => update('clientNameOther', v)}
+              placeholder="—"
+              customPlaceholder="Enter client name…"
+            />
           </div>
           <div>
             <label className={labelCls}>Booking (optional)</label>
-            <select value={form.bookingId} onChange={(e) => update('bookingId', e.target.value)} className={inputCls}>
-              <option value="">—</option>
-              {bookings.map((b) => <option key={b.id} value={b.id}>{b.client_name}</option>)}
-            </select>
+            <SelectWithCustom
+              options={bookings}
+              getOptionValue={(b) => String(b.id)}
+              getOptionLabel={(b) => b.client_name}
+              value={form.bookingId}
+              onChange={(v) => update('bookingId', v)}
+              customValue={form.bookingRefOther}
+              onCustomChange={(v) => update('bookingRefOther', v)}
+              placeholder="—"
+              customPlaceholder="Enter booking reference…"
+            />
           </div>
         </div>
         <div>

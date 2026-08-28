@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import type { Invoice } from '@/lib/db'
 import type { Departure } from '@/lib/departures'
 import { packages } from '@/data/packages'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 const STATUSES = ['unpaid', 'partial', 'paid', 'cancelled'] as const
 
@@ -20,11 +21,14 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
     clientEmail: invoice.client_email ?? '',
     bookingReference: invoice.booking_reference ?? '',
     currency: invoice.currency,
-    departureId: invoice.departure_id ? String(invoice.departure_id) : '',
+    departureId: invoice.departure_id
+      ? String(invoice.departure_id)
+      : invoice.departure_notes_other ? CUSTOM_OPTION_VALUE : '',
     dueDate: invoice.due_date ?? '',
     status: invoice.status,
     notes: invoice.notes ?? '',
   })
+  const [departureNotesOther, setDepartureNotesOther] = useState(invoice.departure_notes_other ?? '')
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
 
@@ -36,10 +40,15 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
   async function handleSave() {
     setSaving(true)
     setSaved(false)
+    const isCustomDeparture = form.departureId === CUSTOM_OPTION_VALUE
     await fetch(`/api/admin/invoices/${invoice.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...form, departureId: form.departureId ? Number(form.departureId) : null }),
+      body: JSON.stringify({
+        ...form,
+        departureId: isCustomDeparture || !form.departureId ? null : Number(form.departureId),
+        departureNotesOther: isCustomDeparture ? departureNotesOther.trim() : null,
+      }),
     })
     setSaving(false)
     setSaved(true)
@@ -70,10 +79,17 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
         </div>
         <div>
           <label className="field-label">Departure</label>
-          <select value={form.departureId} onChange={(e) => update('departureId', e.target.value)} className="field-input">
-            <option value="">—</option>
-            {departures.map((d) => <option key={d.id} value={d.id}>{departureLabel(d)}</option>)}
-          </select>
+          <SelectWithCustom
+            options={departures}
+            getOptionValue={(d) => String(d.id)}
+            getOptionLabel={departureLabel}
+            value={form.departureId}
+            onChange={(v) => update('departureId', v)}
+            customValue={departureNotesOther}
+            onCustomChange={(v) => { setDepartureNotesOther(v); setSaved(false) }}
+            placeholder="—"
+            customPlaceholder="Enter departure details…"
+          />
         </div>
       </div>
       <p className="text-xs text-gray-400 -mt-2">

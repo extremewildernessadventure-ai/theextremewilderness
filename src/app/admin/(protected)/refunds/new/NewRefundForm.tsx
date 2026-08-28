@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import type { Invoice } from '@/lib/db'
 import type { Booking } from '@/lib/bookings'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 const inputCls = 'field-input'
 const labelCls = 'field-label'
@@ -12,6 +13,8 @@ const labelCls = 'field-label'
 export default function NewRefundForm({ invoices, bookings }: { invoices: Invoice[]; bookings: Booking[] }) {
   const router = useRouter()
   const [form, setForm] = useState({ invoiceId: '', bookingId: '', amount: '', currency: 'USD', reason: '', notes: '' })
+  const [invoiceRefOther, setInvoiceRefOther] = useState('')
+  const [bookingRefOther, setBookingRefOther] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -28,6 +31,8 @@ export default function NewRefundForm({ invoices, bookings }: { invoices: Invoic
     }
     setLoading(true)
     setError('')
+    const isCustomInvoice = form.invoiceId === CUSTOM_OPTION_VALUE
+    const isCustomBooking = form.bookingId === CUSTOM_OPTION_VALUE
     try {
       const res = await fetch('/api/admin/refunds', {
         method: 'POST',
@@ -35,8 +40,10 @@ export default function NewRefundForm({ invoices, bookings }: { invoices: Invoic
         body: JSON.stringify({
           ...form,
           amount,
-          invoiceId: form.invoiceId ? Number(form.invoiceId) : undefined,
-          bookingId: form.bookingId ? Number(form.bookingId) : undefined,
+          invoiceId: isCustomInvoice || !form.invoiceId ? undefined : Number(form.invoiceId),
+          invoiceRefOther: isCustomInvoice ? invoiceRefOther.trim() : undefined,
+          bookingId: isCustomBooking || !form.bookingId ? undefined : Number(form.bookingId),
+          bookingRefOther: isCustomBooking ? bookingRefOther.trim() : undefined,
         }),
       })
       if (!res.ok) {
@@ -61,17 +68,31 @@ export default function NewRefundForm({ invoices, bookings }: { invoices: Invoic
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className={labelCls}>Invoice (optional)</label>
-            <select value={form.invoiceId} onChange={(e) => update('invoiceId', e.target.value)} className={inputCls}>
-              <option value="">—</option>
-              {invoices.map((inv) => <option key={inv.id} value={inv.id}>{inv.invoice_number} — {inv.client_name}</option>)}
-            </select>
+            <SelectWithCustom
+              options={invoices}
+              getOptionValue={(inv) => String(inv.id)}
+              getOptionLabel={(inv) => `${inv.invoice_number} — ${inv.client_name}`}
+              value={form.invoiceId}
+              onChange={(v) => update('invoiceId', v)}
+              customValue={invoiceRefOther}
+              onCustomChange={setInvoiceRefOther}
+              placeholder="—"
+              customPlaceholder="Enter invoice reference…"
+            />
           </div>
           <div>
             <label className={labelCls}>Booking (optional)</label>
-            <select value={form.bookingId} onChange={(e) => update('bookingId', e.target.value)} className={inputCls}>
-              <option value="">—</option>
-              {bookings.map((b) => <option key={b.id} value={b.id}>{b.client_name}</option>)}
-            </select>
+            <SelectWithCustom
+              options={bookings}
+              getOptionValue={(b) => String(b.id)}
+              getOptionLabel={(b) => b.client_name}
+              value={form.bookingId}
+              onChange={(v) => update('bookingId', v)}
+              customValue={bookingRefOther}
+              onCustomChange={setBookingRefOther}
+              placeholder="—"
+              customPlaceholder="Enter booking reference…"
+            />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">

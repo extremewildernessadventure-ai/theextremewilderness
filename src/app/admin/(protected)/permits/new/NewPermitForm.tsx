@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { PERMIT_TYPES, type PermitType } from '@/lib/compliance'
 import type { Departure } from '@/lib/departures'
 import { packages } from '@/data/packages'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 const inputCls = 'field-input'
 const labelCls = 'field-label'
@@ -23,6 +24,7 @@ export default function NewPermitForm({ departures }: { departures: Departure[] 
     departureId: '', type: 'tanapa' as PermitType, park: '', permitNumber: '',
     amountPaid: '', currency: 'USD', confirmationRef: '', validFrom: '', validTo: '', notes: '',
   })
+  const [departureNotesOther, setDepartureNotesOther] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -35,12 +37,14 @@ export default function NewPermitForm({ departures }: { departures: Departure[] 
     setLoading(true)
     setError('')
     try {
+      const isCustomDeparture = form.departureId === CUSTOM_OPTION_VALUE
       const res = await fetch('/api/admin/permits', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
-          departureId: form.departureId ? Number(form.departureId) : undefined,
+          departureId: isCustomDeparture || !form.departureId ? undefined : Number(form.departureId),
+          departureNotesOther: isCustomDeparture ? departureNotesOther.trim() : undefined,
           amountPaid: form.amountPaid ? parseFloat(form.amountPaid) : undefined,
         }),
       })
@@ -72,10 +76,17 @@ export default function NewPermitForm({ departures }: { departures: Departure[] 
           </div>
           <div>
             <label className={labelCls}>Departure (optional)</label>
-            <select value={form.departureId} onChange={(e) => update('departureId', e.target.value)} className={inputCls}>
-              <option value="">—</option>
-              {departures.map((d) => <option key={d.id} value={d.id}>{departureLabel(d)}</option>)}
-            </select>
+            <SelectWithCustom
+              options={departures}
+              getOptionValue={(d) => String(d.id)}
+              getOptionLabel={departureLabel}
+              value={form.departureId}
+              onChange={(v) => update('departureId', v)}
+              customValue={departureNotesOther}
+              onCustomChange={setDepartureNotesOther}
+              placeholder="—"
+              customPlaceholder="Enter departure details…"
+            />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">

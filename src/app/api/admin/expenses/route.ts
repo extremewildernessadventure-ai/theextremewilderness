@@ -19,7 +19,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   const body = await req.json() as {
-    category?: string; vehicleId?: number; staffMemberId?: number; departureId?: number; amount?: number
+    category?: string
+    vehicleId?: number | null; vehicleNotesOther?: string | null
+    staffMemberId?: number | null; staffMemberOther?: string | null
+    departureId?: number | null; departureNotesOther?: string | null
+    amount?: number
     currency?: string; exchangeRateToUsd?: number; description?: string
     paidAt?: string; paymentMethod?: string; reference?: string
   }
@@ -36,10 +40,14 @@ export async function POST(req: NextRequest) {
 
   const db = await getDb()
   const result = await db.prepare(
-    `INSERT INTO expenses (category, vehicle_id, staff_member_id, departure_id, amount, currency, exchange_rate_to_usd, amount_usd, description, paid_at, payment_method, reference)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    `INSERT INTO expenses (category, vehicle_id, vehicle_notes_other, staff_member_id, staff_member_other, departure_id, departure_notes_other, amount, currency, exchange_rate_to_usd, amount_usd, description, paid_at, payment_method, reference)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   ).bind(
-    body.category, body.vehicleId ?? null, body.staffMemberId ?? null, body.departureId ?? null, body.amount,
+    body.category,
+    body.vehicleId ?? null, body.vehicleId ? null : (body.vehicleNotesOther || null),
+    body.staffMemberId ?? null, body.staffMemberId ? null : (body.staffMemberOther || null),
+    body.departureId ?? null, body.departureId ? null : (body.departureNotesOther || null),
+    body.amount,
     currency, exchangeRateToUsd, amountUsd, body.description ?? null,
     body.paidAt ?? null, body.paymentMethod ?? null, body.reference ?? null,
   ).run()

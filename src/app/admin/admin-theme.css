@@ -191,7 +191,10 @@
 }
 .ewa-admin .pager a:hover { background: var(--sand-2); }
 
-.ewa-admin .empty-state { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 40px; text-align: center; color: var(--grey); font-size: 13.5px; }
+.ewa-admin .empty-state {
+  background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 40px; text-align: center;
+  color: var(--grey); font-size: 13.5px; display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
 
 /* ===== detail pages: forms/panels ===== */
 .ewa-admin .panel { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 22px 24px; }
@@ -212,10 +215,18 @@
 .ewa-admin .mockup-note { text-align: center; font-size: 11px; color: var(--grey); font-style: italic; margin-top: 16px; }
 
 /* ===== detail-page two-column layout ===== */
+/* Wide enough to use most of .main's 1400px width without going edge-to-edge,
+   and centered — previously this was a 960px inline style with no auto
+   margin, leaving up to ~440px of dead space on wide viewports. */
+.ewa-admin .detail-page-shell { max-width: 1280px; margin: 0 auto; }
 .ewa-admin .detail-back { font-size: 13.5px; color: var(--grey); margin-bottom: 16px; display: inline-block; }
 .ewa-admin .detail-back:hover { color: var(--pine); }
 .ewa-admin .detail-title-row { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
 .ewa-admin .detail-subtitle { color: var(--grey); font-size: 13.5px; margin-bottom: 24px; }
-.ewa-admin .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+/* 3fr/2fr, not 1fr/1fr: every DetailTwoColumn page follows the same shape —
+   main holds a summary panel plus one or more linked-record panels/tables,
+   sidebar holds a single edit form — so main consistently carries more
+   content and deserves the wider column. */
+.ewa-admin .detail-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 24px; align-items: start; }
 .ewa-admin .detail-col { display: flex; flex-direction: column; gap: 20px; }
 @media (max-width: 900px) { .ewa-admin .detail-grid { grid-template-columns: 1fr; } }

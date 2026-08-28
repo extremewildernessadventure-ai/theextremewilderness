@@ -45,5 +45,12 @@
 			"binding": "DOCS",
 			"bucket_name": "ewa-documents"
 		}
-	]
+	],
+	// Renders the booking-voucher HTML into a real PDF server-side
+	// (src/lib/browser.ts). Requires a Cloudflare plan with Browser
+	// Rendering enabled — verify this before relying on the voucher
+	// send feature; see the spike route noted in src/lib/browser.ts.
+	"browser": {
+		"binding": "BROWSER"
+	}
 }

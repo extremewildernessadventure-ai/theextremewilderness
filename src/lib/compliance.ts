@@ -7,6 +7,7 @@ export const PERMIT_STATUSES: PermitStatus[] = ['pending', 'paid', 'confirmed', 
 export interface Permit {
   id: number
   departure_id: number | null
+  departure_notes_other: string | null
   type: PermitType
   park: string | null
   permit_number: string | null
@@ -31,7 +32,9 @@ export interface IncidentReport {
   id: number
   booking_id: number | null
   departure_id: number | null
+  departure_notes_other: string | null
   guide_id: number | null
+  guide_name_other: string | null
   client_name: string | null
   client_email: string | null
   type: IncidentType

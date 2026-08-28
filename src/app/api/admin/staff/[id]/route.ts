@@ -26,7 +26,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   }
   const { id } = await params
   const body = await req.json() as {
-    name?: string; roleTitle?: string; guideId?: number | null
+    name?: string; roleTitle?: string; guideId?: number | null; guideNameOther?: string | null
     payType?: string; baseRate?: number; currency?: string; active?: boolean
   }
 
@@ -37,7 +37,6 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   const columnMap: Record<string, unknown> = {
     name: body.name,
     role_title: body.roleTitle,
-    guide_id: body.guideId,
     pay_type: body.payType,
     base_rate: body.baseRate,
     currency: body.currency,
@@ -50,6 +49,10 @@ export async function PATCH(req: NextRequest, { params }: Params) {
       fields.push(`${col} = ?`)
       values.push(val)
     }
+  }
+  if (body.guideId !== undefined) {
+    fields.push('guide_id = ?', 'guide_name_other = ?')
+    values.push(body.guideId, body.guideId ? null : (body.guideNameOther || null))
   }
   if (fields.length === 0) {
     return NextResponse.json({ error: 'No fields to update' }, { status: 400 })

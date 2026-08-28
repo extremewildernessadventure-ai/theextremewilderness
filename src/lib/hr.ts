@@ -30,6 +30,7 @@ export interface StaffMember {
   name: string
   role_title: string | null
   guide_id: number | null
+  guide_name_other: string | null
   pay_type: PayType
   base_rate: number
   currency: string

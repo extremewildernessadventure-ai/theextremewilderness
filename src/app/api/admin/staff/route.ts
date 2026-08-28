@@ -19,7 +19,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   const body = await req.json() as {
-    name?: string; roleTitle?: string; guideId?: number; payType?: string; baseRate?: number; currency?: string
+    name?: string; roleTitle?: string; guideId?: number | null; guideNameOther?: string | null
+    payType?: string; baseRate?: number; currency?: string
   }
   if (!body.name?.trim()) {
     return NextResponse.json({ error: 'name is required' }, { status: 400 })
@@ -33,10 +34,11 @@ export async function POST(req: NextRequest) {
 
   const db = await getDb()
   const result = await db.prepare(
-    `INSERT INTO staff_members (name, role_title, guide_id, pay_type, base_rate, currency)
-     VALUES (?, ?, ?, ?, ?, ?)`
+    `INSERT INTO staff_members (name, role_title, guide_id, guide_name_other, pay_type, base_rate, currency)
+     VALUES (?, ?, ?, ?, ?, ?, ?)`
   ).bind(
     body.name.trim(), body.roleTitle ?? null, body.guideId ?? null,
+    body.guideId ? null : (body.guideNameOther || null),
     body.payType, body.baseRate, body.currency ?? 'USD',
   ).run()
 

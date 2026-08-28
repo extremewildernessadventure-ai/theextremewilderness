@@ -28,7 +28,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   const { id } = await params
   const body = await req.json() as {
     clientName?: string; clientEmail?: string; clientPhone?: string
-    guestsCount?: number; status?: string; cancellationReason?: string
+    guestsCount?: number; status?: string; cancellationReason?: string; specialRequests?: string
   }
 
   if (body.status !== undefined && !BOOKING_STATUSES.includes(body.status as Booking['status'])) {
@@ -42,6 +42,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     guests_count: body.guestsCount,
     status: body.status,
     cancellation_reason: body.cancellationReason,
+    special_requests: body.specialRequests,
   }
   const fields: string[] = []
   const values: unknown[] = []

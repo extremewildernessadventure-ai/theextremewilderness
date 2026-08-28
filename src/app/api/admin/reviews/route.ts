@@ -18,7 +18,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   const body = await req.json() as {
-    clientId?: number; bookingId?: number; rating?: number; quoteText?: string; source?: string; parkTag?: string
+    clientId?: number | null; clientNameOther?: string | null
+    bookingId?: number | null; bookingRefOther?: string | null
+    rating?: number; quoteText?: string; source?: string; parkTag?: string
   }
   if (!body.quoteText?.trim()) {
     return NextResponse.json({ error: 'quoteText is required' }, { status: 400 })
@@ -29,11 +31,12 @@ export async function POST(req: NextRequest) {
 
   const db = await getDb()
   const result = await db.prepare(
-    `INSERT INTO reviews (client_id, booking_id, rating, quote_text, source, park_tag)
-     VALUES (?, ?, ?, ?, ?, ?)`
+    `INSERT INTO reviews (client_id, client_name_other, booking_id, booking_ref_other, rating, quote_text, source, park_tag)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
   ).bind(
-    body.clientId ?? null, body.bookingId ?? null, body.rating,
-    body.quoteText.trim(), body.source ?? null, body.parkTag ?? null,
+    body.clientId ?? null, body.clientId ? null : (body.clientNameOther || null),
+    body.bookingId ?? null, body.bookingId ? null : (body.bookingRefOther || null),
+    body.rating, body.quoteText.trim(), body.source ?? null, body.parkTag ?? null,
   ).run()
 
   return NextResponse.json({ success: true, id: result.meta?.last_row_id })

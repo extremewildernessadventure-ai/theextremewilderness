@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { PAY_TYPES, type PayType } from '@/lib/hr'
 import type { Guide } from '@/lib/ops'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 const inputCls = 'field-input'
 const labelCls = 'field-label'
@@ -14,7 +15,7 @@ const PAY_TYPE_LABELS: Record<PayType, string> = { salary: 'Salary', daily_rate:
 export default function NewStaffForm({ guides }: { guides: Guide[] }) {
   const router = useRouter()
   const [form, setForm] = useState({
-    name: '', roleTitle: '', guideId: '', payType: 'salary' as PayType, baseRate: '', currency: 'USD',
+    name: '', roleTitle: '', guideId: '', guideNameOther: '', payType: 'salary' as PayType, baseRate: '', currency: 'USD',
   })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -32,11 +33,17 @@ export default function NewStaffForm({ guides }: { guides: Guide[] }) {
     }
     setLoading(true)
     setError('')
+    const isCustomGuide = form.guideId === CUSTOM_OPTION_VALUE
     try {
       const res = await fetch('/api/admin/staff', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, baseRate, guideId: form.guideId ? Number(form.guideId) : undefined }),
+        body: JSON.stringify({
+          ...form,
+          baseRate,
+          guideId: isCustomGuide || !form.guideId ? undefined : Number(form.guideId),
+          guideNameOther: isCustomGuide ? form.guideNameOther.trim() : undefined,
+        }),
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
@@ -68,10 +75,17 @@ export default function NewStaffForm({ guides }: { guides: Guide[] }) {
           </div>
           <div>
             <label className={labelCls}>Linked Guide (optional)</label>
-            <select value={form.guideId} onChange={(e) => update('guideId', e.target.value)} className={inputCls}>
-              <option value="">—</option>
-              {guides.map((g) => <option key={g.id} value={g.id}>{g.name}</option>)}
-            </select>
+            <SelectWithCustom
+              options={guides}
+              getOptionValue={(g) => String(g.id)}
+              getOptionLabel={(g) => g.name}
+              value={form.guideId}
+              onChange={(v) => update('guideId', v)}
+              customValue={form.guideNameOther}
+              onCustomChange={(v) => update('guideNameOther', v)}
+              placeholder="—"
+              customPlaceholder="Enter guide name…"
+            />
           </div>
         </div>
         <div className="grid grid-cols-3 gap-4">

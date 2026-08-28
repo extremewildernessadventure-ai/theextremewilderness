@@ -3,32 +3,42 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import type { Guide, Vehicle } from '@/lib/ops'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
-const inputCls = 'field-input'
 const labelCls = 'field-label'
 
-export default function BookingAssignmentPanel({ bookingId, guides, vehicles, currentGuideId, currentVehicleId }: {
+export default function BookingAssignmentPanel({
+  bookingId, guides, vehicles, currentGuideId, currentGuideNameOther, currentVehicleId, currentVehicleNotesOther,
+}: {
   bookingId: number
   guides: Guide[]
   vehicles: Vehicle[]
   currentGuideId: number | null
+  currentGuideNameOther: string | null
   currentVehicleId: number | null
+  currentVehicleNotesOther: string | null
 }) {
   const router = useRouter()
-  const [guideId, setGuideId] = useState(currentGuideId ? String(currentGuideId) : '')
-  const [vehicleId, setVehicleId] = useState(currentVehicleId ? String(currentVehicleId) : '')
+  const [guideId, setGuideId] = useState(currentGuideId ? String(currentGuideId) : currentGuideNameOther ? CUSTOM_OPTION_VALUE : '')
+  const [guideNameOther, setGuideNameOther] = useState(currentGuideNameOther ?? '')
+  const [vehicleId, setVehicleId] = useState(currentVehicleId ? String(currentVehicleId) : currentVehicleNotesOther ? CUSTOM_OPTION_VALUE : '')
+  const [vehicleNotesOther, setVehicleNotesOther] = useState(currentVehicleNotesOther ?? '')
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
 
   async function handleSave() {
     setSaving(true)
     setSaved(false)
+    const isCustomGuide = guideId === CUSTOM_OPTION_VALUE
+    const isCustomVehicle = vehicleId === CUSTOM_OPTION_VALUE
     await fetch(`/api/admin/bookings/${bookingId}/assign`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        guideId: guideId ? Number(guideId) : null,
-        vehicleId: vehicleId ? Number(vehicleId) : null,
+        guideId: isCustomGuide || !guideId ? null : Number(guideId),
+        guideNameOther: isCustomGuide ? guideNameOther.trim() : null,
+        vehicleId: isCustomVehicle || !vehicleId ? null : Number(vehicleId),
+        vehicleNotesOther: isCustomVehicle ? vehicleNotesOther.trim() : null,
       }),
     })
     setSaving(false)
@@ -41,17 +51,31 @@ export default function BookingAssignmentPanel({ bookingId, guides, vehicles, cu
       <h2 className="mb-1">Assignment</h2>
       <div>
         <label className={labelCls}>Guide</label>
-        <select value={guideId} onChange={(e) => { setGuideId(e.target.value); setSaved(false) }} className={inputCls}>
-          <option value="">— Unassigned —</option>
-          {guides.map((g) => <option key={g.id} value={g.id}>{g.name}</option>)}
-        </select>
+        <SelectWithCustom
+          options={guides}
+          getOptionValue={(g) => String(g.id)}
+          getOptionLabel={(g) => g.name}
+          value={guideId}
+          onChange={(v) => { setGuideId(v); setSaved(false) }}
+          customValue={guideNameOther}
+          onCustomChange={(v) => { setGuideNameOther(v); setSaved(false) }}
+          placeholder="— Unassigned —"
+          customPlaceholder="Enter guide name…"
+        />
       </div>
       <div>
         <label className={labelCls}>Vehicle</label>
-        <select value={vehicleId} onChange={(e) => { setVehicleId(e.target.value); setSaved(false) }} className={inputCls}>
-          <option value="">— Unassigned —</option>
-          {vehicles.map((v) => <option key={v.id} value={v.id}>{v.plate_number}</option>)}
-        </select>
+        <SelectWithCustom
+          options={vehicles}
+          getOptionValue={(v) => String(v.id)}
+          getOptionLabel={(v) => v.plate_number}
+          value={vehicleId}
+          onChange={(v) => { setVehicleId(v); setSaved(false) }}
+          customValue={vehicleNotesOther}
+          onCustomChange={(v) => { setVehicleNotesOther(v); setSaved(false) }}
+          placeholder="— Unassigned —"
+          customPlaceholder="Enter vehicle details…"
+        />
       </div>
       <div className="flex items-center gap-3">
         <button type="button" onClick={handleSave} disabled={saving} className="btn-primary" style={{ opacity: saving ? 0.5 : 1 }}>

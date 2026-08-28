@@ -9,6 +9,7 @@ import DeleteButton from '@/components/admin/DeleteButton'
 import BookingEditForm from './BookingEditForm'
 import BookingAssignmentPanel from './BookingAssignmentPanel'
 import LodgeBookingPanel from './LodgeBookingPanel'
+import SendVoucherButton from './SendVoucherButton'
 
 export const dynamic = 'force-dynamic'
 
@@ -65,6 +66,8 @@ export default async function BookingDetailPage({ params }: Props) {
 
           <LodgeBookingPanel bookingId={booking.id} lodgeBookings={lodgeBookings} lodges={lodges} />
 
+          <SendVoucherButton bookingId={booking.id} hasClientEmail={!!booking.client_email} lastSentAt={booking.voucher_sent_at} />
+
           <div className="pt-2">
             <DeleteButton
               endpoint={`/api/admin/bookings/${booking.id}`}
@@ -83,7 +86,9 @@ export default async function BookingDetailPage({ params }: Props) {
             guides={guides}
             vehicles={vehicles}
             currentGuideId={booking.guide_id}
+            currentGuideNameOther={booking.guide_name_other}
             currentVehicleId={booking.vehicle_id}
+            currentVehicleNotesOther={booking.vehicle_notes_other}
           />
         </>
       }

@@ -4,7 +4,9 @@ export const REVIEW_STATUSES: ReviewStatus[] = ['pending', 'approved', 'publishe
 export interface Review {
   id: number
   client_id: number | null
+  client_name_other: string | null
   booking_id: number | null
+  booking_ref_other: string | null
   rating: number
   quote_text: string
   source: string | null

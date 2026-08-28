@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   const body = await req.json() as {
-    departureId?: number; type?: string; park?: string; permitNumber?: string
+    departureId?: number; departureNotesOther?: string; type?: string; park?: string; permitNumber?: string
     amountPaid?: number; currency?: string; paidAt?: string; confirmationRef?: string
     validFrom?: string; validTo?: string; notes?: string
   }
@@ -29,10 +29,11 @@ export async function POST(req: NextRequest) {
 
   const db = await getDb()
   const result = await db.prepare(
-    `INSERT INTO permits (departure_id, type, park, permit_number, amount_paid, currency, paid_at, confirmation_ref, valid_from, valid_to, notes)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    `INSERT INTO permits (departure_id, departure_notes_other, type, park, permit_number, amount_paid, currency, paid_at, confirmation_ref, valid_from, valid_to, notes)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   ).bind(
-    body.departureId ?? null, body.type, body.park ?? null, body.permitNumber ?? null,
+    body.departureId ?? null, body.departureId ? null : (body.departureNotesOther || null),
+    body.type, body.park ?? null, body.permitNumber ?? null,
     body.amountPaid ?? null, body.currency ?? 'USD', body.paidAt ?? null, body.confirmationRef ?? null,
     body.validFrom ?? null, body.validTo ?? null, body.notes ?? null,
   ).run()

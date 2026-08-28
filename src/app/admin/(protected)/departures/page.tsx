@@ -92,6 +92,7 @@ export default async function DeparturesListPage() {
         rows={results}
         rowKey={(d) => d.id}
         emptyMessage="No departures yet."
+        emptyAction={{ label: '+ Create Departure', href: '/admin/departures/new' }}
         rowClassName={(d) => (d.status === 'few_left' ? 'warn' : undefined)}
       />
     </div>

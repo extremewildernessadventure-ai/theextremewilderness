@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { packages } from '@/data/packages'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 export default function NewDeparturePage() {
   const router = useRouter()
@@ -18,7 +19,7 @@ export default function NewDeparturePage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const capacity = parseInt(form.capacity, 10)
-    const isCustom = form.packageSlug === '__custom__'
+    const isCustom = form.packageSlug === CUSTOM_OPTION_VALUE
     if (!form.packageSlug) {
       setError('Select a package.')
       return
@@ -65,18 +66,21 @@ export default function NewDeparturePage() {
       <form onSubmit={handleSubmit} className="panel space-y-4">
         <div>
           <label className="field-label">Package *</label>
-          <select required value={form.packageSlug} onChange={(e) => update('packageSlug', e.target.value)} className="field-input">
-            <option value="">— Select a package —</option>
-            <option value="__custom__">— Custom / Bespoke Package —</option>
-            {packages.map((p) => <option key={p.slug} value={p.slug}>{p.name}</option>)}
-          </select>
+          <SelectWithCustom
+            required
+            options={packages}
+            getOptionValue={(p) => p.slug}
+            getOptionLabel={(p) => p.name}
+            value={form.packageSlug}
+            onChange={(v) => update('packageSlug', v)}
+            customValue={form.customPackageName}
+            onCustomChange={(v) => update('customPackageName', v)}
+            placeholder="— Select a package —"
+            customOptionLabel="— Custom / Bespoke Package —"
+            customLabel="Custom Package Name *"
+            customPlaceholder="e.g. Private Family Safari — Smith Family"
+          />
         </div>
-        {form.packageSlug === '__custom__' && (
-          <div>
-            <label className="field-label">Custom Package Name *</label>
-            <input required value={form.customPackageName} onChange={(e) => update('customPackageName', e.target.value)} className="field-input" placeholder="e.g. Private Family Safari — Smith Family" />
-          </div>
-        )}
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="field-label">Start Date *</label>

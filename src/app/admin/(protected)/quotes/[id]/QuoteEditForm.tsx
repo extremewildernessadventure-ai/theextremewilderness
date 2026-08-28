@@ -4,11 +4,17 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { QUOTE_STATUSES, type Quote } from '@/lib/quotes'
 import { packages } from '@/data/packages'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
+
+const isKnownPackage = (slug: string) => packages.some((p) => p.slug === slug)
 
 export default function QuoteEditForm({ quote }: { quote: Quote }) {
   const router = useRouter()
+  const initialSlug = quote.package_slug ?? ''
+  const initialIsCustom = initialSlug !== '' && !isKnownPackage(initialSlug)
   const [form, setForm] = useState({
-    packageSlug: quote.package_slug ?? '',
+    packageSlug: initialIsCustom ? CUSTOM_OPTION_VALUE : initialSlug,
+    customPackageName: initialIsCustom ? initialSlug : '',
     price: String(quote.price),
     currency: quote.currency,
     status: quote.status,
@@ -24,13 +30,14 @@ export default function QuoteEditForm({ quote }: { quote: Quote }) {
   }
 
   async function handleSave() {
+    const isCustom = form.packageSlug === CUSTOM_OPTION_VALUE
     setSaving(true)
     setSaved(false)
     await fetch(`/api/admin/quotes/${quote.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        packageSlug: form.packageSlug || null,
+        packageSlug: (isCustom ? form.customPackageName.trim() : form.packageSlug) || null,
         price: parseFloat(form.price) || 0,
         currency: form.currency,
         status: form.status,
@@ -48,10 +55,19 @@ export default function QuoteEditForm({ quote }: { quote: Quote }) {
       <h2 className="mb-1">Edit Quote</h2>
       <div>
         <label className="field-label">Package</label>
-        <select value={form.packageSlug} onChange={(e) => update('packageSlug', e.target.value)} className="field-input">
-          <option value="">— No specific package —</option>
-          {packages.map((p) => <option key={p.slug} value={p.slug}>{p.name}</option>)}
-        </select>
+        <SelectWithCustom
+          options={packages}
+          getOptionValue={(p) => p.slug}
+          getOptionLabel={(p) => p.name}
+          value={form.packageSlug}
+          onChange={(v) => update('packageSlug', v)}
+          customValue={form.customPackageName}
+          onCustomChange={(v) => update('customPackageName', v)}
+          placeholder="— No specific package —"
+          customOptionLabel="— Custom / Bespoke Package —"
+          customLabel="Custom Package Name *"
+          customPlaceholder="e.g. Private Family Safari — Smith Family"
+        />
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>

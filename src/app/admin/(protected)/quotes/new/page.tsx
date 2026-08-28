@@ -4,6 +4,7 @@ import { Suspense, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { packages } from '@/data/packages'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 const inputCls = 'field-input'
 const labelCls = 'field-label'
@@ -14,7 +15,7 @@ function NewQuoteForm() {
   const leadId = searchParams.get('leadId')
 
   const [form, setForm] = useState({
-    packageSlug: '', price: '', currency: 'USD', validUntil: '', notes: '',
+    packageSlug: '', customPackageName: '', price: '', currency: 'USD', validUntil: '', notes: '',
   })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -34,6 +35,11 @@ function NewQuoteForm() {
       setError('Price must be a non-negative number.')
       return
     }
+    const isCustom = form.packageSlug === CUSTOM_OPTION_VALUE
+    if (isCustom && !form.customPackageName.trim()) {
+      setError('Enter a name for the custom package.')
+      return
+    }
 
     setLoading(true)
     setError('')
@@ -43,7 +49,7 @@ function NewQuoteForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           leadId: Number(leadId),
-          packageSlug: form.packageSlug || undefined,
+          packageSlug: (isCustom ? form.customPackageName.trim() : form.packageSlug) || undefined,
           price,
           currency: form.currency,
           validUntil: form.validUntil || undefined,
@@ -84,10 +90,19 @@ function NewQuoteForm() {
       <form onSubmit={handleSubmit} className="panel space-y-4">
         <div>
           <label className={labelCls}>Package (optional)</label>
-          <select value={form.packageSlug} onChange={(e) => update('packageSlug', e.target.value)} className={inputCls}>
-            <option value="">— No specific package —</option>
-            {packages.map((p) => <option key={p.slug} value={p.slug}>{p.name}</option>)}
-          </select>
+          <SelectWithCustom
+            options={packages}
+            getOptionValue={(p) => p.slug}
+            getOptionLabel={(p) => p.name}
+            value={form.packageSlug}
+            onChange={(v) => update('packageSlug', v)}
+            customValue={form.customPackageName}
+            onCustomChange={(v) => update('customPackageName', v)}
+            placeholder="— No specific package —"
+            customOptionLabel="— Custom / Bespoke Package —"
+            customLabel="Custom Package Name *"
+            customPlaceholder="e.g. Private Family Safari — Smith Family"
+          />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>

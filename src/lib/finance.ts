@@ -5,8 +5,11 @@ export interface Expense {
   id: number
   category: ExpenseCategory
   vehicle_id: number | null
+  vehicle_notes_other: string | null
   staff_member_id: number | null
+  staff_member_other: string | null
   departure_id: number | null
+  departure_notes_other: string | null
   amount: number
   currency: string
   exchange_rate_to_usd: number
@@ -24,7 +27,9 @@ export const REFUND_STATUSES: RefundStatus[] = ['requested', 'approved', 'proces
 export interface Refund {
   id: number
   invoice_id: number | null
+  invoice_ref_other: string | null
   booking_id: number | null
+  booking_ref_other: string | null
   amount: number
   currency: string
   reason: string | null

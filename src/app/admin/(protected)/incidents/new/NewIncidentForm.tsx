@@ -7,6 +7,7 @@ import { INCIDENT_TYPES, INCIDENT_SEVERITIES, type IncidentType, type IncidentSe
 import type { Departure } from '@/lib/departures'
 import type { Guide } from '@/lib/ops'
 import { packages } from '@/data/packages'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 const inputCls = 'field-input'
 const labelCls = 'field-label'
@@ -23,7 +24,7 @@ function departureLabel(d: Departure): string {
 export default function NewIncidentForm({ departures, guides }: { departures: Departure[]; guides: Guide[] }) {
   const router = useRouter()
   const [form, setForm] = useState({
-    departureId: '', guideId: '', clientName: '', clientEmail: '',
+    departureId: '', departureNotesOther: '', guideId: '', guideNameOther: '', clientName: '', clientEmail: '',
     type: 'medical' as IncidentType, severity: 'minor' as IncidentSeverity,
     description: '', actionTaken: '', amrefEvacuation: false, reportedBy: '', occurredAt: '',
   })
@@ -43,13 +44,17 @@ export default function NewIncidentForm({ departures, guides }: { departures: De
     setLoading(true)
     setError('')
     try {
+      const isCustomDeparture = form.departureId === CUSTOM_OPTION_VALUE
+      const isCustomGuide = form.guideId === CUSTOM_OPTION_VALUE
       const res = await fetch('/api/admin/incidents', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
-          departureId: form.departureId ? Number(form.departureId) : undefined,
-          guideId: form.guideId ? Number(form.guideId) : undefined,
+          departureId: isCustomDeparture || !form.departureId ? undefined : Number(form.departureId),
+          departureNotesOther: isCustomDeparture ? form.departureNotesOther.trim() : undefined,
+          guideId: isCustomGuide || !form.guideId ? undefined : Number(form.guideId),
+          guideNameOther: isCustomGuide ? form.guideNameOther.trim() : undefined,
         }),
       })
       if (!res.ok) {
@@ -88,17 +93,31 @@ export default function NewIncidentForm({ departures, guides }: { departures: De
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className={labelCls}>Departure (optional)</label>
-            <select value={form.departureId} onChange={(e) => update('departureId', e.target.value)} className={inputCls}>
-              <option value="">—</option>
-              {departures.map((d) => <option key={d.id} value={d.id}>{departureLabel(d)}</option>)}
-            </select>
+            <SelectWithCustom
+              options={departures}
+              getOptionValue={(d) => String(d.id)}
+              getOptionLabel={(d) => departureLabel(d)}
+              value={form.departureId}
+              onChange={(v) => update('departureId', v)}
+              customValue={form.departureNotesOther}
+              onCustomChange={(v) => update('departureNotesOther', v)}
+              placeholder="—"
+              customPlaceholder="Enter departure details…"
+            />
           </div>
           <div>
             <label className={labelCls}>Guide (optional)</label>
-            <select value={form.guideId} onChange={(e) => update('guideId', e.target.value)} className={inputCls}>
-              <option value="">—</option>
-              {guides.map((g) => <option key={g.id} value={g.id}>{g.name}</option>)}
-            </select>
+            <SelectWithCustom
+              options={guides}
+              getOptionValue={(g) => String(g.id)}
+              getOptionLabel={(g) => g.name}
+              value={form.guideId}
+              onChange={(v) => update('guideId', v)}
+              customValue={form.guideNameOther}
+              onCustomChange={(v) => update('guideNameOther', v)}
+              placeholder="—"
+              customPlaceholder="Enter guide name…"
+            />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">

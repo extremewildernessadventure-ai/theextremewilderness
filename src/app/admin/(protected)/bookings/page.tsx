@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getDb } from '@/lib/db'
 import type { Booking } from '@/lib/bookings'
+import { anyDepartureExists } from '@/lib/departures'
 import AdminTable, { type AdminTableColumn } from '@/components/admin/AdminTable'
 import BookingStatusSelect from './BookingStatusSelect'
 
@@ -24,6 +25,12 @@ export default async function BookingsListPage() {
   const db = await getDb()
   const { results } = await db.prepare('SELECT * FROM bookings ORDER BY created_at DESC').all<Booking>()
 
+  // Bookings are only ever created from a departure's own detail page (no
+  // standalone "+ New Booking" entry point exists) — if there are none yet,
+  // say so explicitly instead of just showing a blank list with no way
+  // forward.
+  const hasDepartures = results.length > 0 || (await anyDepartureExists(db))
+
   return (
     <div>
       <div className="page-head">
@@ -32,7 +39,17 @@ export default async function BookingsListPage() {
         </div>
       </div>
 
-      <AdminTable columns={columns} rows={results} rowKey={(b) => b.id} emptyMessage="No bookings yet." />
+      <AdminTable
+        columns={columns}
+        rows={results}
+        rowKey={(b) => b.id}
+        emptyMessage={
+          hasDepartures
+            ? 'No bookings yet.'
+            : 'No bookings yet — bookings are created from a departure, and there are no departures yet.'
+        }
+        emptyAction={hasDepartures ? undefined : { label: '+ Create Departure', href: '/admin/departures/new' }}
+      />
     </div>
   )
 }

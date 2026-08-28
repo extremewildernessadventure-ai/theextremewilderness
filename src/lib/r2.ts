@@ -36,3 +36,10 @@ export function documentKey(clientId: number, filename: string): string {
   // uploaded twice for the same client (e.g. two passport scans).
   return `documents/${clientId}/${Date.now()}-${filename}`
 }
+
+export function voucherKey(bookingId: number): string {
+  // Timestamped so a re-send doesn't overwrite the previous copy — old
+  // vouchers stay retrievable, bookings.voucher_r2_key always points at the
+  // most recent one.
+  return `vouchers/${bookingId}/${Date.now()}-voucher.pdf`
+}

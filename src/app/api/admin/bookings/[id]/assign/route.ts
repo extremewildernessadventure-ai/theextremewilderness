@@ -11,17 +11,20 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   const { id } = await params
-  const body = await req.json() as { guideId?: number | null; vehicleId?: number | null }
+  const body = await req.json() as {
+    guideId?: number | null; guideNameOther?: string | null
+    vehicleId?: number | null; vehicleNotesOther?: string | null
+  }
 
   const fields: string[] = []
   const values: unknown[] = []
   if (body.guideId !== undefined) {
-    fields.push('guide_id = ?')
-    values.push(body.guideId)
+    fields.push('guide_id = ?', 'guide_name_other = ?')
+    values.push(body.guideId, body.guideId ? null : (body.guideNameOther || null))
   }
   if (body.vehicleId !== undefined) {
-    fields.push('vehicle_id = ?')
-    values.push(body.vehicleId)
+    fields.push('vehicle_id = ?', 'vehicle_notes_other = ?')
+    values.push(body.vehicleId, body.vehicleId ? null : (body.vehicleNotesOther || null))
   }
   if (fields.length === 0) {
     return NextResponse.json({ error: 'No fields to update' }, { status: 400 })

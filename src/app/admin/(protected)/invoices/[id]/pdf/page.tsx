@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
 import { CheckCircle2 } from 'lucide-react'
 import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
 import { BANK_DETAILS } from '@/lib/bankDetails'
 import { PAYMENT_METHOD_LABELS } from '@/lib/invoices'
+import { printCss, PdfHeader, PdfFooter } from '@/components/admin/pdf/PdfDocumentChrome'
 import PrintButton from './PrintButton'
 
 // Kept dynamic deliberately: the printed document shows today's date
@@ -44,21 +44,7 @@ export default async function InvoicePdfPage({ params }: Props) {
   return (
     <>
       {/* Print CSS */}
-      <style>{`
-        @media print {
-          body * { visibility: hidden !important; }
-          #pdf-invoice, #pdf-invoice * { visibility: visible !important; }
-          #pdf-invoice {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            background: white;
-            padding: 20px 28px;
-          }
-          @page { size: A4; margin: 14mm 12mm; }
-          .no-break { page-break-inside: avoid; }
-        }
-      `}</style>
+      <style>{printCss('pdf-invoice')}</style>
 
       {/* Screen-only header bar */}
       <div className="max-w-3xl mx-auto px-4 py-6 print:hidden flex items-center justify-between border-b border-gray-100">
@@ -75,24 +61,11 @@ export default async function InvoicePdfPage({ params }: Props) {
       <div id="pdf-invoice" className="max-w-3xl mx-auto px-8 py-8 bg-white font-sans print:max-w-none print:px-0">
 
         {/* ── Header ── */}
-        <div className="flex items-start justify-between pb-5 mb-6 border-b-[3px] border-brand no-break">
-          <div className="flex items-center gap-3">
-            <Image src="/EWA logo.webp" alt="EWA Safari Outfitters" width={64} height={32} className="object-contain" />
-            <div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-0.5">
-                EWA Safari Outfitters
-              </p>
-              <p className="text-xs text-gray-500">Arusha, Tanzania</p>
-            </div>
-          </div>
-          <div className="text-end">
-            <h1 className="text-2xl font-black text-brand leading-tight">INVOICE</h1>
-            <p className="text-sm text-gray-700 font-semibold mt-1">{invoice.invoice_number}</p>
-            <p className="text-xs text-gray-400 mt-0.5">
-              {new Date(invoice.created_at).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
-            </p>
-          </div>
-        </div>
+        <PdfHeader
+          documentType="INVOICE"
+          documentNumber={invoice.invoice_number}
+          dateLabel={new Date(invoice.created_at).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
+        />
 
         {/* ── Bill to / Status ── */}
         <div className="flex items-start justify-between mb-7 no-break">
@@ -216,13 +189,7 @@ export default async function InvoicePdfPage({ params }: Props) {
         )}
 
         {/* ── Footer ── */}
-        <div className="border-t-2 border-brand pt-4 flex items-center justify-between no-break">
-          <div>
-            <p className="text-sm font-black text-brand">EWA Safari Outfitters</p>
-            <p className="text-xs text-gray-500">info@theextremewilderness.com · +255 (0) 747 999 070 · Arusha, Tanzania</p>
-          </div>
-          <p className="text-xs text-gray-400">© {new Date().getFullYear()} EWA Safari Outfitters</p>
-        </div>
+        <PdfFooter />
       </div>
     </>
   )

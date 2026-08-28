@@ -27,6 +27,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   const body = await req.json() as {
     clientName?: string; clientEmail?: string; bookingReference?: string
     amount?: number; currency?: string; description?: string; departureId?: number | null
+    departureNotesOther?: string | null
     status?: string; dueDate?: string; notes?: string
   }
 
@@ -41,7 +42,6 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     amount: body.amount,
     currency: body.currency,
     description: body.description,
-    departure_id: body.departureId,
     status: body.status,
     due_date: body.dueDate,
     notes: body.notes,
@@ -53,6 +53,10 @@ export async function PATCH(req: NextRequest, { params }: Params) {
       fields.push(`${col} = ?`)
       values.push(val)
     }
+  }
+  if (body.departureId !== undefined) {
+    fields.push('departure_id = ?', 'departure_notes_other = ?')
+    values.push(body.departureId, body.departureId ? null : (body.departureNotesOther || null))
   }
   if (fields.length === 0) {
     return NextResponse.json({ error: 'No fields to update' }, { status: 400 })

@@ -34,7 +34,8 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json() as {
     clientName?: string; clientEmail?: string; bookingReference?: string
-    currency?: string; departureId?: number; dueDate?: string; notes?: string; items?: InvoiceItemInput[]
+    currency?: string; departureId?: number; departureNotesOther?: string
+    dueDate?: string; notes?: string; items?: InvoiceItemInput[]
   }
   if (!body.clientName) {
     return NextResponse.json({ error: 'clientName is required' }, { status: 400 })
@@ -58,8 +59,8 @@ export async function POST(req: NextRequest) {
       // amount starts at 0 (the column is NOT NULL) — replaceInvoiceItems
       // below sets the real, derived total from the line items.
       const result = await db.prepare(
-        `INSERT INTO invoices (invoice_number, client_name, client_email, booking_reference, amount, currency, departure_id, due_date, notes)
-         VALUES (?, ?, ?, ?, 0, ?, ?, ?, ?)`
+        `INSERT INTO invoices (invoice_number, client_name, client_email, booking_reference, amount, currency, departure_id, departure_notes_other, due_date, notes)
+         VALUES (?, ?, ?, ?, 0, ?, ?, ?, ?, ?)`
       ).bind(
         invoiceNumber,
         body.clientName,
@@ -67,6 +68,7 @@ export async function POST(req: NextRequest) {
         bookingReference,
         body.currency ?? 'USD',
         body.departureId ?? null,
+        body.departureId ? null : (body.departureNotesOther || null),
         body.dueDate ?? null,
         body.notes ?? null,
       ).run()

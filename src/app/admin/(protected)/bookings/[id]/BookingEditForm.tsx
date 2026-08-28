@@ -16,6 +16,7 @@ export default function BookingEditForm({ booking }: { booking: Booking }) {
     guestsCount: String(booking.guests_count),
     status: booking.status,
     cancellationReason: booking.cancellation_reason ?? '',
+    specialRequests: booking.special_requests ?? '',
   })
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -71,6 +72,16 @@ export default function BookingEditForm({ booking }: { booking: Booking }) {
           <textarea value={form.cancellationReason} onChange={(e) => update('cancellationReason', e.target.value)} rows={2} className={inputCls} />
         </div>
       )}
+      <div>
+        <label className={labelCls}>Special Requests / Notes</label>
+        <textarea
+          value={form.specialRequests}
+          onChange={(e) => update('specialRequests', e.target.value)}
+          rows={3}
+          className={inputCls}
+          placeholder="Anything unique about this booking that doesn't fit the fields above — printed on the voucher if present."
+        />
+      </div>
       <div className="flex items-center gap-3">
         <button type="button" onClick={handleSave} disabled={saving} className="btn-primary" style={{ opacity: saving ? 0.5 : 1 }}>
           {saving ? 'Saving…' : 'Save Changes'}

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { PAY_TYPES, type PayType, type StaffMember } from '@/lib/hr'
 import type { Guide } from '@/lib/ops'
+import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 const PAY_TYPE_LABELS: Record<PayType, string> = { salary: 'Salary', daily_rate: 'Daily Rate', per_trip: 'Per Trip' }
 
@@ -12,7 +13,8 @@ export default function StaffEditForm({ staffMember, guides }: { staffMember: St
   const [form, setForm] = useState({
     name: staffMember.name,
     roleTitle: staffMember.role_title ?? '',
-    guideId: staffMember.guide_id ? String(staffMember.guide_id) : '',
+    guideId: staffMember.guide_id ? String(staffMember.guide_id) : staffMember.guide_name_other ? CUSTOM_OPTION_VALUE : '',
+    guideNameOther: staffMember.guide_name_other ?? '',
     payType: staffMember.pay_type,
     baseRate: String(staffMember.base_rate),
     currency: staffMember.currency,
@@ -29,13 +31,15 @@ export default function StaffEditForm({ staffMember, guides }: { staffMember: St
   async function handleSave() {
     setSaving(true)
     setSaved(false)
+    const isCustomGuide = form.guideId === CUSTOM_OPTION_VALUE
     await fetch(`/api/admin/staff/${staffMember.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         ...form,
         baseRate: parseFloat(form.baseRate) || 0,
-        guideId: form.guideId ? Number(form.guideId) : null,
+        guideId: isCustomGuide || !form.guideId ? null : Number(form.guideId),
+        guideNameOther: isCustomGuide ? form.guideNameOther.trim() : null,
       }),
     })
     setSaving(false)
@@ -57,10 +61,17 @@ export default function StaffEditForm({ staffMember, guides }: { staffMember: St
         </div>
         <div>
           <label className="field-label">Linked Guide</label>
-          <select value={form.guideId} onChange={(e) => update('guideId', e.target.value)} className="field-input">
-            <option value="">—</option>
-            {guides.map((g) => <option key={g.id} value={g.id}>{g.name}</option>)}
-          </select>
+          <SelectWithCustom
+            options={guides}
+            getOptionValue={(g) => String(g.id)}
+            getOptionLabel={(g) => g.name}
+            value={form.guideId}
+            onChange={(v) => update('guideId', v)}
+            customValue={form.guideNameOther}
+            onCustomChange={(v) => update('guideNameOther', v)}
+            placeholder="—"
+            customPlaceholder="Enter guide name…"
+          />
         </div>
       </div>
       <div className="grid grid-cols-3 gap-4">
