@@ -67,6 +67,7 @@ const LOCALE_LANGUAGE: Record<string, string> = {
   ar: 'Modern Standard Arabic',
   he: 'Hebrew',
   hi: 'Hindi',
+  th: 'Thai',
 }
 
 export const RESULTS_SENTINEL = '<<<RESULTS>>>'

@@ -1,7 +1,7 @@
 import { getCloudflareContext } from '@opennextjs/cloudflare'
 
 // Kept in sync with routing.ts's locale list, minus 'en' (the fallback default).
-const SUPPORTED_LOCALES = ['fr', 'es', 'de', 'ru', 'zh', 'zh-TW', 'it', 'nl', 'pt', 'ja', 'ko', 'ar', 'he', 'hi'] as const
+const SUPPORTED_LOCALES = ['fr', 'es', 'de', 'ru', 'zh', 'zh-TW', 'it', 'nl', 'pt', 'ja', 'ko', 'ar', 'he', 'hi', 'th'] as const
 
 export function normalizeLocale(locale: string): string {
   return (SUPPORTED_LOCALES as readonly string[]).includes(locale) ? locale : 'en'

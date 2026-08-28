@@ -75,6 +75,10 @@ const PAYMENTS_KEYWORDS: Record<Locale, string[]> = {
     'सफारी डिपॉज़िट ऑनलाइन भुगतान', 'EWA Safari Outfitters को भुगतान', 'Pesapal से सफारी भुगतान',
     'तंजानिया सफारी भुगतान के तरीके', 'सफारी बकाया राशि का भुगतान', 'मोबाइल मनी से सफारी भुगतान',
   ],
+  th: [
+    'ชำระเงินมัดจำซาฟารีออนไลน์', 'ชำระเงินให้ EWA Safari Outfitters', 'ชำระค่าซาฟารีผ่าน Pesapal',
+    'วิธีชำระเงินซาฟารีแทนซาเนีย', 'ชำระยอดคงเหลือค่าซาฟารี', 'ชำระเงินซาฟารีผ่านมือถือ',
+  ],
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
