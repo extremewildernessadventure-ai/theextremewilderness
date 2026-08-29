@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getDb } from '@/lib/db'
-import type { Booking, LodgeBooking } from '@/lib/bookings'
+import type { Booking, LodgeBooking, CustomBooking } from '@/lib/bookings'
 import type { Departure } from '@/lib/departures'
 import type { Guide, Vehicle, OpsLodge } from '@/lib/ops'
 import { packages } from '@/data/packages'
@@ -24,11 +24,12 @@ export default async function BookingVoucherPage({ params }: Props) {
   const booking = await db.prepare('SELECT * FROM bookings WHERE id = ?').bind(id).first<Booking>()
   if (!booking) notFound()
 
-  const [departure, guide, vehicle, { results: lodgeBookings }] = await Promise.all([
+  const [departure, guide, vehicle, { results: lodgeBookings }, { results: customBookings }] = await Promise.all([
     db.prepare('SELECT * FROM departures WHERE id = ?').bind(booking.departure_id).first<Departure>(),
     booking.guide_id ? db.prepare('SELECT * FROM guides WHERE id = ?').bind(booking.guide_id).first<Guide>() : null,
     booking.vehicle_id ? db.prepare('SELECT * FROM vehicles WHERE id = ?').bind(booking.vehicle_id).first<Vehicle>() : null,
     db.prepare('SELECT * FROM lodge_bookings WHERE booking_id = ? ORDER BY check_in ASC').bind(id).all<LodgeBooking>(),
+    db.prepare('SELECT * FROM custom_bookings WHERE booking_id = ? ORDER BY created_at ASC').bind(id).all<CustomBooking>(),
   ])
 
   const lodgeIds = lodgeBookings.filter((lb) => lb.lodge_id).map((lb) => lb.lodge_id as number)
@@ -44,7 +45,6 @@ export default async function BookingVoucherPage({ params }: Props) {
   const vehicleLabel = vehicle?.plate_number ?? (booking.vehicle_notes_other ? sanitizeForPdf(booking.vehicle_notes_other) : null)
   const clientName = sanitizeForPdf(booking.client_name)
   const specialRequests = booking.special_requests ? sanitizeForPdf(booking.special_requests) : null
-  const customDescription = booking.custom_description ? sanitizeForPdf(booking.custom_description) : null
 
   return (
     <>
@@ -75,14 +75,7 @@ export default async function BookingVoucherPage({ params }: Props) {
           </div>
         </div>
 
-        {booking.booking_type === 'custom' ? (
-          customDescription && (
-            <div className="mb-7 no-break">
-              <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-2">What&apos;s Booked</h2>
-              <p className="text-sm text-gray-700 whitespace-pre-wrap">{customDescription}</p>
-            </div>
-          )
-        ) : departure && (
+        {departure && (
           <div className="mb-7 no-break">
             <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-2">Trip</h2>
             <p className="text-sm font-bold text-gray-900">{pkg?.name ?? departure.package_slug}</p>
@@ -115,6 +108,24 @@ export default async function BookingVoucherPage({ params }: Props) {
                   </div>
                 )
               })}
+            </div>
+          </div>
+        )}
+
+        {customBookings.length > 0 && (
+          <div className="mb-7 no-break">
+            <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-3">Custom Bookings</h2>
+            <div className="space-y-4">
+              {customBookings.map((cb) => (
+                <div key={cb.id} className="border border-gray-200 rounded-lg p-4">
+                  <p className="text-sm font-bold text-gray-900">{sanitizeForPdf(cb.description)}</p>
+                  <div className="text-sm text-gray-600 mt-1 space-y-0.5">
+                    {(cb.start_date || cb.end_date) && <p>{cb.start_date ?? '…'} → {cb.end_date ?? '…'}</p>}
+                    {cb.contact_info && <p className="font-semibold text-gray-800">Contact: {sanitizeForPdf(cb.contact_info)}</p>}
+                    {cb.notes && <p className="whitespace-pre-wrap">{sanitizeForPdf(cb.notes)}</p>}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}

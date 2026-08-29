@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { getDb } from '@/lib/db'
-import type { Booking, LodgeBooking } from '@/lib/bookings'
+import type { Booking, LodgeBooking, CustomBooking } from '@/lib/bookings'
 import type { Departure } from '@/lib/departures'
 import type { Guide, Vehicle, OpsLodge } from '@/lib/ops'
 import { packages } from '@/data/packages'
@@ -9,6 +9,7 @@ import DeleteButton from '@/components/admin/DeleteButton'
 import BookingEditForm from './BookingEditForm'
 import BookingAssignmentPanel from './BookingAssignmentPanel'
 import LodgeBookingPanel from './LodgeBookingPanel'
+import CustomBookingsPanel from './CustomBookingsPanel'
 import SendVoucherButton from './SendVoucherButton'
 
 export const dynamic = 'force-dynamic'
@@ -21,12 +22,13 @@ export default async function BookingDetailPage({ params }: Props) {
   const booking = await db.prepare('SELECT * FROM bookings WHERE id = ?').bind(id).first<Booking>()
   if (!booking) notFound()
 
-  const [departure, { results: guides }, { results: vehicles }, { results: lodges }, { results: lodgeBookings }] = await Promise.all([
+  const [departure, { results: guides }, { results: vehicles }, { results: lodges }, { results: lodgeBookings }, { results: customBookings }] = await Promise.all([
     db.prepare('SELECT * FROM departures WHERE id = ?').bind(booking.departure_id).first<Departure>(),
     db.prepare('SELECT * FROM guides WHERE active = 1 ORDER BY name ASC').all<Guide>(),
     db.prepare('SELECT * FROM vehicles ORDER BY plate_number ASC').all<Vehicle>(),
     db.prepare('SELECT * FROM ops_lodges ORDER BY name ASC').all<OpsLodge>(),
     db.prepare('SELECT * FROM lodge_bookings WHERE booking_id = ? ORDER BY check_in ASC').bind(id).all<LodgeBooking>(),
+    db.prepare('SELECT * FROM custom_bookings WHERE booking_id = ? ORDER BY created_at ASC').bind(id).all<CustomBooking>(),
   ])
 
   const pkg = departure ? packages.find((p) => p.slug === departure.package_slug) : undefined
@@ -40,14 +42,7 @@ export default async function BookingDetailPage({ params }: Props) {
       main={
         <>
           <div className="panel space-y-3 text-sm">
-            {booking.booking_type === 'custom' ? (
-              booking.custom_description && (
-                <div className="flex justify-between gap-4">
-                  <span style={{ color: 'var(--grey)' }}>What&apos;s Booked</span>
-                  <span className="text-right whitespace-pre-wrap">{booking.custom_description}</span>
-                </div>
-              )
-            ) : departure && (
+            {departure && (
               <div className="flex justify-between">
                 <span style={{ color: 'var(--grey)' }}>Departure</span>
                 <span>{pkg?.name ?? departure.package_slug} ({departure.start_date} → {departure.end_date})</span>
@@ -72,6 +67,8 @@ export default async function BookingDetailPage({ params }: Props) {
           </div>
 
           <LodgeBookingPanel bookingId={booking.id} lodgeBookings={lodgeBookings} lodges={lodges} />
+
+          <CustomBookingsPanel bookingId={booking.id} customBookings={customBookings} />
 
           <SendVoucherButton bookingId={booking.id} hasClientEmail={!!booking.client_email} lastSentAt={booking.voucher_sent_at} />
 

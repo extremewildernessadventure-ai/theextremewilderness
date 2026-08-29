@@ -6,12 +6,8 @@ export const BOOKING_STATUSES: BookingStatus[] = ['confirmed', 'pending', 'cance
 export type LodgeBookingStatus = 'pending' | 'confirmed' | 'cancelled'
 export const LODGE_BOOKING_STATUSES: LodgeBookingStatus[] = ['pending', 'confirmed', 'cancelled']
 
-// 'safari' bookings are anchored to a departure (departure_id set); 'custom'
-// bookings cover anything with no safari/departure involved at all — a
-// venue rental, a pitch booking for a tournament, an arena for a
-// performance — where custom_description is what's actually being booked.
-export type BookingType = 'safari' | 'custom'
-export const BOOKING_TYPES: BookingType[] = ['safari', 'custom']
+export type CustomBookingStatus = 'pending' | 'confirmed' | 'cancelled'
+export const CUSTOM_BOOKING_STATUSES: CustomBookingStatus[] = ['pending', 'confirmed', 'cancelled']
 
 export interface Booking {
   id: number
@@ -30,8 +26,6 @@ export interface Booking {
   special_requests: string | null
   voucher_sent_at: string | null
   voucher_r2_key: string | null
-  booking_type: BookingType
-  custom_description: string | null
   created_at: string
   updated_at: string | null
 }
@@ -48,6 +42,21 @@ export interface LodgeBooking {
   room_type: string | null
   inclusions: string | null
   contact_info: string | null
+  created_at: string
+}
+
+// Sibling to LodgeBooking, for anything booked that isn't accommodation — a
+// venue, a pitch, an arena, equipment. Belongs to the same booking (same
+// client), shown as its own panel directly below Accommodation & Facilities.
+export interface CustomBooking {
+  id: number
+  booking_id: number
+  description: string
+  start_date: string | null
+  end_date: string | null
+  status: CustomBookingStatus
+  contact_info: string | null
+  notes: string | null
   created_at: string
 }
 

@@ -10,9 +10,9 @@ export type AdminTableColumn<T> = {
 // pointing at the thing the user needs to create first — e.g. the
 // departures list points at "+ Create Departure" so the (otherwise
 // undiscoverable-when-empty) booking-creation flow has a way in. Gated
-// create-forms reached with a missing prerequisite (e.g. bookings/new
-// without ?departureId) should instead show a bordered warning panel and
-// disable submit, matching bookings/new/page.tsx's existing pattern — don't
+// create-forms reached with a missing prerequisite (e.g. quotes/new
+// without ?leadId) should instead show a bordered warning panel and
+// disable submit, matching quotes/new/page.tsx's existing pattern — don't
 // redirect or silently block.
 export type EmptyStateCta = { label: string; href: string }
 

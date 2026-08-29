@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
 import { recalculateSeatsBooked } from '@/lib/departures'
-import { BOOKING_TYPES, type BookingType } from '@/lib/bookings'
 
 export const dynamic = 'force-dynamic'
 
@@ -24,21 +23,11 @@ export async function POST(req: NextRequest) {
   }
   const body = await req.json() as {
     departureId?: number; leadId?: number; clientName?: string; clientEmail?: string
-    clientPhone?: string; guestsCount?: number; bookingType?: string; customDescription?: string
+    clientPhone?: string; guestsCount?: number
   }
 
-  const bookingType: BookingType = body.bookingType === 'custom' ? 'custom' : 'safari'
-  if (!BOOKING_TYPES.includes(bookingType)) {
-    return NextResponse.json({ error: 'Invalid bookingType' }, { status: 400 })
-  }
   if (!body.clientName?.trim()) {
     return NextResponse.json({ error: 'clientName is required' }, { status: 400 })
-  }
-  if (bookingType === 'safari' && !body.departureId) {
-    return NextResponse.json({ error: 'departureId is required for a safari booking' }, { status: 400 })
-  }
-  if (bookingType === 'custom' && !body.customDescription?.trim()) {
-    return NextResponse.json({ error: 'customDescription is required for a custom booking' }, { status: 400 })
   }
   const guestsCount = body.guestsCount ?? 1
   if (guestsCount <= 0) {
@@ -47,7 +36,11 @@ export async function POST(req: NextRequest) {
 
   const db = await getDb()
 
-  if (bookingType === 'safari') {
+  // departureId is optional — a booking with no departure at all (a venue
+  // rental, a one-off facility booking) is valid; what's actually being
+  // booked is recorded via Accommodation & Facilities / Custom Bookings on
+  // the booking's own page, not at creation time.
+  if (body.departureId) {
     const departure = await db.prepare('SELECT id FROM departures WHERE id = ?').bind(body.departureId).first()
     if (!departure) {
       return NextResponse.json({ error: 'Departure not found' }, { status: 404 })
@@ -55,16 +48,15 @@ export async function POST(req: NextRequest) {
   }
 
   const result = await db.prepare(
-    `INSERT INTO bookings (departure_id, lead_id, client_name, client_email, client_phone, guests_count, booking_type, custom_description)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+    `INSERT INTO bookings (departure_id, lead_id, client_name, client_email, client_phone, guests_count)
+     VALUES (?, ?, ?, ?, ?, ?)`
   ).bind(
-    bookingType === 'custom' ? null : body.departureId, body.leadId ?? null, body.clientName.trim(),
+    body.departureId ?? null, body.leadId ?? null, body.clientName.trim(),
     body.clientEmail ?? null, body.clientPhone ?? null, guestsCount,
-    bookingType, bookingType === 'custom' ? body.customDescription!.trim() : null,
   ).run()
 
-  if (bookingType === 'safari') {
-    await recalculateSeatsBooked(db, body.departureId!)
+  if (body.departureId) {
+    await recalculateSeatsBooked(db, body.departureId)
   }
 
   return NextResponse.json({ success: true, id: result.meta?.last_row_id })

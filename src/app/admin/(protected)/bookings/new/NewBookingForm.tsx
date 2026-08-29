@@ -1,24 +1,30 @@
 'use client'
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { Suspense, useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import type { Departure } from '@/lib/departures'
+import { packages } from '@/data/packages'
 
 const inputCls = 'field-input'
 const labelCls = 'field-label'
 
-// For anything that isn't a safari on a catalog departure — a venue rental,
-// a pitch booking for a corporate tournament, an arena for a performance,
-// research-trip facilities, a homestay with no departure attached, etc.
-// No departure/package concept here at all; what's actually being booked is
-// captured as free text (customDescription) rather than forced into a
-// structured field that wouldn't fit every case. Dates and any
-// accommodation/facility detail are added afterward via the booking's own
-// Accommodation & Facilities panel, which already supports free-text
-// entries and check-in/check-out dates.
-export default function NewCustomBookingPage() {
+function departureLabel(d: Departure): string {
+  const pkg = packages.find((p) => p.slug === d.package_slug)
+  return `${pkg?.name ?? d.package_slug} (${d.start_date})`
+}
+
+// Departure is optional here on purpose — a booking with no departure at
+// all (a venue rental, a one-off facility booking) is valid. What's
+// actually being booked is recorded afterward via Accommodation &
+// Facilities / Custom Bookings on the booking's own detail page, not asked
+// for at creation time.
+function NewBookingFormInner({ departures }: { departures: Departure[] }) {
   const router = useRouter()
-  const [form, setForm] = useState({ clientName: '', clientEmail: '', clientPhone: '', guestsCount: '1', customDescription: '' })
+  const searchParams = useSearchParams()
+  const initialDepartureId = searchParams.get('departureId') ?? ''
+
+  const [form, setForm] = useState({ clientName: '', clientEmail: '', clientPhone: '', guestsCount: '1', departureId: initialDepartureId })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -28,10 +34,6 @@ export default function NewCustomBookingPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!form.customDescription.trim()) {
-      setError('Describe what\'s being booked.')
-      return
-    }
     const guestsCount = parseInt(form.guestsCount, 10)
     if (!Number.isFinite(guestsCount) || guestsCount <= 0) {
       setError('Guests must be a positive whole number.')
@@ -44,7 +46,11 @@ export default function NewCustomBookingPage() {
       const res = await fetch('/api/admin/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, guestsCount, bookingType: 'custom' }),
+        body: JSON.stringify({
+          ...form,
+          departureId: form.departureId ? Number(form.departureId) : undefined,
+          guestsCount,
+        }),
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
@@ -63,22 +69,15 @@ export default function NewCustomBookingPage() {
 
   return (
     <div className="max-w-2xl">
-      <Link href="/admin/bookings" className="detail-back">← Back to Bookings</Link>
-      <h1 className="mb-1">New Custom Booking</h1>
-      <p className="text-sm text-gray-500 mb-6">For anything that isn&apos;t a safari on a departure — a venue, a pitch, an arena, a homestay, or any other one-off booking.</p>
+      <Link
+        href={form.departureId ? `/admin/departures/${form.departureId}` : '/admin/bookings'}
+        className="detail-back"
+      >
+        ← Back
+      </Link>
+      <h1 className="mb-6">New Booking</h1>
 
       <form onSubmit={handleSubmit} className="panel space-y-4">
-        <div>
-          <label className={labelCls}>What are you booking? *</label>
-          <textarea
-            required
-            value={form.customDescription}
-            onChange={(e) => update('customDescription', e.target.value)}
-            rows={3}
-            className={inputCls}
-            placeholder="e.g. Private arena — cultural performance, 3 nights; or Football pitch — corporate tournament, 2 days"
-          />
-        </div>
         <div>
           <label className={labelCls}>Client Name *</label>
           <input required value={form.clientName} onChange={(e) => update('clientName', e.target.value)} className={inputCls} />
@@ -97,11 +96,26 @@ export default function NewCustomBookingPage() {
           <label className={labelCls}>Guests *</label>
           <input type="number" min="1" step="1" required value={form.guestsCount} onChange={(e) => update('guestsCount', e.target.value)} className={`${inputCls} max-w-[140px]`} />
         </div>
+        <div>
+          <label className={labelCls}>Departure (optional)</label>
+          <select value={form.departureId} onChange={(e) => update('departureId', e.target.value)} className={inputCls}>
+            <option value="">— No departure (venue/facility booking) —</option>
+            {departures.map((d) => <option key={d.id} value={d.id}>{departureLabel(d)}</option>)}
+          </select>
+        </div>
         {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
         <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.5 : 1 }}>
           {loading ? 'Creating…' : 'Create Booking'}
         </button>
       </form>
     </div>
+  )
+}
+
+export default function NewBookingForm({ departures }: { departures: Departure[] }) {
+  return (
+    <Suspense fallback={null}>
+      <NewBookingFormInner departures={departures} />
+    </Suspense>
   )
 }
