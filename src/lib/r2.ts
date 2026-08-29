@@ -43,3 +43,10 @@ export function voucherKey(bookingId: number): string {
   // most recent one.
   return `vouchers/${bookingId}/${Date.now()}-voucher.pdf`
 }
+
+export function invoiceKey(invoiceId: number): string {
+  // Same timestamped-copy convention as voucherKey — a re-send after items
+  // change keeps the old PDF retrievable, invoices.sent_r2_key always
+  // points at the most recent one.
+  return `invoices/${invoiceId}/${Date.now()}-invoice.pdf`
+}

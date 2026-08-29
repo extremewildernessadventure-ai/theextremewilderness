@@ -44,6 +44,16 @@ export async function recalculateInvoiceTotals(db: D1Database, invoiceId: number
   ).bind(amount, amountPaid, status, invoiceId).run()
 }
 
+// Tracking after a successful send, mirroring markVoucherSent's
+// convention in src/lib/bookings.ts (same shape, called the same way —
+// after the email has already gone out, not wrapped in a try/catch there
+// either).
+export async function markInvoiceSent(db: D1Database, invoiceId: number, r2Key: string): Promise<void> {
+  await db.prepare('UPDATE invoices SET sent_at = CURRENT_TIMESTAMP, sent_r2_key = ? WHERE id = ?')
+    .bind(r2Key, invoiceId)
+    .run()
+}
+
 export interface InvoiceItemInput {
   description: string
   quantity: number

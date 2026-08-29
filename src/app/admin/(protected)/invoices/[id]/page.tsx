@@ -7,6 +7,7 @@ import InvoiceItemsEditor from './InvoiceItemsEditor'
 import PaymentPanel from './PaymentPanel'
 import PesapalPanel from './PesapalPanel'
 import PaymentOptionsPanel from './PaymentOptionsPanel'
+import SendInvoiceButton from './SendInvoiceButton'
 import DeleteInvoiceButton from './DeleteInvoiceButton'
 import DetailTwoColumn from '@/components/admin/DetailTwoColumn'
 
@@ -81,7 +82,12 @@ export default async function InvoiceDetailPage({ params }: Props) {
 
           <PaymentOptionsPanel invoice={invoice} payments={payments} latestOrder={latestOrder} />
 
-          <Link href={`/admin/invoices/${invoice.id}/pdf`} className="btn-primary">
+          <div className="panel space-y-3">
+            <h2 className="mb-1">Send Invoice</h2>
+            <SendInvoiceButton invoiceId={invoice.id} hasClientEmail={!!invoice.client_email} lastSentAt={invoice.sent_at} />
+          </div>
+
+          <Link href={`/admin/invoices/${invoice.id}/pdf`} className="btn-outline">
             Print / Download PDF
           </Link>
 

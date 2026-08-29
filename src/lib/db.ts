@@ -37,6 +37,8 @@ export interface Invoice {
   status: 'unpaid' | 'partial' | 'paid' | 'cancelled'
   due_date: string | null
   notes: string | null
+  sent_at: string | null
+  sent_r2_key: string | null
   created_at: string
   updated_at: string | null
 }
