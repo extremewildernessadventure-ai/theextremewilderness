@@ -7,7 +7,23 @@ import type { Departure } from '@/lib/departures'
 import { packages } from '@/data/packages'
 import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
-const STATUSES = ['unpaid', 'partial', 'paid', 'cancelled'] as const
+// unpaid/partial/paid are never set here — they're always derived from
+// real payment records (see recalculateInvoiceTotals/deriveStatus in
+// src/lib/invoices.ts), driven by the "Record a Payment" form below on
+// this page. Cancelled is the one genuinely manual state (deriveStatus
+// treats it as sticky), so it's the only status this form can set.
+const STATUS_LABELS: Record<Invoice['status'], string> = {
+  unpaid: 'Unpaid',
+  partial: 'Partially Paid',
+  paid: 'Paid',
+  cancelled: 'Cancelled',
+}
+const PILL_CLASS: Record<Invoice['status'], string> = {
+  unpaid: 'few',
+  partial: 'open',
+  paid: 'full',
+  cancelled: 'cancelled',
+}
 
 function departureLabel(d: Departure): string {
   const pkg = packages.find((p) => p.slug === d.package_slug)
@@ -25,12 +41,12 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
       ? String(invoice.departure_id)
       : invoice.departure_notes_other ? CUSTOM_OPTION_VALUE : '',
     dueDate: invoice.due_date ?? '',
-    status: invoice.status,
     notes: invoice.notes ?? '',
   })
   const [departureNotesOther, setDepartureNotesOther] = useState(invoice.departure_notes_other ?? '')
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [togglingCancel, setTogglingCancel] = useState(false)
 
   function update<K extends keyof typeof form>(key: K, value: string) {
     setForm((f) => ({ ...f, [key]: value }))
@@ -52,6 +68,24 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
     })
     setSaving(false)
     setSaved(true)
+    router.refresh()
+  }
+
+  // Reinstating always resets to a fresh 'unpaid' — if real payments were
+  // somehow already on record against this invoice, the next payment/item
+  // edit self-corrects the status via recalculateInvoiceTotals, same as
+  // everywhere else it's derived. Balance Due in the panel below is always
+  // computed from the real numbers regardless of this label.
+  async function handleToggleCancel() {
+    const nextStatus = invoice.status === 'cancelled' ? 'unpaid' : 'cancelled'
+    if (nextStatus === 'cancelled' && !confirm('Cancel this invoice?')) return
+    setTogglingCancel(true)
+    await fetch(`/api/admin/invoices/${invoice.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status: nextStatus }),
+    })
+    setTogglingCancel(false)
     router.refresh()
   }
 
@@ -101,9 +135,18 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
       </div>
       <div>
         <label className="field-label">Status</label>
-        <select value={form.status} onChange={(e) => update('status', e.target.value)} className="field-input capitalize">
-          {STATUSES.map((s) => <option key={s} value={s} className="capitalize">{s}</option>)}
-        </select>
+        <div className="flex items-center gap-3">
+          <span className={`pill ${PILL_CLASS[invoice.status]}`}><i />{STATUS_LABELS[invoice.status]}</span>
+          <button
+            type="button"
+            onClick={handleToggleCancel}
+            disabled={togglingCancel}
+            className="text-xs font-semibold text-red-500 hover:underline disabled:opacity-50"
+          >
+            {togglingCancel ? 'Working…' : invoice.status === 'cancelled' ? 'Reinstate' : 'Cancel Invoice'}
+          </button>
+        </div>
+        <p className="text-xs text-gray-400 mt-1">Unpaid/Partial/Paid are set automatically from recorded payments — see Payments below.</p>
       </div>
       <div>
         <label className="field-label">Internal Notes</label>
