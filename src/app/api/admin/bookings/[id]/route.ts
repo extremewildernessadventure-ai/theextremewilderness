@@ -29,7 +29,6 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   const body = await req.json() as {
     clientName?: string; clientEmail?: string; clientPhone?: string
     guestsCount?: number; status?: string; cancellationReason?: string; specialRequests?: string
-    customDescription?: string
   }
 
   if (body.status !== undefined && !BOOKING_STATUSES.includes(body.status as Booking['status'])) {
@@ -44,7 +43,6 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     status: body.status,
     cancellation_reason: body.cancellationReason,
     special_requests: body.specialRequests,
-    custom_description: body.customDescription,
   }
   const fields: string[] = []
   const values: unknown[] = []
@@ -90,6 +88,7 @@ export async function DELETE(_req: NextRequest, { params }: Params) {
 
   await db.batch([
     db.prepare('DELETE FROM lodge_bookings WHERE booking_id = ?').bind(id),
+    db.prepare('DELETE FROM custom_bookings WHERE booking_id = ?').bind(id),
     db.prepare('DELETE FROM bookings WHERE id = ?').bind(id),
   ])
   if (booking.departure_id !== null) {

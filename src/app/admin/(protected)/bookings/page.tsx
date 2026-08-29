@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { getDb } from '@/lib/db'
 import type { Booking } from '@/lib/bookings'
-import { anyDepartureExists } from '@/lib/departures'
 import AdminTable, { type AdminTableColumn } from '@/components/admin/AdminTable'
 import BookingStatusSelect from './BookingStatusSelect'
 
@@ -19,8 +18,8 @@ const columns: AdminTableColumn<Booking>[] = [
   {
     header: 'Type',
     render: (b) => (
-      <span className={`pill ${b.booking_type === 'custom' ? 'few' : 'open'}`}>
-        <i />{b.booking_type === 'custom' ? 'Custom' : 'Safari'}
+      <span className={`pill ${b.departure_id === null ? 'few' : 'open'}`}>
+        <i />{b.departure_id === null ? 'Custom' : 'Safari'}
       </span>
     ),
   },
@@ -33,22 +32,15 @@ export default async function BookingsListPage() {
   const db = await getDb()
   const { results } = await db.prepare('SELECT * FROM bookings ORDER BY created_at DESC').all<Booking>()
 
-  // Safari bookings are only ever created from a departure's own detail
-  // page (no standalone entry point for that type) — if there are no
-  // departures yet, say so explicitly rather than just showing a blank
-  // list. Custom bookings (the "+ Custom Booking" button above) have their
-  // own standalone entry point regardless of departures existing.
-  const hasDepartures = results.length > 0 || (await anyDepartureExists(db))
-
   return (
     <div>
       <div className="page-head">
         <div>
           <h1>Bookings</h1>
         </div>
-        <Link href="/admin/bookings/new-custom" className="btn-primary">
+        <Link href="/admin/bookings/new" className="btn-primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M12 5v14M5 12h14" /></svg>
-          Custom Booking
+          New Booking
         </Link>
       </div>
 
@@ -56,12 +48,8 @@ export default async function BookingsListPage() {
         columns={columns}
         rows={results}
         rowKey={(b) => b.id}
-        emptyMessage={
-          hasDepartures
-            ? 'No bookings yet.'
-            : 'No bookings yet — safari bookings are created from a departure, and there are no departures yet. Use "+ Custom Booking" above for anything else.'
-        }
-        emptyAction={hasDepartures ? undefined : { label: '+ Create Departure', href: '/admin/departures/new' }}
+        emptyMessage="No bookings yet."
+        emptyAction={{ label: '+ New Booking', href: '/admin/bookings/new' }}
       />
     </div>
   )
