@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 export default function SendInvoiceButton({ invoiceId, hasClientEmail, lastSentAt }: {
@@ -29,24 +30,34 @@ export default function SendInvoiceButton({ invoiceId, hasClientEmail, lastSentA
   }
 
   return (
-    <div className="flex items-center gap-3 flex-wrap">
+    <div className="space-y-3">
       {lastSentAt && (
-        <span className="text-xs text-gray-500">Last sent {new Date(lastSentAt).toLocaleString()}</span>
+        <p className="text-xs text-gray-500">Last sent {new Date(lastSentAt).toLocaleString()}</p>
       )}
-      <button
-        type="button"
-        onClick={handleSend}
-        disabled={sending || !hasClientEmail}
-        className="btn-primary"
-        style={{ opacity: sending || !hasClientEmail ? 0.5 : 1 }}
-      >
-        {sending ? 'Sending…' : lastSentAt ? 'Resend Invoice' : 'Send Invoice'}
-      </button>
-      {sent && <span className="text-green-600 text-sm">Sent</span>}
       {!hasClientEmail && (
-        <span className="text-xs" style={{ color: 'var(--rust)' }}>Add a client email before sending.</span>
+        <p className="text-xs" style={{ color: 'var(--rust)' }}>Add a client email above before sending.</p>
       )}
-      {error && <p role="alert" className="text-red-500 text-xs w-full">{error}</p>}
+      <div className="flex items-center gap-3 flex-wrap">
+        <button
+          type="button"
+          onClick={handleSend}
+          disabled={sending || !hasClientEmail}
+          className="btn-primary"
+          style={{ opacity: sending || !hasClientEmail ? 0.5 : 1 }}
+        >
+          {sending ? 'Sending…' : lastSentAt ? 'Resend Invoice' : 'Send Invoice'}
+        </button>
+        <Link
+          href={`/admin/invoices/${invoiceId}/pdf`}
+          className="text-xs font-semibold hover:underline"
+          style={{ color: 'var(--pine)' }}
+          target="_blank"
+        >
+          Print / Download PDF
+        </Link>
+        {sent && <span className="text-green-600 text-sm">Sent</span>}
+      </div>
+      {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
     </div>
   )
 }

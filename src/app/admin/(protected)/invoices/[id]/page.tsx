@@ -82,21 +82,20 @@ export default async function InvoiceDetailPage({ params }: Props) {
 
           <PaymentOptionsPanel invoice={invoice} payments={payments} latestOrder={latestOrder} />
 
-          <div className="panel space-y-3">
-            <h2 className="mb-1">Send Invoice</h2>
-            <SendInvoiceButton invoiceId={invoice.id} hasClientEmail={!!invoice.client_email} lastSentAt={invoice.sent_at} />
-          </div>
-
-          <Link href={`/admin/invoices/${invoice.id}/pdf`} className="btn-outline">
-            Print / Download PDF
-          </Link>
-
           <div className="pt-6 border-t border-gray-200">
             <DeleteInvoiceButton invoiceId={invoice.id} invoiceNumber={invoice.invoice_number} />
           </div>
         </>
       }
-      sidebar={<InvoiceEditForm invoice={invoice} departures={departures} />}
+      sidebar={
+        <>
+          <InvoiceEditForm invoice={invoice} departures={departures} />
+          <div className="panel space-y-3">
+            <h2 className="mb-1">Send Invoice</h2>
+            <SendInvoiceButton invoiceId={invoice.id} hasClientEmail={!!invoice.client_email} lastSentAt={invoice.sent_at} />
+          </div>
+        </>
+      }
     />
   )
 }
