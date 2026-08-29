@@ -9,6 +9,7 @@ import type { NewsletterSubscriber } from '@/lib/newsletter'
 import DetailTwoColumn from '@/components/admin/DetailTwoColumn'
 import DeleteButton from '@/components/admin/DeleteButton'
 import ClientEditForm from './ClientEditForm'
+import MergeClientPanel from './MergeClientPanel'
 
 export const dynamic = 'force-dynamic'
 
@@ -38,12 +39,13 @@ export default async function ClientDetailPage({ params }: Props) {
   const client = await db.prepare('SELECT * FROM clients WHERE id = ?').bind(id).first<Client>()
   if (!client) notFound()
 
-  const [{ results: leads }, { results: bookings }, { results: invoices }, { results: documents }, { results: subscriptions }] = await Promise.all([
+  const [{ results: leads }, { results: bookings }, { results: invoices }, { results: documents }, { results: subscriptions }, { results: otherClients }] = await Promise.all([
     db.prepare('SELECT * FROM leads WHERE client_id = ? ORDER BY created_at DESC').bind(id).all<Lead>(),
     db.prepare('SELECT * FROM bookings WHERE client_id = ? ORDER BY created_at DESC').bind(id).all<Booking>(),
     db.prepare('SELECT * FROM invoices WHERE client_id = ? ORDER BY created_at DESC').bind(id).all<Invoice>(),
     db.prepare('SELECT * FROM documents WHERE client_id = ? ORDER BY uploaded_at DESC').bind(id).all<ClientDocument>(),
     db.prepare('SELECT * FROM newsletter_subscribers WHERE client_id = ? ORDER BY created_at DESC').bind(id).all<NewsletterSubscriber>(),
+    db.prepare('SELECT * FROM clients WHERE id != ? ORDER BY name ASC').bind(id).all<Client>(),
   ])
 
   return (
@@ -122,7 +124,12 @@ export default async function ClientDetailPage({ params }: Props) {
           </div>
         </>
       }
-      sidebar={<ClientEditForm client={client} />}
+      sidebar={
+        <>
+          <ClientEditForm client={client} />
+          <MergeClientPanel clientId={client.id} clientName={client.name} otherClients={otherClients} />
+        </>
+      }
     />
   )
 }
