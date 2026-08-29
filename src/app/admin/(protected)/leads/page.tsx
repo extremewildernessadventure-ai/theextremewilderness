@@ -6,6 +6,7 @@ import SearchBar from './SearchBar'
 import GmailStatusBanner from './GmailStatusBanner'
 import AdminTable, { type AdminTableColumn } from '@/components/admin/AdminTable'
 import Pager from '@/components/admin/Pager'
+import AddAsClientButton from '@/components/admin/AddAsClientButton'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
@@ -89,6 +90,10 @@ export default async function LeadsListPage({ searchParams }: Props) {
       header: 'Last Activity',
       className: 'dates-cell',
       render: (lead) => <span title={lead.created_at}>{formatRelativeTime(lead.created_at)}</span>,
+    },
+    {
+      header: '',
+      render: (lead) => <AddAsClientButton endpoint={`/api/admin/leads/${lead.id}/add-client`} clientId={lead.client_id} />,
     },
   ]
 

@@ -8,6 +8,7 @@ export interface NewsletterSubscriber {
   status: NewsletterSubscriberStatus
   source: string | null
   unsubscribe_token: string
+  client_id: number | null
   created_at: string
   unsubscribed_at: string | null
 }

@@ -57,13 +57,17 @@ export async function DELETE(_req: NextRequest, { params }: Params) {
   const db = await getDb()
 
   // Unlike Departures' hard block, unlinking is safe here — client_id is
-  // always optional on leads/bookings/invoices/documents/reviews (a plain
-  // cross-reference, not something those rows depend on to be valid), so a
-  // client can be deleted while its linked records simply lose the link.
+  // always optional on leads/bookings/invoices/documents/reviews/newsletter
+  // subscribers (a plain cross-reference, not something those rows depend
+  // on to be valid), so a client can be deleted while its linked records
+  // simply lose the link. Required, not optional cleanup — D1 enforces
+  // foreign keys unconditionally, so a leftover reference on any of these
+  // would make the DELETE below fail outright.
   await db.batch([
     db.prepare('UPDATE leads SET client_id = NULL WHERE client_id = ?').bind(id),
     db.prepare('UPDATE bookings SET client_id = NULL WHERE client_id = ?').bind(id),
     db.prepare('UPDATE invoices SET client_id = NULL WHERE client_id = ?').bind(id),
+    db.prepare('UPDATE newsletter_subscribers SET client_id = NULL WHERE client_id = ?').bind(id),
   ])
 
   const docCount = await db.prepare('SELECT COUNT(*) as count FROM documents WHERE client_id = ?').bind(id).first<{ count: number }>()

@@ -5,6 +5,7 @@ import type { Client } from '@/lib/clients'
 import type { Lead } from '@/lib/leads'
 import type { Booking } from '@/lib/bookings'
 import type { ClientDocument } from '@/lib/documents'
+import type { NewsletterSubscriber } from '@/lib/newsletter'
 import DetailTwoColumn from '@/components/admin/DetailTwoColumn'
 import DeleteButton from '@/components/admin/DeleteButton'
 import ClientEditForm from './ClientEditForm'
@@ -37,11 +38,12 @@ export default async function ClientDetailPage({ params }: Props) {
   const client = await db.prepare('SELECT * FROM clients WHERE id = ?').bind(id).first<Client>()
   if (!client) notFound()
 
-  const [{ results: leads }, { results: bookings }, { results: invoices }, { results: documents }] = await Promise.all([
+  const [{ results: leads }, { results: bookings }, { results: invoices }, { results: documents }, { results: subscriptions }] = await Promise.all([
     db.prepare('SELECT * FROM leads WHERE client_id = ? ORDER BY created_at DESC').bind(id).all<Lead>(),
     db.prepare('SELECT * FROM bookings WHERE client_id = ? ORDER BY created_at DESC').bind(id).all<Booking>(),
     db.prepare('SELECT * FROM invoices WHERE client_id = ? ORDER BY created_at DESC').bind(id).all<Invoice>(),
     db.prepare('SELECT * FROM documents WHERE client_id = ? ORDER BY uploaded_at DESC').bind(id).all<ClientDocument>(),
+    db.prepare('SELECT * FROM newsletter_subscribers WHERE client_id = ? ORDER BY created_at DESC').bind(id).all<NewsletterSubscriber>(),
   ])
 
   return (
@@ -78,6 +80,17 @@ export default async function ClientDetailPage({ params }: Props) {
                   <Link href={`/admin/invoices/${inv.id}`} className="text-sm text-brand hover:underline">
                     {inv.invoice_number} — {inv.currency} {inv.amount.toLocaleString()}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </LinkedSection>
+
+          <LinkedSection title="Newsletter" empty={subscriptions.length === 0}>
+            <ul className="space-y-1.5">
+              {subscriptions.map((s) => (
+                <li key={s.id} className="flex items-center justify-between text-sm">
+                  <span className="text-gray-700">{s.email}</span>
+                  <span className={`pill ${s.status === 'subscribed' ? 'open' : 'full'}`}>{s.status}</span>
                 </li>
               ))}
             </ul>

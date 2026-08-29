@@ -57,6 +57,7 @@ export interface Lead {
   notes: string | null
   trip_start_date: string | null
   trip_end_date: string | null
+  client_id: number | null
   created_at: string
   updated_at: string | null
 }
