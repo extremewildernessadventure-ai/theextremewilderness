@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
 import { recalculateSeatsBooked } from '@/lib/departures'
+import { resolveClientId } from '@/lib/clients'
 
 export const dynamic = 'force-dynamic'
 
@@ -22,7 +23,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
   const body = await req.json() as {
-    departureId?: number; leadId?: number; clientName?: string; clientEmail?: string
+    departureId?: number; leadId?: number; clientId?: number; clientName?: string; clientEmail?: string
     clientPhone?: string; guestsCount?: number
   }
 
@@ -47,11 +48,21 @@ export async function POST(req: NextRequest) {
     }
   }
 
+  // One canonical client record either way — reuse the picked one, dedupe
+  // by email against the existing rolodex, or create a fresh one from the
+  // name/email/phone typed here (see resolveClientId's own comment).
+  const clientId = await resolveClientId(db, {
+    clientId: body.clientId,
+    name: body.clientName.trim(),
+    email: body.clientEmail,
+    phone: body.clientPhone,
+  })
+
   const result = await db.prepare(
-    `INSERT INTO bookings (departure_id, lead_id, client_name, client_email, client_phone, guests_count)
-     VALUES (?, ?, ?, ?, ?, ?)`
+    `INSERT INTO bookings (departure_id, lead_id, client_id, client_name, client_email, client_phone, guests_count)
+     VALUES (?, ?, ?, ?, ?, ?, ?)`
   ).bind(
-    body.departureId ?? null, body.leadId ?? null, body.clientName.trim(),
+    body.departureId ?? null, body.leadId ?? null, clientId, body.clientName.trim(),
     body.clientEmail ?? null, body.clientPhone ?? null, guestsCount,
   ).run()
 

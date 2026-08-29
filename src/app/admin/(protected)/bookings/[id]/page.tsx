@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { getDb } from '@/lib/db'
 import type { Booking, LodgeBooking, CustomBooking } from '@/lib/bookings'
 import type { Departure } from '@/lib/departures'
@@ -46,6 +47,14 @@ export default async function BookingDetailPage({ params }: Props) {
               <div className="flex justify-between">
                 <span style={{ color: 'var(--grey)' }}>Departure</span>
                 <span>{pkg?.name ?? departure.package_slug} ({departure.start_date} → {departure.end_date})</span>
+              </div>
+            )}
+            {booking.client_id && (
+              <div className="flex justify-between">
+                <span style={{ color: 'var(--grey)' }}>Client</span>
+                <Link href={`/admin/clients/${booking.client_id}`} className="text-brand font-medium hover:underline">
+                  {booking.client_name} →
+                </Link>
               </div>
             )}
             {booking.client_email && (

@@ -41,7 +41,13 @@ export default async function InvoiceDetailPage({ params }: Props) {
           <div className="panel space-y-3 text-sm">
             <div className="flex justify-between">
               <span style={{ color: 'var(--grey)' }}>Client</span>
-              <span className="font-medium text-brand">{invoice.client_name}</span>
+              {invoice.client_id ? (
+                <Link href={`/admin/clients/${invoice.client_id}`} className="text-brand font-medium hover:underline">
+                  {invoice.client_name} →
+                </Link>
+              ) : (
+                <span className="font-medium text-brand">{invoice.client_name}</span>
+              )}
             </div>
             {invoice.client_email && (
               <div className="flex justify-between">

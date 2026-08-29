@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Plus, Trash2 } from 'lucide-react'
 import type { Departure } from '@/lib/departures'
+import type { Client } from '@/lib/clients'
 import { packages } from '@/data/packages'
 import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
@@ -29,12 +30,17 @@ function departureLabel(d: Departure): string {
   return `${pkg?.name ?? d.package_slug} (${d.start_date})`
 }
 
-export default function NewInvoiceForm({ departures }: { departures: Departure[] }) {
+function clientLabel(c: Client): string {
+  return c.email ? `${c.name} (${c.email})` : c.name
+}
+
+export default function NewInvoiceForm({ departures, clients }: { departures: Departure[]; clients: Client[] }) {
   const router = useRouter()
   const searchParams = useSearchParams()
   // Pre-fill from a Quote's "Convert to Invoice" link (/admin/quotes/[id]) —
   // a plain query-param deep-link, not a fetch, so no extra round-trip.
   const [form, setForm] = useState({
+    clientId: '',
     clientName: searchParams.get('clientName') ?? '',
     clientEmail: searchParams.get('clientEmail') ?? '',
     bookingReference: '',
@@ -57,6 +63,18 @@ export default function NewInvoiceForm({ departures }: { departures: Departure[]
 
   function update<K extends keyof typeof form>(key: K, value: string) {
     setForm((f) => ({ ...f, [key]: value }))
+  }
+
+  // Picking an existing client fills in Name/Email from their record, only
+  // where the field is still empty — same rule as bookings' client picker.
+  function handleClientSelect(value: string) {
+    const client = clients.find((c) => String(c.id) === value)
+    setForm((f) => ({
+      ...f,
+      clientId: value,
+      clientName: client ? (f.clientName || client.name) : f.clientName,
+      clientEmail: client ? (f.clientEmail || (client.email ?? '')) : f.clientEmail,
+    }))
   }
 
   function updateItem(index: number, key: keyof ItemRow, value: string) {
@@ -104,6 +122,7 @@ export default function NewInvoiceForm({ departures }: { departures: Departure[]
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
+          clientId: form.clientId ? Number(form.clientId) : undefined,
           departureId: isCustomDeparture || !form.departureId ? undefined : Number(form.departureId),
           departureNotesOther: isCustomDeparture ? departureNotesOther.trim() : undefined,
           items: parsedItems,
@@ -128,6 +147,13 @@ export default function NewInvoiceForm({ departures }: { departures: Departure[]
       <Link href="/admin/invoices" className="detail-back">← Back to Invoices</Link>
       <h1 className="mb-6">New Invoice</h1>
       <form onSubmit={handleSubmit} className="panel space-y-4">
+        <div>
+          <label className={labelCls}>Existing Client (optional)</label>
+          <select value={form.clientId} onChange={(e) => handleClientSelect(e.target.value)} className={inputCls}>
+            <option value="">— New / not listed —</option>
+            {clients.map((c) => <option key={c.id} value={c.id}>{clientLabel(c)}</option>)}
+          </select>
+        </div>
         <div>
           <label className={labelCls}>Client Name *</label>
           <input required value={form.clientName} onChange={(e) => update('clientName', e.target.value)} className={inputCls} />

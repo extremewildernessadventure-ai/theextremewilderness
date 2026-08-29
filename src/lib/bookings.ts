@@ -13,6 +13,7 @@ export interface Booking {
   id: number
   departure_id: number | null
   lead_id: number | null
+  client_id: number | null
   client_name: string
   client_email: string | null
   client_phone: string | null
