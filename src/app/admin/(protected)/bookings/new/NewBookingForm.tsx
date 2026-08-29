@@ -4,6 +4,7 @@ import { Suspense, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import type { Departure } from '@/lib/departures'
+import type { Client } from '@/lib/clients'
 import { packages } from '@/data/packages'
 
 const inputCls = 'field-input'
@@ -14,22 +15,44 @@ function departureLabel(d: Departure): string {
   return `${pkg?.name ?? d.package_slug} (${d.start_date})`
 }
 
+function clientLabel(c: Client): string {
+  return c.email ? `${c.name} (${c.email})` : c.name
+}
+
 // Departure is optional here on purpose — a booking with no departure at
 // all (a venue rental, a one-off facility booking) is valid. What's
 // actually being booked is recorded afterward via Accommodation &
 // Facilities / Custom Bookings on the booking's own detail page, not asked
 // for at creation time.
-function NewBookingFormInner({ departures }: { departures: Departure[] }) {
+function NewBookingFormInner({ departures, clients }: { departures: Departure[]; clients: Client[] }) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const initialDepartureId = searchParams.get('departureId') ?? ''
 
-  const [form, setForm] = useState({ clientName: '', clientEmail: '', clientPhone: '', guestsCount: '1', departureId: initialDepartureId })
+  const [form, setForm] = useState({ clientId: '', clientName: '', clientEmail: '', clientPhone: '', guestsCount: '1', departureId: initialDepartureId })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
   function update<K extends keyof typeof form>(key: K, value: string) {
     setForm((f) => ({ ...f, [key]: value }))
+  }
+
+  // Picking an existing client fills in Name/Email/Phone from their record
+  // — same "same one client, read everywhere else" idea as picking a guide
+  // — but only where the field is still empty, so it never clobbers
+  // something staff already typed (same rule already used for lodge
+  // provider-contact prefill).
+  function handleClientSelect(value: string) {
+    update('clientId', value)
+    const client = clients.find((c) => String(c.id) === value)
+    if (!client) return
+    setForm((f) => ({
+      ...f,
+      clientId: value,
+      clientName: f.clientName || client.name,
+      clientEmail: f.clientEmail || (client.email ?? ''),
+      clientPhone: f.clientPhone || (client.phone ?? ''),
+    }))
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -48,6 +71,7 @@ function NewBookingFormInner({ departures }: { departures: Departure[] }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
+          clientId: form.clientId ? Number(form.clientId) : undefined,
           departureId: form.departureId ? Number(form.departureId) : undefined,
           guestsCount,
         }),
@@ -78,6 +102,14 @@ function NewBookingFormInner({ departures }: { departures: Departure[] }) {
       <h1 className="mb-6">New Booking</h1>
 
       <form onSubmit={handleSubmit} className="panel space-y-4">
+        <div>
+          <label className={labelCls}>Existing Client (optional)</label>
+          <select value={form.clientId} onChange={(e) => handleClientSelect(e.target.value)} className={inputCls}>
+            <option value="">— New / not listed —</option>
+            {clients.map((c) => <option key={c.id} value={c.id}>{clientLabel(c)}</option>)}
+          </select>
+          <p className="text-xs text-gray-400 mt-1">Picking a client fills in the fields below — leave this on &quot;New&quot; and just type their details to add them to Clients &amp; Reviews.</p>
+        </div>
         <div>
           <label className={labelCls}>Client Name *</label>
           <input required value={form.clientName} onChange={(e) => update('clientName', e.target.value)} className={inputCls} />
@@ -112,10 +144,10 @@ function NewBookingFormInner({ departures }: { departures: Departure[] }) {
   )
 }
 
-export default function NewBookingForm({ departures }: { departures: Departure[] }) {
+export default function NewBookingForm({ departures, clients }: { departures: Departure[]; clients: Client[] }) {
   return (
     <Suspense fallback={null}>
-      <NewBookingFormInner departures={departures} />
+      <NewBookingFormInner departures={departures} clients={clients} />
     </Suspense>
   )
 }

@@ -24,6 +24,7 @@ declare global {
 export interface Invoice {
   id: number
   invoice_number: string
+  client_id: number | null
   client_name: string
   client_email: string | null
   booking_reference: string | null

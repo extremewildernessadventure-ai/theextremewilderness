@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
 import { replaceInvoiceItems, validateItems, type InvoiceItemInput } from '@/lib/invoices'
+import { resolveClientId } from '@/lib/clients'
 
 export const dynamic = 'force-dynamic'
 
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json() as {
-    clientName?: string; clientEmail?: string; bookingReference?: string
+    clientId?: number; clientName?: string; clientEmail?: string; bookingReference?: string
     currency?: string; departureId?: number; departureNotesOther?: string
     dueDate?: string; notes?: string; items?: InvoiceItemInput[]
   }
@@ -45,6 +46,16 @@ export async function POST(req: NextRequest) {
   }
   const items = body.items
 
+  const db = await getDb()
+  // Resolved once, outside the retry loop below — resolveClientId isn't
+  // idempotent to call twice for an email-less client (it would create a
+  // second client row on a booking_reference collision retry).
+  const clientId = await resolveClientId(db, {
+    clientId: body.clientId,
+    name: body.clientName,
+    email: body.clientEmail,
+  })
+
   const invoiceNumber = `INV-${new Date().getFullYear()}-${Date.now().toString().slice(-6)}`
   // Only auto-generated references are safe to silently retry on collision —
   // a staff-typed reference that collides means the value is already taken,
@@ -52,17 +63,17 @@ export async function POST(req: NextRequest) {
   const explicitBookingReference = body.bookingReference?.trim() || null
   let bookingReference = explicitBookingReference ?? generateBookingReference()
 
-  const db = await getDb()
   const maxAttempts = 5
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       // amount starts at 0 (the column is NOT NULL) — replaceInvoiceItems
       // below sets the real, derived total from the line items.
       const result = await db.prepare(
-        `INSERT INTO invoices (invoice_number, client_name, client_email, booking_reference, amount, currency, departure_id, departure_notes_other, due_date, notes)
-         VALUES (?, ?, ?, ?, 0, ?, ?, ?, ?, ?)`
+        `INSERT INTO invoices (invoice_number, client_id, client_name, client_email, booking_reference, amount, currency, departure_id, departure_notes_other, due_date, notes)
+         VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?)`
       ).bind(
         invoiceNumber,
+        clientId,
         body.clientName,
         body.clientEmail ?? null,
         bookingReference,
