@@ -3,6 +3,7 @@ import { getDb } from '@/lib/db'
 import type { NewsletterSubscriber } from '@/lib/newsletter'
 import AdminTable, { type AdminTableColumn } from '@/components/admin/AdminTable'
 import SearchBar from '@/components/admin/SearchBar'
+import AddAsClientButton from '@/components/admin/AddAsClientButton'
 import DeleteSubscriberButton from './DeleteSubscriberButton'
 
 export const dynamic = 'force-dynamic'
@@ -27,6 +28,7 @@ export default async function NewsletterListPage({ searchParams }: Props) {
       render: (s) => <span className={`pill ${s.status === 'subscribed' ? 'open' : 'full'}`}><i />{s.status}</span>,
     },
     { header: 'Subscribed', className: 'text-gray-500', render: (s) => new Date(s.created_at).toLocaleDateString() },
+    { header: '', render: (s) => <AddAsClientButton endpoint={`/api/admin/newsletter/${s.id}/add-client`} clientId={s.client_id} /> },
     { header: '', render: (s) => <DeleteSubscriberButton subscriberId={s.id} /> },
   ]
 

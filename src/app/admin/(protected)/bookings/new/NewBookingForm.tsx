@@ -28,8 +28,21 @@ function NewBookingFormInner({ departures, clients }: { departures: Departure[];
   const router = useRouter()
   const searchParams = useSearchParams()
   const initialDepartureId = searchParams.get('departureId') ?? ''
+  // Arriving from a lead's "Book Now" link — pre-select that client and
+  // carry the originating lead through to the booking (bookings.lead_id
+  // already existed, nothing had ever set it before this).
+  const initialClientId = searchParams.get('clientId') ?? ''
+  const initialLeadId = searchParams.get('leadId') ?? ''
+  const initialClient = clients.find((c) => String(c.id) === initialClientId)
 
-  const [form, setForm] = useState({ clientId: '', clientName: '', clientEmail: '', clientPhone: '', guestsCount: '1', departureId: initialDepartureId })
+  const [form, setForm] = useState({
+    clientId: initialClientId,
+    clientName: initialClient?.name ?? '',
+    clientEmail: initialClient?.email ?? '',
+    clientPhone: initialClient?.phone ?? '',
+    guestsCount: '1',
+    departureId: initialDepartureId,
+  })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -73,6 +86,7 @@ function NewBookingFormInner({ departures, clients }: { departures: Departure[];
           ...form,
           clientId: form.clientId ? Number(form.clientId) : undefined,
           departureId: form.departureId ? Number(form.departureId) : undefined,
+          leadId: initialLeadId ? Number(initialLeadId) : undefined,
           guestsCount,
         }),
       })

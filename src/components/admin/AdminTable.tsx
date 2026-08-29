@@ -48,18 +48,18 @@ export default function AdminTable<T>({
       <table>
         <thead>
           <tr>
-            {columns.map((col) => (
-              <th key={col.header}>{col.header}</th>
+            {columns.map((col, i) => (
+              <th key={i}>{col.header}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {rows.map((row) => (
             <tr key={rowKey(row)} className={rowClassName?.(row)}>
-              {columns.map((col) => {
+              {columns.map((col, i) => {
                 const cellClassName = typeof col.className === 'function' ? col.className(row) : col.className
                 return (
-                  <td key={col.header} className={cellClassName}>
+                  <td key={i} className={cellClassName}>
                     {col.render(row)}
                   </td>
                 )

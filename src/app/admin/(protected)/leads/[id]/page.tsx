@@ -11,6 +11,7 @@ import QuotesSummary from './QuotesSummary'
 import CommunicationLogPanel from './CommunicationLogPanel'
 import TripProgressPanel from './TripProgressPanel'
 import DetailTwoColumn from '@/components/admin/DetailTwoColumn'
+import AddAsClientButton from '@/components/admin/AddAsClientButton'
 
 export const dynamic = 'force-dynamic'
 
@@ -81,6 +82,13 @@ export default async function LeadDetailPage({ params }: Props) {
               </div>
             )}
           </div>
+
+          <AddAsClientButton
+            endpoint={`/api/admin/leads/${lead.id}/add-client`}
+            clientId={lead.client_id}
+            leadId={lead.id}
+            showBookNow
+          />
 
           {!lead.email_sent && (
             <div className="panel text-sm" style={{ borderLeft: '4px solid var(--gold)' }}>
