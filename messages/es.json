@@ -4330,12 +4330,12 @@
     "emailSubject": "Tu guía gratuita de trekking al Kilimanjaro — EWA Safari Outfitters",
     "emailGreeting": "Hola {name},",
     "emailIntro": "¡Gracias por tu interés en escalar el Kilimanjaro! Tu guía gratuita está lista: las 6 rutas comparadas, la lista completa de equipo, las mejores temporadas y consejos para alcanzar la cumbre.",
-    "emailCta": "Ver tu guía",
+    "emailCta": "Descarga tu PDF",
     "emailOutro": "¿Preguntas o listo para planificar tu ascenso? Simplemente responde a este correo — nuestro equipo suele responder en menos de 2 horas.",
     "emailSignoff": "Nos vemos en la montaña,",
     "emailTeam": "El equipo de EWA Safari Outfitters",
-    "emailItinerarySubject": "Tu solicitud de itinerario — EWA Safari Outfitters",
-    "emailItineraryIntro": "Gracias por solicitar el itinerario {context}. Nuestro equipo está preparando tu plan detallado día a día y te lo enviará a esta dirección en un plazo de 24 horas.",
+    "emailItinerarySubject": "Tu itinerario — EWA Safari Outfitters",
+    "emailItineraryIntro": "Gracias por solicitar el itinerario {context}. Tu PDF completo día a día ya está listo abajo — échale un vistazo y cuéntanos si quieres ajustar algo.",
     "viewLabel": "Ver la Guía Ahora"
   },
   "destinationsHub": {

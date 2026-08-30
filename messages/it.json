@@ -4278,12 +4278,12 @@
     "emailSubject": "La tua guida gratuita al trekking del Kilimanjaro — EWA Safari Outfitters",
     "emailGreeting": "Ciao {name},",
     "emailIntro": "Grazie per il tuo interesse a scalare il Kilimanjaro! La tua guida gratuita è pronta — tutti i 6 percorsi a confronto, la lista completa dell'attrezzatura, le migliori stagioni per la scalata e consigli per raggiungere la vetta.",
-    "emailCta": "Visualizza la tua guida",
+    "emailCta": "Scarica il tuo PDF",
     "emailOutro": "Domande o pronto a iniziare a pianificare la tua scalata? Rispondi semplicemente a questa email — il nostro team di solito risponde entro 2 ore.",
     "emailSignoff": "Ci vediamo in montagna,",
     "emailTeam": "Il team di EWA Safari Outfitters",
-    "emailItinerarySubject": "La tua richiesta di itinerario — EWA Safari Outfitters",
-    "emailItineraryIntro": "Grazie per aver richiesto l'itinerario {context}. Il nostro team sta preparando il tuo piano completo giorno per giorno e te lo invierà a questo indirizzo entro 24 ore.",
+    "emailItinerarySubject": "Il tuo itinerario — EWA Safari Outfitters",
+    "emailItineraryIntro": "Grazie per aver richiesto l'itinerario {context}. Il tuo PDF completo giorno per giorno è pronto qui sotto — dai un'occhiata e facci sapere se desideri qualche modifica.",
     "viewLabel": "Visualizza la guida ora"
   },
   "exitIntent": {
