@@ -7,7 +7,7 @@ import { getPackages } from '@/data/packages.i18n'
 import NewsletterForm from '@/components/home/NewsletterForm'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
 import BookNowButton from '@/components/booking/BookNowButton'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import PlanBuilderEntryCard from '@/components/plan/PlanBuilderEntryCard'
 import FilteredPackageGrid from '@/components/itineraries/FilteredPackageGrid'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
@@ -55,7 +55,6 @@ const EXTRA_META = [
 
 export default async function SafarisPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const packages = await getPackages(locale)
   const t = await getTranslations('itineraries')
   const tc = await getTranslations('common')

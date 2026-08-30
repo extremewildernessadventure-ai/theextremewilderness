@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation'
 import Image from 'next/image'
 import { ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
   Droplets, Pill, HeartPulse, Zap, Package, ShieldCheck } from 'lucide-react'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
@@ -61,7 +61,6 @@ interface Props {
 
 export default async function TrekkingPage({ params }: Props) {
   const { locale = 'en' } = await params
-  setRequestLocale(locale)
   const t = await getTranslations('trekking')
   const trd = await getTranslations('trekkingRouteDetail')
   const tc = await getTranslations('common')

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, Clock, MapPin, Star } from 'lucide-react'
 import NewsletterForm from '@/components/home/NewsletterForm'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { getExperiences } from '@/data/experiences.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import type { Experience } from '@/data/experiences'
@@ -42,7 +42,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ExperiencesPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const experiences = await getExperiences(locale)
   const t = await getTranslations('experiences')
 

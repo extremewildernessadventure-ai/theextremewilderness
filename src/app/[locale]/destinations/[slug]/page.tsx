@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { Calendar, MapPin, Ruler, ArrowRight, Check, Plane, Clock } from 'lucide-react'
 import { destinations } from '@/data/destinations'
 import { getDestination, getDestinations } from '@/data/destinations.i18n'
@@ -1294,7 +1294,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function DestinationPage({ params }: Props) {
   const { slug, locale } = await params
-  setRequestLocale(locale)
   const dest = await getDestination(slug, locale)
   if (!dest) notFound()
 

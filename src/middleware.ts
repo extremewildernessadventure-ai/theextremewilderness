@@ -83,5 +83,11 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|admin|_next|.*\\..*).*)'],
+  // payments/ (with the trailing slash — NOT bare /payments, which is the
+  // legitimate localized payments-info page under [locale] and still needs
+  // next-intl's middleware) excludes only /payments/return, the standalone
+  // non-localized Pesapal return page (see app/payments/). Without this it
+  // gets handed to next-intl's middleware, which 404s it trying to resolve
+  // it as if it lived under a locale.
+  matcher: ['/((?!api|admin|payments/|_next|.*\\..*).*)'],
 }

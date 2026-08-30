@@ -4,7 +4,7 @@ import {
   ArrowRight, Layers, Moon, Mountain, Navigation2, Flashlight, Sun,
   Droplets, Pill, HeartPulse, Zap, Package, ShieldCheck, Check, X, ChevronDown,
 } from 'lucide-react'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import KiliRouteMap from '@/components/trekking/KiliRouteMap'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import ExperienceGallery from '@/components/experiences/ExperienceGallery'
@@ -167,7 +167,6 @@ function isRouteWithDetailContent(route: string): route is RouteWithDetailConten
 
 export default async function TrekkingRoutePage({ params }: RouteProps) {
   const { route, locale = 'en' } = await params
-  setRequestLocale(locale)
   const heroImage = ROUTE_HERO_IMAGES[route] ?? ROUTE_HERO_IMAGES.machame
   const galleryPhotoIds = ROUTE_GALLERY_PHOTOS[route] ?? ROUTE_GALLERY_PHOTOS.machame
   const t = await getTranslations('trekking')

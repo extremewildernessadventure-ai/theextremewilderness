@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import BookNowButton from '@/components/booking/BookNowButton'
@@ -35,7 +35,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function AccommodationsPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const t = await getTranslations('accommodationsHub')
   const tc = await getTranslations('common')
   const accommodations = await getAccommodations(locale)

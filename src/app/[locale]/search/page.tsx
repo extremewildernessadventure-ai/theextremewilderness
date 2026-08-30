@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Search as SearchIcon } from 'lucide-react'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { buildAlternates, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
@@ -38,7 +38,6 @@ const TYPE_ORDER: SearchResultType[] = ['safari', 'destination', 'experience', '
 
 export default async function SearchPage({ params, searchParams }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const { q } = await searchParams
   const query = (q ?? '').trim()
   const t = await getTranslations('search')

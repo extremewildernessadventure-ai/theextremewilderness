@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { ArrowRight, Calendar, Clock } from 'lucide-react'
 import { getBlogPosts, getBlogCategories } from '@/data/blog/index.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { buildAlternates, buildPageTitle } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
@@ -39,7 +39,6 @@ type Props = {
 
 export default async function BlogPage({ params, searchParams }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const allPosts = await getBlogPosts(locale)
   const categories = await getBlogCategories(locale)
   const t = await getTranslations('blog')

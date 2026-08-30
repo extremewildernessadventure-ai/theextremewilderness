@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getPackages } from '@/data/packages.i18n'
 import { packageTags } from '@/data/packageTags'
 import { getFxRates } from '@/lib/fxRates'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { SITE_URL, buildAlternates, buildPageTitle } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import PlanPageClient from '@/components/plan/PlanPageClient'
@@ -51,7 +51,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PlanPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const packages = await getPackages(locale)
   const fxRates = await getFxRates()
 

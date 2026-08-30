@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { buildAlternates, buildBreadcrumbSchema, buildPageTitle, SITE_URL, localeUrl } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
@@ -46,7 +46,6 @@ const galleryImages = [
 
 export default async function AboutPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const t = await getTranslations('about')
 
   const stats = [

@@ -4,7 +4,7 @@ import { Link } from '@/i18n/navigation'
 import { ArrowRight, MapPin, Users, Mountain, CheckCircle2, Car, Headphones, Shield, Compass, Trophy } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
 import DestinationCard from '@/components/destinations/DestinationCard'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { buildAlternates, buildPageTitle } from '@/lib/site'
@@ -62,7 +62,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function RwandaPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const t = await getTranslations('rwanda')
   const tc = await getTranslations('common')
   const statLabels = [t('statGorillas'), t('statPrimates'), t('statBirds'), t('statPlants'), t('statPeak'), t('statCapital')]

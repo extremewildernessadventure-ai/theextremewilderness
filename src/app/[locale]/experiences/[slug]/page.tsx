@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { ogLocale } from '@/lib/ogLocale'
 import {
   ArrowRight, Check, ChevronDown, Clock, MapPin, Mountain, Plane,
@@ -287,7 +287,6 @@ function renderSection(section: ExperienceSection, idx: number, chrome: { includ
 
 export default async function ExperienceDetailPage({ params }: Props) {
   const { slug, locale } = await params
-  setRequestLocale(locale)
   const page = await getExperiencePage(slug, locale)
   if (!page) notFound()
 

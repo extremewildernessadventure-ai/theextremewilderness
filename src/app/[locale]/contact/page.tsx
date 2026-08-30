@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Mail, Phone, MapPin, Star, Award, MessageCircle } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
@@ -55,7 +55,6 @@ const WHATSAPP_SVG = (
 
 export default async function ContactPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const t = await getTranslations('contact')
 
   const trustSignals = [
