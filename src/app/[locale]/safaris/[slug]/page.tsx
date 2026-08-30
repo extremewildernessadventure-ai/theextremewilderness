@@ -503,7 +503,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pkg = await getPackage(slug, locale)
   if (!pkg) return {}
   const title = pkg.metaTitle ?? `${pkg.name} | Tanzania Safari`
-  const description = pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights starting from $${pkg.priceFrom.toLocaleString('en-US')}/person. ${pkg.highlights[0]}.`
+  // Fallback for packages with no authored metaDescription. Folds in a
+  // fixed closing clause on top of highlights[0] so the rendered length
+  // reliably clears Google/Bing's ~150-char minimum instead of depending
+  // entirely on how long that one highlight happens to be.
+  const description = pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights starting from $${pkg.priceFrom.toLocaleString('en-US')}/person. ${pkg.highlights[0]} Private guides, custom itineraries, and full support included.`
   return {
     alternates: buildAlternates(locale, `/safaris/${slug}`),
     title: buildPageTitle(title),
