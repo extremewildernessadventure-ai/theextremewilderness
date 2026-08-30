@@ -14,6 +14,11 @@ export interface R2Object {
 export interface R2Bucket {
   put(key: string, value: ArrayBuffer, options?: { httpMetadata?: { contentType?: string } }): Promise<unknown>
   get(key: string): Promise<R2Object | null>
+  // Metadata-only existence check — no body transfer, unlike get(). Used by
+  // the public-guides batch generator (src/lib/publicGuides.ts) to skip
+  // regenerating something that's already there without paying for a full
+  // object download just to check.
+  head(key: string): Promise<unknown | null>
   delete(key: string): Promise<void>
 }
 
@@ -62,4 +67,22 @@ export function trekGuideKey(leadId: number): string {
 
 export function itineraryKey(leadId: number, packageSlug: string): string {
   return `itineraries/${leadId}/${Date.now()}-${packageSlug}.pdf`
+}
+
+// Pre-generated, content-addressable public guides (src/lib/publicGuides.ts)
+// — unlike the per-lead archival keys above, these are NOT timestamped:
+// there's exactly one canonical file per locale (and per route/package),
+// meant to be reused by every visitor and overwritten in place on
+// regeneration, not accumulated. Served publicly by
+// src/app/api/guides/**/route.ts, which is scoped to only ever read this
+// `public-guides/` prefix — every other prefix in this bucket holds
+// personal/per-customer data (documents/, vouchers/, invoices/,
+// trek-guides/[leadId]/, itineraries/[leadId]/) and must stay
+// admin-authenticated-only.
+export function publicKilimanjaroGuideKey(locale: string): string {
+  return `public-guides/kilimanjaro/${locale}.pdf`
+}
+
+export function publicItineraryGuideKey(slug: string, locale: string): string {
+  return `public-guides/itinerary/${slug}/${locale}.pdf`
 }
