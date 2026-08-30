@@ -5,7 +5,7 @@ import { ArrowRight, Calendar, Clock } from 'lucide-react'
 import { getBlogPosts, getBlogCategories } from '@/data/blog/index.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, buildPageTitle } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const description = t('metaDescription')
   return {
     alternates: buildAlternates(locale, '/blog'),
-    title,
+    title: buildPageTitle(title),
     description,
     openGraph: {
       title,

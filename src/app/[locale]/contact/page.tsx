@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Mail, Phone, MapPin, Star, Award, MessageCircle } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, buildPageTitle } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import Reveal from '@/components/motion/Reveal'
 
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'contact' })
   return {
     alternates: buildAlternates(locale, '/contact'),
-    title: t('metaTitle'),
+    title: buildPageTitle(t('metaTitle')),
     description: t('metaDescription'),
     openGraph: {
       title: t('metaTitle'),

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import { buildAlternates, buildBreadcrumbSchema, SITE_URL, localeUrl } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema, buildPageTitle, SITE_URL, localeUrl } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 import {
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'about' })
   return {
-    title: t('metaTitle'),
+    title: buildPageTitle(t('metaTitle')),
     description: t('metaDescription'),
     keywords: t.raw('metaKeywords') as string[],
     alternates: buildAlternates(locale, '/about'),

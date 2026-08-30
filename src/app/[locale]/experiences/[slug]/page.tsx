@@ -20,7 +20,7 @@ import { getPackage } from '@/data/packages.i18n'
 import { getExperiencePage, getExperiencePages, experiencePageSlugs } from '@/data/experiencePages/content.i18n'
 import type { ExperienceSection, QuickFactIcon } from '@/data/experiencePages/types'
 import { routing } from '@/i18n/routing'
-import { SITE_URL, localeUrl, buildAlternates } from '@/lib/site'
+import { SITE_URL, localeUrl, buildAlternates, buildPageTitle } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!page) return {}
   return {
     alternates: buildAlternates(locale, `/experiences/${slug}`),
-    title: page.metaTitle,
+    title: buildPageTitle(page.metaTitle),
     description: page.metaDescription,
     keywords: page.keywords,
     openGraph: {
@@ -306,9 +306,9 @@ export default async function ExperienceDetailPage({ params }: Props) {
     .map((s) => allExperiences.find((p) => p.slug === s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p))
 
-  const tripSchema = {
+  const productSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Trip',
+    '@type': 'Product',
     name: page.title,
     description: page.metaDescription,
     image: `${SITE_URL}${page.heroImage}`,
@@ -369,7 +369,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {faqSchema && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />

@@ -13,7 +13,7 @@ import { getPackages, getPackage } from '@/data/packages.i18n'
 import { getDestinations, getDestination } from '@/data/destinations.i18n'
 import { routing } from '@/i18n/routing'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { SITE_URL, buildAlternates, buildBreadcrumbSchema, buildImageObject } from '@/lib/site'
+import { SITE_URL, buildAlternates, buildBreadcrumbSchema, buildImageObject, buildPageTitle } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {}
   return {
     alternates: buildAlternates(locale, `/blog/${slug}`),
-    title: post.metaTitle,
+    title: buildPageTitle(post.metaTitle),
     description: post.metaDescription,
     keywords: post.keywords,
     openGraph: {

@@ -4,7 +4,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Link } from '@/i18n/navigation'
 import { Mail, Phone, ChevronRight, ShieldCheck, Eye, Share2, Globe, Clock, UserCheck, Lock, Baby, RefreshCw, Cookie, MessageCircle, Inbox } from 'lucide-react'
 import TableOfContents from '@/components/legal/TableOfContents'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, buildPageTitle } from '@/lib/site'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'privacy' })
   return {
     alternates: buildAlternates(locale, '/privacy'),
-    title: t('metaTitle'),
+    title: buildPageTitle(t('metaTitle')),
     description: t('metaDescription'),
     keywords: t.raw('metaKeywords') as string[],
   }

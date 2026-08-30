@@ -5,7 +5,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 import TradePartnerForm from '@/components/trade-partners/TradePartnerForm'
-import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
 import styles from './page.module.css'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'tradePartners' })
   return {
     alternates: buildAlternates(locale, '/trade-partners'),
-    title: t('metaTitle'),
+    title: buildPageTitle(t('metaTitle')),
     description: t('metaDescription'),
     openGraph: {
       title: t('metaTitle'),

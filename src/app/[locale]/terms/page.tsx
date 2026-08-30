@@ -8,7 +8,7 @@ import {
   Lock, CheckCircle2, CloudLightning, Star,
 } from 'lucide-react'
 import TableOfContents from '@/components/legal/TableOfContents'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, buildPageTitle } from '@/lib/site'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'terms' })
   return {
     alternates: buildAlternates(locale, '/terms'),
-    title: t('metaTitle'),
+    title: buildPageTitle(t('metaTitle')),
     description: t('metaDescription'),
     keywords: t.raw('metaKeywords') as string[],
   }

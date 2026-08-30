@@ -31,6 +31,22 @@ export function buildAlternates(locale: string, path: string): Metadata['alterna
   }
 }
 
+const BRAND_SUFFIX = ' | EWA Safari Outfitters'
+
+/**
+ * Wraps a page's own title so it can never be double-suffixed by the root
+ * layout's `title: { template: '%s | EWA Safari Outfitters' }` (see
+ * src/app/layout.tsx). Next.js only applies that template to a plain
+ * string; returning `{ absolute }` bypasses it entirely — the same escape
+ * hatch the homepage already uses. Strips a pre-existing trailing brand
+ * suffix first so a `metaTitle` that already ends in it (several safari
+ * packages do) doesn't end up rendering the brand name twice.
+ */
+export function buildPageTitle(title: string): { absolute: string } {
+  const base = title.endsWith(BRAND_SUFFIX) ? title.slice(0, -BRAND_SUFFIX.length) : title
+  return { absolute: `${base}${BRAND_SUFFIX}` }
+}
+
 interface BreadcrumbTrailItem {
   label: string
   href?: string

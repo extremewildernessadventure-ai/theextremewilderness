@@ -7,7 +7,7 @@ import {
   Shirt, ShieldCheck, Phone, Syringe, Sun, Mountain,
   Bug, HeartPulse, Banknote, Repeat, Briefcase, PawPrint,
 } from 'lucide-react'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, buildPageTitle } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 import CtaBanner from '@/components/home/CtaBanner'
@@ -422,7 +422,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'travelInfo' })
   return {
     alternates: buildAlternates(locale, '/travel-info'),
-    title: t('metaTitle'),
+    title: buildPageTitle(t('metaTitle')),
     description: t('metaDescription'),
     openGraph: {
       title: t('metaTitle'),

@@ -13,7 +13,7 @@ import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import { routing } from '@/i18n/routing'
-import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
@@ -1267,7 +1267,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = t('metaDescription', { name: dest.name, tagline: dest.tagline })
   return {
     alternates: buildAlternates(locale, `/destinations/${slug}`),
-    title,
+    title: buildPageTitle(title),
     description,
     keywords:
       DEST_KEYWORDS_BY_LOCALE[locale]?.[slug]

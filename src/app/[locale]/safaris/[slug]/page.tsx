@@ -15,7 +15,7 @@ import { getPackage, getPackages } from '@/data/packages.i18n'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import { routing } from '@/i18n/routing'
-import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema, buildImageObject } from '@/lib/site'
+import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema, buildImageObject, buildPageTitle } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
@@ -506,7 +506,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights starting from $${pkg.priceFrom.toLocaleString('en-US')}/person. ${pkg.highlights[0]}.`
   return {
     alternates: buildAlternates(locale, `/safaris/${slug}`),
-    title,
+    title: buildPageTitle(title),
     description,
     keywords:
       SAFARI_KEYWORDS_BY_LOCALE[locale]?.[slug]
@@ -558,9 +558,9 @@ export default async function SafariPackagePage({ params }: Props) {
     : null
   const reviewCountry = packageReview && th ? th(packageReview.countryKey) : null
 
-  const touristTripSchema = {
+  const productSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Trip',
+    '@type': 'Product',
     name: pkg.name,
     description: pkg.metaDescription ?? `${pkg.name} — ${pkg.duration} nights, starting from $${pkg.priceFrom.toLocaleString('en-US')} per person. ${pkg.highlights[0]}.`,
     image: [
@@ -590,6 +590,15 @@ export default async function SafariPackagePage({ params }: Props) {
         author: { '@type': 'Person', name: packageReview.name },
         reviewBody: reviewText,
       },
+      // Real, verified guest rating (same PACKAGE_REVIEWS entry as the
+      // review above) — only added where we have a genuine review behind
+      // it, never fabricated, per Google's structured-data guidelines.
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: String(packageReview.rating),
+        reviewCount: '1',
+        bestRating: '5',
+      },
     } : {}),
   }
 
@@ -616,7 +625,7 @@ export default async function SafariPackagePage({ params }: Props) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(touristTripSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
       <script
         type="application/ld+json"

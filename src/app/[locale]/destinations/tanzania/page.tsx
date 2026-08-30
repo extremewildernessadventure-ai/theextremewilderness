@@ -7,7 +7,7 @@ import DestinationCard from '@/components/destinations/DestinationCard'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import { buildAlternates } from '@/lib/site'
+import { buildAlternates, buildPageTitle } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = t('metaDescription')
   return {
     alternates: buildAlternates(locale, '/destinations/tanzania'),
-    title,
+    title: buildPageTitle(title),
     description,
     keywords: t.raw('metaKeywords') as string[],
     openGraph: {

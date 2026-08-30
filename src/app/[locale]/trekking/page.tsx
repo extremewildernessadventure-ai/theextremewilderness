@@ -12,7 +12,7 @@ import ExperienceGallery from '@/components/experiences/ExperienceGallery'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import { mlimaniPhoto, mlimaniCapKey, MLIMANI_SHOWCASE } from '@/data/mlimaniGallery'
-import { buildAlternates, buildBreadcrumbSchema, localeUrl, SITE_URL } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema, buildPageTitle, localeUrl, SITE_URL } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale = 'en' } = await params
   const t = await getTranslations({ locale, namespace: 'trekking' })
   return {
-    title: t('metaTitle'),
+    title: buildPageTitle(t('metaTitle')),
     description: t('metaDescription'),
     keywords: t.raw('metaKeywords') as string[],
     alternates: buildAlternates(locale, '/trekking'),
@@ -203,7 +203,7 @@ export default async function TrekkingPage({ params }: Props) {
       '@type': 'ListItem',
       position: i + 1,
       item: {
-        '@type': 'Trip',
+        '@type': 'Product',
         name: r.name,
         description: r.desc,
         image: `${SITE_URL}${r.image}`,

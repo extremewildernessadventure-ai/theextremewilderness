@@ -18,7 +18,7 @@ import MachameMultiItinerary from '@/components/trekking/MachameMultiItinerary'
 import NorthernCircuitMultiItinerary from '@/components/trekking/NorthernCircuitMultiItinerary'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import { mlimaniPhoto, mlimaniCapKey } from '@/data/mlimaniGallery'
-import { buildAlternates, localeUrl, SITE_URL, buildBreadcrumbSchema } from '@/lib/site'
+import { buildAlternates, localeUrl, SITE_URL, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -119,7 +119,9 @@ export async function generateMetadata({ params }: RouteProps): Promise<import('
     openGraph: { images: ogImage },
     twitter: { card: 'summary_large_image' as const, images: hero ? [hero.src] : undefined },
   }
-  if (!locale || locale === 'en' || !trd) return { ...fallback, ...ogMeta, alternates }
+  if (!locale || locale === 'en' || !trd) {
+    return { ...fallback, ...ogMeta, alternates, title: buildPageTitle(fallback.title as string) }
+  }
 
   const tMeta = await getTranslations({ locale, namespace: 'trekking' })
   const routeName = trd(`${route}.quickFacts.routeName` as 'machame.quickFacts.routeName')
@@ -129,7 +131,7 @@ export async function generateMetadata({ params }: RouteProps): Promise<import('
   const localizedKeywords = trd.raw(`${route}.metaKeywords` as 'machame.metaKeywords') as string[]
 
   return {
-    title: `${routeName} 2026 | ${duration}`,
+    title: buildPageTitle(`${routeName} 2026 | ${duration}`),
     description: `${routeName} — ${nickname}. ${duration}, ${successRate}${tMeta('successSuffix')}.`,
     keywords: localizedKeywords ?? fallback.keywords,
     alternates,
@@ -351,9 +353,9 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
 
   const routeFaq = route === 'lemosho' ? lemoshoExtras?.faq : route === 'machame' ? machameExtras?.faq : route === 'northern-circuit' ? northernCircuitExtras?.variants['9'].faq : null
 
-  const tripSchema = routeContent ? {
+  const productSchema = routeContent ? {
     '@context': 'https://schema.org',
-    '@type': 'Trip',
+    '@type': 'Product',
     name: routeContent.quickFacts.routeName,
     description: locale === 'en'
       ? (ROUTE_META[route] ?? ROUTE_META.machame).description
@@ -392,10 +394,10 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
 
   return (
     <>
-      {tripSchema && (
+      {productSchema && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(tripSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
         />
       )}
       <script

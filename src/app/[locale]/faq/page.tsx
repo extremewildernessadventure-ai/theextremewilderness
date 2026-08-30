@@ -9,7 +9,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 import BookNowButton from '@/components/booking/BookNowButton'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import Reveal from '@/components/motion/Reveal'
-import { buildAlternates, buildFaqSchema, buildBreadcrumbSchema } from '@/lib/site'
+import { buildAlternates, buildFaqSchema, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import { getFaqCategories } from '@/data/faq.i18n'
 
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'faqHub' })
   return {
     alternates: buildAlternates(locale, '/faq'),
-    title: t('metaTitle'),
+    title: buildPageTitle(t('metaTitle')),
     description: t('metaDescription'),
     openGraph: {
       title: t('metaTitle'),
