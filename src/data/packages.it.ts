@@ -200,6 +200,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'popular',
     bestFor: ['couples', 'honeymoon', 'solo'],
+    metaDescription: 'Un safari privato e completamente guidato di 10 giorni nel Circuito Nord — Tarangire, Manyara, Serengeti e il cratere di Ngorongoro, i quattro parchi di punta della Tanzania. A partire da $4,800pp.',
     overview: [
       "Dieci giorni sono ciò che serve davvero per coprire i quattro parchi di punta del nord della Tanzania senza affrettarne nessuno — questo è il circuito completo, non la versione abbreviata. Seguirete la Grande Migrazione al suo apice attraverso le pianure del Serengeti, scenderete nel cratere di Ngorongoro tra la concentrazione di fauna selvatica più densa dell'Africa, osserverete le mandrie di elefanti di Tarangire muoversi sotto antichi baobab, e coglierete le acque rosa fenicottero del lago Manyara e i suoi leoni che si arrampicano sugli alberi lungo lo stesso percorso.",
       'Una tappa alla gola di Olduvai, il sito che i paleontologi chiamano la Culla dell\'Umanità, interrompe i game drive con uno sguardo su dove è iniziata la storia umana stessa, e ogni giorno si svolge su un 4x4 privato con la propria guida di lingua inglese, così il ritmo è dettato da ciò che trovate, non da un programma di gruppo condiviso.',
@@ -245,7 +246,7 @@ export const packages: SafariPackage[] = [
     bestFor: ['couples', 'honeymoon', 'families'],
     tagline: 'Aggiornato per la stagione 2027.',
     metaTitle: 'Safari di 10 Giorni in Tanzania e Spiaggia di Zanzibar | EWA Safari Outfitters',
-    metaDescription: "Sei giorni tra Tarangire, Ngorongoro e il Serengeti, poi tre notti sulla costa di Nungwi a Zanzibar. 10 giorni, 9 notti. A partire da $4,413.96pp.",
+    metaDescription: 'Sei giorni di safari tra Tarangire, Ngorongoro e il Serengeti, seguiti da tre notti di relax sulla costa di Nungwi a Zanzibar. 10 giorni, 9 notti in totale. A partire da $4,413.96pp.',
     overview: [
       "Dieci giorni si dividono nettamente in due esperienze molto diverse tra loro, ciascuna con abbastanza tempo per essere vissuta davvero e non solo assaggiata di passaggio. I primi sei giorni risalgono il circuito nord classico della Tanzania — Tarangire, gli altopiani di Ngorongoro, il Serengeti — ogni parco abbastanza distinto dal precedente perché la parola \"safari\" smetta di essere un'idea generica e diventi tre luoghi precisi e ben differenziati. Le ultime tre notti, invece, non chiedono nulla: la costa di Nungwi a Zanzibar, raggiunta con un breve volo anziché con un'altra giornata di strada.",
       "Tarangire apre il viaggio con una vera mezza giornata tutta sua, arricchita da una tappa a Mto wa Mbu e da una visita a una comunità Maasai inserita nell'itinerario e non proposta come opzione aggiuntiva — il parco ospita una delle maggiori popolazioni di elefanti dell'Africa orientale, concentrata lungo il fiume nella stagione secca. Il cratere di Ngorongoro riceve una giornata intera anziché una tappa mattutina affrettata: una caldera vulcanica collassata di circa 260 km², dalle pareti così ripide che la maggior parte degli animali che vi abita non ne esce mai, e una delle giornate di osservazione della fauna più dense di tutto il circuito. Seguono due giornate intere nel territorio dei predatori residenti del Serengeti, prima che un volo panoramico — con scalo ad Arusha — scambi il veicolo con il mare aperto e tre notti senza programma sulla sabbia bianca di Nungwi.",
@@ -452,6 +453,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'popular',
     bestFor: ['couples', 'solo', 'honeymoon', 'luxury'],
+    metaDescription: 'Saltate le due giornate di trasferimento via terra — volate direttamente nel Serengeti Centrale per un safari privato di 5 giorni, due giornate intere tra leoni, leopardi e ghepardi. A partire da $2,475pp.',
     overview: [
       "La maggior parte dei safari al Serengeti trascorre due giorni di viaggio via terra solo per entrare nel parco. Questo li salta: un volo charter vi porta da Arusha direttamente nel Serengeti Centrale, così il vostro primo game drive avviene lo stesso pomeriggio del vostro arrivo. Seguono due giorni interi in quel territorio di predatori per eccellenza — leoni, leopardi e ghepardi vi risiedono tutto l'anno, non sono visitatori stagionali — prima che una discesa guidata nel cratere di Ngorongoro, la più grande caldera intatta al mondo, chiuda la parte faunistica.",
       "Un ultimo game drive mattutino attraverso il lago Manyara, incastonato tra l'escarpimento della Rift Valley e il suo lago alcalino, completa il viaggio prima del vostro volo di ritorno. Cinque giorni, due livelli di alloggio dai campi Reserve al lusso Sovereign, e quasi nessuno di quei giorni trascorso in un veicolo solo per spostarsi.",
@@ -578,6 +580,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 2100,
     groupSize: { min: 1, max: 12 },
     bestFor: ['solo', 'couples', 'groups'],
+    metaDescription: 'Scalate il Kilimanjaro lungo la panoramica Via Machame di 7 giorni — il tasso di successo più alto tra tutte le vie, con guide di montagna esperte, portatori e attrezzatura completa. A partire da $2,100pp.',
     overview: [
       "La via Machame è spesso chiamata la Whiskey Route per il suo percorso tortuoso attraverso foresta pluviale, brughiera e deserto alpino. È ampiamente considerata la via più panoramica per salire il Kilimanjaro, e uno dei motivi per cui questa via registra uno dei tassi di successo alla vetta più alti della montagna. Sette giorni danno al vostro corpo il tempo di cui ha bisogno, passando per la Lava Tower per una giornata di acclimatamento con il principio sali-in-alto-dormi-in-basso, che fa una differenza misurabile nella notte della vetta.",
       "Sarete supportati per tutto il percorso da guide di montagna esperte, un portatore dedicato per ogni trekker, un cuoco e un equipaggio di campo, e attrezzatura di soccorso completa fornita come standard. Questa è un'ascesa in campeggio dalla prima all'ultima notte, con ogni aspetto logistico oltre al vostro stesso cammino già gestito.",
@@ -931,6 +934,7 @@ export const packages: SafariPackage[] = [
     badge: 'popular',
     bestFor: ['honeymoon', 'couples'],
     tagline: 'Solo voi due e la vostra guida',
+    metaDescription: 'Una luna di miele privata di 8 giorni in Tanzania per due — Tarangire, gli altipiani di Ngorongoro e il Serengeti, ogni game drive e campo tutto per voi. A partire da $3,824pp.',
     overview: [
       "Volete che la vostra luna di miele si senta avventurosa e straordinaria — non un'altra sdraio con vista sul mare. Questo safari di luna di miele di 8 giorni in Tanzania è costruito esattamente per questo: sette notti attraverso Tarangire, gli altipiani di Ngorongoro e il Serengeti, con ogni game drive privato e ogni campo scelto per il tipo di tranquillità che deriva solo dall'essere lontani da chiunque altro. Abbinatelo a qualche giorno sui versanti bassi del Kilimanjaro o a un tratto di sabbia a Zanzibar prima o dopo, e avrete una luna di miele che inizia con gli elefanti e finisce come preferite.",
       "Il percorso, il ritmo e la fauna selvatica sono identici in entrambi i casi — ciò che cambia è dove dormite. Abbiamo costruito questo itinerario su due livelli, così potete scegliere in base a quanto del vostro budget volete destinare all'alloggio rispetto, per esempio, a quell'estensione a Zanzibar.",
@@ -1405,7 +1409,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 3, max: 8 },
     badge: 'popular',
     bestFor: ['families'],
-    metaDescription: "Un safari privato in Tanzania, a ritmo familiare, per due generazioni — Arusha, Tarangire, Ngorongoro e il Serengeti. Due livelli, a partire da $6,025pp.",
+    metaDescription: 'Un safari privato in Tanzania pensato per il ritmo della famiglia e per due generazioni insieme — Arusha, Tarangire, Ngorongoro e il Serengeti. Due livelli di alloggio, a partire da $6,025pp.',
     overview: [
       "Dieci giorni bastano per offrire a una famiglia l'intero arco della Tanzania del Nord senza affrettare nulla — una prima tappa semplice dove giraffe e colobi sono praticamente garantiti entro un'ora dall'aeroporto, una giornata intera con le mandrie di elefanti di Tarangire sotto baobab millenari, una discesa nel mondo chiuso del cratere di Ngorongoro con quasi 30.000 animali, e tre giorni senza fretta nel Serengeti per chiudere il viaggio. Arusha si trova a circa 1.400 m (4.593 piedi), offrendo ai nuovi arrivati un delicato cuscinetto di altitudine prima che i parchi comincino sul serio — uno dei tanti piccoli dettagli che distinguono un itinerario costruito per le famiglie da uno semplicemente descritto come adatto alle famiglie.",
       "Disponibile in due livelli — Wilderness Reserve e Wilderness Sovereign — che seguono lo stesso itinerario di dieci giorni, con le stesse attività, gli stessi parchi e lo stesso numero di game drive. Ciò che cambia tra loro riguarda interamente il modo in cui la famiglia viene seguita nelle ore tra un game drive e l'altro: Wilderness Reserve mantiene le cose confortevoli, spaziose e curate; Wilderness Sovereign vi sistema ogni notte nelle proprietà più eccezionali adatte alle famiglie che il Circuito Nord ha da offrire.",
@@ -1606,6 +1610,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 5857,
     groupSize: { min: 1, max: 6 },
     bestFor: ['wildlife-enthusiasts', 'couples', 'solo'],
+    metaDescription: "Un viaggio di 12 giorni in Tanzania che unisce un'escursione di un giorno al Kilimanjaro e la cultura Maasai al circuito faunistico — Manyara, Tarangire, Ngorongoro e Serengeti. A partire da $5,857pp.",
     overview: [
       "La maggior parte degli itinerari di dodici giorni in Tanzania vi chiede di scegliere tra la montagna e le pianure. Questo si rifiuta di scegliere. Si apre sul versante occidentale più tranquillo del Kilimanjaro, dove trascorrerete del tempo reale con una comunità Maasai per poi allacciarvi gli scarponi per un'escursione di un giorno intero sull'altopiano di Shira — una delle caldere vulcaniche più suggestive della montagna, e un'esperienza escursionistica autentica anziché una tappa fotografica simbolica. Da lì, si stabilizza nel circuito faunistico per cui la Tanzania è famosa: il lago Manyara, Tarangire, il cratere di Ngorongoro e tre giorni interi nel Serengeti, con incontri culturali — una visita a un villaggio Maasai con il capo Lobulu, una passeggiata tra le piantagioni di caffè di Karatu — integrati anziché aggiunti come contorno.",
       "È un viaggio pensato per i viaggiatori che vogliono profondità piuttosto che una lista di controllo frettolosa: camminate vere sui pendii del Kilimanjaro, conversazioni vere nelle comunità Maasai, e tempo vero in ognuno dei parchi di punta della Tanzania anziché una singola notte affrettata a ogni tappa. Che stiate inseguendo i Big Five, una sfida fisica sulla montagna, o un autentico scambio culturale, questo itinerario dà a ciascuno di questi elementi il proprio capitolo, invece di comprimerli ai margini l'uno dell'altro.",
@@ -1848,6 +1853,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: 'Un safari di 8 giorni in Tanzania costruito attorno agli attraversamenti del fiume Mara della Grande Migrazione — due giornate intere al fiume, più Tarangire, Ngorongoro e Serengeti. A partire da $4,977pp.',
     overview: [
       "Per quattro o cinque mesi all'anno, oltre un milione di gnu e zebre si spostano attraverso l'ecosistema Serengeti-Mara in un'unica migrazione continua e irrequieta — e per alcune settimane imprevedibili tra luglio e ottobre, quel movimento si incanala attraverso il fiume Mara, dove i coccodrilli aspettano e gli attraversamenti stessi diventano uno degli spettacoli faunistici più drammatici rimasti sulla Terra. Questo itinerario di otto giorni è costruito interamente per darvi le migliori probabilità possibili di assistervi, senza saltare i parchi che rendono il viaggio verso di esso già valido di per sé.",
       "Il percorso si muove da ovest a est attraverso la Tanzania settentrionale: le mandrie di elefanti e gli antichi baobab di Tarangire, una sosta al lago Manyara e al villaggio culturale di Mto wa Mbu, una giornata intera all'interno della conca faunistica chiusa del cratere di Ngorongoro, poi tre giorni interi nel cuore del Serengeti — prima i predatori residenti delle pianure centrali, poi due giorni interi appostati proprio al fiume Mara, posizionati e pronti per quando le mandrie decideranno di attraversare.",
@@ -2201,6 +2207,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 3300,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'families'],
+    metaDescription: 'Un safari privato di 7 giorni nel Circuito Nord — le mandrie di elefanti di Tarangire, i leoni che si arrampicano sul lago Manyara, il Serengeti e i Big Five di Ngorongoro. A partire da $3,300pp.',
     overview: [
       "Sette giorni, quattro parchi, zero scorciatoie: questa è la versione compatta del circuito nord della Tanzania per i viaggiatori che vogliono tutto senza allungare il viaggio oltre una settimana. Si apre a Tarangire tra mandrie di elefanti radunate al fiume e baobab dall'aspetto quasi preistorico, prosegue verso il lago Manyara per i suoi famosi leoni che si arrampicano sugli alberi e le sue acque basse striate di fenicotteri, poi attraversa nel Serengeti per due giorni interi tra grandi felini e osservazione della fauna sulle pianure aperte.",
       "Il cratere di Ngorongoro chiude la parte faunistica del viaggio, la gemma della corona del circuito nord, e l'unico parco dove gli avvistamenti dei Big Five sono quasi garantiti in un solo giorno, prima che il percorso vi riporti all'aeroporto internazionale del Kilimanjaro con una settimana di Tanzania settentrionale alle spalle.",
@@ -2290,6 +2297,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 4000,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: 'Sorvolate il cratere di Ngorongoro fino alle zone di parto di Ndutu per un safari privato di 7 giorni nel Serengeti, programmato per il picco dei predatori e le nuove nascite di gnu. A partire da $4,000pp.',
     overview: [
       "Questo itinerario è programmato per un evento molto preciso: la stagione dei parti di Ndutu, quando tra gennaio e marzo nascono qui fino a 8.000 cuccioli di gnu ogni singolo giorno, e ogni predatore dell'ecosistema — leoni, ghepardi, iene, licaoni — converge sulle pianure a erba corta per approfittarne. Il volo d'arrivo dà il tono ancora prima dell'atterraggio, passando direttamente sopra il bordo del cratere di Ngorongoro, così da vedere dall'alto l'intera scala circolare della caldera prima di trascorrere due giornate intere a terra, nel territorio dei grandi felini del Serengeti centrale, attivo tutto l'anno.",
       "Una giornata intera a Ndutu vi mette al centro dell'azione, e il viaggio si chiude con una discesa guidata nel cratere di Ngorongoro, scambiando il dramma delle aree di parto con gli avvistamenti quasi garantiti dei Big Five nel bacino faunistico più concentrato d'Africa.",
@@ -2565,6 +2573,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 6500,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: 'Un viaggio di 11 giorni che unisce il trekking dei gorilla e delle scimmie dorate nel Parco Nazionale dei Vulcani del Rwanda a un safari nel Serengeti e nel cratere di Ngorongoro. A partire da $6,500pp.',
     overview: [
       "Undici giorni che collegano due delle esperienze faunistiche più distinte dell'Africa: un trekking dei gorilla di montagna e il tracking delle scimmie dorate nel Parco Nazionale dei Vulcani del Rwanda, seguiti dalle pianure aperte del Serengeti e da una discesa completa nel cratere di Ngorongoro. Il Memoriale del Genocidio di Kigali, visitato nella prima giornata intera, offre un contesto essenziale per comprendere il Rwanda moderno, prima che il viaggio si addentri nella foresta di bambù dei Virunga, dove sono in programma sia l'incontro con una famiglia di gorilla abituata sia il tracking di un gruppo di scimmie dorate presenti solo su queste montagne.",
       "Un volo sopra le mille colline e verso la savana della Tanzania segna la metà del viaggio, e il tratto finale aggiunge qualcosa che i parchi di nessuno dei due paesi possono offrire: una giornata con gli Hadzabe al Lago Eyasi, una delle ultime vere comunità di cacciatori-raccoglitori d'Africa, partecipando a una battuta di caccia mattutina e imparando tecniche per accendere il fuoco rimaste invariate per millenni, prima che il viaggio si concluda al Kilimanjaro.",
@@ -2686,6 +2695,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 9375,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'honeymoon', 'wildlife-enthusiasts'],
+    metaDescription: '12 giorni che uniscono il trekking dei gorilla in Rwanda, un safari in Tanzania tra Tarangire, Ngorongoro e Serengeti, e quattro notti sulle spiagge di Zanzibar. A partire da $9,375pp.',
     overview: [
       "Dodici giorni che non vi chiedono di scegliere nulla: un incontro con i gorilla di montagna e il tracking delle scimmie dorate nel Parco Nazionale dei Vulcani del Rwanda, un safari completo in Tanzania attraverso Tarangire, il cratere di Ngorongoro e due giornate intere nel Serengeti centrale, e quattro notti che chiudono il viaggio sulle spiagge di Zanzibar. Pochi itinerari riuniscono in un'unica prenotazione una famiglia di gorilla abituata, i Big Five e la sabbia bianca, tanto meno in un percorso organizzato così bene.",
       "Il Memoriale del Genocidio di Kigali ancora la tappa ruandese al contesto che merita, un safari a piedi guidato a Tarangire aggiunge un ritmo diverso alla parte faunistica, e l'intero viaggio si sviluppa su tre livelli di alloggio, Trail, Reserve e Sovereign, così che il percorso resti identico indipendentemente dal livello prenotato.",
@@ -2896,7 +2906,7 @@ export const packages: SafariPackage[] = [
     bestFor: ['couples', 'honeymoon', 'wildlife-enthusiasts'],
     tagline: 'Aggiornato per la stagione 2027.',
     metaTitle: 'Safari dei Primati del Rwanda e Fuga Balneare a Zanzibar | EWA Safari Outfitters',
-    metaDescription: 'Trekking di scimpanzé, gorilla e scimmie dorate in Rwanda, seguito da quattro notti sulle spiagge di Zanzibar. Un\'unica prenotazione continua, a partire da $7,742.08pp.',
+    metaDescription: "Trekking di scimpanzé, gorilla di montagna e scimmie dorate in Rwanda, seguito da quattro notti di puro relax sulle spiagge di Zanzibar. Un'unica prenotazione continua, a partire da $7,742.08pp.",
     overview: [
       "Il Rwanda ospita tre specie di primati che la maggior parte dei viaggiatori riesce a vedere solo una alla volta. Questo itinerario le segue tutte e tre — scimpanzé che si muovono nella volta della foresta di Nyungwe, gorilla di montagna sui pendii nebbiosi sopra Musanze e scimmie dorate che sfrecciano tra i bambù del Parco Nazionale dei Vulcani — per poi chiudersi con quattro notti a non fare assolutamente nulla sulle spiagge di Zanzibar.",
       "Le due metà sono registri genuinamente diversi, e l'itinerario è costruito per rispettare questa differenza anziché fonderle insieme. Il Rwanda chiede qualcosa: vero trekking nella foresta, a volte in quota, giornate di trekking basate su permessi che non possono essere affrettate o riprogrammate una volta prenotate. Zanzibar non chiede nulla. Una traversata in barca sul Lago Kivu si colloca tra le due regioni di trekking come una pausa deliberata, e una mattinata a Stone Town apre la metà balneare prima che il programma si svuoti del tutto. Il trekking di scimpanzé e gorilla sono attività fisicamente impegnative, non un game drive da seduti — i portatori sono disponibili a noleggio per un aiuto extra, e i veri soggiorni di due notti in tutto il Rwanda previsti dall'itinerario sono pensati per ridurre la stanchezza laddove il trekking in sé non può essere reso più facile.",
@@ -3069,6 +3079,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 3414.58,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: 'Una fuga privata di 4 giorni in Rwanda — trekking dei gorilla di montagna nel Parco Nazionale dei Vulcani, scimmie dorate e il Memoriale del Genocidio di Kigali. A partire da $3,415pp.',
     overview: [
       "Lo chiamano il Paese delle Mille Colline, e quando il vostro veicolo salirà nella nebbia sopra Musanze, capirete perché il nome è persino riduttivo. Il Rwanda si ripiega su se stesso in una cresta verde dopo l'altra, terrazzata a mano, coltivata per generazioni, salendo con costanza verso una catena di vulcani che custodisce uno degli incontri più rari e improbabili rimasti sul nostro pianeta: una famiglia di gorilla di montagna, intenta in una mattinata ordinaria, del tutto indifferente ai piccoli, stupefatti esseri umani venuti da così lontano per sedersi accanto a loro.",
       "Questo è un viaggio in due parti, ed entrambe contano. A Kigali, camminerete attraverso un memoriale del genocidio e ne uscirete cambiati da ciò che questo piccolo paese ha scelto di diventare da allora — una delle storie di resilienza e riconciliazione più straordinarie al mondo. Poi la strada svolta verso nord, tra foreste di bambù e vette vulcaniche, per una sola ora con una famiglia di gorilla che nessuna fotografia potrebbe mai prepararvi ad affrontare, seguita da una mattinata più vivace con le scimmie dorate che condividono la loro montagna. Quattro giorni, due storie indimenticabili, un piccolo paese che racchiude molto più di quanto le sue dimensioni lascino intendere.",
@@ -3706,6 +3717,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
     bestFor: ['couples', 'families', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: 'Un safari privato di 11 giorni in Kenya tra il Masai Mara, gli elefanti di Amboseli sotto il Kilimanjaro e la rara fauna selvatica della Riserva di Samburu. A partire da $5,800pp.',
     overview: [
       "Undici giorni, un solo paese, e la tesi del Kenya come destinazione safari più completa d'Africa — dimostrata.",
       "Questo itinerario collega cinque degli ecosistemi più rappresentativi del Kenya: famiglie di elefanti che attraversano le pianure sotto il Kilimanjaro ad Amboseli, i «Samburu Special Five» — zebra di Grevy, giraffa reticolata, gerenuk, orice beisa e struzzo somalo — presenti solo in questa parte del paese, il rinoceronte nero e l'unico santuario per scimpanzé dell'Africa orientale a Ol Pejeta, stormi di fenicotteri che possono raggiungere i due milioni di esemplari e tingere di rosa il Lago Nakuru, e due giornate intere nel Masai Mara, votato tra le Sette Meraviglie Naturali dell'Africa. Nairobi apre e chiude il viaggio con il Museo di Karen Blixen, il Giraffe Centre e l'orfanotrofio per elefanti Sheldrick. Ogni tappa riceve tempo vero invece di un semplice passaggio, ed è esattamente questo che rende gli undici giorni indiscussi anziché frettolosi.",
@@ -3827,6 +3839,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 5200,
     groupSize: { min: 1, max: 6 },
     bestFor: ['solo', 'couples', 'wildlife-enthusiasts'],
+    metaDescription: "Un viaggio privato di 10 giorni nel selvaggio sud della Tanzania — i safari in barca sul fiume Rufiji nel Parco Nazionale di Nyerere e l'alta densità di grandi felini di Ruaha. A partire da $5,200pp.",
     overview: [
       "La Tanzania meridionale non si pubblicizza, ed è proprio questo il punto — questo circuito di dieci giorni è pensato per i viaggiatori che vogliono la fauna del Serengeti senza un altro veicolo in vista.",
       "L'itinerario si apre nel Parco Nazionale di Nyerere — con i suoi 50.000 chilometri quadrati, un'area più grande della Svizzera — con game drive attraverso la sua foresta ripariale e la boscaglia di miombo, e un safari in barca sul fiume Rufiji, a pochi centimetri da ippopotami ed elefanti sul bordo dell'acqua. Da lì l'itinerario prosegue verso sud attraverso Mikumi e un'escursione per fare il bagno sotto la cascata di Sanje, sui monti Udzungwa, prima di due giornate intere a Ruaha, il parco nazionale più grande della Tanzania e sede della sua più grande popolazione di leoni, leopardi, ghepardi e licaoni. La Tanzania meridionale registra una frazione del traffico di visitatori del circuito settentrionale, e questo itinerario è costruito per sfruttarlo al meglio — giornate lunghe e senza fretta in una natura selvaggia autentica, non code al cancello.",
@@ -3941,6 +3954,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 8 },
     badge: 'new',
     bestFor: ['couples', 'honeymoon', 'wildlife-enthusiasts'],
+    metaDescription: '11 giorni che uniscono il selvaggio Circuito Sud della Tanzania — il fiume Rufiji di Nyerere e la fauna di Ruaha — a tre notti tra Stone Town e le spiagge di Zanzibar. A partire da $6,100pp.',
     overview: [
       "Questa è la risposta del circuito meridionale alla classica formula tanzaniana safari-e-mare — al posto del nord affollato, Nyerere e Ruaha, per poi chiudere sulla sabbia bianca di Zanzibar.",
       "Le giornate nel profondo sud si aprono con game drive e safari in barca sul fiume Rufiji nel Parco Nazionale di Nyerere, dove branchi di leoni si muovono attraverso una boscaglia di miombo grande quanto un piccolo paese, prima di un trasferimento in piccolo aereo verso Ruaha — il parco più selvaggio e meno visitato della Tanzania, con una densità di predatori pari a qualsiasi altro luogo del continente. Da lì è un breve volo verso Zanzibar per tre giorni in un resort a cinque stelle fronte mare, con le porte intagliate di Stone Town, le tartarughe giganti di Prison Island, i delfini selvatici al largo di Kizimkazi, e un tour di una piantagione di spezie intrecciato al tempo trascorso in spiaggia. Nessun attraversamento di confine via terra, nessun circuito faunistico condiviso — solo autentica natura selvaggia meridionale seguita da autentico riposo.",
@@ -4062,6 +4076,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 7200,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: 'Una spedizione di 12 giorni tra Tanzania e Kenya attraverso il Masai Mara e il Serengeti, lo sfondo del Kilimanjaro ad Amboseli e i fenicotteri e i rinoceronti del lago Nakuru. A partire da $7,200pp.',
     overview: [
       "Dodici giorni sono sufficienti per smettere del tutto di scegliere tra Kenya e Tanzania — questa spedizione li comprende entrambi, attraversando il confine in piccolo aereo anziché scendere a compromessi.",
       "La tappa keniota copre le mandrie di elefanti di Amboseli sotto il Kilimanjaro, le rive rosa fenicottero e il santuario per rinoceronti del Lago Nakuru, e due giorni nel Masai Mara, una delle Sette Meraviglie Naturali dell'Africa. Un volo oltre confine vi porta nel Serengeti per altre giornate intere tra le sue popolazioni di leoni e ghepardi, prima che il fondo del cratere di Ngorongoro regali i Big Five in un'unica discesa e il Lago Manyara chiuda il viaggio con i leoni che si arrampicano sugli alberi, che Hemingway definì la prova del «luogo più bello dell'Africa». Due paesi, quattro ecosistemi, un'unica spedizione faunistica continua — con un volo panoramico al posto del consueto attraversamento di confine via terra.",
@@ -4525,6 +4540,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
     bestFor: ['couples', 'first-time', 'families'],
+    metaDescription: "L'intero Circuito Nord in soli 5 giorni — Tarangire, Ngorongoro, Serengeti e il lago Manyara — in un safari privato e completamente guidato in Tanzania. A partire da $1,909pp.",
     overview: [
       "Cinque giorni sono il tempo minimo necessario per esplorare a fondo il Circuito Nord, e questo itinerario non ne spreca nemmeno uno.",
       "Procede veloce ma non si sente mai affrettato: una giornata tra gli antichi baobab di Tarangire e alcune delle mandrie di elefanti più numerose d'Africa, una discesa completa nel Cratere di Ngorongoro alla ricerca dei Big Five e del rinoceronte nero, un giorno e mezzo nel Serengeti sulle tracce di leoni e ghepardi nelle pianure aperte, e una tappa finale al Lago Manyara per i leoni che si arrampicano sugli alberi e le sue rive costellate di fenicotteri. È l'itinerario che consigliamo più spesso a chi affronta il primo safari e alle coppie con un'agenda più ristretta — l'intera storia del Circuito Nord, condensata senza essere tagliata.",
@@ -4657,6 +4673,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 2554,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'first-time', 'families', 'wildlife-enthusiasts'],
+    metaDescription: 'Un safari di 6 giorni nel Circuito Nord con due giornate intere nel Serengeti, oltre alle mandrie di elefanti di Tarangire e una discesa completa nel cratere di Ngorongoro. A partire da $2,554pp.',
     overview: [
       "Questo è il fratello maggiore del Safari Comfort di 5 Giorni — stesso Circuito Nord, un giorno in più, e quel giorno va interamente al Serengeti.",
       "La notte extra vi regala un autentico game drive al primo mattino nel Serengeti, quando i predatori sono più attivi, oltre alle antiche foreste di baobab e alle mandrie record di elefanti di Tarangire, una discesa completa nel Cratere di Ngorongoro alla ricerca dei Big Five e del rinoceronte nero, e i leoni che si arrampicano sugli alberi al Lago Manyara. Sulla carta è un piccolo cambiamento — un giorno in più, un parco visitato due volte invece di una — ma in un paesaggio costruito attorno ad avvistamenti imprevedibili, quel giorno extra nel Serengeti fa spesso la differenza tra vedere il circuito e viverlo davvero.",
@@ -4800,6 +4817,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 4600,
     groupSize: { min: 2, max: 8 },
     bestFor: ['luxury', 'couples', 'wildlife-enthusiasts', 'photography'],
+    metaDescription: 'Un safari di 10 giorni tra i punti salienti di Kenya e Tanzania — il Masai Mara, Amboseli sotto il Kilimanjaro, il Serengeti e il cratere di Ngorongoro. A partire da $4,600pp.',
     overview: [
       "Chiedete a una guida safari esperta di nominare i cinque luoghi dell'Africa orientale da non perdere, e questo itinerario di dieci giorni è più o meno ciò che otterreste come risposta.",
       "Si apre con le mandrie di elefanti dell'Amboseli che percorrono le pianure ai piedi del Kilimanjaro, poi una notte e una giornata intera nel Masai Mara — compreso il suo territorio degli attraversamenti del fiume Mara — prima che un trasferimento via terra al confine di Isibania vi porti senza soluzione di continuità dal Kenya al Serengeti tanzaniano, ecologicamente un unico paesaggio continuo nonostante il confine politico che li separa. Due giornate intere nel territorio di ghepardi e leoni del Serengeti conducono a una giornata intera all'interno del Cratere di Ngorongoro e a una tappa al Lago Manyara, dove i leoni che si arrampicano sugli alberi sono un comportamento che non si trova in nessun altro luogo dell'Africa orientale. Disponibile nei livelli comfort o premium, questo è il grande classico costruito per i viaggiatori — e in particolare i fotografi — che vogliono i paesaggi iconici di entrambi i paesi senza tagliarne corto nessuno.",
@@ -5002,6 +5020,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'wildlife-enthusiasts', 'first-time'],
+    metaDescription: 'Un safari transfrontaliero di 10 giorni — il santuario dei rinoceronti del lago Nakuru, due giorni nel Masai Mara, tre giornate intere nel Serengeti e il cratere di Ngorongoro. A partire da $5,072pp.',
     overview: [
       "Questo percorso segue lo stesso arco dal Kenya alla Tanzania del nostro classico itinerario transfrontaliero, ma scambia un giorno di guida con una terza giornata intera nel Serengeti.",
       "Si apre al Lago Nakuru, tra rive orlate di fenicotteri e un santuario per rinoceronti che ospita sia il rinoceronte nero che quello bianco, prima di due giornate intere nel territorio di leoni e ghepardi del Masai Mara. EWA si occupa del cambio di guida e veicolo al valico di frontiera di Sirari, così la transizione verso il Serengeti Centrale della Tanzania è fluida quanto l'ecosistema stesso — dove trascorrerete tre giornate intere, più tempo in un solo parco rispetto a quasi ogni altro itinerario che offriamo. Una discesa guidata nel Cratere di Ngorongoro regala i Big Five in un'unica giornata, e le leggendarie mandrie di elefanti e gli antichi baobab di Tarangire chiudono il viaggio prima del ritorno ad Arusha.",
@@ -5297,6 +5316,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 2, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'wildlife-enthusiasts', 'first-time'],
+    metaDescription: 'Un safari privato di 4 giorni in Tanzania — le mandrie di elefanti di Tarangire, una discesa completa nel cratere di Ngorongoro e un pomeriggio culturale con il popolo Hadzabe. A partire da $1,250pp.',
     overview: [
       "Quattro giorni bastano per abbinare la fauna selvatica della Tanzania a qualcosa che non troverete in nessun altro itinerario che offriamo: un pomeriggio con gli Hadzabe, una delle ultime comunità di cacciatori-raccoglitori al mondo.",
       "Si apre con un game drive pomeridiano attraverso il paesaggio costellato di baobab e le mandrie di elefanti di Tarangire, poi si dirige a sud verso il Lago Eyasi, dove vi unirete a un gruppo di caccia Hadzabe nel bush e visiterete i fabbri Datoga che ancora forgiano attrezzi a mano. Una discesa di un'intera giornata nel Cratere di Ngorongoro regala i Big Five, incluso uno dei pochi gruppi affidabili di rinoceronte nero del paese, prima del rientro ad Arusha. Trascorrerete due notti consecutive nello stesso lodge a Karatu, il che significa meno bagagli da rifare e più tempo per osservare davvero ciò che vi sta davanti — un'introduzione compatta e ben ritmata sia alla fauna selvatica della Tanzania che alla sua cultura vivente.",
@@ -5408,6 +5428,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 2, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'wildlife-enthusiasts', 'families', 'first-time'],
+    metaDescription: "Un safari di 5 giorni in Kenya — pedalando tra la fauna selvatica a Hell's Gate, i fenicotteri e i rinoceronti del lago Nakuru, e due giornate intere nel Masai Mara. A partire da $1,520pp.",
     overview: [
       "La maggior parte degli itinerari in Kenya vi mette in un veicolo fin dal primo giorno; questo inizia invece con voi in bicicletta, a pedalare tra zebre e giraffe senza un parabrezza tra voi e loro.",
       "Il Parco Nazionale di Hell's Gate — uno dei pochi parchi del Kenya dove è possibile camminare o pedalare liberamente tra la fauna selvatica — apre il viaggio, seguito dalla vita degli uccelli del Lago Naivasha e dai paesaggi del Rift Valley, poi il Lago Nakuru, uno degli ultimi baluardi del paese sia per il rinoceronte nero che per quello bianco, oltre ai suoi celebri stormi di fenicotteri. La seconda metà del viaggio consiste in due giornate intere nel Masai Mara, l'arena faunistica per eccellenza del Kenya e, da luglio a ottobre, il palcoscenico degli attraversamenti fluviali della Grande Migrazione. Disponibile in tre livelli di alloggio, da campi confortevoli a strutture ultra-lusso, è un percorso di cinque giorni costruito per sembrare vario piuttosto che frettoloso.",
@@ -5538,6 +5559,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 3847,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'honeymoon', 'luxury'],
+    metaDescription: 'Una luna di miele di 9 giorni in Tanzania che unisce Tarangire, una discesa nel cratere di Ngorongoro e due giorni nel Serengeti a una fuga in spiaggia a Zanzibar. A partire da $3,847pp.',
     overview: [
       "Cinque giorni di safari, quattro notti di spiaggia, e nemmeno una sveglia mattutina che non abbiate scelto voi stessi — questa è una luna di miele costruita tanto sul ritmo quanto sul paesaggio.",
       "La metà safari attraversa le mandrie di elefanti e l'antica foresta di baobab di Tarangire, due giornate intere nel territorio di leoni e leopardi del Serengeti Centrale, e una discesa guidata nel Cratere di Ngorongoro, Patrimonio dell'Umanità UNESCO, prima che un breve volo scambi il veicolo safari con la spiaggia di Nungwi, sulla punta settentrionale di Zanzibar. Quattro notti senza fretta lasciano spazio a immersioni, una crociera al tramonto su un dhow, una visita a Stone Town, o niente del tutto. Entrambi i livelli di alloggio, Wilderness Trail e Wilderness Sovereign, sono scelti specificamente per un ritmo da luna di miele — mai frettoloso, mai sovraccarico di impegni.",
@@ -5736,6 +5758,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 4775,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'photography', 'luxury'],
+    metaDescription: 'Un safari privato di 10 giorni in Tanzania costruito attorno agli attraversamenti del fiume Mara della Grande Migrazione, più Tarangire, Manyara, Ngorongoro e Serengeti. A partire da $4,775pp.',
     overview: [
       "Gli attraversamenti del fiume sono l'immagine più ambita in assoluto nella fotografia faunistica africana, e anche la meno garantita — quindi questo itinerario fa l'unica cosa che migliora davvero le vostre probabilità: vi offre tre giornate intere nella zona degli attraversamenti invece di una sola.",
       "Anche la costruzione del viaggio conta. Si apre con le mandrie di elefanti di Tarangire e un raro safari a piedi guidato, una discesa di un'intera giornata nel Cratere di Ngorongoro per i Big Five, e una sosta alla Gola di Olduvai, il sito di alcuni dei fossili umani più antichi e importanti mai ritrovati. Da lì si procede verso nord nel territorio del fiume Mara nel Serengeti, per tre giorni consecutivi posizionati per cogliere gli attraversamenti della Grande Migrazione, invece del singolo tiro di dadi che offrono la maggior parte degli itinerari più brevi. Due livelli di alloggio, Wilderness Trail e Wilderness Sovereign, sono entrambi costruiti attorno allo stesso obiettivo: massimizzare le probabilità di trovarvi nel posto giusto quando le mandrie decidono finalmente di attraversare il fiume.",
@@ -5948,6 +5971,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['photography', 'wildlife-enthusiasts', 'solo'],
+    metaDescription: 'Un safari fotografico di 10 giorni in Tanzania con piccoli gruppi, più spazio a bordo del veicolo e una guida esperta in luce e posizionamento — Tarangire, Ngorongoro, Serengeti. A partire da $4,597pp.',
     overview: [
       "La maggior parte dei safari si muove velocemente: un avvistamento, qualche scatto dal finestrino, e via verso la tappa successiva prima che abbiate davvero avuto il tempo di guardare ciò che avete davanti. Questo è costruito nel modo opposto. Abbastanza lento, e con abbastanza spazio nel veicolo, da ottenere davvero lo scatto — non solo il ricordo di averlo quasi ottenuto.",
       "Nell'arco di 10 giorni, questo safari fotografico attraversa quattro delle regioni più gratificanti del Nord della Tanzania. Inizierete tra le mandrie di elefanti e gli antichi baobab di Tarangire, trascorrerete un'intera giornata sul fondo del Cratere di Ngorongoro, denso di fauna selvatica, poi vi dirigerete verso il Serengeti — prima le pianure centrali, una delle regioni di grandi felini più affidabili del continente, poi verso nord nel territorio della migrazione, dove la luce si fa dorata e l'orizzonte non finisce mai davvero. Ogni giornata è costruita attorno alla luce, al posizionamento e alla pazienza, non a una lista di parchi da spuntare.",

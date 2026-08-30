@@ -200,6 +200,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'popular',
     bestFor: ['couples', 'honeymoon', 'solo'],
+    metaDescription: "Een private, volledig begeleide 10-daagse Northern Circuit safari — Tarangire, Manyara, Serengeti en de Ngorongoro-krater, Tanzania's vier topparken. Vanaf $4.800 pp.",
     overview: [
       "Tien dagen is wat er daadwerkelijk voor nodig is om Tanzania's vier belangrijkste noordelijke parken te doorkruisen zonder er ook maar één van te haasten — dit is het volledige circuit, niet de verkorte versie. U volgt de Grote Trek op zijn hoogtepunt over de vlaktes van de Serengeti, daalt af in de Ngorongoro-krater met de dichtste wildlifeconcentratie van Afrika, kijkt naar de olifantenkuddes van Tarangire die onder eeuwenoude baobabs bewegen, en ziet de flamingoroze ondiepten en boomklimmende leeuwen van het Manyara-meer op diezelfde route.",
       'Een stop bij de Olduvai-kloof, de plek die paleontologen de Bakermat van de Mensheid noemen, doorbreekt het game-drive-programma met een blik op waar het menselijke verhaal ooit begon, en elke dag verloopt in een privé 4x4 met uw eigen Engelssprekende gids, zodat het tempo wordt bepaald door wat u tegenkomt, niet door een gedeeld groepsschema.',
@@ -245,7 +246,7 @@ export const packages: SafariPackage[] = [
     bestFor: ['couples', 'honeymoon', 'families'],
     tagline: 'Bijgewerkt voor het seizoen 2027.',
     metaTitle: '10-Daagse Tanzania Safari & Zanzibar Strand | EWA Safari Outfitters',
-    metaDescription: "Zes dagen door Tarangire, Ngorongoro & de Serengeti, dan drie nachten aan de Nungwi-kust van Zanzibar. 10 dagen, 9 nachten. Vanaf $4.413,96 pp.",
+    metaDescription: 'Zes dagen safari door Tarangire, Ngorongoro en de Serengeti, gevolgd door drie ontspannen nachten aan de Nungwi-kust van Zanzibar. 10 dagen, 9 nachten in totaal. Vanaf $4.413,96 pp.',
     overview: [
       "Tien dagen vallen netjes uiteen in twee heel verschillende soorten ervaring, elk met genoeg tijd om er werkelijk in te settelen in plaats van er slechts even van te proeven. De eerste zes dagen volgen het klassieke noordelijke circuit van Tanzania — Tarangire, de Ngorongoro-hooglanden, de Serengeti — elk park onderscheidend genoeg van het vorige dat \"safari\" ophoudt één generiek begrip te zijn en drie specifieke, duidelijk verschillende plekken wordt. De laatste drie nachten vragen helemaal niets van u: de Nungwi-kust van Zanzibar, bereikt met een korte vlucht in plaats van nog een dag op de weg.",
       "Tarangire opent de reis met een echte eigen halve dag, plus een stop in Mto wa Mbu en een Maasai-gemeenschapsbezoek dat in de route is ingebouwd in plaats van als extra aangeboden — het park herbergt een van de grootste olifantenpopulaties van Oost-Afrika, geconcentreerd langs de rivier in het droge seizoen. De Ngorongoro-krater krijgt een volle dag in plaats van een gehaaste ochtendstop: een ingestorte vulkanische caldera van ongeveer 260 km², met wanden zo steil dat de meeste dieren die er wonen hem nooit verlaten, en een van de meest geconcentreerde dagen wildlifeobservatie van het hele circuit. Daarna volgen twee volle dagen in het territorium van de vaste roofdieren van de Serengeti, voordat een panoramische vlucht — via Arusha — het voertuig inruilt voor open water en drie nachten zonder vast programma op het witte zand van Nungwi.",
@@ -452,6 +453,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'popular',
     bestFor: ['couples', 'solo', 'honeymoon', 'luxury'],
+    metaDescription: 'Sla de tweedaagse rit over land over — vlieg rechtstreeks naar de centrale Serengeti voor een private 5-daagse safari, twee volle dagen tussen leeuw, luipaard en jachtluipaard. Vanaf $2.475 pp.',
     overview: [
       "De meeste Serengeti-safari's besteden een overlandtocht van twee dagen alleen al om de park in te komen. Deze reis slaat dat over: een chartervlucht brengt u vanuit Arusha rechtstreeks naar de centrale Serengeti, zodat uw eerste game drive al plaatsvindt op de middag van uw aankomst. Twee volle dagen in dit uitstekende roofdiergebied volgen — leeuw, luipaard en jachtluipaard zijn hier het hele jaar door aanwezig, geen seizoensgebonden gasten — voordat een begeleide afdaling in de Ngorongoro-krater, 's werelds grootste intacte caldera, de wildlifeobservatie afsluit.",
       'Een laatste ochtendlijke game drive door het Manyara-meer, geklemd tussen het steilrandlandschap van de Rift Valley en het alkalische meer, rondt de reis af vóór uw thuisvlucht. Vijf dagen, twee accommodatieniveaus van Reserve-camps tot Sovereign-luxe, en nauwelijks tijd besteed in een voertuig alleen maar om ergens te komen.',
@@ -578,6 +580,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 2100,
     groupSize: { min: 1, max: 12 },
     bestFor: ['solo', 'couples', 'groups'],
+    metaDescription: 'Beklim de Kilimanjaro via de schilderachtige 7-daagse Machame-route — het hoogste slagingspercentage van alle routes, met ervaren berggidsen, dragers en volledige uitrusting. Vanaf $2.100 pp.',
     overview: [
       "De Machame-route wordt vaak de Whiskey-route genoemd, vanwege het kronkelende pad door regenwoud, hoogveen en alpiene woestijn. Het geldt algemeen als de mooiste manier om de Kilimanjaro te beklimmen, en is een van de redenen waarom deze route een van de hoogste slagingspercentages van de berg noteert. Zeven dagen geeft uw lichaam de tijd die het nodig heeft, via de Lava Tower voor een acclimatisatiedag volgens het principe hoog klimmen, laag slapen, wat een meetbaar verschil maakt op de nacht van de top.",
       "U wordt de hele weg begeleid door ervaren berggidsen, een eigen drager per trekker, een kok en een campteam, en standaard volledige reddingsuitrusting bij u. Dit is een beklimming op basis van kamperen, van de eerste tot de laatste nacht, waarbij elke logistiek behalve uw eigen benenwerk voor u geregeld wordt.",
@@ -622,7 +625,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     bestFor: ['solo', 'couples', 'wildlife-enthusiasts'],
     metaTitle: '7-Daagse Southern Circuit Safari: Nyerere & Ruaha',
-    metaDescription: "Een private Southern Circuit safari door Nyerere en Ruaha — Afrika's minst drukke wildernis. Twee niveaus, per weg of per vlucht, vanaf $4.320 pp.",
+    metaDescription: 'Een private 7-daagse Southern Circuit safari door Nyerere en Ruaha — een van de minst drukke wildernisgebieden van Afrika. Twee niveaus, per weg of per vlucht, vanaf $4.320 pp.',
     overview: [
       "Tanzania's zuidelijke route krijgt slechts een fractie van het verkeer dat het noorden heeft — Nyerere en Ruaha samen beslaan 74.826 km² (28.891 vierkante mijl) beschermde wildernis, meer grondgebied dan de meeste landen in totaal bezitten, en vrijwel niets daarvan is druk. Dit programma verbindt beide parken met een nacht in Dar es Salaam om u bij aankomst rustig te laten wennen, en laat u vervolgens kiezen hoe u de rest van de reis wilt afleggen.",
       '7 dagen / 6 nachten — 1 nacht Dar es Salaam · 2 nachten Nyerere National Park · 3 nachten Ruaha National Park.',
@@ -931,6 +934,7 @@ export const packages: SafariPackage[] = [
     badge: 'popular',
     bestFor: ['honeymoon', 'couples'],
     tagline: 'Alleen u tweeën en uw gids',
+    metaDescription: 'Een private 8-daagse huwelijksreis naar Tanzania voor twee — Tarangire, de Ngorongoro-hooglanden en de Serengeti, elke game drive en elk kamp helemaal voor u alleen. Vanaf $3.824 pp.',
     overview: [
       "U wilt dat uw huwelijksreis avontuurlijk en buitengewoon aanvoelt — geen zoveelste strandstoel met uitzicht. Deze 8-daagse huwelijksreissafari door Tanzania is precies daarvoor gebouwd: zeven nachten door Tarangire, de Ngorongoro-hooglanden en de Serengeti, met elke game drive privé en elke camp gekozen om de rust die alleen ontstaat wanneer u ver van ieder ander vandaan bent. Combineer het met een paar dagen op de lagere hellingen van de Kilimanjaro of een strook Zanzibar-strand ervoor of erna, en u heeft een huwelijksreis die begint met olifanten en eindigt zoals u zelf wilt.",
       "De route, het tempo en de wildlife zijn hoe dan ook identiek — wat verandert, is waar u slaapt. We hebben deze reisroute op twee niveaus opgebouwd, zodat u kunt kiezen op basis van hoeveel van uw budget u naar de accommodatie wilt laten gaan versus, bijvoorbeeld, die Zanzibar-verlenging.",
@@ -1736,6 +1740,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 5857,
     groupSize: { min: 1, max: 6 },
     bestFor: ['wildlife-enthusiasts', 'couples', 'solo'],
+    metaDescription: 'Een 12-daagse reis door Tanzania die een Kilimanjaro-dagwandeling en Maasai-cultuur combineert met het wildlifecircuit — Manyara, Tarangire, Ngorongoro en de Serengeti. Vanaf $5.857 pp.',
     overview: [
       "De meeste twaalfdaagse Tanzania-reisroutes vragen u te kiezen tussen de berg en de vlaktes. Deze weigert te kiezen. Ze begint op de stillere westelijke flank van de Kilimanjaro, waar u echte tijd doorbrengt met een Maasai-gemeenschap en vervolgens uw wandelschoenen aantrekt voor een volle dag wandelen naar het Shira-plateau — een van de meest opvallende vulkanische caldera's van de berg, en een oprechte wandelervaring in plaats van een symbolische fotostop. Van daaruit settelt de reis in het wildlifecircuit waar Tanzania om bekendstaat: het Manyara-meer, Tarangire, de Ngorongoro-krater, en drie volle dagen in de Serengeti, met culturele ontmoetingen — een Maasai-dorpsbezoek bij opperhoofd Lobulu, een koffiewandeling in Karatu — die geweven zijn in de reis in plaats van er achteraf aan vastgeplakt.",
       "Het is een reis gebouwd voor reizigers die diepgang willen boven een gehaaste checklist: echt wandelen op de hellingen van de Kilimanjaro, echte gesprekken in Maasai-gemeenschappen, en echte tijd in elk van Tanzania's belangrijkste parken in plaats van één gehaaste nacht bij elke stop. Of u nu de Big Five najaagt, een fysieke uitdaging op de berg zoekt, of een oprechte culturele uitwisseling — deze reisroute geeft elk daarvan een eigen volwaardig hoofdstuk in plaats van ze in de marges van elkaar te persen.",
@@ -1978,6 +1983,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: 'Een 8-daagse Tanzania-safari opgebouwd rond de rivierovertochten van de Mara tijdens de Grote Trek — twee volle dagen bij de rivier, plus Tarangire, Ngorongoro en de Serengeti. Vanaf $4.977 pp.',
     overview: [
       "Vier tot vijf maanden per jaar bewegen meer dan een miljoen gnoes en zebra's door het Serengeti-Mara-ecosysteem in één doorlopende, rusteloze trek — en gedurende een paar onvoorspelbare weken tussen juli en oktober trechtert die beweging door de Mara-rivier, waar krokodillen wachten en de oversteken zelf een van de meest dramatische wildlifespektakels ter wereld worden. Deze achtdaagse reisroute is volledig gebouwd om u de best mogelijke kans te geven dit mee te maken, zonder de parken over te slaan die de reis daarnaartoe op eigen kracht de moeite waard maken.",
       "De route beweegt van west naar oost door Noord-Tanzania: de olifantenkuddes en eeuwenoude baobabs van Tarangire, een stop bij het Manyara-meer en het culturele dorp Mto wa Mbu, een volle dag in de gesloten wildlifekom van de Ngorongoro-krater, dan drie volle dagen diep in de Serengeti — eerst de permanent aanwezige roofdieren van de centrale vlaktes, dan twee volle dagen gestationeerd bij de Mara-rivier zelf, in positie en klaar wanneer de kuddes besluiten over te steken.",
@@ -2331,6 +2337,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 3300,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'families'],
+    metaDescription: 'Een private 7-daagse Northern Circuit safari langs de olifantenkuddes van Tarangire, de boomklimmende leeuwen van het Manyara-meer, de Serengeti en de Big Five van de Ngorongoro-krater. Vanaf $3.300 pp.',
     overview: [
       "Zeven dagen, vier parken, geen kortere weg: dit is de compacte versie van het noordelijke circuit van Tanzania voor reizigers die alles willen zonder de reis langer dan een week te maken. Ze begint in Tarangire tussen olifantenkuddes verzameld bij de rivier en baobabs die er bijna prehistorisch uitzien, gaat verder naar het Manyara-meer voor zijn beroemde boomklimmende leeuwen en flamingogestreepte ondiepten, en steekt dan over naar de Serengeti voor twee volle dagen tussen grote katachtigen en wildlife-observatie op de open vlaktes.",
       "De Ngorongoro-krater sluit het wildlifedeel van de reis af, het kroonjuweel van het noordelijke circuit, en het enige park waar Big Five-waarnemingen op één dag bijna gegarandeerd zijn, voordat de route u terugbrengt naar Kilimanjaro International Airport met een week aan Noord-Tanzania achter u.",
@@ -2420,6 +2427,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 4000,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: 'Vlieg over de Ngorongoro-krater naar de kalfvelden van Ndutu voor een private 7-daagse Serengeti-safari, getimed op het hoogtepunt van roofdieractiviteit en pasgeboren gnoes. Vanaf $4.000 pp.',
     overview: [
       "Deze reis is afgestemd op één specifiek evenement: het Ndutu-kalfseizoen, waarin tussen januari en maart dagelijks tot wel 8.000 gnoekalveren hier geboren worden, en elk roofdier in het ecosysteem — leeuw, jachtluipaard, hyena, wilde hond — samenkomt op de kortgrasvlaktes om hiervan te profiteren. De vlucht zet de toon nog voordat u geland bent: hij voert recht over de rand van de Ngorongoro-krater, zodat u de volledige cirkelvormige omvang van de caldera vanuit de lucht ziet, voordat u twee volle dagen doorbrengt in het gebied van de centrale Serengeti waar het hele jaar door grote katten te vinden zijn.",
       "Een volle dag in Ndutu zelf brengt u midden in de actie, en de reis wordt afgesloten met een begeleide afdaling in de Ngorongoro-krater, waar het drama van de kalfgronden wordt ingeruild voor de bijna gegarandeerde Big Five-waarnemingen in Afrika's meest geconcentreerde wildschotel.",
@@ -2695,6 +2703,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 6500,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: 'Een 11-daagse reis die gorilla- en goudaaptrekking in het Volcanoes-nationaalpark van Rwanda combineert met een safari door de Serengeti en de Ngorongoro-krater. Vanaf $6.500 pp.',
     overview: [
       "Elf dagen die twee van de meest onderscheidende wildlife-ervaringen van Afrika met elkaar verbinden: een berggorillatrekking en het spoor volgen van goudapen in het Volcanoes-nationaalpark van Rwanda, gevolgd door de open vlaktes van de Serengeti en een volledige afdaling in de Ngorongoro-krater. De Genocide-gedenkplaats van Kigali, bezocht op uw eerste volle dag, biedt essentiële context over het moderne Rwanda voordat de reis verdergaat naar het bamboewoud van de Virunga's, waar zowel een gewende gorillafamilie als een groep goudapen — die alleen in deze bergen voorkomen — op het programma staan.",
       "Een vlucht over de duizend heuvels en de savanne van Tanzania in markeert het middelpunt van de reis, en het laatste deel voegt iets toe dat geen van beide landen alleen kan bieden: een dag bij het Eyasimeer met de Hadzabe, een van de laatste echte jager-verzamelaargemeenschappen van Afrika, waarbij u deelneemt aan een ochtendjacht en vuurmaaktechnieken leert die al millennia ongewijzigd zijn, voordat de reis bij de Kilimanjaro wordt afgesloten.",
@@ -2816,6 +2825,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 9375,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'honeymoon', 'wildlife-enthusiasts'],
+    metaDescription: '12 dagen die gorillatrekking in Rwanda combineren met een Tanzania-safari door Tarangire, Ngorongoro en de Serengeti, en vier nachten op de stranden van Zanzibar. Vanaf $9.375 pp.',
     overview: [
       "Twaalf dagen waarin u nergens tussen hoeft te kiezen: een ontmoeting met berggorilla's en het spoor volgen van goudapen in het Volcanoes-nationaalpark van Rwanda, een volledige Tanzania-safari door Tarangire, de Ngorongoro-krater en twee volle dagen in de centrale Serengeti, en vier nachten aan het einde van de reis op de stranden van Zanzibar. Weinig reisroutes combineren een gewende gorillafamilie, de Big Five en wit zand in dezelfde boeking, laat staan in een route die zo goed op elkaar is afgestemd.",
       'De Genocide-gedenkplaats van Kigali geeft het Rwanda-deel de context die het verdient, een begeleide wandelsafari in Tarangire brengt een ander tempo in het wildlife-gedeelte, en de hele reis wordt aangeboden in drie accommodatieniveaus — Trail, Reserve en Sovereign — zodat de route identiek blijft, ongeacht welk niveau u boekt.',
@@ -3026,7 +3036,7 @@ export const packages: SafariPackage[] = [
     bestFor: ['couples', 'honeymoon', 'wildlife-enthusiasts'],
     tagline: 'Bijgewerkt voor het seizoen 2027.',
     metaTitle: 'Rwanda Primatensafari & Zanzibar Strandontsnapping | EWA Safari Outfitters',
-    metaDescription: "Chimpansee-, gorilla- en goudapentrekking in Rwanda, gevolgd door vier nachten op de stranden van Zanzibar. Eén naadloze boeking, vanaf $7.742,08 pp.",
+    metaDescription: 'Chimpansee-, gorilla- en goudapentrekking in Rwanda, gevolgd door vier ontspannen nachten op de zonovergoten stranden van Zanzibar. Eén naadloze boeking, vanaf $7.742,08 pp.',
     overview: [
       "Rwanda herbergt drie primatensoorten waarvan de meeste reizigers er maar één te zien krijgen. Deze reisroute volgt alle drie — chimpansees die zich door het bladerdak van het Nyungwewoud bewegen, berggorilla's op de door nevel omhulde hellingen boven Musanze, en goudapen die door het bamboe van het Volcanoes-nationaalpark schieten — en sluit dan af met vier nachten waarin u helemaal niets hoeft te doen op de stranden van Zanzibar.",
       "De twee helften zijn echt verschillend van aard, en de reisroute is opgebouwd om dat verschil te respecteren in plaats van het te laten vervagen. Rwanda vraagt iets van u: echte bostochten, soms op hoogte, vergunningsgebonden trekkingdagen die niet gehaast of verzet kunnen worden zodra ze geboekt zijn. Zanzibar vraagt helemaal niets. Een boottocht over het Kivumeer vormt een bewuste pauze tussen de twee trekkinggebieden, en een ochtend in Stone Town opent de strandhelft voordat het programma helemaal leegloopt. Chimpansee- en gorillatrekking zijn fysiek veeleisende activiteiten, geen zittende game drive — dragers zijn beschikbaar voor extra ondersteuning, en de echte tweenachtige verblijven door heel Rwanda zijn opgebouwd om vermoeidheid te verminderen waar de trekking zelf niet eenvoudiger te maken is.",
@@ -3199,6 +3209,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 3414.58,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: 'Een private 4-daagse ontsnapping naar Rwanda — berggorillatrekking in het Volcanoes-nationaalpark, goudapen en de Genocide-gedenkplaats van Kigali. Vanaf $3.415 pp.',
     overview: [
       "Men noemt het het Land van de Duizend Heuvels, en tegen de tijd dat uw voertuig de mist boven Musanze in klimt, begrijpt u waarom die naam het land tekortdoet. Rwanda vouwt zichzelf open in de ene groene bergkam na de andere, met de hand in terrassen aangelegd, generaties lang bewerkt, en stijgt gestaag op naar een keten van vulkanen die een van de zeldzaamste, meest onwaarschijnlijke ontmoetingen herbergt die onze planeet nog te bieden heeft: een familie berggorilla's, bezig met een doodgewone ochtend, volstrekt onaangedaan door de kleine, verbaasde mensen die zo ver zijn gekomen om bij hen te zitten.",
       "Dit is een reis met twee helften, en beide doen ertoe. In Kigali loopt u door een gedenkplaats voor de genocide en komt u veranderd naar buiten door wat dit kleine land sindsdien heeft gekozen te worden — een van de opmerkelijkste verhalen van veerkracht en verzoening ter wereld. Daarna slaat de weg noordwaarts af, het bamboewoud en de vulkaantoppen in, voor een enkel uur met een gorillafamilie waarop geen enkele foto u ooit echt kan voorbereiden, gevolgd door een levendiger ochtend met de goudapen die hun berg delen. Vier dagen, twee onvergetelijke verhalen, één klein land dat veel meer te bieden heeft dan zijn omvang doet vermoeden.",
@@ -3836,6 +3847,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
     bestFor: ['couples', 'families', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: 'Een private 11-daagse Kenia-safari door de Masai Mara, de olifanten van Amboseli onder de Kilimanjaro, en de zeldzame wildlife van Samburu Reserve. Vanaf $5.800 pp.',
     overview: [
       'Elf dagen, één land, en het pleidooi voor Kenia als de meest complete safaribestemming van Afrika — beslecht.',
       "Deze reisroute rijgt vijf van de meest kenmerkende ecosystemen van Kenia aaneen: olifantenfamilies die de vlaktes onder de Kilimanjaro doorkruisen in Amboseli, de \"Samburu Special Five\" — Grevy-zebra, netgiraffe, gerenuk, beisa-oryx en Somalische struisvogel — die nergens anders in het land voorkomen, zwarte neushoorns en het enige chimpanseereservaat van Oost-Afrika bij Ol Pejeta, flamingokolonies die tot wel twee miljoen vogels kunnen tellen en het Nakurumeer roze kleuren, en twee volle dagen in de Masai Mara, verkozen tot een van de Zeven Natuurwonderen van Afrika. Nairobi opent en sluit de reis af met het Karen Blixen Museum, het Giraffe Centre en het olifantenweeshuis van Sheldrick. Elke stop krijgt echte tijd in plaats van een doorrit, en dat is precies wat elf dagen onbetwist in plaats van gehaast doet aanvoelen.",
@@ -3957,6 +3969,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 5200,
     groupSize: { min: 1, max: 6 },
     bestFor: ['solo', 'couples', 'wildlife-enthusiasts'],
+    metaDescription: "Een private 10-daagse reis naar het wilde zuiden van Tanzania — bootsafari's op de Rufiji-rivier in Nyerere National Park en de dichte populatie grote katachtigen van Ruaha. Vanaf $5.200 pp.",
     overview: [
       "Zuid-Tanzania profileert zichzelf niet, en dat is precies het punt — dit tiendaagse circuit is gebouwd voor reizigers die het wild van de Serengeti willen zonder ook maar één ander voertuig in zicht.",
       "De reisroute begint in het Nyerere-nationaalpark — met 50.000 vierkante kilometer een gebied groter dan Zwitserland — met game drives door het rivierbos en miombobos en een bootsafari op de Rufiji-rivier, op ooghoogte met nijlpaarden en olifanten aan de waterrand. Vandaar loopt de route zuidwaarts door Mikumi en een wandeling om te zwemmen onder de Sanje-waterval in de Udzungwa-bergen, voordat twee volle dagen in Ruaha volgen, het grootste nationale park van Tanzania en thuis van zijn grootste populatie leeuwen, luipaarden, jachtluipaarden en wilde honden. Zuid-Tanzania krijgt slechts een fractie van het bezoekersverkeer van het noordelijke circuit, en deze reisroute is gebouwd om daar optimaal van te profiteren — lange, ongehaaste dagen in echte wildernis, geen rijen bij de poort.",
@@ -4071,6 +4084,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 8 },
     badge: 'new',
     bestFor: ['couples', 'honeymoon', 'wildlife-enthusiasts'],
+    metaDescription: '11 dagen die de wilde zuidelijke route van Tanzania combineren — de Rufiji-rivier van Nyerere en de wildlife van Ruaha — met drie nachten in Stone Town en op de stranden van Zanzibar. Vanaf $6.100 pp.',
     overview: [
       "Dit is het antwoord van het zuidelijke circuit op de klassieke formule van safari-gevolgd-door-strand in Tanzania — ruil het drukke noorden in voor Nyerere en Ruaha, en sluit af op het witte zand van Zanzibar.",
       "Dagen diep in het zuiden beginnen met game drives en bootsafari's op de Rufiji-rivier in het Nyerere-nationaalpark, waar leeuwenroedels zich door miombobos bewegen ter grootte van een klein land, voordat een transfer per klein vliegtuig u naar Ruaha brengt — het meest wilde, minst bezochte park van Tanzania, met een roofdierdichtheid die het opneemt tegen elk ander op het continent. Vandaar is het een korte vlucht naar Zanzibar voor drie dagen in een vijfsterren strandresort, met de gebeeldhouwde deuren van Stone Town, de reuzenschildpadden van Prison Island, wilde dolfijnen voor de kust van Kizimkazi en een kruidenboerderijtour verweven rond de strandtijd. Geen grensovergangen over land, geen gedeelde wildkijkroutes — alleen echte zuidelijke wildernis gevolgd door echte rust.",
@@ -4192,6 +4206,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 7200,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
+    metaDescription: "Een 12-daagse Tanzania-Kenia-expeditie langs de Masai Mara en de Serengeti, de Kilimanjaro-achtergrond van Amboseli, en de flamingo's en neushoorns van Lake Nakuru. Vanaf $7.200 pp.",
     overview: [
       "Twaalf dagen zijn genoeg om helemaal te stoppen met kiezen tussen Kenia en Tanzania — deze expeditie neemt beide mee, en steekt de grens over per klein vliegtuig in plaats van te compromitteren.",
       'Het Kenia-deel omvat de olifantenkuddes van Amboseli onder de Kilimanjaro, de flamingoroze oevers en het neushoornreservaat van het Nakurumeer, en twee dagen in de Masai Mara, een van de Zeven Natuurwonderen van Afrika. Een vlucht over de grens brengt u naar de Serengeti voor nog meer volle dagen tussen de leeuwen- en jachtluipaardpopulaties, voordat de kraterbodem van Ngorongoro de Big Five oplevert in één enkele afdaling en het Manyarameer de reis afsluit met de boomklimmende leeuwen die Hemingway bewijs noemde van "de mooiste plek van Afrika". Twee landen, vier ecosystemen, één doorlopende wildlife-expeditie — met een panoramische vlucht in plaats van de gebruikelijke grensovergang over land.',
@@ -4657,6 +4672,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
     bestFor: ['couples', 'first-time', 'families'],
+    metaDescription: 'Het volledige Northern Circuit in slechts 5 dagen — Tarangire, Ngorongoro, Serengeti en het Manyara-meer — als private, volledig begeleide Tanzania-safari. Vanaf $1.909 pp.',
     overview: [
       "Vijf dagen is de minimale tijd die nodig is om de Northern Circuit goed te ontdekken, en dit reisschema verspilt geen enkele ervan.",
       "Het tempo ligt hoog, maar voelt nooit gehaast: een dag tussen de eeuwenoude baobabs van Tarangire en enkele van de grootste olifantenkuddes van Afrika, een volledige afdaling in de Ngorongoro-krater voor de Big Five en zwarte neushoorn, anderhalve dag in de Serengeti op zoek naar leeuw en jachtluipaard over de open vlaktes, en een laatste stop bij Lake Manyara voor boomklimmende leeuwen en met flamingo's omzoomde oevers. Het is het reisschema dat we het vaakst aanraden aan reizigers die voor het eerst op safari gaan en aan stellen met een krapper schema — het volledige verhaal van de Northern Circuit, compact zonder ingekort te worden.",
@@ -4789,6 +4805,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 2554,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'first-time', 'families', 'wildlife-enthusiasts'],
+    metaDescription: 'Een 6-daagse Northern Circuit safari met twee volle dagen in de Serengeti, plus de olifantenkuddes van Tarangire en een volledige afdaling in de Ngorongoro-krater. Vanaf $2.554 pp.',
     overview: [
       'Dit is de grotere broer van de 5-daagse Comfort Safari — dezelfde Northern Circuit, één dag extra, en die dag gaat volledig naar de Serengeti.',
       "De extra nacht levert u een echte vroege-ochtend game drive in de Serengeti op, wanneer roofdieren het meest actief zijn, bovenop de eeuwenoude baobabbossen en recordolifantenkuddes van Tarangire, een volledige afdaling in de Ngorongoro-krater voor de Big Five en zwarte neushoorn, en de boomklimmende leeuwen van Lake Manyara. Op papier is het een kleine wijziging — één dag extra, één park dat u tweemaal bezoekt in plaats van eenmaal — maar in een landschap dat draait om onvoorspelbare dierwaarnemingen, is die extra dag in de Serengeti vaak het verschil tussen het circuit zien en het daadwerkelijk beleven.",
@@ -4932,6 +4949,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 4600,
     groupSize: { min: 2, max: 8 },
     bestFor: ['luxury', 'couples', 'wildlife-enthusiasts', 'photography'],
+    metaDescription: 'Een 10-daagse hoogtepuntensafari door Kenia en Tanzania — de Masai Mara, Amboseli onder de Kilimanjaro, de Serengeti en de Ngorongoro-krater. Vanaf $4.600 pp.',
     overview: [
       "Vraag een doorgewinterde safarigids om de vijf plekken in Oost-Afrika te noemen die u niet mag overslaan, en dit tiendaagse reisschema is ongeveer wat u terug zou krijgen.",
       'Het opent met de olifantenkuddes van Amboseli die de vlaktes onder de Kilimanjaro doorkruisen, gevolgd door een nacht en een volledige dag in de Masai Mara — inclusief het gebied waar de Mara-rivier wordt overgestoken — voordat een overlandgrensovergang bij Isibania u naadloos van Kenia naar de Tanzaniaanse Serengeti brengt, ecologisch gezien één en hetzelfde landschap ondanks de politieke grens ertussen. Twee volledige dagen in het jachtluipaard- en leeuwengebied van de Serengeti leiden naar een volledige dag in de Ngorongoro-krater en een stop bij Lake Manyara, waar boomklimmende leeuwen een gedrag zijn dat nergens anders in Oost-Afrika voorkomt. Doorlopend verkrijgbaar in comfort- of premiumcategorieën, is dit de compilatie van hoogtepunten voor reizigers, en vooral fotografen, die de kenmerkende landschappen van beide landen willen zien zonder er ook maar één van in te korten.',
@@ -5134,6 +5152,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'wildlife-enthusiasts', 'first-time'],
+    metaDescription: 'Een 10-daagse grensoverschrijdende safari — het neushoornreservaat van Lake Nakuru, twee dagen in de Masai Mara, drie volle dagen in de Serengeti en de Ngorongoro-krater. Vanaf $5.072 pp.',
     overview: [
       'Deze route volgt dezelfde boog van Kenia naar Tanzania als ons klassieke grensoverschrijdende reisschema, maar ruilt een dag rijden in voor een derde volledige dag in de Serengeti.',
       "Het opent bij Lake Nakuru, met met flamingo's omzoomde oevers en een neushoornreservaat met zowel zwarte als witte neushoorns, voordat twee volledige dagen in het leeuwen- en jachtluipaardgebied van de Masai Mara volgen. EWA regelt de overdracht van gids en voertuig bij de grensovergang Sirari, zodat de overgang naar de Centrale Serengeti van Tanzania net zo naadloos verloopt als het ecosysteem zelf — waar u drie volledige dagen doorbrengt, meer tijd in één park dan bij vrijwel elk ander reisschema dat wij aanbieden. Een begeleide afdaling in de Ngorongoro-krater levert de Big Five in één dag op, en de legendarische olifantenkuddes en eeuwenoude baobabs van Tarangire sluiten de reis af voor de terugkeer naar Arusha.",
@@ -5429,6 +5448,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 2, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'wildlife-enthusiasts', 'first-time'],
+    metaDescription: 'Een private 4-daagse Tanzania-safari — de olifantenkuddes van Tarangire, een volledige afdaling in de Ngorongoro-krater en een culturele middag bij het Hadzabe-volk. Vanaf $1.250 pp.',
     overview: [
       "Vier dagen zijn genoeg om Tanzania's wildlife te combineren met iets dat u bij geen enkel ander reisschema van ons vindt: een middag bij de Hadzabe, een van 's werelds laatste jager-verzamelaargemeenschappen.",
       "Het opent met een middagse game drive door het met baobabs bezaaide landschap en de olifantenkuddes van Tarangire, en gaat daarna zuidwaarts naar Lake Eyasi, waar u zich aansluit bij een jachtgroep van de Hadzabe door de bush en Datoga-smeden bezoekt die nog steeds met de hand gereedschap smeden. Een volledige dag afdalen in de Ngorongoro-krater levert de Big Five op, inclusief een van de weinige betrouwbare populaties zwarte neushoorns van het land, voordat u terugrijdt naar Arusha. U brengt twee opeenvolgende nachten door in dezelfde lodge in Karatu, wat betekent minder inpakken en meer tijd om daadwerkelijk te kijken naar wat er voor u ligt — een compacte, goed getimede kennismaking met zowel de wildlife als de levende cultuur van Tanzania.",
@@ -5540,6 +5560,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 2, max: 6 },
     badge: 'new',
     bestFor: ['couples', 'wildlife-enthusiasts', 'families', 'first-time'],
+    metaDescription: "Een 5-daagse Kenia-safari — fietsen tussen wildlife in Hell's Gate, de flamingo's en neushoorns van Lake Nakuru, en twee volle dagen in de Masai Mara. Vanaf $1.520 pp.",
     overview: [
       "De meeste Kenia-reisschema's zetten u vanaf dag één in een voertuig; dit begint met u op een fiets, tussen zebra's en giraffen, zonder voorruit tussen u en hen.",
       "Hell's Gate National Park — een van de weinige parken in Kenia waar u vrij te voet of per fiets tussen wildlife kunt bewegen — opent de reis, gevolgd door de vogelrijkdom van Lake Naivasha en het landschap van de Rift Valley, daarna Lake Nakuru, een van de laatste bolwerken van het land voor zowel zwarte als witte neushoorns naast zijn beroemde flamingokolonies. De tweede helft van de reis bestaat uit twee volledige dagen in de Masai Mara, Kenia's kenmerkende wildlifearena en, van juli tot oktober, het toneel van de rivieroversteken van de Great Migration. Verkrijgbaar in drie accommodatiecategorieën, van comfortabele kampen tot ultra-luxe, is dit een vijfdaagse route die gevarieerd moet aanvoelen in plaats van gehaast.",
@@ -5670,6 +5691,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 3847,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'honeymoon', 'luxury'],
+    metaDescription: 'Een 9-daagse Tanzania-huwelijksreis die Tarangire, een afdaling in de Ngorongoro-krater en twee dagen in de Serengeti combineert met een strandontsnapping op Zanzibar. Vanaf $3.847 pp.',
     overview: [
       "Vijf dagen safari, vier nachten strand, en niet één ochtendwekker die u niet zelf hebt gekozen — dit is een huwelijksreis die evenveel om tempo draait als om landschap.",
       "De safarihelft doorkruist de olifantenkuddes en eeuwenoude baobabbossen van Tarangire, twee volledige dagen in het leeuwen- en luipaardgebied van de Centrale Serengeti, en een begeleide afdaling in de Ngorongoro-krater, een UNESCO-werelderfgoedlocatie, voordat een korte vlucht het safarivoertuig inruilt voor Nungwi Beach aan de noordpunt van Zanzibar. Vier ontspannen nachten daar laten ruimte voor duiken, een dhow-cruise bij zonsondergang, een bezoek aan Stone Town, of helemaal niets. Beide accommodatiecategorieën, Wilderness Trail en Wilderness Sovereign, zijn specifiek gekozen voor het ritme van een huwelijksreis — nooit gehaast, nooit overvol geprogrammeerd.",
@@ -5868,6 +5890,7 @@ export const packages: SafariPackage[] = [
     priceFrom: 4775,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'photography', 'luxury'],
+    metaDescription: 'Een private 10-daagse Tanzania-safari opgebouwd rond de rivierovertochten van de Mara tijdens de Grote Trek, plus Tarangire, Manyara, Ngorongoro en de Serengeti. Vanaf $4.775 pp.',
     overview: [
       "Rivieroversteken zijn het meest gewilde beeld in de Afrikaanse wildlifefotografie, en tegelijk het minst gegarandeerde — dus doet dit reisschema het enige dat uw kansen daadwerkelijk vergroot: het geeft u drie volledige dagen in het oversteekgebied in plaats van één.",
       "De opbouw is ook belangrijk. Het opent met de olifantenkuddes van Tarangire en een zeldzame begeleide wandelsafari, een volledige dag afdaling in de Ngorongoro-krater voor de Big Five, en een stop bij de Olduvai-kloof, de vindplaats van enkele van de belangrijkste vroege menselijke fossielen ooit gevonden. Vandaar gaat het noordwaarts naar het gebied van de Mara-rivier in de Serengeti, voor drie opeenvolgende dagen gepositioneerd om de rivieroversteken van de Great Migration te vangen, in plaats van de enkele dobbelsteenworp die de meeste kortere reisschema's bieden. Twee accommodatiecategorieën, Wilderness Trail en Wilderness Sovereign, zijn beide opgebouwd rond hetzelfde doel: uw kans maximaliseren dat u op de juiste plek bent wanneer de kuddes uiteindelijk de rivier trotseren.",
@@ -6080,6 +6103,7 @@ export const packages: SafariPackage[] = [
     groupSize: { min: 1, max: 6 },
     badge: 'new',
     bestFor: ['photography', 'wildlife-enthusiasts', 'solo'],
+    metaDescription: 'Een 10-daagse Tanzania-fotosafari met kleine groepen, extra ruimte in het voertuig en een gids die weet in te spelen op licht en positionering — Tarangire, Ngorongoro, Serengeti. Vanaf $4.597 pp.',
     overview: [
       "De meeste safari's bewegen snel: een waarneming, een paar beelden door het raam, en verder naar de volgende stop voordat u echt de tijd heeft gehad om te zien wat er voor u ligt. Deze is precies andersom opgebouwd. Langzaam genoeg, en met genoeg ruimte in het voertuig, om daadwerkelijk de foto te maken — niet alleen de herinnering aan bijna gelukt.",
       "Over 10 dagen doorkruist deze fotosafari vier van de meest lonende regio's van Noord-Tanzania. U begint tussen de olifantenkuddes en eeuwenoude baobabs van Tarangire, brengt een volledige dag door op de wildlife-rijke bodem van de Ngorongoro-krater, en trekt vervolgens de Serengeti in — eerst de Centrale vlaktes, een van de betrouwbaarste gebieden voor grote katachtigen op het continent, dan noordwaarts naar migratiegebied, waar het licht goudkleurig wordt en de horizon nooit lijkt op te houden. Elke dag is opgebouwd rond licht, positionering en geduld, niet rond een afvinklijst van parken.",
