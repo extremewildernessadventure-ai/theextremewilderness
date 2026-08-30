@@ -48,7 +48,7 @@ export default async function BookingVoucherPage({ params }: Props) {
 
   return (
     <>
-      <style>{printCss('pdf-voucher')}</style>
+      <style>{printCss()}</style>
 
       <div className="max-w-3xl mx-auto px-4 py-6 print:hidden flex items-center justify-between border-b border-gray-100">
         <div>

@@ -46,7 +46,7 @@ export default async function ItineraryPdfPage({ params }: Props) {
 
   return (
     <>
-      <style>{printCss('pdf-itinerary')}</style>
+      <style>{printCss()}</style>
 
       <PrintTrigger />
 

@@ -55,7 +55,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
 
   return (
     <>
-      <style>{printCss('pdf-kili-guide')}</style>
+      <style>{printCss()}</style>
 
       <PrintTrigger />
 

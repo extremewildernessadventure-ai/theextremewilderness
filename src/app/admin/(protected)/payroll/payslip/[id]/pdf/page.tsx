@@ -24,7 +24,7 @@ export default async function PayslipPdfPage({ params }: Props) {
 
   return (
     <>
-      <style>{printCss('pdf-payslip')}</style>
+      <style>{printCss()}</style>
 
       {/* Screen-only header bar */}
       <div className="max-w-3xl mx-auto px-4 py-6 print:hidden flex items-center justify-between border-b border-gray-100">

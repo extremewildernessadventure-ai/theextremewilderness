@@ -67,7 +67,7 @@ export default async function PdfPage({ params }: Props) {
 
   return (
     <>
-      <style>{printCss('pdf-route-guide')}</style>
+      <style>{printCss()}</style>
 
       <PrintTrigger />
 
