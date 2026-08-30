@@ -143,17 +143,27 @@ export default function TrackingScripts() {
                     ensurePulseRing(frame);
                     continue;
                   }
-                  // Tawk also renders proactive greeting bubbles/stickers
-                  // (e.g. the "Need a hand?" teaser, the "We Are Here!"
-                  // sticker) as their own small fixed iframes, positioned
-                  // assuming the launcher sits at Tawk's default offset.
-                  // Once we move the launcher, those teasers overlap/clip
+                  // Tawk also renders proactive/auto popups — small teaser
+                  // stickers ("Need a hand?") as well as full greeting
+                  // bubbles with quick-reply buttons (a Trigger configured
+                  // in the Tawk dashboard) — as their own fixed iframes,
+                  // positioned assuming the launcher sits at Tawk's default
+                  // offset. Once we move the launcher, these overlap/clip
                   // against it and the bottom nav instead of repositioning
-                  // to match — hide them rather than guess a new offset.
-                  // Height-gated so a genuinely opened chat window (much
-                  // taller) is never touched.
-                  var rect = frame.getBoundingClientRect();
-                  if (rect.height > 0 && rect.height < 150) {
+                  // to match. More importantly, the site should only ever
+                  // show its own chat UI when the visitor deliberately
+                  // opens it — matching how WhatsAppButton behaves, an icon
+                  // that never pops open unprompted — so hide any
+                  // non-launcher Tawk iframe unless Tawk itself confirms
+                  // the visitor has actually maximized a conversation.
+                  // isChatMaximized() is the authoritative signal (covers
+                  // both the small teaser and the larger greeting bubble,
+                  // regardless of size); it defaults safely to "not open"
+                  // for the brief window before Tawk_API is fully populated,
+                  // since nothing can have been genuinely opened yet then.
+                  var chatIsOpen = window.Tawk_API && typeof window.Tawk_API.isChatMaximized === 'function'
+                    && window.Tawk_API.isChatMaximized();
+                  if (!chatIsOpen) {
                     frame.style.setProperty('display', 'none', 'important');
                   }
                 }
