@@ -4317,6 +4317,46 @@
     "backHome": "홈으로 돌아가기",
     "browseDestinations": "목적지 둘러보기"
   },
+  "emailAutoReply": {
+    "contact": {
+      "subject": "문의사항이 접수되었습니다",
+      "greeting": "안녕하세요, {name}님,",
+      "body": "EWA Safari Outfitters에 연락 주셔서 감사합니다. 보내주신 메시지는 아루샤에 있는 저희 팀에게 전달되었으며, 2시간 이내에 정성스러운 답변을 드리겠습니다 — 자동으로 생성된 일정표가 아닌, 탄자니아를 잘 아는 담당자가 직접 작성한 답변입니다."
+    },
+    "enquiry": {
+      "subject": "고객님의 사파리 문의를 소중히 다루고 있습니다",
+      "greeting": "안녕하세요, {name}님,",
+      "body": "문의해 주셔서 감사합니다 — 고객님의 여행 계획을 도와드릴 수 있어 진심으로 기쁩니다. 현재 저희 팀이 세부 사항을 검토하고 있으며, 2시간 이내에 다음 단계를 안내해 드리겠습니다."
+    },
+    "planBrief": {
+      "subject": "맞춤 사파리 플랜이 준비되고 있습니다",
+      "greeting": "안녕하세요, {name}님,",
+      "body": "Safari AI 어드바이저를 통해 여행을 설계해 주셔서 감사합니다. 저희 전문가가 고객님의 요청 내용을 상세히 검토하고 있으며, 24시간 이내에 맞춤 추천안을 보내드리겠습니다."
+    },
+    "exitIntentClaim": {
+      "subject": "할인 코드가 확정되었습니다",
+      "greeting": "안녕하세요, {name}님,",
+      "body": "할인 혜택을 신청해 주셔서 감사합니다 — 저희 팀에 알림이 전달되었으며, 예약 준비가 되시면 바로 적용해 드릴 수 있도록 준비해 두겠습니다. 그동안 사파리 영감을 드릴 소식들을 받은 편지함에서 확인해 보세요."
+    },
+    "tradePartners": {
+      "subject": "저희와의 파트너십에 관심을 가져주셔서 감사합니다",
+      "greeting": "안녕하세요, {name}님,",
+      "body": "여행업계 파트너 문의가 접수되었으며, 함께 협력할 가능성에 대해 저희도 매우 기대하고 있습니다. 파트너십 담당팀이 제출해 주신 내용을 검토한 후, 영업일 기준 1일 이내에 트레이드 자격 여부를 확인해 드리겠습니다."
+    }
+  },
+  "pdfChrome": {
+    "kilimanjaroGuideTitle": "킬리만자로 트레킹 가이드",
+    "kilimanjaroGuideSubtitle": "5,895m / 19,341ft — 아프리카 대륙 최고봉",
+    "kilimanjaroGuideDocType": "킬리만자로 가이드",
+    "kilimanjaroRouteEyebrow": "킬리만자로 루트 가이드",
+    "climbCtaHeading": "등반하실 준비가 되셨나요?",
+    "climbCtaBody": "킬리만자로 트레킹 예약은 저희에게 문의해 주세요 — 저희 팀이 고객님께 꼭 맞는 루트를 함께 찾아드립니다.",
+    "itineraryEyebrow": "고객님만을 위한 맞춤 일정",
+    "itineraryHighlightsHeading": "하이라이트",
+    "itineraryMealsLabel": "식사",
+    "bookCtaHeading": "예약하실 준비가 되셨나요?",
+    "bookCtaBody": "저희에게 문의해 주시면 이 일정을 고객님이 원하시는 그대로 맞춤화하여 확정 예약으로 완성해 드리겠습니다."
+  },
   "pdfLead": {
     "badge": "무료 가이드",
     "imagePanelBrand": "EWA Safari Outfitters",

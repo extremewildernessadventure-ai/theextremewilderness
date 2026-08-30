@@ -181,17 +181,18 @@ export function PdfSectionHeading({ children }: { children: React.ReactNode }) {
 
 // A rounded "DAY N" pill beside a day's title — for itinerary-style
 // documents (route-specific trek guides, package itinerary PDFs).
-export function PdfDayBlock({ day, title, meta, children }: {
+export function PdfDayBlock({ day, title, meta, dayLabel, children }: {
   day: number
   title: string
   meta?: string
+  dayLabel?: string
   children?: React.ReactNode
 }) {
   return (
     <div className="mb-6 no-break">
       <div className="flex items-start gap-3 mb-2">
         <div className="shrink-0 rounded flex items-center justify-center" style={{ background: 'var(--color-brand)', width: 52, height: 24 }}>
-          <span className="text-[9px] font-black uppercase tracking-wider" style={{ color: 'var(--color-gold)' }}>Day {day}</span>
+          <span className="text-[9px] font-black uppercase tracking-wider" style={{ color: 'var(--color-gold)' }}>{dayLabel ?? 'Day'} {day}</span>
         </div>
         <div className="flex-1">
           <p className="text-sm font-bold text-gray-900">{title}</p>

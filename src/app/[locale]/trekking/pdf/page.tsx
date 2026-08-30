@@ -27,6 +27,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
   const { locale = 'en' } = await params
   const t = await getTranslations({ locale, namespace: 'trekking' })
   const trd = await getTranslations({ locale, namespace: 'trekkingRouteDetail' })
+  const tp = await getTranslations({ locale, namespace: 'pdfChrome' })
 
   const routes = ROUTE_SLUGS.map((slug, i) => ({
     name: t(`route${i + 1}Name` as 'route1Name'),
@@ -73,14 +74,14 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
           image="/images/gallery/kilimanjaro-hero.webp"
           imageAlt="Kilimanjaro"
           eyebrow={t('pdfCardEyebrow')}
-          title="Kilimanjaro Trekking Guide"
-          subtitle="5,895 m / 19,341 ft — Africa's highest peak"
+          title={tp('kilimanjaroGuideTitle')}
+          subtitle={tp('kilimanjaroGuideSubtitle')}
           metaLeft={new Date().toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}
           metaRight={t('pdfCardBadge')}
         />
 
         <div className="px-10 py-6">
-        <PdfRunningHeader documentType="Kilimanjaro Guide" />
+        <PdfRunningHeader documentType={tp('kilimanjaroGuideDocType')} />
 
         {/* ── Introduction ── */}
         <div className="mb-7 no-break">
@@ -177,7 +178,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
         </div>
 
         <div className="mb-8">
-          <PdfClosingCta heading="Ready To Climb?" body="Get in touch to book your Kilimanjaro trek — our team will help you pick the right route." />
+          <PdfClosingCta heading={tp('climbCtaHeading')} body={tp('climbCtaBody')} />
         </div>
 
         <PdfFooter />

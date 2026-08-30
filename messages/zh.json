@@ -4217,6 +4217,46 @@
     "backHome": "返回首页",
     "browseDestinations": "浏览目的地"
   },
+  "emailAutoReply": {
+    "contact": {
+      "subject": "我们已收到您的留言",
+      "greeting": "您好，{name}：",
+      "body": "感谢您联系EWA Safari Outfitters。您的留言已送达我们在阿鲁沙的团队，我们将在2小时内给您个性化回复——不是自动生成的行程，而是来自真正了解坦桑尼亚的专业人士的真实答复。"
+    },
+    "enquiry": {
+      "subject": "您的游猎咨询已得到妥善处理",
+      "greeting": "您好，{name}：",
+      "body": "感谢您的咨询——我们非常乐意为您规划这趟旅程。我们的团队正在审阅详细信息，将在2小时内与您联系，告知后续步骤。"
+    },
+    "planBrief": {
+      "subject": "您的定制游猎方案正在路上",
+      "greeting": "您好，{name}：",
+      "body": "感谢您使用我们的Safari AI顾问规划行程。我们的一位专家正在详细审阅您的需求简报，将在24小时内与您联系，提供量身定制的建议。"
+    },
+    "exitIntentClaim": {
+      "subject": "您的折扣码已确认",
+      "greeting": "您好，{name}：",
+      "body": "感谢您领取折扣——我们的团队已收到通知，会在您准备好预订时随时为您应用。与此同时，请留意您的收件箱，我们将为您带来更多游猎灵感。"
+    },
+    "tradePartners": {
+      "subject": "感谢您有意与我们合作",
+      "greeting": "您好，{name}：",
+      "body": "我们已收到您的贸易合作伙伴咨询，非常期待未来的合作机会。我们的合作伙伴团队将审核您的资料，并在一个工作日内确认您的贸易伙伴身份。"
+    }
+  },
+  "pdfChrome": {
+    "kilimanjaroGuideTitle": "乞力马扎罗徒步指南",
+    "kilimanjaroGuideSubtitle": "5,895米 / 19,341英尺——非洲最高峰",
+    "kilimanjaroGuideDocType": "乞力马扎罗指南",
+    "kilimanjaroRouteEyebrow": "乞力马扎罗路线指南",
+    "climbCtaHeading": "准备好登山了吗？",
+    "climbCtaBody": "联系我们预订您的乞力马扎罗徒步之旅——我们的团队将帮助您选择合适的路线。",
+    "itineraryEyebrow": "您的定制行程",
+    "itineraryHighlightsHeading": "行程亮点",
+    "itineraryMealsLabel": "餐食",
+    "bookCtaHeading": "准备好预订了吗？",
+    "bookCtaBody": "联系我们，我们将把这份行程变成一份确认预订，完全按照您的心意量身定制。"
+  },
   "pdfLead": {
     "badge": "免费指南",
     "imagePanelBrand": "EWA Safari Outfitters",
