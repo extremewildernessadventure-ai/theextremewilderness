@@ -4278,12 +4278,12 @@
     "emailSubject": "Jouw gratis Kilimanjaro-trekkinggids — EWA Safari Outfitters",
     "emailGreeting": "Hoi {name},",
     "emailIntro": "Bedankt voor je interesse in het beklimmen van de Kilimanjaro! Je gratis gids staat klaar — alle 6 routes vergeleken, de volledige uitrustingslijst, beste klimseizoenen en tips voor een succesvolle top.",
-    "emailCta": "Bekijk je gids",
+    "emailCta": "Download je PDF",
     "emailOutro": "Nog vragen of klaar om je klim te gaan plannen? Beantwoord gewoon deze e-mail — ons team reageert doorgaans binnen 2 uur.",
     "emailSignoff": "Tot op de berg,",
     "emailTeam": "Het team van EWA Safari Outfitters",
-    "emailItinerarySubject": "Jouw aanvraag voor een reisroute — EWA Safari Outfitters",
-    "emailItineraryIntro": "Bedankt voor je aanvraag voor de reisroute {context}. Ons team stelt je volledige dag-tot-dag plan samen en stuurt dit binnen 24 uur naar dit adres.",
+    "emailItinerarySubject": "Jouw reisroute — EWA Safari Outfitters",
+    "emailItineraryIntro": "Bedankt voor je aanvraag voor de reisroute {context}. Je volledige dag-tot-dag PDF staat hieronder klaar — bekijk hem gerust en laat het ons weten als je nog iets aangepast wilt hebben.",
     "viewLabel": "Bekijk de gids nu"
   },
   "exitIntent": {

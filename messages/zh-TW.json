@@ -4288,12 +4288,12 @@
     "emailSubject": "您的免費吉力馬札羅健行指南 — EWA Safari Outfitters",
     "emailGreeting": "您好，{name}：",
     "emailIntro": "感謝您對攀登吉力馬札羅的興趣！您的免費指南已準備好——全部6條路線比較、完整裝備清單、最佳攀登季節和登頂成功貼士。",
-    "emailCta": "檢視您的指南",
+    "emailCta": "下載您的PDF",
     "emailOutro": "有問題或準備開始規劃您的攀登？直接回複本郵件即可——我們的團隊通常在2小時內回覆。",
     "emailSignoff": "山上見，",
     "emailTeam": "EWA Safari Outfitters團隊",
-    "emailItinerarySubject": "您的行程請求 — EWA Safari Outfitters",
-    "emailItineraryIntro": "感謝您索取{context}行程。我們的團隊正在準備您完整的逐日計劃，並將在24小時內傳送到此地址。",
+    "emailItinerarySubject": "您的行程 — EWA Safari Outfitters",
+    "emailItineraryIntro": "感謝您索取{context}行程。您完整的逐日PDF行程已準備就緒，請在下方查看——如需調整，歡迎隨時告訴我們。",
     "viewLabel": "立即檢視指南"
   },
   "exitIntent": {

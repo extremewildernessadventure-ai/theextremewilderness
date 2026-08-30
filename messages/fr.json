@@ -4288,12 +4288,12 @@
     "emailSubject": "Votre guide gratuit de trekking au Kilimandjaro — EWA Safari Outfitters",
     "emailGreeting": "Bonjour {name},",
     "emailIntro": "Merci de votre intérêt pour l'ascension du Kilimandjaro ! Votre guide gratuit est prêt — les 6 itinéraires comparés, la liste complète d'équipement, les meilleures saisons et nos conseils pour atteindre le sommet.",
-    "emailCta": "Consulter votre guide",
+    "emailCta": "Télécharger votre PDF",
     "emailOutro": "Des questions ou prêt à planifier votre ascension ? Répondez simplement à cet e-mail — notre équipe répond généralement en moins de 2 heures.",
     "emailSignoff": "À bientôt sur la montagne,",
     "emailTeam": "L'équipe EWA Safari Outfitters",
-    "emailItinerarySubject": "Votre demande d'itinéraire — EWA Safari Outfitters",
-    "emailItineraryIntro": "Merci d'avoir demandé l'itinéraire {context}. Notre équipe prépare votre programme détaillé jour par jour et vous l'enverra à cette adresse sous 24 heures.",
+    "emailItinerarySubject": "Votre itinéraire — EWA Safari Outfitters",
+    "emailItineraryIntro": "Merci d'avoir demandé l'itinéraire {context}. Votre PDF détaillé jour par jour est prêt ci-dessous — jetez-y un œil, et dites-nous si vous souhaitez ajuster quoi que ce soit.",
     "viewLabel": "Voir le Guide Maintenant"
   },
   "exitIntent": {

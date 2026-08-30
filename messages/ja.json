@@ -4304,12 +4304,12 @@
     "emailSubject": "キリマンジャロ登山 無料ガイド — EWA Safari Outfitters",
     "emailGreeting": "{name} 様",
     "emailIntro": "キリマンジャロ登山にご興味をお寄せいただきありがとうございます。無料ガイドのご用意ができました。6ルートの比較、装備リスト完全版、登山に最適なシーズン、登頂成功のコツをまとめています。",
-    "emailCta": "ガイドを見る",
+    "emailCta": "PDFをダウンロード",
     "emailOutro": "ご質問がある方、登山の計画を始めたい方は、このメールにご返信ください。通常2時間以内にチームよりご返信いたします。",
     "emailSignoff": "山でお会いできるのを楽しみにしています。",
     "emailTeam": "EWA Safari Outfitters チーム一同",
-    "emailItinerarySubject": "旅程のご依頼 — EWA Safari Outfitters",
-    "emailItineraryIntro": "{context}の旅程をご依頼いただきありがとうございます。チームが日程ごとの詳細プランを作成しており、24時間以内にこちらのアドレス宛にお送りいたします。",
+    "emailItinerarySubject": "ご旅程 — EWA Safari Outfitters",
+    "emailItineraryIntro": "{context}の旅程をご依頼いただきありがとうございます。日程ごとの詳細なPDFをご用意いたしましたので、下記よりご確認ください。ご希望の調整がございましたらお知らせください。",
     "viewLabel": "今すぐガイドを見る"
   },
   "exitIntent": {

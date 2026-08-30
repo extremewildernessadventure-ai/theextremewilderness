@@ -4196,12 +4196,12 @@
     "emailSubject": "دليلك المجاني لتسلق كليمنجارو — EWA Safari Outfitters",
     "emailGreeting": "مرحبًا {name}،",
     "emailIntro": "شكرًا لاهتمامك بتسلق كليمنجارو! دليلك المجاني جاهز — مقارنة بين المسارات الستة، وقائمة المعدات الكاملة، وأفضل مواسم التسلق، ونصائح الوصول إلى القمة بنجاح.",
-    "emailCta": "شاهد دليلك",
+    "emailCta": "تحميل ملف PDF",
     "emailOutro": "لديك أسئلة أو جاهز لبدء التخطيط لتسلقك؟ فقط رُدّ على هذا البريد الإلكتروني — يرد فريقنا عادةً خلال ساعتين.",
     "emailSignoff": "نراك على الجبل،",
     "emailTeam": "فريق EWA Safari Outfitters",
-    "emailItinerarySubject": "طلب برنامج رحلتك — EWA Safari Outfitters",
-    "emailItineraryIntro": "شكرًا لطلبك برنامج رحلة {context}. يعمل فريقنا على إعداد خطتك الكاملة يومًا بيوم وسيرسلها إلى هذا العنوان خلال 24 ساعة.",
+    "emailItinerarySubject": "برنامج رحلتك — EWA Safari Outfitters",
+    "emailItineraryIntro": "شكرًا لطلبك برنامج رحلة {context}. ملف PDF الكامل ليوميات رحلتك جاهز أدناه — ألقِ نظرة عليه، وأخبرنا إذا رغبت في أي تعديل.",
     "viewLabel": "شاهد الدليل الآن"
   },
   "safari": {
