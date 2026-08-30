@@ -194,7 +194,7 @@ export default async function DestinationsPage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/75" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <Breadcrumb items={[
+          <Breadcrumb locale={locale} items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
             { label: t('breadcrumbLabel') },
           ]} />

@@ -498,7 +498,7 @@ export default async function TravelInfoPage({ params }: Props) {
       <section className="relative bg-brand py-32 lg:py-40 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/lion-portrait.webp')] bg-cover bg-center" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={[
+          <Breadcrumb locale={locale} items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
             { label: t('breadcrumbLabel') },
           ]} />

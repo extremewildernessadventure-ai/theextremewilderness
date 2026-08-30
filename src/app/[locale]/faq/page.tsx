@@ -100,7 +100,7 @@ export default async function FaqPage({ params }: Props) {
       <section className="relative bg-brand py-32 lg:py-40 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/ngorongoro-crater-vehicle.webp')] bg-cover bg-center" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={breadcrumbItems} />
+          <Breadcrumb items={breadcrumbItems} locale={locale} />
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 max-w-3xl">
             {t('heroTitle')} <span className="text-gold">{t('heroTitleGold')}</span>

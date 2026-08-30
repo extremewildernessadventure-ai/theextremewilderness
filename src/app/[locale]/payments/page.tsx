@@ -142,7 +142,7 @@ export default async function PaymentsPage({ params }: Props) {
         <div className="absolute inset-0 opacity-10 bg-[url('/images/gallery/maned-lion-resting-savanna-grass.webp')] bg-cover bg-center" />
         <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center mb-4">
-            <Breadcrumb items={breadcrumbItems} />
+            <Breadcrumb items={breadcrumbItems} locale={locale} />
           </div>
           <p className="text-gold text-xs font-semibold uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
           <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-4">{t('heroTitle')}</h1>

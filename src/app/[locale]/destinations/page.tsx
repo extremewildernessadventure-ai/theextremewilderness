@@ -150,7 +150,7 @@ export default async function DestinationsHubPage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <Breadcrumb items={breadcrumbItems} />
+          <Breadcrumb items={breadcrumbItems} locale={locale} />
           <div className="max-w-2xl">
             <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroEyebrow')}</p>
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">

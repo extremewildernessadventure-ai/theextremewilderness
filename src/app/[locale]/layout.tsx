@@ -66,7 +66,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   setRequestLocale(locale)
-  const messages = await getMessages()
+  const messages = await getMessages({ locale })
   const clientMessages = pickMessages(messages, CLIENT_NAMESPACES)
   const tc = await getTranslations({ locale, namespace: 'common' })
   const { rating, reviewCount } = await getGooglePlaceRating()
@@ -147,7 +147,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         </a>
         <Navbar />
         <main id="main-content" className="flex-1 pb-16 lg:pb-0">{children}</main>
-        <Footer />
+        <Footer locale={locale} />
         <div className="h-16 lg:hidden" aria-hidden="true" />
         <WhatsAppButton />
         <LanguageSuggestionBanner />

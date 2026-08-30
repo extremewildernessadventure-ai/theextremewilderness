@@ -380,7 +380,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
         <Image src={page.heroImage} alt={page.title} fill className="object-cover" priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/20 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
-          <Breadcrumb items={[
+          <Breadcrumb locale={locale} items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
             { label: t('breadcrumbSection'), href: `/${locale}/experiences` },
             { label: page.title },
