@@ -44,7 +44,7 @@ export default async function InvoicePdfPage({ params }: Props) {
   return (
     <>
       {/* Print CSS */}
-      <style>{printCss('pdf-invoice')}</style>
+      <style>{printCss()}</style>
 
       {/* Screen-only header bar */}
       <div className="max-w-3xl mx-auto px-4 py-6 print:hidden flex items-center justify-between border-b border-gray-100">

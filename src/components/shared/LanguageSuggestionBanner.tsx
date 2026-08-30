@@ -66,7 +66,7 @@ export default function LanguageSuggestionBanner() {
 
   return (
     <div
-      className={`fixed z-50 bottom-20 left-4 right-4 lg:start-auto lg:end-6 lg:bottom-6 lg:w-96 transition-all duration-500 ease-out ${
+      className={`fixed z-50 bottom-20 left-4 right-4 lg:start-auto lg:end-6 lg:bottom-6 lg:w-96 transition-all duration-500 ease-out print:hidden ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       role="dialog"

@@ -28,7 +28,7 @@ export default function WhatsAppButton() {
       // inward from the pinned edge by the tooltip's own width. Same fix
       // class as .price-slider-track in globals.css.
       dir="ltr"
-      className="fixed bottom-20 lg:bottom-6 left-6 z-50 group flex items-center gap-3"
+      className="fixed bottom-20 lg:bottom-6 left-6 z-50 group flex items-center gap-3 print:hidden"
     >
       {/* Tooltip */}
       <span className="hidden sm:block opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-200 bg-gray-900 text-white text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap pointer-events-none order-last">

@@ -116,7 +116,7 @@ export default function ExitIntentPopup() {
     <div
       ref={modalRef}
       tabIndex={-1}
-      className="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/60"
+      className="fixed inset-0 z-40 flex items-center justify-center p-4 bg-black/60 print:hidden"
       role="dialog"
       aria-modal="true"
       aria-label={t('heading')}

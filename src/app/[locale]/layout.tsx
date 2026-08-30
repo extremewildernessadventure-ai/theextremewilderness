@@ -211,10 +211,16 @@ export default async function LocaleLayout({ children, params }: Props) {
             >
               Skip to main content
             </a>
+            {/* Every piece of site chrome below now carries its own
+                `print:hidden` on its root element (not just individual PDF
+                pages' own screen-only bits) — that's what makes the shared
+                PdfChrome print pipeline correct. See the comment on
+                printCss() in src/components/pdf/PdfChrome.tsx for why this
+                replaced a body-wide visibility hack. */}
             <Navbar />
             <main id="main-content" className="flex-1 pb-16 lg:pb-0">{children}</main>
             <Footer locale={locale} />
-            <div className="h-16 lg:hidden" aria-hidden="true" />
+            <div className="h-16 lg:hidden print:hidden" aria-hidden="true" />
             <WhatsAppButton />
             <LanguageSuggestionBanner />
             <ExitIntentPopup />

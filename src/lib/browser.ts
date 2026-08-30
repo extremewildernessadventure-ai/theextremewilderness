@@ -25,9 +25,20 @@ export async function renderPageToPdf(url: string, cookieHeader: string | null):
   const browser = await puppeteer.launch(env.BROWSER)
   try {
     const page = await browser.newPage()
-    if (cookieHeader) {
-      await page.setExtraHTTPHeaders({ Cookie: cookieHeader })
-    }
+    // Every call here is this Worker rendering its own site for an internal
+    // purpose (the requested locale is already baked into `url`) — never a
+    // real visitor whose geography should be guessed. Without this,
+    // src/middleware.ts's geo-redirect sees an unauthenticated, non-bot
+    // headless session hitting an unprefixed (English) URL and 302s it
+    // based on Browser Rendering's own egress-IP country instead of the
+    // locale we actually asked for (confirmed live: most Latin-American
+    // country codes land on 'es', silently swapping English PDFs for
+    // Spanish ones). `geo-locale-decided` is the same opt-out cookie the
+    // middleware itself sets after a real visitor's first redirect.
+    const geoBypassCookie = 'geo-locale-decided=1'
+    await page.setExtraHTTPHeaders({
+      Cookie: cookieHeader ? `${cookieHeader}; ${geoBypassCookie}` : geoBypassCookie,
+    })
     // 'load' (not 'networkidle0'): the voucher page has no ongoing
     // client-side polling, and 'networkidle0' never resolves against a
     // Next.js dev server specifically, since its HMR WebSocket never goes

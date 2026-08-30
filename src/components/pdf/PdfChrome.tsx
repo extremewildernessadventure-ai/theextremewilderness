@@ -44,18 +44,27 @@ export function sanitizeForPdf(text: string): string {
 // unless the user manually enables "background graphics". Cloudflare
 // Browser Rendering already gets this via page.pdf({printBackground:true}),
 // but this covers both code paths from one shared stylesheet.
-export function printCss(targetId: string): string {
+//
+// Isolating the printable content used to be done here via
+// `body * { visibility: hidden }` + `position: fixed` on the target — that
+// was a real bug, not just an aesthetic choice: `position: fixed` removes
+// an element from normal document flow, so it can't fragment across pages
+// and contributes zero height to the document. Chromium's print pagination
+// then had nothing to measure but the (hidden-but-still-occupying-space)
+// site chrome around it, so anything past one page's worth of *chrome*
+// height was simply never painted — on a genuinely multi-page document
+// (a route guide, an itinerary) that meant everything past the cover
+// silently vanished. Fixed by hiding the known chrome directly (see
+// `print:hidden` on Navbar/Footer/WhatsAppButton/etc. in
+// src/app/[locale]/layout.tsx, and the equivalent in the admin protected
+// layout) instead of fighting it from here — once chrome is genuinely
+// `display: none` at print time, the printable content needs no special
+// positioning at all: it renders normally, in flow, and actually
+// paginates. This function no longer takes a target id for that reason.
+export function printCss(): string {
   return `
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     @media print {
-      body * { visibility: hidden !important; }
-      #${targetId}, #${targetId} * { visibility: visible !important; }
-      #${targetId} {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%;
-        background: white;
-      }
       @page { size: A4; margin: 16mm 14mm; }
       @page :first { margin: 0; }
       .pdf-page-break { break-after: page; page-break-after: always; }

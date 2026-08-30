@@ -55,7 +55,7 @@ export default async function Footer({ locale }: { locale: string }) {
   ] as const
 
   return (
-    <footer className="bg-brand text-white">
+    <footer className="bg-brand text-white print:hidden">
       <div className="w-full px-6 sm:px-10 lg:px-16">
         <div className="py-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[1.6fr_1fr_1fr_0.8fr_1fr] gap-6 lg:gap-8 text-center md:text-start">
 

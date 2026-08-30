@@ -185,7 +185,7 @@ export default function BottomNav() {
         </div>
       )}
 
-      <nav className="fixed bottom-0 inset-x-0 z-50 lg:hidden h-16 bg-brand border-t border-white/10 flex items-stretch">
+      <nav className="fixed bottom-0 inset-x-0 z-50 lg:hidden h-16 bg-brand border-t border-white/10 flex items-stretch print:hidden">
         <Link href="/" className={tabCls(isActive('/'))}>
           <Home className="w-5 h-5" />
           <span>{t('home')}</span>
