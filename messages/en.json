@@ -4147,6 +4147,33 @@
     "backHome": "Back to Home",
     "browseDestinations": "Browse Destinations"
   },
+  "emailAutoReply": {
+    "contact": {
+      "subject": "We've received your message",
+      "greeting": "Hi {name},",
+      "body": "Thanks for reaching out to EWA Safari Outfitters. Your message has landed with our team in Arusha, and we'll get back to you within 2 hours with a personal reply — no auto-generated itinerary, just a real answer from someone who knows Tanzania."
+    },
+    "enquiry": {
+      "subject": "Your safari enquiry is in good hands",
+      "greeting": "Hi {name},",
+      "body": "Thank you for your enquiry — we're genuinely excited to help plan your trip. Our team is reviewing the details now and will be in touch within 2 hours with next steps."
+    },
+    "planBrief": {
+      "subject": "Your custom safari plan is on its way",
+      "greeting": "Hi {name},",
+      "body": "Thanks for building a trip with our Safari AI advisor. One of our specialists is now reviewing your brief in detail and will follow up within 24 hours with a tailored recommendation."
+    },
+    "exitIntentClaim": {
+      "subject": "Your discount code is confirmed",
+      "greeting": "Hi {name},",
+      "body": "Thanks for claiming your discount — our team has been notified and will have it ready to apply whenever you're ready to book. Keep an eye on your inbox for safari inspiration in the meantime."
+    },
+    "tradePartners": {
+      "subject": "Thanks for your interest in partnering with us",
+      "greeting": "Hi {name},",
+      "body": "We've received your trade partner enquiry and are excited about the possibility of working together. Our partnerships team will review your details and confirm your trade status within one business day."
+    }
+  },
   "pdfLead": {
     "badge": "Free Guide",
     "imagePanelBrand": "EWA Safari Outfitters",

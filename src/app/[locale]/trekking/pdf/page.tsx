@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { getTranslations, getLocale } from 'next-intl/server'
-import { Printer } from 'lucide-react'
 import PrintTrigger from './PrintTrigger'
 import { buildAlternates } from '@/lib/site'
+import { printCss, PdfCover, PdfRunningHeader, PdfSectionHeading, PdfClosingCta, PdfFooter } from '@/components/pdf/PdfChrome'
+import PrintPdfButton from '@/components/pdf/PrintPdfButton'
 
 // Kept dynamic deliberately: the printed document shows today's date
 // (new Date() below), which would otherwise freeze at build time.
@@ -21,8 +22,6 @@ interface Props {
 }
 
 const ROUTE_SLUGS = ['machame', 'lemosho', 'marangu', 'rongai', 'umbwe', 'northern-circuit'] as const
-
-const QUICK_SUMMARY_KEYS = ['duration', 'difficulty', 'successRate'] as const
 
 export default async function KilimanjaroGuidePdfPage({ params }: Props) {
   const { locale = 'en' } = await params
@@ -55,23 +54,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
 
   return (
     <>
-      {/* Print CSS */}
-      <style>{`
-        @media print {
-          body * { visibility: hidden !important; }
-          #pdf-kili-guide, #pdf-kili-guide * { visibility: visible !important; }
-          #pdf-kili-guide {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            background: white;
-            padding: 20px 28px;
-          }
-          @page { size: A4; margin: 14mm 12mm; }
-          .no-break { page-break-inside: avoid; }
-          .page-break { page-break-before: always; }
-        }
-      `}</style>
+      <style>{printCss('pdf-kili-guide')}</style>
 
       <PrintTrigger />
 
@@ -81,35 +64,23 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
           <h1 className="text-xl font-bold text-brand">{t('pdfCardTitle')}</h1>
           <p className="text-sm text-text-muted">EWA Safari Outfitters · Kilimanjaro</p>
         </div>
-        <button
-          onClick={() => window.print()}
-          className="flex items-center gap-2 px-5 py-2.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand/90 transition-colors text-sm"
-        >
-          <Printer className="w-4 h-4" />
-          {trd('labels.printSavePdf')}
-        </button>
+        <PrintPdfButton label={trd('labels.printSavePdf')} />
       </div>
 
       {/* ── Printable document ─────────────────────────────────── */}
-      <div id="pdf-kili-guide" className="max-w-4xl mx-auto px-8 py-6 bg-white font-sans print:max-w-none print:px-0">
+      <div id="pdf-kili-guide" className="max-w-4xl mx-auto bg-white font-sans print:max-w-none">
+        <PdfCover
+          image="/images/gallery/kilimanjaro-hero.webp"
+          imageAlt="Kilimanjaro"
+          eyebrow={t('pdfCardEyebrow')}
+          title="Kilimanjaro Trekking Guide"
+          subtitle="5,895 m / 19,341 ft — Africa's highest peak"
+          metaLeft={new Date().toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}
+          metaRight={t('pdfCardBadge')}
+        />
 
-        {/* ── Header ── */}
-        <div className="flex items-start justify-between pb-5 mb-6 border-b-[3px] border-gray-900 no-break">
-          <div>
-            <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-1">
-              EWA Safari Outfitters · Arusha, Tanzania
-            </p>
-            <h1 className="text-3xl font-black text-gray-900 leading-tight">
-              Kilimanjaro Trekking Guide
-            </h1>
-            <p className="text-sm text-gray-500 mt-1">{t('pdfCardEyebrow')} · 5,895 m / 19,341 ft</p>
-          </div>
-          <div className="text-end text-xs text-gray-400">
-            <p className="font-bold text-gray-600 text-sm">{t('pdfCardBadge')}</p>
-            <p className="mt-0.5">info@theextremewilderness.com</p>
-            <p>{new Date().toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-          </div>
-        </div>
+        <div className="px-10 py-6">
+        <PdfRunningHeader documentType="Kilimanjaro Guide" />
 
         {/* ── Introduction ── */}
         <div className="mb-7 no-break">
@@ -118,12 +89,10 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
 
         {/* ── Routes at a glance ── */}
         <div className="mb-7 no-break">
-          <h2 className="text-base font-black text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">
-            {t('pdfGuideSectionRoutes')}
-          </h2>
+          <PdfSectionHeading>{t('pdfGuideSectionRoutes')}</PdfSectionHeading>
           <table className="w-full text-xs border-collapse">
             <thead>
-              <tr className="bg-gray-900 text-white">
+              <tr className="bg-brand text-white">
                 <th className="text-start px-3 py-2 font-bold">{trd('labels.routeTableHeader')}</th>
                 <th className="text-start px-3 py-2 font-bold">{trd('labels.duration')}</th>
                 <th className="text-start px-3 py-2 font-bold">{trd('labels.difficulty')}</th>
@@ -149,9 +118,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
         {/* ── What's included / excluded ── */}
         <div className="grid grid-cols-2 gap-6 mb-7 no-break">
           <div>
-            <h2 className="text-base font-black text-gray-900 mb-2 uppercase tracking-wide border-s-4 border-gray-900 ps-3">
-              {trd('labels.included')}
-            </h2>
+            <PdfSectionHeading>{trd('labels.included')}</PdfSectionHeading>
             <ul className="space-y-0.5">
               {included.map((item) => (
                 <li key={item} className="text-xs text-gray-700 flex items-start gap-1.5">
@@ -162,9 +129,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
             </ul>
           </div>
           <div>
-            <h2 className="text-base font-black text-gray-900 mb-2 uppercase tracking-wide border-s-4 border-gray-900 ps-3">
-              {trd('labels.notIncluded')}
-            </h2>
+            <PdfSectionHeading>{trd('labels.notIncluded')}</PdfSectionHeading>
             <ul className="space-y-0.5">
               {excluded.map((item) => (
                 <li key={item} className="text-xs text-gray-700 flex items-start gap-1.5">
@@ -177,10 +142,8 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
         </div>
 
         {/* ── Gear / Packing list ── */}
-        <div className="mb-7 page-break no-break">
-          <h2 className="text-base font-black text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">
-            {t('pdfGuideSectionGear')}
-          </h2>
+        <div className="mb-7 pdf-page-break-before no-break">
+          <PdfSectionHeading>{t('pdfGuideSectionGear')}</PdfSectionHeading>
           <div className="grid grid-cols-2 gap-x-8 gap-y-3">
             {gearCategories.map(({ label, items }) => (
               <div key={label}>
@@ -201,27 +164,23 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
 
         {/* ── Best seasons ── */}
         <div className="mb-7 no-break">
-          <h2 className="text-base font-black text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">
-            {t('pdfGuideSectionSeasons')}
-          </h2>
+          <PdfSectionHeading>{t('pdfGuideSectionSeasons')}</PdfSectionHeading>
           <div className="grid grid-cols-3 gap-4">
             {seasons.map((s, i) => (
-              <div key={s.label} className={`rounded-lg p-3 ${i === 0 ? 'bg-gray-900 text-white' : 'bg-gray-100'}`}>
-                <p className={`text-[10px] font-black uppercase tracking-widest mb-1 ${i === 0 ? 'text-yellow-300' : 'text-gray-500'}`}>{s.label}</p>
+              <div key={s.label} className="rounded-lg p-3" style={i === 0 ? { background: 'var(--color-brand)' } : { background: '#F3F1EA' }}>
+                <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color: i === 0 ? 'var(--color-gold)' : '#6b7280' }}>{s.label}</p>
                 <p className={`text-sm font-bold mb-1 ${i === 0 ? 'text-white' : 'text-gray-900'}`}>{s.months}</p>
-                <p className={`text-xs leading-relaxed ${i === 0 ? 'text-gray-300' : 'text-gray-600'}`}>{s.desc}</p>
+                <p className={`text-xs leading-relaxed ${i === 0 ? 'text-white/80' : 'text-gray-600'}`}>{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ── Footer ── */}
-        <div className="border-t-2 border-gray-900 pt-4 flex items-center justify-between no-break">
-          <div>
-            <p className="text-sm font-black text-gray-900">EWA Safari Outfitters</p>
-            <p className="text-xs text-gray-500">info@theextremewilderness.com · www.theextremewilderness.com · Arusha, Tanzania</p>
-          </div>
-          <p className="text-xs text-gray-400">© {new Date().getFullYear()} EWA · {t('pdfCardBadge')}</p>
+        <div className="mb-8">
+          <PdfClosingCta heading="Ready To Climb?" body="Get in touch to book your Kilimanjaro trek — our team will help you pick the right route." />
+        </div>
+
+        <PdfFooter />
         </div>
       </div>
     </>

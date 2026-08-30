@@ -50,3 +50,16 @@ export function invoiceKey(invoiceId: number): string {
   // points at the most recent one.
   return `invoices/${invoiceId}/${Date.now()}-invoice.pdf`
 }
+
+// Public-facing lead-magnet PDFs (api/pdf-lead/route.ts) — archival copies
+// of what was actually emailed, same timestamped convention as above, keyed
+// by lead id (not a booking/invoice id, since these have no other row to
+// hang the key off) rather than email/slug, to avoid putting a visitor's
+// email address in an R2 object key.
+export function trekGuideKey(leadId: number): string {
+  return `trek-guides/${leadId}/${Date.now()}-kilimanjaro-guide.pdf`
+}
+
+export function itineraryKey(leadId: number, packageSlug: string): string {
+  return `itineraries/${leadId}/${Date.now()}-${packageSlug}.pdf`
+}

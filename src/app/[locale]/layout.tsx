@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist } from 'next/font/google'
+import { Geist, Fraunces } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -22,6 +22,14 @@ import TrackingScripts from '@/components/analytics/TrackingScripts'
 const geist = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin', 'cyrillic'],
+})
+
+// Cover-page display serif for the public trek-guide/itinerary PDFs — see
+// src/components/pdf/PdfChrome.tsx. Not used anywhere else on the site.
+const fraunces = Fraunces({
+  variable: '--font-fraunces',
+  subsets: ['latin'],
+  weight: ['500', '600'],
 })
 
 type Props = {
@@ -182,7 +190,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   return (
-    <html lang={locale} dir={isRtlLocale(locale) ? 'rtl' : 'ltr'} className={`${geist.variable} h-full w-full`}>
+    <html lang={locale} dir={isRtlLocale(locale) ? 'rtl' : 'ltr'} className={`${geist.variable} ${fraunces.variable} h-full w-full`}>
       <body className="min-h-screen w-full flex flex-col antialiased overflow-x-hidden">
         <NextIntlClientProvider locale={locale} messages={clientMessages}>
           <Providers>

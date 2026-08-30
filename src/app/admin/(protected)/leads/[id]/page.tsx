@@ -99,12 +99,24 @@ export default async function LeadDetailPage({ params }: Props) {
           {payloadEntries.length > 0 && (
             <div className="panel space-y-3 text-sm">
               <h2 className="mb-1">Submitted Details</h2>
-              {payloadEntries.map(([key, value]) => (
-                <div key={key} className="flex justify-between gap-4">
-                  <span className="shrink-0" style={{ color: 'var(--grey)' }}>{formatFieldLabel(key)}</span>
-                  <span className="text-end break-words">{formatFieldValue(value)}</span>
-                </div>
-              ))}
+              {payloadEntries.map(([key, value]) => {
+                const formatted = formatFieldValue(value)
+                // Long free-text fields (a message, notes, etc.) read badly
+                // squeezed right-aligned onto the same line as their label —
+                // stack them instead, like a normal paragraph under a heading.
+                const isLongText = formatted.length > 60
+                return isLongText ? (
+                  <div key={key} className="space-y-1">
+                    <span style={{ color: 'var(--grey)' }}>{formatFieldLabel(key)}</span>
+                    <p className="whitespace-pre-wrap break-words">{formatted}</p>
+                  </div>
+                ) : (
+                  <div key={key} className="flex justify-between gap-4">
+                    <span className="shrink-0" style={{ color: 'var(--grey)' }}>{formatFieldLabel(key)}</span>
+                    <span className="text-end break-words">{formatted}</span>
+                  </div>
+                )
+              })}
             </div>
           )}
 

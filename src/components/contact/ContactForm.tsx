@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { Send, Check } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import { trackFormFillConversion } from '@/lib/analytics'
@@ -11,6 +11,7 @@ const inputCls =
 
 export default function ContactForm() {
   const t = useTranslations('forms')
+  const locale = useLocale()
 
   const SUBJECTS = [
     t('contactForm.subjects.safariBooking'),
@@ -51,7 +52,7 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, locale }),
       })
       if (res.status === 429) { setError(t('contactForm.rateLimitError')); return }
       if (!res.ok) throw new Error('send failed')

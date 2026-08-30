@@ -1,8 +1,19 @@
 import type { Metadata } from 'next'
 import { getTranslations, getLocale } from 'next-intl/server'
-import { Check, X, Printer } from 'lucide-react'
+import { Check, X } from 'lucide-react'
 import PrintTrigger from './PrintTrigger'
 import { buildAlternates } from '@/lib/site'
+import { printCss, PdfCover, PdfRunningHeader, PdfSectionHeading, PdfDayBlock, PdfClosingCta, PdfFooter } from '@/components/pdf/PdfChrome'
+import PrintPdfButton from '@/components/pdf/PrintPdfButton'
+
+const ROUTE_IMAGES: Record<string, string> = {
+  machame: '/images/gallery/kilimanjaro-card-machame.webp',
+  lemosho: '/images/gallery/kilimanjaro-card-lemosho.webp',
+  marangu: '/images/gallery/kilimanjaro-card-marangu.webp',
+  rongai: '/images/gallery/kilimanjaro-card-rongai.webp',
+  umbwe: '/images/gallery/kilimanjaro-card-umbwe.webp',
+  'northern-circuit': '/images/gallery/kilimanjaro-card-northern-circuit.webp',
+}
 
 // Kept dynamic deliberately: the printed document shows today's date
 // (new Date() below), which would otherwise freeze at build time.
@@ -55,24 +66,7 @@ export default async function PdfPage({ params }: Props) {
 
   return (
     <>
-      {/* Print CSS — hides everything except #pdf-route-guide when printing */}
-      <style>{`
-        @media print {
-          body * { visibility: hidden !important; }
-          #pdf-route-guide, #pdf-route-guide * { visibility: visible !important; }
-          #pdf-route-guide {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: white;
-            padding: 24px 32px;
-          }
-          @page { size: A4; margin: 15mm 12mm; }
-          .no-break { page-break-inside: avoid; }
-          .page-break { page-break-before: always; }
-        }
-      `}</style>
+      <style>{printCss('pdf-route-guide')}</style>
 
       <PrintTrigger />
 
@@ -82,34 +76,26 @@ export default async function PdfPage({ params }: Props) {
           <h1 className="text-xl font-semibold text-brand">{routeContent.quickFacts.routeName}</h1>
           <p className="text-sm text-text-muted">{trd('labels.downloadRouteGuide')}</p>
         </div>
-        <button
-          onClick={() => window.print()}
-          className="flex items-center gap-2 px-5 py-2.5 bg-brand text-white font-semibold rounded-xl hover:bg-brand/90 transition-colors text-sm"
-        >
-          <Printer className="w-4 h-4" />
-          {trd('labels.printSavePdf')}
-        </button>
+        <PrintPdfButton label={trd('labels.printSavePdf')} />
       </div>
 
       {/* ── Printable document ───────────────────────────────────────── */}
-      <div id="pdf-route-guide" className="max-w-4xl mx-auto px-8 py-6 bg-white text-gray-900 font-sans print:max-w-none print:px-0">
+      <div id="pdf-route-guide" className="max-w-4xl mx-auto bg-white text-gray-900 font-sans print:max-w-none">
+        <PdfCover
+          image={ROUTE_IMAGES[route] ?? '/images/gallery/kilimanjaro-hero.webp'}
+          imageAlt={routeContent.quickFacts.routeName}
+          eyebrow="Kilimanjaro Route Guide"
+          title={routeContent.quickFacts.routeName}
+          subtitle={routeContent.nickname}
+          metaLeft={new Date().toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}
+        />
 
-        {/* Header */}
-        <div className="flex items-start justify-between pb-5 mb-6 border-b-2 border-gray-900 no-break">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-1">EWA Safari Outfitters</p>
-            <h1 className="text-3xl font-bold text-gray-900 leading-tight">{routeContent.quickFacts.routeName}</h1>
-            <p className="text-base text-gray-600 mt-1 italic">{routeContent.nickname}</p>
-          </div>
-          <div className="text-end text-xs text-gray-400">
-            <p className="font-semibold text-gray-600">{trd('labels.downloadRouteGuide')}</p>
-            <p className="mt-1">{new Date().toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-          </div>
-        </div>
+        <div className="px-10 py-6">
+        <PdfRunningHeader documentType={routeContent.quickFacts.routeName} />
 
         {/* Overview */}
         <div className="mb-6 no-break">
-          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.overview')}</h2>
+          <PdfSectionHeading>{trd('labels.overview')}</PdfSectionHeading>
           {routeContent.intro.map((p, i) => (
             <p key={i} className="text-sm text-gray-700 leading-relaxed mb-2 last:mb-0">{p}</p>
           ))}
@@ -117,7 +103,7 @@ export default async function PdfPage({ params }: Props) {
 
         {/* Quick Facts */}
         <div className="mb-6 no-break">
-          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.quickFacts')}</h2>
+          <PdfSectionHeading>{trd('labels.quickFacts')}</PdfSectionHeading>
           <div className="grid grid-cols-2 gap-x-8 gap-y-1.5 bg-gray-50 rounded-lg p-4">
             {QUICK_FACT_KEYS.map((key) => (
               <div key={key} className="flex justify-between text-sm">
@@ -130,28 +116,24 @@ export default async function PdfPage({ params }: Props) {
 
         {/* Itinerary */}
         <div className="mb-6">
-          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.itinerary')}</h2>
+          <PdfSectionHeading>{trd('labels.itinerary')}</PdfSectionHeading>
 
-          {/* Arrival day */}
-          <div className="mb-3 no-break">
-            <p className="text-sm font-bold text-gray-800">{trd('labels.dayLabel')} 0 — {trd('labels.arrivalDay')}</p>
-            <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">{routeContent.arrivalDay}</p>
-          </div>
+          <PdfDayBlock day={0} title={trd('labels.arrivalDay')}>
+            <p>{routeContent.arrivalDay}</p>
+          </PdfDayBlock>
 
           {routeContent.itinerary.map((day) => (
-            <div key={day.day} className="mb-3 no-break">
-              <p className="text-sm font-bold text-gray-800">{trd('labels.dayLabel')} {day.day} — {day.title}</p>
-              <p className="text-xs text-gray-500 mb-0.5 italic">{day.meta}</p>
-              <p className="text-xs text-gray-600 leading-relaxed">{day.body}</p>
-              <p className="text-xs text-gray-500 italic mt-0.5">{trd('labels.whatToExpect')} {day.expect}</p>
-            </div>
+            <PdfDayBlock key={day.day} day={day.day} title={day.title} meta={day.meta}>
+              <p className="mb-1">{day.body}</p>
+              <p className="text-xs text-gray-500 italic">{trd('labels.whatToExpect')} {day.expect}</p>
+            </PdfDayBlock>
           ))}
         </div>
 
         {/* Included / Excluded */}
-        <div className="grid grid-cols-2 gap-6 mb-6 no-break page-break">
+        <div className="grid grid-cols-2 gap-6 mb-6 no-break pdf-page-break-before">
           <div>
-            <h2 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.included')}</h2>
+            <PdfSectionHeading>{trd('labels.included')}</PdfSectionHeading>
             <ul className="space-y-1">
               {routeContent.included.map((item) => (
                 <li key={item} className="flex items-start gap-1.5 text-xs text-gray-700">
@@ -162,7 +144,7 @@ export default async function PdfPage({ params }: Props) {
             </ul>
           </div>
           <div>
-            <h2 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.notIncluded')}</h2>
+            <PdfSectionHeading>{trd('labels.notIncluded')}</PdfSectionHeading>
             <ul className="space-y-1">
               {routeContent.excluded.map((item) => (
                 <li key={item} className="flex items-start gap-1.5 text-xs text-gray-700">
@@ -176,29 +158,27 @@ export default async function PdfPage({ params }: Props) {
 
         {/* Pricing */}
         <div className="mb-8 no-break">
-          <h2 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide border-s-4 border-gray-900 ps-3">{trd('labels.pricing')}</h2>
+          <PdfSectionHeading>{trd('labels.pricing')}</PdfSectionHeading>
           <div className="grid grid-cols-3 gap-4">
             {([
               { label: trd('labels.solo'),  price: routeContent.pricing.solo  },
               { label: trd('labels.small'), price: routeContent.pricing.small },
               { label: trd('labels.group'), price: routeContent.pricing.group },
             ]).map((tier) => (
-              <div key={tier.label} className="bg-gray-900 rounded-lg p-4 text-center">
-                <p className="text-gray-400 text-xs uppercase tracking-wide mb-1">{tier.label}</p>
+              <div key={tier.label} className="rounded-lg p-4 text-center" style={{ background: 'var(--color-brand)' }}>
+                <p className="text-xs uppercase tracking-wide mb-1" style={{ color: 'var(--color-gold)' }}>{tier.label}</p>
                 <p className="text-white text-xl font-bold">${tier.price.toLocaleString('en-US')}</p>
-                <p className="text-gray-500 text-xs mt-0.5">{trd('labels.perPerson')}</p>
+                <p className="text-white/60 text-xs mt-0.5">{trd('labels.perPerson')}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="border-t border-gray-200 pt-4 flex items-center justify-between no-break">
-          <div>
-            <p className="text-xs font-bold text-gray-900">EWA Safari Outfitters</p>
-            <p className="text-xs text-gray-500">info@theextremewilderness.com · www.theextremewilderness.com</p>
-          </div>
-          <p className="text-xs text-gray-400">© {new Date().getFullYear()} EWA Safari Outfitters</p>
+        <div className="mb-8">
+          <PdfClosingCta heading="Ready To Climb?" body="Get in touch to book your Kilimanjaro trek — our team will help you pick the right route." />
+        </div>
+
+        <PdfFooter />
         </div>
       </div>
     </>

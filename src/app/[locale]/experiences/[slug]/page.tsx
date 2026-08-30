@@ -575,6 +575,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
                 submitLabel={t('itinerarySubmitLabel')}
                 successTitle={t('itinerarySuccessTitle')}
                 context={page.title}
+                packageSlug={page.relatedPackageSlugs[0]}
               />
             </div>
 

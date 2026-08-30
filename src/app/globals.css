@@ -32,6 +32,12 @@ html::-webkit-scrollbar {
   /* gray-600 — 5.7:1 on #EDE7D7 body bg, 5.8:1 on #E8EDEA */
   --color-text-muted: #4B5563;
   --font-sans: var(--font-geist-sans);
+  /* Display serif for PDF document covers/titles only (src/components/pdf/
+     PdfChrome.tsx) — not used in general site/admin UI, which stays on
+     --font-sans throughout. Falls back gracefully if the layout rendering
+     a given PDF hasn't loaded the Fraunces font (e.g. a future PDF type
+     added without it). */
+  --font-serif: var(--font-fraunces, Georgia), serif;
 }
 
 body {

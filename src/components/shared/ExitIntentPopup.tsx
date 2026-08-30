@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { X, Check } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { useBooking } from '@/context/BookingContext'
 import { trackEvent, trackFormFillConversion } from '@/lib/analytics'
 import { useFocusTrap } from '@/hooks/useFocusTrap'
@@ -37,6 +37,7 @@ function markShownThisSession() {
 
 export default function ExitIntentPopup() {
   const t = useTranslations('exitIntent')
+  const locale = useLocale()
   const { isOpen: bookingIsOpen } = useBooking()
 
   const [visible, setVisible] = useState(false)
@@ -97,7 +98,7 @@ export default function ExitIntentPopup() {
       const res = await fetch('/api/exit-intent-claim', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email }),
+        body: JSON.stringify({ name, email, locale }),
       })
       if (!res.ok) throw new Error('claim failed')
       setClaimStatus('claimed')
