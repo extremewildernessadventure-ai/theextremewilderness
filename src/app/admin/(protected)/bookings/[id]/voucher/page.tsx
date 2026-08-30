@@ -5,7 +5,7 @@ import type { Booking, LodgeBooking, CustomBooking } from '@/lib/bookings'
 import type { Departure } from '@/lib/departures'
 import type { Guide, Vehicle, OpsLodge } from '@/lib/ops'
 import { packages } from '@/data/packages'
-import { printCss, PdfHeader, PdfFooter, sanitizeForPdf } from '@/components/admin/pdf/PdfDocumentChrome'
+import { printCss, PdfCover, PdfRunningHeader, PdfSectionHeading, PdfClosingCta, PdfFooter, sanitizeForPdf } from '@/components/pdf/PdfChrome'
 import PrintButton from '../../../invoices/[id]/pdf/PrintButton'
 
 // Same rendering this page produces is also what the server-side voucher PDF
@@ -58,86 +58,97 @@ export default async function BookingVoucherPage({ params }: Props) {
         <PrintButton />
       </div>
 
-      <div id="pdf-voucher" className="max-w-3xl mx-auto px-8 py-8 bg-white font-sans print:max-w-none print:px-0">
-        <PdfHeader
-          documentType="BOOKING VOUCHER"
-          documentNumber={`#${booking.id}`}
-          dateLabel={new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
+      <div id="pdf-voucher" className="max-w-3xl mx-auto bg-white font-sans print:max-w-none">
+        <PdfCover
+          image={pkg?.heroImage ?? '/images/gallery/masai-mara-lion-pride-sunset.webp'}
+          imageAlt={pkg?.name ?? 'Safari'}
+          eyebrow="Booking Voucher"
+          title={pkg?.name ?? departure?.package_slug ?? 'Your Safari'}
+          subtitle={departure ? `${departure.start_date} → ${departure.end_date}` : undefined}
+          metaLeft={`Voucher #${booking.id} · ${clientName}`}
         />
 
-        <div className="flex items-start justify-between mb-7 no-break">
-          <div>
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-2">Guest</h2>
-            <p className="text-sm font-bold text-gray-900">{clientName}</p>
-            {booking.client_email && <p className="text-sm text-gray-600">{booking.client_email}</p>}
-            {booking.client_phone && <p className="text-sm text-gray-600">{booking.client_phone}</p>}
-            <p className="text-xs text-gray-500 mt-1">{booking.guests_count} guest{booking.guests_count === 1 ? '' : 's'}</p>
+        <div className="px-10 py-8">
+          <PdfRunningHeader documentType="Booking Voucher" documentNumber={`#${booking.id}`} />
+
+          <div className="flex items-start justify-between mb-7 no-break">
+            <div>
+              <PdfSectionHeading>Guest</PdfSectionHeading>
+              <p className="text-sm font-bold text-gray-900">{clientName}</p>
+              {booking.client_email && <p className="text-sm text-gray-600">{booking.client_email}</p>}
+              {booking.client_phone && <p className="text-sm text-gray-600">{booking.client_phone}</p>}
+              <p className="text-xs text-gray-500 mt-1">{booking.guests_count} guest{booking.guests_count === 1 ? '' : 's'}</p>
+            </div>
           </div>
-        </div>
 
-        {departure && (
+          {departure && (
+            <div className="mb-7 no-break">
+              <PdfSectionHeading>Trip</PdfSectionHeading>
+              <p className="text-sm font-bold text-gray-900">{pkg?.name ?? departure.package_slug}</p>
+              <p className="text-sm text-gray-600">{departure.start_date} → {departure.end_date}</p>
+            </div>
+          )}
+
           <div className="mb-7 no-break">
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-2">Trip</h2>
-            <p className="text-sm font-bold text-gray-900">{pkg?.name ?? departure.package_slug}</p>
-            <p className="text-sm text-gray-600">{departure.start_date} → {departure.end_date}</p>
+            <PdfSectionHeading>Guide & Vehicle</PdfSectionHeading>
+            <p className="text-sm text-gray-700">Guide: <span className="font-semibold text-gray-900">{guideName ?? 'Not yet assigned'}</span></p>
+            <p className="text-sm text-gray-700">Vehicle: <span className="font-semibold text-gray-900">{vehicleLabel ?? 'Not yet assigned'}</span></p>
           </div>
-        )}
 
-        <div className="mb-7 no-break">
-          <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-2">Guide & Vehicle</h2>
-          <p className="text-sm text-gray-700">Guide: <span className="font-semibold text-gray-900">{guideName ?? 'Not yet assigned'}</span></p>
-          <p className="text-sm text-gray-700">Vehicle: <span className="font-semibold text-gray-900">{vehicleLabel ?? 'Not yet assigned'}</span></p>
-        </div>
+          {lodgeBookings.length > 0 && (
+            <div className="mb-7 no-break">
+              <PdfSectionHeading>Accommodation</PdfSectionHeading>
+              <div className="space-y-4">
+                {lodgeBookings.map((lb) => {
+                  const lodgeDisplayName = sanitizeForPdf(lb.lodge_name_other ?? (lb.lodge_id ? lodgesById.get(lb.lodge_id)?.name : undefined) ?? 'Lodge')
+                  return (
+                    <div key={lb.id} className="border border-gray-200 rounded-lg p-4">
+                      <p className="text-sm font-bold text-gray-900">{lodgeDisplayName}</p>
+                      <div className="text-sm text-gray-600 mt-1 space-y-0.5">
+                        {(lb.check_in || lb.check_out) && <p>{lb.check_in ?? '…'} → {lb.check_out ?? '…'}</p>}
+                        {lb.room_type && <p>Room Type: {sanitizeForPdf(lb.room_type)}</p>}
+                        {lb.confirmation_ref && <p>Confirmation Ref: {sanitizeForPdf(lb.confirmation_ref)}</p>}
+                        {lb.contact_info && <p className="font-semibold text-gray-800">Contact: {sanitizeForPdf(lb.contact_info)}</p>}
+                        {lb.inclusions && <p className="whitespace-pre-wrap">Includes: {sanitizeForPdf(lb.inclusions)}</p>}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )}
 
-        {lodgeBookings.length > 0 && (
-          <div className="mb-7 no-break">
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-3">Accommodation</h2>
-            <div className="space-y-4">
-              {lodgeBookings.map((lb) => {
-                const lodgeDisplayName = sanitizeForPdf(lb.lodge_name_other ?? (lb.lodge_id ? lodgesById.get(lb.lodge_id)?.name : undefined) ?? 'Lodge')
-                return (
-                  <div key={lb.id} className="border border-gray-200 rounded-lg p-4">
-                    <p className="text-sm font-bold text-gray-900">{lodgeDisplayName}</p>
+          {customBookings.length > 0 && (
+            <div className="mb-7 no-break">
+              <PdfSectionHeading>Custom Bookings</PdfSectionHeading>
+              <div className="space-y-4">
+                {customBookings.map((cb) => (
+                  <div key={cb.id} className="border border-gray-200 rounded-lg p-4">
+                    <p className="text-sm font-bold text-gray-900">{sanitizeForPdf(cb.description)}</p>
                     <div className="text-sm text-gray-600 mt-1 space-y-0.5">
-                      {(lb.check_in || lb.check_out) && <p>{lb.check_in ?? '…'} → {lb.check_out ?? '…'}</p>}
-                      {lb.room_type && <p>Room Type: {sanitizeForPdf(lb.room_type)}</p>}
-                      {lb.confirmation_ref && <p>Confirmation Ref: {sanitizeForPdf(lb.confirmation_ref)}</p>}
-                      {lb.contact_info && <p className="font-semibold text-gray-800">Contact: {sanitizeForPdf(lb.contact_info)}</p>}
-                      {lb.inclusions && <p className="whitespace-pre-wrap">Includes: {sanitizeForPdf(lb.inclusions)}</p>}
+                      {(cb.start_date || cb.end_date) && <p>{cb.start_date ?? '…'} → {cb.end_date ?? '…'}</p>}
+                      {cb.contact_info && <p className="font-semibold text-gray-800">Contact: {sanitizeForPdf(cb.contact_info)}</p>}
+                      {cb.notes && <p className="whitespace-pre-wrap">{sanitizeForPdf(cb.notes)}</p>}
                     </div>
                   </div>
-                )
-              })}
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {customBookings.length > 0 && (
-          <div className="mb-7 no-break">
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-3">Custom Bookings</h2>
-            <div className="space-y-4">
-              {customBookings.map((cb) => (
-                <div key={cb.id} className="border border-gray-200 rounded-lg p-4">
-                  <p className="text-sm font-bold text-gray-900">{sanitizeForPdf(cb.description)}</p>
-                  <div className="text-sm text-gray-600 mt-1 space-y-0.5">
-                    {(cb.start_date || cb.end_date) && <p>{cb.start_date ?? '…'} → {cb.end_date ?? '…'}</p>}
-                    {cb.contact_info && <p className="font-semibold text-gray-800">Contact: {sanitizeForPdf(cb.contact_info)}</p>}
-                    {cb.notes && <p className="whitespace-pre-wrap">{sanitizeForPdf(cb.notes)}</p>}
-                  </div>
-                </div>
-              ))}
+          {specialRequests && (
+            <div className="mb-7 no-break bg-brand/5 rounded-lg p-5">
+              <PdfSectionHeading>Special Requests / Notes</PdfSectionHeading>
+              <p className="text-sm text-gray-700 whitespace-pre-wrap">{specialRequests}</p>
             </div>
-          </div>
-        )}
+          )}
 
-        {specialRequests && (
-          <div className="mb-7 no-break bg-brand/5 rounded-lg p-5">
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-2">Special Requests / Notes</h2>
-            <p className="text-sm text-gray-700 whitespace-pre-wrap">{specialRequests}</p>
+          <div className="mb-8">
+            <PdfClosingCta heading="Questions About Your Trip?" body="Reach out any time — we're here to help before, during, and after your safari." />
           </div>
-        )}
 
-        <PdfFooter />
+          <PdfFooter />
+        </div>
       </div>
     </>
   )

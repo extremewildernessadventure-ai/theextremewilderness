@@ -1,6 +1,8 @@
 import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 import { saveLead, markLeadEmailSent } from '@/lib/leads'
+import { routing } from '@/i18n/routing'
+import { escapeHtml, sendAutoReply } from '@/lib/email'
 
 const FROM = process.env.RESEND_FROM ?? 'EWA Enquiries <noreply@theextremewilderness.com>'
 const TO   = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
@@ -93,7 +95,8 @@ function buildHtml(d: Record<string, unknown>) {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json() as Record<string, unknown>
-    const { firstName, lastName, email } = body
+    const { firstName, lastName, email, locale: rawLocale } = body
+    const locale = routing.locales.includes(rawLocale as (typeof routing.locales)[number]) ? String(rawLocale) : routing.defaultLocale
 
     if (!firstName || !lastName || !email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -105,6 +108,7 @@ export async function POST(req: NextRequest) {
       email: String(email),
       phone: body.phone ? String(body.phone) : null,
       subject: String(body.packageName || body.tripType || 'Safari'),
+      locale,
       payload: body,
     })
 
@@ -130,6 +134,23 @@ export async function POST(req: NextRequest) {
 
     if (!emailOk && !leadId) {
       return NextResponse.json({ error: 'Email failed' }, { status: 500 })
+    }
+
+    // Best-effort auto-reply to the submitter — never fails the request.
+    try {
+      const m = (await import(`../../../../messages/${locale}.json`)).default.emailAutoReply.enquiry as { subject: string; greeting: string; body: string }
+      const resend = new Resend(process.env.RESEND_API_KEY)
+      await sendAutoReply({
+        resend,
+        from: FROM,
+        to: String(email),
+        replyTo: TO,
+        subject: m.subject,
+        greeting: m.greeting.replace('{name}', escapeHtml(String(firstName))),
+        bodyHtml: `<p style="margin:0;font-size:14px;line-height:1.6;color:#374151">${m.body}</p>`,
+      })
+    } catch (autoReplyErr) {
+      console.error('Enquiry auto-reply failed:', autoReplyErr)
     }
 
     return NextResponse.json({ success: true })

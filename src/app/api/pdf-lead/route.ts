@@ -4,6 +4,8 @@ import { routing } from '@/i18n/routing'
 import { localeUrl } from '@/lib/site'
 import { saveLead, markLeadEmailSent } from '@/lib/leads'
 import { upsertSubscriber } from '@/lib/newsletter'
+import { renderPageToPdf } from '@/lib/browser'
+import { getDocsBucket, trekGuideKey, itineraryKey } from '@/lib/r2'
 
 const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID ?? ''
 const TO = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
@@ -12,9 +14,9 @@ const FROM = process.env.RESEND_FROM ?? 'EWA Guide <noreply@theextremewilderness
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json() as {
-      name?: string; email?: string; phone?: string; context?: string; locale?: string
+      name?: string; email?: string; phone?: string; context?: string; packageSlug?: string; locale?: string
     }
-    const { name, email, phone, context, locale: rawLocale } = body
+    const { name, email, phone, context, packageSlug, locale: rawLocale } = body
     const locale = routing.locales.includes(rawLocale as (typeof routing.locales)[number]) ? rawLocale! : routing.defaultLocale
 
     if (!name?.trim() || !email?.trim()) {
@@ -113,6 +115,52 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Email failed' }, { status: 500 })
     }
 
+    // Generate the actual PDF and attach it to the visitor's email — the
+    // real deliverable, not a link to an HTML page. Which document depends
+    // on how the request came in: a package-linked itinerary request
+    // (packageSlug present) gets that package's day-by-day itinerary PDF;
+    // a plain Kilimanjaro guide request (no context, no packageSlug) gets
+    // the general Kilimanjaro guide PDF; an itinerary request with no
+    // resolvable package (context present, no packageSlug — e.g. an
+    // experience page with no linked package) has no PDF to generate,
+    // same as before this feature existed.
+    const pdfPath = packageSlug
+      ? `/safaris/${packageSlug}/itinerary-pdf`
+      : !trimContext
+        ? '/trekking/pdf'
+        : null
+
+    let pdfAttachment: { filename: string; content: string } | null = null
+    if (pdfPath && leadId) {
+      try {
+        // Built off this request's own origin (like the voucher/invoice
+        // routes do), not the hardcoded production SITE_URL used for
+        // outbound links elsewhere — Browser Rendering needs a URL it can
+        // actually reach, which in local/preview environments isn't the
+        // live public domain.
+        const localePath = locale === 'en' ? pdfPath : `/${locale}${pdfPath}`
+        const pdfUrl = new URL(localePath, req.nextUrl.origin).toString()
+        const pdf = await renderPageToPdf(pdfUrl, null)
+        const r2Key = packageSlug ? itineraryKey(leadId, packageSlug) : trekGuideKey(leadId)
+        try {
+          const bucket = await getDocsBucket()
+          await bucket.put(r2Key, pdf, { httpMetadata: { contentType: 'application/pdf' } })
+        } catch (r2Err) {
+          // Not fatal — the visitor still gets the PDF attached below even
+          // if archival storage fails.
+          console.error('PDF-lead R2 storage failed:', r2Err)
+        }
+        pdfAttachment = {
+          filename: packageSlug ? `EWA-Itinerary-${packageSlug}.pdf` : 'EWA-Kilimanjaro-Guide.pdf',
+          content: Buffer.from(pdf).toString('base64'),
+        }
+      } catch (pdfErr) {
+        // Falls through to the old link-based email below rather than
+        // failing the request — the lead is already saved either way.
+        console.error('PDF-lead PDF generation failed:', pdfErr)
+      }
+    }
+
     // Send the visitor the guide (or itinerary confirmation), localized.
     // The lead is already captured above, so a failure here is logged but not fatal.
     try {
@@ -123,6 +171,13 @@ export async function POST(req: NextRequest) {
       const intro = isItinerary
         ? m.emailItineraryIntro.replace('{context}', trimContext)
         : m.emailIntro
+      // With a real PDF attached, there's nothing to click through to — no
+      // CTA button at all, just a short note pointing at the attachment.
+      const attachedNote = pdfAttachment
+        ? '<p style="margin:0 0 22px;font-size:14px;line-height:1.6;color:#374151">Your PDF is attached to this email.</p>'
+        : (isItinerary ? '' : `<p style="margin:0 0 22px;text-align:center">
+        <a href="${guideUrl}" style="display:inline-block;background:#D4A853;color:#1C3A2A;font-weight:800;font-size:14px;padding:14px 28px;border-radius:12px;text-decoration:none">${m.emailCta}</a>
+      </p>`)
       const { error: visitorError } = await resend.emails.send({
         from: FROM,
         to: trimEmail,
@@ -139,15 +194,14 @@ export async function POST(req: NextRequest) {
     <div style="padding:28px">
       <p style="margin:0 0 14px;font-size:15px;color:#1a1a1a">${m.emailGreeting.replace('{name}', escName)}</p>
       <p style="margin:0 0 22px;font-size:14px;line-height:1.6;color:#374151">${intro}</p>
-      ${isItinerary ? '' : `<p style="margin:0 0 22px;text-align:center">
-        <a href="${guideUrl}" style="display:inline-block;background:#D4A853;color:#1C3A2A;font-weight:800;font-size:14px;padding:14px 28px;border-radius:12px;text-decoration:none">${m.emailCta}</a>
-      </p>`}
+      ${attachedNote}
       <p style="margin:0 0 22px;font-size:14px;line-height:1.6;color:#374151">${m.emailOutro}</p>
       <p style="margin:0;font-size:14px;color:#374151">${m.emailSignoff}<br><strong style="color:#1C3A2A">${m.emailTeam}</strong></p>
     </div>
   </div>
 </body>
 </html>`,
+        attachments: pdfAttachment ? [{ filename: pdfAttachment.filename, content: pdfAttachment.content, contentType: 'application/pdf' }] : undefined,
       })
       if (visitorError) console.error('Resend visitor-email error:', visitorError)
     } catch (visitorErr) {

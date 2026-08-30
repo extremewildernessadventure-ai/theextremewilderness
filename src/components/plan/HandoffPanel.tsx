@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { MessageCircle, Send } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { trackEvent } from '@/lib/analytics'
@@ -38,6 +38,7 @@ export default function HandoffPanel({
 }) {
   const t = useTranslations('planBuilder.handoff')
   const tc = useTranslations('common')
+  const locale = useLocale()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
@@ -72,6 +73,7 @@ export default function HandoffPanel({
           topMatchName: topMatch?.package.name,
           topMatchSlug: topMatch?.package.slug,
           belowThreshold,
+          locale,
         }),
       })
       if (!res.ok) throw new Error('failed')

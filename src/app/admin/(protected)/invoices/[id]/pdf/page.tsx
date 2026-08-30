@@ -4,7 +4,7 @@ import { CheckCircle2 } from 'lucide-react'
 import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
 import { BANK_DETAILS } from '@/lib/bankDetails'
 import { PAYMENT_METHOD_LABELS } from '@/lib/invoices'
-import { printCss, PdfHeader, PdfFooter } from '@/components/admin/pdf/PdfDocumentChrome'
+import { printCss, PdfCover, PdfRunningHeader, PdfSectionHeading, PdfClosingCta, PdfFooter } from '@/components/pdf/PdfChrome'
 import PrintButton from './PrintButton'
 
 // Kept dynamic deliberately: the printed document shows today's date
@@ -58,19 +58,24 @@ export default async function InvoicePdfPage({ params }: Props) {
       </div>
 
       {/* ── Printable document ─────────────────────────────────── */}
-      <div id="pdf-invoice" className="max-w-3xl mx-auto px-8 py-8 bg-white font-sans print:max-w-none print:px-0">
+      <div id="pdf-invoice" className="max-w-3xl mx-auto bg-white font-sans print:max-w-none">
 
-        {/* ── Header ── */}
-        <PdfHeader
-          documentType="INVOICE"
-          documentNumber={invoice.invoice_number}
-          dateLabel={new Date(invoice.created_at).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
+        <PdfCover
+          image="/images/gallery/ewa-vehicle-hero.webp"
+          imageAlt="EWA Safari Outfitters"
+          eyebrow="Invoice"
+          title={invoice.invoice_number}
+          subtitle={invoice.client_name}
+          metaLeft={new Date(invoice.created_at).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
         />
+
+        <div className="px-10 py-8">
+        <PdfRunningHeader documentType="Invoice" documentNumber={invoice.invoice_number} />
 
         {/* ── Bill to / Status ── */}
         <div className="flex items-start justify-between mb-7 no-break">
           <div>
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label mb-2">Bill To</h2>
+            <PdfSectionHeading>Bill To</PdfSectionHeading>
             <p className="text-sm font-bold text-gray-900">{invoice.client_name}</p>
             {invoice.client_email && <p className="text-sm text-gray-600">{invoice.client_email}</p>}
             {invoice.booking_reference && <p className="text-xs text-gray-500 mt-1">Booking Ref: {invoice.booking_reference}</p>}
@@ -160,7 +165,7 @@ export default async function InvoicePdfPage({ params }: Props) {
           </div>
         ) : (
           <div className="mb-7 no-break bg-brand/5 rounded-lg p-5 space-y-4">
-            <h2 className="text-[10px] font-black uppercase tracking-widest text-gold-label">How to Pay</h2>
+            <PdfSectionHeading>How to Pay</PdfSectionHeading>
 
             {latestOrder && (
               <div>
@@ -188,8 +193,13 @@ export default async function InvoicePdfPage({ params }: Props) {
           </div>
         )}
 
+        <div className="mb-8">
+          <PdfClosingCta heading="Questions About This Invoice?" body="Reply to the email this was sent with, or reach out any time — we're happy to help." />
+        </div>
+
         {/* ── Footer ── */}
         <PdfFooter />
+        </div>
       </div>
     </>
   )

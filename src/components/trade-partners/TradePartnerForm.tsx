@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import styles from '@/app/[locale]/trade-partners/page.module.css'
 
@@ -10,6 +10,7 @@ type Props = { className?: string }
 export default function TradePartnerForm({ className }: Props) {
   const t = useTranslations('tradePartners')
   const tf = useTranslations('forms')
+  const locale = useLocale()
 
   const VOLUME_OPTIONS = [
     t('formVolumeOption1'),
@@ -49,7 +50,7 @@ export default function TradePartnerForm({ className }: Props) {
       const res = await fetch('/api/trade-partners', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, locale }),
       })
       if (!res.ok) throw new Error('send failed')
       setSubmitted(true)

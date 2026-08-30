@@ -7,7 +7,7 @@ import {
 } from 'lucide-react'
 import { useBooking } from '@/context/BookingContext'
 import { Link } from '@/i18n/navigation'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { trackFormFillConversion } from '@/lib/analytics'
 
 // Country list stays in English (universal standard)
@@ -93,6 +93,7 @@ function Stepper({ label, sublabel, value, onChange, min = 0 }: {
 export default function EnquiryModal() {
   const t = useTranslations('forms')
   const tc = useTranslations('common')
+  const locale = useLocale()
   const { isOpen, bookingInfo, closeBooking } = useBooking()
   const scrollRef = useRef<HTMLDivElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
@@ -275,6 +276,7 @@ export default function EnquiryModal() {
           season: bookingInfo?.season,
           tier: bookingInfo?.tier,
           source: 'booking_modal',
+          locale,
         }),
       })
       if (!res.ok) throw new Error('send failed')

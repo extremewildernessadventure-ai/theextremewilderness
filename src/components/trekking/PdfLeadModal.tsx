@@ -21,6 +21,10 @@ interface Props {
   successTitle?: string
   /** Sent to the API so the team knows which itinerary/guide was requested. */
   context?: string
+  /** Safari package slug this request's itinerary PDF should be generated
+   * from (see api/pdf-lead/route.ts) — omitted for the Kilimanjaro guide
+   * flows, which have their own dedicated PDF routes instead. */
+  packageSlug?: string
 }
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
@@ -29,7 +33,7 @@ const BULLETS = ['bullet1', 'bullet2', 'bullet3', 'bullet4'] as const
 
 export default function PdfLeadModal({
   triggerLabel, triggerClassName, image, imageAlt, badge, panelTitle,
-  bullets, socialProof, heading, subheading, submitLabel, successTitle, context,
+  bullets, socialProof, heading, subheading, submitLabel, successTitle, context, packageSlug,
 }: Props) {
   const t = useTranslations('pdfLead')
   const tf = useTranslations('forms')
@@ -82,7 +86,7 @@ export default function PdfLeadModal({
       const res = await fetch('/api/pdf-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), context, locale }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), context, packageSlug, locale }),
       })
       if (!res.ok) throw new Error()
       setStatus('success')
