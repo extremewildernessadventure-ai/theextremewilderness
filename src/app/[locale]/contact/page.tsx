@@ -70,7 +70,7 @@ export default async function ContactPage({ params }: Props) {
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative bg-brand min-h-[60vh] flex items-stretch overflow-hidden">
         <div className="relative z-10 flex flex-col justify-center w-full lg:w-1/2 px-6 sm:px-10 lg:px-16 pt-32 pb-16 lg:py-28">
-          <Breadcrumb items={[
+          <Breadcrumb locale={locale} items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
             { label: t('breadcrumbLabel') },
           ]} />

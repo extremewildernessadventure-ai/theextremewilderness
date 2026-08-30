@@ -55,7 +55,7 @@ export default async function BlogPage({ params, searchParams }: Props) {
     <>
       <section className="pt-28 pb-12 bg-brand">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={[
+          <Breadcrumb locale={locale} items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
             { label: t('breadcrumbLabel') },
           ]} />

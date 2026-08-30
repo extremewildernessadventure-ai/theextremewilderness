@@ -205,7 +205,7 @@ export default async function BlogArticlePage({ params }: Props) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
-          <Breadcrumb items={breadcrumbItems} />
+          <Breadcrumb items={breadcrumbItems} locale={locale} />
           <div className="flex flex-wrap gap-3 items-center mb-4">
             <span className="bg-brand text-white text-xs font-semibold px-3 py-1 rounded-full">{post.category}</span>
             <span className="flex items-center gap-1 text-white/60 text-sm"><Calendar size={13} />{post.lastUpdated ? `${t('updated')} ${post.lastUpdated}` : post.date}</span>

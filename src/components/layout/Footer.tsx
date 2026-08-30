@@ -23,8 +23,8 @@ const socialIcons = {
   ),
 }
 
-export default async function Footer() {
-  const t = await getTranslations('footer')
+export default async function Footer({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: 'footer' })
 
   const destinations = [
     { label: t('destSerengeti'),   href: '/destinations/serengeti' },

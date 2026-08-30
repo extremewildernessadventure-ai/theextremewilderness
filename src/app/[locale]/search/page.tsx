@@ -63,7 +63,7 @@ export default async function SearchPage({ params, searchParams }: Props) {
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Breadcrumb items={breadcrumbItems} />
+        <Breadcrumb items={breadcrumbItems} locale={locale} />
 
         <form action="/search" method="get" className="relative mt-6 mb-10 max-w-xl">
           <SearchIcon className="absolute start-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />

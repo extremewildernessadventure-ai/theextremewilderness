@@ -8,10 +8,11 @@ interface BreadcrumbItem {
 
 interface BreadcrumbProps {
   items: BreadcrumbItem[]
+  locale: string
 }
 
-export default async function Breadcrumb({ items }: BreadcrumbProps) {
-  const tc = await getTranslations('common')
+export default async function Breadcrumb({ items, locale }: BreadcrumbProps) {
+  const tc = await getTranslations({ locale, namespace: 'common' })
   return (
     <nav aria-label={tc('breadcrumbNav')} className="mb-4">
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">

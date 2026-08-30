@@ -428,7 +428,7 @@ export default async function TrekkingRoutePage({ params }: RouteProps) {
           <div className="flex flex-col lg:flex-row items-end justify-between gap-8">
             {/* Left — title block */}
             <div className="flex-1 min-w-0">
-              <Breadcrumb items={breadcrumbItems} />
+              <Breadcrumb items={breadcrumbItems} locale={locale} />
               <span className="inline-block text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">
                 {routeContent?.nickname ?? t('heroEyebrow')}
               </span>

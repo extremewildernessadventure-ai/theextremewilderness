@@ -136,7 +136,7 @@ export default async function TradePartnersPage({ params }: Props) {
           <line x1="460" y1="80" x2="470" y2="60" stroke="#D4A853" strokeWidth="1" opacity="0.4" />
         </svg>
         <div className={`${styles.wrap} ${styles.heroInner}`}>
-          <Breadcrumb items={[
+          <Breadcrumb locale={locale} items={[
             { label: 'EWA Safari Outfitters', href: `/${locale}` },
             { label: t('breadcrumbLabel') },
           ]} />

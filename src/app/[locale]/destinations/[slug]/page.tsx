@@ -1258,6 +1258,7 @@ export async function generateStaticParams() {
   )
 }
 
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params
   const dest = await getDestination(slug, locale)
@@ -1297,8 +1298,8 @@ export default async function DestinationPage({ params }: Props) {
   const dest = await getDestination(slug, locale)
   if (!dest) notFound()
 
-  const t = await getTranslations('destination')
-  const tc = await getTranslations('common')
+  const t = await getTranslations({ locale, namespace: 'destination' })
+  const tc = await getTranslations({ locale, namespace: 'common' })
 
   const allPackages = await getPackages(locale)
   const allDestinations = await getDestinations(locale)
@@ -1379,7 +1380,7 @@ export default async function DestinationPage({ params }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/30 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
-          <Breadcrumb items={breadcrumbItems} />
+          <Breadcrumb items={breadcrumbItems} locale={locale} />
           <h1 className="text-4xl lg:text-5xl font-semibold text-white mb-2">{dest.name}</h1>
           <p className="text-gold text-lg font-medium">{dest.tagline}</p>
         </div>
