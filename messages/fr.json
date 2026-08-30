@@ -4217,6 +4217,46 @@
     "backHome": "Retour à l'Accueil",
     "browseDestinations": "Explorer les Destinations"
   },
+  "emailAutoReply": {
+    "contact": {
+      "subject": "Nous avons bien reçu votre message",
+      "greeting": "Bonjour {name},",
+      "body": "Merci d'avoir contacté EWA Safari Outfitters. Votre message est bien arrivé auprès de notre équipe à Arusha, et nous vous répondrons personnellement sous 2 heures — pas d'itinéraire généré automatiquement, une vraie réponse de quelqu'un qui connaît la Tanzanie."
+    },
+    "enquiry": {
+      "subject": "Votre demande de safari est entre de bonnes mains",
+      "greeting": "Bonjour {name},",
+      "body": "Merci pour votre demande — nous sommes vraiment ravis de vous aider à préparer votre voyage. Notre équipe examine les détails dès maintenant et vous recontactera sous 2 heures avec les prochaines étapes."
+    },
+    "planBrief": {
+      "subject": "Votre plan de safari sur mesure arrive",
+      "greeting": "Bonjour {name},",
+      "body": "Merci d'avoir conçu un voyage avec notre conseiller Safari AI. L'un de nos spécialistes examine actuellement votre brief en détail et reviendra vers vous sous 24 heures avec une recommandation personnalisée."
+    },
+    "exitIntentClaim": {
+      "subject": "Votre code de réduction est confirmé",
+      "greeting": "Bonjour {name},",
+      "body": "Merci d'avoir réclamé votre réduction — notre équipe en a été informée et la tiendra prête à appliquer dès que vous serez prêt à réserver. En attendant, gardez un œil sur votre boîte de réception pour des idées de safari."
+    },
+    "tradePartners": {
+      "subject": "Merci de votre intérêt pour un partenariat avec nous",
+      "greeting": "Bonjour {name},",
+      "body": "Nous avons bien reçu votre demande en tant que partenaire professionnel et sommes ravis de la perspective de collaborer. Notre équipe partenariats examinera vos informations et confirmera votre statut de partenaire sous un jour ouvré."
+    }
+  },
+  "pdfChrome": {
+    "kilimanjaroGuideTitle": "Guide de Trekking au Kilimandjaro",
+    "kilimanjaroGuideSubtitle": "5 895 m / 19 341 pi — le plus haut sommet d'Afrique",
+    "kilimanjaroGuideDocType": "Guide du Kilimandjaro",
+    "kilimanjaroRouteEyebrow": "Guide des Itinéraires du Kilimandjaro",
+    "climbCtaHeading": "Prêt à Grimper ?",
+    "climbCtaBody": "Contactez-nous pour réserver votre trek au Kilimandjaro — notre équipe vous aidera à choisir le bon itinéraire.",
+    "itineraryEyebrow": "Votre Itinéraire Personnalisé",
+    "itineraryHighlightsHeading": "Points Forts",
+    "itineraryMealsLabel": "Repas",
+    "bookCtaHeading": "Prêt à Réserver ?",
+    "bookCtaBody": "Contactez-nous et nous transformerons cet itinéraire en réservation confirmée, adaptée exactement à vos envies."
+  },
   "pdfLead": {
     "badge": "Guide Gratuit",
     "imagePanelBrand": "EWA Safari Outfitters",

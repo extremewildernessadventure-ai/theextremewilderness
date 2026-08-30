@@ -4217,6 +4217,46 @@
     "backHome": "返回首頁",
     "browseDestinations": "瀏覽目的地"
   },
+  "emailAutoReply": {
+    "contact": {
+      "subject": "我們已收到您的訊息",
+      "greeting": "您好，{name}：",
+      "body": "感謝您聯繫EWA Safari Outfitters。您的訊息已送達我們在阿魯沙的團隊，我們將在2小時內給您個人化回覆——不是自動產生的行程，而是來自真正了解坦尚尼亞的專業人士的真實答覆。"
+    },
+    "enquiry": {
+      "subject": "您的獵遊詢問已妥善處理",
+      "greeting": "您好，{name}：",
+      "body": "感謝您的詢問——我們非常樂意協助規劃您的這趟旅程。我們的團隊正在審閱詳細內容，將在2小時內與您聯繫，告知後續步驟。"
+    },
+    "planBrief": {
+      "subject": "您的客製化獵遊方案即將送達",
+      "greeting": "您好，{name}：",
+      "body": "感謝您使用我們的Safari AI顧問規劃行程。我們的一位專員正在詳細審閱您的需求簡報，將在24小時內與您聯繫，提供量身打造的建議。"
+    },
+    "exitIntentClaim": {
+      "subject": "您的折扣代碼已確認",
+      "greeting": "您好，{name}：",
+      "body": "感謝您領取折扣——我們的團隊已收到通知，會在您準備好預訂時隨時為您套用。同時，請留意您的收件匣，我們將為您帶來更多獵遊靈感。"
+    },
+    "tradePartners": {
+      "subject": "感謝您有意與我們合作",
+      "greeting": "您好，{name}：",
+      "body": "我們已收到您的貿易合作夥伴詢問，非常期待未來的合作機會。我們的合作夥伴團隊將審核您的資料，並在一個工作天內確認您的貿易夥伴身分。"
+    }
+  },
+  "pdfChrome": {
+    "kilimanjaroGuideTitle": "吉力馬札羅健行指南",
+    "kilimanjaroGuideSubtitle": "5,895米 / 19,341英尺——非洲最高峰",
+    "kilimanjaroGuideDocType": "吉力馬札羅指南",
+    "kilimanjaroRouteEyebrow": "吉力馬札羅路線指南",
+    "climbCtaHeading": "準備好登山了嗎？",
+    "climbCtaBody": "聯繫我們預訂您的吉力馬札羅健行之旅——我們的團隊將協助您選擇合適的路線。",
+    "itineraryEyebrow": "您的客製化行程",
+    "itineraryHighlightsHeading": "行程亮點",
+    "itineraryMealsLabel": "餐食",
+    "bookCtaHeading": "準備好預訂了嗎？",
+    "bookCtaBody": "聯繫我們，我們將把這份行程變成一份確認預訂，完全依照您的心意量身打造。"
+  },
   "pdfLead": {
     "badge": "免費指南",
     "imagePanelBrand": "EWA Safari Outfitters",

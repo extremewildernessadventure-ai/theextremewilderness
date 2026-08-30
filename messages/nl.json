@@ -4207,6 +4207,46 @@
     "backHome": "Terug naar home",
     "browseDestinations": "Bekijk bestemmingen"
   },
+  "emailAutoReply": {
+    "contact": {
+      "subject": "We hebben je bericht ontvangen",
+      "greeting": "Hoi {name},",
+      "body": "Bedankt voor je bericht aan EWA Safari Outfitters. Je bericht is bij ons team in Arusha terechtgekomen en we nemen binnen 2 uur persoonlijk contact met je op — geen automatisch gegenereerd reisschema, maar een echt antwoord van iemand die Tanzania kent."
+    },
+    "enquiry": {
+      "subject": "Je safari-aanvraag is in goede handen",
+      "greeting": "Hoi {name},",
+      "body": "Bedankt voor je aanvraag — we helpen je reis met veel plezier mee plannen. Ons team bekijkt de details nu en neemt binnen 2 uur contact met je op met de volgende stappen."
+    },
+    "planBrief": {
+      "subject": "Je persoonlijke safariplan is onderweg",
+      "greeting": "Hoi {name},",
+      "body": "Bedankt dat je met onze Safari AI-adviseur een reis hebt samengesteld. Een van onze specialisten bekijkt je aanvraag nu in detail en neemt binnen 24 uur contact op met een advies op maat."
+    },
+    "exitIntentClaim": {
+      "subject": "Je kortingscode is bevestigd",
+      "greeting": "Hoi {name},",
+      "body": "Bedankt voor het aanvragen van je korting — ons team is op de hoogte gebracht en houdt deze klaar om toe te passen zodra je wilt boeken. Houd ondertussen je inbox in de gaten voor safari-inspiratie."
+    },
+    "tradePartners": {
+      "subject": "Bedankt voor je interesse in een samenwerking met ons",
+      "greeting": "Hoi {name},",
+      "body": "We hebben je aanvraag als handelspartner ontvangen en zien de mogelijke samenwerking met veel enthousiasme tegemoet. Ons partnershipteam bekijkt je gegevens en bevestigt je handelspartnerstatus binnen één werkdag."
+    }
+  },
+  "pdfChrome": {
+    "kilimanjaroGuideTitle": "Kilimanjaro Trekkinggids",
+    "kilimanjaroGuideSubtitle": "5.895 m / 19.341 ft — de hoogste top van Afrika",
+    "kilimanjaroGuideDocType": "Kilimanjaro-gids",
+    "kilimanjaroRouteEyebrow": "Kilimanjaro Routegids",
+    "climbCtaHeading": "Klaar Om Te Klimmen?",
+    "climbCtaBody": "Neem contact op om je Kilimanjaro-trektocht te boeken — ons team helpt je de juiste route te kiezen.",
+    "itineraryEyebrow": "Jouw Persoonlijke Reisroute",
+    "itineraryHighlightsHeading": "Hoogtepunten",
+    "itineraryMealsLabel": "Maaltijden",
+    "bookCtaHeading": "Klaar Om Te Boeken?",
+    "bookCtaBody": "Neem contact op en wij maken van deze reisroute een bevestigde boeking, precies zoals jij het wilt."
+  },
   "pdfLead": {
     "badge": "Gratis gids",
     "imagePanelBrand": "EWA Safari Outfitters",

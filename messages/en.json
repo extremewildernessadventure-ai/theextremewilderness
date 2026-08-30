@@ -4174,6 +4174,19 @@
       "body": "We've received your trade partner enquiry and are excited about the possibility of working together. Our partnerships team will review your details and confirm your trade status within one business day."
     }
   },
+  "pdfChrome": {
+    "kilimanjaroGuideTitle": "Kilimanjaro Trekking Guide",
+    "kilimanjaroGuideSubtitle": "5,895 m / 19,341 ft — Africa's highest peak",
+    "kilimanjaroGuideDocType": "Kilimanjaro Guide",
+    "kilimanjaroRouteEyebrow": "Kilimanjaro Route Guide",
+    "climbCtaHeading": "Ready To Climb?",
+    "climbCtaBody": "Get in touch to book your Kilimanjaro trek — our team will help you pick the right route.",
+    "itineraryEyebrow": "Your Custom Itinerary",
+    "itineraryHighlightsHeading": "Highlights",
+    "itineraryMealsLabel": "Meals",
+    "bookCtaHeading": "Ready To Book?",
+    "bookCtaBody": "Get in touch and we'll turn this itinerary into a confirmed booking, tailored exactly how you want it."
+  },
   "pdfLead": {
     "badge": "Free Guide",
     "imagePanelBrand": "EWA Safari Outfitters",

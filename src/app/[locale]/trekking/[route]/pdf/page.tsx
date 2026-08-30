@@ -47,6 +47,7 @@ function isRouteWithDetailContent(route: string): route is RouteWithDetailConten
 export default async function PdfPage({ params }: Props) {
   const { route, locale = 'en' } = await params
   const trd = await getTranslations({ locale, namespace: 'trekkingRouteDetail' })
+  const tp = await getTranslations({ locale, namespace: 'pdfChrome' })
 
   if (!isRouteWithDetailContent(route)) {
     return <p className="p-8 text-center text-text-muted">{trd('labels.routeNotFound')}</p>
@@ -84,7 +85,7 @@ export default async function PdfPage({ params }: Props) {
         <PdfCover
           image={ROUTE_IMAGES[route] ?? '/images/gallery/kilimanjaro-hero.webp'}
           imageAlt={routeContent.quickFacts.routeName}
-          eyebrow="Kilimanjaro Route Guide"
+          eyebrow={tp('kilimanjaroRouteEyebrow')}
           title={routeContent.quickFacts.routeName}
           subtitle={routeContent.nickname}
           metaLeft={new Date().toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })}
@@ -118,12 +119,12 @@ export default async function PdfPage({ params }: Props) {
         <div className="mb-6">
           <PdfSectionHeading>{trd('labels.itinerary')}</PdfSectionHeading>
 
-          <PdfDayBlock day={0} title={trd('labels.arrivalDay')}>
+          <PdfDayBlock day={0} title={trd('labels.arrivalDay')} dayLabel={trd('labels.dayLabel')}>
             <p>{routeContent.arrivalDay}</p>
           </PdfDayBlock>
 
           {routeContent.itinerary.map((day) => (
-            <PdfDayBlock key={day.day} day={day.day} title={day.title} meta={day.meta}>
+            <PdfDayBlock key={day.day} day={day.day} title={day.title} meta={day.meta} dayLabel={trd('labels.dayLabel')}>
               <p className="mb-1">{day.body}</p>
               <p className="text-xs text-gray-500 italic">{trd('labels.whatToExpect')} {day.expect}</p>
             </PdfDayBlock>
@@ -175,7 +176,7 @@ export default async function PdfPage({ params }: Props) {
         </div>
 
         <div className="mb-8">
-          <PdfClosingCta heading="Ready To Climb?" body="Get in touch to book your Kilimanjaro trek — our team will help you pick the right route." />
+          <PdfClosingCta heading={tp('climbCtaHeading')} body={tp('climbCtaBody')} />
         </div>
 
         <PdfFooter />

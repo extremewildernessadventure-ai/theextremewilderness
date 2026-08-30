@@ -4207,6 +4207,46 @@
     "backHome": "Torna alla home",
     "browseDestinations": "Sfoglia le destinazioni"
   },
+  "emailAutoReply": {
+    "contact": {
+      "subject": "Abbiamo ricevuto il tuo messaggio",
+      "greeting": "Ciao {name},",
+      "body": "Grazie per aver contattato EWA Safari Outfitters. Il tuo messaggio è arrivato al nostro team ad Arusha e ti risponderemo entro 2 ore con una risposta personale — non un itinerario generato automaticamente, ma una vera risposta da chi conosce la Tanzania."
+    },
+    "enquiry": {
+      "subject": "La tua richiesta di safari è in buone mani",
+      "greeting": "Ciao {name},",
+      "body": "Grazie per la tua richiesta — siamo davvero entusiasti di aiutarti a pianificare il tuo viaggio. Il nostro team sta esaminando i dettagli in questo momento e ti contatterà entro 2 ore con i prossimi passi."
+    },
+    "planBrief": {
+      "subject": "Il tuo piano safari su misura è in arrivo",
+      "greeting": "Ciao {name},",
+      "body": "Grazie per aver creato un viaggio con il nostro consulente Safari AI. Uno dei nostri esperti sta ora esaminando nel dettaglio la tua richiesta e ti contatterà entro 24 ore con una proposta personalizzata."
+    },
+    "exitIntentClaim": {
+      "subject": "Il tuo codice sconto è confermato",
+      "greeting": "Ciao {name},",
+      "body": "Grazie per aver richiesto il tuo sconto — il nostro team è stato avvisato e lo terrà pronto da applicare non appena sarai pronto a prenotare. Nel frattempo, tieni d'occhio la tua casella di posta per idee e ispirazioni sui safari."
+    },
+    "tradePartners": {
+      "subject": "Grazie per il tuo interesse a collaborare con noi",
+      "greeting": "Ciao {name},",
+      "body": "Abbiamo ricevuto la tua richiesta come partner commerciale e siamo entusiasti della possibilità di collaborare. Il nostro team partnership esaminerà i tuoi dati e confermerà il tuo stato di partner entro un giorno lavorativo."
+    }
+  },
+  "pdfChrome": {
+    "kilimanjaroGuideTitle": "Guida al Trekking del Kilimanjaro",
+    "kilimanjaroGuideSubtitle": "5.895 m / 19.341 piedi — la vetta più alta d'Africa",
+    "kilimanjaroGuideDocType": "Guida al Kilimanjaro",
+    "kilimanjaroRouteEyebrow": "Guida alle Vie del Kilimanjaro",
+    "climbCtaHeading": "Pronto a Scalare?",
+    "climbCtaBody": "Contattaci per prenotare la tua scalata al Kilimanjaro — il nostro team ti aiuterà a scegliere la via giusta.",
+    "itineraryEyebrow": "Il Tuo Itinerario Personalizzato",
+    "itineraryHighlightsHeading": "Punti Salienti",
+    "itineraryMealsLabel": "Pasti",
+    "bookCtaHeading": "Pronto a Prenotare?",
+    "bookCtaBody": "Contattaci e trasformeremo questo itinerario in una prenotazione confermata, su misura esattamente come desideri."
+  },
   "pdfLead": {
     "badge": "Guida gratuita",
     "imagePanelBrand": "EWA Safari Outfitters",

@@ -41,6 +41,7 @@ export default async function ItineraryPdfPage({ params }: Props) {
   if (!pkg) notFound()
 
   const trd = await getTranslations({ locale, namespace: 'trekkingRouteDetail' })
+  const tp = await getTranslations({ locale, namespace: 'pdfChrome' })
   const localeForDate = await getLocale()
 
   return (
@@ -62,7 +63,7 @@ export default async function ItineraryPdfPage({ params }: Props) {
         <PdfCover
           image={pkg.heroImage}
           imageAlt={pkg.name}
-          eyebrow="Your Custom Itinerary"
+          eyebrow={tp('itineraryEyebrow')}
           title={pkg.name}
           subtitle={`${pkg.duration} nights · from $${pkg.priceFrom.toLocaleString('en-US')}pp`}
           metaLeft={new Date().toLocaleDateString(localeForDate, { day: 'numeric', month: 'long', year: 'numeric' })}
@@ -73,7 +74,7 @@ export default async function ItineraryPdfPage({ params }: Props) {
 
           {pkg.highlights.length > 0 && (
             <div className="mb-6 no-break">
-              <PdfSectionHeading>Highlights</PdfSectionHeading>
+              <PdfSectionHeading>{tp('itineraryHighlightsHeading')}</PdfSectionHeading>
               <ul className="space-y-1">
                 {pkg.highlights.map((h) => (
                   <li key={h} className="flex items-start gap-1.5 text-sm text-gray-700">
@@ -89,9 +90,15 @@ export default async function ItineraryPdfPage({ params }: Props) {
           <div className="mb-6">
             <PdfSectionHeading>{trd('labels.itinerary')}</PdfSectionHeading>
             {pkg.itinerary.map((day) => (
-              <PdfDayBlock key={day.day} day={day.day} title={day.title} meta={day.accommodation ? `Stay: ${day.accommodation}` : undefined}>
+              <PdfDayBlock
+                key={day.day}
+                day={day.day}
+                title={day.title}
+                meta={day.accommodation ? `${trd('labels.accommodation')}: ${day.accommodation}` : undefined}
+                dayLabel={trd('labels.dayLabel')}
+              >
                 <p className="mb-1">{day.description}</p>
-                {day.meals && <p className="text-xs text-gray-500">Meals: {day.meals}</p>}
+                {day.meals && <p className="text-xs text-gray-500">{tp('itineraryMealsLabel')}: {day.meals}</p>}
               </PdfDayBlock>
             ))}
           </div>
@@ -125,7 +132,7 @@ export default async function ItineraryPdfPage({ params }: Props) {
           )}
 
           <div className="mb-8">
-            <PdfClosingCta heading="Ready To Book?" body="Get in touch and we'll turn this itinerary into a confirmed booking, tailored exactly how you want it." />
+            <PdfClosingCta heading={tp('bookCtaHeading')} body={tp('bookCtaBody')} />
           </div>
 
           <PdfFooter />
