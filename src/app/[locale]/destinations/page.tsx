@@ -11,7 +11,7 @@ import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 import DestinationsExplorer, { type CountryAreaData } from '@/components/destinations/DestinationsExplorer'
 import { getDestinations } from '@/data/destinations.i18n'
 import type { Destination } from '@/data/destinations'
-import { buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = t('metaDescription')
   return {
     alternates: buildAlternates(locale, '/destinations'),
-    title,
+    title: buildPageTitle(title),
     description,
     keywords: t.raw('metaKeywords') as string[],
     openGraph: { title, description, type: 'website' },

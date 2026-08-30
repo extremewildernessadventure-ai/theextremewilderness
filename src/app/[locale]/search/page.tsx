@@ -4,7 +4,7 @@ import { Search as SearchIcon } from 'lucide-react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import { buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
 import { searchSite, type SearchResult, type SearchResultType } from '@/lib/search'
 
 type Props = {
@@ -18,7 +18,7 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
   const t = await getTranslations({ locale, namespace: 'search' })
   const query = (q ?? '').trim()
   return {
-    title: query ? t('pageTitleWithQuery', { query }) : t('pageTitle'),
+    title: buildPageTitle(query ? t('pageTitleWithQuery', { query }) : t('pageTitle')),
     description: t('pageDescription'),
     alternates: buildAlternates(locale, '/search'),
     robots: { index: false, follow: true },

@@ -3,7 +3,7 @@ import { getPackages } from '@/data/packages.i18n'
 import { packageTags } from '@/data/packageTags'
 import { getFxRates } from '@/lib/fxRates'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { SITE_URL, buildAlternates } from '@/lib/site'
+import { SITE_URL, buildAlternates, buildPageTitle } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import PlanPageClient from '@/components/plan/PlanPageClient'
 
@@ -15,11 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = t('metaTitle')
   const description = t('metaDescription')
   return {
-    // Root layout's title template already appends "" —
-    // repeating it here previously produced a doubled "... | The Extreme
-    // Wilderness" browser-tab/SERP title.
+    // buildPageTitle bypasses the root layout's title template (see
+    // src/lib/site.ts) so this title can never get the brand suffix
+    // appended twice.
     alternates: buildAlternates(locale, '/plan'),
-    title,
+    title: buildPageTitle(title),
     description,
     keywords: locale === 'en'
       ? [

@@ -6,7 +6,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 import BookNowButton from '@/components/booking/BookNowButton'
 import AccommodationsExplorer from '@/components/accommodations/AccommodationsExplorer'
 import NewsletterForm from '@/components/home/NewsletterForm'
-import { buildAlternates, buildBreadcrumbSchema, buildAccommodationsListSchema } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema, buildAccommodationsListSchema, buildPageTitle } from '@/lib/site'
 import { getAccommodations } from '@/data/accommodations.i18n'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const accommodations = await getAccommodations(locale)
   return {
     alternates: buildAlternates(locale, '/accommodations'),
-    title: t('metaTitle'),
+    title: buildPageTitle(t('metaTitle')),
     description: t('metaDescription'),
     openGraph: {
       title: t('metaTitle'),

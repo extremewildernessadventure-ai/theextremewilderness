@@ -12,7 +12,7 @@ import PlanBuilderEntryCard from '@/components/plan/PlanBuilderEntryCard'
 import FilteredPackageGrid from '@/components/itineraries/FilteredPackageGrid'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import { buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'itineraries' })
   return {
-    title: t('metaTitle'),
+    title: buildPageTitle(t('metaTitle')),
     description: t('metaDescription'),
     keywords: t.raw('metaKeywords') as string[],
     alternates: buildAlternates(locale, '/safaris'),

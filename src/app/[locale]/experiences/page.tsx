@@ -7,7 +7,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { getExperiences } from '@/data/experiences.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import type { Experience } from '@/data/experiences'
-import { buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = t('metaDescription')
   return {
     alternates: buildAlternates(locale, '/experiences'),
-    title,
+    title: buildPageTitle(title),
     description,
     keywords: t.raw('metaKeywords') as string[],
     openGraph: {

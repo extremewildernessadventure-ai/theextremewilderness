@@ -5,7 +5,7 @@ import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import {
   ArrowRight, Lock, CreditCard, ShieldCheck, Banknote, Clock, Mail, Phone,
 } from 'lucide-react'
-import { buildAlternates, buildBreadcrumbSchema } from '@/lib/site'
+import { buildAlternates, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
 import type { routing } from '@/i18n/routing'
 
 const PESAPAL_URL = 'https://payments.pesapal.com/theextremewilderness'
@@ -86,7 +86,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'payments' })
   return {
     alternates: buildAlternates(locale, '/payments'),
-    title: t('metaTitle'),
+    title: buildPageTitle(t('metaTitle')),
     description: t('metaDescription'),
     openGraph: {
       title: t('metaTitle'),
