@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Link } from '@/i18n/navigation'
 import {
@@ -446,7 +446,6 @@ const SEASON_STYLE = {
 
 export default async function TravelInfoPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const t = await getTranslations('travelInfo')
   const tTrek = await getTranslations('trekking')
 

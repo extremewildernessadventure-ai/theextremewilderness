@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Link } from '@/i18n/navigation'
 import { Mail, Phone, ChevronRight, ShieldCheck, Eye, Share2, Globe, Clock, UserCheck, Lock, Baby, RefreshCw, Cookie, MessageCircle, Inbox } from 'lucide-react'
@@ -68,7 +68,6 @@ function TipBox({ children }: { children: React.ReactNode }) {
 
 export default async function PrivacyPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const t = await getTranslations('privacy')
   const sl = t('sectionLabel')
 

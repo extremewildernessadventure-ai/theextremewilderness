@@ -12,7 +12,7 @@ import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
 import { getPackages, getPackage } from '@/data/packages.i18n'
 import { getDestinations, getDestination } from '@/data/destinations.i18n'
 import { routing } from '@/i18n/routing'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { SITE_URL, buildAlternates, buildBreadcrumbSchema, buildImageObject, buildPageTitle } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
@@ -156,7 +156,6 @@ function renderSection(section: SectionType, idx: number) {
 
 export default async function BlogArticlePage({ params }: Props) {
   const { slug, locale } = await params
-  setRequestLocale(locale)
   const [post, t, tCommon] = await Promise.all([
     getBlogPostMeta(slug, locale),
     getTranslations('blog'),

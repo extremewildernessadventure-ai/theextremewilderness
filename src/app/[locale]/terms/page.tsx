@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Link } from '@/i18n/navigation'
 import {
@@ -82,7 +82,6 @@ function TipBox({ children }: { children: React.ReactNode }) {
 
 export default async function TermsPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const t = await getTranslations('terms')
   const sl = t('sectionLabel')
 

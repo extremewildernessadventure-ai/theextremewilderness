@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Mail, ChevronRight } from 'lucide-react'
 import { buildAlternates, buildPageTitle } from '@/lib/site'
@@ -19,9 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const EMAIL = 'info@theextremewilderness.com'
 
-export default async function AppInfoPage({ params }: Props) {
-  const { locale } = await params
-  setRequestLocale(locale)
+export default async function AppInfoPage() {
   const t = await getTranslations('appInfo')
 
   return (

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck, Star, MapPin, DollarSign } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import TrustBar from '@/components/home/TrustBar'
@@ -532,7 +532,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SafariPackagePage({ params }: Props) {
   const { slug, locale } = await params
-  setRequestLocale(locale)
   const pkg = await getPackage(slug, locale)
   if (!pkg) notFound()
 

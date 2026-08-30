@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import {
   Users, Calendar, DollarSign, Binoculars, Compass, Mountain, Heart, ShieldCheck, Award,
@@ -70,7 +70,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function FaqPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const t = await getTranslations('faqHub')
   const tc = await getTranslations('common')
   const tPrivacy = await getTranslations('privacy')

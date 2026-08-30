@@ -1,7 +1,10 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+import { Geist } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
-import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server'
+import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+import '../globals.css'
+import 'flag-icons/css/flag-icons.min.css'
 import { routing } from '@/i18n/routing'
 import { SITE_URL } from '@/lib/site'
 import { getGooglePlaceRating } from '@/lib/googlePlaces'
@@ -14,6 +17,12 @@ import Providers from '@/components/layout/Providers'
 import WhatsAppButton from '@/components/shared/WhatsAppButton'
 import LanguageSuggestionBanner from '@/components/shared/LanguageSuggestionBanner'
 import ExitIntentPopup from '@/components/shared/ExitIntentPopup'
+import TrackingScripts from '@/components/analytics/TrackingScripts'
+
+const geist = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin', 'cyrillic'],
+})
 
 type Props = {
   children: React.ReactNode
@@ -41,15 +50,75 @@ function pickMessages(messages: Record<string, unknown>, namespaces: readonly st
   )
 }
 
-// Canonical/hreflang alternates are set per-page (via buildAlternates in
-// @/lib/site) instead of here — computing them from the request path would
-// require headers(), a Dynamic API that forces this whole layout, and every
-// page under it, to render per-request instead of being statically generated.
+export const viewport: Viewport = {
+  themeColor: '#1C3A2A',
+  width: 'device-width',
+  initialScale: 1,
+}
+
+// This is now the app's actual root layout (see app/(root)/, app/admin/,
+// and app/payments/ for the other independent root layouts) — merged in
+// the site-wide defaults that used to live in the now-deleted app/layout.tsx,
+// on top of this layout's own per-locale openGraph.locale.
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   return {
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: 'EWA Safari Outfitters | Tanzania Safari & Kilimanjaro',
+      template: '%s | EWA Safari Outfitters',
+    },
+    description:
+      "Tanzania's premier locally-owned safari operator. Custom safaris to Serengeti, Ngorongoro, Zanzibar & beyond. Kilimanjaro trekking from Arusha. 5+ years, 98% satisfaction.",
+    keywords: [
+      'Tanzania safari',
+      'Serengeti safari',
+      'Kilimanjaro trekking',
+      'East Africa safari',
+      'Tanzania tour operator',
+      'Ngorongoro Crater safari',
+      'Zanzibar holiday',
+    ],
+    authors: [{ name: 'EWA Safari Outfitters' }],
     openGraph: {
+      title: 'EWA Safari Outfitters — Where the Wild Calls You Home',
+      description:
+        'Custom Tanzania safaris, Kilimanjaro treks & Zanzibar beach holidays. Born and based in Arusha, Tanzania.',
+      type: 'website',
+      url: SITE_URL,
+      siteName: 'EWA Safari Outfitters',
       locale: ogLocale(locale),
+      images: [
+        {
+          url: '/images/gallery/masai-mara-lion-pride-sunset.jpg',
+          width: 1200,
+          height: 630,
+          alt: 'Lions at golden sunset on the Tanzania Serengeti plains',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'EWA Safari Outfitters | Tanzania Safari',
+      description: 'Custom Tanzania safaris born in the wilderness.',
+      images: ['/images/gallery/masai-mara-lion-pride-sunset.jpg'],
+    },
+    robots: { index: true, follow: true },
+    verification: {
+      other: {
+        'msvalidate.01': '8D55710550A379BDC592BC0FEDD6808B',
+      },
+    },
+    icons: {
+      icon: [
+        { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+        { url: '/favicon.ico' },
+      ],
+      apple: { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      other: [
+        { rel: 'manifest', url: '/site.webmanifest' },
+      ],
     },
   }
 }
@@ -65,7 +134,6 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound()
   }
 
-  setRequestLocale(locale)
   const messages = await getMessages({ locale })
   const clientMessages = pickMessages(messages, CLIENT_NAMESPACES)
   const tc = await getTranslations({ locale, namespace: 'common' })
@@ -114,46 +182,39 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   return (
-    <NextIntlClientProvider locale={locale} messages={clientMessages}>
-      <Providers>
-        {/* Root layout (above this segment) can't read `locale` without a
-            Dynamic API, so it hardcodes lang="en" dir="ltr". This corrects
-            both synchronously for non-English locales before paint — no
-            visible flash, since it runs as the parser reaches it (before
-            Navbar and everything else below). */}
-        {locale !== 'en' && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `document.documentElement.lang=${JSON.stringify(locale)};document.documentElement.dir=${JSON.stringify(isRtlLocale(locale) ? 'rtl' : 'ltr')}`,
-            }}
-          />
-        )}
-        {/* Read by the Tawk reposition script in the root layout, which
-            can't access the locale itself — see the comment there. */}
-        {locale !== 'en' && (
-          <script
-            dangerouslySetInnerHTML={{ __html: `window.__tawkChatTitle=${JSON.stringify(tc('tawkChatTitle'))}` }}
-          />
-        )}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
-        />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:start-4 focus:px-4 focus:py-2 focus:bg-gold focus:text-brand focus:font-bold focus:rounded-lg"
-        >
-          Skip to main content
-        </a>
-        <Navbar />
-        <main id="main-content" className="flex-1 pb-16 lg:pb-0">{children}</main>
-        <Footer locale={locale} />
-        <div className="h-16 lg:hidden" aria-hidden="true" />
-        <WhatsAppButton />
-        <LanguageSuggestionBanner />
-        <ExitIntentPopup />
-        <BottomNav />
-      </Providers>
-    </NextIntlClientProvider>
+    <html lang={locale} dir={isRtlLocale(locale) ? 'rtl' : 'ltr'} className={`${geist.variable} h-full w-full`}>
+      <body className="min-h-screen w-full flex flex-col antialiased overflow-x-hidden">
+        <NextIntlClientProvider locale={locale} messages={clientMessages}>
+          <Providers>
+            {/* Read by the Tawk reposition script below — the widget needs to
+                know the chat-launcher title text for non-English locales. */}
+            {locale !== 'en' && (
+              <script
+                dangerouslySetInnerHTML={{ __html: `window.__tawkChatTitle=${JSON.stringify(tc('tawkChatTitle'))}` }}
+              />
+            )}
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+            />
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:start-4 focus:px-4 focus:py-2 focus:bg-gold focus:text-brand focus:font-bold focus:rounded-lg"
+            >
+              Skip to main content
+            </a>
+            <Navbar />
+            <main id="main-content" className="flex-1 pb-16 lg:pb-0">{children}</main>
+            <Footer locale={locale} />
+            <div className="h-16 lg:hidden" aria-hidden="true" />
+            <WhatsAppButton />
+            <LanguageSuggestionBanner />
+            <ExitIntentPopup />
+            <BottomNav />
+          </Providers>
+        </NextIntlClientProvider>
+        <TrackingScripts />
+      </body>
+    </html>
   )
 }

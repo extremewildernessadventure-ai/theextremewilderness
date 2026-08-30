@@ -4,7 +4,7 @@ import { Link } from '@/i18n/navigation'
 import { ArrowRight, MapPin, Users, Bird, CheckCircle2, Car, Headphones, Shield, Compass, Trophy } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
 import DestinationCard from '@/components/destinations/DestinationCard'
-import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { getDestinations } from '@/data/destinations.i18n'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { buildAlternates, buildPageTitle } from '@/lib/site'
@@ -67,7 +67,6 @@ const KENYA_DEST_BADGE_COLORS: Record<string, string> = {
 
 export default async function KenyaPage({ params }: Props) {
   const { locale } = await params
-  setRequestLocale(locale)
   const t = await getTranslations('kenya')
   const tc = await getTranslations('common')
   const allDestinations = await getDestinations(locale)
