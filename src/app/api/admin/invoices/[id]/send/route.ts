@@ -5,6 +5,7 @@ import { getDb, type Invoice } from '@/lib/db'
 import { markInvoiceSent } from '@/lib/invoices'
 import { renderPageToPdf } from '@/lib/browser'
 import { getDocsBucket, invoiceKey } from '@/lib/r2'
+import { buildBrandedEmailHtml } from '@/lib/email'
 
 export const dynamic = 'force-dynamic'
 
@@ -63,18 +64,20 @@ export async function POST(req: NextRequest, { params }: Params) {
     from: FROM,
     to: invoice.client_email,
     subject: `Invoice ${invoice.invoice_number} from EWA Safari Outfitters`,
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:0 auto;padding:24px">
-        <p style="font-size:14px;color:#1a1a1a">Hi ${invoice.client_name},</p>
-        <p style="font-size:14px;color:#1a1a1a;line-height:1.6">
+    html: buildBrandedEmailHtml({
+      eyebrow: 'Invoice',
+      heading: `Invoice ${invoice.invoice_number}`,
+      bodyHtml: `
+        <p style="margin:0 0 14px;font-size:15px;color:#1a1a1a">Hi ${invoice.client_name},</p>
+        <p style="margin:0 0 22px;font-size:14px;line-height:1.6;color:#374151">
           Please find invoice ${invoice.invoice_number} attached
           (${invoice.currency} ${balanceDue.toLocaleString()} ${invoice.amount_paid > 0 ? 'balance due' : 'due'}).
           Payment instructions are on the invoice. If anything looks off, just
           reply to this email and we'll sort it out.
         </p>
-        <p style="font-size:14px;color:#1a1a1a">— EWA Safari Outfitters</p>
-      </div>
-    `,
+        <p style="margin:0;font-size:14px;color:#374151">Warm regards,<br><strong style="color:#1C3A2A">The EWA Safari Outfitters Team</strong></p>
+      `,
+    }),
     attachments: [
       { filename: `EWA-Invoice-${invoice.invoice_number}.pdf`, content: base64Pdf, contentType: 'application/pdf' },
     ],
