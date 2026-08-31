@@ -3,6 +3,16 @@ name: Deploy to Cloudflare Workers
 on:
   push:
     branches: [master]
+  # Lets a full deploy (and, critically, the guide-PDF backfill below) be
+  # re-run manually without a new commit — e.g. to force-regenerate guide
+  # PDFs whose R2 key didn't change across a content update, so the normal
+  # skip-if-exists backfill left the stale file in place.
+  workflow_dispatch:
+    inputs:
+      force_guides:
+        description: 'Force-regenerate every pre-generated guide PDF, even ones already in R2'
+        type: boolean
+        default: false
 
 concurrency:
   group: deploy-production
@@ -45,26 +55,32 @@ jobs:
       - run: npm run submit-indexnow
         continue-on-error: true
 
-      # Eagerly backfills the pre-generated public guide PDFs (Kilimanjaro
-      # overview + every package itinerary, per locale — see
+      # Eagerly backfills the pre-generated public guide PDFs (the
+      # consolidated Kilimanjaro trekking guide + the generic sample
+      # itinerary guide, one of each per locale — see
       # src/app/api/cron/generate-guides/route.ts) against the now-live
-      # Worker. Skip-if-exists on the server side means this is a one-time
-      # ~720-render cost the first time it runs and near-instant on every
-      # deploy after that (only genuinely new locale/package combinations
-      # get rendered). Non-fatal — this never blocks a deploy that already
-      # succeeded; pdf-lead has its own request-time fallback for anything
-      # this hasn't caught up to yet.
+      # Worker. Skip-if-exists on the server side means a normal push-
+      # triggered run only ever renders genuinely new/missing combinations
+      # — which also means a content change that reuses an existing R2 key
+      # (e.g. a guide's design was replaced but its key wasn't) won't get
+      # picked up here on its own; re-run this workflow manually with
+      # force_guides=true when that happens. Non-fatal — this never blocks
+      # a deploy that already succeeded; pdf-lead has its own request-time
+      # fallback for anything this hasn't caught up to yet.
       - name: Backfill public guide PDFs
         continue-on-error: true
         timeout-minutes: 90
         env:
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          FORCE_GUIDES: ${{ github.event.inputs.force_guides }}
         run: |
           cursor=0
           batch=1
+          force_qs=""
+          if [ "${FORCE_GUIDES}" = "true" ]; then force_qs="&force=true"; fi
           while true; do
             resp=$(curl -sf -X POST \
-              "https://www.theextremewilderness.com/api/cron/generate-guides?cursor=${cursor}&limit=10" \
+              "https://www.theextremewilderness.com/api/cron/generate-guides?cursor=${cursor}&limit=10${force_qs}" \
               -H "Authorization: Bearer ${CRON_SECRET}")
             processed=$(echo "$resp" | jq -r '.processed')
             skipped=$(echo "$resp" | jq -r '.skipped')
