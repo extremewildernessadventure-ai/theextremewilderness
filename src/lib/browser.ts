@@ -25,6 +25,16 @@ export async function renderPageToPdf(url: string, cookieHeader: string | null):
   const browser = await puppeteer.launch(env.BROWSER)
   try {
     const page = await browser.newPage()
+    // Matches A4 at 96 CSS px/inch (210mm x 297mm) exactly. Without this,
+    // Puppeteer lays the page out at its default (much wider) viewport
+    // before print conversion — Chromium's print pipeline reflows plain
+    // text to fit the page, but explicit-width layouts (tables, grids)
+    // keep their screen-computed track sizes, so content wider than A4's
+    // printable area gets silently clipped on the right rather than
+    // shrinking to fit. Confirmed live: routes tables and multi-column
+    // sections were cut off mid-word. Setting this before navigation so
+    // the very first layout pass already uses A4's real width.
+    await page.setViewport({ width: 794, height: 1123 })
     // Every call here is this Worker rendering its own site for an internal
     // purpose (the requested locale is already baked into `url`) — never a
     // real visitor whose geography should be guessed. Without this,
