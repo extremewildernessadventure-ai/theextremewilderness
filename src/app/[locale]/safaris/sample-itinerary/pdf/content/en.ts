@@ -140,7 +140,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
       <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Meals: Breakfast, Lunch, Dinner &nbsp;&middot;&nbsp; Overnight: <a href="https://www.africaaminilife.com/en/original-maasailodge">Original Maasai Lodge</a></div>
     </div>
 
-    <div style="height:130px;overflow:hidden;margin-top:auto;">
+    <div style="height:130px;overflow:hidden;margin-top:auto;flex-shrink:0;">
       <img src="/images/family-safari-guide/maasai-firedance.jpg" alt="Maasai dance performed around the sundowner fire" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;" />
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -182,7 +182,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
       <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Meals: Breakfast, packed Lunch en route, Dinner &nbsp;&middot;&nbsp; Overnight: <a href="https://twctanzania.com/serengeti-national-park/serengeti-kati-kati-tented-camp/">Serengeti Kati Kati Tented Camp</a></div>
     </div>
 
-    <div style="height:150px;overflow:hidden;margin-top:auto;">
+    <div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
       <img src="/images/family-safari-guide/plains-bird-day4to6.jpg" alt="Marabou stork over the highlands near Ngorongoro" style="width:100%;height:100%;object-fit:cover;" />
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -260,7 +260,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
       <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Meals: Breakfast</div>
     </div>
 
-    <div style="height:150px;overflow:hidden;margin-top:auto;">
+    <div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
       <img src="/images/family-safari-guide/zanzibar-breakfast.jpg" alt="Breakfast served by the water at The Mora" style="width:100%;height:100%;object-fit:cover;" />
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">

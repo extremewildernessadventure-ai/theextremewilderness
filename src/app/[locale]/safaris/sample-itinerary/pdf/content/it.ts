@@ -127,7 +127,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">Un breve tragitto di 40 minuti vi porta nel Parco Nazionale di Arusha — uno dei pochi parchi della Tanzania in cui i safari a piedi sono parte centrale dell'esperienza, e non un semplice extra. Con un ranger armato al fianco della vostra guida, percorrerete a piedi alcuni tratti del parco, tenendo d'occhio giraffe, bufali e scimmie colobo, con il Monte Meru che si erge sopra di voi lungo tutto il percorso. Un primo assaggio della savana dolce e autenticamente coinvolgente per i bambini.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Pasti: Colazione, Pranzo, Cena  ·  Pernottamento: <a href="https://www.africaaminilife.com/en/original-maasailodge">Original Maasai Lodge</a></div>
 </div>
-<div style="height:130px;overflow:hidden;margin-top:auto;">
+<div style="height:130px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="Danza Maasai intorno al fuoco del sundowner" src="/images/family-safari-guide/maasai-firedance.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -163,7 +163,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.6;margin:5px 0 6px;">Lungo la strada verso il Serengeti, una sosta alla Gola di Oldupai — spesso chiamata la Culla dell'Umanità, dove le scoperte della famiglia Leakey hanno rivoluzionato la nostra comprensione delle origini umane. Una breve visita al sito e al museo, prima di proseguire attraverso le pianure fino alla Serengeti Centrale, con arrivo al campo nel tardo pomeriggio.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Pasti: Colazione, Pranzo al sacco durante il tragitto, Cena  ·  Pernottamento: <a href="https://twctanzania.com/serengeti-national-park/serengeti-kati-kati-tented-camp/">Serengeti Kati Kati Tented Camp</a></div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="Marabù sugli altopiani vicino a Ngorongoro" src="/images/family-safari-guide/plains-bird-day4to6.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -230,7 +230,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">Un'ultima mattinata rilassata prima del trasferimento privato all'Aeroporto di Zanzibar per il volo diretto di rientro.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Pasti: Colazione</div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="Colazione servita in riva al mare a The Mora" src="/images/family-safari-guide/zanzibar-breakfast.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">

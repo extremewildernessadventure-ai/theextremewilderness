@@ -127,7 +127,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">Een korte rit van 40 minuten brengt u naar Arusha National Park — een van de weinige parken in Tanzania waar wandelsafari's een centraal onderdeel van de ervaring vormen, in plaats van een extraatje. Samen met een gewapende ranger naast uw gids wandelt u door delen van het park, alert op giraffen, buffels en colobusapen, terwijl de Meru de hele weg boven u uittorent. Een zachte, oprecht boeiende eerste kennismaking met de bush voor de kinderen.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Maaltijden: Ontbijt, Lunch, Diner  ·  Overnachting: <a href="https://www.africaaminilife.com/en/original-maasailodge">Original Maasai Lodge</a></div>
 </div>
-<div style="height:130px;overflow:hidden;margin-top:auto;">
+<div style="height:130px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="Maasai-dans rond het sundowner-vuur" src="/images/family-safari-guide/maasai-firedance.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -163,7 +163,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.6;margin:5px 0 6px;">Onderweg naar de Serengeti een stop bij Oldupai Gorge — vaak de bakermat van de mensheid genoemd, waar de ontdekkingen van de familie Leakey ons begrip van de menselijke oorsprong hebben veranderd. Een kort bezoek aan de vindplaats en het museum, voordat u verder trekt over de vlaktes naar de Centrale Serengeti, waar u aan het einde van de middag bij uw kamp aankomt.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Maaltijden: Ontbijt, lunchpakket onderweg, Diner  ·  Overnachting: <a href="https://twctanzania.com/serengeti-national-park/serengeti-kati-kati-tented-camp/">Serengeti Kati Kati Tented Camp</a></div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="Maraboe-ooievaar boven het hoogland nabij Ngorongoro" src="/images/family-safari-guide/plains-bird-day4to6.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -230,7 +230,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">Een laatste ontspannen ochtend voordat uw privétransfer u naar Zanzibar Airport brengt voor uw directe vlucht naar huis.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Maaltijden: Ontbijt</div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="Ontbijt geserveerd aan het water bij The Mora" src="/images/family-safari-guide/zanzibar-breakfast.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">

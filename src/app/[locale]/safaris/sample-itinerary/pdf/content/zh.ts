@@ -127,7 +127,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">短短40分钟车程，即可抵达阿鲁沙国家公园——坦桑尼亚少数几个将徒步游猎作为核心体验、而非附加项目的公园之一。武装护林员将与向导一同随行，您将徒步穿越公园的部分区域，留意长颈鹿、水牛与疣猴的踪迹，梅鲁山始终矗立在您头顶。这将是孩子们初次接触丛林、既温和又真正引人入胜的体验。</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">用餐：早餐、午餐、晚餐  ·  住宿：<a href="https://www.africaaminilife.com/en/original-maasailodge">Original Maasai Lodge</a></div>
 </div>
-<div style="height:130px;overflow:hidden;margin-top:auto;">
+<div style="height:130px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="日落酒会篝火旁上演的马赛舞蹈" src="/images/family-safari-guide/maasai-firedance.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -163,7 +163,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.6;margin:5px 0 6px;">前往塞伦盖蒂途中，将在奥杜威峡谷稍作停留——这里常被称为"人类摇篮"，利基家族在此的发现，重塑了我们对人类起源的认知。短暂参观遗址与博物馆后，继续穿越平原，进入塞伦盖蒂中部，于傍晚前抵达营地。</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">用餐：早餐、途中打包午餐、晚餐  ·  住宿：<a href="https://twctanzania.com/serengeti-national-park/serengeti-kati-kati-tented-camp/">Serengeti Kati Kati Tented Camp</a></div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="恩戈罗恩戈罗附近高地上空的秃鹳" src="/images/family-safari-guide/plains-bird-day4to6.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -230,7 +230,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">在轻松惬意的最后一个清晨之后，专属车辆将送您前往桑给巴尔机场，搭乘直飞航班返程回家。</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">用餐：早餐</div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="The Mora水畔供应的早餐" src="/images/family-safari-guide/zanzibar-breakfast.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
