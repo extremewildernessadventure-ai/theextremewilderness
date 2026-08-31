@@ -5,6 +5,7 @@ import { getDb } from '@/lib/db'
 import { markVoucherSent, type Booking } from '@/lib/bookings'
 import { renderPageToPdf } from '@/lib/browser'
 import { getDocsBucket, voucherKey } from '@/lib/r2'
+import { buildBrandedEmailHtml } from '@/lib/email'
 
 export const dynamic = 'force-dynamic'
 
@@ -62,17 +63,19 @@ export async function POST(req: NextRequest, { params }: Params) {
     from: FROM,
     to: booking.client_email,
     subject: `Your EWA Safari Voucher — Booking #${booking.id}`,
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:0 auto;padding:24px">
-        <p style="font-size:14px;color:#1a1a1a">Hi ${booking.client_name},</p>
-        <p style="font-size:14px;color:#1a1a1a;line-height:1.6">
+    html: buildBrandedEmailHtml({
+      eyebrow: 'Booking Voucher',
+      heading: `Booking #${booking.id}`,
+      bodyHtml: `
+        <p style="margin:0 0 14px;font-size:15px;color:#1a1a1a">Hi ${booking.client_name},</p>
+        <p style="margin:0 0 22px;font-size:14px;line-height:1.6;color:#374151">
           Please find your booking voucher attached — it has your trip dates,
           accommodation, and guide/vehicle details. If anything looks off, just
           reply to this email and we'll sort it out.
         </p>
-        <p style="font-size:14px;color:#1a1a1a">— EWA Safari Outfitters</p>
-      </div>
-    `,
+        <p style="margin:0;font-size:14px;color:#374151">Warm regards,<br><strong style="color:#1C3A2A">The EWA Safari Outfitters Team</strong></p>
+      `,
+    }),
     attachments: [
       { filename: `EWA-Voucher-Booking-${booking.id}.pdf`, content: base64Pdf, contentType: 'application/pdf' },
     ],

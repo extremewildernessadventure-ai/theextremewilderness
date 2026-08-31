@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
 import { SITE_URL } from '@/lib/site'
+import { buildEmailFooterHtml } from '@/lib/email'
 import type { NewsletterSubscriber } from '@/lib/newsletter'
 
 export const dynamic = 'force-dynamic'
@@ -33,10 +34,7 @@ export async function POST(req: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY)
   const results = await Promise.allSettled(subscribers.map((sub) => {
     const unsubscribeUrl = `${SITE_URL}/api/newsletter/unsubscribe?token=${sub.unsubscribe_token}`
-    const html = `${body.html}<hr style="margin-top:2rem;border:none;border-top:1px solid #eee;">
-      <p style="font-size:12px;color:#999;text-align:center;">
-        <a href="${unsubscribeUrl}" style="color:#999;">Unsubscribe</a>
-      </p>`
+    const html = `${body.html}${buildEmailFooterHtml(`<a href="${unsubscribeUrl}" style="color:#9ca3af">Unsubscribe</a>`)}`
     return resend.emails.send({ from: FROM, to: sub.email, subject: body.subject!, html })
   }))
 

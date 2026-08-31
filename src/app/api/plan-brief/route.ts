@@ -2,7 +2,7 @@ import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 import { saveLead, markLeadEmailSent } from '@/lib/leads'
 import { routing } from '@/i18n/routing'
-import { escapeHtml, sendAutoReply } from '@/lib/email'
+import { escapeHtml, sendAutoReply, buildBrandedEmailHtml } from '@/lib/email'
 
 const FROM = process.env.RESEND_FROM ?? 'EWA Safari Builder <noreply@theextremewilderness.com>'
 const TO = process.env.RESEND_TO ?? 'info@theextremewilderness.com'
@@ -47,30 +47,20 @@ function buildHtml(d: Record<string, unknown>) {
     row('Email', str(d.email)),
   ].join('')
 
-  return `<!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:20px;background:#f0f7f2;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">
-  <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08)">
-
-    <div style="background:#1C3A2A;padding:28px 24px">
-      <p style="margin:0 0 4px;color:#D4A853;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em">Safari Plan Brief — Builder</p>
-      <h1 style="margin:0;color:#fff;font-size:22px;font-weight:700">${str(d.name)}</h1>
-      <p style="margin:6px 0 0;color:rgba(255,255,255,0.6);font-size:13px">${str(d.email)}</p>
-    </div>
-
-    <table style="width:100%;border-collapse:collapse">
-      ${section('Trip Basics', tripRows)}
-      ${matchRows ? section('Matched Package', matchRows) : ''}
-      ${section('Contact', contactRows)}
-    </table>
-
-    <div style="padding:16px 24px;background:#f9fafb;border-top:1px solid #e5e7eb">
-      <p style="margin:0;font-size:11px;color:#9ca3af">Sent from the Craft Your Safari builder on theextremewilderness.com · Reply directly to reach this visitor.</p>
-    </div>
-  </div>
-</body>
-</html>`
+  return buildBrandedEmailHtml({
+    eyebrow: 'Safari Plan Brief — Builder',
+    heading: str(d.name),
+    subheading: str(d.email),
+    maxWidth: 600,
+    bodyHtml: `
+      <table style="width:100%;border-collapse:collapse">
+        ${section('Trip Basics', tripRows)}
+        ${matchRows ? section('Matched Package', matchRows) : ''}
+        ${section('Contact', contactRows)}
+      </table>
+      <p style="margin:16px 0 0;font-size:11px;color:#9ca3af">Reply directly to reach this visitor.</p>
+    `,
+  })
 }
 
 export async function POST(req: NextRequest) {
