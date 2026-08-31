@@ -3,6 +3,7 @@ import { getLocale } from 'next-intl/server'
 import PrintTrigger from './PrintTrigger'
 import { buildAlternates } from '@/lib/site'
 import PrintPdfButton from '@/components/pdf/PrintPdfButton'
+import { guideContentZoom } from '@/lib/guideZoom'
 import { ITINERARY_GUIDE_HTML } from './content/en'
 
 export const dynamic = 'force-dynamic'
@@ -58,6 +59,7 @@ async function getGuideHtml(locale: string): Promise<string> {
 export default async function SampleItineraryGuidePdfPage({ params }: Props) {
   const { locale = 'en' } = await params
   const html = await getGuideHtml(locale)
+  const zoom = guideContentZoom(locale)
 
   return (
     <>
@@ -67,8 +69,9 @@ export default async function SampleItineraryGuidePdfPage({ params }: Props) {
           @page { size: letter; margin: 0; }
         }
         #itinerary-guide-doc .page {
-          width: 8.5in;
-          height: 11in;
+          width: calc(8.5in / ${zoom});
+          height: calc(11in / ${zoom});
+          zoom: ${zoom};
           page-break-after: always;
           break-after: page;
           overflow: hidden;

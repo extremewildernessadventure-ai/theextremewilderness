@@ -127,7 +127,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">40 मिनट की एक छोटी ड्राइव आपको अरुशा राष्ट्रीय उद्यान में ले जाती है — तंजानिया के उन गिने-चुने उद्यानों में से एक, जहाँ वॉकिंग सफारी अतिरिक्त सुविधा नहीं बल्कि अनुभव का मुख्य हिस्सा है। आपके गाइड के साथ एक सशस्त्र रेंजर की मौजूदगी में, आप उद्यान के कुछ हिस्सों में पैदल चलेंगे, जिराफ़, भैंस और कोलोबस बंदरों पर नज़र रखते हुए, जबकि माउंट मेरू पूरे रास्ते आपके ऊपर ऊँचा खड़ा रहेगा। बच्चों के लिए जंगल का यह पहला अनुभव सहज और सचमुच रोमांचक साबित होगा।</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">भोजन: नाश्ता, दोपहर का भोजन, रात्रि भोज  ·  रात्रि विश्राम: <a href="https://www.africaaminilife.com/en/original-maasailodge">Original Maasai Lodge</a></div>
 </div>
-<div style="height:130px;overflow:hidden;margin-top:auto;">
+<div style="height:130px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="सनडाउनर की आग के इर्द-गिर्द किया जाने वाला मासाई नृत्य" src="/images/family-safari-guide/maasai-firedance.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -163,7 +163,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.6;margin:5px 0 6px;">सेरेनगेटी के रास्ते में, ओल्दुपाई गॉर्ज पर एक पड़ाव — जिसे अक्सर मानवजाति का उद्गम स्थल कहा जाता है, जहाँ लीकी परिवार की खोजों ने मानव उत्पत्ति की हमारी समझ को नया आकार दिया। स्थल और संग्रहालय की एक संक्षिप्त यात्रा के बाद मैदानों को पार करते हुए मध्य सेरेनगेटी की ओर, जहाँ आप दोपहर बाद देर से अपने कैंप पहुँचते हैं।</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">भोजन: नाश्ता, रास्ते में पैक किया गया दोपहर का भोजन, रात्रि भोज  ·  रात्रि विश्राम: <a href="https://twctanzania.com/serengeti-national-park/serengeti-kati-kati-tented-camp/">Serengeti Kati Kati Tented Camp</a></div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="न्गोरोन्गोरो के पास हाइलैंड्स के ऊपर मारबौ सारस" src="/images/family-safari-guide/plains-bird-day4to6.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -230,7 +230,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">घर वापसी की सीधी उड़ान के लिए ज़ांज़ीबार हवाई अड्डे तक अपने निजी स्थानांतरण से पहले एक आखिरी सुकूनभरी सुबह।</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">भोजन: नाश्ता</div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="The Mora में पानी के किनारे परोसा गया नाश्ता" src="/images/family-safari-guide/zanzibar-breakfast.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">

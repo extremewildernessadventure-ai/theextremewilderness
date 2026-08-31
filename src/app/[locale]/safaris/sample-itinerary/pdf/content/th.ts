@@ -127,7 +127,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">การเดินทางสั้นๆ เพียง 40 นาที จะพาคุณเข้าสู่อุทยานแห่งชาติอารูชา — หนึ่งในไม่กี่อุทยานของแทนซาเนียที่ซาฟารีเดินเท้าเป็นส่วนสำคัญของประสบการณ์ ไม่ใช่แค่กิจกรรมเสริม พร้อมเรนเจอร์ติดอาวุธเดินคู่กับไกด์ของคุณ คุณจะได้เดินเท้าสำรวจบางส่วนของอุทยาน คอยสังเกตยีราฟ ควายป่า และลิงโคโลบัส โดยมีภูเขาเมรูตั้งตระหง่านอยู่เหนือคุณตลอดเส้นทาง เป็นประสบการณ์แรกที่อ่อนโยนและน่าประทับใจอย่างแท้จริงสำหรับเด็กๆ ที่จะได้สัมผัสผืนป่า</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">มื้ออาหาร: อาหารเช้า กลางวัน เย็น  ·  ที่พัก: <a href="https://www.africaaminilife.com/en/original-maasailodge">Original Maasai Lodge</a></div>
 </div>
-<div style="height:130px;overflow:hidden;margin-top:auto;">
+<div style="height:130px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="การแสดงระบำมาไซรอบกองไฟยามพระอาทิตย์ตก" src="/images/family-safari-guide/maasai-firedance.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -163,7 +163,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.6;margin:5px 0 6px;">ระหว่างทางไปเซเรนเกติ แวะที่หุบเขาโอลดูไป — ซึ่งมักถูกเรียกว่าแหล่งกำเนิดมนุษยชาติ สถานที่ที่การค้นพบของตระกูลลีคีย์ได้เปลี่ยนแปลงความเข้าใจของเราเกี่ยวกับต้นกำเนิดมนุษย์ เยี่ยมชมสถานที่และพิพิธภัณฑ์เป็นเวลาสั้นๆ ก่อนเดินทางต่อข้ามที่ราบเข้าสู่เซเรนเกติตอนกลาง และถึงแคมป์ของคุณในช่วงบ่ายแก่ๆ</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">มื้ออาหาร: อาหารเช้า อาหารกลางวันแบบกล่องระหว่างทาง อาหารเย็น  ·  ที่พัก: <a href="https://twctanzania.com/serengeti-national-park/serengeti-kati-kati-tented-camp/">Serengeti Kati Kati Tented Camp</a></div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="นกกระสาปากห่างบินเหนือที่ราบสูงใกล้โงโรงโกโร" src="/images/family-safari-guide/plains-bird-day4to6.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -230,7 +230,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">เช้าวันสุดท้ายอันแสนผ่อนคลาย ก่อนรถรับส่งส่วนตัวจะพาคุณไปยังท่าอากาศยานแซนซิบาร์ เพื่อขึ้นเที่ยวบินตรงกลับบ้าน</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">มื้ออาหาร: อาหารเช้า</div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="อาหารเช้าเสิร์ฟริมน้ำที่ The Mora" src="/images/family-safari-guide/zanzibar-breakfast.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">

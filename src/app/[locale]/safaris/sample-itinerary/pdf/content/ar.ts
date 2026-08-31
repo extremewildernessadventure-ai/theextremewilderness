@@ -127,7 +127,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">رحلة قصيرة تستغرق 40 دقيقة توصلكم إلى حديقة أروشا الوطنية — إحدى الحدائق القليلة في تنزانيا حيث تُعد رحلات السفاري سيراً على الأقدام جزءاً أساسياً من التجربة، لا إضافة عليها. برفقة حارس مسلح إلى جانب مرشدكم، ستمشون في أجزاء من الحديقة على الأقدام، مترقبين الزرافات والجاموس وقردة الكولوبس، بينما يرتفع جبل ميرو فوقكم طوال الطريق. تجربة أولى لطيفة وجذابة حقاً للأطفال مع البرية.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">الوجبات: فطور، غداء، عشاء  ·  المبيت: <a href="https://www.africaaminilife.com/en/original-maasailodge">Original Maasai Lodge</a></div>
 </div>
-<div style="height:130px;overflow:hidden;margin-top:auto;">
+<div style="height:130px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="رقصة الماساي تُؤدى حول نار لحظة الغروب" src="/images/family-safari-guide/maasai-firedance.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -163,7 +163,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.6;margin:5px 0 6px;">في الطريق إلى سيرينغيتي، توقف عند وادي أولدوباي — الذي يُطلق عليه غالباً "مهد البشرية"، حيث أعادت اكتشافات عائلة ليكي تشكيل فهمنا لأصول الإنسان. زيارة قصيرة للموقع والمتحف قبل مواصلة العبور عبر السهول نحو سيرينغيتي الوسطى، والوصول إلى مخيمكم بحلول أواخر بعد الظهر.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">الوجبات: فطور، غداء معبأ في الطريق، عشاء  ·  المبيت: <a href="https://twctanzania.com/serengeti-national-park/serengeti-kati-kati-tented-camp/">Serengeti Kati Kati Tented Camp</a></div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="طائر اللقلق أبو صحن فوق المرتفعات قرب نجورونجورو" src="/images/family-safari-guide/plains-bird-day4to6.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -230,7 +230,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">صباح أخير هادئ قبل نقلكم الخاص إلى مطار زنجبار لرحلتكم المباشرة إلى الوطن.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">الوجبات: فطور</div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="فطور يُقدَّم عند الماء في The Mora" src="/images/family-safari-guide/zanzibar-breakfast.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">

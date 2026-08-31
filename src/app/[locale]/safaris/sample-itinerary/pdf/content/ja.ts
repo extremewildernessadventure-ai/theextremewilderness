@@ -127,7 +127,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">約40分の短いドライブで、アルーシャ国立公園に到着します。タンザニアの国立公園の中でも、ウォーキングサファリが単なるオプションではなく体験の中心となっている数少ない公園のひとつです。武装レンジャーがガイドに同行し、公園内の一部を実際に歩きながら、キリンやバッファロー、コロブスモンキーの姿を探します。道中ずっと、メルー山がそびえる景色を眺めることができます。お子様たちにとって、穏やかでありながら本当の意味で心躍る、初めてのブッシュ体験となるでしょう。</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">食事: 朝食、昼食、夕食  ・  宿泊: <a href="https://www.africaaminilife.com/en/original-maasailodge">Original Maasai Lodge</a></div>
 </div>
-<div style="height:130px;overflow:hidden;margin-top:auto;">
+<div style="height:130px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="サンダウナーの焚き火を囲んで踊られるマサイの伝統舞踊" src="/images/family-safari-guide/maasai-firedance.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -163,7 +163,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.6;margin:5px 0 6px;">セレンゲティへ向かう途中、「人類のゆりかご」とも呼ばれるオルドゥパイ渓谷に立ち寄ります。リーキー家による発見が、人類の起源に対する理解を大きく塗り替えた場所です。遺跡とミュージアムを短時間見学した後、平原を抜けてセレンゲティ中央部へ向かい、夕方にはキャンプに到着します。</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">食事: 朝食、道中でのお弁当ランチ、夕食  ・  宿泊: <a href="https://twctanzania.com/serengeti-national-park/serengeti-kati-kati-tented-camp/">Serengeti Kati Kati Tented Camp</a></div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="ンゴロンゴロ近郊の高地上空を飛ぶアフリカハゲコウ" src="/images/family-safari-guide/plains-bird-day4to6.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -230,7 +230,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">最後のゆったりとした朝をお過ごしいただいた後、専用車にてザンジバル空港へ向かい、直行便で帰国の途につきます。</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">食事: 朝食</div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="The Moraの水辺で楽しむ朝食" src="/images/family-safari-guide/zanzibar-breakfast.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">

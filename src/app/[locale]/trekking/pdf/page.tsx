@@ -3,6 +3,7 @@ import { getLocale } from 'next-intl/server'
 import PrintTrigger from './PrintTrigger'
 import { buildAlternates } from '@/lib/site'
 import PrintPdfButton from '@/components/pdf/PrintPdfButton'
+import { guideContentZoom } from '@/lib/guideZoom'
 import { KILIMANJARO_GUIDE_HTML } from './content/en'
 
 // Kept dynamic deliberately: the printed document's "Edition" date reflects
@@ -60,6 +61,7 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
   const { locale = 'en' } = await params
   const editionDate = new Date().toLocaleDateString(locale, { month: 'long', year: 'numeric' })
   const html = (await getGuideHtml(locale)).replace('__EDITION_DATE__', editionDate)
+  const zoom = guideContentZoom(locale)
 
   return (
     <>
@@ -69,8 +71,9 @@ export default async function KilimanjaroGuidePdfPage({ params }: Props) {
           @page { size: letter; margin: 0; }
         }
         #kili-guide-doc .page {
-          width: 8.5in;
-          height: 11in;
+          width: calc(8.5in / ${zoom});
+          height: calc(11in / ${zoom});
+          zoom: ${zoom};
           page-break-after: always;
           break-after: page;
           overflow: hidden;

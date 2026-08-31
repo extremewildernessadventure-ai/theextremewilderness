@@ -127,7 +127,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">40분의 짧은 이동으로 아루샤 국립공원에 도착합니다. 탄자니아에서 도보 사파리가 부가적인 요소가 아니라 경험의 핵심을 이루는 몇 안 되는 공원 중 하나입니다. 무장 레인저가 가이드와 함께 동행하는 가운데, 공원의 일부 구간을 도보로 걸으며 기린과 버팔로, 콜로버스 원숭이를 살펴보게 되며, 그 내내 메루산이 여러분 머리 위로 우뚝 솟아 있습니다. 아이들에게는 야생을 처음 접하는, 부담 없으면서도 진정으로 흥미로운 경험이 될 것입니다.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">식사: 조식, 중식, 석식  ·  숙박: <a href="https://www.africaaminilife.com/en/original-maasailodge">Original Maasai Lodge</a></div>
 </div>
-<div style="height:130px;overflow:hidden;margin-top:auto;">
+<div style="height:130px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="선다우너 모닥불 곁에서 펼쳐지는 마사이 전통 춤" src="/images/family-safari-guide/maasai-firedance.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -163,7 +163,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.6;margin:5px 0 6px;">세렝게티로 향하는 길에 올두파이 협곡에 들릅니다. 흔히 '인류의 요람'이라 불리는 이곳은 리키 가문의 발견이 인류 기원에 대한 이해를 새롭게 바꾼 장소입니다. 유적지와 박물관을 짧게 둘러본 뒤 평원을 가로질러 세렝게티 중부로 이동하여, 늦은 오후 캠프에 도착합니다.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">식사: 조식, 이동 중 도시락 중식, 석식  ·  숙박: <a href="https://twctanzania.com/serengeti-national-park/serengeti-kati-kati-tented-camp/">Serengeti Kati Kati Tented Camp</a></div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="응고롱고로 인근 고원 지대 위를 나는 대머리황새" src="/images/family-safari-guide/plains-bird-day4to6.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -230,7 +230,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">느긋한 마지막 아침을 보낸 뒤, 전용 차량으로 잔지바르 공항까지 이동하여 귀국 직항편에 탑승하십니다.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">식사: 조식</div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="The Mora, 바닷가에서 즐기는 조식" src="/images/family-safari-guide/zanzibar-breakfast.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">

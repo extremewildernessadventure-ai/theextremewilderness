@@ -127,7 +127,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">Короткая 40-минутная поездка приводит вас в национальный парк Аруша — один из немногих парков Танзании, где пешие сафари являются центральной частью программы, а не дополнением к ней. Вместе с вооружённым рейнджером и гидом вы пройдёте пешком по отдельным участкам парка, высматривая жирафов, буйволов и колобусов, а гора Меру будет возвышаться над вами на протяжении всего пути. Мягкое и по-настоящему увлекательное первое знакомство детей с африканской саванной.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Питание: завтрак, обед, ужин  ·  Ночёвка: <a href="https://www.africaaminilife.com/en/original-maasailodge">Original Maasai Lodge</a></div>
 </div>
-<div style="height:130px;overflow:hidden;margin-top:auto;">
+<div style="height:130px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="Танец масаи у костра на закате" src="/images/family-safari-guide/maasai-firedance.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -163,7 +163,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.6;margin:5px 0 6px;">По пути в Серенгети — остановка у ущелья Олдупай, которое часто называют колыбелью человечества: именно здесь находки семьи Лики изменили наше понимание происхождения человека. Короткое посещение места раскопок и музея, после чего вы продолжите путь через равнины в Центральный Серенгети, прибыв в лагерь во второй половине дня.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Питание: завтрак, сухой паёк в дороге, ужин  ·  Ночёвка: <a href="https://twctanzania.com/serengeti-national-park/serengeti-kati-kati-tented-camp/">Serengeti Kati Kati Tented Camp</a></div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="Марабу над нагорьем близ Нгоронгоро" src="/images/family-safari-guide/plains-bird-day4to6.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
@@ -230,7 +230,7 @@ export const ITINERARY_GUIDE_HTML = `<div class="page" id="cover">
 <p style="font-size:15px;line-height:1.65;margin:5px 0 6px;">Последнее спокойное утро перед персональным трансфером в аэропорт Занзибара для прямого рейса домой.</p>
 <div style="font-size:13px;color:#1C3A2A;font-style:italic;">Питание: завтрак</div>
 </div>
-<div style="height:150px;overflow:hidden;margin-top:auto;">
+<div style="height:150px;overflow:hidden;margin-top:auto;flex-shrink:0;">
 <img alt="Завтрак у воды в The Mora" src="/images/family-safari-guide/zanzibar-breakfast.jpg" style="width:100%;height:100%;object-fit:cover;"/>
 </div>
 <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid #D8CFB8;font-size:11px;letter-spacing:0.08em;color:#8A8873;text-transform:uppercase;">
