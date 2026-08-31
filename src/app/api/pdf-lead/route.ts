@@ -14,7 +14,10 @@ export async function POST(req: NextRequest) {
     const body = await req.json() as {
       name?: string; email?: string; phone?: string; context?: string; packageSlug?: string; locale?: string
     }
-    const { name, email, phone, context, packageSlug, locale: rawLocale } = body
+    // packageSlug is still accepted in the request body (kept in the `body`
+    // type below) and lands in the saved lead's payload for context, but no
+    // longer drives guide resolution — see the comment further down.
+    const { name, email, phone, context, locale: rawLocale } = body
     const locale = routing.locales.includes(rawLocale as (typeof routing.locales)[number]) ? rawLocale! : routing.defaultLocale
 
     if (!name?.trim() || !email?.trim()) {
@@ -117,30 +120,24 @@ export async function POST(req: NextRequest) {
     // pre-generated ahead of demand (see src/app/api/cron/generate-guides/
     // route.ts) and served from R2 via a public URL; this call is a
     // self-healing fallback (renders + caches on the spot) for anything the
-    // batch job hasn't backfilled yet, e.g. a package added between deploys.
-    // Which document depends on how the request came in: a package-linked
-    // itinerary request (packageSlug present) gets that package's itinerary
-    // PDF; a plain Kilimanjaro guide request (no context, no packageSlug)
-    // gets the general Kilimanjaro guide PDF; an itinerary request with no
-    // resolvable package (context present, no packageSlug — e.g. an
-    // experience page with no linked package) has no PDF to link to, same
-    // as before this feature existed.
-    const guide: GuideDescriptor | null = packageSlug
-      ? { type: 'itinerary', locale, slug: packageSlug }
-      : !trimContext
-        ? { type: 'kilimanjaro', locale }
-        : null
+    // batch job hasn't backfilled yet. Both guides are now generic — one
+    // file per locale, used everywhere — so which document depends only on
+    // whether this came in as an itinerary-style request (trimContext set,
+    // regardless of packageSlug — that field is accepted for logging/lead
+    // context only now, not for guide resolution) or a plain Kilimanjaro
+    // guide request (no context).
+    const guide: GuideDescriptor = trimContext
+      ? { type: 'itinerary', locale }
+      : { type: 'kilimanjaro', locale }
 
     let downloadUrl: string | null = null
-    if (guide) {
-      try {
-        const { url } = await getOrGeneratePublicGuideUrl(guide, req.nextUrl.origin)
-        downloadUrl = url
-      } catch (pdfErr) {
-        // Falls through to an email with no download button rather than
-        // failing the request — the lead is already saved either way.
-        console.error('PDF-lead guide resolution failed:', pdfErr)
-      }
+    try {
+      const { url } = await getOrGeneratePublicGuideUrl(guide, req.nextUrl.origin)
+      downloadUrl = url
+    } catch (pdfErr) {
+      // Falls through to an email with no download button rather than
+      // failing the request — the lead is already saved either way.
+      console.error('PDF-lead guide resolution failed:', pdfErr)
     }
 
     // Send the visitor the guide (or itinerary confirmation), localized.

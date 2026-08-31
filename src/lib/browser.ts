@@ -12,12 +12,26 @@ declare global {
   }
 }
 
+export type PdfPageFormat = 'A4' | 'Letter'
+
+// CSS pixels at 96/inch — the standard reference used throughout this file's
+// print pipeline (matches how browsers report inches -> px for print/screen
+// alike). A4: 210mm x 297mm. Letter: 8.5in x 11in.
+const VIEWPORT_BY_FORMAT: Record<PdfPageFormat, { width: number; height: number }> = {
+  A4: { width: 794, height: 1123 },
+  Letter: { width: 816, height: 1056 },
+}
+
 // Renders a URL this Worker can reach (typically one of its own admin pages,
 // authenticated via the request's session cookie) into a PDF buffer via
 // Cloudflare Browser Rendering. Confirmed working on this account via a
 // direct Browser Rendering REST API spike (2026-08-28) before this was
 // written — see the plan's Area 4 notes.
-export async function renderPageToPdf(url: string, cookieHeader: string | null): Promise<ArrayBuffer> {
+export async function renderPageToPdf(
+  url: string,
+  cookieHeader: string | null,
+  format: PdfPageFormat = 'A4'
+): Promise<ArrayBuffer> {
   const { env } = await getCloudflareContext({ async: true })
   if (!env.BROWSER) {
     throw new Error('No BROWSER (Browser Rendering) binding available')
@@ -25,16 +39,18 @@ export async function renderPageToPdf(url: string, cookieHeader: string | null):
   const browser = await puppeteer.launch(env.BROWSER)
   try {
     const page = await browser.newPage()
-    // Matches A4 at 96 CSS px/inch (210mm x 297mm) exactly. Without this,
-    // Puppeteer lays the page out at its default (much wider) viewport
-    // before print conversion — Chromium's print pipeline reflows plain
-    // text to fit the page, but explicit-width layouts (tables, grids)
-    // keep their screen-computed track sizes, so content wider than A4's
-    // printable area gets silently clipped on the right rather than
+    // Matches the target page format at 96 CSS px/inch exactly. Without
+    // this, Puppeteer lays the page out at its default (much wider)
+    // viewport before print conversion — Chromium's print pipeline reflows
+    // plain text to fit the page, but explicit-width layouts (tables,
+    // grids) keep their screen-computed track sizes, so content wider than
+    // the printable area gets silently clipped on the right rather than
     // shrinking to fit. Confirmed live: routes tables and multi-column
     // sections were cut off mid-word. Setting this before navigation so
-    // the very first layout pass already uses A4's real width.
-    await page.setViewport({ width: 794, height: 1123 })
+    // the very first layout pass already uses the real print width —
+    // per-format, since a document designed at Letter width (816px) laid
+    // out in an A4-width (794px) viewport would reintroduce the same bug.
+    await page.setViewport(VIEWPORT_BY_FORMAT[format])
     // Every call here is this Worker rendering its own site for an internal
     // purpose (the requested locale is already baked into `url`) — never a
     // real visitor whose geography should be guessed. Without this,
@@ -56,7 +72,7 @@ export async function renderPageToPdf(url: string, cookieHeader: string | null):
     // images) is both immune to that and the more appropriate choice for a
     // static server-rendered page in production too.
     await page.goto(url, { waitUntil: 'load', timeout: 45000 })
-    const pdf = await page.pdf({ format: 'A4', printBackground: true })
+    const pdf = await page.pdf({ format, printBackground: true })
     return pdf.buffer.slice(pdf.byteOffset, pdf.byteOffset + pdf.byteLength) as ArrayBuffer
   } finally {
     await browser.close()
