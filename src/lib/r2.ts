@@ -83,6 +83,10 @@ export function publicKilimanjaroGuideKey(locale: string): string {
   return `public-guides/kilimanjaro/${locale}.pdf`
 }
 
-export function publicItineraryGuideKey(slug: string, locale: string): string {
-  return `public-guides/itinerary/${slug}/${locale}.pdf`
+// One generic sample day-by-day itinerary per locale, not one per package —
+// deliberately not tied to a specific trip ("it is a sample day-to-day
+// itinerary, not a real one, so it can go anywhere" — direct instruction),
+// same "one file, used everywhere" shape as the Kilimanjaro key above.
+export function publicItineraryGuideKey(locale: string): string {
+  return `public-guides/itinerary/${locale}.pdf`
 }

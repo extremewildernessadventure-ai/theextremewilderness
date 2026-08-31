@@ -7,19 +7,18 @@ export const dynamic = 'force-dynamic'
 const DEFAULT_LIMIT = 5
 
 function describe(guide: GuideDescriptor): string {
-  return guide.type === 'kilimanjaro' ? `kilimanjaro/${guide.locale}` : `itinerary/${guide.slug}/${guide.locale}`
+  return `${guide.type}/${guide.locale}`
 }
 
-// Eagerly pre-generates every (locale × Kilimanjaro-overview) and
-// (locale × package) itinerary PDF — 16 + 44×16 = 720 combinations as of
-// writing — skipping anything already in R2 unless `force=true`. Paginated
-// via cursor/limit rather than one giant request: 720 sequential real
-// Browser Rendering calls would run well past any sane single-request
-// wall-clock budget. Meant to be called repeatedly in a loop (see the
-// deploy workflow's post-deploy step) until `done: true`. Skip-if-exists
-// means this is a one-time full cost the first time it runs and near-instant
-// on every call after that — new packages/locales get backfilled
-// automatically on the next run.
+// Eagerly pre-generates every (locale × Kilimanjaro guide) and
+// (locale × sample itinerary) PDF — 16 + 16 = 32 combinations, one file per
+// locale per type (neither guide is per-package/per-route anymore) —
+// skipping anything already in R2 unless `force=true`. Paginated via
+// cursor/limit rather than one giant request, matching the shape of the
+// original (much larger, 720-item) version of this batch job. Meant to be
+// called repeatedly in a loop (see the deploy workflow's post-deploy step)
+// until `done: true`. Skip-if-exists means this is a one-time cost the
+// first time it runs and near-instant on every call after that.
 export async function POST(req: NextRequest) {
   if (!verifyCronSecret(req)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -30,7 +29,7 @@ export async function POST(req: NextRequest) {
   const limit = Number(searchParams.get('limit') ?? String(DEFAULT_LIMIT))
   const force = searchParams.get('force') === 'true'
 
-  const all = await listAllGuideDescriptors()
+  const all = listAllGuideDescriptors()
   const batch = all.slice(cursor, cursor + limit)
 
   let processed = 0

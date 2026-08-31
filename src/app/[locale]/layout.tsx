@@ -218,7 +218,13 @@ export default async function LocaleLayout({ children, params }: Props) {
                 printCss() in src/components/pdf/PdfChrome.tsx for why this
                 replaced a body-wide visibility hack. */}
             <Navbar />
-            <main id="main-content" className="flex-1 pb-16 lg:pb-0">{children}</main>
+            {/* pb-16 reserves space for the fixed mobile BottomNav — like the
+                nav itself, it must drop out in print, or the extra 64px of
+                padding pushes a paginated print document (a PDF guide, e.g.
+                trekking/pdf or safaris/sample-itinerary/pdf) just past its
+                last real page boundary, producing one spurious blank
+                trailing page. */}
+            <main id="main-content" className="flex-1 pb-16 lg:pb-0 print:pb-0">{children}</main>
             <Footer locale={locale} />
             <div className="h-16 lg:hidden print:hidden" aria-hidden="true" />
             <WhatsAppButton />
