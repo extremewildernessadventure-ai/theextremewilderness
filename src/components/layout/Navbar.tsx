@@ -11,7 +11,7 @@ import { useSearch } from '@/context/SearchContext'
 // Pages with no dark hero section behind the fixed nav — the transparent
 // white-text state has poor contrast there, so these start opaque immediately
 // instead of waiting for the user to scroll.
-const NO_HERO_ROUTES = ['/plan']
+const NO_HERO_ROUTES = ['/plan', '/trekking/pdf', '/safaris/sample-itinerary/pdf']
 
 export default function Navbar() {
   const t = useTranslations('nav')

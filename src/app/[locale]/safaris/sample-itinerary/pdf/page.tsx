@@ -68,8 +68,11 @@ export default async function SampleItineraryGuidePdfPage({ params }: Props) {
 
       <PrintTrigger />
 
-      {/* Screen-only header bar */}
-      <div className="max-w-4xl mx-auto px-4 py-6 print:hidden flex items-center justify-between border-b border-gray-100">
+      {/* Screen-only header bar. mt-16 lg:mt-20 clears the site's fixed
+          Navbar (h-16/h-20) — without it, this bar (and the Print button
+          inside it) renders underneath the nav, since a fixed-position
+          element doesn't reserve document-flow space on its own. */}
+      <div className="mt-16 lg:mt-20 max-w-4xl mx-auto px-4 py-6 print:hidden flex items-center justify-between border-b border-gray-100">
         <div>
           <h1 className="text-xl font-bold text-brand">Sample Family Safari Itinerary</h1>
           <p className="text-sm text-text-muted">EWA Safari Outfitters · 14-Day Northern Tanzania &amp; Zanzibar</p>
