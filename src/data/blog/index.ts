@@ -10,6 +10,11 @@ export interface PostMeta {
   readTime: string
   heroImage: string
   heroImageAlt: string
+  // Raw CSS object-position value (e.g. '50% 20%') — most posts don't need
+  // this, object-cover's default center-center crop is fine. Set it only
+  // when a specific photo's subject sits off-center and gets cropped out
+  // by the hero's wide, short aspect ratio (see blog/[slug]/page.tsx).
+  heroImagePosition?: string
   author: string
   keywords: string[]
 }
@@ -367,6 +372,7 @@ export const blogPosts: PostMeta[] = [
     readTime: '15 min read',
     heroImage: '/images/gallery/bush-airstrip-landscape.jpg',
     heroImageAlt: 'Bush airstrip landscape in Tanzania, the starting point for a light aircraft transfer between safari camps',
+    heroImagePosition: '50% 22%',
     author: 'Nixon',
     keywords: [
       'travel insurance calculator', 'safari travel insurance', 'Tanzania safari insurance', 'trip cancellation insurance', 'medical evacuation insurance safari',
