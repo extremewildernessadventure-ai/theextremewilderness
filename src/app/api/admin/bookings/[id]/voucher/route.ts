@@ -6,6 +6,7 @@ import { markVoucherSent, type Booking } from '@/lib/bookings'
 import { renderPageToPdf } from '@/lib/browser'
 import { getDocsBucket, voucherKey } from '@/lib/r2'
 import { buildBrandedEmailHtml } from '@/lib/email'
+import { formatVoucherNumber } from '@/lib/voucher'
 
 export const dynamic = 'force-dynamic'
 
@@ -62,10 +63,10 @@ export async function POST(req: NextRequest, { params }: Params) {
   const { error } = await resend.emails.send({
     from: FROM,
     to: booking.client_email,
-    subject: `Your EWA Safari Voucher — Booking #${booking.id}`,
+    subject: `Your EWA Safari Voucher — ${formatVoucherNumber(booking.id)}`,
     html: buildBrandedEmailHtml({
       eyebrow: 'Booking Voucher',
-      heading: `Booking #${booking.id}`,
+      heading: formatVoucherNumber(booking.id),
       bodyHtml: `
         <p style="margin:0 0 14px;font-size:15px;color:#1a1a1a">Hi ${booking.client_name},</p>
         <p style="margin:0 0 22px;font-size:14px;line-height:1.6;color:#374151">
@@ -77,7 +78,7 @@ export async function POST(req: NextRequest, { params }: Params) {
       `,
     }),
     attachments: [
-      { filename: `EWA-Voucher-Booking-${booking.id}.pdf`, content: base64Pdf, contentType: 'application/pdf' },
+      { filename: `${formatVoucherNumber(booking.id)}.pdf`, content: base64Pdf, contentType: 'application/pdf' },
     ],
   })
 
