@@ -14,7 +14,7 @@ import { getPackages, getPackage } from '@/data/packages.i18n'
 import { getDestinations, getDestination } from '@/data/destinations.i18n'
 import { routing } from '@/i18n/routing'
 import { getTranslations } from 'next-intl/server'
-import { SITE_URL, buildAlternates, buildBreadcrumbSchema, buildImageObject, buildPageTitle } from '@/lib/site'
+import { SITE_URL, buildAlternates, buildBreadcrumbSchema, buildImageObject, buildPageTitle, localeUrl } from '@/lib/site'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
 
@@ -57,7 +57,7 @@ const articleLinks: Record<string, { packageSlugs: string[]; destSlugs: string[]
   'great-migration-guide':          { packageSlugs: ['7-day-serengeti-ngorongoro', '10-day-northern-circuit', '5-day-serengeti-fly-in'], destSlugs: ['serengeti', 'ngorongoro'] },
   'tanzania-safari-cost':           { packageSlugs: ['7-day-serengeti-ngorongoro', '10-day-northern-circuit', '5-day-serengeti-fly-in'], destSlugs: ['serengeti', 'tarangire', 'ngorongoro'] },
   'best-time-to-visit-serengeti':   { packageSlugs: ['7-day-serengeti-ngorongoro', '5-day-serengeti-fly-in'], destSlugs: ['serengeti', 'ngorongoro', 'tarangire'] },
-  'gorilla-trekking-rwanda':        { packageSlugs: [], destSlugs: ['volcanoes'] },
+  'gorilla-trekking-rwanda':        { packageSlugs: ['4-day-rwanda-gorilla-trekking', '11-days-rwanda-tanzania'], destSlugs: ['volcanoes'] },
   'kilimanjaro-climbing-guide':     { packageSlugs: ['kilimanjaro-machame-7day'], destSlugs: ['arusha', 'serengeti'] },
   'tanzania-vs-kenya-safari':       { packageSlugs: ['7-day-serengeti-ngorongoro', '10-day-northern-circuit'], destSlugs: ['serengeti', 'masai-mara', 'ngorongoro'] },
   'safari-packing-list':            { packageSlugs: ['7-day-serengeti-ngorongoro', '10-day-safari-zanzibar'], destSlugs: ['serengeti', 'zanzibar'] },
@@ -74,14 +74,25 @@ const articleLinks: Record<string, { packageSlugs: string[]; destSlugs: string[]
   'safari-photography-tips':        { packageSlugs: ['5-day-serengeti-fly-in', '7-day-serengeti-ngorongoro'], destSlugs: ['serengeti', 'ngorongoro'] },
   'ruaha-national-park-guide':      { packageSlugs: ['7-day-southern-circuit'], destSlugs: ['ruaha', 'nyerere', 'mahale'] },
   'tanzania-vs-south-africa-safari':{ packageSlugs: ['10-day-northern-circuit', '7-day-serengeti-ngorongoro'], destSlugs: ['serengeti', 'ngorongoro', 'tarangire'] },
+  'mountain-biking-arusha':         { packageSlugs: [], destSlugs: ['arusha'] },
+  'zanzibar-experience':            { packageSlugs: ['10-day-safari-zanzibar'], destSlugs: ['zanzibar'] },
+  'the-maasai-tribe':               { packageSlugs: [], destSlugs: ['arusha', 'ngorongoro'] },
+  'safari-travel-prep-tools':       { packageSlugs: ['7-day-serengeti-ngorongoro'], destSlugs: ['serengeti', 'ngorongoro'] },
 }
 
-// Parses a lightweight `[label](https://url)` markdown-link syntax out of a
-// plain string and returns the text with real, clickable anchors in place —
-// lets blog body copy (stored as plain strings in articles.ts) link out to
-// external resources or internal pages without a full markdown/HTML renderer.
-// Text with no link syntax renders exactly as before.
-const INLINE_LINK_PATTERN = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g
+// Parses a lightweight `[label](url)` markdown-link syntax out of a plain
+// string and returns the text with real, clickable anchors in place — lets
+// blog body copy (stored as plain strings in articles.ts) link out to
+// external resources, or to another page on this site, without a full
+// markdown/HTML renderer. Text with no link syntax renders exactly as
+// before. `url` accepts either an absolute `https://...` URL (external,
+// opens in a new tab) or a site-relative path starting with `/` (e.g.
+// `/safaris/7-day-serengeti-ngorongoro` or `/blog/kilimanjaro-climbing-guide`)
+// — rendered as a real internal, locale-aware, same-tab link via the
+// locale-aware `Link` from @/i18n/navigation, not a plain <a>, so it
+// behaves like every other internal link on the site (client-side
+// navigation, correctly prefixed for the current locale).
+const INLINE_LINK_PATTERN = /\[([^\]]+)\]\(((?:https?:\/\/|\/)[^\s)]+)\)/g
 
 function renderInlineLinks(text: string): ReactNode {
   const parts: ReactNode[] = []
@@ -91,16 +102,24 @@ function renderInlineLinks(text: string): ReactNode {
   INLINE_LINK_PATTERN.lastIndex = 0
   while ((match = INLINE_LINK_PATTERN.exec(text)) !== null) {
     if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index))
+    const href = match[2]
+    const linkClassName = "text-brand underline decoration-brand/40 hover:text-brand-dark hover:decoration-brand-dark transition-colors"
     parts.push(
-      <a
-        key={`link-${key++}`}
-        href={match[2]}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-brand underline decoration-brand/40 hover:text-brand-dark hover:decoration-brand-dark transition-colors"
-      >
-        {match[1]}
-      </a>
+      href.startsWith('/') ? (
+        <Link key={`link-${key++}`} href={href} className={linkClassName}>
+          {match[1]}
+        </Link>
+      ) : (
+        <a
+          key={`link-${key++}`}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={linkClassName}
+        >
+          {match[1]}
+        </a>
+      )
     )
     lastIndex = match.index + match[0].length
   }
@@ -207,13 +226,15 @@ export default async function BlogArticlePage({ params }: Props) {
   const linkedPackages = (await Promise.all(links.packageSlugs.map(s => getPackage(s, locale)))).filter(Boolean)
   const linkedDestinations = (await Promise.all(links.destSlugs.map(s => getDestination(s, locale)))).filter(Boolean)
 
+  const pageUrl = localeUrl(locale, `/blog/${slug}`)
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
+    mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
     headline: post.title,
     description: post.metaDescription,
     image: buildImageObject(post.heroImage, post.heroImageAlt),
-    author: { '@type': 'Person', name: post.author, worksFor: { '@type': 'Organization', name: 'EWA Safari Outfitters' } },
+    author: { '@type': 'Person', name: post.author, url: localeUrl(locale, '/about'), worksFor: { '@type': 'Organization', name: 'EWA Safari Outfitters' } },
     publisher: { '@type': 'Organization', name: 'EWA Safari Outfitters', logo: { '@type': 'ImageObject', url: `${SITE_URL}/EWA%20logo.webp` } },
     datePublished: new Date(post.date).toISOString(),
     dateModified: new Date(post.lastUpdated ?? post.date).toISOString(),
@@ -393,7 +414,13 @@ export default async function BlogArticlePage({ params }: Props) {
                   {t('topics')}
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {post.keywords.map((kw) => (
+                  {/* Capped display, not a trim of post.keywords itself — some
+                      posts (e.g. safari-travel-prep-tools) legitimately cover
+                      enough distinct sub-topics to carry a much larger
+                      keyword set for search than reads well as a sidebar tag
+                      cloud; the full array still goes into <meta keywords>
+                      and every JSON-LD reference below. */}
+                  {post.keywords.slice(0, 10).map((kw) => (
                     <span key={kw} className="text-xs bg-white border border-gray-200 text-gray-500 px-2.5 py-1 rounded-full">{kw}</span>
                   ))}
                 </div>
