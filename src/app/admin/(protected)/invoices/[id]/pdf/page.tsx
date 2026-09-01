@@ -180,7 +180,9 @@ export default async function InvoicePdfPage({ params }: Props) {
                 {latestOrder && (
                   <div style={{ marginBottom: 16 }}>
                     <div style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: PDF_DARK_HEADING_WEIGHT, fontSize: 15, marginBottom: 4 }}>Pay Online</div>
-                    <p style={{ fontSize: 13, color: '#dfe6e0', wordBreak: 'break-all' }}>{latestOrder.redirect_url}</p>
+                    <p style={{ fontSize: 13, wordBreak: 'break-all' }}>
+                      <a href={latestOrder.redirect_url} style={{ color: 'var(--color-gold)', textDecoration: 'underline' }}>{latestOrder.redirect_url}</a>
+                    </p>
                   </div>
                 )}
 

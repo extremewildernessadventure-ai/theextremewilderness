@@ -317,7 +317,13 @@ export function PdfDarkHeader({ documentLabel, documentNumber, titleSize }: {
       style={{ borderBottom: '1px solid rgba(255,255,255,0.18)' }}
     >
       <div className="flex items-center gap-3">
-        <Image src="/EWA logo.webp" alt="EWA Safari Outfitters" width={100} height={50} style={{ height: 52, width: 'auto' }} className="object-contain brightness-0 invert" />
+        {/* Unlike PdfCover's use of this same asset (forced white via
+            brightness-0 invert, needed there to stay legible over a busy
+            photo), this design's own reference renders the logo in its
+            native gold — no filter, matching the source .dc.html's own
+            assets/ewa-logo.png (confirmed pixel-identical in color to this
+            site's /EWA logo.webp, both already gold-on-transparent). */}
+        <Image src="/EWA logo.webp" alt="EWA Safari Outfitters" width={100} height={50} style={{ height: 52, width: 'auto' }} className="object-contain" />
         <div style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: PDF_DARK_HEADING_WEIGHT, fontSize: 15, letterSpacing: '0.06em' }}>
           EWA SAFARI OUTFITTERS
         </div>
@@ -396,8 +402,15 @@ export function PdfDarkFooter({ heading, body }: { heading: string; body: string
     >
       <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#c9d6cc', marginBottom: 8 }}>{heading}</div>
       <div style={{ fontSize: 13, color: '#dfe6e0', marginBottom: 12 }}>{body}</div>
+      {/* The design's own stylesheet sets every link gold + underlined
+          (a{color:#D4A853;text-decoration:underline}) — email/website are
+          real links here, matching that; the phone number isn't a link so
+          stays the default body color. */}
       <div style={{ fontSize: 12.5, color: '#dfe6e0' }}>
-        +255 (0) 747 999 070 · info@theextremewilderness.com · theextremewilderness.com
+        +255 (0) 747 999 070 ·{' '}
+        <a href="mailto:info@theextremewilderness.com" style={{ color: 'var(--color-gold)', textDecoration: 'underline' }}>info@theextremewilderness.com</a>
+        {' '}·{' '}
+        <a href="https://theextremewilderness.com" style={{ color: 'var(--color-gold)', textDecoration: 'underline' }}>theextremewilderness.com</a>
       </div>
       <div style={{ fontSize: 11, color: '#9fb0a4', marginTop: 16 }}>
         EWA Safari Outfitters · Arusha, Tanzania · © {new Date().getFullYear()} EWA Safari Outfitters
