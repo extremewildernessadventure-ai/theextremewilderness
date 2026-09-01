@@ -344,4 +344,18 @@ export const blogPosts: PostMeta[] = [
     author: 'Nixon',
     keywords: ['Maasai stam Tanzania', 'Maasai cultuur', 'Maasai boma bezoek', 'Maasai krijgers', 'Tanzania cultuur', 'Maasai cultureel bezoek', 'Maasai boma', 'traditionele Maasai Afrika', 'Maasai springceremonie', 'Kenia Tanzania Maasai'],
   },
+  {
+    slug: 'safari-travel-prep-tools',
+    title: 'Voordat U Vertrekt: Verzekerings-, Documenten- en Budgettools voor Uw Tanzania Safari',
+    metaTitle: 'Safari Reisvoorbereiding: Verzekering, Documenten & Budget Tools',
+    metaDescription: "Gratis tools zonder registratie voor het minder glamoureuze deel van de safariplanning — schattingen voor reisverzekeringen, uw reisdocumenten samenvoegen, valuta omrekenen en de reis budgetteren op basis van uw werkelijke inkomen.",
+    excerpt: "Wanneer u moet gaan en wat u moet inpakken krijgen alle aandacht. Hier leest u hoe u het deel aanpakt dat reizen daadwerkelijk laat ontsporen — verzekering, documenten, valuta en budget — met drie gratis tools waarvoor geen account en geen telefoonnummer nodig zijn.",
+    category: 'Planning',
+    date: 'September 1, 2026',
+    readTime: '15 min. leestijd',
+    heroImage: '/images/gallery/bush-airstrip-landscape.jpg',
+    heroImageAlt: 'Landschap van een bush-landingsstrip in Tanzania, het startpunt voor een overvlucht met een licht vliegtuig tussen safarikampen',
+    author: 'Nixon',
+    keywords: ['reisverzekering calculator', 'safari reisverzekering', 'Tanzania safari verzekering', 'annuleringsverzekering reis', 'medische evacuatieverzekering safari', 'avontuurlijke reisverzekering', 'reisverzekering offerte zonder registratie', 'gratis reisverzekering schatting', 'medische verzekering safari', 'reisverzekering zonder telefoonnummer', 'Kilimanjaro trekking verzekering', 'gorillatrekking verzekering Rwanda', 'huisverzekering tijdens het reizen', 'huisdierverzekering tijdens het reizen', 'paraplu verzekering reizen', 'gratis valutaomrekenaar', 'Tanzaniaanse shilling omrekenaar', 'safari budget valutaomrekenaar', 'reisdocumenten samenvoegen PDF', 'gescande documenten comprimeren', 'paspoortscan converter', 'visumdocument converter', 'offline reisdocumenten', 'eenheden omrekenen kg naar lbs', 'safari bagagegewicht omrekenaar', 'bagagelimiet bush flight', 'QR-code generator reisschema', 'browser-gebaseerde bestandsconverter', 'WebAssembly bestandsconverter', 'gratis PDF-tools reizen', 'safari budget calculator', 'netto salaris calculator', 'spaardoel calculator', 'loonstrook calculator', 'noodfonds calculator', 'budgetteren voor een safari reis', 'hoeveel kost een safari', 'sparen voor een safari', 'Amerikaans salaris safari budget', 'Canadees salaris safari budget', 'gratis financiële calculator zonder registratie', 'IRS belastingcalculator', 'CRA belastingcalculator', 'reis spaarplanner', 'vakantiebudget calculator', 'Tanzania safari planning', 'safari checklist voor vertrek', 'wat te doen voor een safari', 'Tanzania reisvoorbereiding', 'safari inpakken en voorbereiding', 'privacyvriendelijke reistools', 'reistools zonder account', 'gratis reisplanningstools', 'digitale tools voor reizigers', 'safari reisplanning gids', 'Arusha safari planning', 'Serengeti reisvoorbereiding', 'Ngorongoro reisplanning', 'Kilimanjaro reisvoorbereiding', 'safari documenten checklist', 'Tanzania visum voorbereiding', 'safari verzekeringsgids 2026', 'client-side calculator safari', 'verzekeringsofferte zonder telefoonnummer'],
+  },
 ]

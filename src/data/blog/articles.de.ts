@@ -2510,6 +2510,319 @@ export const articles: Record<string, SectionType[]> = {
   }
 ],
 
+'safari-travel-prep-tools': [
+  {
+    "type": "p",
+    "text": "Die meisten Planungsratschläge, die Sie für eine Tansania-Safari finden, decken die aufregenden Teile ab – wann man reisen sollte, was man einpackt, welche Parks Priorität haben, ob man die Serengeti am Ende mit Sansibar kombiniert. Fast keiner behandelt die unglamouröse Verwaltungsarbeit, die zwischen der Buchung Ihrer Reise und dem Einsteigen ins Flugzeug liegt: Ist Ihre Reiseversicherung für eine mehrwöchige Safari tatsächlich ausreichend, haben Sie Ihren Reisepass, Ihr Visum und Ihre Versicherungsunterlagen an einem Ort, auf den Sie auch offline in einem Buschcamp mit lückenhaftem WLAN zugreifen können, und haben Sie tatsächlich ausgerechnet, was diese Reise gemessen an Ihrem echten Nettoeinkommen kostet – statt nur am angegebenen Safaripreis?"
+  },
+  {
+    "type": "p",
+    "text": "Nichts davon ist romantisch, aber genau das Überspringen dieser Punkte ist der Grund, warum Reisen auf eine Weise schiefgehen, die keine Packliste beheben kann. Eine abgelehnte Versicherungsclaim, ein Passscan, den Sie am Check-in-Schalter der Landebahn nicht finden können, oder eine Reise, die still und heimlich mehr kostet, als Ihr tatsächliches Budget verkraften kann – das sind die Fehlschläge, die in einem Artikel über „was man einpacken sollte“ nicht auftauchen, und sie zeigen sich meist im ungünstigsten Moment, meist irgendwo ohne zuverlässiges WLAN."
+  },
+  {
+    "type": "p",
+    "text": "Dieser Leitfaden behandelt drei kostenlose Tools ohne Registrierung, die genau für diese Art von Vorreise-Verwaltung gemacht sind – [Zeember](https://zeember.com) für Schätzungen zu Reise- und Hausratversicherung, [Want2Convert](https://want2convert.com) für Währungen, Einheiten und Reisedokumente, sowie [Tax&Loans](https://www.taxandloans.com) für die Budgetierung der Reise anhand Ihres tatsächlichen Einkommens. Keines der Tools erfordert ein Konto, und keines fragt nach Ihrer Telefonnummer, bevor es Ihnen eine Zahl zeigt."
+  },
+  {
+    "type": "h2",
+    "text": "Warum Tools ohne Registrierung und mit Datenschutz an erster Stelle vor einer Safari wichtig sind"
+  },
+  {
+    "type": "p",
+    "text": "Eine Safari bringt mehr persönliche Daten mit sich als die meisten Reisen – Passscans, Visumsanträge, Policennummern der Reiseversicherung, manchmal auch Bankdaten für eine Anzahlung. Die meisten kostenlosen Rechner- und Konvertierungstools im Internet wollen im Gegenzug für eine Zahl etwas von Ihnen: eine E-Mail-Adresse, eine Telefonnummer, die an ein Callcenter verkauft wird, oder einen Datei-Upload auf einen Server, über den Sie nichts wissen. Die drei Tools in diesem Leitfaden verfolgen einen anderen Ansatz – Zeembers Versicherungsrechner und die Finanzrechner von Tax&Loans laufen vollständig client-seitig in Ihrem Browser, und Want2Convert verwendet WebAssembly, sodass ein Passscan oder ein Visumsdokument, das Sie konvertieren, Ihr Gerät nie tatsächlich verlässt. Bei einer Reise, bei der Sie Ihre Passdaten ohnehin schon mit einem Reiseveranstalter, einer Fluggesellschaft und einer Einwanderungsbehörde teilen, lohnt es sich, den Rest Ihrer Vorreise-Verwaltung von fremden Servern fernzuhalten, wo immer es geht."
+  },
+  {
+    "type": "p",
+    "text": "Das spielt bei einer Safari eine größere Rolle als bei den meisten anderen Urlaubsreisen, weil die Konnektivität, sobald Sie Arusha oder Kilimandscharo verlassen, wirklich unbeständig ist. Camps im nördlichen Rundreisegebiet nahe der Serengeti und dem Ngorongoro haben oft bestenfalls begrenztes Satelliten-WLAN, und manche Camps im südlichen Rundreisegebiet und in der Mahale-Region haben überhaupt keines. Jedes Tool, das auf eine stabile Verbindung angewiesen ist, um zu funktionieren – oder das Sie ausgerechnet an einer Buschlandebahn per SMS erneut verifizieren lässt –, wird genau dann nutzlos, wenn Sie es am meisten brauchen. Client-seitige Tools ohne Registrierung haben dieses Problem nicht: Sobald eine Seite geladen ist, läuft die Berechnung oder Umwandlung lokal – mit oder ohne Verbindung."
+  },
+  {
+    "type": "h2",
+    "text": "Zeember: Reiseversicherungsrechner, bevor Sie fliegen"
+  },
+  {
+    "type": "p",
+    "text": "[Zeember](https://zeember.com) ist eine auf Datenschutz ausgerichtete Plattform zur Versicherungsschätzung mit mehr als 50 Rechnern, die alle lokal in Ihrem Browser berechnet werden – mit Daten der NAIC (National Association of Insurance Commissioners), statt über ein Lead-generierendes Angebotsformular. Für alle, die eine mehrwöchige Tansania-Safari buchen, lohnt sich vor allem der [Reiseversicherungsrechner](https://zeember.com/travel-insurance-calculator) als Lesezeichen – er liefert eine realistische Kostenschätzung für den Reiseschutz, ohne dass ein Verkaufsanruf folgt, was wichtig ist, wenn Sie mehrere Policen vergleichen, bevor Sie sich für eine entscheiden, die tatsächlich einen medizinischen Rücktransport aus einem abgelegenen Safaricamp abdeckt."
+  },
+  {
+    "type": "image",
+    "src": "/images/blog/safari-travel-prep-tools/zeember-travel-insurance-calculator.png",
+    "alt": "Zeembers Reiseversicherungsrechner zeigt eine sofortige Kostenschätzung ohne erforderliche Registrierung",
+    "caption": "Zeembers Reiseversicherungsrechner liefert eine sofortige Schätzung, ohne dass eine Telefonnummer nötig ist."
+  },
+  {
+    "type": "p",
+    "text": "Nicht jede Reiseversicherung ist speziell für eine Safari gemacht. Über die Grundlagen hinaus – Reiserücktritt, verlorenes Gepäck – ist die Deckung, die bei einer Tansania-Safari wirklich zählt, der medizinische Rücktransport, denn schwere Verletzungen oder Erkrankungen in abgelegenen Parks wie der Serengeti oder dem Ngorongoro-Krater können einen Notflug nach Arusha, Nairobi oder weiter erfordern – und diese Kosten können ohne ausreichenden Versicherungsschutz in die Zehntausende von Dollar gehen. Auch Zusatzbausteine für Abenteuer- oder Aktivitäten-Risiken sind wichtig, wenn Ihr Reiseprogramm eine Kilimandscharo-Besteigung oder Gorilla-Trekking in Ruanda enthält, da manche Standardpolicen Höhentrekking standardmäßig ausschließen. Ein paar Szenarien durch Zeembers Reiseversicherungsrechner laufen zu lassen, bevor Sie sich für eine bestimmte Police entscheiden, ist eine schnelle Möglichkeit, ein Gefühl für realistische Preise über verschiedene Deckungsstufen hinweg zu bekommen."
+  },
+  {
+    "type": "p",
+    "text": "Reiseversicherung ist jedoch nur ein Teil des gesamten Vorreise-Versicherungsbilds. Einige der anderen Rechner von Zeember sind zehn Minuten wert, bevor Sie für ein paar Wochen nach Tansania aufbrechen:"
+  },
+  {
+    "type": "ul",
+    "items": [
+      "[Reiseversicherungsrechner](https://zeember.com/travel-insurance-calculator) – der Ausgangspunkt, um Reiseschutz zu vergleichen, bevor Sie eine Police buchen.",
+      "[Rechner für den Selbstbehalt der Krankenversicherung](https://zeember.com/health-insurance-deductible-calculator) – nützlich, um zu prüfen, was Ihre bestehende Krankenversicherung tatsächlich für im Ausland erhaltene Behandlung übernimmt, bevor Sie sich darauf verlassen.",
+      "[Hausratversicherungsrechner](https://zeember.com/home-insurance-calculator) – lohnt einen kurzen Check, wenn Ihr Zuhause zwei oder drei Wochen leer steht, während Sie auf Safari sind.",
+      "[Tierversicherungsrechner](https://zeember.com/pet-insurance-calculator) – relevant, sobald Sie ein Haustier für die Reisezeit bei einem Sitter oder in einer Pension lassen.",
+      "[Umbrella-Versicherungsrechner](https://zeember.com/umbrella-insurance-calculator) – eine schnelle Möglichkeit, Ihren umfassenderen Haftpflichtschutz vor einer längeren internationalen Reise zu überprüfen."
+    ]
+  },
+  {
+    "type": "image",
+    "src": "/images/blog/safari-travel-prep-tools/zeember-insurance-tools.png",
+    "alt": "Zeembers Plattform für Versicherungsrechner mit Tools für Kfz-, Lebens-, Hausrat-, Mieter- und Krankenversicherung",
+    "caption": "Zeember deckt mehr als 50 Versicherungsrechner in den Kategorien Kfz, Leben, Wohnen, Miete und Gesundheit ab."
+  },
+  {
+    "type": "p",
+    "text": "Keiner der Rechner von Zeember verlangt von Ihnen, ein Konto zu erstellen oder eine Telefonnummer preiszugeben, bevor Sie ein Ergebnis sehen – das macht es realistisch, tatsächlich vier oder fünf davon nacheinander am selben Abend durchzugehen, an dem Sie Ihre Safaribuchung abschließen, statt danach eine Woche lang Rückrufe von Versicherungsvertretern entgegenzunehmen. Zeembers umfassendere Bibliothek geht weit über diese fünf hinaus – die gesamte Plattform deckt Kfz-, Lebens-, Mieter-, HSA-Beitragsplanung, Selbstbeteiligungsobergrenzen und sogar bundesstaatsspezifische Aufschlüsselungen für US-Reisende ab –, aber speziell für eine Tansania-Safari ist die Reiseversicherung diejenige, die vor allem anderen Priorität verdient, da es oft genau die ist, die Ihr Veranstalter oder bestimmte Parkgenehmigungen tatsächlich als Nachweis verlangen."
+  },
+  {
+    "type": "h2",
+    "text": "Want2Convert: Ihre Dokumente, Währungen und Einheiten ordnen"
+  },
+  {
+    "type": "p",
+    "text": "[Want2Convert](https://want2convert.com) ist eine kostenlose, browserbasierte Plattform zur Dateikonvertierung mit mehr als 50 Tools, die alle mit WebAssembly arbeiten, sodass die eigentliche Verarbeitung auf Ihrem Gerät stattfindet und nicht auf einem entfernten Server. Speziell für Safarireisen sind drei Werkzeugkategorien wichtiger als alle anderen: Währungsumrechnung für die Budgetierung in tansanischen Schilling gegenüber Ihrer Heimatwährung, Einheitenumrechnung für Gepäckgewichtsgrenzen und Entfernungen sowie Dokumententools, um Ihren Reisepass, Ihr Visum und Ihre Versicherungsunterlagen organisiert und offline zugänglich zu halten."
+  },
+  {
+    "type": "image",
+    "src": "/images/blog/safari-travel-prep-tools/want2convert-currency-document-tools.png",
+    "alt": "Want2Convert-Startseite mit kostenlosen browserbasierten Tools für Währungsumrechnung und Dokumente",
+    "caption": "Want2Converts Tools für Währungen, Einheiten und Dokumente laufen vollständig in Ihrem Browser."
+  },
+  {
+    "type": "p",
+    "text": "Der [Währungsrechner](https://www.want2convert.com/currency-converter) ist derjenige, den Sie bei der eigentlichen Reiseplanung am häufigsten nutzen werden – um den Preis eines Safaripakets, eine Parkgebühr oder ein Trinkgeldbudget in Ihre Heimatwährung umzurechnen, bevor Sie sich festlegen. Der [Einheitenrechner](https://www.want2convert.com/unit-converter) ist wichtig für eine ganz bestimmte Safari-Einschränkung: Kleinflugzeugtransfers zwischen Buschlandebahnen in Tansania begrenzen das Gepäck in der Regel auf 15 kg einschließlich Handgepäck, und wenn Sie in Pfund packen, lässt sich diese Zahl leicht falsch einschätzen, bis Sie sie korrekt umrechnen."
+  },
+  {
+    "type": "p",
+    "text": "Ein kurzer praktischer Hinweis zur Währung, da wir gerade dabei sind: Die meisten Safaripakete, Parkgebühren und Lodgerechnungen in Tansania werden in US-Dollar angegeben und beglichen, nicht in tansanischen Schilling, auch wenn Schilling die Alltagswährung vor Ort für Trinkgelder, Märkte und kleine Einkäufe in Arusha oder Sansibar ist. Das bedeutet, dass die meisten Reisenden am Ende zwischen drei Währungen umrechnen, nicht zwei – Heimatwährung in US-Dollar für die großen Safarikosten, und US-Dollar oder Heimatwährung in Schilling für Bargeld vor Ort. Ein Währungsrechner, der alle drei ohne Konto oder tägliches Abfragelimit handhabt, ist bei einer solchen Reise mehr wert, als es zunächst klingt."
+  },
+  {
+    "type": "ul",
+    "items": [
+      "[Währungsrechner](https://www.want2convert.com/currency-converter) – zur Budgetierung von Safarikosten, Parkgebühren und Trinkgeldern gegenüber Ihrer Heimatwährung.",
+      "[Einheitenrechner](https://www.want2convert.com/unit-converter) – Kilogramm in Pfund für Gepäckgrenzen bei Buschflügen, Kilometer in Meilen für Reiseentfernungen.",
+      "[PDF zusammenführen](https://www.want2convert.com/merge-pdf) – kombinieren Sie Ihren Passscan, Ihr Visum, Ihre Reiseversicherungspolice und Ihr Reiseprogramm zu einem einzigen, offline zugänglichen Dokument.",
+      "[Bild komprimieren](https://www.want2convert.com/compress-image) – verkleinern Sie gescannte Dokumente, damit sie sich bei lückenhaftem Camp-WLAN schnell öffnen lassen, ohne an Lesbarkeit zu verlieren.",
+      "[QR-Code-Generator](https://www.want2convert.com/qr-code-generator) – erstellen Sie einen QR-Code, der zu Ihrem Reiseprogramm oder Ihren Notfallkontakten führt, nützlich zum Teilen mit einem Haussitter oder Reisebegleiter."
+    ]
+  },
+  {
+    "type": "image",
+    "src": "/images/blog/safari-travel-prep-tools/want2convert-file-tools.png",
+    "alt": "Want2Converts Oberfläche für PDF-Zusammenführung und Dokumententools mit Drag-and-Drop-Upload, vollständig im Browser verarbeitet",
+    "caption": "Das Zusammenführen von Reisedokumenten zu einer Datei geschieht vollständig in Ihrem Browser – nichts wird auf einen Server hochgeladen."
+  },
+  {
+    "type": "p",
+    "text": "Da jedes dieser Tools client-seitig läuft, bedeutet das Konvertieren eines Scans Ihres Reisepasses oder Visums nicht, dass Sie ihn irgendwohin hochladen – die Datei verlässt Ihr Gerät während der Verarbeitung nie, was gegenüber den meisten kostenlosen Online-Konvertern im Umgang mit sensiblen Reisedokumenten eine deutlich andere Haltung zum Datenschutz darstellt. Die umfassendere Want2Convert-Bibliothek deckt außerdem Bildtools (Größenänderung, Hintergrundentfernung), PDF-Bearbeitung (Teilen, Drehen, Wasserzeichen) und eine Reihe entwicklerorientierter Werkzeuge ab – keines davon safarispezifisch, aber alle nützlich, um sie an einem Ort als Lesezeichen zu haben, statt jedes Mal eine andere Einzelzweck-Website zu suchen, wenn während der Reise eine kleine Konvertierungsaufgabe anfällt."
+  },
+  {
+    "type": "h2",
+    "text": "Tax&Loans: Die Reise anhand Ihres tatsächlichen Einkommens budgetieren"
+  },
+  {
+    "type": "p",
+    "text": "Das dritte Tool unterscheidet sich etwas von den anderen beiden, und das sollten wir gleich offen sagen: [Tax&Loans](https://www.taxandloans.com) ist eine kostenlose Plattform mit Finanzrechnern, die speziell um US-amerikanische und kanadische Steuer- und Gehaltsabrechnungsregeln herum aufgebaut ist – Einkommensteuer, Lohnabzüge und Budgetrechner, die dieselben Formeln verwenden wie IRS und CRA. Es ist kein allgemeines Währungs- oder Sparwerkzeug für jeden Reisenden, und das wollen wir nicht anders darstellen."
+  },
+  {
+    "type": "image",
+    "src": "/images/blog/safari-travel-prep-tools/taxandloans-budget-calculator.png",
+    "alt": "Tax&Loans kostenloser Budgetrechner zeigt eine vollständige Budgetaufschlüsselung für die Planung einer großen Reise",
+    "caption": "Die Budget- und Sparrechner von Tax&Loans arbeiten mit Ihrem tatsächlichen Einkommen nach Steuern."
+  },
+  {
+    "type": "p",
+    "text": "Wirklich nützlich wird es in einer bestimmten, häufigen Situation: US-amerikanische und kanadische Reisende (sowie Safarigäste, die beruflich umziehen oder auf eine Bucket-List-Reise sparen) versuchen herauszufinden, was eine mehrwöchige Tansania-Safari tatsächlich gemessen an ihrem realen Einkommen nach Steuern kostet – statt an einem Bruttogehalt, das übertrieben darstellt, was tatsächlich zum Ausgeben zur Verfügung steht."
+  },
+  {
+    "type": "ul",
+    "items": [
+      "[Budgetrechner](https://www.taxandloans.com/budget-calculator) – um die Gesamtkosten einer Safari in ein realistisches Monatsbudget einzuarbeiten.",
+      "[Sparzielrechner](https://www.taxandloans.com/savings-goal-calculator) – um zu planen, wie lange es dauert, auf einen bestimmten Reisepreis zu sparen.",
+      "[Nettogehaltsrechner](https://www.taxandloans.com/take-home-pay-calculator) – rechnet ein Bruttogehalt in die Zahl um, die für die Erschwinglichkeit tatsächlich zählt.",
+      "[Gehaltsabrechnungsrechner](https://www.taxandloans.com/paycheck-calculator) – nützlich, um eine Reise gegenüber dem Gehalt pro Abrechnungszeitraum statt jährlich zu budgetieren.",
+      "[Notfallfondsrechner](https://www.taxandloans.com/emergency-fund-calculator) – eine Realitätsprüfung, dass eine große Reise nicht in Geld frisst, das Sie für einen echten Notfall brauchen."
+    ]
+  },
+  {
+    "type": "image",
+    "src": "/images/blog/safari-travel-prep-tools/taxandloans-financial-tools.png",
+    "alt": "Tax&Loans Sparziel- und Nettogehaltsrechner zeigen eine vollständige Aufschlüsselung mit echten Gehaltsabrechnungsformeln",
+    "caption": "Jede Berechnung läuft lokal mit echten Gehaltsabrechnungs- und Steuerformeln ab, ohne dass Daten irgendwohin gesendet werden."
+  },
+  {
+    "type": "p",
+    "text": "Für alle außerhalb der USA oder Kanadas lohnt es sich, diese fünf zu überspringen – aber wenn Sie oder ein Reisebegleiter eine Safari gegenüber einem US-amerikanischen oder kanadischen Gehalt budgetieren, ist es besser, die Reisekosten vor der Buchung durch einen Nettogehalts- und Sparzielrechner laufen zu lassen, als zu raten. Es ist zudem ein wirklich häufiges Szenario unter unseren eigenen Kunden: Ein bedeutender Teil der Reisenden, die wir jedes Jahr durch die Serengeti und den Ngorongoro begleiten, sind US-amerikanische oder kanadische Fachkräfte, die eine Tansania-Safari als Meilenstein-Reise betrachten – eine Hochzeitsreise, eine große Geburtstagsreise, eine Ruhestandsreise –, und die Erschwinglichkeit anhand des tatsächlichen Nettoeinkommens statt eines Bruttogehalts zu ermitteln, ist meist der erste Schritt, bevor sie uns überhaupt für ein Angebot kontaktieren."
+  },
+  {
+    "type": "h2",
+    "text": "Digitale Tools haben verändert, wie Menschen eine Safari planen"
+  },
+  {
+    "type": "p",
+    "text": "Es lohnt sich, den größeren Wandel hinter all diesen drei Tools zu benennen. Vor einem Jahrzehnt bedeutete eine realistische Versicherungsschätzung zu bekommen, einen Stapel Reisedokumente in eine Datei umzuwandeln oder ein echtes Reisebudget gegenüber dem Nettoeinkommen zu berechnen entweder, für Software zu bezahlen, persönlich einen Makler oder Vermittler aufzusuchen, oder Ihre Daten einer Lead-generierenden Website im Austausch für eine grobe Zahl und eine Woche voller Rückrufe zu überlassen. Die client-seitige Berechnung – die Mathematik oder Umwandlung auf dem eigenen Gerät statt auf einem entfernten Server durchzuführen – hat diesen Kompromiss für eine breite Palette alltäglicher Vorreise-Aufgaben still und leise beseitigt."
+  },
+  {
+    "type": "p",
+    "text": "Für Reisende, die speziell eine Safari planen, ist dieser Wandel wichtig, weil so viel von der Verwaltungsarbeit rund um eine internationale Reise von Natur aus sensibel ist: Passnummern, Visumsanträge, Details der Versicherungspolice und zunehmend auch digitale Impf- oder Gesundheitsnachweise. Kostenlose, registrierungsfreie, client-seitige Tools senken die Hürde, all das ordnungsgemäß zu handhaben, ohne dass Sie zuerst dem Server eines Fremden vertrauen müssen. Das ist ein wirklich praktischer Baustein der Reisevorbereitung, nicht nur Versicherung und Budgetierung im Abstrakten – deshalb steht dieser Leitfaden neben unseren anderen Tansania-Planungsressourcen und nicht als unverbundener Nebengedanke."
+  },
+  {
+    "type": "h2",
+    "text": "Eine einfache Vor-Safari-Checkliste mit allen drei Tools"
+  },
+  {
+    "type": "p",
+    "text": "Nacheinander statt einzeln genutzt, lassen sich diese drei Tools recht sauber auf die Wochen vor der Abreise abbilden:"
+  },
+  {
+    "type": "ol",
+    "items": [
+      "Holen Sie sich eine Reiseversicherungsschätzung über Zeembers [Reiseversicherungsrechner](https://zeember.com/travel-insurance-calculator), sobald Ihre Termine feststehen, damit Sie ab dem Tag, an dem Sie Ihre Safari-Anzahlung leisten, versichert sind.",
+      "Budgetieren Sie die Gesamtkosten der Reise mit dem [Budgetrechner](https://www.taxandloans.com/budget-calculator) von Tax&Loans und, falls für Sie relevant, dem [Nettogehaltsrechner](https://www.taxandloans.com/take-home-pay-calculator).",
+      "Rechnen Sie den Preis Ihres Safaripakets mit Want2Converts [Währungsrechner](https://www.want2convert.com/currency-converter) in Ihre Heimatwährung um, während Sie Pakete vergleichen.",
+      "Scannen Sie ein bis zwei Wochen vor der Abreise Ihren Reisepass, Ihr Visum und Ihre Versicherungspolice, [führen Sie sie zu einer PDF zusammen](https://www.want2convert.com/merge-pdf) und [komprimieren Sie sie](https://www.want2convert.com/compress-image), damit sie sich im Camp-WLAN schnell öffnen lässt.",
+      "Überprüfen Sie Ihr Gepäckgewicht anhand der Buschflug-Grenze mit Want2Converts [Einheitenrechner](https://www.want2convert.com/unit-converter), bevor Sie das Packen abschließen."
+    ]
+  },
+  {
+    "type": "tip",
+    "title": "Profitipp von unserem Team",
+    "text": "Speichern Sie das zusammengeführte PDF Ihrer Dokumente auf Ihrem Telefon, bevor Sie von zu Hause aufbrechen – nicht erst, wenn Sie schon in Arusha sind. Mehrere unserer Camps im nördlichen Rundreisegebiet haben nur eingeschränktes oder gar kein WLAN, und der Offline-Zugriff auf Ihren Reisepass, Ihr Visum und Ihre Versicherungsdetails ist die zehn Minuten wert, die es kostet."
+  },
+  {
+    "type": "h2",
+    "text": "Wie die drei Tools im Vergleich abschneiden"
+  },
+  {
+    "type": "table",
+    "headers": [
+      "Tool",
+      "Am besten für",
+      "Datenschutzmodell",
+      "Kosten"
+    ],
+    "rows": [
+      [
+        "Zeember",
+        "Reise- und Hausratversicherungsschätzungen vor dem Abflug",
+        "Client-seitige Berechnung mit NAIC-Daten, keine Telefonnummer erforderlich",
+        "Kostenlos, kein Konto"
+      ],
+      [
+        "Want2Convert",
+        "Währungen, Einheiten und Reisedokumente",
+        "WebAssembly – Dateien verlassen Ihren Browser nie",
+        "Kostenlos, kein Konto"
+      ],
+      [
+        "Tax&Loans",
+        "Budgetierung der Reise gegenüber US-amerikanischem/kanadischem Einkommen",
+        "Client-seitig, Formeln nach IRS/CRA, keine Datenübertragung",
+        "Kostenlos, kein Konto"
+      ]
+    ]
+  },
+  {
+    "type": "h2",
+    "text": "Häufige Fragen vor der Buchung"
+  },
+  {
+    "type": "h3",
+    "text": "Brauche ich eine Reiseversicherung für eine Tansania-Safari?"
+  },
+  {
+    "type": "p",
+    "text": "Die meisten seriösen Veranstalter, einschließlich unseres Teams, empfehlen sie dringend, und manche Park- und Lodgepartner verlangen einen Versicherungsnachweis. Der medizinische Rücktransport aus einem abgelegenen Camp ist der wichtigste Grund dafür – er kann ohne Versicherungsschutz extrem teuer werden, und [Zeembers Reiseversicherungsrechner](https://zeember.com/travel-insurance-calculator) ist eine schnelle Möglichkeit, eine realistische Kostenschätzung zu bekommen, bevor Sie konkrete Policen vergleichen."
+  },
+  {
+    "type": "h3",
+    "text": "Wie viel Gepäck darf ich auf einem Buschflug zwischen Camps mitnehmen?"
+  },
+  {
+    "type": "p",
+    "text": "Kleinflugzeugtransfers zwischen Tansanias Buschlandebahnen begrenzen das Gepäck in der Regel auf insgesamt etwa 15 kg, einschließlich Handgepäck, und verlangen eine weiche Tasche statt eines Hartschalenkoffers. Wenn Sie in Pfund packen, vermeidet es ein unangenehmes Gespräch an der Landebahn, diese Zahl vorher durch einen [Einheitenrechner](https://www.want2convert.com/unit-converter) laufen zu lassen."
+  },
+  {
+    "type": "h3",
+    "text": "Ist es sicher, meinen Reisepass und mein Visum vor einer Reise online zu scannen und zu speichern?"
+  },
+  {
+    "type": "p",
+    "text": "Bei Upload-basierten Konvertern ist das eine berechtigte Sorge. Want2Convert umgeht das Problem, indem Dateien mit WebAssembly direkt in Ihrem Browser verarbeitet werden, sodass ein Passscan, ein Visum oder ein Versicherungsdokument, das Sie zusammenführen oder komprimieren, tatsächlich nie auf einen externen Server hochgeladen wird."
+  },
+  {
+    "type": "h3",
+    "text": "Sind die Rechner von Tax&Loans nützlich, wenn ich nicht in den USA oder Kanada wohne?"
+  },
+  {
+    "type": "p",
+    "text": "Nur indirekt. Sie basieren auf IRS- und CRA-Formeln und sind daher vor allem dann relevant, wenn Sie oder ein Reisebegleiter die Reise gegenüber einem US-amerikanischen oder kanadischen Gehalt budgetieren – für Reisende mit Wohnsitz anderswo sind die Währungs- und Budgettools auf Want2Convert der direkter nützliche Ausgangspunkt."
+  },
+  {
+    "type": "h3",
+    "text": "Muss ich ein Konto erstellen, um eines dieser Tools zu nutzen?"
+  },
+  {
+    "type": "p",
+    "text": "Nein. Zeember, Want2Convert und Tax&Loans funktionieren alle ohne Registrierung – jeder Rechner und Konverter in diesem Leitfaden liefert Ihnen sofort ein Ergebnis."
+  },
+  {
+    "type": "h3",
+    "text": "Wie halte ich meine Reisedokumente für eine mehrwöchige Safari am besten organisiert?"
+  },
+  {
+    "type": "p",
+    "text": "Scannen Sie Ihren Reisepass, Ihr Visum, Ihre Reiseversicherungspolice und Ihr Reiseprogramm, [führen Sie sie zu einer einzigen PDF zusammen](https://www.want2convert.com/merge-pdf) und [komprimieren Sie die Datei](https://www.want2convert.com/compress-image), damit sie sich auch bei einer langsamen Verbindung schnell öffnen lässt. Bewahren Sie eine Kopie auf Ihrem Telefon auf und schicken Sie sie sich, wenn möglich, zusätzlich als Sicherung per E-Mail."
+  },
+  {
+    "type": "h3",
+    "text": "Sollte ich meine Hausratversicherung überprüfen, bevor ich für ein paar Wochen verreise?"
+  },
+  {
+    "type": "p",
+    "text": "Das sind zehn Minuten wert, besonders wenn Ihr Zuhause über einen längeren Zeitraum leer steht. [Zeembers Hausratversicherungsrechner](https://zeember.com/home-insurance-calculator) ist eine schnelle Möglichkeit zu prüfen, ob Sie ausreichend versichert sind, bevor Sie losfahren."
+  },
+  {
+    "type": "h3",
+    "text": "Wie budgetiere ich für eine Safari, wenn ich über mehrere Monate spare?"
+  },
+  {
+    "type": "p",
+    "text": "Tax&Loans' [Sparzielrechner](https://www.taxandloans.com/savings-goal-calculator) ist genau dafür gemacht: Legen Sie Ihre Zielreisekosten und Ihren Zeitrahmen fest, und er rechnet auf Basis Ihres tatsächlichen Einkommens rückwärts zu einem monatlichen Sparbetrag."
+  },
+  {
+    "type": "h3",
+    "text": "Muss ich Software herunterladen, um diese Tools zu nutzen?"
+  },
+  {
+    "type": "p",
+    "text": "Nein – alle drei laufen vollständig in einem normalen Webbrowser auf Ihrem Telefon, Tablet oder Laptop. Es gibt nichts zu installieren, und vor der Reise ist kein App-Store-Download nötig."
+  },
+  {
+    "type": "h3",
+    "text": "Kann ich diese Tools auch noch nutzen, wenn ich bereits in Tansania angekommen bin?"
+  },
+  {
+    "type": "p",
+    "text": "Ja, auch wenn es praktischer ist, Versicherung und Dokumente vor dem Abflug zu klären, da manche Camps nur eingeschränkte Konnektivität haben. Besonders die Währungsumrechnung bleibt während der Reise nützlich – Want2Converts Währungsrechner funktioniert problemlos über den Handybrowser, sobald Sie Empfang haben, in Arusha, Sansibar oder zwischen den Camps."
+  },
+  {
+    "type": "h2",
+    "text": "Ein letztes Wort, bevor Sie packen"
+  },
+  {
+    "type": "callout",
+    "text": "Keines dieser drei Tools ersetzt eine gute Reiseplanung – die Wahl der richtigen Saison, der richtigen Parks und des richtigen Veranstalters zählt nach wie vor mehr als jeder Rechner. Aber genau in der unglamourösen Verwaltungsarbeit zwischen Buchung und Einsteigen gehen Reisen still und heimlich schief, und Zeember, Want2Convert und Tax&Loans schließen diese Lücke, ohne im Gegenzug Ihre Daten zu verlangen."
+  },
+  {
+    "type": "p",
+    "text": "Sobald Ihre Versicherung geklärt, Ihre Dokumente zu einer zugänglichen Datei zusammengeführt und Ihr Budget bestätigt sind, bleibt nur noch der Teil übrig, auf den sich unser Team wirklich spezialisiert hat: die Safari selbst zu gestalten. Wenn Sie sich noch für ein Reiseprogramm entscheiden, sind unsere Guides das ganze Jahr über in Arusha ansässig und können Ihnen helfen, eine Route zu planen, die sowohl zu Ihrem Budget als auch zur Jahreszeit Ihrer Reise passt. Wir haben genug Reisende in Tansania ankommen sehen, um den Unterschied zu kennen zwischen einer Reise, bei der die Verwaltungsarbeit Wochen im Voraus erledigt wurde, und einer, bei der sie in der Nacht vor der Abreise hastig nachgeholt wurde – die erste Art ist die, bei der Sie die Serengeti wirklich genießen können, ohne einen Stapel ungelöster Papierkram im Hinterkopf zu haben."
+  }
+],
+
 }
 
 export function getArticleContent(slug: string): SectionType[] | undefined {
