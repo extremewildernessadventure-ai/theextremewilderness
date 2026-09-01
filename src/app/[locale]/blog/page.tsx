@@ -116,15 +116,22 @@ export default async function BlogPage({ params, searchParams }: Props) {
               {rest.length > 0 && (
                 <RevealGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                   {rest.map((post) => (
-                    <RevealItem key={post.slug}>
-                      <Link href={`/blog/${post.slug}`} className="group bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all hover:-translate-y-0.5 block">
+                    <RevealItem key={post.slug} className="h-full">
+                      <Link href={`/blog/${post.slug}`} className="group bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all hover:-translate-y-0.5 h-full flex flex-col">
                         <div className="relative h-44">
-                          <Image src={post.heroImage} alt={post.heroImageAlt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                          <Image
+                            src={post.heroImage}
+                            alt={post.heroImageAlt}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            style={post.heroImagePosition ? { objectPosition: post.heroImagePosition } : undefined}
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          />
                         </div>
-                        <div className="p-5">
+                        <div className="p-5 flex-1 flex flex-col">
                           <span className="text-gold text-[10px] font-semibold uppercase tracking-widest">{post.category}</span>
-                          <h3 className="font-semibold text-brand text-sm mt-1 mb-2 leading-snug group-hover:text-brand-secondary transition-colors">{post.title}</h3>
-                          <p className="text-text-muted text-xs leading-relaxed line-clamp-2 mb-3">{post.excerpt}</p>
+                          <h3 className="font-semibold text-brand text-sm mt-1 mb-2 leading-snug line-clamp-2 group-hover:text-brand-secondary transition-colors">{post.title}</h3>
+                          <p className="text-text-muted text-xs leading-relaxed line-clamp-2 mb-3 flex-1">{post.excerpt}</p>
                           <div className="flex items-center justify-between text-xs text-text-muted">
                             <span>{post.date}</span>
                             <span className="flex items-center gap-1 text-brand font-semibold">{t('read')} <ArrowRight className="w-3 h-3" /></span>

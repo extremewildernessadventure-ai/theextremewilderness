@@ -20,6 +20,11 @@ export interface BlogPost {
   readTime: string
   heroImage: string
   heroImageAlt: string
+  // Raw CSS object-position value (e.g. '50% 20%') — most posts don't need
+  // this, object-cover's default center-center crop is fine. Set it only
+  // when a specific photo's subject sits off-center and gets cropped out
+  // by the hero's wide, short aspect ratio (see blog/[slug]/page.tsx).
+  heroImagePosition?: string
   author: string
   keywords: string[]
   content: SectionType[]

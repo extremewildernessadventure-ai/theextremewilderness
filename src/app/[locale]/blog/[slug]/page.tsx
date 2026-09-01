@@ -234,7 +234,15 @@ export default async function BlogArticlePage({ params }: Props) {
       {/* Hero */}
       <section className="relative h-[55vh] md:h-[65vh] flex items-end">
         <div className="absolute inset-0">
-          <Image src={post.heroImage} alt={post.heroImageAlt} fill className="object-cover" priority sizes="100vw" />
+          <Image
+            src={post.heroImage}
+            alt={post.heroImageAlt}
+            fill
+            className="object-cover"
+            style={post.heroImagePosition ? { objectPosition: post.heroImagePosition } : undefined}
+            priority
+            sizes="100vw"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
