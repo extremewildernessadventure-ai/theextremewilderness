@@ -4,7 +4,11 @@ import { CheckCircle2 } from 'lucide-react'
 import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
 import { BANK_DETAILS } from '@/lib/bankDetails'
 import { PAYMENT_METHOD_LABELS } from '@/lib/invoices'
-import { printCss, PdfCover, PdfRunningHeader, PdfSectionHeading, PdfClosingCta, PdfFooter } from '@/components/pdf/PdfChrome'
+import {
+  printCssFullBleed, sanitizeForPdf,
+  PdfDarkPage, PdfDarkHeader, PdfDarkLabel, PdfDarkDivider, PdfDarkTag, PdfDarkFooter,
+  PDF_DARK_HEADING_FONT, PDF_DARK_HEADING_WEIGHT,
+} from '@/components/pdf/PdfChrome'
 import PrintButton from './PrintButton'
 
 // Kept dynamic deliberately: the printed document shows today's date
@@ -18,11 +22,15 @@ const STATUS_LABELS: Record<Invoice['status'], string> = {
   cancelled: 'Cancelled',
 }
 
-const STATUS_STYLES: Record<Invoice['status'], string> = {
-  unpaid: 'bg-red-50 text-red-700 border-red-200',
-  partial: 'bg-amber-50 text-amber-700 border-amber-200',
-  paid: 'bg-green-50 text-green-700 border-green-200',
-  cancelled: 'bg-gray-100 text-gray-500 border-gray-200',
+// Colored outline/text per status (never a filled background, per the new
+// design system's "color as stroke" direction) — kept distinguishable at a
+// glance rather than collapsed to one neutral tone, a deliberate product
+// decision (see the redesign plan).
+const STATUS_TONES: Record<Invoice['status'], 'red' | 'amber' | 'green' | 'neutral'> = {
+  unpaid: 'red',
+  partial: 'amber',
+  paid: 'green',
+  cancelled: 'neutral',
 }
 
 type Props = { params: Promise<{ id: string }> }
@@ -40,11 +48,16 @@ export default async function InvoicePdfPage({ params }: Props) {
     db.prepare('SELECT * FROM invoice_payments WHERE invoice_id = ? ORDER BY confirmed_at DESC LIMIT 1').bind(id).first<InvoicePayment>(),
   ])
   const balanceDue = Math.max(0, invoice.amount - invoice.amount_paid)
+  const clientName = sanitizeForPdf(invoice.client_name)
 
   return (
     <>
-      {/* Print CSS */}
-      <style>{printCss()}</style>
+      <style>{printCssFullBleed()}</style>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap"
+        rel="stylesheet"
+      />
 
       {/* Screen-only header bar */}
       <div className="max-w-3xl mx-auto px-4 py-6 print:hidden flex items-center justify-between border-b border-gray-100">
@@ -58,148 +71,143 @@ export default async function InvoicePdfPage({ params }: Props) {
       </div>
 
       {/* ── Printable document ─────────────────────────────────── */}
-      <div id="pdf-invoice" className="max-w-3xl mx-auto bg-white font-sans print:max-w-none">
+      <div id="pdf-invoice" className="max-w-3xl mx-auto print:max-w-none">
+        <PdfDarkPage>
+          <PdfDarkHeader documentLabel="INVOICE" documentNumber={invoice.invoice_number} titleSize="display" />
 
-        <PdfCover
-          image="/images/gallery/ewa-vehicle-hero.webp"
-          imageAlt="EWA Safari Outfitters"
-          eyebrow="Invoice"
-          title={invoice.invoice_number}
-          subtitle={invoice.client_name}
-          metaLeft={new Date(invoice.created_at).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
-        />
-
-        <div className="px-10 py-8">
-        <PdfRunningHeader documentType="Invoice" documentNumber={invoice.invoice_number} />
-
-        {/* ── Bill to / Status ── */}
-        <div className="flex items-start justify-between mb-7 no-break">
-          <div>
-            <PdfSectionHeading>Bill To</PdfSectionHeading>
-            <p className="text-sm font-bold text-gray-900">{invoice.client_name}</p>
-            {invoice.client_email && <p className="text-sm text-gray-600">{invoice.client_email}</p>}
-            {invoice.booking_reference && <p className="text-xs text-gray-500 mt-1">Booking Ref: {invoice.booking_reference}</p>}
-          </div>
-          <div className="text-end">
-            <span className={`inline-block text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded-full border ${STATUS_STYLES[invoice.status]}`}>
-              {STATUS_LABELS[invoice.status]}
-            </span>
-            {invoice.due_date && (
-              <p className="text-xs text-gray-500 mt-2">
-                Due {new Date(invoice.due_date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
-              </p>
-            )}
-          </div>
-        </div>
-
-        {/* ── Line items ── */}
-        <div className="mb-7 no-break">
-          <table className="w-full text-sm border-collapse">
-            <thead>
-              <tr className="bg-brand text-white">
-                <th className="text-start px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Description</th>
-                <th className="text-end px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Qty</th>
-                <th className="text-end px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Unit Price</th>
-                <th className="text-end px-4 py-2.5 font-bold text-xs uppercase tracking-wide">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {items.length > 0 ? (
-                items.map((item) => (
-                  <tr key={item.id} className="border-b border-gray-200">
-                    <td className="px-4 py-4 text-gray-700 whitespace-pre-wrap align-top">{item.description}</td>
-                    <td className="px-4 py-4 text-end text-gray-700 align-top whitespace-nowrap">{item.quantity}</td>
-                    <td className="px-4 py-4 text-end text-gray-700 align-top whitespace-nowrap">{item.unit_price.toLocaleString()}</td>
-                    <td className="px-4 py-4 text-end font-semibold text-gray-900 align-top whitespace-nowrap">
-                      {invoice.currency} {(item.quantity * item.unit_price).toLocaleString()}
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <tr className="border-b border-gray-200">
-                  <td colSpan={4} className="px-4 py-4 text-gray-500 text-center">No line items</td>
-                </tr>
+          {/* ── Bill to / Status ── */}
+          <div className="flex items-start justify-between no-break" style={{ marginTop: 24 }}>
+            <div>
+              <PdfDarkLabel>Bill To</PdfDarkLabel>
+              <div style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: PDF_DARK_HEADING_WEIGHT, fontSize: 20 }}>{clientName}</div>
+              {invoice.client_email && <div style={{ fontSize: 13.5, color: '#dfe6e0', marginTop: 2 }}>{invoice.client_email}</div>}
+              {invoice.booking_reference && (
+                <div style={{ fontSize: 13.5, color: '#dfe6e0', marginTop: 2 }}>Booking Ref: {sanitizeForPdf(invoice.booking_reference)}</div>
               )}
-            </tbody>
-          </table>
-          <div className="flex justify-end mt-3">
-            <div className="w-full max-w-[260px] space-y-1.5">
-              <div className="flex justify-between items-baseline bg-brand/5 rounded-lg px-4 py-3">
-                <span className="text-xs font-bold uppercase tracking-wide text-gold-label">Total Due</span>
-                <span className="text-lg font-black text-brand">{invoice.currency} {invoice.amount.toLocaleString()}</span>
-              </div>
-              {invoice.amount_paid > 0 && (
-                <>
-                  <div className="flex justify-between items-baseline px-4 py-1 text-sm">
-                    <span className="text-gray-500">Amount Paid</span>
-                    <span className="font-semibold text-green-700">{invoice.currency} {invoice.amount_paid.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between items-baseline px-4 py-1 text-sm">
-                    <span className="text-gray-500">Balance Due</span>
-                    <span className="font-semibold text-brand">{invoice.currency} {balanceDue.toLocaleString()}</span>
-                  </div>
-                </>
+            </div>
+            <div className="text-end">
+              <PdfDarkTag tone={STATUS_TONES[invoice.status]}>{STATUS_LABELS[invoice.status].toUpperCase()}</PdfDarkTag>
+              {invoice.due_date && (
+                <div style={{ fontSize: 13, color: '#dfe6e0', marginTop: 8 }}>
+                  Due <strong>{new Date(invoice.due_date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</strong>
+                </div>
               )}
             </div>
           </div>
-        </div>
 
-        {/* ── Payment instructions / paid receipt ── */}
-        {invoice.status === 'paid' ? (
-          <div className="mb-7 no-break bg-green-50 border border-green-200 rounded-lg p-5">
-            <div className="flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <h2 className="text-[10px] font-black uppercase tracking-widest text-green-700 mb-1">Paid in Full</h2>
-                {latestPayment ? (
-                  <p className="text-sm text-green-800 leading-relaxed">
-                    Paid via {PAYMENT_METHOD_LABELS[latestPayment.method]} on{' '}
-                    {new Date(latestPayment.confirmed_at).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}.
-                    Thank you for your business!
-                  </p>
-                ) : (
-                  <p className="text-sm text-green-800 leading-relaxed">This invoice has been paid in full. Thank you for your business!</p>
+          {/* ── Line items ──
+              Built as CSS-grid rows, not a native <table> — this admin
+              layout's own body-level styling (.ewa-admin thead th/tbody td
+              in admin-theme.css) reaches any real <table>/<th>/<td> element
+              regardless of inline styles that don't happen to override
+              every property those rules set (background, padding, weight,
+              case, tracking all bled through in testing). Grid sidesteps
+              that entire class of bug rather than fighting it property by
+              property. */}
+          <div className="no-break" style={{ marginTop: 32, fontSize: 13.5 }}>
+            <div className="grid" style={{ gridTemplateColumns: '1fr 60px 100px 120px', columnGap: 16 }}>
+              <div style={{ color: '#c9d6cc', paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.18)' }}>Description</div>
+              <div className="text-end" style={{ color: '#c9d6cc', paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.18)' }}>Qty</div>
+              <div className="text-end" style={{ color: '#c9d6cc', paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.18)' }}>Unit Price</div>
+              <div className="text-end" style={{ color: '#c9d6cc', paddingBottom: 8, borderBottom: '1px solid rgba(255,255,255,0.18)' }}>Total</div>
+
+              {items.length > 0 ? (
+                items.map((item) => (
+                  <div key={item.id} className="contents">
+                    <div className="whitespace-pre-wrap" style={{ padding: '14px 0', borderBottom: '1px solid rgba(255,255,255,0.18)' }}>{sanitizeForPdf(item.description)}</div>
+                    <div className="text-end whitespace-nowrap" style={{ padding: '14px 0', borderBottom: '1px solid rgba(255,255,255,0.18)', fontVariantNumeric: 'tabular-nums' }}>{item.quantity}</div>
+                    <div className="text-end whitespace-nowrap" style={{ padding: '14px 0', borderBottom: '1px solid rgba(255,255,255,0.18)', fontVariantNumeric: 'tabular-nums' }}>{item.unit_price.toLocaleString()}</div>
+                    <div className="text-end whitespace-nowrap" style={{ padding: '14px 0', borderBottom: '1px solid rgba(255,255,255,0.18)', fontVariantNumeric: 'tabular-nums' }}>
+                      {invoice.currency} {(item.quantity * item.unit_price).toLocaleString()}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center" style={{ gridColumn: '1 / -1', padding: '14px 0', color: '#9fb0a4', borderBottom: '1px solid rgba(255,255,255,0.18)' }}>No line items</div>
+              )}
+            </div>
+
+            <div className="flex justify-end" style={{ marginTop: 16 }}>
+              <div style={{ width: 280 }}>
+                <div className="flex justify-between items-baseline" style={{ padding: '8px 0', fontSize: 13.5 }}>
+                  <span style={{ color: '#dfe6e0' }}>Total Due</span>
+                  <span style={{ fontVariantNumeric: 'tabular-nums' }}>{invoice.currency} {invoice.amount.toLocaleString()}</span>
+                </div>
+                {invoice.amount_paid > 0 && (
+                  <>
+                    <div className="flex justify-between items-baseline" style={{ padding: '8px 0', fontSize: 13.5, borderTop: '1px solid rgba(255,255,255,0.18)' }}>
+                      <span style={{ color: '#dfe6e0' }}>Amount Paid</span>
+                      <span style={{ fontVariantNumeric: 'tabular-nums' }}>{invoice.currency} {invoice.amount_paid.toLocaleString()}</span>
+                    </div>
+                    <div className="flex justify-between items-baseline" style={{ padding: '12px 0 4px', fontSize: 16, borderTop: '1px solid rgba(255,255,255,0.35)', marginTop: 2 }}>
+                      <span style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: PDF_DARK_HEADING_WEIGHT }}>Balance Due</span>
+                      <span style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: PDF_DARK_HEADING_WEIGHT, color: 'var(--color-gold)', fontVariantNumeric: 'tabular-nums' }}>
+                        {invoice.currency} {balanceDue.toLocaleString()}
+                      </span>
+                    </div>
+                  </>
                 )}
               </div>
             </div>
           </div>
-        ) : (
-          <div className="mb-7 no-break bg-brand/5 rounded-lg p-5 space-y-4">
-            <PdfSectionHeading>How to Pay</PdfSectionHeading>
 
-            {latestOrder && (
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Pay Online</p>
-                <p className="text-sm text-gray-700 leading-relaxed break-all">
-                  {latestOrder.redirect_url}
-                </p>
+          {/* ── Payment instructions / paid receipt ── */}
+          {invoice.status === 'paid' ? (
+            <div className="no-break" style={{ marginTop: 32 }}>
+              <PdfDarkDivider />
+              <div className="flex items-start gap-3" style={{ paddingTop: 24 }}>
+                <CheckCircle2 className="flex-shrink-0" style={{ width: 20, height: 20, marginTop: 2, color: 'var(--color-gold)' }} />
+                <div>
+                  <PdfDarkLabel>Paid in Full</PdfDarkLabel>
+                  {latestPayment ? (
+                    <p style={{ fontSize: 13.5, color: '#dfe6e0', lineHeight: 1.6 }}>
+                      Paid via {PAYMENT_METHOD_LABELS[latestPayment.method]} on{' '}
+                      {new Date(latestPayment.confirmed_at).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}.
+                      Thank you for your business!
+                    </p>
+                  ) : (
+                    <p style={{ fontSize: 13.5, color: '#dfe6e0', lineHeight: 1.6 }}>This invoice has been paid in full. Thank you for your business!</p>
+                  )}
+                </div>
               </div>
-            )}
-
-            <div>
-              <p className="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Bank Transfer</p>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                Please reference invoice <span className="font-semibold text-gray-900">{invoice.invoice_number}</span> when paying.
-              </p>
-              <dl className="text-sm text-gray-700 mt-1 space-y-0.5">
-                <div><dt className="inline font-medium text-gray-900">Beneficiary: </dt><dd className="inline">{BANK_DETAILS.beneficiaryName}</dd></div>
-                <div><dt className="inline font-medium text-gray-900">Account: </dt><dd className="inline">{BANK_DETAILS.beneficiaryAccount}</dd></div>
-                <div><dt className="inline font-medium text-gray-900">SWIFT: </dt><dd className="inline">{BANK_DETAILS.swiftCode}</dd></div>
-                <div><dt className="inline font-medium text-gray-900">Bank: </dt><dd className="inline">{BANK_DETAILS.bankName}</dd></div>
-                <div><dt className="inline font-medium text-gray-900">Address: </dt><dd className="inline">{BANK_DETAILS.bankAddress}</dd></div>
-                <div className="pt-1"><dt className="inline font-medium text-gray-900">Correspondent bank: </dt><dd className="inline">{BANK_DETAILS.correspondentBank.name} · SWIFT {BANK_DETAILS.correspondentBank.swift} · Acc {BANK_DETAILS.correspondentBank.account}</dd></div>
-              </dl>
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="no-break" style={{ marginTop: 32 }}>
+              <PdfDarkDivider />
+              <div style={{ paddingTop: 24 }}>
+                <PdfDarkLabel>How to Pay</PdfDarkLabel>
 
-        <div className="mb-8">
-          <PdfClosingCta heading="Questions About This Invoice?" body="Reply to the email this was sent with, or reach out any time — we're happy to help." />
-        </div>
+                {latestOrder && (
+                  <div style={{ marginBottom: 16 }}>
+                    <div style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: PDF_DARK_HEADING_WEIGHT, fontSize: 15, marginBottom: 4 }}>Pay Online</div>
+                    <p style={{ fontSize: 13, color: '#dfe6e0', wordBreak: 'break-all' }}>{latestOrder.redirect_url}</p>
+                  </div>
+                )}
 
-        {/* ── Footer ── */}
-        <PdfFooter />
-        </div>
+                <div style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: PDF_DARK_HEADING_WEIGHT, fontSize: 15, marginBottom: 8 }}>Bank Transfer</div>
+                <p style={{ fontSize: 13, color: '#dfe6e0', marginBottom: 12 }}>
+                  Please reference invoice <strong>{invoice.invoice_number}</strong> when paying.
+                </p>
+                <div className="grid grid-cols-2" style={{ fontSize: 13, gap: '8px 24px' }}>
+                  <div><span style={{ color: '#c9d6cc' }}>Beneficiary</span><br />{BANK_DETAILS.beneficiaryName}</div>
+                  <div><span style={{ color: '#c9d6cc' }}>Account</span><br /><span style={{ fontVariantNumeric: 'tabular-nums' }}>{BANK_DETAILS.beneficiaryAccount}</span></div>
+                  <div><span style={{ color: '#c9d6cc' }}>SWIFT</span><br />{BANK_DETAILS.swiftCode}</div>
+                  <div><span style={{ color: '#c9d6cc' }}>Bank</span><br />{BANK_DETAILS.bankName}</div>
+                  <div className="col-span-2"><span style={{ color: '#c9d6cc' }}>Address</span><br />{BANK_DETAILS.bankAddress}</div>
+                  <div className="col-span-2">
+                    <span style={{ color: '#c9d6cc' }}>Correspondent Bank</span><br />
+                    {BANK_DETAILS.correspondentBank.name} · SWIFT {BANK_DETAILS.correspondentBank.swift} · Acc {BANK_DETAILS.correspondentBank.account}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <PdfDarkFooter
+            heading="Questions About This Invoice?"
+            body="Reply to the email this was sent with, or reach out any time — we're happy to help."
+          />
+        </PdfDarkPage>
       </div>
     </>
   )

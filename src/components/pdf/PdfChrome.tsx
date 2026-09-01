@@ -226,3 +226,182 @@ export function PdfClosingCta({ heading, body }: { heading: string; body?: strin
     </div>
   )
 }
+
+// ══════════════════════════════════════════════════════════════════════
+// "Dark" document family — a second, later design language used by the
+// redesigned Invoice and Booking Voucher (Claude Design export, editorial
+// Cormorant Garamond/Lora system, single continuous dark-green page, no
+// photo cover). Purely additive alongside everything above: quote and
+// payslip haven't been redesigned yet and still depend on printCss/
+// PdfCover/PdfHeader/PdfFooter/PdfSectionHeading/PdfClosingCta working
+// exactly as today, so none of those are touched here. Every export below
+// is prefixed PdfDark to keep the two families visually distinct in this
+// file and at their call sites.
+// ══════════════════════════════════════════════════════════════════════
+
+// A full-bleed dark document has no photo cover, so there's no `:first`
+// page to treat differently — every page (including any overflow page a
+// long invoice/voucher spills onto) is edge-to-edge at zero margin.
+// Deliberately NOT derived from printCss() — duplicated so printCss()'s
+// literal output for quote/payslip can never be affected by a change here.
+//
+// Also resets `.ewa-admin .main`'s own padding/max-width for print. That
+// class wraps every admin page's content (src/app/admin/(protected)/
+// layout.tsx) and normally supplies the dashboard's content margins — but
+// it was never reset for print, so it silently padded every printed admin
+// document by its own 36px/40px/60px, invisibly on the old light-background
+// PdfCover-based documents (near-white padding on a near-white page reads
+// as nothing) but visibly on this dark full-bleed family, and pushed total
+// content past one physical page, producing a spurious near-blank second
+// page — same root-cause shape as the pb-16 bug already fixed on the
+// public [locale] layout for the trekking/itinerary guides. Only applied
+// when this function's own <style> is on the page (i.e. only for the two
+// documents using this dark family), so quote/payslip's print output is
+// untouched.
+export function printCssFullBleed(): string {
+  return `
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @media print {
+      @page { size: A4; margin: 0; }
+      .pdf-page-break { break-after: page; page-break-after: always; }
+      .pdf-page-break-before { break-before: page; page-break-before: always; }
+      .no-break { page-break-inside: avoid; break-inside: avoid; }
+      .ewa-admin .main { padding: 0; max-width: none; margin: 0; }
+    }
+  `
+}
+
+// The two typefaces the new design system specifies — loaded per-page via
+// a scoped Google Fonts <link> tag (see the invoice/voucher pages), same
+// proven approach the trekking guide already uses through this same
+// Browser Rendering pipeline. Exported so every PdfDark* component
+// references the same two constants rather than restating font stacks.
+export const PDF_DARK_HEADING_FONT = "'Cormorant Garamond', Georgia, serif"
+export const PDF_DARK_BODY_FONT = "'Lora', Georgia, serif"
+export const PDF_DARK_HEADING_WEIGHT = 600
+
+// Outer page wrapper. `min-height` (not `height` + `overflow:hidden`) is
+// the overflow-safety decision: a short document still visually fills one
+// full A4 page like the design, but a real invoice with many line items or
+// a voucher with several bookings just flows onto page 2+ in the same dark
+// background via Chromium's normal print pagination, instead of silently
+// clipping — this project already hit and fixed exactly that failure mode
+// on the Kilimanjaro guide (fixed-height overflow:hidden boxes), not
+// repeating it here.
+export function PdfDarkPage({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      className="flex flex-col"
+      style={{
+        minHeight: '297mm',
+        background: '#1C3A2A',
+        color: '#f3f2f2',
+        padding: '0.85in 0.9in',
+        boxSizing: 'border-box',
+        fontFamily: PDF_DARK_BODY_FONT,
+      }}
+    >
+      {children}
+    </div>
+  )
+}
+
+export function PdfDarkHeader({ documentLabel, documentNumber, titleSize }: {
+  documentLabel: string
+  documentNumber?: string
+  titleSize: 'display' | 'label'
+}) {
+  return (
+    <div
+      className="no-break flex items-start justify-between pb-4"
+      style={{ borderBottom: '1px solid rgba(255,255,255,0.18)' }}
+    >
+      <div className="flex items-center gap-3">
+        <Image src="/EWA logo.webp" alt="EWA Safari Outfitters" width={100} height={50} style={{ height: 52, width: 'auto' }} className="object-contain brightness-0 invert" />
+        <div style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: PDF_DARK_HEADING_WEIGHT, fontSize: 15, letterSpacing: '0.06em' }}>
+          EWA SAFARI OUTFITTERS
+        </div>
+      </div>
+      <div className="text-end">
+        {titleSize === 'display' ? (
+          <div style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: 400, fontSize: 34, letterSpacing: '0.14em' }}>{documentLabel}</div>
+        ) : (
+          <div style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: PDF_DARK_HEADING_WEIGHT, fontSize: 15, letterSpacing: '0.1em' }}>{documentLabel}</div>
+        )}
+        {documentNumber && (
+          <div style={{ fontSize: 13, color: '#c9d6cc', marginTop: 2, fontVariantNumeric: 'tabular-nums' }}>{documentNumber}</div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+export function PdfDarkLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mb-2" style={{ fontSize: 11, letterSpacing: '0.1em', color: '#c9d6cc' }}>
+      {children}
+    </div>
+  )
+}
+
+export function PdfDarkDivider() {
+  return <div style={{ borderTop: '1px solid rgba(255,255,255,0.18)' }} />
+}
+
+const DARK_TAG_TONES = {
+  neutral: { border: 'rgba(255,255,255,0.4)', color: '#dfe6e0' },
+  red: { border: '#e08a72', color: '#f3b8a5' },
+  amber: { border: 'var(--color-gold)', color: 'var(--color-gold)' },
+  green: { border: '#7bbf9a', color: '#a9dcc0' },
+} as const
+
+// Outlined pill — color as stroke/text only, never a filled background,
+// per the new design system's own direction. `tone` keeps status
+// distinguishable at a glance (kept, rather than collapsed to one neutral
+// tone, per an explicit product decision — see the redesign plan).
+export function PdfDarkTag({ tone = 'neutral', children }: { tone?: keyof typeof DARK_TAG_TONES; children: React.ReactNode }) {
+  const t = DARK_TAG_TONES[tone]
+  return (
+    <span
+      className="inline-block rounded-full no-break"
+      style={{ fontSize: 11, letterSpacing: '0.08em', border: `1px solid ${t.border}`, color: t.color, padding: '4px 12px' }}
+    >
+      {children}
+    </span>
+  )
+}
+
+export function PdfDarkCard({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      className="no-break rounded-lg"
+      style={{ padding: 20, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.22)' }}
+    >
+      {children}
+    </div>
+  )
+}
+
+// Replaces the PdfClosingCta + PdfFooter pair for this document family with
+// one plain centered closing block — the whole page is already dark, so a
+// second filled card on top of it would be redundant. Meant to be the last
+// child of a PdfDarkPage's flex column so `margin-top: auto` pins it to the
+// physical page bottom when content is short; on an overflow document it
+// just flows after the last section instead, which is fine.
+export function PdfDarkFooter({ heading, body }: { heading: string; body: string }) {
+  return (
+    <div
+      className="no-break text-center"
+      style={{ marginTop: 'auto', paddingTop: 24, borderTop: '1px solid rgba(255,255,255,0.18)' }}
+    >
+      <div style={{ fontSize: 11, letterSpacing: '0.1em', color: '#c9d6cc', marginBottom: 8 }}>{heading}</div>
+      <div style={{ fontSize: 13, color: '#dfe6e0', marginBottom: 12 }}>{body}</div>
+      <div style={{ fontSize: 12.5, color: '#dfe6e0' }}>
+        +255 (0) 747 999 070 · info@theextremewilderness.com · theextremewilderness.com
+      </div>
+      <div style={{ fontSize: 11, color: '#9fb0a4', marginTop: 16 }}>
+        EWA Safari Outfitters · Arusha, Tanzania · © {new Date().getFullYear()} EWA Safari Outfitters
+      </div>
+    </div>
+  )
+}
