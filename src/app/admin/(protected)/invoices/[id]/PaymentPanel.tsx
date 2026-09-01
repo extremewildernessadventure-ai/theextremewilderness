@@ -1,6 +1,7 @@
 import type { Invoice, InvoicePayment } from '@/lib/db'
 import { PAYMENT_METHOD_LABELS } from '@/lib/invoices'
 import RecordPaymentForm from './RecordPaymentForm'
+import DeletePaymentButton from './DeletePaymentButton'
 
 export default function PaymentPanel({ invoice, payments }: { invoice: Invoice; payments: InvoicePayment[] }) {
   const balanceDue = Math.max(0, invoice.amount - invoice.amount_paid)
@@ -34,7 +35,10 @@ export default function PaymentPanel({ invoice, payments }: { invoice: Invoice; 
                 <span className="text-gray-500">{PAYMENT_METHOD_LABELS[p.method]}</span>
                 {p.reference && <span className="text-gray-400"> ({p.reference})</span>}
               </div>
-              <span className="text-xs text-gray-400">{new Date(p.confirmed_at).toLocaleDateString()}</span>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-gray-400">{new Date(p.confirmed_at).toLocaleDateString()}</span>
+                {p.method !== 'pesapal' && <DeletePaymentButton invoiceId={invoice.id} paymentId={p.id} />}
+              </div>
             </div>
           ))}
         </div>
