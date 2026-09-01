@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
@@ -75,6 +76,39 @@ const articleLinks: Record<string, { packageSlugs: string[]; destSlugs: string[]
   'tanzania-vs-south-africa-safari':{ packageSlugs: ['10-day-northern-circuit', '7-day-serengeti-ngorongoro'], destSlugs: ['serengeti', 'ngorongoro', 'tarangire'] },
 }
 
+// Parses a lightweight `[label](https://url)` markdown-link syntax out of a
+// plain string and returns the text with real, clickable anchors in place —
+// lets blog body copy (stored as plain strings in articles.ts) link out to
+// external resources or internal pages without a full markdown/HTML renderer.
+// Text with no link syntax renders exactly as before.
+const INLINE_LINK_PATTERN = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g
+
+function renderInlineLinks(text: string): ReactNode {
+  const parts: ReactNode[] = []
+  let lastIndex = 0
+  let match: RegExpExecArray | null
+  let key = 0
+  INLINE_LINK_PATTERN.lastIndex = 0
+  while ((match = INLINE_LINK_PATTERN.exec(text)) !== null) {
+    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index))
+    parts.push(
+      <a
+        key={`link-${key++}`}
+        href={match[2]}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-brand underline decoration-brand/40 hover:text-brand-dark hover:decoration-brand-dark transition-colors"
+      >
+        {match[1]}
+      </a>
+    )
+    lastIndex = match.index + match[0].length
+  }
+  if (lastIndex === 0) return text
+  if (lastIndex < text.length) parts.push(text.slice(lastIndex))
+  return parts
+}
+
 function renderSection(section: SectionType, idx: number) {
   switch (section.type) {
     case 'h2':
@@ -82,14 +116,14 @@ function renderSection(section: SectionType, idx: number) {
     case 'h3':
       return <h3 key={idx} className="text-xl font-semibold text-brand-dark mt-7 mb-3">{section.text}</h3>
     case 'p':
-      return <p key={idx} className="text-gray-700 leading-relaxed mb-5">{section.text}</p>
+      return <p key={idx} className="text-gray-700 leading-relaxed mb-5">{renderInlineLinks(section.text)}</p>
     case 'ul':
       return (
         <ul key={idx} className="space-y-2 mb-6 ms-4">
           {section.items.map((item, i) => (
             <li key={i} className="flex gap-2 text-gray-700">
               <span className="text-brand font-bold mt-0.5 flex-shrink-0">&#8250;</span>
-              <span>{item}</span>
+              <span>{renderInlineLinks(item)}</span>
             </li>
           ))}
         </ul>
@@ -98,7 +132,7 @@ function renderSection(section: SectionType, idx: number) {
       return (
         <ol key={idx} className="list-decimal list-inside space-y-2 mb-6 ms-2">
           {section.items.map((item, i) => (
-            <li key={i} className="text-gray-700 leading-relaxed">{item}</li>
+            <li key={i} className="text-gray-700 leading-relaxed">{renderInlineLinks(item)}</li>
           ))}
         </ol>
       )
@@ -106,13 +140,13 @@ function renderSection(section: SectionType, idx: number) {
       return (
         <div key={idx} className="bg-green-50 border-s-4 border-brand rounded-e-xl p-5 mb-6">
           <p className="font-semibold text-brand mb-1">{section.title}</p>
-          <p className="text-gray-700 text-sm leading-relaxed">{section.text}</p>
+          <p className="text-gray-700 text-sm leading-relaxed">{renderInlineLinks(section.text)}</p>
         </div>
       )
     case 'callout':
       return (
         <div key={idx} className="bg-gold/10 border border-gold/30 rounded-xl p-5 mb-6">
-          <p className="text-gray-800 font-medium leading-relaxed">{section.text}</p>
+          <p className="text-gray-800 font-medium leading-relaxed">{renderInlineLinks(section.text)}</p>
         </div>
       )
     case 'image':
