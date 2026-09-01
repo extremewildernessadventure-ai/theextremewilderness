@@ -7,6 +7,7 @@ import type { Guide, Vehicle, OpsLodge } from '@/lib/ops'
 import { packages } from '@/data/packages'
 import { printCss, PdfCover, PdfRunningHeader, PdfSectionHeading, PdfClosingCta, PdfFooter, sanitizeForPdf } from '@/components/pdf/PdfChrome'
 import PrintButton from '../../../invoices/[id]/pdf/PrintButton'
+import { formatVoucherNumber } from '@/lib/voucher'
 
 // Same rendering this page produces is also what the server-side voucher PDF
 // route (api/admin/bookings/[id]/voucher/route.ts) fetches and hands to
@@ -65,11 +66,11 @@ export default async function BookingVoucherPage({ params }: Props) {
           eyebrow="Booking Voucher"
           title={pkg?.name ?? departure?.package_slug ?? 'Your Safari'}
           subtitle={departure ? `${departure.start_date} → ${departure.end_date}` : undefined}
-          metaLeft={`Voucher #${booking.id} · ${clientName}`}
+          metaLeft={`${formatVoucherNumber(booking.id)} · ${clientName}`}
         />
 
         <div className="px-10 py-8">
-          <PdfRunningHeader documentType="Booking Voucher" documentNumber={`#${booking.id}`} />
+          <PdfRunningHeader documentType="Booking Voucher" documentNumber={formatVoucherNumber(booking.id)} />
 
           <div className="flex items-start justify-between mb-7 no-break">
             <div>

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { formatVoucherNumber } from '@/lib/voucher'
 
 export default function SendVoucherButton({ bookingId, hasClientEmail, lastSentAt }: {
   bookingId: number
@@ -32,6 +33,7 @@ export default function SendVoucherButton({ bookingId, hasClientEmail, lastSentA
   return (
     <div className="panel space-y-3">
       <h2 className="mb-1">Voucher</h2>
+      <p className="text-xs text-gray-500 mono">Reference: <span className="font-semibold text-gray-700">{formatVoucherNumber(bookingId)}</span></p>
       {lastSentAt && (
         <p className="text-xs text-gray-500">Last sent {new Date(lastSentAt).toLocaleString()}</p>
       )}
