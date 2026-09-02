@@ -9,12 +9,15 @@
 // of the 18+ consumers downstream of the static JSON.
 import type { D1Database } from '../src/lib/db'
 import type { SafariPackage } from '../src/data/packages'
-import { listPackageRows, getFullPackage, getPackageTranslation } from '../src/lib/packages'
+import { listPublishedPackageRowsOrdered, getFullPackage, getPackageTranslation } from '../src/lib/packages'
 import { mergeTranslation, type PackageTranslationPayload } from '../src/lib/packageTranslations'
 
 export async function loadPackagesFromD1(db: D1Database, locales: readonly string[]): Promise<Record<string, SafariPackage[]>> {
-  const rows = await listPackageRows(db)
-  const publishedSlugs = rows.filter((r) => r.status === 'published').map((r) => r.slug)
+  // Already published-only, already in sort_order -- see
+  // listPublishedPackageRowsOrdered()'s own doc comment for why that order
+  // (not creation time) is the one that must round-trip exactly.
+  const rows = await listPublishedPackageRowsOrdered(db)
+  const publishedSlugs = rows.map((r) => r.slug)
 
   const enPackages: SafariPackage[] = []
   for (const slug of publishedSlugs) {
@@ -28,7 +31,6 @@ export async function loadPackagesFromD1(db: D1Database, locales: readonly strin
     if (locale === 'en') continue
     const localePackages: SafariPackage[] = []
     for (const row of rows) {
-      if (row.status !== 'published') continue
       const en = enPackages.find((p) => p.slug === row.slug)
       if (!en) continue
       const translationRow = await getPackageTranslation(db, row.id, locale)

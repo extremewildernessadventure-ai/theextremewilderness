@@ -133,8 +133,13 @@ async function main() {
 
   const idBySlug = new Map<string, number>()
 
-  for (const pkg of enPackages) {
-    const id = await createPackage(db, pkg, 'published')
+  for (const [index, pkg] of enPackages.entries()) {
+    // sort_order preserves src/data/packages.ts's declaration order --
+    // that order is real product behavior (sitemap, safari listing page,
+    // related-packages logic), not an implementation detail, so the
+    // migrated catalog must reproduce it exactly rather than falling back
+    // to creation-time ordering.
+    const id = await createPackage(db, pkg, 'published', index)
     await insertItinerary(db, id, pkg.itinerary)
     idBySlug.set(pkg.slug, id)
     report.packagesMigrated++
