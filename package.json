@@ -9,6 +9,7 @@
     "lint": "eslint",
     "test": "vitest run",
     "generate:locale-data": "tsx scripts/generate-locale-data.ts",
+    "verify:local-d1": "tsx scripts/verify-local-d1-roundtrip.ts",
     "submit-indexnow": "node scripts/submit-indexnow.mjs",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
