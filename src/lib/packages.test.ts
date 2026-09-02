@@ -1,7 +1,10 @@
 import { describe, it, expect } from 'vitest'
 import type { D1Database, D1PreparedStatement } from './db'
 import type { SafariPackage } from '@/data/packages'
-import { getFullPackage, createPackage, insertItinerary, replaceItinerary } from './packages'
+import {
+  getFullPackage, getPackageRowBySlug, createPackage, insertItinerary, replaceItinerary,
+  updatePackageFields, setPackageStatus, deletePackage,
+} from './packages'
 
 // In-memory D1 fake for this file's tests only. Handles the query shapes
 // this library actually issues -- single-table `SELECT ... WHERE col = ?`
@@ -22,7 +25,10 @@ function makeFakeDb(seed: Record<string, Record<string, unknown>[]> = {}): D1Dat
     prepare(sql: string): D1PreparedStatement {
       const insertMatch = sql.match(/INSERT INTO (\w+)\s*\(([^)]+)\)/)
       const deleteMatch = !insertMatch ? sql.match(/DELETE FROM (\w+)/) : null
-      const selectMatch = !insertMatch && !deleteMatch ? sql.match(/FROM (\w+)/) : null
+      const updateMatch = !insertMatch && !deleteMatch
+        ? sql.match(/UPDATE (\w+) SET([\s\S]+?)WHERE (\w+)\s*=\s*\?/)
+        : null
+      const selectMatch = !insertMatch && !deleteMatch && !updateMatch ? sql.match(/FROM (\w+)/) : null
       const whereCol = sql.match(/WHERE (\w+) (=|IN)/)?.[1]
       const orderCol = sql.match(/ORDER BY (\w+)/)?.[1]
       let bound: unknown[] = []
@@ -61,6 +67,28 @@ function makeFakeDb(seed: Record<string, Record<string, unknown>[]> = {}): D1Dat
             tables[table] = whereCol
               ? (tables[table] ?? []).filter((r) => !bound.includes(r[whereCol]))
               : []
+            return { success: true }
+          }
+          if (updateMatch) {
+            const table = updateMatch[1]
+            const setTokens = updateMatch[2].split(',').map((t) => t.trim()).filter(Boolean)
+            const whereColUpdate = updateMatch[3]
+            const whereValue = bound[bound.length - 1]
+            const target = (tables[table] ?? []).find((r) => r[whereColUpdate] === whereValue)
+            if (target) {
+              let boundIdx = 0
+              for (const token of setTokens) {
+                const eq = token.indexOf('=')
+                const col = token.slice(0, eq).trim()
+                const rawVal = token.slice(eq + 1).trim()
+                if (rawVal === '?') {
+                  target[col] = bound[boundIdx]
+                  boundIdx++
+                } else if (rawVal === 'CURRENT_TIMESTAMP') {
+                  target[col] = new Date().toISOString()
+                }
+              }
+            }
             return { success: true }
           }
           return { success: true }
@@ -301,5 +329,69 @@ describe('replaceItinerary', () => {
     expect(result!.itinerary[0].title).toBe('New day one')
     expect(result!.itinerary[0].accommodationByTier).toBeUndefined()
     expect(result!.itinerary[1].title).toBe('New day two')
+  })
+})
+
+describe('updatePackageFields / setPackageStatus / deletePackage', () => {
+  const minimal: SafariPackage = {
+    slug: 'lifecycle-safari',
+    name: 'Lifecycle Safari',
+    duration: 1,
+    destinations: ['tarangire'],
+    type: 'wildlife',
+    priceFrom: 500,
+    groupSize: { min: 1, max: 4 },
+    highlights: [],
+    itinerary: [],
+    included: [],
+    excluded: [],
+    heroImage: '/hero.jpg',
+    gallery: [],
+    bestFor: [],
+  }
+
+  it('updatePackageFields changes content fields but never the slug', async () => {
+    const db = makeFakeDb()
+    const id = await createPackage(db, minimal, 'draft')
+
+    await updatePackageFields(db, id, { ...minimal, name: 'Renamed Safari', priceFrom: 999 })
+
+    const row = await getPackageRowBySlug(db, 'lifecycle-safari')
+    expect(row!.name).toBe('Renamed Safari')
+    expect(row!.price_from).toBe(999)
+    expect(row!.slug).toBe('lifecycle-safari')
+    expect(row!.status).toBe('draft') // untouched by updatePackageFields
+  })
+
+  it('setPackageStatus flips status without touching content', async () => {
+    const db = makeFakeDb()
+    const id = await createPackage(db, minimal, 'draft')
+
+    await setPackageStatus(db, id, 'published')
+
+    const row = await getPackageRowBySlug(db, 'lifecycle-safari')
+    expect(row!.status).toBe('published')
+    expect(row!.name).toBe('Lifecycle Safari')
+  })
+
+  it('deletePackage removes the package and every child row, leaving nothing orphaned', async () => {
+    const withChildren: SafariPackage = {
+      ...minimal,
+      gallery: [{ src: '/g.jpg', alt: 'Gallery' }],
+      faq: [{ q: 'Q?', a: 'A.' }],
+      pricingTiers: [{ pax: 2, trail: 100 }],
+      itinerary: [{
+        day: 1, title: 'Day one', description: 'Desc', accommodation: 'Camp', meals: 'D',
+        accommodationByTier: { trail: { name: 'Trail Camp', image: '/t.jpg', amenities: [] } },
+      }],
+    }
+    const db = makeFakeDb()
+    const id = await createPackage(db, withChildren)
+    await insertItinerary(db, id, withChildren.itinerary)
+
+    await deletePackage(db, id)
+
+    expect(await getPackageRowBySlug(db, 'lifecycle-safari')).toBeNull()
+    expect(await getFullPackage(db, 'lifecycle-safari')).toBeNull()
   })
 })
