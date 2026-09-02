@@ -118,3 +118,28 @@ export interface PackageTranslationRow {
   created_at: string
   updated_at: string | null
 }
+
+// Every JSON-string column above is written by this library and never by
+// hand, so a parse failure here means real data corruption, not a bad
+// input to validate against — surfacing it beats silently swallowing it
+// into an empty array/undefined and shipping a quietly-wrong package page.
+function parseJsonColumn<T>(raw: string | null, fallback: T): T {
+  if (raw === null) return fallback
+  return JSON.parse(raw) as T
+}
+
+export async function getPackageRowBySlug(db: D1Database, slug: string): Promise<PackageRow | null> {
+  return db.prepare('SELECT * FROM packages WHERE slug = ?').bind(slug).first<PackageRow>()
+}
+
+export async function getPackageRowById(db: D1Database, id: number): Promise<PackageRow | null> {
+  return db.prepare('SELECT * FROM packages WHERE id = ?').bind(id).first<PackageRow>()
+}
+
+// Admin list view — every package regardless of status, newest first.
+// Deliberately not filtered to 'published' (that filter belongs to the
+// build-pipeline read path once it exists, not the admin list).
+export async function listPackageRows(db: D1Database): Promise<PackageRow[]> {
+  const { results } = await db.prepare('SELECT * FROM packages ORDER BY created_at DESC').all<PackageRow>()
+  return results
+}
