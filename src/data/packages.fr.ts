@@ -2394,6 +2394,7 @@ export const packages: SafariPackage[] = [
         description: "Arrivée à l'aéroport international du Kilimandjaro et transfert à votre hôtel à Arusha pour un repos et un briefing safari.",
         accommodation: 'Arusha Hotel',
         meals: "Dîner",
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-garden-path.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -2401,6 +2402,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers le parc national de Tarangire. La rivière Tarangire soutient d'extraordinaires concentrations de faune — des centaines d'éléphants, zèbres, gnous, girafes et impalas partagent l'eau avec des crocodiles et des hippopotames. Les anciens baobabs confèrent au paysage une atmosphère presque préhistorique.",
         accommodation: 'Tarangire Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Lemala Nanyukie', image: '/images/lodges/lemala-nanyukie.webp', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 3,
@@ -2408,6 +2410,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers le lac Manyara, célèbre pour ses lions grimpeurs d'arbres — un comportement unique à cette population. La forêt à eau souterraine abrite des troupes de babouins et des colobes, tandis que le lac alcalin peu profond vire au rose avec les vols de flamants. Des geysers chauds fument en bordure de l'eau.",
         accommodation: 'Lake Manyara Hotel',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'andBeyond Lake Manyara Tree Lodge', image: '/images/lodges/andbeyond-lake-manyara-tree-lodge-living-room.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 4,
@@ -2415,6 +2418,7 @@ export const packages: SafariPackage[] = [
         description: "Traversée des hauts plateaux du Ngorongoro et descente sur les plaines du Serengeti. Arrivée dans la zone de Seronera pour un game drive en après-midi. Les léopards hantent les bosquets de saucissiers autour de la jonction de la rivière — l'un des habitats à léopards les plus fiables de Tanzanie.",
         accommodation: 'Serengeti Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 5,
@@ -2422,6 +2426,7 @@ export const packages: SafariPackage[] = [
         description: "Une journée complète au Serengeti avec des drives matin et après-midi. Les guépards scrutent les proies depuis les termitières. Les lions patrouillent les limites du territoire. Les troupeaux de gnous s'étendent sur les plaines en colonnes qui disparaissent à l'horizon.",
         accommodation: 'Serengeti Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 6,
@@ -2429,6 +2434,7 @@ export const packages: SafariPackage[] = [
         description: "Quittez le Serengeti et descendez dans le cratère du Ngorongoro — le joyau de la couronne du circuit nord de la Tanzanie. Les Big Five résident tous dans cette ancienne caldeira. Les lions sont souvent vus chassant en plein air, tandis que les rhinocéros noirs broutent au loin. Nuit dans la ville de montagne de Karatu.",
         accommodation: 'Karatu Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Tloma Lodge, Karatu', image: '/images/lodges/tloma-lodge.webp', amenities: ['organic-farm', 'garden', 'restaurant'] } },
       },
       {
         day: 7,
@@ -2487,6 +2493,7 @@ export const packages: SafariPackage[] = [
         description: "Arrivée à l'aéroport international du Kilimandjaro et transfert à votre hôtel à Arusha. Briefing safari au cours du dîner.",
         accommodation: 'Arusha Hotel',
         meals: "Dîner",
+        accommodationByTier: { reserve: { name: 'Arusha Coffee Lodge', image: '/images/lodges/arusha-coffee-lodge-garden-path.webp', amenities: ['garden', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -2494,6 +2501,7 @@ export const packages: SafariPackage[] = [
         description: "Embarquez dans votre petit avion à Arusha. La trajectoire de vol vous emmène directement au-dessus du cratère du Ngorongoro — depuis les airs, le bol circulaire parfait révèle toute son échelle, un monde miniature de prairies et de lacs inscrit dans un rebord d'ancienne lave. Atterrissage à la piste de Seronera et début de votre premier game drive de l'après-midi.",
         accommodation: 'Serengeti Tented Camp',
         meals: "Déjeuner, Dîner",
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 3,
@@ -2501,6 +2509,7 @@ export const packages: SafariPackage[] = [
         description: "Une journée complète à explorer les plaines du Serengeti central autour de Seronera. C'est l'une des zones les plus riches en faune d'Afrique toute l'année, avec des prides de lions résidentes, des guépards et des léopards complétés par de vastes troupeaux de zèbres et de gnous.",
         accommodation: 'Serengeti Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 4,
@@ -2508,6 +2517,7 @@ export const packages: SafariPackage[] = [
         description: "Route au sud vers la zone de Ndutu à la frontière du Serengeti et de la zone de conservation du Ngorongoro. Pendant la saison des veaux (janvier à mars), jusqu'à 8 000 veaux de gnous naissent ici chaque jour. Guépards, lions, hyènes et lycaons convergent sur les nouveau-nés vulnérables en des concentrations de prédateurs extraordinaires.",
         accommodation: 'Ndutu Safari Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Masek Tented Lodge', image: '/images/lodges/masek-tented-lodge.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 5,
@@ -2515,6 +2525,7 @@ export const packages: SafariPackage[] = [
         description: "Encore une journée entière à pister les troupeaux des veaux et leurs prédateurs sur les plaines à herbes courtes. Les bois de Ndutu offrent un habitat aux léopards et aux chats sauvages africains entre le drame du terrain ouvert. La faune aviaire explose durant cette saison.",
         accommodation: 'Ndutu Safari Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Masek Tented Lodge', image: '/images/lodges/masek-tented-lodge.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 6,
@@ -2522,6 +2533,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers le Ngorongoro et descente dans le cratère pour une journée complète avec les Big Five. Les prides de lions résidentes comptent parmi les plus étudiées au monde. Les rhinocéros noirs, rarement vus ailleurs, sont régulièrement aperçus ici. Nuit dans la charmante ville de Karatu.",
         accommodation: 'Karatu Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Tloma Lodge, Karatu', image: '/images/lodges/tloma-lodge.webp', amenities: ['organic-farm', 'garden', 'restaurant'] } },
       },
       {
         day: 7,
@@ -2764,6 +2776,7 @@ export const packages: SafariPackage[] = [
         description: "Arrivée à l'aéroport international de Kigali et transfert à votre hôtel. Kigali est l'une des capitales africaines les plus propres et les mieux organisées — une introduction idéale au Rwanda.",
         accommodation: 'Kigali Hotel',
         meals: "Dîner",
+        accommodationByTier: { reserve: { name: 'Radisson Blu Hotel & Convention Centre, Kigali', image: '/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp', amenities: ['pool', 'restaurant', 'wifi'] } },
       },
       {
         day: 2,
@@ -2771,6 +2784,7 @@ export const packages: SafariPackage[] = [
         description: "Visite du Mémorial du génocide de Kigali, qui honore les 250 000 victimes enterrées sur les lieux et retrace l'histoire du génocide de 1994 à travers des témoignages de survivants, des photographies et un film documentaire. Le mémorial est à la fois profondément émouvant et un contexte essentiel pour comprendre le Rwanda moderne. Après-midi libre pour explorer le vivant quartier des arts de Kigali.",
         accommodation: 'Kigali Hotel',
         meals: "Petit-déjeuner, Dîner",
+        accommodationByTier: { reserve: { name: 'Radisson Blu Hotel & Convention Centre, Kigali', image: '/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp', amenities: ['pool', 'restaurant', 'wifi'] } },
       },
       {
         day: 3,
@@ -2778,6 +2792,7 @@ export const packages: SafariPackage[] = [
         description: "Un trajet de quatre heures vers le nord-ouest jusqu'à Ruhengeri (Musanze) à travers les célèbres Mille Collines du Rwanda. La chaîne volcanique des Virungas s'élève dramatiquement au-dessus des terres agricoles environnantes. Arrêt déjeuner dans un restaurant local des hauts plateaux et arrivée à Ruhengeri en début de soirée.",
         accommodation: 'Ruhengeri Hotel',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Kinigi Guest House', image: '/images/lodges/kinigi-guest-house.webp', amenities: ['view', 'garden'] } },
       },
       {
         day: 4,
@@ -2785,6 +2800,7 @@ export const packages: SafariPackage[] = [
         description: "L'une des expériences de faune sauvage les plus extraordinaires au monde. Départ depuis la station de rangers de Kinigi avec votre guide professionnel et des rangers armés pour localiser une famille de gorilles habituée dans les forêts de bambous des Virungas. Lors de la rencontre, vous passez une heure avec ces remarquables primates — observant les silverbacks commander leurs familles, les mères allaiter leurs nourrissons et les jeunes jouer. Visite du projet vétérinaire pour gorilles de Muheza pour en apprendre davantage sur les efforts de conservation.",
         accommodation: 'Ruhengeri Hotel',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Kinigi Guest House', image: '/images/lodges/kinigi-guest-house.webp', amenities: ['view', 'garden'] } },
       },
       {
         day: 5,
@@ -2792,6 +2808,7 @@ export const packages: SafariPackage[] = [
         description: "Retour au parc national des Volcans pour suivre le singe doré en voie de disparition — un primate bleu-or électrique que l'on ne trouve que dans les montagnes des Virungas. Le sentier forestier diffère du trek des gorilles, offrant de nouvelles perspectives sur l'habitat de bambous. Des gazelles et des antilopes broutent en lisière de forêt l'après-midi.",
         accommodation: 'Ruhengeri Hotel',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Kinigi Guest House', image: '/images/lodges/kinigi-guest-house.webp', amenities: ['view', 'garden'] } },
       },
       {
         day: 6,
@@ -2799,6 +2816,7 @@ export const packages: SafariPackage[] = [
         description: "Transfert matinal vers l'aéroport de Kigali et vol vers le Serengeti. La trajectoire de vol vous emmène au-dessus des mille collines du Rwanda et à travers la frontière dans la vaste savane tanzanienne — un changement de paysage dramatique. Atterrissage à Seronera et début de votre premier game drive de l'après-midi sur les plaines.",
         accommodation: 'Serengeti Tented Camp',
         meals: "Déjeuner, Dîner",
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 7,
@@ -2806,6 +2824,7 @@ export const packages: SafariPackage[] = [
         description: "Une journée complète dans le Serengeti central. Grands félins, troupeaux de gnous et le paysage emblématique à acacias offrent une riche observation de la faune du matin au soir. Apéritif sur un kopje tandis que le ciel du Serengeti vire à l'or.",
         accommodation: 'Serengeti Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 8,
@@ -2813,6 +2832,7 @@ export const packages: SafariPackage[] = [
         description: "Encore une journée entière à pister la faune sur les plaines du Serengeti. Votre guide suit les informations fraîches pour vous positionner là où des lions sont à la chasse ou un guépard a des petits dans l'herbe.",
         accommodation: 'Serengeti Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 9,
@@ -2820,6 +2840,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers le Ngorongoro et descente dans le cratère pour une journée complète avec les Big Five. La caldeira fermée garantit des observations de faune remarquables dans un décor volcanique spectaculaire.",
         accommodation: 'Ngorongoro Serena Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'garden'] } },
       },
       {
         day: 10,
@@ -2827,6 +2848,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers le lac Eyasi pour passer la journée avec le peuple Hadzabe, l'une des dernières véritables communautés de chasseurs-cueilleurs d'Afrique. Rejoignez une chasse matinale avec des arcs et flèches traditionnels, assistez à des techniques de fabrication du feu inchangées depuis des millénaires, et gagnez une compréhension profonde d'un mode de vie aux confins de la modernité.",
         accommodation: 'Lake Eyasi Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Kisima Ngeda Tented Camp', image: '/images/lodges/kisima-ngeda-tented-camp.webp', amenities: ['view', 'garden'] } },
       },
       {
         day: 11,
@@ -3902,6 +3924,7 @@ export const packages: SafariPackage[] = [
         description: "Arrivée à l'aéroport international Jomo Kenyatta et transfert à votre hôtel à Nairobi. Profitez des installations de piscine et de spa et reposez-vous avant l'aventure.",
         accommodation: 'Nairobi Luxury Hotel',
         meals: "Dîner",
+        accommodationByTier: { reserve: { name: 'Hemingways Nairobi', image: '/images/lodges/hemingways-nairobi.webp', amenities: ['pool', 'spa', 'restaurant'] } },
       },
       {
         day: 2,
@@ -3909,6 +3932,7 @@ export const packages: SafariPackage[] = [
         description: "Visite matinale du musée Karen Blixen, la ferme coloniale qui a inspiré Out of Africa, avec en toile de fond les collines Ngong. Puis au Centre des Girafes, où vous pouvez nourrir des girafes de Rothschild en voie de disparition de la main à la plateforme surélevée. Après-midi au sanctuaire des éléphants Daphne Sheldrick pour la session quotidienne de bain de boue.",
         accommodation: 'Nairobi Luxury Hotel',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Hemingways Nairobi', image: '/images/lodges/hemingways-nairobi.webp', amenities: ['pool', 'spa', 'restaurant'] } },
       },
       {
         day: 3,
@@ -3916,6 +3940,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers Amboseli, le parc le plus emblématique du Kenya, où d'immenses troupeaux d'éléphants se déplacent avec la toile de fond enneigée du Kilimandjaro. La montagne est visible les matins clairs avec un extraordinaire niveau de détail — ses glaciers se reflétant au-dessus de la poussière de la savane en dessous. Amboseli abrite plus de 600 espèces d'oiseaux et des populations fiables de lions et léopards.",
         accommodation: 'Amboseli Safari Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Ol Tukai Lodge', image: '/images/lodges/ol-tukai-lodge.webp', amenities: ['view', 'wildlife-view', 'pool'] } },
       },
       {
         day: 4,
@@ -3923,6 +3948,7 @@ export const packages: SafariPackage[] = [
         description: "Une journée complète à Amboseli avec des game drives matin et après-midi. Les prairies ouvertes et les marécages du parc rendent l'observation des animaux simple et profondément enrichissante. De grandes familles d'éléphants se déplacent en lentes processions, les mères guidant les éléphanteaux à travers les bosquets d'acacias.",
         accommodation: 'Amboseli Safari Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Ol Tukai Lodge', image: '/images/lodges/ol-tukai-lodge.webp', amenities: ['view', 'wildlife-view', 'pool'] } },
       },
       {
         day: 5,
@@ -3930,6 +3956,7 @@ export const packages: SafariPackage[] = [
         description: "Route au nord vers Samburu — une réserve semi-aride et accidentée le long de la rivière Ewaso Ng'iro. Samburu est célèbre pour les 'Cinq Spéciaux de Samburu' : le zèbre de Grévy, la girafe réticulée, l'autruche somalienne, le gerenuk (l'antilope au long cou) et le beisa oryx — toutes des espèces nordiques que l'on ne trouve nulle part ailleurs au Kenya. Équitation optionnelle le long de la rivière.",
         accommodation: 'Samburu Safari Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Samburu Intrepids', image: '/images/lodges/samburu-intrepids.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 6,
@@ -3937,6 +3964,7 @@ export const packages: SafariPackage[] = [
         description: "Game drive matinal le long de la rivière Ewaso Ng'iro où les léopards sont remarquablement habitués et souvent vus de près dans les arbres riverains. Les crocodiles bordent les berges sablonneuses. La pride de lions résidente chasse à l'aube. Après-midi libre ou visite culturelle optionnelle dans un manyatta Samburu.",
         accommodation: 'Samburu Safari Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Samburu Intrepids', image: '/images/lodges/samburu-intrepids.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 7,
@@ -3944,6 +3972,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers la conservancy d'Ol Pejeta, qui abrite la plus grande population de rhinocéros noirs d'Afrique de l'Est et les deux derniers rhinocéros blancs du Nord sur terre. La conservancy abrite également le seul sanctuaire de chimpanzés d'Afrique de l'Est, où des chimpanzés rescapés vivent dans un grand enclos forestier ouvert aux visites guidées. Game drive au coucher du soleil sur les plaines ouvertes.",
         accommodation: 'Ol Pejeta Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Sweetwaters Serena Camp', image: '/images/lodges/sweetwaters-serena-camp.webp', amenities: ['wildlife-view', 'pool'] } },
       },
       {
         day: 8,
@@ -3951,6 +3980,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers le lac Nakuru, célèbre pour ses immenses vols de flamants roses pouvant atteindre deux millions d'oiseaux, teintant entièrement en rose le lac alcalin peu profond. Le parc est également un sanctuaire pour les rhinocéros — noirs et blancs — et soutient des populations saines de lions, léopards et girafes de Rothschild.",
         accommodation: 'Lake Nakuru Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Lake Nakuru Lodge', image: '/images/lodges/lake-nakuru-lodge.webp', amenities: ['view', 'restaurant'] } },
       },
       {
         day: 9,
@@ -3958,6 +3988,7 @@ export const packages: SafariPackage[] = [
         description: "Route au sud vers le Masai Mara — la réserve de faune la plus célébrée du Kenya et l'une des grandes destinations de faune sur terre. Élu à plusieurs reprises parmi les Sept Merveilles naturelles d'Afrique, le Mara soutient des populations annuelles de lions, guépards, léopards, éléphants, buffles et hippopotames, en plus d'accueillir la Grande Migration de juillet à octobre.",
         accommodation: 'Masai Mara Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Kichwa Tembo Camp', image: '/images/lodges/kichwa-tembo-camp.webp', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 10,
@@ -3965,6 +3996,7 @@ export const packages: SafariPackage[] = [
         description: "Une journée complète au Masai Mara avec des game drives matin et après-midi. L'équitation à travers la savane ouverte aux côtés des zèbres et des girafes est disponible en option pour une expérience immersive ultime. Les observations de grands félins comptent parmi les plus fiables d'Afrique.",
         accommodation: 'Masai Mara Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Kichwa Tembo Camp', image: '/images/lodges/kichwa-tembo-camp.webp', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 11,
@@ -4021,6 +4053,7 @@ export const packages: SafariPackage[] = [
         description: "Arrivée à l'aéroport international Julius Nyerere à Dar es Salaam et transfert directement à votre lodge sur les rives de la rivière Rufiji à l'intérieur du parc national de Nyerere. Une excursion optionnelle en bateau au coucher du soleil vous introduit aux hippopotames et aux crocodiles de la rivière dès votre première soirée.",
         accommodation: 'Rufiji River Camp',
         meals: "Dîner",
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: '/images/lodges/rufiji-river-camp.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 2,
@@ -4028,6 +4061,7 @@ export const packages: SafariPackage[] = [
         description: "Journée complète de game drives dans Nyerere — le plus grand parc national de Tanzanie, couvrant 50 000 kilomètres carrés de forêt riveraine, de prairies ouvertes et de bois de miombo. Prides de lions, troupeaux d'éléphants, buffles, koudous et girafes sont tous régulièrement aperçus sur le terrain varié.",
         accommodation: 'Rufiji River Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: '/images/lodges/rufiji-river-camp.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 3,
@@ -4035,6 +4069,7 @@ export const packages: SafariPackage[] = [
         description: "Safari matinal en bateau sur la rivière Rufiji — l'une des plus grandes voies navigables d'Afrique de l'Est. Des bassins d'hippopotames, des berges de crocodiles et de denses colonies d'oiseaux aquatiques bordent les rives. Des troupeaux d'éléphants traversent aux gués peu profonds. C'est le territoire par excellence des safaris pédestres et en bateau, sans restrictions de véhicules sur où les guides peuvent vous emmener.",
         accommodation: 'Rufiji River Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: '/images/lodges/rufiji-river-camp.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 4,
@@ -4042,6 +4077,7 @@ export const packages: SafariPackage[] = [
         description: "Un dernier game drive matinal à Nyerere avant le transfert vers le nord vers le parc national de Mikumi. La route traverse les campagnes reculées du sud de la Tanzanie rarement vues par les visiteurs.",
         accommodation: 'Mikumi Wildlife Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Mikumi Wildlife Lodge', image: '/images/lodges/mikumi-wildlife-lodge.webp', amenities: ['pool', 'view', 'restaurant'] } },
       },
       {
         day: 5,
@@ -4049,6 +4085,7 @@ export const packages: SafariPackage[] = [
         description: "Game drives à travers la plaine de Mkata — l'habitat le plus riche en faune de Mikumi. Éléphants, élands, lions, léopards, guépards et lycaons habitent tous le parc. Mikumi est souvent surnommé 'le Serengeti du sud' pour son paysage de prairies ouvertes et ses observations accessibles de grands félins.",
         accommodation: 'Mikumi Wildlife Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Mikumi Wildlife Lodge', image: '/images/lodges/mikumi-wildlife-lodge.webp', amenities: ['pool', 'view', 'restaurant'] } },
       },
       {
         day: 6,
@@ -4056,6 +4093,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers les monts Udzungwa — l'un des parcs les plus riches en biodiversité de Tanzanie et une priorité mondiale de conservation. Randonnée à travers la forêt de montagne jusqu'à la cascade de Sanje, où vous pouvez nager dans les bassins naturels sous les chutes. La forêt abrite deux espèces de primates endémiques et plus de 400 espèces d'oiseaux.",
         accommodation: 'Udzungwa Forest Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Hondo Hondo Udzungwa Forest Camp', image: '/images/lodges/hondo-hondo-udzungwa-forest-camp.webp', amenities: ['garden', 'view'] } },
       },
       {
         day: 7,
@@ -4063,6 +4101,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers l'ouest vers le parc national de Ruaha — un long mais pittoresque trajet à travers les hauts plateaux du sud. Ruaha est le plus grand parc national de Tanzanie et l'une des destinations les plus passionnantes du continent pour les passionnés de faune sérieux.",
         accommodation: 'Ruaha River Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-dining-pavilion.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 8,
@@ -4070,6 +4109,7 @@ export const packages: SafariPackage[] = [
         description: "Ruaha abrite les plus grandes populations de lions, léopards, guépards et lycaons de Tanzanie — la densité de prédateurs du parc est exceptionnelle. Les troupeaux d'éléphants se comptent par milliers. La Grande Rivière Ruaha est le cordon ombilical du parc, attirant les animaux de toute la région en saison sèche. Aucune foule, aucun bruit — juste la wilderness dans sa forme la plus pure.",
         accommodation: 'Ruaha River Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-dining-pavilion.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 9,
@@ -4077,6 +4117,7 @@ export const packages: SafariPackage[] = [
         description: "Encore une journée complète à Ruaha. Les drives matinaux ciblent les zones de la rivière où les prédateurs sont les plus actifs à l'aube. Les drives d'après-midi poussent dans l'intérieur reculé où des zones rarement visitées abritent des antilopes rouanes, des grands koudous et des oryx aux côtés des espèces plus communes.",
         accommodation: 'Ruaha River Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-dining-pavilion.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 10,
@@ -4135,6 +4176,7 @@ export const packages: SafariPackage[] = [
         description: "Arrivée à l'aéroport international Julius Nyerere à Dar es Salaam et transfert à votre lodge à l'intérieur du parc national de Nyerere sur les rives de la rivière Rufiji. Une excursion optionnelle en bateau au coucher du soleil vous introduit aux hippopotames et aux crocodiles de la rivière dès votre première soirée.",
         accommodation: 'Rufiji River Camp',
         meals: "Dîner",
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: '/images/lodges/rufiji-river-camp.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 2,
@@ -4142,6 +4184,7 @@ export const packages: SafariPackage[] = [
         description: "Journée complète de game drives dans le parc national de Nyerere. De grandes prides de lions traversent les bois de miombo et les prairies ouvertes, partageant le paysage avec des troupeaux d'éléphants, des buffles et des girafes. L'échelle du parc — plus grand que la Suisse — signifie que les rencontres se sentent vraiment sauvages et sans hâte.",
         accommodation: 'Rufiji River Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: '/images/lodges/rufiji-river-camp.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 3,
@@ -4149,6 +4192,7 @@ export const packages: SafariPackage[] = [
         description: "Game drive matinal axé sur les zones boisées où les léopards et les lycaons chassent. Safari en bateau l'après-midi sur la rivière Rufiji — une perspective unique sur la faune africaine que peu de visiteurs expérimentent jamais. Apéritif au bord de l'eau tandis que les hippopotames font surface autour du bateau.",
         accommodation: 'Rufiji River Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Rufiji River Camp', image: '/images/lodges/rufiji-river-camp.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 4,
@@ -4156,6 +4200,7 @@ export const packages: SafariPackage[] = [
         description: "Embarquez dans votre petit avion et volez vers l'ouest au-dessus des plaines du sud de la Tanzanie vers le parc national de Ruaha. La vue aérienne révèle l'étendue des bois de miombo s'étendant jusqu'à l'horizon. Un game drive en après-midi à la Grande Rivière Ruaha donne le ton pour ce qui suit.",
         accommodation: 'Ruaha River Lodge',
         meals: "Déjeuner, Dîner",
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-dining-pavilion.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 5,
@@ -4163,6 +4208,7 @@ export const packages: SafariPackage[] = [
         description: "Une journée complète à Ruaha — le plus grand parc national de Tanzanie et l'un des plus grands secrets d'Afrique. La densité des prédateurs est extraordinaire : lions, léopards, guépards et lycaons habitent tous le même paysage. Les troupeaux d'éléphants se comptent par milliers. Pas de convois de bus touristiques, pas de foules — juste vous, votre guide et la wilderness.",
         accommodation: 'Ruaha River Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-dining-pavilion.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 6,
@@ -4170,6 +4216,7 @@ export const packages: SafariPackage[] = [
         description: "Poussez dans les zones plus reculées de Ruaha. Les antilopes rouanes et les grands koudous habitent la forêt sèche de miombo. La Grande Rivière Ruaha attire les animaux de toute la région, et les interactions prédateur-proie au bord de l'eau sont un spectacle quotidien.",
         accommodation: 'Ruaha River Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Ruaha River Lodge', image: '/images/lodges/ruaha-river-lodge-dining-pavilion.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 7,
@@ -4177,6 +4224,7 @@ export const packages: SafariPackage[] = [
         description: "Game drive matinal à Ruaha, puis vol vers Zanzibar. Posez le pied sur cette légendaire île aux épices et transfert à votre resort cinq étoiles en bord de mer. Passez l'après-midi sur le sable blanc, vous habituant au paradis.",
         accommodation: 'Zanzibar Luxury Beach Resort',
         meals: "Petit-déjeuner",
+        accommodationByTier: { reserve: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'all-inclusive'] } },
       },
       {
         day: 8,
@@ -4184,6 +4232,7 @@ export const packages: SafariPackage[] = [
         description: "Visite guidée matinale de Stone Town — classée à l'UNESCO et pleine de portes sculptées en bois, d'arches arabes et de vie culturelle swahilie. Excursion en bateau vers Prison Island, où des tortues géantes d'Aldabra de plus de 100 ans se promènent librement dans les jardins. Croisière au coucher du soleil en boutre l'après-midi.",
         accommodation: 'Zanzibar Luxury Beach Resort',
         meals: "Petit-déjeuner",
+        accommodationByTier: { reserve: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'all-inclusive'] } },
       },
       {
         day: 9,
@@ -4191,6 +4240,7 @@ export const packages: SafariPackage[] = [
         description: "Excursion matinale en bateau à Kizimkazi pour nager avec des dauphins tourneurs sauvages dans l'océan ouvert. Tour de ferme d'épices l'après-midi à travers des plantations de clous de girofle, cannelle, vanille, poivre noir et ylang-ylang. Cocktails du soir au resort tandis que le soleil se couche dans l'océan Indien.",
         accommodation: 'Zanzibar Luxury Beach Resort',
         meals: "Petit-déjeuner",
+        accommodationByTier: { reserve: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'all-inclusive'] } },
       },
       {
         day: 10,
@@ -4198,6 +4248,7 @@ export const packages: SafariPackage[] = [
         description: "Une journée entièrement libre sur les légendaires plages de Zanzibar. L'eau turquoise, le sable de corail blanc et les palmiers ondulants sont le contraste parfait avec l'intensité des parcs de safari du sud. Plongée en apnée, voile ou kayak en option.",
         accommodation: 'Zanzibar Luxury Beach Resort',
         meals: "Petit-déjeuner",
+        accommodationByTier: { reserve: { name: 'Kilindi Zanzibar', image: '/images/lodges/kilindi-zanzibar.webp', amenities: ['pool', 'spa', 'all-inclusive'] } },
       },
       {
         day: 11,
@@ -4255,6 +4306,7 @@ export const packages: SafariPackage[] = [
         description: "Arrivée à l'aéroport international Jomo Kenyatta et transfert à votre hôtel à Nairobi. Détendez-vous et préparez-vous pour douze jours à travers deux des plus grandes destinations de faune d'Afrique.",
         accommodation: 'Nairobi Hotel',
         meals: "Dîner",
+        accommodationByTier: { reserve: { name: 'Hemingways Nairobi', image: '/images/lodges/hemingways-nairobi.webp', amenities: ['pool', 'spa', 'restaurant'] } },
       },
       {
         day: 2,
@@ -4262,6 +4314,7 @@ export const packages: SafariPackage[] = [
         description: "Visite du musée Karen Blixen, installé dans la ferme qui a inspiré Out of Africa. Puis au Centre des Girafes où les girafes de Rothschild mangent des granulés dans votre paume à hauteur des yeux sur la plateforme d'observation surélevée. Après-midi à l'orphelinat des éléphants Daphne Sheldrick pour la session de bain de boue.",
         accommodation: 'Nairobi Hotel',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Hemingways Nairobi', image: '/images/lodges/hemingways-nairobi.webp', amenities: ['pool', 'spa', 'restaurant'] } },
       },
       {
         day: 3,
@@ -4269,6 +4322,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers Amboseli sous le sommet glacé du Kilimandjaro. La plus haute montagne d'Afrique domine le paysage les matins clairs, offrant un décor emblématique pour les plus grands troupeaux d'éléphants du Kenya. Plus de 600 espèces d'oiseaux ont été recensées dans ce parc compact.",
         accommodation: 'Amboseli Safari Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Ol Tukai Lodge', image: '/images/lodges/ol-tukai-lodge.webp', amenities: ['view', 'wildlife-view', 'pool'] } },
       },
       {
         day: 4,
@@ -4276,6 +4330,7 @@ export const packages: SafariPackage[] = [
         description: "Une journée complète à explorer les marécages, les bois et les prairies ouvertes d'Amboseli. De grands groupes familiaux d'éléphants se déplacent dans les roseaux et les bosquets d'acacias, les prides de lions chassent les bords des plaines inondables, et les guépards poursuivent les gazelles sur terrain ouvert.",
         accommodation: 'Amboseli Safari Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Ol Tukai Lodge', image: '/images/lodges/ol-tukai-lodge.webp', amenities: ['view', 'wildlife-view', 'pool'] } },
       },
       {
         day: 5,
@@ -4283,6 +4338,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers le lac Nakuru, où le lac alcalin soutient l'une des plus grandes populations de flamants roses au monde. La célèbre masse rose sur l'eau se déplace et tourbillonne avec les mouvements des oiseaux. Le parc est également un sanctuaire pour les rhinocéros noirs et blancs — l'un des meilleurs endroits au Kenya pour les voir.",
         accommodation: 'Lake Nakuru Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Lake Nakuru Lodge', image: '/images/lodges/lake-nakuru-lodge.webp', amenities: ['view', 'restaurant'] } },
       },
       {
         day: 6,
@@ -4290,6 +4346,7 @@ export const packages: SafariPackage[] = [
         description: "Route au sud vers la réserve nationale du Masai Mara — le joyau de la couronne du Kenya. Les prairies vallonnées du Mara s'étendent à l'horizon et se raccordent de manière transparente au Serengeti au sud. Le game drive de l'après-midi vous introduit aux prides de lions résidentes et aux familles de guépards.",
         accommodation: 'Masai Mara Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Kichwa Tembo Camp', image: '/images/lodges/kichwa-tembo-camp.webp', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 7,
@@ -4297,6 +4354,7 @@ export const packages: SafariPackage[] = [
         description: "Une journée entière dans le Mara élu l'une des Sept Merveilles naturelles d'Afrique. De juillet à octobre, la migration des gnous emplit chaque horizon. Toute l'année, les Big Five et le casting complet des prédateurs africains font du Mara l'une des plus grandes destinations d'observation de faune sur terre. Équitation optionnelle aux côtés de la faune.",
         accommodation: 'Masai Mara Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Kichwa Tembo Camp', image: '/images/lodges/kichwa-tembo-camp.webp', amenities: ['wildlife-view', 'view'] } },
       },
       {
         day: 8,
@@ -4304,6 +4362,7 @@ export const packages: SafariPackage[] = [
         description: "Franchissez la frontière vers la Tanzanie en petit avion, atterrissant à la piste de Seronera au cœur du Serengeti. Game drive en après-midi dans les plaines centrales alors que les populations résidentes de lions et de guépards du Serengeti s'animent dans la lumière dorée de l'après-midi. Les bassins d'hippopotames rougeoient dans le coucher du soleil.",
         accommodation: 'Serengeti Tented Camp',
         meals: "Déjeuner, Dîner",
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 9,
@@ -4311,6 +4370,7 @@ export const packages: SafariPackage[] = [
         description: "Une journée complète sur les plaines du Serengeti avec des drives matin et après-midi. Grands félins, troupeaux de gnous, zèbres, girafes et éléphants remplissent le paysage dans toutes les directions. Le Serengeti est le plus grand écosystème de savane ininterrompue sur terre.",
         accommodation: 'Serengeti Tented Camp',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Siringiti Serengeti Camp', image: '/images/lodges/siringiti-serengeti-camp.webp', amenities: ['wifi', 'view', 'restaurant'] } },
       },
       {
         day: 10,
@@ -4318,6 +4378,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers le Ngorongoro et descente dans le cratère pour une journée complète parmi les Big Five. La faune concentrée dans cette ancienne caldeira offre certaines des observations les plus productives en Afrique. Les rhinocéros noirs sont régulièrement aperçus ici.",
         accommodation: 'Ngorongoro Serena Lodge',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'garden'] } },
       },
       {
         day: 11,
@@ -4325,6 +4386,7 @@ export const packages: SafariPackage[] = [
         description: "Route vers le lac Manyara — le parc qu'Hemingway a qualifié 'du plus bel endroit d'Afrique'. Les lions grimpeurs d'arbres se drapent sur des branches de figuiers au-dessus du sol forestier. Le lac alcalin soutient d'immenses vols de flamants roses, de pélicans et de cigognes. Des geysers chauds bouillonnent le long du rivage.",
         accommodation: 'Lake Manyara Hotel',
         meals: "Tous les repas",
+        accommodationByTier: { reserve: { name: 'andBeyond Lake Manyara Tree Lodge', image: '/images/lodges/andbeyond-lake-manyara-tree-lodge-living-room.webp', amenities: ['view', 'wildlife-view'] } },
       },
       {
         day: 12,
