@@ -468,3 +468,76 @@ export async function replaceItinerary(db: D1Database, packageId: number, days: 
 
   await insertItinerary(db, packageId, days)
 }
+
+// Updates every parent-row field on an existing package (full replace of
+// the flat/JSON columns, not a partial patch) plus updated_at — the admin
+// form's "Save" always submits the complete package, matching the same
+// whole-object convention as the replace* functions above. Does not touch
+// slug (immutable once created — every other table and the eventual
+// static-JSON output key off it) or status (that's an explicit separate
+// action, e.g. publishPackage(), not a side effect of a content edit).
+export async function updatePackageFields(db: D1Database, packageId: number, pkg: SafariPackage): Promise<void> {
+  await db.prepare(
+    `UPDATE packages SET
+      name = ?, duration = ?, type = ?, price_from = ?, group_size_min = ?, group_size_max = ?,
+      hero_image = ?, hero_image_alt = ?, badge = ?, tagline = ?, best_time_to_travel = ?,
+      why_different_heading = ?, why_different_paragraphs = ?, destination_highlights = ?,
+      notes = ?, meta_title = ?, meta_description = ?, pricing_tiers_provisional = ?,
+      destinations = ?, highlights = ?, best_for = ?, overview = ?, included = ?, excluded = ?,
+      included_categorized = ?, excluded_categorized = ?, updated_at = CURRENT_TIMESTAMP
+     WHERE id = ?`
+  ).bind(
+    pkg.name, pkg.duration, pkg.type, pkg.priceFrom, pkg.groupSize.min, pkg.groupSize.max,
+    pkg.heroImage, pkg.heroImageAlt ?? null, pkg.badge ?? null, pkg.tagline ?? null, pkg.bestTimeToTravel ?? null,
+    pkg.whyDifferent?.heading ?? null,
+    pkg.whyDifferent ? JSON.stringify(pkg.whyDifferent.paragraphs) : null,
+    pkg.destinationHighlights ? JSON.stringify(pkg.destinationHighlights) : null,
+    pkg.notes ? JSON.stringify(pkg.notes) : null,
+    pkg.metaTitle ?? null, pkg.metaDescription ?? null,
+    pkg.pricingTiersProvisional ? 1 : 0,
+    JSON.stringify(pkg.destinations), JSON.stringify(pkg.highlights), JSON.stringify(pkg.bestFor),
+    pkg.overview ? JSON.stringify(pkg.overview) : null,
+    JSON.stringify(pkg.included), JSON.stringify(pkg.excluded),
+    pkg.includedCategorized ? JSON.stringify(pkg.includedCategorized) : null,
+    pkg.excludedCategorized ? JSON.stringify(pkg.excludedCategorized) : null,
+    packageId,
+  ).run()
+}
+
+export async function setPackageStatus(db: D1Database, packageId: number, status: PackageStatus): Promise<void> {
+  await db.prepare('UPDATE packages SET status = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?')
+    .bind(status, packageId)
+    .run()
+}
+
+// Cascades app-side through every child table before removing the parent
+// row, in dependency order (tier stays before their days, everything else
+// before the package itself) -- there's no DB-level ON DELETE CASCADE on
+// these declared FKs (see replaceItinerary()'s note above), so an
+// out-of-order delete would either orphan rows or hit nothing to delete.
+// Meant for admin "delete this package" and for cleaning up test/draft
+// packages created during verification -- not a hot path.
+export async function deletePackage(db: D1Database, packageId: number): Promise<void> {
+  const { results: days } = await db.prepare(
+    'SELECT id FROM package_itinerary_days WHERE package_id = ?'
+  ).bind(packageId).all<{ id: number }>()
+
+  const statements: D1PreparedStatement[] = []
+  if (days.length > 0) {
+    const placeholders = days.map(() => '?').join(',')
+    const dayIds = days.map((d) => d.id)
+    statements.push(
+      db.prepare(`DELETE FROM package_itinerary_tier_stays WHERE itinerary_day_id IN (${placeholders})`).bind(...dayIds)
+    )
+  }
+  statements.push(
+    db.prepare('DELETE FROM package_itinerary_days WHERE package_id = ?').bind(packageId),
+    db.prepare('DELETE FROM package_gallery WHERE package_id = ?').bind(packageId),
+    db.prepare('DELETE FROM package_pricing_tiers WHERE package_id = ?').bind(packageId),
+    db.prepare('DELETE FROM package_family_pricing WHERE package_id = ?').bind(packageId),
+    db.prepare('DELETE FROM package_faq WHERE package_id = ?').bind(packageId),
+    db.prepare('DELETE FROM package_translations WHERE package_id = ?').bind(packageId),
+    db.prepare('DELETE FROM packages WHERE id = ?').bind(packageId),
+  )
+  await db.batch(statements)
+}
