@@ -52,6 +52,7 @@ export interface PackageRow {
   included_categorized: string | null // JSON {transfers?, accommodationMeals?, guidingGameDrives?}
   excluded_categorized: string | null // JSON string[]
   status: PackageStatus
+  sort_order: number
   created_at: string
   updated_at: string | null
 }
@@ -148,6 +149,22 @@ export async function getPackageRowById(db: D1Database, id: number): Promise<Pac
 // build-pipeline read path once it exists, not the admin list).
 export async function listPackageRows(db: D1Database): Promise<PackageRow[]> {
   const { results } = await db.prepare('SELECT * FROM packages ORDER BY created_at DESC').all<PackageRow>()
+  return results
+}
+
+// Build-pipeline / site-facing read path — published only, in explicit
+// display order (sort_order), which is real product behavior (sitemap,
+// safari listing page, related-packages logic all read this order), not
+// an implementation detail. Deliberately a separate query from
+// listPackageRows() above rather than a shared function with a filter
+// flag: the admin list's "newest first, everything including drafts" and
+// the site's "published only, curated order" are different enough
+// purposes that conflating them into one function with a mode switch
+// would obscure which one a given caller actually wants.
+export async function listPublishedPackageRowsOrdered(db: D1Database): Promise<PackageRow[]> {
+  const { results } = await db.prepare(
+    `SELECT * FROM packages WHERE status = 'published' ORDER BY sort_order ASC, created_at ASC`
+  ).all<PackageRow>()
   return results
 }
 
@@ -297,7 +314,7 @@ export async function getFullPackage(db: D1Database, slug: string): Promise<Safa
 // since every field it needs already exists there under the right name —
 // this is the same contract the migration script and the future admin
 // form will both produce.
-export async function createPackage(db: D1Database, pkg: SafariPackage, status: PackageStatus = 'draft'): Promise<number> {
+export async function createPackage(db: D1Database, pkg: SafariPackage, status: PackageStatus = 'draft', sortOrder = 0): Promise<number> {
   const result = await db.prepare(
     `INSERT INTO packages (
       slug, name, duration, type, price_from, group_size_min, group_size_max,
@@ -305,8 +322,8 @@ export async function createPackage(db: D1Database, pkg: SafariPackage, status: 
       why_different_heading, why_different_paragraphs, destination_highlights,
       notes, meta_title, meta_description, pricing_tiers_provisional,
       destinations, highlights, best_for, overview, included, excluded,
-      included_categorized, excluded_categorized, status
-    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
+      included_categorized, excluded_categorized, status, sort_order
+    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
   ).bind(
     pkg.slug, pkg.name, pkg.duration, pkg.type, pkg.priceFrom, pkg.groupSize.min, pkg.groupSize.max,
     pkg.heroImage, pkg.heroImageAlt ?? null, pkg.badge ?? null, pkg.tagline ?? null, pkg.bestTimeToTravel ?? null,
@@ -321,7 +338,7 @@ export async function createPackage(db: D1Database, pkg: SafariPackage, status: 
     JSON.stringify(pkg.included), JSON.stringify(pkg.excluded),
     pkg.includedCategorized ? JSON.stringify(pkg.includedCategorized) : null,
     pkg.excludedCategorized ? JSON.stringify(pkg.excludedCategorized) : null,
-    status,
+    status, sortOrder,
   ).run()
 
   const packageId = result.meta?.last_row_id
