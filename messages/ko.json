@@ -3011,6 +3011,7 @@
     "formSuccessBody": "감사합니다 — 영업일 기준 1일 이내에 트레이드 자격 확인을 위해 연락드리겠습니다.",
     "formError": "문제가 발생했습니다. 다시 시도하시거나 저희에게 직접 이메일을 보내주세요.",
     "formNote": "모든 문의는 담당자가 직접 검토하며, 영업일 기준 며칠 이내에 답변드립니다.",
+    "formWhatsappMessage": "안녕하세요, {agencyName}({country})입니다. EWA Safari Outfitters와의 트레이드 파트너십에 관심이 있습니다.\n웹사이트: {website}\n연간 예약 건수: {volume}\n주요 고객층: {clientDescription}\n이메일: {email}\n\n(EWA Safari Outfitters 트레이드 파트너십 양식을 통해 전송됨)",
     "metaKeywords": [
       "탄자니아 사파리 트레이드 파트너",
       "탄자니아 여행사 네트 요율",
@@ -3640,7 +3641,8 @@
       "rateLimitError": "요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.",
       "genericError": "문제가 발생했습니다. info@theextremewilderness.com으로 직접 이메일을 보내주세요.",
       "sending": "전송 중…",
-      "sendMessage": "메시지 보내기"
+      "sendMessage": "메시지 보내기",
+      "whatsappMessage": "안녕하세요, 제 이름은 {fullName}({email})입니다. 제목: {subject}.\n{message}\n\n(EWA Safari Outfitters 문의하기 양식을 통해 전송됨)"
     },
     "sendEnquiry": "문의 보내기",
     "sending": "전송 중…",
@@ -3705,6 +3707,10 @@
     "noPayment": "⏱ 평균 응답 시간: 2시간 이내 · 결제나 약정이 필요하지 않습니다",
     "successTitle": "문의가 전송되었습니다!",
     "successMessage": "감사합니다, {name}님! 저희 팀이 2시간 이내에 연락드리겠습니다.",
+    "sendViaWhatsapp": "WhatsApp으로 보내기",
+    "enquiryWhatsappMessage": "안녕하세요, 제 이름은 {name}({email})입니다. 사파리에 대해 문의드리고 싶습니다.\n패키지: {packageName}\n여행 유형: {tripType}\n날짜: {dates}\n여행 인원: 성인 {adults}명, 어린이 {children}명\n예산: {budget}\n{message}\n\n(EWA Safari Outfitters 웹사이트 문의 양식을 통해 전송됨)",
+    "enquiryWhatsappNoPackage": "아직 선택되지 않음",
+    "enquiryWhatsappFlexibleDates": "유연함 / 아직 미정",
     "whatsappLabel": "왓츠앱",
     "emailContactLabel": "이메일",
     "phoneContactLabel": "전화",
@@ -3888,6 +3894,7 @@
       "whatsappMessage": "안녕하세요! 나만의 사파리 만들기 빌더를 이용했습니다. 기간: {days}일 · 월: {month} {year} · 인원: {pax} · 관심사: {interests} · 스타일: {style} · 속도: {pace} · 가장 근접한 매칭: {topMatch}. 이 여정을 더 구체화하는 데 도움을 주실 수 있나요?",
       "noMatchLabel": "아직 뚜렷한 매칭이 없음",
       "emailSuccess": "전송되었습니다 — 24시간 이내에 답변드리겠습니다.",
+      "whatsappSuccess": "WhatsApp이 열렸습니다 — 메시지를 확인하는 즉시 답변드리겠습니다.",
       "namePlaceholder": "이름",
       "emailPlaceholder": "이메일 주소",
       "sending": "전송 중…",
