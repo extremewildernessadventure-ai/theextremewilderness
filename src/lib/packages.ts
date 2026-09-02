@@ -358,3 +358,42 @@ export async function createPackage(db: D1Database, pkg: SafariPackage, status: 
 
   return packageId
 }
+
+// Inserts one package's day-by-day itinerary + each day's per-tier
+// lodging. Kept separate from createPackage() because, unlike the other
+// child tables, each day's own id must be known (its INSERT must
+// complete) before its tier-stay rows can reference it as
+// itinerary_day_id -- so days are inserted one at a time rather than
+// batched, with each day's tier stays batched right after it. Fine at
+// this scale (a handful to ~15 days per package); not a hot path.
+export async function insertItinerary(db: D1Database, packageId: number, days: ItineraryDay[]): Promise<void> {
+  for (let i = 0; i < days.length; i++) {
+    const day = days[i]
+    const result = await db.prepare(
+      `INSERT INTO package_itinerary_days
+        (package_id, day_number, title, description, accommodation, meals, insider_fact, location, sort_order)
+       VALUES (?,?,?,?,?,?,?,?,?)`
+    ).bind(
+      packageId, day.day, day.title, day.description, day.accommodation, day.meals,
+      day.insiderFact ?? null, day.location ?? null, i
+    ).run()
+
+    const dayId = result.meta?.last_row_id
+    if (!dayId) throw new Error(`insertItinerary(package ${packageId}): day ${day.day} insert did not return an id`)
+
+    const stays: { tier: TierStayTier; stay: TierStay }[] = []
+    if (day.accommodationByTier?.trail) stays.push({ tier: 'trail', stay: day.accommodationByTier.trail })
+    if (day.accommodationByTier?.reserve) stays.push({ tier: 'reserve', stay: day.accommodationByTier.reserve })
+    if (day.accommodationByTier?.sovereign) stays.push({ tier: 'sovereign', stay: day.accommodationByTier.sovereign })
+    if (day.accommodationByFamilyTier?.luxury) stays.push({ tier: 'luxury', stay: day.accommodationByFamilyTier.luxury })
+    if (day.accommodationByFamilyTier?.ultraLuxury) stays.push({ tier: 'ultra_luxury', stay: day.accommodationByFamilyTier.ultraLuxury })
+
+    if (stays.length > 0) {
+      await db.batch(stays.map(({ tier, stay }) =>
+        db.prepare(
+          'INSERT INTO package_itinerary_tier_stays (itinerary_day_id, tier, lodge_name, image, amenities) VALUES (?,?,?,?,?)'
+        ).bind(dayId, tier, stay.name, stay.image, JSON.stringify(stay.amenities))
+      ))
+    }
+  }
+}
