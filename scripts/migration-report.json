@@ -1,0 +1,360 @@
+{
+  "packagesMigrated": 44,
+  "translationsWritten": 660,
+  "structuralMismatches": [
+    {
+      "slug": "7-days-gems-of-north",
+      "locale": "fr",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/arusha-coffee-lodge-garden-path.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/lemala-nanyukie.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/andbeyond-lake-manyara-tree-lodge-living-room.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/tloma-lodge.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "7-days-gems-of-north",
+      "locale": "es",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/arusha-coffee-lodge-garden-path.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/lemala-nanyukie.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/andbeyond-lake-manyara-tree-lodge-living-room.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/tloma-lodge.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "7-days-flight-ndutu",
+      "locale": "fr",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/arusha-coffee-lodge-garden-path.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/masek-tented-lodge.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/masek-tented-lodge.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/tloma-lodge.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "7-days-flight-ndutu",
+      "locale": "es",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/arusha-coffee-lodge-garden-path.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/masek-tented-lodge.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/masek-tented-lodge.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/tloma-lodge.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "11-days-rwanda-tanzania",
+      "locale": "fr",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/kinigi-guest-house.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/kinigi-guest-house.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/kinigi-guest-house.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[6].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[7].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[8].accommodationByTier.reserve.image: en=/images/lodges/kitela-lodge.webp locale=undefined",
+        "itinerary[9].accommodationByTier.reserve.image: en=/images/lodges/kisima-ngeda-tented-camp.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "11-days-rwanda-tanzania",
+      "locale": "es",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/kinigi-guest-house.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/kinigi-guest-house.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/kinigi-guest-house.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[6].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[7].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[8].accommodationByTier.reserve.image: en=/images/lodges/kitela-lodge.webp locale=undefined",
+        "itinerary[9].accommodationByTier.reserve.image: en=/images/lodges/kisima-ngeda-tented-camp.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "11-days-kenya-undisputed",
+      "locale": "fr",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/hemingways-nairobi.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/hemingways-nairobi.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/ol-tukai-lodge.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/ol-tukai-lodge.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/samburu-intrepids.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/samburu-intrepids.webp locale=undefined",
+        "itinerary[6].accommodationByTier.reserve.image: en=/images/lodges/sweetwaters-serena-camp.webp locale=undefined",
+        "itinerary[7].accommodationByTier.reserve.image: en=/images/lodges/lake-nakuru-lodge.webp locale=undefined",
+        "itinerary[8].accommodationByTier.reserve.image: en=/images/lodges/kichwa-tembo-camp.webp locale=undefined",
+        "itinerary[9].accommodationByTier.reserve.image: en=/images/lodges/kichwa-tembo-camp.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "11-days-kenya-undisputed",
+      "locale": "es",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/hemingways-nairobi.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/hemingways-nairobi.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/ol-tukai-lodge.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/ol-tukai-lodge.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/samburu-intrepids.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/samburu-intrepids.webp locale=undefined",
+        "itinerary[6].accommodationByTier.reserve.image: en=/images/lodges/sweetwaters-serena-camp.webp locale=undefined",
+        "itinerary[7].accommodationByTier.reserve.image: en=/images/lodges/lake-nakuru-lodge.webp locale=undefined",
+        "itinerary[8].accommodationByTier.reserve.image: en=/images/lodges/kichwa-tembo-camp.webp locale=undefined",
+        "itinerary[9].accommodationByTier.reserve.image: en=/images/lodges/kichwa-tembo-camp.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "10-days-southern-secrets",
+      "locale": "fr",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/mikumi-wildlife-lodge.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/mikumi-wildlife-lodge.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/hondo-hondo-udzungwa-forest-camp.webp locale=undefined",
+        "itinerary[6].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined",
+        "itinerary[7].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined",
+        "itinerary[8].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "10-days-southern-secrets",
+      "locale": "es",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/mikumi-wildlife-lodge.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/mikumi-wildlife-lodge.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/hondo-hondo-udzungwa-forest-camp.webp locale=undefined",
+        "itinerary[6].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined",
+        "itinerary[7].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined",
+        "itinerary[8].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "11-days-southern-spice",
+      "locale": "fr",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined",
+        "itinerary[6].accommodationByTier.reserve.image: en=/images/lodges/kilindi-zanzibar.webp locale=undefined",
+        "itinerary[7].accommodationByTier.reserve.image: en=/images/lodges/kilindi-zanzibar.webp locale=undefined",
+        "itinerary[8].accommodationByTier.reserve.image: en=/images/lodges/kilindi-zanzibar.webp locale=undefined",
+        "itinerary[9].accommodationByTier.reserve.image: en=/images/lodges/kilindi-zanzibar.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "11-days-southern-spice",
+      "locale": "es",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/rufiji-river-camp.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/ruaha-river-lodge-dining-pavilion.webp locale=undefined",
+        "itinerary[6].accommodationByTier.reserve.image: en=/images/lodges/kilindi-zanzibar.webp locale=undefined",
+        "itinerary[7].accommodationByTier.reserve.image: en=/images/lodges/kilindi-zanzibar.webp locale=undefined",
+        "itinerary[8].accommodationByTier.reserve.image: en=/images/lodges/kilindi-zanzibar.webp locale=undefined",
+        "itinerary[9].accommodationByTier.reserve.image: en=/images/lodges/kilindi-zanzibar.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "12-days-tanzania-kenya",
+      "locale": "fr",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/hemingways-nairobi.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/hemingways-nairobi.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/ol-tukai-lodge.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/ol-tukai-lodge.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/lake-nakuru-lodge.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/kichwa-tembo-camp.webp locale=undefined",
+        "itinerary[6].accommodationByTier.reserve.image: en=/images/lodges/kichwa-tembo-camp.webp locale=undefined",
+        "itinerary[7].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[8].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[9].accommodationByTier.reserve.image: en=/images/lodges/kitela-lodge.webp locale=undefined",
+        "itinerary[10].accommodationByTier.reserve.image: en=/images/lodges/andbeyond-lake-manyara-tree-lodge-living-room.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "12-days-tanzania-kenya",
+      "locale": "es",
+      "issues": [
+        "itinerary[0].accommodationByTier.reserve.image: en=/images/lodges/hemingways-nairobi.webp locale=undefined",
+        "itinerary[1].accommodationByTier.reserve.image: en=/images/lodges/hemingways-nairobi.webp locale=undefined",
+        "itinerary[2].accommodationByTier.reserve.image: en=/images/lodges/ol-tukai-lodge.webp locale=undefined",
+        "itinerary[3].accommodationByTier.reserve.image: en=/images/lodges/ol-tukai-lodge.webp locale=undefined",
+        "itinerary[4].accommodationByTier.reserve.image: en=/images/lodges/lake-nakuru-lodge.webp locale=undefined",
+        "itinerary[5].accommodationByTier.reserve.image: en=/images/lodges/kichwa-tembo-camp.webp locale=undefined",
+        "itinerary[6].accommodationByTier.reserve.image: en=/images/lodges/kichwa-tembo-camp.webp locale=undefined",
+        "itinerary[7].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[8].accommodationByTier.reserve.image: en=/images/lodges/siringiti-serengeti-camp.webp locale=undefined",
+        "itinerary[9].accommodationByTier.reserve.image: en=/images/lodges/kitela-lodge.webp locale=undefined",
+        "itinerary[10].accommodationByTier.reserve.image: en=/images/lodges/andbeyond-lake-manyara-tree-lodge-living-room.webp locale=undefined"
+      ]
+    },
+    {
+      "slug": "12-days-tanzania-kenya",
+      "locale": "th",
+      "issues": [
+        "itinerary[9].accommodationByTier.reserve.image: en=/images/lodges/kitela-lodge.webp locale=/images/lodges/ngorongoro-serena-safari-lodge.webp"
+      ]
+    }
+  ],
+  "missingLocaleEntries": [],
+  "englishRoundTripFailures": [],
+  "translationRoundTripFailures": [
+    {
+      "slug": "7-day-southern-circuit",
+      "locale": "fr",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Airport transfers\",\"Internal flight(s) specified per tier\"],\"accommodationMeals\":[\"Full board throughout\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park and concession fees\",\"All listed game drives and activities\",\"Professional guide throughout\"]} vs undefined)"
+    },
+    {
+      "slug": "7-day-southern-circuit",
+      "locale": "es",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Airport transfers\",\"Internal flight(s) specified per tier\"],\"accommodationMeals\":[\"Full board throughout\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park and concession fees\",\"All listed game drives and activities\",\"Professional guide throughout\"]} vs undefined)"
+    },
+    {
+      "slug": "7-day-southern-circuit",
+      "locale": "de",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Airport transfers\",\"Internal flight(s) specified per tier\"],\"accommodationMeals\":[\"Full board throughout\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park and concession fees\",\"All listed game drives and activities\",\"Professional guide throughout\"]} vs undefined)"
+    },
+    {
+      "slug": "7-days-gems-of-north",
+      "locale": "fr",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Arusha Coffee Lodge\",\"image\":\"/images/lodges/arusha-coffee-lodge-garden-path.webp\",\"amenities\":[\"garden\",\"restaurant\",\"wifi\"]}} vs undefined)"
+    },
+    {
+      "slug": "7-days-gems-of-north",
+      "locale": "es",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Arusha Coffee Lodge\",\"image\":\"/images/lodges/arusha-coffee-lodge-garden-path.webp\",\"amenities\":[\"garden\",\"restaurant\",\"wifi\"]}} vs undefined)"
+    },
+    {
+      "slug": "7-days-flight-ndutu",
+      "locale": "fr",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Arusha Coffee Lodge\",\"image\":\"/images/lodges/arusha-coffee-lodge-garden-path.webp\",\"amenities\":[\"garden\",\"restaurant\",\"wifi\"]}} vs undefined)"
+    },
+    {
+      "slug": "7-days-flight-ndutu",
+      "locale": "es",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Arusha Coffee Lodge\",\"image\":\"/images/lodges/arusha-coffee-lodge-garden-path.webp\",\"amenities\":[\"garden\",\"restaurant\",\"wifi\"]}} vs undefined)"
+    },
+    {
+      "slug": "11-days-rwanda-tanzania",
+      "locale": "fr",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Radisson Blu Hotel & Convention Centre, Kigali\",\"image\":\"/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp\",\"amenities\":[\"pool\",\"restaurant\",\"wifi\"]}} vs undefined)"
+    },
+    {
+      "slug": "11-days-rwanda-tanzania",
+      "locale": "es",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Radisson Blu Hotel & Convention Centre, Kigali\",\"image\":\"/images/lodges/radisson-blu-hotel-convention-centre-kigali.webp\",\"amenities\":[\"pool\",\"restaurant\",\"wifi\"]}} vs undefined)"
+    },
+    {
+      "slug": "11-days-kenya-undisputed",
+      "locale": "fr",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Hemingways Nairobi\",\"image\":\"/images/lodges/hemingways-nairobi.webp\",\"amenities\":[\"pool\",\"spa\",\"restaurant\"]}} vs undefined)"
+    },
+    {
+      "slug": "11-days-kenya-undisputed",
+      "locale": "es",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Hemingways Nairobi\",\"image\":\"/images/lodges/hemingways-nairobi.webp\",\"amenities\":[\"pool\",\"spa\",\"restaurant\"]}} vs undefined)"
+    },
+    {
+      "slug": "10-days-southern-secrets",
+      "locale": "fr",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Rufiji River Camp\",\"image\":\"/images/lodges/rufiji-river-camp.webp\",\"amenities\":[\"view\",\"wildlife-view\"]}} vs undefined)"
+    },
+    {
+      "slug": "10-days-southern-secrets",
+      "locale": "es",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Rufiji River Camp\",\"image\":\"/images/lodges/rufiji-river-camp.webp\",\"amenities\":[\"view\",\"wildlife-view\"]}} vs undefined)"
+    },
+    {
+      "slug": "11-days-southern-spice",
+      "locale": "fr",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Rufiji River Camp\",\"image\":\"/images/lodges/rufiji-river-camp.webp\",\"amenities\":[\"view\",\"wildlife-view\"]}} vs undefined)"
+    },
+    {
+      "slug": "11-days-southern-spice",
+      "locale": "es",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Rufiji River Camp\",\"image\":\"/images/lodges/rufiji-river-camp.webp\",\"amenities\":[\"view\",\"wildlife-view\"]}} vs undefined)"
+    },
+    {
+      "slug": "12-days-tanzania-kenya",
+      "locale": "fr",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Hemingways Nairobi\",\"image\":\"/images/lodges/hemingways-nairobi.webp\",\"amenities\":[\"pool\",\"spa\",\"restaurant\"]}} vs undefined)"
+    },
+    {
+      "slug": "12-days-tanzania-kenya",
+      "locale": "es",
+      "diff": "itinerary[0].accommodationByTier: type object vs undefined ({\"reserve\":{\"name\":\"Hemingways Nairobi\",\"image\":\"/images/lodges/hemingways-nairobi.webp\",\"amenities\":[\"pool\",\"spa\",\"restaurant\"]}} vs undefined)"
+    },
+    {
+      "slug": "12-days-tanzania-kenya",
+      "locale": "th",
+      "diff": "itinerary[9].accommodationByTier.reserve.image: \"/images/lodges/kitela-lodge.webp\" vs \"/images/lodges/ngorongoro-serena-safari-lodge.webp\""
+    },
+    {
+      "slug": "10-day-kenya-tanzania-safari",
+      "locale": "fr",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Border crossing assistance at Sirari (Kenya/Tanzania)\",\"Airport and inter-property transfers\"],\"accommodationMeals\":[\"All meals as specified\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park entrance and conservation fees (Kenya and Tanzania)\",\"All game drives in a private 4x4\",\"Professional guide throughout\"]} vs undefined)"
+    },
+    {
+      "slug": "10-day-kenya-tanzania-safari",
+      "locale": "es",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Border crossing assistance at Sirari (Kenya/Tanzania)\",\"Airport and inter-property transfers\"],\"accommodationMeals\":[\"All meals as specified\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park entrance and conservation fees (Kenya and Tanzania)\",\"All game drives in a private 4x4\",\"Professional guide throughout\"]} vs undefined)"
+    },
+    {
+      "slug": "10-day-kenya-tanzania-safari",
+      "locale": "de",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Border crossing assistance at Sirari (Kenya/Tanzania)\",\"Airport and inter-property transfers\"],\"accommodationMeals\":[\"All meals as specified\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park entrance and conservation fees (Kenya and Tanzania)\",\"All game drives in a private 4x4\",\"Professional guide throughout\"]} vs undefined)"
+    },
+    {
+      "slug": "4-day-tarangire-ngorongoro-lake-eyasi",
+      "locale": "fr",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Airport and inter-property transfers\"],\"accommodationMeals\":[\"All meals as specified\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park entrance and conservation area fees\",\"Lake Eyasi cultural experience (Hadzabe and Datoga guide)\",\"All game drives in a private 4x4\",\"Professional guide throughout\"]} vs undefined)"
+    },
+    {
+      "slug": "4-day-tarangire-ngorongoro-lake-eyasi",
+      "locale": "es",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Airport and inter-property transfers\"],\"accommodationMeals\":[\"All meals as specified\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park entrance and conservation area fees\",\"Lake Eyasi cultural experience (Hadzabe and Datoga guide)\",\"All game drives in a private 4x4\",\"Professional guide throughout\"]} vs undefined)"
+    },
+    {
+      "slug": "4-day-tarangire-ngorongoro-lake-eyasi",
+      "locale": "de",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Airport and inter-property transfers\"],\"accommodationMeals\":[\"All meals as specified\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park entrance and conservation area fees\",\"Lake Eyasi cultural experience (Hadzabe and Datoga guide)\",\"All game drives in a private 4x4\",\"Professional guide throughout\"]} vs undefined)"
+    },
+    {
+      "slug": "5-day-kenya-safari",
+      "locale": "fr",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Airport and inter-property transfers\"],\"accommodationMeals\":[\"All meals as specified\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park entrance and conservation fees\",\"All game drives in a private 4x4\",\"Professional guide throughout\",\"Hell's Gate cycling/walking activity\"]} vs undefined)"
+    },
+    {
+      "slug": "5-day-kenya-safari",
+      "locale": "es",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Airport and inter-property transfers\"],\"accommodationMeals\":[\"All meals as specified\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park entrance and conservation fees\",\"All game drives in a private 4x4\",\"Professional guide throughout\",\"Hell's Gate cycling/walking activity\"]} vs undefined)"
+    },
+    {
+      "slug": "5-day-kenya-safari",
+      "locale": "de",
+      "diff": "includedCategorized: type object vs undefined ({\"transfers\":[\"Airport and inter-property transfers\"],\"accommodationMeals\":[\"All meals as specified\",\"Accommodation as per itinerary\"],\"guidingGameDrives\":[\"All park entrance and conservation fees\",\"All game drives in a private 4x4\",\"Professional guide throughout\",\"Hell's Gate cycling/walking activity\"]} vs undefined)"
+    }
+  ]
+}

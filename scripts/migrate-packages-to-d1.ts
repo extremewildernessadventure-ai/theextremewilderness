@@ -16,6 +16,7 @@
  *
  * Run with: npx tsx scripts/migrate-packages-to-d1.ts
  */
+import { isDeepStrictEqual } from 'node:util'
 import { routing } from '../src/i18n/routing'
 import { packages as enPackages } from '../src/data/packages'
 import type { SafariPackage } from '../src/data/packages'
@@ -25,6 +26,45 @@ import {
   setPackageTranslation, getPackageTranslation, getFullPackage,
 } from '../src/lib/packages'
 import { extractTranslationPayload, mergeTranslation } from '../src/lib/packageTranslations'
+
+// A boolean D1 column can't distinguish "explicitly false in the source
+// literal" from "field omitted entirely" -- both collapse to the same
+// stored 0. Confirmed harmless: every real consumer (SafariBookingSidebar's
+// `provisional` prop) only ever uses this field as a truthy check, so
+// `pricingTiersProvisional: false` and an omitted `pricingTiersProvisional`
+// render identically everywhere. Normalized away here rather than treated
+// as a fidelity bug, and not worth a schema change to preserve a
+// distinction that carries no behavioral meaning and that no admin-created
+// package could represent either way (a form checkbox is binary too).
+function normalizeForCompare(pkg: SafariPackage): SafariPackage {
+  const copy = { ...pkg }
+  if (copy.pricingTiersProvisional === false) delete copy.pricingTiersProvisional
+  return copy
+}
+
+// Recursively finds and describes the first point two values diverge --
+// used only to produce a human-readable message once isDeepStrictEqual
+// has already found them unequal.
+function findFirstDiff(a: unknown, b: unknown, path = ''): string {
+  if (typeof a !== typeof b) return `${path}: type ${typeof a} vs ${typeof b} (${JSON.stringify(a)} vs ${JSON.stringify(b)})`
+  if (Array.isArray(a) && Array.isArray(b)) {
+    if (a.length !== b.length) return `${path}: array length ${a.length} vs ${b.length}`
+    for (let i = 0; i < a.length; i++) {
+      if (!isDeepStrictEqual(a[i], b[i])) return findFirstDiff(a[i], b[i], `${path}[${i}]`)
+    }
+    return `${path}: arrays differ but every element matched? (unexpected)`
+  }
+  if (a && b && typeof a === 'object' && typeof b === 'object') {
+    const allKeys = [...new Set([...Object.keys(a as object), ...Object.keys(b as object)])]
+    for (const key of allKeys) {
+      const av = (a as Record<string, unknown>)[key]
+      const bv = (b as Record<string, unknown>)[key]
+      if (!isDeepStrictEqual(av, bv)) return findFirstDiff(av, bv, path ? `${path}.${key}` : key)
+    }
+    return `${path}: objects differ but every key matched? (unexpected)`
+  }
+  return `${path}: ${JSON.stringify(a)} vs ${JSON.stringify(b)}`
+}
 
 const DB_NAME = 'ewa-invoices'
 const LOCALES = routing.locales.filter((l) => l !== 'en')
@@ -122,10 +162,10 @@ async function main() {
   let enChecked = 0
   for (const pkg of enPackages) {
     const roundTripped = await getFullPackage(db, pkg.slug)
-    const a = JSON.stringify(pkg)
-    const b = JSON.stringify(roundTripped)
-    if (a !== b) {
-      report.englishRoundTripFailures.push({ slug: pkg.slug, diff: `expected ${a.length} chars, got ${b.length} chars` })
+    const a = normalizeForCompare(pkg)
+    const b = roundTripped ? normalizeForCompare(roundTripped) : roundTripped
+    if (!isDeepStrictEqual(a, b)) {
+      report.englishRoundTripFailures.push({ slug: pkg.slug, diff: findFirstDiff(a, b) })
     }
     enChecked++
     process.stdout.write(`  checked ${enChecked}/${enPackages.length}\r`)
@@ -147,11 +187,10 @@ async function main() {
         continue
       }
       const payload = JSON.parse(translationRow.payload)
-      const remerged = mergeTranslation(pkg, payload)
-      const a = JSON.stringify(remerged)
-      const b = JSON.stringify(localePkg)
-      if (a !== b) {
-        report.translationRoundTripFailures.push({ slug: pkg.slug, locale, diff: `expected ${b.length} chars, got ${a.length} chars` })
+      const remerged = normalizeForCompare(mergeTranslation(pkg, payload))
+      const original = normalizeForCompare(localePkg)
+      if (!isDeepStrictEqual(remerged, original)) {
+        report.translationRoundTripFailures.push({ slug: pkg.slug, locale, diff: findFirstDiff(remerged, original) })
       }
       trChecked++
       process.stdout.write(`  checked ${trChecked}/${trTotal}\r`)
