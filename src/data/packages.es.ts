@@ -655,6 +655,11 @@ export const packages: SafariPackage[] = [
       "El/los vuelo(s) interno(s) especificado(s) según el nivel",
       "Traslados al aeropuerto",
     ],
+    includedCategorized: {
+      transfers: ['Traslados de aeropuerto', 'Vuelo(s) interno(s) según la categoría'],
+      accommodationMeals: ['Pensión completa durante todo el viaje', 'Alojamiento según el itinerario'],
+      guidingGameDrives: ['Todas las tasas de parques y áreas de conservación', 'Todos los game drives y actividades indicados', 'Guía profesional durante todo el safari'],
+    },
     excluded: ["Vuelos internacionales a Dar es Salaam", "Visados", "Seguro de viaje", "Propinas", "Gastos personales"],
     notes: [
       'Tarifas por persona compartiendo habitación doble/twin; suplemento por habitación individual disponible bajo petición.',
@@ -4995,6 +5000,11 @@ export const packages: SafariPackage[] = [
       { pax: 6, trail: 5072 },
     ],
     included: ['Todas las tasas de parques y conservación (Kenia y Tanzania)', 'Todos los game drives en 4x4 privado', 'Guía profesional durante todo el viaje', 'Asistencia en el cruce de frontera en Sirari (Kenia/Tanzania)', 'Todas las comidas según el programa', 'Alojamiento según el itinerario', 'Traslados aeropuerto e inter-propiedades'],
+    includedCategorized: {
+      transfers: ['Asistencia en el cruce fronterizo de Sirari (Kenia/Tanzania)', 'Traslados de aeropuerto y entre alojamientos'],
+      accommodationMeals: ['Todas las comidas según lo indicado', 'Alojamiento según el itinerario'],
+      guidingGameDrives: ['Todas las tasas de entrada a parques y áreas de conservación (Kenia y Tanzania)', 'Todos los game drives en un 4x4 privado', 'Guía profesional durante todo el safari'],
+    },
     excluded: ['Vuelos internacionales', 'Visados de entrada Kenia y Tanzania', 'Seguro de viaje', 'Propinas y gratificaciones', 'Actividades opcionales (safari en globo, visitas culturales)'],
     notes: ['Las tarifas son por persona en habitación doble/twin; suplemento individual a petición.', 'Los guías y vehículos cambian en la frontera Kenya–Tanzania en Sirari; EWA coordina el relevo.', 'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje.', 'Las tasas de entrada a los parques de Tanzania y Kenia son fijadas por los respectivos gobiernos y pueden cambiar sin previo aviso.', 'Se requiere un depósito del 35 % para confirmar la reserva; saldo a pagar 60 días antes de la salida.'],
     itinerary: [
@@ -5153,6 +5163,11 @@ export const packages: SafariPackage[] = [
     ],
     pricingTiers: [{ pax: 2, trail: 1820 }, { pax: 3, trail: 1455 }, { pax: 4, trail: 1395 }, { pax: 5, trail: 1310 }, { pax: 6, trail: 1250 }],
     included: ['Todas las tasas de parques y áreas de conservación', 'Experiencia cultural en el Lago Eyasi (guía Hadzabe y Datoga)', 'Todos los game drives en 4x4 privado', 'Guía profesional durante todo el viaje', 'Todas las comidas según el programa', 'Alojamiento según el itinerario', 'Traslados aeropuerto e inter-propiedades'],
+    includedCategorized: {
+      transfers: ['Traslados de aeropuerto y entre alojamientos'],
+      accommodationMeals: ['Todas las comidas según lo indicado', 'Alojamiento según el itinerario'],
+      guidingGameDrives: ['Todas las tasas de entrada a parques y áreas de conservación', 'Experiencia cultural en el lago Eyasi (guía Hadzabe y Datoga)', 'Todos los game drives en un 4x4 privado', 'Guía profesional durante todo el safari'],
+    },
     excluded: ['Vuelos internacionales', 'Visa tanzana (aprox. 50 USD para la mayoría de nacionalidades)', 'Seguro de viaje', 'Propinas y gratificaciones', 'Actividades opcionales (rastreo de rinocerontes, safari a pie)'],
     notes: ['Las tarifas son por persona en habitación doble/twin; suplemento individual a petición.', 'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje.', 'Las tasas de entrada a los parques nacionales y áreas de conservación de Tanzania son fijadas por el gobierno y pueden cambiar sin previo aviso.', 'Se requiere un depósito del 10 % para confirmar la reserva; saldo a pagar 28 días antes de la salida.'],
     itinerary: [
@@ -5187,6 +5202,11 @@ export const packages: SafariPackage[] = [
     pricingTiersProvisional: true,
     pricingTiers: [{ pax: 2, trail: 1950, reserve: 2850, sovereign: 4200 }, { pax: 3, trail: 1780, reserve: 2650, sovereign: 3950 }, { pax: 4, trail: 1650, reserve: 2480, sovereign: 3750 }, { pax: 5, trail: 1580, reserve: 2380, sovereign: 3600 }, { pax: 6, trail: 1520, reserve: 2290, sovereign: 3480 }],
     included: ['Todas las tasas de parques y conservación', 'Todos los game drives en 4x4 privado', 'Guía profesional durante todo el viaje', "Actividad de ciclismo/senderismo en Hell's Gate", 'Todas las comidas según el programa', 'Alojamiento según el itinerario', 'Traslados aeropuerto e inter-propiedades'],
+    includedCategorized: {
+      transfers: ['Traslados de aeropuerto y entre alojamientos'],
+      accommodationMeals: ['Todas las comidas según lo indicado', 'Alojamiento según el itinerario'],
+      guidingGameDrives: ['Todas las tasas de entrada a parques y áreas de conservación', 'Todos los game drives en un 4x4 privado', 'Guía profesional durante todo el safari', 'Actividad de ciclismo/senderismo en Hell\'s Gate'],
+    },
     excluded: ['Vuelos internacionales', 'Visa keniana (aprox. 30 USD para la mayoría de nacionalidades)', 'Seguro de viaje', 'Propinas y gratificaciones', 'Actividades opcionales (globo aerostático, visita cultural Maasaí)'],
     notes: ['Las tarifas son por persona en habitación doble/twin; suplemento individual a petición.', 'Las tarifas son estimaciones de mercado; las selecciones de lodge están propuestas y sujetas a confirmación de disponibilidad.', 'El alojamiento y las tarifas están sujetos a disponibilidad y pueden variar según la fecha exacta del viaje.', 'Las tasas de entrada a los parques nacionales de Kenia son fijadas por el gobierno y pueden cambiar sin previo aviso.', 'Se requiere un depósito del 10 % para confirmar la reserva; saldo a pagar 28 días antes de la salida.'],
     itinerary: [

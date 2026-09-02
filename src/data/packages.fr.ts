@@ -656,6 +656,11 @@ export const packages: SafariPackage[] = [
       "Le(s) vol(s) intérieur(s) précisé(s) selon le niveau",
       "Transferts aéroport",
     ],
+    includedCategorized: {
+      transfers: ['Transferts aéroport', 'Vol(s) intérieur(s) selon la formule'],
+      accommodationMeals: ['Pension complète tout au long du séjour', 'Hébergement selon l\'itinéraire'],
+      guidingGameDrives: ['Tous les droits d\'entrée dans les parcs et zones de conservation', 'Tous les game drives et activités listés', 'Guide professionnel tout au long du safari'],
+    },
     excluded: ["Vols internationaux vers Dar es Salaam", "Visas", "Assurance voyage", "Pourboires", "Dépenses personnelles"],
     notes: [
       'Tarifs par personne en chambre double/twin ; supplément chambre individuelle sur demande.',
@@ -5143,6 +5148,11 @@ export const packages: SafariPackage[] = [
       { pax: 6, trail: 5072 },
     ],
     included: ['Toutes les taxes de parcs et de conservation (Kenya et Tanzanie)', 'Tous les game drives en 4x4 privé', 'Guide professionnel durant tout le séjour', 'Assistance au passage de frontière à Sirari (Kenya/Tanzanie)', 'Tous les repas selon le programme', 'Hébergement selon l\'itinéraire', 'Transferts aéroport et inter-propriétés'],
+    includedCategorized: {
+      transfers: ['Assistance au passage de la frontière à Sirari (Kenya/Tanzanie)', 'Transferts aéroport et inter-hébergements'],
+      accommodationMeals: ['Tous les repas comme indiqué', 'Hébergement selon l\'itinéraire'],
+      guidingGameDrives: ['Tous les droits d\'entrée dans les parcs et zones de conservation (Kenya et Tanzanie)', 'Tous les game drives en 4x4 privé', 'Guide professionnel tout au long du safari'],
+    },
     excluded: ['Vols internationaux', 'Visas d\'entrée Kenya et Tanzanie', 'Assurance voyage', 'Pourboires et gratifications', 'Activités optionnelles (safari en montgolfière, visites culturelles)'],
     notes: ['Les tarifs sont par personne en chambre double/twin ; supplément simple sur demande.', 'Les guides et véhicules changent à la frontière Kenya–Tanzanie à Sirari ; EWA coordonne la transition.', 'L\'hébergement et les tarifs sont soumis à disponibilité et peuvent varier selon la date exacte du voyage.', 'Les droits d\'entrée dans les parcs tanzaniens et kényans sont fixés par les gouvernements respectifs et peuvent changer sans préavis.', 'Acompte de 35 % requis à la réservation ; solde dû 60 jours avant le départ.'],
     itinerary: [
@@ -5301,6 +5311,11 @@ export const packages: SafariPackage[] = [
     ],
     pricingTiers: [{ pax: 2, trail: 1820 }, { pax: 3, trail: 1455 }, { pax: 4, trail: 1395 }, { pax: 5, trail: 1310 }, { pax: 6, trail: 1250 }],
     included: ['Toutes les taxes de parcs et de zones de conservation', 'Expérience culturelle au Lac Eyasi (guide Hadzabe et Datoga)', 'Tous les game drives en 4x4 privé', 'Guide professionnel durant tout le séjour', 'Tous les repas selon le programme', 'Hébergement selon l\'itinéraire', 'Transferts aéroport et inter-propriétés'],
+    includedCategorized: {
+      transfers: ['Transferts aéroport et inter-hébergements'],
+      accommodationMeals: ['Tous les repas comme indiqué', 'Hébergement selon l\'itinéraire'],
+      guidingGameDrives: ['Tous les droits d\'entrée dans les parcs et zones de conservation', 'Expérience culturelle au lac Eyasi (guide Hadzabe et Datoga)', 'Tous les game drives en 4x4 privé', 'Guide professionnel tout au long du safari'],
+    },
     excluded: ['Vols internationaux', 'Visa tanzanien (environ 50 USD pour la plupart des nationalités)', 'Assurance voyage', 'Pourboires et gratifications', 'Activités optionnelles (pistage du rhinocéros, safari pédestre)'],
     notes: ['Les tarifs sont par personne en chambre double/twin ; supplément simple sur demande.', 'L\'hébergement et les tarifs sont soumis à disponibilité et peuvent varier selon la date exacte du voyage.', 'Les droits d\'entrée dans les parcs nationaux et zones de conservation tanzaniens sont fixés par le gouvernement et peuvent changer sans préavis.', 'Acompte de 10 % requis à la réservation ; solde dû 28 jours avant le départ.'],
     itinerary: [
@@ -5335,6 +5350,11 @@ export const packages: SafariPackage[] = [
     pricingTiersProvisional: true,
     pricingTiers: [{ pax: 2, trail: 1950, reserve: 2850, sovereign: 4200 }, { pax: 3, trail: 1780, reserve: 2650, sovereign: 3950 }, { pax: 4, trail: 1650, reserve: 2480, sovereign: 3750 }, { pax: 5, trail: 1580, reserve: 2380, sovereign: 3600 }, { pax: 6, trail: 1520, reserve: 2290, sovereign: 3480 }],
     included: ['Toutes les taxes de parcs et de conservation', 'Tous les game drives en 4x4 privé', 'Guide professionnel durant tout le séjour', "Activité vélo/marche à Hell's Gate", 'Tous les repas selon le programme', 'Hébergement selon l\'itinéraire', 'Transferts aéroport et inter-propriétés'],
+    includedCategorized: {
+      transfers: ['Transferts aéroport et inter-hébergements'],
+      accommodationMeals: ['Tous les repas comme indiqué', 'Hébergement selon l\'itinéraire'],
+      guidingGameDrives: ['Tous les droits d\'entrée dans les parcs et zones de conservation', 'Tous les game drives en 4x4 privé', 'Guide professionnel tout au long du safari', 'Activité vélo/randonnée à Hell\'s Gate'],
+    },
     excluded: ['Vols internationaux', 'Visa kényan (environ 30 USD pour la plupart des nationalités)', 'Assurance voyage', 'Pourboires et gratifications', 'Activités optionnelles (montgolfière, visite culturelle Maasaï)'],
     notes: ['Les tarifs sont par personne en chambre double/twin ; supplément simple sur demande.', 'Les tarifs sont estimatifs ; les lodges proposés sont sous réserve de confirmation de disponibilité.', 'L\'hébergement et les tarifs sont soumis à disponibilité et peuvent varier selon la date exacte du voyage.', 'Les droits d\'entrée dans les parcs nationaux kényans sont fixés par le gouvernement et peuvent changer sans préavis.', 'Acompte de 10 % requis à la réservation ; solde dû 28 jours avant le départ.'],
     itinerary: [
