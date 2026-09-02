@@ -2,7 +2,9 @@
 
 import { useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
+import { MessageCircle } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
+import { buildWhatsAppUrl } from '@/lib/contact'
 import styles from '@/app/[locale]/trade-partners/page.module.css'
 
 type Props = { className?: string }
@@ -19,8 +21,13 @@ export default function TradePartnerForm({ className }: Props) {
     t('formVolumeOption4'),
   ]
 
-  const [submitted, setSubmitted] = useState(false)
+  // Which channel completed the send, or null if neither has yet — using
+  // either button flips this, hiding/disabling both so the same enquiry
+  // can't be sent twice.
+  const [sentVia, setSentVia] = useState<'email' | 'whatsapp' | null>(null)
+  const submitted = sentVia !== null
   const [submitting, setSubmitting] = useState(false)
+  const [whatsappSending, setWhatsappSending] = useState(false)
   const [error, setError] = useState('')
   const [privacy, setPrivacy] = useState(false)
 
@@ -39,7 +46,7 @@ export default function TradePartnerForm({ className }: Props) {
     if (error) setError('')
   }
 
-  const canSubmit = form.agencyName && form.country && form.email && form.volume && privacy && !submitting
+  const canSubmit = form.agencyName && form.country && form.email && form.volume && privacy && !submitting && !whatsappSending
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -50,15 +57,36 @@ export default function TradePartnerForm({ className }: Props) {
       const res = await fetch('/api/trade-partners', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, locale }),
+        body: JSON.stringify({ ...form, locale, contactMethod: 'email' }),
       })
       if (!res.ok) throw new Error('send failed')
-      setSubmitted(true)
+      setSentVia('email')
     } catch {
       setError(t('formError'))
     } finally {
       setSubmitting(false)
     }
+  }
+
+  const whatsappMessage = t('formWhatsappMessage', {
+    agencyName: form.agencyName, country: form.country,
+    website: form.website || '—', volume: form.volume || '—',
+    clientDescription: form.clientDescription || '—', email: form.email,
+  })
+
+  // Same required-field/privacy gate as the email submit button; stays a
+  // real <a href target="_blank"> (never a JS window.open() after an
+  // awaited fetch, which trips popup blockers) — the lead-save POST below
+  // fires fire-and-forget, never blocking the anchor's own navigation.
+  const handleWhatsappClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!canSubmit) { e.preventDefault(); return }
+    setWhatsappSending(true)
+    fetch('/api/trade-partners', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...form, locale, contactMethod: 'whatsapp' }),
+    }).catch(() => {}).finally(() => setWhatsappSending(false))
+    setSentVia('whatsapp')
   }
 
   if (submitted) {
@@ -149,9 +177,26 @@ export default function TradePartnerForm({ className }: Props) {
       {error && <p className={styles.formError}>{error}</p>}
 
       <div className={styles.submitRow}>
-        <button type="submit" disabled={!canSubmit} className={`${styles.btn} ${styles.solid}`}>
-          {submitting ? t('formSending') : t('formSubmit')}
-        </button>
+        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
+          <button type="submit" disabled={!canSubmit} className={`${styles.btn} ${styles.solid}`}>
+            {submitting ? t('formSending') : t('formSubmit')}
+          </button>
+          <a
+            href={buildWhatsAppUrl(whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleWhatsappClick}
+            aria-disabled={!canSubmit}
+            tabIndex={!canSubmit ? -1 : 0}
+            className={styles.btn}
+            style={!canSubmit ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : undefined}
+          >
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <MessageCircle size={16} />
+              {tf('sendViaWhatsapp')}
+            </span>
+          </a>
+        </div>
         <p className={styles.note}>{t('formNote')}</p>
       </div>
     </form>

@@ -2830,6 +2830,7 @@
     "formSuccessBody": "شكرًا لكم — سنتواصل معكم لتأكيد وضعكم التجاري خلال يوم عمل واحد.",
     "formError": "حدث خطأ ما. يُرجى المحاولة مرة أخرى أو مراسلتنا مباشرة عبر البريد الإلكتروني.",
     "formNote": "نراجع كل استفسار شخصيًا، ونتابع خلال بضعة أيام عمل.",
+    "formWhatsappMessage": "مرحبًا، معكم {agencyName} ({country}). نحن مهتمون بشراكة تجارية مع EWA Safari Outfitters.\nالموقع الإلكتروني: {website}\nحجم الحجوزات السنوي: {volume}\nالعملاء النموذجيون: {clientDescription}\nالبريد الإلكتروني: {email}\n\n(تم الإرسال عبر نموذج شركاء التجارة في موقع EWA Safari Outfitters)",
     "metaKeywords": [
       "شريك تجاري لسفاري تنزانيا",
       "أسعار صافية لوكلاء السفر في تنزانيا",
@@ -3252,7 +3253,8 @@
       "rateLimitError": "طلبات كثيرة جدًا. يرجى الانتظار بضع دقائق والمحاولة مرة أخرى.",
       "genericError": "حدث خطأ ما. يرجى مراسلتنا مباشرة عبر info@theextremewilderness.com",
       "sending": "جارٍ الإرسال…",
-      "sendMessage": "إرسال الرسالة"
+      "sendMessage": "إرسال الرسالة",
+      "whatsappMessage": "مرحبًا، اسمي {fullName} ({email}). الموضوع: {subject}.\n{message}\n\n(تم الإرسال عبر نموذج التواصل في موقع EWA Safari Outfitters)"
     },
     "sendEnquiry": "إرسال استفساري",
     "sending": "جارٍ الإرسال…",
@@ -3317,6 +3319,10 @@
     "noPayment": "⏱ متوسط وقت الرد: أقل من ساعتين · لا حاجة لدفع أو التزام",
     "successTitle": "تم إرسال الاستفسار!",
     "successMessage": "شكرًا لك، {name}! سيتواصل معك فريقنا خلال ساعتين.",
+    "sendViaWhatsapp": "إرسال عبر WhatsApp",
+    "enquiryWhatsappMessage": "مرحبًا، اسمي {name} ({email}). أود الاستفسار عن رحلة سفاري.\nالباقة: {packageName}\nنوع الرحلة: {tripType}\nالتواريخ: {dates}\nالمسافرون: {adults} بالغين، {children} أطفال\nالميزانية: {budget}\n{message}\n\n(تم الإرسال عبر نموذج الاستفسار في موقع EWA Safari Outfitters)",
+    "enquiryWhatsappNoPackage": "لم يتم الاختيار بعد",
+    "enquiryWhatsappFlexibleDates": "مرنة / لم تُحدَّد بعد",
     "whatsappLabel": "واتساب",
     "emailContactLabel": "البريد الإلكتروني",
     "phoneContactLabel": "الهاتف",
@@ -3813,6 +3819,7 @@
       "whatsappMessage": "مرحبًا! كنت أستخدم مخطط «صمّم رحلتك». المدة: {days} أيام · الشهر: {month} {year} · المسافرون: {pax} · الاهتمامات: {interests} · النمط: {style} · الوتيرة: {pace} · أقرب تطابق: {topMatch}. هل يمكنكم مساعدتي على المضي قدمًا في هذا؟",
       "noMatchLabel": "لا يوجد تطابق قوي بعد",
       "emailSuccess": "تم الإرسال — سنرد خلال 24 ساعة.",
+      "whatsappSuccess": "تم فتح WhatsApp — سنرد بمجرد أن نرى رسالتك.",
       "namePlaceholder": "اسمك",
       "emailPlaceholder": "بريدك الإلكتروني",
       "sending": "جارٍ الإرسال…",

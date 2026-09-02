@@ -2,9 +2,10 @@
 
 import { useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
-import { Send, Check } from 'lucide-react'
+import { Send, Check, MessageCircle } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import { trackFormFillConversion } from '@/lib/analytics'
+import { buildWhatsAppUrl } from '@/lib/contact'
 
 const inputCls =
   'w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-brand focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/10 bg-white placeholder-gray-400 transition-all'
@@ -22,8 +23,13 @@ export default function ContactForm() {
     t('contactForm.subjects.general'),
   ]
 
-  const [submitted, setSubmitted] = useState(false)
+  // Which channel completed the send, or null if neither has yet — using
+  // either button flips this, hiding/disabling both so the same message
+  // can't be sent twice.
+  const [sentVia, setSentVia] = useState<'email' | 'whatsapp' | null>(null)
+  const submitted = sentVia !== null
   const [submitting, setSubmitting] = useState(false)
+  const [whatsappSending, setWhatsappSending] = useState(false)
   const [error, setError] = useState('')
 
   const [form, setForm] = useState({
@@ -41,7 +47,7 @@ export default function ContactForm() {
     if (error) setError('')
   }
 
-  const canSubmit = form.fullName && form.email && form.message && privacy && !submitting
+  const canSubmit = form.fullName && form.email && form.message && privacy && !submitting && !whatsappSending
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -52,17 +58,38 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, locale }),
+        body: JSON.stringify({ ...form, locale, contactMethod: 'email' }),
       })
       if (res.status === 429) { setError(t('contactForm.rateLimitError')); return }
       if (!res.ok) throw new Error('send failed')
       trackFormFillConversion()
-      setSubmitted(true)
+      setSentVia('email')
     } catch {
       setError(t('contactForm.genericError'))
     } finally {
       setSubmitting(false)
     }
+  }
+
+  const whatsappMessage = t('contactForm.whatsappMessage', {
+    fullName: form.fullName, email: form.email,
+    subject: form.subject || '—', message: form.message || '',
+  })
+
+  // Same required-field/privacy gate as the email submit button; stays a
+  // real <a href target="_blank"> (never a JS window.open() after an
+  // awaited fetch, which trips popup blockers) — the lead-save POST below
+  // fires fire-and-forget, never blocking the anchor's own navigation.
+  const handleWhatsappClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!canSubmit) { e.preventDefault(); return }
+    setWhatsappSending(true)
+    trackFormFillConversion()
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...form, locale, contactMethod: 'whatsapp' }),
+    }).catch(() => {}).finally(() => setWhatsappSending(false))
+    setSentVia('whatsapp')
   }
 
   if (submitted) {
@@ -198,18 +225,32 @@ export default function ContactForm() {
           <p className="text-xs text-red-500 bg-red-50 border border-red-100 rounded-xl px-4 py-3">{error}</p>
         )}
 
-        <button
-          type="submit"
-          disabled={!canSubmit}
-          className="w-full flex items-center justify-center gap-2 py-3.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-colors text-sm"
-        >
-          {submitting ? (
-            <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-          ) : (
-            <Send className="w-4 h-4" />
-          )}
-          {submitting ? t('contactForm.sending') : t('contactForm.sendMessage')}
-        </button>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <button
+            type="submit"
+            disabled={!canSubmit}
+            className="flex-1 flex items-center justify-center gap-2 py-3.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-colors text-sm"
+          >
+            {submitting ? (
+              <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            ) : (
+              <Send className="w-4 h-4" />
+            )}
+            {submitting ? t('contactForm.sending') : t('contactForm.sendMessage')}
+          </button>
+          <a
+            href={buildWhatsAppUrl(whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleWhatsappClick}
+            aria-disabled={!canSubmit}
+            tabIndex={!canSubmit ? -1 : 0}
+            className={`flex-1 flex items-center justify-center gap-2 py-3.5 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl transition-colors text-sm ${!canSubmit ? 'opacity-50 pointer-events-none cursor-not-allowed' : ''}`}
+          >
+            <MessageCircle className="w-4 h-4" />
+            {t('sendViaWhatsapp')}
+          </a>
+        </div>
 
       </form>
     </div>

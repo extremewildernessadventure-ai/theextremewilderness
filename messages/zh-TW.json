@@ -1584,6 +1584,7 @@
       "whatsappMessage": "您好！我一直在使用\"打造您的獵遊\"定製器。時長：{days}天 · 月份：{month} {year} · 旅行者：{pax} · 興趣：{interests} · 風格：{style} · 節奏：{pace} · 最接近的匹配：{topMatch}。能幫我進一步推進嗎？",
       "noMatchLabel": "尚無高度匹配",
       "emailSuccess": "已傳送——我們將在24小時內回覆。",
+      "whatsappSuccess": "已開啟WhatsApp——我們看到您的訊息後會立即回覆。",
       "namePlaceholder": "您的姓名",
       "emailPlaceholder": "您的郵箱",
       "sending": "傳送中…",
@@ -2559,7 +2560,8 @@
       "rateLimitError": "請求過多。請等待幾分鐘後重試。",
       "genericError": "出了點問題。請直接發郵件至info@theextremewilderness.com",
       "sending": "傳送中…",
-      "sendMessage": "傳送訊息"
+      "sendMessage": "傳送訊息",
+      "whatsappMessage": "您好，我是{fullName}（{email}）。主題：{subject}。\n{message}\n\n（透過EWA Safari Outfitters聯絡表單傳送）"
     },
     "sendEnquiry": "傳送我的諮詢",
     "sending": "傳送中…",
@@ -2624,6 +2626,10 @@
     "noPayment": "⏱ 平均響應時間：2小時以內 · 無需付款或承諾",
     "successTitle": "諮詢已傳送！",
     "successMessage": "謝謝您，{name}！我們的團隊將在2小時內與您聯絡。",
+    "sendViaWhatsapp": "透過WhatsApp傳送",
+    "enquiryWhatsappMessage": "您好，我是{name}（{email}）。我想諮詢獵遊行程。\n套餐：{packageName}\n行程型別：{tripType}\n日期：{dates}\n旅客人數：{adults}位成人，{children}位兒童\n預算：{budget}\n{message}\n\n（透過EWA Safari Outfitters網站諮詢表單傳送）",
+    "enquiryWhatsappNoPackage": "尚未選擇",
+    "enquiryWhatsappFlexibleDates": "靈活 / 尚未確定",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "郵件",
     "phoneContactLabel": "電話",
@@ -4183,6 +4189,7 @@
     "formSuccessBody": "感謝您——我們將在一個工作天內與您聯繫，確認您的貿易合作資格。",
     "formError": "發生了一些問題，請重試，或直接寄信給我們。",
     "formNote": "我們會親自審閱每一份諮詢，並在幾個工作天內回覆。",
+    "formWhatsappMessage": "您好，我是{agencyName}（{country}）。我們有意與EWA Safari Outfitters建立貿易合作夥伴關係。\n網站：{website}\n年度預訂量：{volume}\n典型客戶：{clientDescription}\n電子郵箱：{email}\n\n（透過EWA Safari Outfitters貿易合作夥伴表單傳送）",
     "metaKeywords": [
       "坦尚尼亞獵遊貿易合作夥伴",
       "坦尚尼亞旅行社淨價",

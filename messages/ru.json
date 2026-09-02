@@ -1584,6 +1584,7 @@
       "whatsappMessage": "Здравствуйте! Я использовал(а) конструктор «Создать своё сафари». Продолжительность: {days} дн. · Месяц: {month} {year} · Путешественников: {pax} · Интересы: {interests} · Стиль: {style} · Темп: {pace} · Лучшее совпадение: {topMatch}. Поможете продолжить?",
       "noMatchLabel": "пока нет точного совпадения",
       "emailSuccess": "Отправлено — ответим в течение 24 часов.",
+      "whatsappSuccess": "WhatsApp открыт — мы ответим, как только увидим ваше сообщение.",
       "namePlaceholder": "Ваше имя",
       "emailPlaceholder": "Ваш email",
       "sending": "Отправка…",
@@ -2559,7 +2560,8 @@
       "rateLimitError": "Слишком много запросов. Подождите несколько минут и попробуйте снова.",
       "genericError": "Что-то пошло не так. Напишите нам напрямую: info@theextremewilderness.com",
       "sending": "Отправка…",
-      "sendMessage": "Отправить сообщение"
+      "sendMessage": "Отправить сообщение",
+      "whatsappMessage": "Здравствуйте! Меня зовут {fullName} ({email}). Тема: {subject}.\n{message}\n\n(Отправлено через контактную форму на сайте EWA Safari Outfitters)"
     },
     "sendEnquiry": "Отправить запрос",
     "sending": "Отправка…",
@@ -2624,6 +2626,10 @@
     "noPayment": "⏱ Среднее время ответа: менее 2 часов · Без оплаты и обязательств",
     "successTitle": "Запрос отправлен!",
     "successMessage": "Спасибо, {name}! Наша команда свяжется с вами в течение 2 часов.",
+    "sendViaWhatsapp": "Отправить через WhatsApp",
+    "enquiryWhatsappMessage": "Здравствуйте! Меня зовут {name} ({email}). Хочу узнать о сафари.\nПакет: {packageName}\nТип поездки: {tripType}\nДаты: {dates}\nПутешественники: {adults} взрослых, {children} детей\nБюджет: {budget}\n{message}\n\n(Отправлено через форму запроса на сайте EWA Safari Outfitters)",
+    "enquiryWhatsappNoPackage": "Пока не выбрано",
+    "enquiryWhatsappFlexibleDates": "Гибко / пока не указано",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "email",
     "phoneContactLabel": "телефон",
@@ -4183,6 +4189,7 @@
     "formSuccessBody": "Спасибо — мы свяжемся с вами в течение одного рабочего дня, чтобы подтвердить ваш торговый статус.",
     "formError": "Что-то пошло не так. Пожалуйста, попробуйте снова или напишите нам напрямую.",
     "formNote": "Мы рассматриваем каждый запрос лично и отвечаем в течение нескольких рабочих дней.",
+    "formWhatsappMessage": "Здравствуйте, это {agencyName} ({country}). Мы заинтересованы в торговом партнёрстве с EWA Safari Outfitters.\nВеб-сайт: {website}\nГодовой объём бронирований: {volume}\nТипичные клиенты: {clientDescription}\nEmail: {email}\n\n(Отправлено через форму торговых партнёров на сайте EWA Safari Outfitters)",
     "metaKeywords": [
       "торговый партнёр сафари Танзания",
       "нетто-тарифы для турагентов Танзания",

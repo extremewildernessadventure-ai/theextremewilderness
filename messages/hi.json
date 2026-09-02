@@ -2832,6 +2832,7 @@
     "formSuccessBody": "धन्यवाद — हम एक कार्य दिवस के भीतर आपकी व्यापार स्थिति की पुष्टि करने के लिए संपर्क करेंगे।",
     "formError": "कुछ गलत हो गया। कृपया पुनः प्रयास करें या सीधे हमें ईमेल करें।",
     "formNote": "हम प्रत्येक पूछताछ की व्यक्तिगत रूप से समीक्षा करते हैं, और कुछ कार्य दिवसों के भीतर अनुवर्ती कार्रवाई करते हैं।",
+    "formWhatsappMessage": "नमस्ते, यह {agencyName} ({country}) है। हम EWA Safari Outfitters के साथ व्यापार भागीदारी में रुचि रखते हैं।\nवेबसाइट: {website}\nवार्षिक बुकिंग मात्रा: {volume}\nसामान्य ग्राहक: {clientDescription}\nईमेल: {email}\n\n(EWA Safari Outfitters व्यापार भागीदार फ़ॉर्म के माध्यम से भेजा गया)",
     "metaKeywords": [
       "तंजानिया सफारी व्यापार भागीदार",
       "यात्रा एजेंट नेट दरें तंजानिया",
@@ -3255,7 +3256,8 @@
       "rateLimitError": "बहुत अधिक अनुरोध। कृपया कुछ मिनट प्रतीक्षा करें और पुनः प्रयास करें।",
       "genericError": "कुछ गलत हो गया। कृपया सीधे हमें info@theextremewilderness.com पर ईमेल करने का प्रयास करें",
       "sending": "भेजा जा रहा है…",
-      "sendMessage": "संदेश भेजें"
+      "sendMessage": "संदेश भेजें",
+      "whatsappMessage": "नमस्ते, मेरा नाम {fullName} ({email}) है। विषय: {subject}।\n{message}\n\n(EWA Safari Outfitters संपर्क फ़ॉर्म के माध्यम से भेजा गया)"
     },
     "sendEnquiry": "मेरी पूछताछ भेजें",
     "sending": "भेजा जा रहा है…",
@@ -3320,6 +3322,10 @@
     "noPayment": "⏱ औसत प्रतिक्रिया समय: 2 घंटे से कम · कोई भुगतान या प्रतिबद्धता आवश्यक नहीं",
     "successTitle": "पूछताछ भेज दी गई!",
     "successMessage": "धन्यवाद, {name}! हमारी टीम 2 घंटे के भीतर आपसे संपर्क करेगी।",
+    "sendViaWhatsapp": "व्हाट्सएप के माध्यम से भेजें",
+    "enquiryWhatsappMessage": "नमस्ते, मेरा नाम {name} ({email}) है। मैं एक सफारी के बारे में पूछताछ करना चाहता/चाहती हूँ।\nपैकेज: {packageName}\nयात्रा का प्रकार: {tripType}\nतिथियाँ: {dates}\nयात्री: {adults} वयस्क, {children} बच्चे\nबजट: {budget}\n{message}\n\n(EWA Safari Outfitters वेबसाइट पूछताछ फ़ॉर्म के माध्यम से भेजा गया)",
+    "enquiryWhatsappNoPackage": "अभी तक चयनित नहीं",
+    "enquiryWhatsappFlexibleDates": "लचीला / अभी तय नहीं",
     "whatsappLabel": "व्हाट्सएप",
     "emailContactLabel": "ईमेल",
     "phoneContactLabel": "फ़ोन",
@@ -3816,6 +3822,7 @@
       "whatsappMessage": "नमस्ते! मैं Craft Your Safari बिल्डर का उपयोग कर रहा/रही हूँ। अवधि: {days} दिन · माह: {month} {year} · यात्री: {pax} · रुचियाँ: {interests} · शैली: {style} · गति: {pace} · निकटतम मिलान: {topMatch}। क्या आप मुझे इसे आगे बढ़ाने में मदद कर सकते हैं?",
       "noMatchLabel": "अभी तक कोई मज़बूत मिलान नहीं",
       "emailSuccess": "भेज दिया गया — हम 24 घंटों के भीतर जवाब देंगे।",
+      "whatsappSuccess": "व्हाट्सएप खोला गया — आपका संदेश देखते ही हम जवाब देंगे।",
       "namePlaceholder": "आपका नाम",
       "emailPlaceholder": "आपका ईमेल",
       "sending": "भेजा जा रहा है…",

@@ -3048,6 +3048,7 @@
     "formSuccessBody": "ありがとうございます——1営業日以内に、トレードステータス確認のためご連絡いたします。",
     "formError": "エラーが発生しました。もう一度お試しいただくか、直接メールにてご連絡ください。",
     "formNote": "お問い合わせは一件ずつ担当者が確認し、数営業日以内にご連絡いたします。",
+    "formWhatsappMessage": "こんにちは、{agencyName}（{country}）です。EWA Safari Outfittersとのトレードパートナーシップに関心がございます。\nウェブサイト：{website}\n年間予約件数の目安：{volume}\n主なお客様層：{clientDescription}\nメールアドレス：{email}\n\n（EWA Safari Outfittersトレードパートナーフォームより送信）",
     "metaKeywords": [
       "タンザニア サファリ トレードパートナー",
       "旅行代理店 ネットレート タンザニア",
@@ -3568,7 +3569,8 @@
       "rateLimitError": "リクエストが多すぎます。数分お待ちいただき、再度お試しください。",
       "genericError": "エラーが発生しました。お手数ですが info@theextremewilderness.com まで直接メールでご連絡ください。",
       "sending": "送信中…",
-      "sendMessage": "メッセージを送信"
+      "sendMessage": "メッセージを送信",
+      "whatsappMessage": "こんにちは、{fullName}と申します（{email}）。件名：{subject}。\n{message}\n\n（EWA Safari Outfittersお問い合わせフォームより送信）"
     },
     "sendEnquiry": "お問い合わせを送信",
     "sending": "送信中…",
@@ -3633,6 +3635,10 @@
     "noPayment": "⏱ 平均返信時間：2時間以内 ・ お支払いや契約義務は一切不要",
     "successTitle": "お問い合わせを送信しました！",
     "successMessage": "{name}様、ありがとうございます！2時間以内にご連絡いたします。",
+    "sendViaWhatsapp": "WhatsAppで送信",
+    "enquiryWhatsappMessage": "こんにちは、{name}と申します（{email}）。サファリについてお問い合わせしたいのですが。\nパッケージ：{packageName}\n旅行タイプ：{tripType}\n日程：{dates}\n人数：大人{adults}名、子供{children}名\nご予算：{budget}\n{message}\n\n（EWA Safari Outfittersウェブサイトのお問い合わせフォームより送信）",
+    "enquiryWhatsappNoPackage": "まだ選択されていません",
+    "enquiryWhatsappFlexibleDates": "柔軟／未定",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "メール",
     "phoneContactLabel": "電話",
@@ -3816,6 +3822,7 @@
       "whatsappMessage": "こんにちは！「サファリをデザインする」ツールを利用していました。期間：{days}日間・月：{year}年{month}・人数：{pax}・興味：{interests}・スタイル：{style}・ペース：{pace}・最も近いマッチ：{topMatch}。この先について相談させていただけますか？",
       "noMatchLabel": "まだ強いマッチなし",
       "emailSuccess": "送信完了 — 24時間以内にご返信いたします。",
+      "whatsappSuccess": "WhatsAppを開きました — メッセージを確認次第、ご返信いたします。",
       "namePlaceholder": "お名前",
       "emailPlaceholder": "メールアドレス",
       "sending": "送信中…",

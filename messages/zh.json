@@ -1584,6 +1584,7 @@
       "whatsappMessage": "您好！我一直在使用\"打造您的游猎\"定制器。时长：{days}天 · 月份：{month} {year} · 旅行者：{pax} · 兴趣：{interests} · 风格：{style} · 节奏：{pace} · 最接近的匹配：{topMatch}。能帮我进一步推进吗？",
       "noMatchLabel": "尚无高度匹配",
       "emailSuccess": "已发送——我们将在24小时内回复。",
+      "whatsappSuccess": "已打开WhatsApp——我们看到您的消息后会尽快回复。",
       "namePlaceholder": "您的姓名",
       "emailPlaceholder": "您的邮箱",
       "sending": "发送中…",
@@ -2559,7 +2560,8 @@
       "rateLimitError": "请求过多。请等待几分钟后重试。",
       "genericError": "出了点问题。请直接发邮件至info@theextremewilderness.com",
       "sending": "发送中…",
-      "sendMessage": "发送消息"
+      "sendMessage": "发送消息",
+      "whatsappMessage": "您好，我是{fullName}（{email}）。主题：{subject}。\n{message}\n\n（通过EWA Safari Outfitters联系表单发送）"
     },
     "sendEnquiry": "发送我的咨询",
     "sending": "发送中…",
@@ -2624,6 +2626,10 @@
     "noPayment": "⏱ 平均响应时间：2小时以内 · 无需付款或承诺",
     "successTitle": "咨询已发送！",
     "successMessage": "谢谢您，{name}！我们的团队将在2小时内与您联系。",
+    "sendViaWhatsapp": "通过WhatsApp发送",
+    "enquiryWhatsappMessage": "您好，我是{name}（{email}）。我想咨询一次游猎行程。\n套餐：{packageName}\n行程类型：{tripType}\n日期：{dates}\n旅行者：{adults}位成人，{children}位儿童\n预算：{budget}\n{message}\n\n（通过EWA Safari Outfitters网站咨询表单发送）",
+    "enquiryWhatsappNoPackage": "尚未选择",
+    "enquiryWhatsappFlexibleDates": "灵活 / 尚未确定",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "邮件",
     "phoneContactLabel": "电话",
@@ -4183,6 +4189,7 @@
     "formSuccessBody": "感谢您——我们将在一个工作日内与您联系，确认您的贸易合作资格。",
     "formError": "出现了一些问题，请重试，或直接给我们发邮件。",
     "formNote": "我们会亲自审阅每一份咨询，并在几个工作日内回复。",
+    "formWhatsappMessage": "您好，我是{agencyName}（{country}）。我们有兴趣与EWA Safari Outfitters建立贸易合作伙伴关系。\n网站：{website}\n年度游猎预订量：{volume}\n典型客户：{clientDescription}\n邮箱：{email}\n\n（通过EWA Safari Outfitters贸易合作伙伴表单发送）",
     "metaKeywords": [
       "坦桑尼亚游猎贸易合作伙伴",
       "坦桑尼亚旅行社净价",

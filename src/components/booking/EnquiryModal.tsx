@@ -3,12 +3,13 @@
 import { useState, useEffect, useRef } from 'react'
 import {
   X, Send, Plus, Minus, User, Mail, Phone, Globe, Calendar,
-  Users, Wallet, Bed, MessageSquare, ChevronDown, Mountain, Tent,
+  Users, Wallet, Bed, MessageSquare, MessageCircle, ChevronDown, Mountain, Tent,
 } from 'lucide-react'
 import { useBooking } from '@/context/BookingContext'
 import { Link } from '@/i18n/navigation'
 import { useTranslations, useLocale } from 'next-intl'
 import { trackFormFillConversion } from '@/lib/analytics'
+import { buildWhatsAppUrl } from '@/lib/contact'
 
 // Country list stays in English (universal standard)
 const COUNTRIES = [
@@ -175,8 +176,13 @@ export default function EnquiryModal() {
   const [specialReqs, setSpecialReqs]   = useState<string[]>([])
   const [message, setMessage]           = useState('')
   const [privacyAgreed, setPrivacyAgreed] = useState(false)
-  const [submitted, setSubmitted]   = useState(false)
+  // Which channel completed the send, or null if neither has yet — using
+  // either button flips this, which hides/disables both (see the sticky
+  // footer below), so the same enquiry can't be sent twice.
+  const [sentVia, setSentVia] = useState<'email' | 'whatsapp' | null>(null)
+  const submitted = sentVia !== null
   const [submitting, setSubmitting] = useState(false)
+  const [whatsappSending, setWhatsappSending] = useState(false)
   const [fieldErrors, setFieldErrors] = useState<{ email?: string; phone?: string }>({})
   const [submitError, setSubmitError] = useState('')
 
@@ -186,7 +192,7 @@ export default function EnquiryModal() {
     }
     if (bookingInfo?.travelers) setAdults(bookingInfo.travelers)
     if (scrollRef.current) scrollRef.current.scrollTop = 0
-    setSubmitted(false)
+    setSentVia(null)
     setFieldErrors({})
     setSubmitError('')
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -277,14 +283,15 @@ export default function EnquiryModal() {
           tier: bookingInfo?.tier,
           source: 'booking_modal',
           locale,
+          contactMethod: 'email',
         }),
       })
       if (!res.ok) throw new Error('send failed')
       trackFormFillConversion()
-      setSubmitted(true)
+      setSentVia('email')
       setTimeout(() => {
         closeBooking()
-        setSubmitted(false)
+        setSentVia(null)
       }, 3500)
     } catch {
       // Keep modal open so user can try again
@@ -292,6 +299,53 @@ export default function EnquiryModal() {
     } finally {
       setSubmitting(false)
     }
+  }
+
+  const buildEnquiryWhatsappMessage = () => {
+    const name = `${firstName} ${lastName}`.trim()
+    const packageName = bookingInfo?.packageName || tripType || t('enquiryWhatsappNoPackage')
+    const dates = arrivalDate && departureDate ? `${arrivalDate} – ${departureDate}` : t('enquiryWhatsappFlexibleDates')
+    return t('enquiryWhatsappMessage', {
+      name, email, packageName, tripType: tripType || '—',
+      dates, adults, children, budget: budget || '—', message: message || '',
+    })
+  }
+
+  const whatsappDisabled = submitting || whatsappSending || !privacyAgreed || !firstName || !lastName || !email || Object.values(fieldErrors).some(Boolean)
+
+  // Same required-field/privacy gate as the email submit button, plus a
+  // live re-validation on click (blur-triggered validation may not have
+  // run yet, e.g. an autofilled field never got focused/blurred). The
+  // button stays a real <a href target="_blank"> — never a JS-triggered
+  // window.open() after an awaited fetch, which trips popup blockers —
+  // so the lead-save POST below fires fire-and-forget, never blocking the
+  // anchor's own default navigation.
+  const handleWhatsappClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (whatsappDisabled) { e.preventDefault(); return }
+    if (!validateFields()) { e.preventDefault(); return }
+    setWhatsappSending(true)
+    trackFormFillConversion()
+    fetch('/api/enquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName, lastName, email, phone, gender, country,
+        tripType, arrivalDate, departureDate, flexibility,
+        adults, children, childAges,
+        budget, accommodation, specialReqs,
+        message,
+        packageName: bookingInfo?.packageName,
+        packageType: bookingInfo?.packageType,
+        duration: bookingInfo?.duration,
+        priceFrom: bookingInfo?.priceFrom,
+        season: bookingInfo?.season,
+        tier: bookingInfo?.tier,
+        source: 'booking_modal',
+        locale,
+        contactMethod: 'whatsapp',
+      }),
+    }).catch(() => {}).finally(() => setWhatsappSending(false))
+    setSentVia('whatsapp')
   }
 
   if (!isOpen) return null
@@ -672,27 +726,41 @@ export default function EnquiryModal() {
             {submitError && (
               <p role="alert" className="mb-3 text-xs text-red-500 text-center">{submitError}</p>
             )}
-            <button
-              type="submit"
-              form="booking-form"
-              disabled={submitting || !privacyAgreed || !firstName || !lastName || !email || Object.values(fieldErrors).some(Boolean)}
-              className="w-full flex items-center justify-center gap-2.5 py-3.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all text-sm"
-            >
-              {submitting ? (
-                <>
-                  <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                  </svg>
-                  {t('sendingEnquiry')}
-                </>
-              ) : (
-                <>
-                  <Send className="w-4 h-4" />
-                  {t('sendEnquiry')}
-                </>
-              )}
-            </button>
+            <div className="flex flex-col sm:flex-row gap-2.5">
+              <button
+                type="submit"
+                form="booking-form"
+                disabled={submitting || whatsappSending || !privacyAgreed || !firstName || !lastName || !email || Object.values(fieldErrors).some(Boolean)}
+                className="flex-1 flex items-center justify-center gap-2.5 py-3.5 bg-brand hover:bg-brand-secondary disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl transition-all text-sm"
+              >
+                {submitting ? (
+                  <>
+                    <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                    {t('sendingEnquiry')}
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    {t('sendEnquiry')}
+                  </>
+                )}
+              </button>
+              <a
+                href={buildWhatsAppUrl(buildEnquiryWhatsappMessage())}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleWhatsappClick}
+                aria-disabled={whatsappDisabled}
+                tabIndex={whatsappDisabled ? -1 : 0}
+                className={`flex-1 flex items-center justify-center gap-2.5 py-3.5 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl transition-all text-sm ${whatsappDisabled ? 'opacity-50 pointer-events-none cursor-not-allowed' : ''}`}
+              >
+                <MessageCircle className="w-4 h-4" />
+                {t('sendViaWhatsapp')}
+              </a>
+            </div>
             <p className="text-center text-xs text-gray-400 mt-2">
               {t('noPayment')}
             </p>

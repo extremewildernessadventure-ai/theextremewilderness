@@ -1584,6 +1584,7 @@
       "whatsappMessage": "Hallo! Ich habe den Safari-Planer genutzt. Dauer: {days} Tage · Monat: {month} {year} · Reisende: {pax} · Interessen: {interests} · Stil: {style} · Tempo: {pace} · Beste Übereinstimmung: {topMatch}. Könnt ihr mir helfen, das weiterzuverfolgen?",
       "noMatchLabel": "noch keine starke Übereinstimmung",
       "emailSuccess": "Gesendet — wir antworten innerhalb von 24 Stunden.",
+      "whatsappSuccess": "WhatsApp geöffnet — wir antworten, sobald wir deine Nachricht sehen.",
       "namePlaceholder": "Dein Name",
       "emailPlaceholder": "Deine E-Mail",
       "sending": "Wird gesendet…",
@@ -2559,7 +2560,8 @@
       "rateLimitError": "Zu viele Anfragen. Bitte warten Sie einige Minuten und versuchen Sie es erneut.",
       "genericError": "Etwas ist schiefgelaufen. Bitte senden Sie uns eine E-Mail direkt an info@theextremewilderness.com",
       "sending": "Wird gesendet …",
-      "sendMessage": "Nachricht senden"
+      "sendMessage": "Nachricht senden",
+      "whatsappMessage": "Hallo, mein Name ist {fullName} ({email}). Betreff: {subject}.\n{message}\n\n(Gesendet über das Kontaktformular von EWA Safari Outfitters)"
     },
     "sendEnquiry": "Anfrage senden",
     "sending": "Wird gesendet…",
@@ -2624,6 +2626,10 @@
     "noPayment": "⏱ Durchschnittliche Antwortzeit: unter 2 Stunden · Ohne Zahlung oder Verpflichtung",
     "successTitle": "Anfrage gesendet!",
     "successMessage": "Vielen Dank, {name}! Unser Team wird sich innerhalb von 2 Stunden bei Ihnen melden.",
+    "sendViaWhatsapp": "Über WhatsApp senden",
+    "enquiryWhatsappMessage": "Hallo, mein Name ist {name} ({email}). Ich möchte mich nach einer Safari erkundigen.\nPaket: {packageName}\nReiseart: {tripType}\nReisedaten: {dates}\nReisende: {adults} Erwachsene, {children} Kinder\nBudget: {budget}\n{message}\n\n(Gesendet über das Anfrageformular der EWA Safari Outfitters Website)",
+    "enquiryWhatsappNoPackage": "Noch nicht ausgewählt",
+    "enquiryWhatsappFlexibleDates": "Flexibel / noch nicht festgelegt",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "E-Mail",
     "phoneContactLabel": "Telefon",
@@ -4183,6 +4189,7 @@
     "formSuccessBody": "Vielen Dank — wir melden uns innerhalb eines Werktags, um Ihren Handelsstatus zu bestätigen.",
     "formError": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt.",
     "formNote": "Wir prüfen jede Anfrage persönlich und melden uns innerhalb weniger Werktage.",
+    "formWhatsappMessage": "Hallo, hier ist {agencyName} ({country}). Wir sind an einer Handelspartnerschaft mit EWA Safari Outfitters interessiert.\nWebsite: {website}\nJährliches Buchungsvolumen: {volume}\nTypische Kunden: {clientDescription}\nE-Mail: {email}\n\n(Gesendet über das Handelspartner-Formular von EWA Safari Outfitters)",
     "metaKeywords": [
       "Tansania Safari Handelspartner",
       "Reisebüro Nettotarife Tansania",

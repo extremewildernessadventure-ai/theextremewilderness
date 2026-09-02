@@ -1512,6 +1512,7 @@
       "whatsappMessage": "Hi! I've been using the Craft Your Safari builder. Duration: {days} days · Month: {month} {year} · Travellers: {pax} · Interests: {interests} · Style: {style} · Pace: {pace} · Closest match: {topMatch}. Could you help me take this further?",
       "noMatchLabel": "no strong match yet",
       "emailSuccess": "Sent — we'll reply within 24 hours.",
+      "whatsappSuccess": "Opened WhatsApp — we'll reply as soon as we see your message.",
       "namePlaceholder": "Your name",
       "emailPlaceholder": "Your email",
       "sending": "Sending…",
@@ -2487,7 +2488,8 @@
       "rateLimitError": "Too many requests. Please wait a few minutes and try again.",
       "genericError": "Something went wrong. Please try emailing us directly at info@theextremewilderness.com",
       "sending": "Sending…",
-      "sendMessage": "Send message"
+      "sendMessage": "Send message",
+      "whatsappMessage": "Hi, my name is {fullName} ({email}). Subject: {subject}.\n{message}\n\n(Sent via the EWA Safari Outfitters contact form)"
     },
     "sendEnquiry": "Send My Enquiry",
     "sending": "Sending…",
@@ -2552,6 +2554,10 @@
     "noPayment": "⏱ Average response time: under 2 hours · No payment or commitment required",
     "successTitle": "Enquiry Sent!",
     "successMessage": "Thank you, {name}! Our team will be in touch within 2 hours.",
+    "sendViaWhatsapp": "Send via WhatsApp",
+    "enquiryWhatsappMessage": "Hi, my name is {name} ({email}). I would like to enquire about a safari.\nPackage: {packageName}\nTrip type: {tripType}\nDates: {dates}\nTravellers: {adults} adults, {children} children\nBudget: {budget}\n{message}\n\n(Sent via the EWA Safari Outfitters website enquiry form)",
+    "enquiryWhatsappNoPackage": "Not selected yet",
+    "enquiryWhatsappFlexibleDates": "Flexible / not set yet",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "email",
     "phoneContactLabel": "phone",
@@ -4113,6 +4119,7 @@
     "formSuccessBody": "Thank you — we'll be in touch to confirm your trade status within one business day.",
     "formError": "Something went wrong. Please try again or email us directly.",
     "formNote": "We review each enquiry personally, and follow up within a few business days.",
+    "formWhatsappMessage": "Hi, this is {agencyName} ({country}). We are interested in a trade partnership with EWA Safari Outfitters.\nWebsite: {website}\nAnnual booking volume: {volume}\nTypical clients: {clientDescription}\nEmail: {email}\n\n(Sent via the EWA Safari Outfitters trade partners form)",
     "metaKeywords": [
       "Tanzania safari trade partner",
       "travel agent net rates Tanzania",

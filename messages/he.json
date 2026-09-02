@@ -2832,6 +2832,7 @@
     "formSuccessBody": "תודה — ניצור איתכם קשר לאישור מעמד הסחר שלכם תוך יום עסקים אחד.",
     "formError": "משהו השתבש. אנא נסו שוב או כתבו לנו ישירות בדוא\"ל.",
     "formNote": "אנו סוקרים כל פנייה באופן אישי, וחוזרים אליכם תוך מספר ימי עסקים.",
+    "formWhatsappMessage": "היי, מדובר ב-{agencyName} ({country}). אנו מעוניינים בשותפות סחר עם EWA Safari Outfitters.\nאתר אינטרנט: {website}\nנפח הזמנות שנתי: {volume}\nלקוחות טיפוסיים: {clientDescription}\nדוא\"ל: {email}\n\n(נשלח דרך טופס שותפי הסחר באתר EWA Safari Outfitters)",
     "metaKeywords": [
       "שותף סחר לספארי בטנזניה",
       "מחירי נטו לסוכני נסיעות בטנזניה",
@@ -3255,7 +3256,8 @@
       "rateLimitError": "יותר מדי בקשות. אנא המתינו מספר דקות ונסו שוב.",
       "genericError": "משהו השתבש. נסו לשלוח לנו אימייל ישירות לכתובת info@theextremewilderness.com",
       "sending": "שולח...",
-      "sendMessage": "שליחת הודעה"
+      "sendMessage": "שליחת הודעה",
+      "whatsappMessage": "היי, שמי {fullName} ({email}). נושא: {subject}.\n{message}\n\n(נשלח דרך טופס יצירת הקשר באתר EWA Safari Outfitters)"
     },
     "sendEnquiry": "שליחת הפנייה שלי",
     "sending": "שולח...",
@@ -3320,6 +3322,10 @@
     "noPayment": "⏱ זמן תגובה ממוצע: פחות משעתיים · ללא תשלום או התחייבות",
     "successTitle": "הפנייה נשלחה!",
     "successMessage": "תודה, {name}! הצוות שלנו ייצור איתכם קשר תוך שעתיים.",
+    "sendViaWhatsapp": "שליחה בוואטסאפ",
+    "enquiryWhatsappMessage": "היי, שמי {name} ({email}). אשמח לברר לגבי ספארי.\nחבילה: {packageName}\nסוג הטיול: {tripType}\nתאריכים: {dates}\nמטיילים: {adults} מבוגרים, {children} ילדים\nתקציב: {budget}\n{message}\n\n(נשלח דרך טופס הפנייה באתר EWA Safari Outfitters)",
+    "enquiryWhatsappNoPackage": "עדיין לא נבחרה",
+    "enquiryWhatsappFlexibleDates": "גמיש / עדיין לא נקבעו",
     "whatsappLabel": "וואטסאפ",
     "emailContactLabel": "אימייל",
     "phoneContactLabel": "טלפון",
@@ -3816,6 +3822,7 @@
       "whatsappMessage": "היי! השתמשתי בכלי בניית הספארי \"עצבו את הספארי שלכם\". משך: {days} ימים · חודש: {month} {year} · מטיילים: {pax} · תחומי עניין: {interests} · סגנון: {style} · קצב: {pace} · ההתאמה הקרובה ביותר: {topMatch}. תוכלו לעזור לי להמשיך מכאן?",
       "noMatchLabel": "עדיין אין התאמה חזקה",
       "emailSuccess": "נשלח – נשיב תוך 24 שעות.",
+      "whatsappSuccess": "וואטסאפ נפתח – נשיב ברגע שנראה את ההודעה שלכם.",
       "namePlaceholder": "השם שלכם",
       "emailPlaceholder": "האימייל שלכם",
       "sending": "שולח...",

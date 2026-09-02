@@ -3140,6 +3140,7 @@
     "formSuccessBody": "Dank u — wij nemen binnen één werkdag contact met u op om uw handelsstatus te bevestigen.",
     "formError": "Er is iets misgegaan. Probeer het opnieuw of e-mail ons rechtstreeks.",
     "formNote": "Wij beoordelen elke aanvraag persoonlijk en reageren binnen enkele werkdagen.",
+    "formWhatsappMessage": "Hallo, dit is {agencyName} ({country}). Wij zijn geïnteresseerd in een handelspartnerschap met EWA Safari Outfitters.\nWebsite: {website}\nJaarlijks boekingsvolume: {volume}\nTypische klanten: {clientDescription}\nE-mail: {email}\n\n(Verzonden via het handelspartnersformulier van EWA Safari Outfitters)",
     "metaKeywords": [
       "Tanzania safari handelspartner",
       "reisagent nettotarieven Tanzania",
@@ -3399,6 +3400,7 @@
       "whatsappMessage": "Hoi! Ik heb de Stel je safari samen-tool gebruikt. Duur: {days} dagen · Maand: {month} {year} · Reizigers: {pax} · Interesses: {interests} · Stijl: {style} · Tempo: {pace} · Beste match: {topMatch}. Kunnen jullie me hiermee verder helpen?",
       "noMatchLabel": "nog geen sterke match",
       "emailSuccess": "Verzonden — we reageren binnen 24 uur.",
+      "whatsappSuccess": "WhatsApp geopend — we reageren zodra we je bericht zien.",
       "namePlaceholder": "Jouw naam",
       "emailPlaceholder": "Jouw e-mailadres",
       "sending": "Verzenden…",
@@ -3720,7 +3722,8 @@
       "rateLimitError": "Te veel aanvragen. Wacht enkele minuten en probeer het opnieuw.",
       "genericError": "Er is iets misgegaan. Mail ons rechtstreeks op info@theextremewilderness.com",
       "sending": "Verzenden…",
-      "sendMessage": "Verstuur bericht"
+      "sendMessage": "Verstuur bericht",
+      "whatsappMessage": "Hoi, mijn naam is {fullName} ({email}). Onderwerp: {subject}.\n{message}\n\n(Verzonden via het contactformulier van EWA Safari Outfitters)"
     },
     "sendEnquiry": "Verstuur mijn aanvraag",
     "sending": "Verzenden…",
@@ -3785,6 +3788,10 @@
     "noPayment": "⏱ Gemiddelde reactietijd: binnen 2 uur · Geen betaling of verplichting vereist",
     "successTitle": "Aanvraag verzonden!",
     "successMessage": "Dank je, {name}! Ons team neemt binnen 2 uur contact met je op.",
+    "sendViaWhatsapp": "Verstuur via WhatsApp",
+    "enquiryWhatsappMessage": "Hoi, mijn naam is {name} ({email}). Ik wil graag een aanvraag doen voor een safari.\nPakket: {packageName}\nType reis: {tripType}\nData: {dates}\nReizigers: {adults} volwassenen, {children} kinderen\nBudget: {budget}\n{message}\n\n(Verzonden via het aanvraagformulier van de EWA Safari Outfitters-website)",
+    "enquiryWhatsappNoPackage": "Nog niet geselecteerd",
+    "enquiryWhatsappFlexibleDates": "Flexibel / nog niet vastgesteld",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "e-mail",
     "phoneContactLabel": "telefoon",

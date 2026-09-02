@@ -1264,6 +1264,7 @@
     "formSuccessBody": "ขอบคุณ — เราจะติดต่อกลับเพื่อยืนยันสถานะทางการค้าของคุณภายในหนึ่งวันทำการ",
     "formError": "เกิดข้อผิดพลาดบางอย่าง กรุณาลองอีกครั้งหรืออีเมลถึงเราโดยตรง",
     "formNote": "เราตรวจสอบทุกคำถามด้วยตนเอง และจะติดตามผลภายในไม่กี่วันทำการ",
+    "formWhatsappMessage": "สวัสดี ฉันคือ {agencyName} ({country}) เราสนใจเป็นพันธมิตรทางการค้ากับ EWA Safari Outfitters\nเว็บไซต์: {website}\nปริมาณการจองต่อปี: {volume}\nลูกค้าทั่วไป: {clientDescription}\nอีเมล: {email}\n\n(ส่งผ่านแบบฟอร์มพันธมิตรทางการค้าของ EWA Safari Outfitters)",
     "metaKeywords": [
       "พันธมิตรทางการค้าซาฟารีแทนซาเนีย",
       "ราคาสุทธิสำหรับตัวแทนท่องเที่ยวในแทนซาเนีย",
@@ -1578,7 +1579,8 @@
       "rateLimitError": "มีคำขอมากเกินไป กรุณารอสักครู่แล้วลองอีกครั้ง",
       "genericError": "เกิดข้อผิดพลาดบางอย่าง กรุณาอีเมลถึงเราโดยตรงที่ info@theextremewilderness.com",
       "sending": "กำลังส่ง…",
-      "sendMessage": "ส่งข้อความ"
+      "sendMessage": "ส่งข้อความ",
+      "whatsappMessage": "สวัสดี ฉันชื่อ {fullName} ({email}) หัวข้อ: {subject}\n{message}\n\n(ส่งผ่านแบบฟอร์มติดต่อของ EWA Safari Outfitters)"
     },
     "sendEnquiry": "ส่งคำถามของฉัน",
     "sending": "กำลังส่ง…",
@@ -1643,6 +1645,10 @@
     "noPayment": "⏱ เวลาตอบกลับโดยเฉลี่ย: ต่ำกว่า 2 ชั่วโมง · ไม่ต้องชำระเงินหรือผูกมัดใดๆ",
     "successTitle": "ส่งคำถามแล้ว!",
     "successMessage": "ขอบคุณ คุณ{name}! ทีมของเราจะติดต่อกลับภายใน 2 ชั่วโมง",
+    "sendViaWhatsapp": "ส่งผ่านทาง WhatsApp",
+    "enquiryWhatsappMessage": "สวัสดี ฉันชื่อ {name} ({email}) ฉันต้องการสอบถามเกี่ยวกับซาฟารี\nแพ็กเกจ: {packageName}\nประเภททริป: {tripType}\nวันที่เดินทาง: {dates}\nนักเดินทาง: ผู้ใหญ่ {adults} คน เด็ก {children} คน\nงบประมาณ: {budget}\n{message}\n\n(ส่งผ่านแบบฟอร์มสอบถามบนเว็บไซต์ EWA Safari Outfitters)",
+    "enquiryWhatsappNoPackage": "ยังไม่ได้เลือก",
+    "enquiryWhatsappFlexibleDates": "ยืดหยุ่น / ยังไม่ได้กำหนด",
     "whatsappLabel": "WhatsApp",
     "emailContactLabel": "อีเมล",
     "phoneContactLabel": "โทรศัพท์",
@@ -2838,6 +2844,7 @@
       "whatsappMessage": "สวัสดี! ฉันได้ใช้ตัวสร้าง Craft Your Safari ระยะเวลา: {days} วัน · เดือน: {month} {year} · นักเดินทาง: {pax} · ความสนใจ: {interests} · สไตล์: {style} · จังหวะ: {pace} · การจับคู่ที่ใกล้เคียงที่สุด: {topMatch} คุณช่วยฉันดำเนินการต่อได้ไหม?",
       "noMatchLabel": "ยังไม่มีการจับคู่ที่ชัดเจน",
       "emailSuccess": "ส่งแล้ว — เราจะตอบกลับภายใน 24 ชั่วโมง",
+      "whatsappSuccess": "เปิด WhatsApp แล้ว — เราจะตอบกลับทันทีที่เห็นข้อความของคุณ",
       "namePlaceholder": "ชื่อของคุณ",
       "emailPlaceholder": "อีเมลของคุณ",
       "sending": "กำลังส่ง…",
