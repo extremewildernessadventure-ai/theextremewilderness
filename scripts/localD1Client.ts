@@ -47,16 +47,50 @@ interface RawStatementResult {
   meta?: { duration: number }
 }
 
+// Synchronous sleep (no setTimeout-based async sleep is usable here --
+// execSql() itself must stay synchronous, called from inside D1Database's
+// async methods but needing to block before a retry). Atomics.wait on a
+// throwaway SharedArrayBuffer is the standard way to block synchronously
+// in Node without a native dependency.
+function sleepSync(ms: number): void {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
+}
+
+// A migration run spawns 1000+ of these subprocesses back to back. Rarely
+// (observed once in ~700 calls during testing), the spawned `node
+// wrangler.js` process crashes outright (empty stdout/stderr, a Windows
+// STATUS_STACK_BUFFER_OVERRUN-shaped exit code) rather than returning a
+// normal SQLITE_ERROR -- this looks like OS/libuv-level flakiness under
+// rapid repeated spawning (this project has separately seen benign libuv
+// "UV_HANDLE_CLOSING" assertion noise from wrangler after otherwise-
+// successful calls), not anything wrong with the SQL or the data. Retried
+// rather than treated as fatal, since a real SQL error (bad constraint,
+// syntax) fails immediately and consistently on retry too and still
+// surfaces after MAX_ATTEMPTS.
+const MAX_ATTEMPTS = 3
+
 function execSql(databaseName: string, sql: string): RawStatementResult[] {
   const tmpFile = join(tmpdir(), `d1-local-${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2)}.sql`)
   writeFileSync(tmpFile, sql, 'utf8')
   try {
-    const out = execFileSync(
-      'node',
-      [WRANGLER_BIN, 'd1', 'execute', databaseName, '--local', '--json', '--file', tmpFile],
-      { encoding: 'utf8', maxBuffer: 1024 * 1024 * 64 }
-    )
-    return JSON.parse(out) as RawStatementResult[]
+    let lastErr: unknown
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      try {
+        const out = execFileSync(
+          'node',
+          [WRANGLER_BIN, 'd1', 'execute', databaseName, '--local', '--json', '--file', tmpFile],
+          { encoding: 'utf8', maxBuffer: 1024 * 1024 * 64 }
+        )
+        return JSON.parse(out) as RawStatementResult[]
+      } catch (err) {
+        lastErr = err
+        if (attempt < MAX_ATTEMPTS) {
+          console.warn(`  (retrying wrangler d1 execute after attempt ${attempt}/${MAX_ATTEMPTS} failed)`)
+          sleepSync(500 * attempt)
+        }
+      }
+    }
+    throw lastErr
   } finally {
     unlinkSync(tmpFile)
   }
