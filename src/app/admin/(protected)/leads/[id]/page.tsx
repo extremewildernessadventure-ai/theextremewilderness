@@ -3,6 +3,7 @@ import { getDb } from '@/lib/db'
 import type { Lead, CommunicationLogEntry, LeadUpdate } from '@/lib/leads'
 import type { Quote } from '@/lib/quotes'
 import TypeBadge from '../TypeBadge'
+import ContactMethodBadge from '../ContactMethodBadge'
 import LeadStatusSelect from '../LeadStatusSelect'
 import DeleteLeadButton from './DeleteLeadButton'
 import LeadNotes from './LeadNotes'
@@ -54,7 +55,7 @@ export default async function LeadDetailPage({ params }: Props) {
       backHref="/admin/leads"
       backLabel="Back to Leads"
       title={lead.name || lead.email}
-      titleBadge={<TypeBadge type={lead.type} />}
+      titleBadge={<div className="flex items-center gap-2"><TypeBadge type={lead.type} /><ContactMethodBadge method={lead.contact_method} /></div>}
       subtitle={`Received ${new Date(lead.created_at.replace(' ', 'T') + 'Z').toLocaleString()}`}
       main={
         <>

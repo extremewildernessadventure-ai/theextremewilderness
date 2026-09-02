@@ -63,9 +63,10 @@ function buildHtml(d: Record<string, unknown>) {
   const msgRows = d.message ? row('Message', `<em>${str(d.message).replace(/\n/g, '<br>')}</em>`) : ''
 
   const source = str(d.source) === 'contact_page' ? 'Contact Page' : 'Booking Modal'
+  const viaWhatsapp = d.contactMethod === 'whatsapp'
 
   return buildBrandedEmailHtml({
-    eyebrow: `New Safari Enquiry — ${source}`,
+    eyebrow: `New Safari Enquiry — ${source}${viaWhatsapp ? ' · via WhatsApp' : ''}`,
     heading: `${str(d.firstName)} ${str(d.lastName)}`,
     subheading: `${str(d.email)} · ${str(d.phone)}`,
     maxWidth: 600,
@@ -87,6 +88,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json() as Record<string, unknown>
     const { firstName, lastName, email, locale: rawLocale } = body
     const locale = routing.locales.includes(rawLocale as (typeof routing.locales)[number]) ? String(rawLocale) : routing.defaultLocale
+    const contactMethod = body.contactMethod === 'whatsapp' ? 'whatsapp' : 'email'
 
     if (!firstName || !lastName || !email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -100,6 +102,7 @@ export async function POST(req: NextRequest) {
       subject: String(body.packageName || body.tripType || 'Safari'),
       locale,
       payload: body,
+      contactMethod,
     })
 
     let emailOk = false
@@ -109,7 +112,7 @@ export async function POST(req: NextRequest) {
         from: FROM,
         to: TO,
         replyTo: String(email),
-        subject: `New Enquiry: ${String(firstName)} ${String(lastName)} — ${String(body.tripType || 'Safari')}`,
+        subject: `New Enquiry: ${String(firstName)} ${String(lastName)} — ${String(body.tripType || 'Safari')}${contactMethod === 'whatsapp' ? ' (WhatsApp)' : ''}`,
         html: buildHtml(body),
       })
       if (error) {
@@ -127,20 +130,25 @@ export async function POST(req: NextRequest) {
     }
 
     // Best-effort auto-reply to the submitter — never fails the request.
-    try {
-      const m = (await import(`../../../../messages/${locale}.json`)).default.emailAutoReply.enquiry as { subject: string; greeting: string; body: string }
-      const resend = new Resend(process.env.RESEND_API_KEY)
-      await sendAutoReply({
-        resend,
-        from: FROM,
-        to: String(email),
-        replyTo: TO,
-        subject: m.subject,
-        greeting: m.greeting.replace('{name}', escapeHtml(String(firstName))),
-        bodyHtml: `<p style="margin:0;font-size:14px;line-height:1.6;color:#374151">${m.body}</p>`,
-      })
-    } catch (autoReplyErr) {
-      console.error('Enquiry auto-reply failed:', autoReplyErr)
+    // Skipped for WhatsApp submissions: the visitor is about to open a live
+    // WhatsApp chat, so a "we received your message" email is redundant —
+    // the team-notification email above still always sends either way.
+    if (contactMethod !== 'whatsapp') {
+      try {
+        const m = (await import(`../../../../messages/${locale}.json`)).default.emailAutoReply.enquiry as { subject: string; greeting: string; body: string }
+        const resend = new Resend(process.env.RESEND_API_KEY)
+        await sendAutoReply({
+          resend,
+          from: FROM,
+          to: String(email),
+          replyTo: TO,
+          subject: m.subject,
+          greeting: m.greeting.replace('{name}', escapeHtml(String(firstName))),
+          bodyHtml: `<p style="margin:0;font-size:14px;line-height:1.6;color:#374151">${m.body}</p>`,
+        })
+      } catch (autoReplyErr) {
+        console.error('Enquiry auto-reply failed:', autoReplyErr)
+      }
     }
 
     return NextResponse.json({ success: true })

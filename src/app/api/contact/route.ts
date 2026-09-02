@@ -12,6 +12,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json() as Record<string, unknown>
     const { fullName, email, phone, subject, message, locale: rawLocale } = body
     const locale = routing.locales.includes(rawLocale as (typeof routing.locales)[number]) ? String(rawLocale) : routing.defaultLocale
+    const contactMethod = body.contactMethod === 'whatsapp' ? 'whatsapp' : 'email'
 
     // Required fields
     if (!fullName || !email || !message) {
@@ -20,7 +21,7 @@ export async function POST(req: NextRequest) {
 
     const emailStr = String(email)
     const html = buildBrandedEmailHtml({
-      eyebrow: 'New Contact Message',
+      eyebrow: `New Contact Message${contactMethod === 'whatsapp' ? ' · via WhatsApp' : ''}`,
       heading: String(fullName),
       subheading: `${emailStr}${phone ? ` · ${String(phone)}` : ''}`,
       maxWidth: 560,
@@ -43,6 +44,7 @@ export async function POST(req: NextRequest) {
       subject: subject ? String(subject) : 'General Enquiry',
       locale,
       payload: body,
+      contactMethod,
     })
 
     let emailOk = false
@@ -52,7 +54,7 @@ export async function POST(req: NextRequest) {
         from: FROM,
         to: TO,
         replyTo: emailStr,
-        subject: `Contact: ${String(fullName)} — ${subject ? String(subject) : 'General Enquiry'}`,
+        subject: `Contact: ${String(fullName)} — ${subject ? String(subject) : 'General Enquiry'}${contactMethod === 'whatsapp' ? ' (WhatsApp)' : ''}`,
         html,
       })
       if (error) {
@@ -70,20 +72,25 @@ export async function POST(req: NextRequest) {
     }
 
     // Best-effort auto-reply to the submitter — never fails the request.
-    try {
-      const m = (await import(`../../../../messages/${locale}.json`)).default.emailAutoReply.contact as { subject: string; greeting: string; body: string }
-      const resend = new Resend(process.env.RESEND_API_KEY)
-      await sendAutoReply({
-        resend,
-        from: FROM,
-        to: emailStr,
-        replyTo: TO,
-        subject: m.subject,
-        greeting: m.greeting.replace('{name}', escapeHtml(String(fullName))),
-        bodyHtml: `<p style="margin:0;font-size:14px;line-height:1.6;color:#374151">${m.body}</p>`,
-      })
-    } catch (autoReplyErr) {
-      console.error('Contact auto-reply failed:', autoReplyErr)
+    // Skipped for WhatsApp submissions (redundant once they're about to
+    // open a live chat) — the team-notification email above still always
+    // sends either way.
+    if (contactMethod !== 'whatsapp') {
+      try {
+        const m = (await import(`../../../../messages/${locale}.json`)).default.emailAutoReply.contact as { subject: string; greeting: string; body: string }
+        const resend = new Resend(process.env.RESEND_API_KEY)
+        await sendAutoReply({
+          resend,
+          from: FROM,
+          to: emailStr,
+          replyTo: TO,
+          subject: m.subject,
+          greeting: m.greeting.replace('{name}', escapeHtml(String(fullName))),
+          bodyHtml: `<p style="margin:0;font-size:14px;line-height:1.6;color:#374151">${m.body}</p>`,
+        })
+      } catch (autoReplyErr) {
+        console.error('Contact auto-reply failed:', autoReplyErr)
+      }
     }
 
     return NextResponse.json({ success: true })

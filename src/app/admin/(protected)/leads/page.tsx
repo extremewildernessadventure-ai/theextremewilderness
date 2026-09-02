@@ -1,6 +1,7 @@
 import { getDb } from '@/lib/db'
 import type { Lead, LeadType } from '@/lib/leads'
 import TypeBadge from './TypeBadge'
+import ContactMethodBadge from './ContactMethodBadge'
 import LeadStatusSelect from './LeadStatusSelect'
 import SearchBar from './SearchBar'
 import GmailStatusBanner from './GmailStatusBanner'
@@ -85,6 +86,7 @@ export default async function LeadsListPage({ searchParams }: Props) {
     },
     { header: 'Contact', className: 'text-gray-700', render: (lead) => lead.email },
     { header: 'Source', render: (lead) => <TypeBadge type={lead.type} /> },
+    { header: 'Channel', render: (lead) => <ContactMethodBadge method={lead.contact_method} /> },
     { header: 'Status', render: (lead) => <LeadStatusSelect leadId={lead.id} currentStatus={lead.status} compact /> },
     {
       header: 'Last Activity',

@@ -11,6 +11,13 @@ export type LeadType =
 
 export type LeadStatus = 'new' | 'contacted' | 'converted' | 'archived'
 
+// Which channel the VISITOR chose at submission time — orthogonal to
+// LeadType (the enquiry category) and unrelated to CommunicationChannel
+// below (how STAFF later contacted the lead, logged manually after the
+// fact). Only the forms that offer a WhatsApp send option ever pass
+// 'whatsapp'; every other lead-creation route implicitly stays 'email'.
+export type ContactMethod = 'email' | 'whatsapp'
+
 export type CommunicationChannel = 'whatsapp' | 'email' | 'call' | 'in_person'
 export const COMMUNICATION_CHANNELS: CommunicationChannel[] = ['whatsapp', 'email', 'call', 'in_person']
 
@@ -54,6 +61,7 @@ export interface Lead {
   locale: string | null
   payload: string
   email_sent: number
+  contact_method: ContactMethod
   notes: string | null
   trip_start_date: string | null
   trip_end_date: string | null
@@ -70,6 +78,9 @@ export interface SaveLeadInput {
   subject?: string | null
   locale?: string | null
   payload: unknown
+  // Omitted (or anything other than the literal 'whatsapp') normalizes to
+  // 'email' — matches the migration's NOT NULL DEFAULT 'email' backfill.
+  contactMethod?: ContactMethod
 }
 
 // Never throws — a D1 failure here must not take down the Resend email path
@@ -78,9 +89,10 @@ export interface SaveLeadInput {
 export async function saveLead(input: SaveLeadInput): Promise<{ ok: boolean; id: number | null }> {
   try {
     const db = await getDb()
+    const contactMethod: ContactMethod = input.contactMethod === 'whatsapp' ? 'whatsapp' : 'email'
     const result = await db.prepare(
-      `INSERT INTO leads (type, name, email, phone, subject, locale, payload, email_sent)
-       VALUES (?, ?, ?, ?, ?, ?, ?, 0)`
+      `INSERT INTO leads (type, name, email, phone, subject, locale, payload, email_sent, contact_method)
+       VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?)`
     ).bind(
       input.type,
       input.name ?? null,
@@ -89,6 +101,7 @@ export async function saveLead(input: SaveLeadInput): Promise<{ ok: boolean; id:
       input.subject ?? null,
       input.locale ?? null,
       JSON.stringify(input.payload),
+      contactMethod,
     ).run()
     return { ok: true, id: result.meta?.last_row_id ?? null }
   } catch (err) {
