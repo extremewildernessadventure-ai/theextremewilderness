@@ -1,4 +1,4 @@
-import type { D1Database } from './db'
+import type { D1Database, D1PreparedStatement } from './db'
 import type {
   SafariPackage,
   ItineraryDay,
@@ -286,4 +286,75 @@ export async function getFullPackage(db: D1Database, slug: string): Promise<Safa
   if (row.meta_description !== null) pkg.metaDescription = row.meta_description
 
   return pkg
+}
+
+// Inserts one new package's parent row plus its simple flat child tables
+// (gallery, pricing tiers, family pricing, faq — none of which need an
+// id handed to a further-nested child, unlike itinerary days). Returns the
+// new package's id; the caller is expected to follow up with
+// insertItinerary() for the day-by-day itinerary + per-day tier stays.
+// Takes the exact SafariPackage shape as input (not a separate Input type)
+// since every field it needs already exists there under the right name —
+// this is the same contract the migration script and the future admin
+// form will both produce.
+export async function createPackage(db: D1Database, pkg: SafariPackage, status: PackageStatus = 'draft'): Promise<number> {
+  const result = await db.prepare(
+    `INSERT INTO packages (
+      slug, name, duration, type, price_from, group_size_min, group_size_max,
+      hero_image, hero_image_alt, badge, tagline, best_time_to_travel,
+      why_different_heading, why_different_paragraphs, destination_highlights,
+      notes, meta_title, meta_description, pricing_tiers_provisional,
+      destinations, highlights, best_for, overview, included, excluded,
+      included_categorized, excluded_categorized, status
+    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
+  ).bind(
+    pkg.slug, pkg.name, pkg.duration, pkg.type, pkg.priceFrom, pkg.groupSize.min, pkg.groupSize.max,
+    pkg.heroImage, pkg.heroImageAlt ?? null, pkg.badge ?? null, pkg.tagline ?? null, pkg.bestTimeToTravel ?? null,
+    pkg.whyDifferent?.heading ?? null,
+    pkg.whyDifferent ? JSON.stringify(pkg.whyDifferent.paragraphs) : null,
+    pkg.destinationHighlights ? JSON.stringify(pkg.destinationHighlights) : null,
+    pkg.notes ? JSON.stringify(pkg.notes) : null,
+    pkg.metaTitle ?? null, pkg.metaDescription ?? null,
+    pkg.pricingTiersProvisional ? 1 : 0,
+    JSON.stringify(pkg.destinations), JSON.stringify(pkg.highlights), JSON.stringify(pkg.bestFor),
+    pkg.overview ? JSON.stringify(pkg.overview) : null,
+    JSON.stringify(pkg.included), JSON.stringify(pkg.excluded),
+    pkg.includedCategorized ? JSON.stringify(pkg.includedCategorized) : null,
+    pkg.excludedCategorized ? JSON.stringify(pkg.excludedCategorized) : null,
+    status,
+  ).run()
+
+  const packageId = result.meta?.last_row_id
+  if (!packageId) throw new Error(`createPackage(${pkg.slug}): insert did not return an id`)
+
+  const statements: D1PreparedStatement[] = []
+  pkg.gallery.forEach((g, i) => {
+    statements.push(
+      db.prepare('INSERT INTO package_gallery (package_id, image, alt, sort_order) VALUES (?,?,?,?)')
+        .bind(packageId, g.src, g.alt, i)
+    )
+  })
+  ;(pkg.pricingTiers ?? []).forEach((t, i) => {
+    statements.push(
+      db.prepare(
+        'INSERT INTO package_pricing_tiers (package_id, pax, season, trail_price, reserve_price, sovereign_price, sort_order) VALUES (?,?,?,?,?,?,?)'
+      ).bind(packageId, t.pax, t.season ?? null, t.trail ?? null, t.reserve ?? null, t.sovereign ?? null, i)
+    )
+  })
+  ;(pkg.familyPricing ?? []).forEach((f, i) => {
+    statements.push(
+      db.prepare(
+        'INSERT INTO package_family_pricing (package_id, season, family_size, luxury_price, ultra_luxury_price, sort_order) VALUES (?,?,?,?,?,?)'
+      ).bind(packageId, f.season, f.familySize, f.luxury, f.ultraLuxury, i)
+    )
+  })
+  ;(pkg.faq ?? []).forEach((f, i) => {
+    statements.push(
+      db.prepare('INSERT INTO package_faq (package_id, question, answer, sort_order) VALUES (?,?,?,?)')
+        .bind(packageId, f.q, f.a, i)
+    )
+  })
+  if (statements.length > 0) await db.batch(statements)
+
+  return packageId
 }
