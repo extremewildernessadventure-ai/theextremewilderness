@@ -39,8 +39,10 @@ function buildHtml(d: Record<string, unknown>) {
     row('Typical Client', str(d.clientDescription)),
   ].join('')
 
+  const viaWhatsapp = d.contactMethod === 'whatsapp'
+
   return buildBrandedEmailHtml({
-    eyebrow: 'New Trade Partner Enquiry',
+    eyebrow: `New Trade Partner Enquiry${viaWhatsapp ? ' · via WhatsApp' : ''}`,
     heading: str(d.agencyName),
     subheading: str(d.email),
     maxWidth: 600,
@@ -60,6 +62,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json() as Record<string, unknown>
     const { agencyName, email, locale: rawLocale } = body
     const locale = routing.locales.includes(rawLocale as (typeof routing.locales)[number]) ? String(rawLocale) : routing.defaultLocale
+    const contactMethod = body.contactMethod === 'whatsapp' ? 'whatsapp' : 'email'
 
     if (!agencyName || !email) {
       return NextResponse.json({ error: 'Agency name and email are required' }, { status: 400 })
@@ -72,6 +75,7 @@ export async function POST(req: NextRequest) {
       subject: body.country ? `${String(agencyName)} — ${String(body.country)}` : String(agencyName),
       locale,
       payload: body,
+      contactMethod,
     })
 
     let emailOk = false
@@ -81,7 +85,7 @@ export async function POST(req: NextRequest) {
         from: FROM,
         to: TO,
         replyTo: String(email),
-        subject: `🤝 New Trade Partner Enquiry — ${String(agencyName)}`,
+        subject: `🤝 New Trade Partner Enquiry — ${String(agencyName)}${contactMethod === 'whatsapp' ? ' (WhatsApp)' : ''}`,
         html: buildHtml(body),
       })
       if (error) {
@@ -99,20 +103,25 @@ export async function POST(req: NextRequest) {
     }
 
     // Best-effort auto-reply to the submitter — never fails the request.
-    try {
-      const m = (await import(`../../../../messages/${locale}.json`)).default.emailAutoReply.tradePartners as { subject: string; greeting: string; body: string }
-      const resend = new Resend(process.env.RESEND_API_KEY)
-      await sendAutoReply({
-        resend,
-        from: FROM,
-        to: String(email),
-        replyTo: TO,
-        subject: m.subject,
-        greeting: m.greeting.replace('{name}', escapeHtml(String(agencyName))),
-        bodyHtml: `<p style="margin:0;font-size:14px;line-height:1.6;color:#374151">${m.body}</p>`,
-      })
-    } catch (autoReplyErr) {
-      console.error('Trade-partners auto-reply failed:', autoReplyErr)
+    // Skipped for WhatsApp submissions (redundant once they're about to
+    // open a live chat) — the team-notification email above still always
+    // sends either way.
+    if (contactMethod !== 'whatsapp') {
+      try {
+        const m = (await import(`../../../../messages/${locale}.json`)).default.emailAutoReply.tradePartners as { subject: string; greeting: string; body: string }
+        const resend = new Resend(process.env.RESEND_API_KEY)
+        await sendAutoReply({
+          resend,
+          from: FROM,
+          to: String(email),
+          replyTo: TO,
+          subject: m.subject,
+          greeting: m.greeting.replace('{name}', escapeHtml(String(agencyName))),
+          bodyHtml: `<p style="margin:0;font-size:14px;line-height:1.6;color:#374151">${m.body}</p>`,
+        })
+      } catch (autoReplyErr) {
+        console.error('Trade-partners auto-reply failed:', autoReplyErr)
+      }
     }
 
     return NextResponse.json({ success: true })

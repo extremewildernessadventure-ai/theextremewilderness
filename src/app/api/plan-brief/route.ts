@@ -47,8 +47,10 @@ function buildHtml(d: Record<string, unknown>) {
     row('Email', str(d.email)),
   ].join('')
 
+  const viaWhatsapp = d.contactMethod === 'whatsapp'
+
   return buildBrandedEmailHtml({
-    eyebrow: 'Safari Plan Brief — Builder',
+    eyebrow: `Safari Plan Brief — Builder${viaWhatsapp ? ' · via WhatsApp' : ''}`,
     heading: str(d.name),
     subheading: str(d.email),
     maxWidth: 600,
@@ -68,6 +70,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json() as Record<string, unknown>
     const { name, email, locale: rawLocale } = body
     const locale = routing.locales.includes(rawLocale as (typeof routing.locales)[number]) ? String(rawLocale) : routing.defaultLocale
+    const contactMethod = body.contactMethod === 'whatsapp' ? 'whatsapp' : 'email'
 
     if (!name || !email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -80,6 +83,7 @@ export async function POST(req: NextRequest) {
       subject: body.topMatchName ? String(body.topMatchName) : 'Plan brief (no match)',
       locale,
       payload: body,
+      contactMethod,
     })
 
     let emailOk = false
@@ -89,7 +93,7 @@ export async function POST(req: NextRequest) {
         from: FROM,
         to: TO,
         replyTo: String(email),
-        subject: `Safari Plan Brief: ${String(name)} — ${String(body.topMatchName || 'No strong match')}`,
+        subject: `Safari Plan Brief: ${String(name)} — ${String(body.topMatchName || 'No strong match')}${contactMethod === 'whatsapp' ? ' (WhatsApp)' : ''}`,
         html: buildHtml(body),
       })
       if (error) {
@@ -107,20 +111,25 @@ export async function POST(req: NextRequest) {
     }
 
     // Best-effort auto-reply to the submitter — never fails the request.
-    try {
-      const m = (await import(`../../../../messages/${locale}.json`)).default.emailAutoReply.planBrief as { subject: string; greeting: string; body: string }
-      const resend = new Resend(process.env.RESEND_API_KEY)
-      await sendAutoReply({
-        resend,
-        from: FROM,
-        to: String(email),
-        replyTo: TO,
-        subject: m.subject,
-        greeting: m.greeting.replace('{name}', escapeHtml(String(name))),
-        bodyHtml: `<p style="margin:0;font-size:14px;line-height:1.6;color:#374151">${m.body}</p>`,
-      })
-    } catch (autoReplyErr) {
-      console.error('Plan-brief auto-reply failed:', autoReplyErr)
+    // Skipped for WhatsApp submissions (redundant once they're about to
+    // open a live chat) — the team-notification email above still always
+    // sends either way.
+    if (contactMethod !== 'whatsapp') {
+      try {
+        const m = (await import(`../../../../messages/${locale}.json`)).default.emailAutoReply.planBrief as { subject: string; greeting: string; body: string }
+        const resend = new Resend(process.env.RESEND_API_KEY)
+        await sendAutoReply({
+          resend,
+          from: FROM,
+          to: String(email),
+          replyTo: TO,
+          subject: m.subject,
+          greeting: m.greeting.replace('{name}', escapeHtml(String(name))),
+          bodyHtml: `<p style="margin:0;font-size:14px;line-height:1.6;color:#374151">${m.body}</p>`,
+        })
+      } catch (autoReplyErr) {
+        console.error('Plan-brief auto-reply failed:', autoReplyErr)
+      }
     }
 
     return NextResponse.json({ success: true })
