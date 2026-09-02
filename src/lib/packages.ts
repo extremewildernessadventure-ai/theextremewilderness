@@ -1,4 +1,11 @@
 import type { D1Database } from './db'
+import type {
+  SafariPackage,
+  ItineraryDay,
+  TierStay,
+  PricingTierRow,
+  FamilyPricingRow,
+} from '@/data/packages'
 
 // D1 row shapes for the admin-managed package catalog (migration
 // 0029_create_packages.sql). Mirrors SafariPackage (src/data/packages.ts)
@@ -142,4 +149,141 @@ export async function getPackageRowById(db: D1Database, id: number): Promise<Pac
 export async function listPackageRows(db: D1Database): Promise<PackageRow[]> {
   const { results } = await db.prepare('SELECT * FROM packages ORDER BY created_at DESC').all<PackageRow>()
   return results
+}
+
+// Reassembles one package's rows back into the exact SafariPackage shape
+// from src/data/packages.ts — the one function the eventual build-pipeline
+// cutover (generate-locale-data.ts reading from D1 instead of the TS
+// files) depends on for byte-identical output. Every optional SafariPackage
+// field is only set when its underlying rows/columns are actually present,
+// matching how the TS files themselves only set fields they need.
+export async function getFullPackage(db: D1Database, slug: string): Promise<SafariPackage | null> {
+  const row = await getPackageRowBySlug(db, slug)
+  if (!row) return null
+
+  const [galleryResult, dayRows, pricingTierRows, familyPricingRows, faqRows] = await Promise.all([
+    db.prepare('SELECT * FROM package_gallery WHERE package_id = ? ORDER BY sort_order').bind(row.id).all<PackageGalleryRow>(),
+    db.prepare('SELECT * FROM package_itinerary_days WHERE package_id = ? ORDER BY sort_order').bind(row.id).all<PackageItineraryDayRow>(),
+    db.prepare('SELECT * FROM package_pricing_tiers WHERE package_id = ? ORDER BY sort_order').bind(row.id).all<PackagePricingTierRow>(),
+    db.prepare('SELECT * FROM package_family_pricing WHERE package_id = ? ORDER BY sort_order').bind(row.id).all<PackageFamilyPricingRow>(),
+    db.prepare('SELECT * FROM package_faq WHERE package_id = ? ORDER BY sort_order').bind(row.id).all<PackageFaqRow>(),
+  ])
+
+  const dayIds = dayRows.results.map((d) => d.id)
+  const tierStaysByDayId = new Map<number, PackageItineraryTierStayRow[]>()
+  if (dayIds.length > 0) {
+    const placeholders = dayIds.map(() => '?').join(',')
+    const { results: tierStayRows } = await db.prepare(
+      `SELECT * FROM package_itinerary_tier_stays WHERE itinerary_day_id IN (${placeholders})`
+    ).bind(...dayIds).all<PackageItineraryTierStayRow>()
+    for (const stay of tierStayRows) {
+      const list = tierStaysByDayId.get(stay.itinerary_day_id) ?? []
+      list.push(stay)
+      tierStaysByDayId.set(stay.itinerary_day_id, list)
+    }
+  }
+
+  const toTierStay = (stay: PackageItineraryTierStayRow): TierStay => ({
+    name: stay.lodge_name,
+    image: stay.image,
+    amenities: parseJsonColumn<string[]>(stay.amenities, []),
+  })
+
+  const itinerary: ItineraryDay[] = dayRows.results.map((day) => {
+    const stays = tierStaysByDayId.get(day.id) ?? []
+    const byTier = stays.filter((s) => s.tier === 'trail' || s.tier === 'reserve' || s.tier === 'sovereign')
+    const byFamilyTier = stays.filter((s) => s.tier === 'luxury' || s.tier === 'ultra_luxury')
+
+    const entry: ItineraryDay = {
+      day: day.day_number,
+      title: day.title,
+      description: day.description,
+      accommodation: day.accommodation,
+      meals: day.meals,
+    }
+    if (day.insider_fact !== null) entry.insiderFact = day.insider_fact
+    if (day.location !== null) entry.location = day.location
+    if (byTier.length > 0) {
+      entry.accommodationByTier = {}
+      for (const stay of byTier) {
+        if (stay.tier === 'trail') entry.accommodationByTier.trail = toTierStay(stay)
+        if (stay.tier === 'reserve') entry.accommodationByTier.reserve = toTierStay(stay)
+        if (stay.tier === 'sovereign') entry.accommodationByTier.sovereign = toTierStay(stay)
+      }
+    }
+    if (byFamilyTier.length > 0) {
+      entry.accommodationByFamilyTier = {}
+      for (const stay of byFamilyTier) {
+        if (stay.tier === 'luxury') entry.accommodationByFamilyTier.luxury = toTierStay(stay)
+        if (stay.tier === 'ultra_luxury') entry.accommodationByFamilyTier.ultraLuxury = toTierStay(stay)
+      }
+    }
+    return entry
+  })
+
+  const pricingTiers: PricingTierRow[] = pricingTierRows.results.map((r) => {
+    const tier: PricingTierRow = { pax: r.pax }
+    if (r.season !== null) tier.season = r.season
+    if (r.trail_price !== null) tier.trail = r.trail_price
+    if (r.reserve_price !== null) tier.reserve = r.reserve_price
+    if (r.sovereign_price !== null) tier.sovereign = r.sovereign_price
+    return tier
+  })
+
+  const familyPricing: FamilyPricingRow[] = familyPricingRows.results.map((r) => ({
+    season: r.season,
+    familySize: r.family_size,
+    luxury: r.luxury_price,
+    ultraLuxury: r.ultra_luxury_price,
+  }))
+
+  const pkg: SafariPackage = {
+    slug: row.slug,
+    name: row.name,
+    duration: row.duration,
+    destinations: parseJsonColumn<string[]>(row.destinations, []),
+    type: row.type,
+    priceFrom: row.price_from,
+    groupSize: { min: row.group_size_min, max: row.group_size_max },
+    highlights: parseJsonColumn<string[]>(row.highlights, []),
+    itinerary,
+    included: parseJsonColumn<string[]>(row.included, []),
+    excluded: parseJsonColumn<string[]>(row.excluded, []),
+    heroImage: row.hero_image,
+    gallery: galleryResult.results.map((g) => ({ src: g.image, alt: g.alt })),
+    bestFor: parseJsonColumn<string[]>(row.best_for, []),
+  }
+
+  if (row.hero_image_alt !== null) pkg.heroImageAlt = row.hero_image_alt
+  if (row.badge !== null) pkg.badge = row.badge
+  if (pricingTiers.length > 0) pkg.pricingTiers = pricingTiers
+  if (row.pricing_tiers_provisional === 1) pkg.pricingTiersProvisional = true
+  if (row.included_categorized !== null) {
+    pkg.includedCategorized = parseJsonColumn<NonNullable<SafariPackage['includedCategorized']>>(row.included_categorized, {})
+  }
+  if (row.excluded_categorized !== null) pkg.excludedCategorized = parseJsonColumn<string[]>(row.excluded_categorized, [])
+  if (row.notes !== null) pkg.notes = parseJsonColumn<string[]>(row.notes, [])
+  if (familyPricing.length > 0) pkg.familyPricing = familyPricing
+  if (faqRows.results.length > 0) {
+    pkg.faq = faqRows.results.map((f) => ({ q: f.question, a: f.answer }))
+  }
+  if (row.overview !== null) pkg.overview = parseJsonColumn<string[]>(row.overview, [])
+  if (row.tagline !== null) pkg.tagline = row.tagline
+  if (row.best_time_to_travel !== null) pkg.bestTimeToTravel = row.best_time_to_travel
+  if (row.why_different_heading !== null) {
+    pkg.whyDifferent = {
+      heading: row.why_different_heading,
+      paragraphs: parseJsonColumn<string[]>(row.why_different_paragraphs, []),
+    }
+  }
+  if (row.destination_highlights !== null) {
+    pkg.destinationHighlights = parseJsonColumn<NonNullable<SafariPackage['destinationHighlights']>>(
+      row.destination_highlights,
+      { heading: '', items: [] }
+    )
+  }
+  if (row.meta_title !== null) pkg.metaTitle = row.meta_title
+  if (row.meta_description !== null) pkg.metaDescription = row.meta_description
+
+  return pkg
 }
