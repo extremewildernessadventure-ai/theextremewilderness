@@ -397,3 +397,74 @@ export async function insertItinerary(db: D1Database, packageId: number, days: I
     }
   }
 }
+
+// Replaces the whole gallery for a package — delete-and-reinsert, matching
+// this codebase's own replaceInvoiceItems() convention (src/lib/invoices.ts)
+// for "the admin form saves the whole list at once" data, rather than
+// per-row CRUD.
+export async function replaceGallery(db: D1Database, packageId: number, gallery: SafariPackage['gallery']): Promise<void> {
+  await db.batch([
+    db.prepare('DELETE FROM package_gallery WHERE package_id = ?').bind(packageId),
+    ...gallery.map((g, i) =>
+      db.prepare('INSERT INTO package_gallery (package_id, image, alt, sort_order) VALUES (?,?,?,?)')
+        .bind(packageId, g.src, g.alt, i)
+    ),
+  ])
+}
+
+export async function replacePricingTiers(db: D1Database, packageId: number, tiers: PricingTierRow[]): Promise<void> {
+  await db.batch([
+    db.prepare('DELETE FROM package_pricing_tiers WHERE package_id = ?').bind(packageId),
+    ...tiers.map((t, i) =>
+      db.prepare(
+        'INSERT INTO package_pricing_tiers (package_id, pax, season, trail_price, reserve_price, sovereign_price, sort_order) VALUES (?,?,?,?,?,?,?)'
+      ).bind(packageId, t.pax, t.season ?? null, t.trail ?? null, t.reserve ?? null, t.sovereign ?? null, i)
+    ),
+  ])
+}
+
+export async function replaceFamilyPricing(db: D1Database, packageId: number, rows: FamilyPricingRow[]): Promise<void> {
+  await db.batch([
+    db.prepare('DELETE FROM package_family_pricing WHERE package_id = ?').bind(packageId),
+    ...rows.map((f, i) =>
+      db.prepare(
+        'INSERT INTO package_family_pricing (package_id, season, family_size, luxury_price, ultra_luxury_price, sort_order) VALUES (?,?,?,?,?,?)'
+      ).bind(packageId, f.season, f.familySize, f.luxury, f.ultraLuxury, i)
+    ),
+  ])
+}
+
+export async function replaceFaq(db: D1Database, packageId: number, faq: NonNullable<SafariPackage['faq']>): Promise<void> {
+  await db.batch([
+    db.prepare('DELETE FROM package_faq WHERE package_id = ?').bind(packageId),
+    ...faq.map((f, i) =>
+      db.prepare('INSERT INTO package_faq (package_id, question, answer, sort_order) VALUES (?,?,?,?)')
+        .bind(packageId, f.q, f.a, i)
+    ),
+  ])
+}
+
+// Replaces the whole itinerary — delete every existing day (which cascades
+// app-side to that day's tier stays, since there's no DB-level ON DELETE
+// CASCADE here, matching this codebase's other soft/declared FKs) then
+// re-run insertItinerary() from scratch. Simpler and less error-prone than
+// diffing old vs. new days/tier-stays row by row, and matches the same
+// "save the whole list" convention as the other replace* functions above —
+// itinerary editing happens as infrequently as a full admin-form save, not
+// as a high-frequency operation that would need incremental updates.
+export async function replaceItinerary(db: D1Database, packageId: number, days: ItineraryDay[]): Promise<void> {
+  const { results: existingDays } = await db.prepare(
+    'SELECT id FROM package_itinerary_days WHERE package_id = ?'
+  ).bind(packageId).all<{ id: number }>()
+
+  if (existingDays.length > 0) {
+    const placeholders = existingDays.map(() => '?').join(',')
+    const dayIds = existingDays.map((d) => d.id)
+    await db.batch([
+      db.prepare(`DELETE FROM package_itinerary_tier_stays WHERE itinerary_day_id IN (${placeholders})`).bind(...dayIds),
+      db.prepare('DELETE FROM package_itinerary_days WHERE package_id = ?').bind(packageId),
+    ])
+  }
+
+  await insertItinerary(db, packageId, days)
+}
