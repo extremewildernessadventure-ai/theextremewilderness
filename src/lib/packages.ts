@@ -541,3 +541,21 @@ export async function deletePackage(db: D1Database, packageId: number): Promise<
   )
   await db.batch(statements)
 }
+
+// Upsert so the migration script (and, later, a re-translate action in the
+// admin form) is safe to re-run for the same (package, locale) pair without
+// needing to delete first -- matches this codebase's "safe to re-run any
+// time, always regenerated from current source data" convention already
+// established for scripts/generate-locale-data.ts.
+export async function setPackageTranslation(db: D1Database, packageId: number, locale: string, payload: unknown): Promise<void> {
+  await db.prepare(
+    `INSERT INTO package_translations (package_id, locale, payload) VALUES (?, ?, ?)
+     ON CONFLICT(package_id, locale) DO UPDATE SET payload = excluded.payload, updated_at = CURRENT_TIMESTAMP`
+  ).bind(packageId, locale, JSON.stringify(payload)).run()
+}
+
+export async function getPackageTranslation(db: D1Database, packageId: number, locale: string): Promise<PackageTranslationRow | null> {
+  return db.prepare('SELECT * FROM package_translations WHERE package_id = ? AND locale = ?')
+    .bind(packageId, locale)
+    .first<PackageTranslationRow>()
+}
