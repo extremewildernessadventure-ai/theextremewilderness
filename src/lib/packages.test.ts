@@ -1,18 +1,27 @@
 import { describe, it, expect } from 'vitest'
 import type { D1Database, D1PreparedStatement } from './db'
-import { getFullPackage } from './packages'
+import type { SafariPackage } from '@/data/packages'
+import { getFullPackage, createPackage, insertItinerary } from './packages'
 
-// Minimal in-memory D1 fake for this file's tests only. Real enough for
-// getFullPackage()'s queries (all single-table `WHERE col = ?` or
-// `WHERE col IN (...)`, ordered by sort_order) without pulling in a real
-// SQLite binding — good enough to prove the row->SafariPackage reassembly
-// logic itself, not D1 behavior (that's covered by applying the migration
-// to a real local D1 instance, done separately).
-function makeFakeDb(tables: Record<string, Record<string, unknown>[]>): D1Database {
+// In-memory D1 fake for this file's tests only. Handles the query shapes
+// this library actually issues -- single-table `SELECT ... WHERE col = ?`
+// / `WHERE col IN (...)` (optionally `ORDER BY`), and `INSERT INTO table
+// (cols...) VALUES (...)` with auto-incrementing per-table ids returned as
+// meta.last_row_id -- without pulling in a real SQLite binding. Good
+// enough to prove the row<->SafariPackage conversion logic itself, not D1
+// behavior (that's covered separately by applying the migration to a real
+// local D1 instance, already verified).
+function makeFakeDb(seed: Record<string, Record<string, unknown>[]> = {}): D1Database {
+  const tables: Record<string, Record<string, unknown>[]> = seed
+  const nextId: Record<string, number> = {}
+  for (const [table, rows] of Object.entries(tables)) {
+    nextId[table] = rows.reduce((max, r) => Math.max(max, Number(r.id) || 0), 0) + 1
+  }
+
   return {
     prepare(sql: string): D1PreparedStatement {
-      const tableMatch = sql.match(/FROM (\w+)/)
-      const table = tableMatch ? tableMatch[1] : ''
+      const insertMatch = sql.match(/INSERT INTO (\w+)\s*\(([^)]+)\)/)
+      const selectMatch = !insertMatch ? sql.match(/FROM (\w+)/) : null
       const whereCol = sql.match(/WHERE (\w+) (=|IN)/)?.[1]
       const orderCol = sql.match(/ORDER BY (\w+)/)?.[1]
       let bound: unknown[] = []
@@ -22,28 +31,40 @@ function makeFakeDb(tables: Record<string, Record<string, unknown>[]>): D1Databa
           return stmt
         },
         async all<T>() {
-          let rows = tables[table] ?? []
-          if (whereCol) {
-            rows = rows.filter((r) => bound.includes(r[whereCol]))
-          }
-          if (orderCol) {
-            rows = [...rows].sort((a, b) => Number(a[orderCol]) - Number(b[orderCol]))
-          }
+          if (!selectMatch) return { results: [] as T[] }
+          let rows = tables[selectMatch[1]] ?? []
+          if (whereCol) rows = rows.filter((r) => bound.includes(r[whereCol]))
+          if (orderCol) rows = [...rows].sort((a, b) => Number(a[orderCol]) - Number(b[orderCol]))
           return { results: rows as T[] }
         },
         async first<T>() {
-          let rows = tables[table] ?? []
+          if (!selectMatch) return null
+          let rows = tables[selectMatch[1]] ?? []
           if (whereCol) rows = rows.filter((r) => bound.includes(r[whereCol]))
           return (rows[0] as T) ?? null
         },
         async run() {
-          return { success: true }
+          if (!insertMatch) return { success: true }
+          const table = insertMatch[1]
+          const cols = insertMatch[2].split(',').map((c) => c.trim())
+          const id = nextId[table] ?? 1
+          nextId[table] = id + 1
+          const row: Record<string, unknown> = { id }
+          cols.forEach((col, i) => { row[col] = bound[i] })
+          tables[table] = tables[table] ?? []
+          tables[table].push(row)
+          return { success: true, meta: { last_row_id: id } }
         },
       }
       return stmt
     },
-    async batch() {
-      throw new Error('batch() not implemented in this fake')
+    async batch<T>(statements: D1PreparedStatement[]) {
+      const results = []
+      for (const s of statements) {
+        await s.run()
+        results.push({ success: true, results: [] as T[] })
+      }
+      return results
     },
   }
 }
@@ -151,5 +172,76 @@ describe('getFullPackage', () => {
     expect(pkg!.faq).toBeUndefined()
     expect(pkg!.metaTitle).toBe('Meta title')
     expect(pkg!.metaDescription).toBe('Meta description')
+  })
+})
+
+describe('createPackage + insertItinerary + getFullPackage round-trip', () => {
+  it('reproduces the original SafariPackage exactly, field for field', async () => {
+    const original: SafariPackage = {
+      slug: 'round-trip-safari',
+      name: 'Round Trip Safari',
+      duration: 4,
+      destinations: ['serengeti', 'ngorongoro'],
+      type: 'wildlife',
+      priceFrom: 2500,
+      groupSize: { min: 2, max: 6 },
+      highlights: ['Big Five', 'Crater floor drive'],
+      itinerary: [
+        {
+          day: 1,
+          title: 'Arrival',
+          description: 'Fly in, transfer to camp',
+          accommodation: 'Serengeti Camp',
+          meals: 'D',
+          insiderFact: 'Best light is at dawn',
+          location: 'Serengeti',
+          accommodationByTier: {
+            trail: { name: 'Trail Camp', image: '/trail.jpg', amenities: ['wifi', 'pool'] },
+            reserve: { name: 'Reserve Camp', image: '/reserve.jpg', amenities: ['spa'] },
+            sovereign: { name: 'Sovereign Camp', image: '/sovereign.jpg', amenities: ['butler'] },
+          },
+        },
+        {
+          day: 2,
+          title: 'Crater floor',
+          description: 'Full day game drive',
+          accommodation: 'Crater Lodge',
+          meals: 'B,L,D',
+        },
+      ],
+      included: ['Park fees', 'Guide'],
+      excluded: ['Flights', 'Visa'],
+      heroImage: '/hero.jpg',
+      heroImageAlt: 'Lions on the plains',
+      gallery: [
+        { src: '/g1.jpg', alt: 'Gallery one' },
+        { src: '/g2.jpg', alt: 'Gallery two' },
+      ],
+      badge: 'popular',
+      bestFor: ['Couples', 'First-timers'],
+      pricingTiers: [
+        { pax: 2, season: 'high', trail: 500, reserve: 700, sovereign: 1000 },
+        { pax: 4, season: 'low', trail: 450 },
+      ],
+      pricingTiersProvisional: true,
+      includedCategorized: { transfers: ['Airport pickup'], guidingGameDrives: ['Private vehicle'] },
+      excludedCategorized: ['Tips', 'Souvenirs'],
+      notes: ['Prices in USD'],
+      faq: [{ q: 'Is it malaria risk?', a: 'Yes, take prophylaxis.' }],
+      overview: ['A short overview line'],
+      tagline: 'The classic circuit',
+      bestTimeToTravel: 'Jun-Oct',
+      whyDifferent: { heading: 'Why this trip', paragraphs: ['Because reasons', 'And more reasons'] },
+      destinationHighlights: { heading: 'Where you go', items: [{ title: 'Serengeti', text: 'Endless plains' }] },
+      metaTitle: 'Round Trip Safari | Extreme Wilderness',
+      metaDescription: 'A 4-day round trip test safari.',
+    }
+
+    const db = makeFakeDb()
+    const id = await createPackage(db, original, 'published')
+    await insertItinerary(db, id, original.itinerary)
+
+    const roundTripped = await getFullPackage(db, original.slug)
+    expect(roundTripped).toEqual(original)
   })
 })
