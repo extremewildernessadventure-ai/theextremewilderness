@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import type { D1Database, D1PreparedStatement } from './db'
 import type { SafariPackage } from '@/data/packages'
-import { getFullPackage, createPackage, insertItinerary } from './packages'
+import { getFullPackage, createPackage, insertItinerary, replaceItinerary } from './packages'
 
 // In-memory D1 fake for this file's tests only. Handles the query shapes
 // this library actually issues -- single-table `SELECT ... WHERE col = ?`
@@ -21,7 +21,8 @@ function makeFakeDb(seed: Record<string, Record<string, unknown>[]> = {}): D1Dat
   return {
     prepare(sql: string): D1PreparedStatement {
       const insertMatch = sql.match(/INSERT INTO (\w+)\s*\(([^)]+)\)/)
-      const selectMatch = !insertMatch ? sql.match(/FROM (\w+)/) : null
+      const deleteMatch = !insertMatch ? sql.match(/DELETE FROM (\w+)/) : null
+      const selectMatch = !insertMatch && !deleteMatch ? sql.match(/FROM (\w+)/) : null
       const whereCol = sql.match(/WHERE (\w+) (=|IN)/)?.[1]
       const orderCol = sql.match(/ORDER BY (\w+)/)?.[1]
       let bound: unknown[] = []
@@ -44,16 +45,25 @@ function makeFakeDb(seed: Record<string, Record<string, unknown>[]> = {}): D1Dat
           return (rows[0] as T) ?? null
         },
         async run() {
-          if (!insertMatch) return { success: true }
-          const table = insertMatch[1]
-          const cols = insertMatch[2].split(',').map((c) => c.trim())
-          const id = nextId[table] ?? 1
-          nextId[table] = id + 1
-          const row: Record<string, unknown> = { id }
-          cols.forEach((col, i) => { row[col] = bound[i] })
-          tables[table] = tables[table] ?? []
-          tables[table].push(row)
-          return { success: true, meta: { last_row_id: id } }
+          if (insertMatch) {
+            const table = insertMatch[1]
+            const cols = insertMatch[2].split(',').map((c) => c.trim())
+            const id = nextId[table] ?? 1
+            nextId[table] = id + 1
+            const row: Record<string, unknown> = { id }
+            cols.forEach((col, i) => { row[col] = bound[i] })
+            tables[table] = tables[table] ?? []
+            tables[table].push(row)
+            return { success: true, meta: { last_row_id: id } }
+          }
+          if (deleteMatch) {
+            const table = deleteMatch[1]
+            tables[table] = whereCol
+              ? (tables[table] ?? []).filter((r) => !bound.includes(r[whereCol]))
+              : []
+            return { success: true }
+          }
+          return { success: true }
         },
       }
       return stmt
@@ -243,5 +253,53 @@ describe('createPackage + insertItinerary + getFullPackage round-trip', () => {
 
     const roundTripped = await getFullPackage(db, original.slug)
     expect(roundTripped).toEqual(original)
+  })
+})
+
+describe('replaceItinerary', () => {
+  it('fully replaces the old days and tier stays, leaving no orphaned rows', async () => {
+    const base: SafariPackage = {
+      slug: 'replace-itinerary-safari',
+      name: 'Replace Itinerary Safari',
+      duration: 2,
+      destinations: ['serengeti'],
+      type: 'wildlife',
+      priceFrom: 1000,
+      groupSize: { min: 2, max: 6 },
+      highlights: [],
+      itinerary: [
+        {
+          day: 1,
+          title: 'Old day one',
+          description: 'Old description',
+          accommodation: 'Old Camp',
+          meals: 'D',
+          accommodationByTier: {
+            trail: { name: 'Old Trail Camp', image: '/old-trail.jpg', amenities: [] },
+          },
+        },
+      ],
+      included: [],
+      excluded: [],
+      heroImage: '/hero.jpg',
+      gallery: [],
+      bestFor: [],
+    }
+
+    const db = makeFakeDb()
+    const id = await createPackage(db, base)
+    await insertItinerary(db, id, base.itinerary)
+
+    const newItinerary: typeof base.itinerary = [
+      { day: 1, title: 'New day one', description: 'New description', accommodation: 'New Camp', meals: 'B,D' },
+      { day: 2, title: 'New day two', description: 'Day two description', accommodation: 'New Camp 2', meals: 'B,L,D' },
+    ]
+    await replaceItinerary(db, id, newItinerary)
+
+    const result = await getFullPackage(db, base.slug)
+    expect(result!.itinerary).toHaveLength(2)
+    expect(result!.itinerary[0].title).toBe('New day one')
+    expect(result!.itinerary[0].accommodationByTier).toBeUndefined()
+    expect(result!.itinerary[1].title).toBe('New day two')
   })
 })
