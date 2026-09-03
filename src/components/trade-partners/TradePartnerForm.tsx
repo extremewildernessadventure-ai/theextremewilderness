@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl'
 import { MessageCircle } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import { buildWhatsAppUrl } from '@/lib/contact'
+import { trackFormFillConversion } from '@/lib/analytics'
 import styles from '@/app/[locale]/trade-partners/page.module.css'
 
 type Props = { className?: string }
@@ -60,6 +61,7 @@ export default function TradePartnerForm({ className }: Props) {
         body: JSON.stringify({ ...form, locale, contactMethod: 'email' }),
       })
       if (!res.ok) throw new Error('send failed')
+      trackFormFillConversion()
       setSentVia('email')
     } catch {
       setError(t('formError'))
@@ -81,6 +83,7 @@ export default function TradePartnerForm({ className }: Props) {
   const handleWhatsappClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!canSubmit) { e.preventDefault(); return }
     setWhatsappSending(true)
+    trackFormFillConversion()
     fetch('/api/trade-partners', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

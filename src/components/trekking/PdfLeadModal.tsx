@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import { X, ArrowRight, Shield, CheckCircle } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
+import { trackFormFillConversion } from '@/lib/analytics'
 
 interface Props {
   triggerLabel: string
@@ -89,6 +90,7 @@ export default function PdfLeadModal({
         body: JSON.stringify({ name: name.trim(), email: email.trim(), phone: phone.trim(), context, packageSlug, locale }),
       })
       if (!res.ok) throw new Error()
+      trackFormFillConversion()
       setStatus('success')
     } catch {
       setStatus('error')
