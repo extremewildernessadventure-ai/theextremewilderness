@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { Mail, Phone, MapPin, Star, Award, MessageCircle } from 'lucide-react'
 import ContactForm from '@/components/contact/ContactForm'
+import TrackedWhatsAppLink from '@/components/shared/TrackedWhatsAppLink'
 import { buildAlternates, buildPageTitle } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import Reveal from '@/components/motion/Reveal'
@@ -126,15 +127,13 @@ export default async function ContactPage({ params }: Props) {
                   <Phone className="w-4 h-4 flex-shrink-0" />
                   {t('callUsLabel')}
                 </a>
-                <a
+                <TrackedWhatsAppLink
                   href="https://wa.me/255747999070"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="flex items-center gap-3 px-5 py-3.5 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold text-sm transition-colors"
                 >
                   {WHATSAPP_SVG}
                   {t('whatsappUs')}
-                </a>
+                </TrackedWhatsAppLink>
                 <a
                   href="mailto:info@theextremewilderness.com"
                   className="flex items-center gap-3 px-5 py-3.5 bg-white hover:bg-gray-50 border border-gray-200 text-brand rounded-xl font-semibold text-sm transition-colors"

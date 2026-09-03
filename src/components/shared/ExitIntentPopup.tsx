@@ -103,6 +103,10 @@ export default function ExitIntentPopup() {
       if (!res.ok) throw new Error('claim failed')
       setClaimStatus('claimed')
       trackEvent('exit_intent_discount_claimed')
+      // Deliberately also counts as a conversion, on top of the one fired
+      // in handleSubmit above — the site owner's explicit call, accepting
+      // that a visitor who does both registers as 2 conversions.
+      trackFormFillConversion()
     } catch {
       setClaimStatus('error')
     }

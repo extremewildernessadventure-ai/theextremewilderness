@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { MessageCircle, Send } from 'lucide-react'
 import BookNowButton from '@/components/booking/BookNowButton'
-import { trackEvent } from '@/lib/analytics'
+import { trackEvent, trackFormFillConversion } from '@/lib/analytics'
 import { buildWhatsAppUrl } from '@/lib/contact'
 import type { WizardState } from './types'
 import type { MatchResult } from '@/lib/matchPackages'
@@ -60,6 +60,7 @@ export default function HandoffPanel({
   const handleWhatsappClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!canSend) { e.preventDefault(); return }
     trackEvent('plan_handoff_choice', { method: 'whatsapp', topSlug: topMatch?.package.slug })
+    trackFormFillConversion()
     // Optimistic: the visitor is about to open a live WhatsApp chat either
     // way, so the UI flips to "sent" immediately rather than waiting on
     // this background save — mirrors the auto-reply email's own
@@ -104,6 +105,7 @@ export default function HandoffPanel({
         }),
       })
       if (!res.ok) throw new Error('failed')
+      trackFormFillConversion()
       setStatus('sent')
     } catch {
       setStatus('error')

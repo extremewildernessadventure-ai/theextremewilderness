@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
+import { trackFormFillConversion } from '@/lib/analytics'
 
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
@@ -29,7 +30,12 @@ export default function NewsletterForm({ dark = true }: { dark?: boolean }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email }),
       })
-      setStatus(res.ok ? 'success' : 'error')
+      if (res.ok) {
+        trackFormFillConversion()
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
     } catch {
       setStatus('error')
     }
