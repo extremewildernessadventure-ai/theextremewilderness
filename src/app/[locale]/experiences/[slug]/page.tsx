@@ -11,6 +11,7 @@ import {
 import type { LucideIcon } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import BookNowButton from '@/components/booking/BookNowButton'
+import TrackedWhatsAppLink from '@/components/shared/TrackedWhatsAppLink'
 import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
 import TrustBar from '@/components/home/TrustBar'
 import PdfLeadModal from '@/components/trekking/PdfLeadModal'
@@ -520,15 +521,13 @@ export default async function ExperienceDetailPage({ params }: Props) {
                 duration={page.durationLabel}
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors text-sm"
               />
-              <a
+              <TrackedWhatsAppLink
                 href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="mt-3 w-full flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition-colors text-sm"
               >
                 {WHATSAPP_SVG}
                 {tContact('whatsappUs')}
-              </a>
+              </TrackedWhatsAppLink>
               <div className="mt-5 pt-5 border-t border-gray-100 space-y-3">
                 {page.quickFacts.map((fact) => {
                   const Icon = QUICK_FACT_ICONS[fact.icon]
