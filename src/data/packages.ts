@@ -55,7 +55,19 @@ export interface SafariPackage {
   name: string
   duration: number
   destinations: string[]
-  type: 'wildlife' | 'trekking' | 'beach' | 'combination'
+  // Replaced (not extended) the old 4-value union as part of the
+  // SafariBookings-style rebuild — every package's value was remapped by
+  // reading its actual content (see the migration/remap commit for the
+  // reviewed old→new mapping), not mechanically renamed.
+  type:
+    | 'big_five_game_drives'
+    | 'migration'
+    | 'photographic'
+    | 'walking'
+    | 'cultural'
+    | 'gorilla_trekking'
+    | 'beach_extension'
+    | 'mountain_trekking'
   priceFrom: number
   groupSize: { min: number; max: number }
   highlights: string[]
@@ -104,6 +116,27 @@ export interface SafariPackage {
   // supplies its own SEO-authored copy instead of relying on the name/highlights fallback.
   metaTitle?: string
   metaDescription?: string
+  // "Wildlife Radar" tab data — target species and their real sighting likelihood
+  // on this specific itinerary/route, not a generic country-wide checklist.
+  wildlifeTargets?: { name: string; chance: 'Guaranteed' | 'High' | 'Seasonal' | 'Rare'; note?: string }[]
+  // Structured peak/shoulder/green season breakdown + a plain-language
+  // recommendation — kept alongside bestTimeToTravel (that stays the short
+  // quick-info chip string), not replacing it.
+  seasonalityGuide?: {
+    peakSeason?: string
+    shoulderSeason?: string
+    greenSeason?: string
+    recommendation?: string
+  }
+  // Packing/travel advice shown in its own "Practical Tips" section.
+  practicalTips?: string[]
+  // Who's actually running this trip. Real, typed field — defaults to
+  // 'EWA Safari Outfitters' for every package today (cosmetic until partner/
+  // DMC listings exist), not a stub.
+  operatorName?: string
+  // Short month labels (e.g. ["Jun","Jul","Aug"]) for the listing page's
+  // month-picker filter and the card's "best months" pill.
+  bestMonths?: string[]
 }
 
 export const packages: SafariPackage[] = [
@@ -112,7 +145,7 @@ export const packages: SafariPackage[] = [
     name: '7 Days Serengeti & Ngorongoro Safari',
     duration: 7,
     destinations: ['serengeti', 'ngorongoro', 'tarangire'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 3400.63,
     groupSize: { min: 1, max: 8 },
     badge: 'bestseller',
@@ -301,7 +334,7 @@ export const packages: SafariPackage[] = [
     name: '10 Days Ultimate Northern Circuit',
     duration: 10,
     destinations: ['serengeti', 'ngorongoro', 'tarangire', 'manyara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 4800,
     groupSize: { min: 1, max: 6 },
     badge: 'popular',
@@ -345,7 +378,7 @@ export const packages: SafariPackage[] = [
     name: '10 Days Tanzania Safari & Zanzibar Beach',
     duration: 10,
     destinations: ['tarangire', 'ngorongoro', 'serengeti', 'zanzibar'],
-    type: 'combination',
+    type: 'big_five_game_drives',
     priceFrom: 4413.96,
     groupSize: { min: 2, max: 6 },
     badge: 'bestseller',
@@ -554,7 +587,7 @@ export const packages: SafariPackage[] = [
     name: '5 Days Serengeti Fly-In Safari',
     duration: 5,
     destinations: ['serengeti', 'ngorongoro', 'manyara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 2475,
     groupSize: { min: 1, max: 6 },
     badge: 'popular',
@@ -682,7 +715,7 @@ export const packages: SafariPackage[] = [
     name: 'Kilimanjaro Machame Route — 7 Days',
     duration: 7,
     destinations: ['arusha'],
-    type: 'trekking',
+    type: 'mountain_trekking',
     priceFrom: 2100,
     groupSize: { min: 1, max: 12 },
     bestFor: ['solo', 'couples', 'groups'],
@@ -726,7 +759,7 @@ export const packages: SafariPackage[] = [
     name: '7 Days Southern Circuit — Ruaha & Nyerere',
     duration: 7,
     destinations: ['nyerere', 'ruaha'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 4320,
     groupSize: { min: 1, max: 6 },
     bestFor: ['solo', 'couples', 'wildlife-enthusiasts'],
@@ -904,7 +937,7 @@ export const packages: SafariPackage[] = [
     name: '5 Days Highlights Safari',
     duration: 5,
     destinations: ['serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 3336.88,
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
@@ -1034,7 +1067,7 @@ export const packages: SafariPackage[] = [
     name: '8-Day Honeymoon Safari — Bush Lovers',
     duration: 8,
     destinations: ['tarangire', 'manyara', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 3824,
     groupSize: { min: 2, max: 2 },
     badge: 'popular',
@@ -1234,7 +1267,7 @@ export const packages: SafariPackage[] = [
     name: '7 Days Crown Jewels Safari',
     duration: 7,
     destinations: ['tarangire', 'manyara', 'ngorongoro', 'serengeti'],
-    type: 'combination',
+    type: 'big_five_game_drives',
     priceFrom: 5334.38,
     groupSize: { min: 1, max: 8 },
     badge: 'bestseller',
@@ -1419,7 +1452,7 @@ export const packages: SafariPackage[] = [
     name: 'Southern Edition: Tanzania Calving Season Migration Safari — Ndutu & Ngorongoro Crater',
     duration: 9,
     destinations: ['ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'migration',
     priceFrom: 5790.63,
     groupSize: { min: 1, max: 6 },
     bestFor: ['photography', 'wildlife-enthusiasts', 'solo'],
@@ -1640,7 +1673,7 @@ export const packages: SafariPackage[] = [
     name: '10 Days Tanzania Luxury Family Safari',
     duration: 10,
     destinations: ['arusha', 'tarangire', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 6025.21,
     groupSize: { min: 3, max: 8 },
     badge: 'popular',
@@ -1842,7 +1875,7 @@ export const packages: SafariPackage[] = [
     name: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike',
     duration: 12,
     destinations: ['kilimanjaro', 'manyara', 'tarangire', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 5857,
     groupSize: { min: 1, max: 6 },
     bestFor: ['wildlife-enthusiasts', 'couples', 'solo'],
@@ -2084,7 +2117,7 @@ export const packages: SafariPackage[] = [
     name: '8 Days Great Northern Migration',
     duration: 8,
     destinations: ['tarangire', 'manyara', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'migration',
     priceFrom: 4976.88,
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
@@ -2267,7 +2300,7 @@ export const packages: SafariPackage[] = [
     name: 'Ultimate Tanzania Safari & Gombe Chimpanzee Trekking',
     duration: 11,
     destinations: ['arusha', 'tarangire', 'ngorongoro', 'gombe'],
-    type: 'combination',
+    type: 'big_five_game_drives',
     priceFrom: 5908.96,
     groupSize: { min: 2, max: 6 },
     badge: 'bestseller',
@@ -2439,7 +2472,7 @@ export const packages: SafariPackage[] = [
     name: '7 Days Gems of the North',
     duration: 7,
     destinations: ['tarangire', 'manyara', 'serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 3300,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'families'],
@@ -2529,7 +2562,7 @@ export const packages: SafariPackage[] = [
     name: '7 Days Flight Over Ndutu Migration',
     duration: 7,
     destinations: ['serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'migration',
     priceFrom: 4000,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
@@ -2620,7 +2653,7 @@ export const packages: SafariPackage[] = [
     name: '8-Day Wildebeest River Crossing Safari',
     duration: 8,
     destinations: ['serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'migration',
     priceFrom: 3852.29,
     groupSize: { min: 2, max: 6 },
     badge: 'popular',
@@ -2805,7 +2838,7 @@ export const packages: SafariPackage[] = [
     name: '11 Days Rwanda Tanzania Safari',
     duration: 11,
     destinations: ['volcanoes', 'kigali', 'serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'gorilla_trekking',
     priceFrom: 6500,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
@@ -2927,7 +2960,7 @@ export const packages: SafariPackage[] = [
     name: '12 Days Rwanda, Tanzania & Zanzibar',
     duration: 12,
     destinations: ['volcanoes', 'tarangire', 'ngorongoro', 'serengeti', 'zanzibar'],
-    type: 'combination',
+    type: 'big_five_game_drives',
     priceFrom: 9375,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'honeymoon', 'wildlife-enthusiasts'],
@@ -3136,7 +3169,7 @@ export const packages: SafariPackage[] = [
     name: 'Rwanda Primate Safari & Zanzibar Beach Escape',
     duration: 12,
     destinations: ['kigali', 'nyungwe', 'volcanoes', 'zanzibar'],
-    type: 'combination',
+    type: 'gorilla_trekking',
     priceFrom: 7742.08,
     groupSize: { min: 2, max: 6 },
     bestFor: ['couples', 'honeymoon', 'wildlife-enthusiasts'],
@@ -3311,7 +3344,7 @@ export const packages: SafariPackage[] = [
     name: '4 Days Rwanda Gorilla Trekking',
     duration: 4,
     destinations: ['volcanoes', 'kigali'],
-    type: 'wildlife',
+    type: 'gorilla_trekking',
     priceFrom: 3414.58,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
@@ -3423,7 +3456,7 @@ export const packages: SafariPackage[] = [
     name: '5 Days Private Gombe Chimpanzee Trekking',
     duration: 5,
     destinations: ['gombe'],
-    type: 'wildlife',
+    type: 'gorilla_trekking',
     priceFrom: 4206.25,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
@@ -3565,7 +3598,7 @@ export const packages: SafariPackage[] = [
     name: '12-Day Tanzania Safari for Seniors, Anniversaries & Groups',
     duration: 12,
     destinations: ['arusha', 'tarangire', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 6036.46,
     groupSize: { min: 2, max: 6 },
     bestFor: ['couples', 'families', 'wildlife-enthusiasts'],
@@ -3781,7 +3814,7 @@ export const packages: SafariPackage[] = [
     name: '7-Day Tanzania Photography & Adventure Safari',
     duration: 7,
     destinations: ['tarangire', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'photographic',
     priceFrom: 4597.29,
     groupSize: { min: 1, max: 6 },
     bestFor: ['solo', 'couples', 'wildlife-enthusiasts'],
@@ -3948,7 +3981,7 @@ export const packages: SafariPackage[] = [
     name: '11 Days Kenya Undisputed',
     duration: 11,
     destinations: ['masai-mara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 5800,
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
@@ -4071,7 +4104,7 @@ export const packages: SafariPackage[] = [
     name: '10 Days Southern Tanzania Secrets',
     duration: 10,
     destinations: ['nyerere', 'ruaha'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 5200,
     groupSize: { min: 1, max: 6 },
     bestFor: ['solo', 'couples', 'wildlife-enthusiasts'],
@@ -4185,7 +4218,7 @@ export const packages: SafariPackage[] = [
     name: '11 Days Southern Wildlife & Spice Isles',
     duration: 11,
     destinations: ['nyerere', 'ruaha', 'zanzibar'],
-    type: 'combination',
+    type: 'big_five_game_drives',
     priceFrom: 6100,
     groupSize: { min: 1, max: 8 },
     badge: 'new',
@@ -4308,7 +4341,7 @@ export const packages: SafariPackage[] = [
     name: '12 Days Tanzania Kenya Expedition',
     duration: 12,
     destinations: ['serengeti', 'ngorongoro', 'manyara', 'masai-mara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 7200,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
@@ -4438,7 +4471,7 @@ export const packages: SafariPackage[] = [
     name: 'Kilimanjaro Lemosho Climb & 5-Day Highlights Safari',
     duration: 14,
     destinations: ['arusha', 'serengeti', 'ngorongoro'],
-    type: 'combination',
+    type: 'mountain_trekking',
     priceFrom: 6607.58,
     groupSize: { min: 2, max: 4 },
     badge: 'new',
@@ -4647,7 +4680,7 @@ export const packages: SafariPackage[] = [
     name: '5-Day Kilimanjaro Extension Safari',
     duration: 5,
     destinations: ['arusha', 'tarangire', 'serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 2118.96,
     groupSize: { min: 2, max: 6 },
     badge: 'new',
@@ -4775,7 +4808,7 @@ export const packages: SafariPackage[] = [
     name: '5-Day Comfort Tanzania Safari',
     duration: 5,
     destinations: ['tarangire', 'ngorongoro', 'serengeti', 'manyara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 1909,
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
@@ -4912,7 +4945,7 @@ export const packages: SafariPackage[] = [
     name: '6-Day Comfort Tanzania Safari',
     duration: 6,
     destinations: ['tarangire', 'serengeti', 'ngorongoro', 'manyara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 2554,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'first-time', 'families', 'wildlife-enthusiasts'],
@@ -5059,7 +5092,7 @@ export const packages: SafariPackage[] = [
     name: 'Highlights of Kenya & Tanzania Safari',
     duration: 10,
     destinations: ['nairobi', 'amboseli', 'masai-mara', 'serengeti', 'ngorongoro', 'manyara'],
-    type: 'combination',
+    type: 'big_five_game_drives',
     priceFrom: 4600,
     groupSize: { min: 2, max: 8 },
     bestFor: ['luxury', 'couples', 'wildlife-enthusiasts', 'photography'],
@@ -5264,7 +5297,7 @@ export const packages: SafariPackage[] = [
     name: '10-Day Kenya & Tanzania Safari',
     duration: 10,
     destinations: ['masai-mara', 'nairobi', 'serengeti', 'ngorongoro', 'tarangire'],
-    type: 'combination',
+    type: 'big_five_game_drives',
     priceFrom: 5072,
     groupSize: { min: 1, max: 6 },
     badge: 'new',
@@ -5444,7 +5477,7 @@ export const packages: SafariPackage[] = [
     name: '2-Day Nyerere Safari from Zanzibar',
     duration: 2,
     destinations: ['nyerere', 'zanzibar'],
-    type: 'wildlife',
+    type: 'beach_extension',
     priceFrom: 1957.50,
     groupSize: { min: 2, max: 6 },
     badge: 'popular',
@@ -5564,7 +5597,7 @@ export const packages: SafariPackage[] = [
     name: '4-Day Tarangire, Ngorongoro & Lake Eyasi',
     duration: 4,
     destinations: ['tarangire', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 1250,
     groupSize: { min: 2, max: 6 },
     badge: 'new',
@@ -5678,7 +5711,7 @@ export const packages: SafariPackage[] = [
     name: "5 Days Kenya Safari — Hell's Gate, Lake Nakuru & Masai Mara",
     duration: 5,
     destinations: ['masai-mara', 'nairobi'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 1520,
     groupSize: { min: 2, max: 6 },
     badge: 'new',
@@ -5810,7 +5843,7 @@ export const packages: SafariPackage[] = [
     name: '9-Day Honeymoon Safari & Zanzibar Beach Escape',
     duration: 9,
     destinations: ['tarangire', 'ngorongoro', 'serengeti', 'zanzibar'],
-    type: 'combination',
+    type: 'beach_extension',
     priceFrom: 3847,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'honeymoon', 'luxury'],
@@ -6009,7 +6042,7 @@ export const packages: SafariPackage[] = [
     name: '10-Day Ultimate Great Migration — Mara River-Crossing Safari',
     duration: 10,
     destinations: ['tarangire', 'manyara', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'migration',
     priceFrom: 4775,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'photography', 'luxury'],
@@ -6221,7 +6254,7 @@ export const packages: SafariPackage[] = [
     name: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti',
     duration: 10,
     destinations: ['tarangire', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'photographic',
     priceFrom: 4597,
     groupSize: { min: 1, max: 6 },
     badge: 'new',
@@ -6430,7 +6463,7 @@ export const packages: SafariPackage[] = [
     name: 'Authentic, Exclusive Kenya — Amboseli, Samburu & the Masai Mara',
     duration: 9,
     destinations: ['amboseli', 'samburu', 'masai-mara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 1926,
     groupSize: { min: 1, max: 6 },
     badge: 'new',
@@ -6613,7 +6646,7 @@ export const packages: SafariPackage[] = [
     name: 'Classic Kenya Safari — Masai Mara, the Rift Valley & Amboseli',
     duration: 7,
     destinations: ['masai-mara', 'lake-nakuru', 'amboseli'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 1295,
     groupSize: { min: 1, max: 6 },
     badge: 'new',
@@ -6765,7 +6798,7 @@ export const packages: SafariPackage[] = [
     name: '8-Day Off The Beaten Track Photography Safari',
     duration: 8,
     destinations: ['serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'photographic',
     priceFrom: 6218.75,
     groupSize: { min: 2, max: 6 },
     badge: 'new',
@@ -6934,7 +6967,7 @@ export const packages: SafariPackage[] = [
     name: '12-Day Rwanda Primate Safari & Zanzibar Beach Escape',
     duration: 12,
     destinations: ['kigali', 'nyungwe', 'volcanoes', 'zanzibar'],
-    type: 'combination',
+    type: 'gorilla_trekking',
     priceFrom: 8533.75,
     groupSize: { min: 2, max: 6 },
     badge: 'new',
