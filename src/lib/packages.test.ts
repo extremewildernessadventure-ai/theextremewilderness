@@ -116,7 +116,7 @@ describe('getFullPackage', () => {
   it('reassembles a Trail/Reserve/Sovereign package with pricing tiers and faq', async () => {
     const db = makeFakeDb({
       packages: [{
-        id: 1, slug: 'test-safari', name: 'Test Safari', duration: 3, type: 'wildlife',
+        id: 1, slug: 'test-safari', name: 'Test Safari', duration: 3, type: 'big_five_game_drives',
         price_from: 1000, group_size_min: 2, group_size_max: 8, hero_image: '/hero.jpg',
         hero_image_alt: null, badge: 'bestseller', tagline: 'A tagline', best_time_to_travel: null,
         why_different_heading: null, why_different_paragraphs: null, destination_highlights: null,
@@ -124,6 +124,9 @@ describe('getFullPackage', () => {
         destinations: '["serengeti"]', highlights: '["Big Five"]', best_for: '["Families"]',
         overview: null, included: '["Guide"]', excluded: '["Flights"]',
         included_categorized: null, excluded_categorized: null, status: 'published',
+        operator_name: 'EWA Safari Outfitters', best_months: null, practical_tips: null,
+        seasonality_peak_season: null, seasonality_shoulder_season: null,
+        seasonality_green_season: null, seasonality_recommendation: null,
         created_at: '2026-01-01', updated_at: null,
       }],
       package_gallery: [
@@ -164,7 +167,7 @@ describe('getFullPackage', () => {
   it('reassembles a family-tier package with familyPricing instead of pricingTiers', async () => {
     const db = makeFakeDb({
       packages: [{
-        id: 2, slug: 'family-safari', name: 'Family Safari', duration: 10, type: 'wildlife',
+        id: 2, slug: 'family-safari', name: 'Family Safari', duration: 10, type: 'big_five_game_drives',
         price_from: 5000, group_size_min: 2, group_size_max: 12, hero_image: '/hero2.jpg',
         hero_image_alt: 'Family on safari', badge: null, tagline: null, best_time_to_travel: 'Jun-Sep',
         why_different_heading: 'What sets it apart', why_different_paragraphs: '["Para one"]',
@@ -173,7 +176,11 @@ describe('getFullPackage', () => {
         pricing_tiers_provisional: 1, destinations: '["tarangire"]', highlights: '["Wildlife"]',
         best_for: '["Families"]', overview: '["Overview line"]', included: '["Meals"]',
         excluded: '["Visa"]', included_categorized: '{"transfers":["Airport pickup"]}',
-        excluded_categorized: '["Tips"]', status: 'draft', created_at: '2026-01-02', updated_at: '2026-01-03',
+        excluded_categorized: '["Tips"]', status: 'draft',
+        operator_name: 'EWA Safari Outfitters', best_months: null, practical_tips: null,
+        seasonality_peak_season: null, seasonality_shoulder_season: null,
+        seasonality_green_season: null, seasonality_recommendation: null,
+        created_at: '2026-01-02', updated_at: '2026-01-03',
       }],
       package_gallery: [],
       package_itinerary_days: [
@@ -220,7 +227,7 @@ describe('createPackage + insertItinerary + getFullPackage round-trip', () => {
       name: 'Round Trip Safari',
       duration: 4,
       destinations: ['serengeti', 'ngorongoro'],
-      type: 'wildlife',
+      type: 'big_five_game_drives',
       priceFrom: 2500,
       groupSize: { min: 2, max: 6 },
       highlights: ['Big Five', 'Crater floor drive'],
@@ -273,6 +280,11 @@ describe('createPackage + insertItinerary + getFullPackage round-trip', () => {
       destinationHighlights: { heading: 'Where you go', items: [{ title: 'Serengeti', text: 'Endless plains' }] },
       metaTitle: 'Round Trip Safari | Extreme Wilderness',
       metaDescription: 'A 4-day round trip test safari.',
+      // operator_name has a DB-level NOT NULL DEFAULT, so every package
+      // round-trips with it set even when the caller doesn't pass one —
+      // included here to match that real behavior, not omitted as if it
+      // were a sparse/optional field.
+      operatorName: 'EWA Safari Outfitters',
     }
 
     const db = makeFakeDb()
@@ -291,7 +303,7 @@ describe('replaceItinerary', () => {
       name: 'Replace Itinerary Safari',
       duration: 2,
       destinations: ['serengeti'],
-      type: 'wildlife',
+      type: 'big_five_game_drives',
       priceFrom: 1000,
       groupSize: { min: 2, max: 6 },
       highlights: [],
@@ -338,7 +350,7 @@ describe('updatePackageFields / setPackageStatus / deletePackage', () => {
     name: 'Lifecycle Safari',
     duration: 1,
     destinations: ['tarangire'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 500,
     groupSize: { min: 1, max: 4 },
     highlights: [],

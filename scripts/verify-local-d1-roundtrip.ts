@@ -17,7 +17,7 @@ async function main() {
     name: "Real D1 Smoke Test (w/ quotes, semicolons; and parens)",
     duration: 2,
     destinations: ['serengeti'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 1234,
     groupSize: { min: 2, max: 6 },
     highlights: ["It's a test", 'Second highlight'],

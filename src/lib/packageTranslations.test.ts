@@ -8,7 +8,7 @@ describe('extractTranslationPayload / mergeTranslation', () => {
     name: 'Extract Merge Safari',
     duration: 3,
     destinations: ['serengeti'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 1500,
     groupSize: { min: 2, max: 6 },
     highlights: ['Big Five', 'Hot air balloon'],
