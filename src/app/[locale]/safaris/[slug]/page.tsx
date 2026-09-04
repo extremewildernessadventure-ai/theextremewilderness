@@ -539,11 +539,20 @@ export default async function SafariPackagePage({ params }: Props) {
   const tc = await getTranslations('common')
   const tf = await getTranslations('forms')
 
+  // Keyed on the 8-value ActivityType enum (migration 0031) — reuses
+  // forms.tripTypes' existing labels where they already fit (gorilla
+  // trekking, photography, beach, Kilimanjaro), and 3 new keys added
+  // there for the values that had no equivalent (migration/walking/
+  // cultural), rather than a separate parallel taxonomy for this one map.
   const TRIP_TYPE_LABEL: Record<typeof pkg.type, string> = {
-    wildlife: tf('tripTypes.wildlifeSafari'),
-    trekking: tf('tripTypes.kilimanjaroTrek'),
-    beach: tf('tripTypes.beachSafariCombo'),
-    combination: tf('tripTypes.multiCountry'),
+    big_five_game_drives: tf('tripTypes.wildlifeSafari'),
+    migration: tf('tripTypes.migrationSafari'),
+    photographic: tf('tripTypes.photographySafari'),
+    walking: tf('tripTypes.walkingSafari'),
+    cultural: tf('tripTypes.culturalSafari'),
+    gorilla_trekking: tf('tripTypes.gorillaTrekking'),
+    beach_extension: tf('tripTypes.beachSafariCombo'),
+    mountain_trekking: tf('tripTypes.kilimanjaroTrek'),
   }
 
   const featuredPost = await getBlogPostMeta(
