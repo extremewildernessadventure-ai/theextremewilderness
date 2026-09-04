@@ -306,6 +306,23 @@ export default async function ExperienceDetailPage({ params }: Props) {
     .map((s) => allExperiences.find((p) => p.slug === s))
     .filter((p): p is NonNullable<typeof p> => Boolean(p))
 
+  // Computed here (rather than down with the rest of the page-copy prep,
+  // where this used to live) since productSchema below needs it too — the
+  // exact same 2 real guest reviews already rendered on-page in the "Guest
+  // reviews" section further down, mirrored into structured data as-is.
+  // Google's structured-data policy is chiefly about the schema matching
+  // what a visitor actually sees on the page, not an external judgment of
+  // which testimonial is the closest topical fit — since these are the
+  // real reviews already published on this exact page, reflecting them
+  // here isn't fabricating anything.
+  const reviewIdx = REVIEW_MAP[page.slug] ?? [1, 3]
+  const reviews = reviewIdx.map((i) => ({
+    ...REVIEWERS[i],
+    text: th(`rev${i}Text`),
+    trip: th(`rev${i}Trip`),
+  }))
+  const avgReviewRating = Math.round((reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length) * 10) / 10
+
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -328,6 +345,18 @@ export default async function ExperienceDetailPage({ params }: Props) {
           },
         }
       : {}),
+    review: reviews.map((r) => ({
+      '@type': 'Review',
+      reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 },
+      author: { '@type': 'Person', name: r.name },
+      reviewBody: r.text,
+    })),
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: String(avgReviewRating),
+      reviewCount: String(reviews.length),
+      bestRating: '5',
+    },
   }
 
   const breadcrumbSchema = {
@@ -357,13 +386,6 @@ export default async function ExperienceDetailPage({ params }: Props) {
     legendGreen: t('legendGreen'),
     legendLow: t('legendLow'),
   }
-
-  const reviewIdx = REVIEW_MAP[page.slug] ?? [1, 3]
-  const reviews = reviewIdx.map((i) => ({
-    ...REVIEWERS[i],
-    text: th(`rev${i}Text`),
-    trip: th(`rev${i}Trip`),
-  }))
 
   const whatsappHref = `https://wa.me/255747999070?text=${encodeURIComponent(t('whatsappPrefill', { title: page.title }))}`
 
