@@ -10,7 +10,7 @@ export const packages: SafariPackage[] = [
     "ngorongoro",
     "tarangire"
   ],
-  type: "wildlife",
+  type: "big_five_game_drives",
   priceFrom: 3400.63,
   groupSize: {
     min: 1,
@@ -432,7 +432,7 @@ export const packages: SafariPackage[] = [
     "tarangire",
     "manyara"
   ],
-  type: "wildlife",
+  type: "big_five_game_drives",
   priceFrom: 4800,
   groupSize: {
     min: 1,
@@ -499,7 +499,7 @@ export const packages: SafariPackage[] = [
     "serengeti",
     "zanzibar"
   ],
-  type: "combination",
+  type: "big_five_game_drives",
   priceFrom: 4413.96,
   groupSize: {
     min: 2,
@@ -980,7 +980,7 @@ export const packages: SafariPackage[] = [
     "ngorongoro",
     "manyara"
   ],
-  type: "wildlife",
+  type: "big_five_game_drives",
   priceFrom: 2475,
   groupSize: {
     min: 1,
@@ -1224,7 +1224,7 @@ export const packages: SafariPackage[] = [
   destinations: [
     "arusha"
   ],
-  type: "trekking",
+  type: "mountain_trekking",
   priceFrom: 2100,
   groupSize: {
     min: 1,
@@ -1287,7 +1287,7 @@ export const packages: SafariPackage[] = [
     "nyerere",
     "ruaha"
   ],
-  type: "wildlife",
+  type: "big_five_game_drives",
   priceFrom: 4320,
   groupSize: {
     min: 1,
@@ -1617,7 +1617,7 @@ export const packages: SafariPackage[] = [
     "serengeti",
     "ngorongoro"
   ],
-  type: "wildlife",
+  type: "big_five_game_drives",
   priceFrom: 3336.88,
   groupSize: {
     min: 1,
@@ -1891,7 +1891,7 @@ export const packages: SafariPackage[] = [
     "ngorongoro",
     "serengeti"
   ],
-  type: "wildlife",
+  type: "big_five_game_drives",
   priceFrom: 3824,
   groupSize: {
     min: 2,
@@ -2231,7 +2231,7 @@ export const packages: SafariPackage[] = [
     "ngorongoro",
     "serengeti"
   ],
-  type: "combination",
+  type: "big_five_game_drives",
   priceFrom: 5334.38,
   groupSize: {
     min: 1,
@@ -2579,7 +2579,7 @@ export const packages: SafariPackage[] = [
     "ngorongoro",
     "serengeti"
   ],
-  type: "wildlife",
+  type: "migration",
   priceFrom: 5790.63,
   groupSize: {
     min: 1,
@@ -3007,7 +3007,7 @@ export const packages: SafariPackage[] = [
     "ngorongoro",
     "serengeti"
   ],
-  type: "wildlife",
+  type: "big_five_game_drives",
   priceFrom: 6025.21,
   groupSize: {
     min: 3,
@@ -3409,7 +3409,7 @@ export const packages: SafariPackage[] = [
     name: "12-दिवसीय विल्डरनेस सफारी, सांस्कृतिक अनुभव और किलिमंजारो डे हाइक",
     duration: 12,
     destinations: ["kilimanjaro", "manyara", "tarangire", "ngorongoro", "serengeti"],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 5857,
     groupSize: { min: 1, max: 6 },
     bestFor: ["wildlife-enthusiasts", "couples", "solo"],
@@ -3627,7 +3627,7 @@ export const packages: SafariPackage[] = [
     name: "8-दिवसीय महान उत्तरी पलायन",
     duration: 8,
     destinations: ["tarangire", "manyara", "ngorongoro", "serengeti"],
-    type: "wildlife",
+    type: "migration",
     priceFrom: 4976.88,
     groupSize: { min: 1, max: 8 },
     badge: "popular",
@@ -3784,7 +3784,7 @@ export const packages: SafariPackage[] = [
     name: "अल्टीमेट तंजानिया सफारी और गोम्बे चिंपांज़ी ट्रेकिंग",
     duration: 11,
     destinations: ["arusha", "tarangire", "ngorongoro", "gombe"],
-    type: "combination",
+    type: "big_five_game_drives",
     priceFrom: 5908.96,
     groupSize: { min: 2, max: 6 },
     badge: "bestseller",
@@ -3930,7 +3930,7 @@ export const packages: SafariPackage[] = [
     name: "7-दिवसीय उत्तर के रत्न",
     duration: 7,
     destinations: ["tarangire", "manyara", "serengeti", "ngorongoro"],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 3300,
     groupSize: { min: 1, max: 8 },
     bestFor: ["couples", "solo", "families"],
@@ -4020,7 +4020,7 @@ export const packages: SafariPackage[] = [
     name: "7-दिवसीय नडुटु पलायन के ऊपर से उड़ान",
     duration: 7,
     destinations: ["serengeti", "ngorongoro"],
-    type: "wildlife",
+    type: "migration",
     priceFrom: 4000,
     groupSize: { min: 1, max: 6 },
     bestFor: ["couples", "solo", "wildlife-enthusiasts"],
@@ -4111,7 +4111,7 @@ export const packages: SafariPackage[] = [
     name: "8-दिवसीय वाइल्डबीस्ट नदी पार करना सफारी",
     duration: 8,
     destinations: ["serengeti", "ngorongoro"],
-    type: "wildlife",
+    type: "migration",
     priceFrom: 3852.29,
     groupSize: { min: 2, max: 6 },
     badge: "popular",
@@ -4264,7 +4264,7 @@ export const packages: SafariPackage[] = [
     name: "11-दिवसीय रवांडा तंजानिया सफारी",
     duration: 11,
     destinations: ["volcanoes", "kigali", "serengeti", "ngorongoro"],
-    type: "wildlife",
+    type: "gorilla_trekking",
     priceFrom: 6500,
     groupSize: { min: 1, max: 8 },
     bestFor: ["couples", "solo", "wildlife-enthusiasts"],
@@ -4386,7 +4386,7 @@ export const packages: SafariPackage[] = [
     name: "12-दिवसीय रवांडा, तंजानिया और ज़ांज़ीबार",
     duration: 12,
     destinations: ["volcanoes", "tarangire", "ngorongoro", "serengeti", "zanzibar"],
-    type: "combination",
+    type: "big_five_game_drives",
     priceFrom: 9375,
     groupSize: { min: 1, max: 6 },
     bestFor: ["couples", "honeymoon", "wildlife-enthusiasts"],
@@ -4592,7 +4592,7 @@ export const packages: SafariPackage[] = [
     name: "रवांडा प्राइमेट सफारी और ज़ांज़ीबार बीच एस्केप",
     duration: 12,
     destinations: ["kigali", "nyungwe", "volcanoes", "zanzibar"],
-    type: "combination",
+    type: "gorilla_trekking",
     priceFrom: 7742.08,
     groupSize: { min: 2, max: 6 },
     bestFor: ["couples", "honeymoon", "wildlife-enthusiasts"],
@@ -4742,7 +4742,7 @@ export const packages: SafariPackage[] = [
     name: "4-दिवसीय रवांडा गोरिल्ला ट्रेकिंग",
     duration: 4,
     destinations: ["volcanoes", "kigali"],
-    type: "wildlife",
+    type: "gorilla_trekking",
     priceFrom: 3414.58,
     groupSize: { min: 1, max: 8 },
     bestFor: ["couples", "solo", "wildlife-enthusiasts"],
@@ -4836,7 +4836,7 @@ export const packages: SafariPackage[] = [
     name: "5-दिवसीय निजी गोम्बे चिंपांज़ी ट्रेकिंग",
     duration: 5,
     destinations: ["gombe"],
-    type: "wildlife",
+    type: "gorilla_trekking",
     priceFrom: 4206.25,
     groupSize: { min: 1, max: 6 },
     bestFor: ["couples", "solo", "wildlife-enthusiasts"],
@@ -4950,7 +4950,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro",
       "serengeti"
     ],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 6036.46,
     groupSize: {
       min: 2,
@@ -5380,7 +5380,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro",
       "serengeti"
     ],
-    type: "wildlife",
+    type: "photographic",
     priceFrom: 4597.29,
     groupSize: {
       min: 1,
@@ -5685,7 +5685,7 @@ export const packages: SafariPackage[] = [
     destinations: [
       "masai-mara"
     ],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 5800,
     groupSize: {
       min: 1,
@@ -5926,7 +5926,7 @@ export const packages: SafariPackage[] = [
       "nyerere",
       "ruaha"
     ],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 5200,
     groupSize: {
       min: 1,
@@ -6146,7 +6146,7 @@ export const packages: SafariPackage[] = [
       "ruaha",
       "zanzibar"
     ],
-    type: "combination",
+    type: "big_five_game_drives",
     priceFrom: 6100,
     groupSize: {
       min: 1,
@@ -6389,7 +6389,7 @@ export const packages: SafariPackage[] = [
       "manyara",
       "masai-mara"
     ],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 7200,
     groupSize: {
       min: 1,
@@ -6649,7 +6649,7 @@ export const packages: SafariPackage[] = [
       "serengeti",
       "ngorongoro"
     ],
-    type: "combination",
+    type: "mountain_trekking",
     priceFrom: 6607.58,
     groupSize: {
       min: 2,
@@ -6962,7 +6962,7 @@ export const packages: SafariPackage[] = [
       "serengeti",
       "ngorongoro"
     ],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 2118.96,
     groupSize: {
       min: 2,
@@ -7162,7 +7162,7 @@ export const packages: SafariPackage[] = [
       "serengeti",
       "manyara"
     ],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 1909,
     groupSize: {
       min: 1,
@@ -7360,7 +7360,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro",
       "manyara"
     ],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 2554,
     groupSize: {
       min: 1,
@@ -7579,7 +7579,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro",
       "manyara"
     ],
-    type: "combination",
+    type: "big_five_game_drives",
     priceFrom: 4600,
     groupSize: {
       min: 2,
@@ -7971,7 +7971,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro",
       "tarangire"
     ],
-    type: "combination",
+    type: "big_five_game_drives",
     priceFrom: 5072,
     groupSize: {
       min: 1,
@@ -8269,7 +8269,7 @@ export const packages: SafariPackage[] = [
       "nyerere",
       "zanzibar"
     ],
-    type: "wildlife",
+    type: "beach_extension",
     priceFrom: 1957.5,
     groupSize: {
       min: 2,
@@ -8460,7 +8460,7 @@ export const packages: SafariPackage[] = [
       "tarangire",
       "ngorongoro"
     ],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 1250,
     groupSize: {
       min: 2,
@@ -8636,7 +8636,7 @@ export const packages: SafariPackage[] = [
       "masai-mara",
       "nairobi"
     ],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 1520,
     groupSize: {
       min: 2,
@@ -8926,7 +8926,7 @@ export const packages: SafariPackage[] = [
       "serengeti",
       "zanzibar"
     ],
-    type: "combination",
+    type: "beach_extension",
     priceFrom: 3847,
     groupSize: {
       min: 1,
@@ -9320,7 +9320,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro",
       "serengeti"
     ],
-    type: "wildlife",
+    type: "migration",
     priceFrom: 4775,
     groupSize: {
       min: 1,
@@ -9738,7 +9738,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro",
       "serengeti"
     ],
-    type: "wildlife",
+    type: "photographic",
     priceFrom: 4597,
     groupSize: {
       min: 1,
@@ -10138,7 +10138,7 @@ export const packages: SafariPackage[] = [
       "samburu",
       "masai-mara"
     ],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 1926,
     groupSize: {
       min: 1,
@@ -10447,7 +10447,7 @@ export const packages: SafariPackage[] = [
       "lake-nakuru",
       "amboseli"
     ],
-    type: "wildlife",
+    type: "big_five_game_drives",
     priceFrom: 1295,
     groupSize: {
       min: 1,
@@ -10703,7 +10703,7 @@ export const packages: SafariPackage[] = [
       "serengeti",
       "ngorongoro"
     ],
-    type: "wildlife",
+    type: "photographic",
     priceFrom: 6218.75,
     groupSize: {
       min: 2,
@@ -10965,7 +10965,7 @@ export const packages: SafariPackage[] = [
       "volcanoes",
       "zanzibar"
     ],
-    type: "combination",
+    type: "gorilla_trekking",
     priceFrom: 8533.75,
     groupSize: {
       min: 2,
