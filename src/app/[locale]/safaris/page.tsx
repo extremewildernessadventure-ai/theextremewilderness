@@ -99,8 +99,15 @@ export default async function SafarisPage({ params }: Props) {
   })
   // Packages already rendered via `extra` (with a custom image/badge override)
   // must not also be pulled in generically below, or they'd render twice.
-  // Trekking-type packages (e.g. Kilimanjaro Machame) have their own dedicated
-  // /trekking pages and don't belong in this general safari-itinerary grid.
+  // 'kilimanjaro-machame-7day' is excluded here deliberately — it's marketed
+  // through the dedicated /trekking landing page, not this general
+  // safari-itinerary grid. Kept as an explicit slug exclusion (not a
+  // `pkg.type !== 'mountain_trekking'` filter) because the other
+  // mountain-trekking package, 14-days-kilimanjaro-lemosho-safari, is a
+  // genuine safari+climb combo that has always shown here too — that's the
+  // pre-existing behavior, preserved as-is; whether that's still the right
+  // call is a product decision for the Stage A listing-page rebuild, not
+  // a side effect of the type-taxonomy migration.
   const extraSlugs = new Set<string>(EXTRA_META.map((e) => e.slug))
   const tFaqs = [
     { q: t('faq1q'), a: t('faq1a') },
@@ -351,7 +358,7 @@ export default async function SafarisPage({ params }: Props) {
           <FilteredPackageGrid
             packages={[
               ...packages
-                .filter((pkg) => pkg.type !== 'trekking' && !extraSlugs.has(pkg.slug))
+                .filter((pkg) => pkg.slug !== 'kilimanjaro-machame-7day' && !extraSlugs.has(pkg.slug))
                 .map((pkg) => ({
                   slug: `/safaris/${pkg.slug}`,
                   name: pkg.name,
