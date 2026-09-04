@@ -8,7 +8,20 @@ import StringListEditor from '@/components/admin/StringListEditor'
 const inputCls = 'field-input'
 const labelCls = 'field-label'
 
-const TYPE_OPTIONS: SafariPackage['type'][] = ['wildlife', 'trekking', 'beach', 'combination']
+const TYPE_OPTIONS: SafariPackage['type'][] = [
+  'big_five_game_drives', 'migration', 'photographic', 'walking',
+  'cultural', 'gorilla_trekking', 'beach_extension', 'mountain_trekking',
+]
+const TYPE_LABELS: Record<SafariPackage['type'], string> = {
+  big_five_game_drives: 'Big Five Game Drives',
+  migration: 'Great Migration',
+  photographic: 'Photographic',
+  walking: 'Walking Safari',
+  cultural: 'Cultural',
+  gorilla_trekking: 'Gorilla Trekking',
+  beach_extension: 'Beach Extension',
+  mountain_trekking: 'Mountain Trekking (Kilimanjaro)',
+}
 const BADGE_OPTIONS: Array<SafariPackage['badge'] | ''> = ['', 'bestseller', 'new', 'popular']
 
 // Covers every "flat" SafariPackage field (identity, marketing, SEO) plus
@@ -144,7 +157,7 @@ export default function PackageEditForm({ id, pkg }: { id: number; pkg: SafariPa
         <div>
           <label className={labelCls}>Type</label>
           <select value={form.type} onChange={(e) => update('type', e.target.value)} className={inputCls}>
-            {TYPE_OPTIONS.map((t) => <option key={t} value={t}>{t}</option>)}
+            {TYPE_OPTIONS.map((t) => <option key={t} value={t}>{TYPE_LABELS[t]}</option>)}
           </select>
         </div>
       </div>
