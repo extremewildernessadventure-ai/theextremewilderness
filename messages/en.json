@@ -2575,6 +2575,9 @@
       "honeymoon": "Honeymoon / Anniversary",
       "familySafari": "Family Safari",
       "photographySafari": "Photography Safari",
+      "migrationSafari": "Great Migration Safari",
+      "walkingSafari": "Walking Safari",
+      "culturalSafari": "Cultural Safari",
       "multiCountry": "Multi-country Adventure",
       "customTrip": "Custom Trip"
     },

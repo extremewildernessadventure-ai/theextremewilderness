@@ -2647,6 +2647,9 @@
       "honeymoon": "Luna de Miel / Aniversario",
       "familySafari": "Safari Familiar",
       "photographySafari": "Safari Fotográfico",
+      "migrationSafari": "Safari de la Gran Migración",
+      "walkingSafari": "Safari a Pie",
+      "culturalSafari": "Safari Cultural",
       "multiCountry": "Aventura Multipais",
       "customTrip": "Viaje Personalizado"
     },
