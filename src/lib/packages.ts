@@ -15,8 +15,20 @@ import type {
 
 export type PackageStatus = 'draft' | 'published'
 export type PackageBadge = 'bestseller' | 'new' | 'popular'
-export type PackageType = 'wildlife' | 'trekking' | 'beach' | 'combination'
+// Replaced (not extended) by migration 0031 as part of the SafariBookings-
+// style rebuild — see that migration's comment for why a real replacement
+// was the right call over bolting on a separate tag field.
+export type PackageType =
+  | 'big_five_game_drives'
+  | 'migration'
+  | 'photographic'
+  | 'walking'
+  | 'cultural'
+  | 'gorilla_trekking'
+  | 'beach_extension'
+  | 'mountain_trekking'
 export type PackageSeason = 'high' | 'low'
+export type WildlifeTargetChance = 'Guaranteed' | 'High' | 'Seasonal' | 'Rare'
 // Covers both the Wilderness Trail/Reserve/Sovereign vocabulary and the
 // Luxury/Ultra-Luxury family-tier vocabulary in one column — see the
 // migration's own comment on package_itinerary_tier_stays for why.
@@ -53,8 +65,25 @@ export interface PackageRow {
   excluded_categorized: string | null // JSON string[]
   status: PackageStatus
   sort_order: number
+  operator_name: string
+  best_months: string | null // JSON string[]
+  practical_tips: string | null // JSON string[]
+  seasonality_peak_season: string | null
+  seasonality_shoulder_season: string | null
+  seasonality_green_season: string | null
+  seasonality_recommendation: string | null
   created_at: string
   updated_at: string | null
+}
+
+// "Wildlife Radar" tab data — see migration 0031's package_wildlife_targets.
+export interface PackageWildlifeTargetRow {
+  id: number
+  package_id: number
+  name: string
+  chance: WildlifeTargetChance
+  note: string | null
+  sort_order: number
 }
 
 export interface PackageGalleryRow {
@@ -178,12 +207,13 @@ export async function getFullPackage(db: D1Database, slug: string): Promise<Safa
   const row = await getPackageRowBySlug(db, slug)
   if (!row) return null
 
-  const [galleryResult, dayRows, pricingTierRows, familyPricingRows, faqRows] = await Promise.all([
+  const [galleryResult, dayRows, pricingTierRows, familyPricingRows, faqRows, wildlifeTargetRows] = await Promise.all([
     db.prepare('SELECT * FROM package_gallery WHERE package_id = ? ORDER BY sort_order').bind(row.id).all<PackageGalleryRow>(),
     db.prepare('SELECT * FROM package_itinerary_days WHERE package_id = ? ORDER BY sort_order').bind(row.id).all<PackageItineraryDayRow>(),
     db.prepare('SELECT * FROM package_pricing_tiers WHERE package_id = ? ORDER BY sort_order').bind(row.id).all<PackagePricingTierRow>(),
     db.prepare('SELECT * FROM package_family_pricing WHERE package_id = ? ORDER BY sort_order').bind(row.id).all<PackageFamilyPricingRow>(),
     db.prepare('SELECT * FROM package_faq WHERE package_id = ? ORDER BY sort_order').bind(row.id).all<PackageFaqRow>(),
+    db.prepare('SELECT * FROM package_wildlife_targets WHERE package_id = ? ORDER BY sort_order').bind(row.id).all<PackageWildlifeTargetRow>(),
   ])
 
   const dayIds = dayRows.results.map((d) => d.id)
@@ -301,6 +331,28 @@ export async function getFullPackage(db: D1Database, slug: string): Promise<Safa
   }
   if (row.meta_title !== null) pkg.metaTitle = row.meta_title
   if (row.meta_description !== null) pkg.metaDescription = row.meta_description
+  if (row.operator_name) pkg.operatorName = row.operator_name
+  if (row.best_months !== null) pkg.bestMonths = parseJsonColumn<string[]>(row.best_months, [])
+  if (row.practical_tips !== null) pkg.practicalTips = parseJsonColumn<string[]>(row.practical_tips, [])
+  if (
+    row.seasonality_peak_season !== null ||
+    row.seasonality_shoulder_season !== null ||
+    row.seasonality_green_season !== null ||
+    row.seasonality_recommendation !== null
+  ) {
+    pkg.seasonalityGuide = {}
+    if (row.seasonality_peak_season !== null) pkg.seasonalityGuide.peakSeason = row.seasonality_peak_season
+    if (row.seasonality_shoulder_season !== null) pkg.seasonalityGuide.shoulderSeason = row.seasonality_shoulder_season
+    if (row.seasonality_green_season !== null) pkg.seasonalityGuide.greenSeason = row.seasonality_green_season
+    if (row.seasonality_recommendation !== null) pkg.seasonalityGuide.recommendation = row.seasonality_recommendation
+  }
+  if (wildlifeTargetRows.results.length > 0) {
+    pkg.wildlifeTargets = wildlifeTargetRows.results.map((w) => {
+      const target: NonNullable<SafariPackage['wildlifeTargets']>[number] = { name: w.name, chance: w.chance }
+      if (w.note !== null) target.note = w.note
+      return target
+    })
+  }
 
   return pkg
 }
@@ -322,8 +374,10 @@ export async function createPackage(db: D1Database, pkg: SafariPackage, status: 
       why_different_heading, why_different_paragraphs, destination_highlights,
       notes, meta_title, meta_description, pricing_tiers_provisional,
       destinations, highlights, best_for, overview, included, excluded,
-      included_categorized, excluded_categorized, status, sort_order
-    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
+      included_categorized, excluded_categorized, status, sort_order,
+      operator_name, best_months, practical_tips,
+      seasonality_peak_season, seasonality_shoulder_season, seasonality_green_season, seasonality_recommendation
+    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
   ).bind(
     pkg.slug, pkg.name, pkg.duration, pkg.type, pkg.priceFrom, pkg.groupSize.min, pkg.groupSize.max,
     pkg.heroImage, pkg.heroImageAlt ?? null, pkg.badge ?? null, pkg.tagline ?? null, pkg.bestTimeToTravel ?? null,
@@ -339,6 +393,13 @@ export async function createPackage(db: D1Database, pkg: SafariPackage, status: 
     pkg.includedCategorized ? JSON.stringify(pkg.includedCategorized) : null,
     pkg.excludedCategorized ? JSON.stringify(pkg.excludedCategorized) : null,
     status, sortOrder,
+    pkg.operatorName ?? 'EWA Safari Outfitters',
+    pkg.bestMonths ? JSON.stringify(pkg.bestMonths) : null,
+    pkg.practicalTips ? JSON.stringify(pkg.practicalTips) : null,
+    pkg.seasonalityGuide?.peakSeason ?? null,
+    pkg.seasonalityGuide?.shoulderSeason ?? null,
+    pkg.seasonalityGuide?.greenSeason ?? null,
+    pkg.seasonalityGuide?.recommendation ?? null,
   ).run()
 
   const packageId = result.meta?.last_row_id
@@ -369,6 +430,12 @@ export async function createPackage(db: D1Database, pkg: SafariPackage, status: 
     statements.push(
       db.prepare('INSERT INTO package_faq (package_id, question, answer, sort_order) VALUES (?,?,?,?)')
         .bind(packageId, f.q, f.a, i)
+    )
+  })
+  ;(pkg.wildlifeTargets ?? []).forEach((w, i) => {
+    statements.push(
+      db.prepare('INSERT INTO package_wildlife_targets (package_id, name, chance, note, sort_order) VALUES (?,?,?,?,?)')
+        .bind(packageId, w.name, w.chance, w.note ?? null, i)
     )
   })
   if (statements.length > 0) await db.batch(statements)
@@ -461,6 +528,20 @@ export async function replaceFaq(db: D1Database, packageId: number, faq: NonNull
   ])
 }
 
+export async function replaceWildlifeTargets(
+  db: D1Database,
+  packageId: number,
+  targets: NonNullable<SafariPackage['wildlifeTargets']>
+): Promise<void> {
+  await db.batch([
+    db.prepare('DELETE FROM package_wildlife_targets WHERE package_id = ?').bind(packageId),
+    ...targets.map((w, i) =>
+      db.prepare('INSERT INTO package_wildlife_targets (package_id, name, chance, note, sort_order) VALUES (?,?,?,?,?)')
+        .bind(packageId, w.name, w.chance, w.note ?? null, i)
+    ),
+  ])
+}
+
 // Replaces the whole itinerary — delete every existing day (which cascades
 // app-side to that day's tier stays, since there's no DB-level ON DELETE
 // CASCADE here, matching this codebase's other soft/declared FKs) then
@@ -501,7 +582,10 @@ export async function updatePackageFields(db: D1Database, packageId: number, pkg
       why_different_heading = ?, why_different_paragraphs = ?, destination_highlights = ?,
       notes = ?, meta_title = ?, meta_description = ?, pricing_tiers_provisional = ?,
       destinations = ?, highlights = ?, best_for = ?, overview = ?, included = ?, excluded = ?,
-      included_categorized = ?, excluded_categorized = ?, updated_at = CURRENT_TIMESTAMP
+      included_categorized = ?, excluded_categorized = ?,
+      operator_name = ?, best_months = ?, practical_tips = ?,
+      seasonality_peak_season = ?, seasonality_shoulder_season = ?, seasonality_green_season = ?, seasonality_recommendation = ?,
+      updated_at = CURRENT_TIMESTAMP
      WHERE id = ?`
   ).bind(
     pkg.name, pkg.duration, pkg.type, pkg.priceFrom, pkg.groupSize.min, pkg.groupSize.max,
@@ -517,6 +601,13 @@ export async function updatePackageFields(db: D1Database, packageId: number, pkg
     JSON.stringify(pkg.included), JSON.stringify(pkg.excluded),
     pkg.includedCategorized ? JSON.stringify(pkg.includedCategorized) : null,
     pkg.excludedCategorized ? JSON.stringify(pkg.excludedCategorized) : null,
+    pkg.operatorName ?? 'EWA Safari Outfitters',
+    pkg.bestMonths ? JSON.stringify(pkg.bestMonths) : null,
+    pkg.practicalTips ? JSON.stringify(pkg.practicalTips) : null,
+    pkg.seasonalityGuide?.peakSeason ?? null,
+    pkg.seasonalityGuide?.shoulderSeason ?? null,
+    pkg.seasonalityGuide?.greenSeason ?? null,
+    pkg.seasonalityGuide?.recommendation ?? null,
     packageId,
   ).run()
 }
@@ -553,6 +644,7 @@ export async function deletePackage(db: D1Database, packageId: number): Promise<
     db.prepare('DELETE FROM package_pricing_tiers WHERE package_id = ?').bind(packageId),
     db.prepare('DELETE FROM package_family_pricing WHERE package_id = ?').bind(packageId),
     db.prepare('DELETE FROM package_faq WHERE package_id = ?').bind(packageId),
+    db.prepare('DELETE FROM package_wildlife_targets WHERE package_id = ?').bind(packageId),
     db.prepare('DELETE FROM package_translations WHERE package_id = ?').bind(packageId),
     db.prepare('DELETE FROM packages WHERE id = ?').bind(packageId),
   )
