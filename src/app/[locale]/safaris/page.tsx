@@ -215,7 +215,7 @@ export default async function SafarisPage({ params, searchParams }: Props) {
                 <Link
                   key={key}
                   href={isSelected ? '/safaris#itineraries' : `/safaris?tier=${key}#itineraries`}
-                  className={`text-left p-4 rounded-2xl border transition-all group ${
+                  className={`text-start p-4 rounded-2xl border transition-all group ${
                     isSelected
                       ? 'border-brand bg-brand text-white shadow-md'
                       : 'border-gray-200 bg-white hover:border-brand/40 hover:bg-light-green/40'
