@@ -24,7 +24,7 @@ export default async function AdminDashboardPage() {
 
   const [leadsFollowUp, upcomingDepartures, unpaidInvoices, pendingPermits, openPayroll, pendingDocuments, subscribers] = await Promise.all([
     db.prepare("SELECT COUNT(*) as count FROM leads WHERE status = 'new' AND created_at <= datetime('now', '-2 days')").first<{ count: number }>(),
-    db.prepare("SELECT COUNT(*) as count FROM departures WHERE status IN ('open', 'few_left') AND start_date >= date('now')").first<{ count: number }>(),
+    db.prepare("SELECT COUNT(*) as count FROM departures WHERE cancelled = 0 AND start_date >= date('now')").first<{ count: number }>(),
     db.prepare("SELECT COUNT(*) as count FROM invoices WHERE status IN ('unpaid', 'partial')").first<{ count: number }>(),
     db.prepare("SELECT COUNT(*) as count FROM permits WHERE status = 'pending'").first<{ count: number }>(),
     db.prepare("SELECT COUNT(*) as count FROM payroll_periods WHERE status = 'open'").first<{ count: number }>(),

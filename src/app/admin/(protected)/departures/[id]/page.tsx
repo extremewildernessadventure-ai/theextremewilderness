@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getDb } from '@/lib/db'
-import type { Departure } from '@/lib/departures'
+import { computeDepartureTotalCost, type Departure } from '@/lib/departures'
 import type { Booking } from '@/lib/bookings'
 import { packages } from '@/data/packages'
 import DetailTwoColumn from '@/components/admin/DetailTwoColumn'
@@ -24,24 +24,26 @@ export default async function DepartureDetailPage({ params }: Props) {
   ).bind(id).all<Booking>()
 
   const pkg = packages.find((p) => p.slug === departure.package_slug)
-  const occupancyPct = departure.capacity > 0 ? Math.min(100, Math.round((departure.seats_booked / departure.capacity) * 100)) : 0
-  const fillClass = departure.status === 'few_left' ? 'warn' : departure.status === 'full' ? 'full' : ''
+  const totalCost = computeDepartureTotalCost(departure)
 
   return (
     <DetailTwoColumn
       backHref="/admin/departures"
       backLabel="Back to Departures"
       title={pkg?.name ?? departure.package_slug}
-      subtitle={`${departure.start_date} → ${departure.end_date}`}
+      subtitle={`${departure.start_date} → ${departure.end_date}${departure.cancelled ? ' · Cancelled' : ''}`}
       main={
         <>
-          <div className="panel space-y-3 text-sm">
-            <div className="capacity-cell" style={{ minWidth: 0 }}>
-              <div className="flex justify-between items-center">
-                <span style={{ color: 'var(--grey)' }}>Occupancy</span>
-                <span className="capacity-num">{departure.seats_booked} / {departure.capacity} seats</span>
-              </div>
-              <div className="capacity-bar"><div className={`capacity-fill ${fillClass}`} style={{ width: `${occupancyPct}%` }} /></div>
+          <div className="panel space-y-2 text-sm">
+            <div className="flex justify-between items-center">
+              <span style={{ color: 'var(--grey)' }}>Party</span>
+              <span className="font-semibold">{departure.adults} adult{departure.adults === 1 ? '' : 's'}{departure.children > 0 ? `, ${departure.children} child${departure.children === 1 ? '' : 'ren'}` : ''}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span style={{ color: 'var(--grey)' }}>Total Cost</span>
+              <span className="font-semibold mono" style={{ color: 'var(--pine)' }}>
+                {totalCost != null ? `USD ${totalCost.toLocaleString()}` : 'Not priced yet'}
+              </span>
             </div>
           </div>
 

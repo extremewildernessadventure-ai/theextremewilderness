@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
-import { recalculateSeatsBooked } from '@/lib/departures'
 import { resolveClientId } from '@/lib/clients'
 
 export const dynamic = 'force-dynamic'
@@ -65,10 +64,6 @@ export async function POST(req: NextRequest) {
     body.departureId ?? null, body.leadId ?? null, clientId, body.clientName.trim(),
     body.clientEmail ?? null, body.clientPhone ?? null, guestsCount,
   ).run()
-
-  if (body.departureId) {
-    await recalculateSeatsBooked(db, body.departureId)
-  }
 
   return NextResponse.json({ success: true, id: result.meta?.last_row_id })
 }

@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import { getDb } from '@/lib/db'
-import type { Departure } from '@/lib/departures'
+import { computeDepartureTotalCost, type Departure } from '@/lib/departures'
 import { packages } from '@/data/packages'
 import AdminTable, { type AdminTableColumn } from '@/components/admin/AdminTable'
-import DepartureStatusSelect from './DepartureStatusSelect'
 
 export const dynamic = 'force-dynamic'
 
@@ -22,19 +21,21 @@ const columns: AdminTableColumn<Departure>[] = [
   },
   { header: 'Dates', className: 'dates-cell', render: (d) => `${d.start_date} → ${d.end_date}` },
   {
-    header: 'Capacity',
+    header: 'Party',
+    render: (d) => `${d.adults} adult${d.adults === 1 ? '' : 's'}${d.children > 0 ? `, ${d.children} child${d.children === 1 ? '' : 'ren'}` : ''}`,
+  },
+  {
+    header: 'Total Cost',
+    className: 'mono',
     render: (d) => {
-      const pct = d.capacity > 0 ? Math.min(100, Math.round((d.seats_booked / d.capacity) * 100)) : 0
-      const fillClass = d.status === 'few_left' ? 'warn' : d.status === 'full' ? 'full' : ''
-      return (
-        <div className="capacity-cell">
-          <span className="capacity-num">{d.seats_booked} / {d.capacity}</span>
-          <div className="capacity-bar"><div className={`capacity-fill ${fillClass}`} style={{ width: `${pct}%` }} /></div>
-        </div>
-      )
+      const totalCost = computeDepartureTotalCost(d)
+      return totalCost != null ? `USD ${totalCost.toLocaleString()}` : '—'
     },
   },
-  { header: 'Status', render: (d) => <DepartureStatusSelect departureId={d.id} currentStatus={d.status} compact /> },
+  {
+    header: 'Status',
+    render: (d) => (d.cancelled ? <span className="pill cancelled"><i />cancelled</span> : <span className="pill open"><i />confirmed</span>),
+  },
 ]
 
 export default async function DeparturesListPage() {
@@ -44,19 +45,18 @@ export default async function DeparturesListPage() {
   const statsRow = await db.prepare(`
     SELECT
       COUNT(*) as total,
-      SUM(CASE WHEN status = 'few_left' THEN 1 ELSE 0 END) as nearlyFull,
-      SUM(CASE WHEN start_date >= date('now') AND start_date <= date('now', '+30 days') THEN seats_booked ELSE 0 END) as seatsBooked30d,
-      SUM(CASE WHEN start_date >= date('now') AND start_date <= date('now', '+30 days') THEN capacity ELSE 0 END) as capacity30d,
-      SUM(CASE WHEN status = 'cancelled' AND created_at >= datetime('now', '-30 days') THEN 1 ELSE 0 END) as cancelled30d
+      SUM(CASE WHEN start_date >= date('now') AND start_date <= date('now', '+30 days') AND cancelled = 0
+        THEN (adults * COALESCE(price_per_adult, 0) + children * COALESCE(price_per_child, 0)) ELSE 0 END) as upcomingRevenue30d,
+      SUM(CASE WHEN cancelled = 1 AND created_at >= datetime('now', '-30 days') THEN 1 ELSE 0 END) as cancelled30d
     FROM departures
-  `).first<{ total: number; nearlyFull: number; seatsBooked30d: number; capacity30d: number; cancelled30d: number }>()
+  `).first<{ total: number; upcomingRevenue30d: number; cancelled30d: number }>()
 
   return (
     <div>
       <div className="page-head">
         <div>
           <h1>Departures</h1>
-          <p>{statsRow?.total ?? 0} total · {statsRow?.nearlyFull ?? 0} nearly full</p>
+          <p>{statsRow?.total ?? 0} total</p>
         </div>
         <Link href="/admin/departures/new" className="btn-primary">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4"><path d="M12 5v14M5 12h14" /></svg>
@@ -71,14 +71,9 @@ export default async function DeparturesListPage() {
           <div className="stat-sub">Across all packages</div>
         </div>
         <div className="stat-card gold">
-          <div className="stat-label">Nearly Full</div>
-          <div className="stat-num">{statsRow?.nearlyFull ?? 0}</div>
-          <div className="stat-sub">Fewer than 3 seats left</div>
-        </div>
-        <div className="stat-card">
-          <div className="stat-label">Seats Booked (30d)</div>
-          <div className="stat-num">{statsRow?.seatsBooked30d ?? 0}</div>
-          <div className="stat-sub">Of {statsRow?.capacity30d ?? 0} total capacity</div>
+          <div className="stat-label">Upcoming Revenue (30d)</div>
+          <div className="stat-num">USD {(statsRow?.upcomingRevenue30d ?? 0).toLocaleString()}</div>
+          <div className="stat-sub">Priced, not-cancelled departures</div>
         </div>
         <div className="stat-card rust">
           <div className="stat-label">Cancelled (30d)</div>
@@ -93,7 +88,7 @@ export default async function DeparturesListPage() {
         rowKey={(d) => d.id}
         emptyMessage="No departures yet."
         emptyAction={{ label: '+ Create Departure', href: '/admin/departures/new' }}
-        rowClassName={(d) => (d.status === 'few_left' ? 'warn' : undefined)}
+        rowClassName={(d) => (d.cancelled ? 'cancelled' : undefined)}
       />
     </div>
   )

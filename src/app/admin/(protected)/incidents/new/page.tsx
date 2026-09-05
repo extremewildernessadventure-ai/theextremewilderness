@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic'
 export default async function NewIncidentPage() {
   const db = await getDb()
   const [{ results: departures }, { results: guides }] = await Promise.all([
-    db.prepare("SELECT * FROM departures WHERE status != 'cancelled' ORDER BY start_date DESC").all<Departure>(),
+    db.prepare("SELECT * FROM departures WHERE cancelled = 0 ORDER BY start_date DESC").all<Departure>(),
     db.prepare('SELECT * FROM guides WHERE active = 1 ORDER BY name ASC').all<Guide>(),
   ])
 
