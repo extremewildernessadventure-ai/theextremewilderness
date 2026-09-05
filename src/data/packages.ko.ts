@@ -11,6 +11,7 @@ export const packages: SafariPackage[] = [
       "tarangire"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     priceFrom: 3400.63,
     groupSize: {
       min: 1,
@@ -981,6 +982,7 @@ export const packages: SafariPackage[] = [
       "manyara"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     priceFrom: 2475,
     groupSize: {
       min: 1,
@@ -1288,6 +1290,7 @@ export const packages: SafariPackage[] = [
       "ruaha"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 4320,
     groupSize: {
       min: 1,
@@ -1618,6 +1621,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     priceFrom: 3336.88,
     groupSize: {
       min: 1,
@@ -1892,6 +1896,7 @@ export const packages: SafariPackage[] = [
       "serengeti"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 3824,
     groupSize: {
       min: 2,
@@ -2232,6 +2237,7 @@ export const packages: SafariPackage[] = [
       "serengeti"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Dec', 'Jan', 'Feb'],
     priceFrom: 5334.38,
     groupSize: {
       min: 1,
@@ -2580,6 +2586,7 @@ export const packages: SafariPackage[] = [
       "serengeti"
     ],
     type: "migration",
+    bestMonths: ['Jan', 'Feb', 'Mar'],
     priceFrom: 5790.63,
     groupSize: {
       min: 1,
@@ -3416,6 +3423,7 @@ export const packages: SafariPackage[] = [
       "serengeti"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Jan', 'Feb'],
     priceFrom: 5857,
     groupSize: {
       min: 1,
@@ -3877,6 +3885,7 @@ export const packages: SafariPackage[] = [
       "serengeti"
     ],
     type: "migration",
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 4976.88,
     groupSize: {
       min: 1,
@@ -4285,6 +4294,7 @@ export const packages: SafariPackage[] = [
       "gombe"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 5908.96,
     groupSize: {
       min: 2,
@@ -4761,6 +4771,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro"
     ],
     type: "migration",
+    bestMonths: ['Jan', 'Feb', 'Mar'],
     priceFrom: 4000,
     groupSize: {
       min: 1,
@@ -4933,6 +4944,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro"
     ],
     type: "migration",
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 3852.29,
     groupSize: {
       min: 2,
@@ -6592,6 +6604,7 @@ export const packages: SafariPackage[] = [
       "gombe"
     ],
     type: "gorilla_trekking",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 4206.25,
     groupSize: {
       min: 1,
@@ -7229,6 +7242,7 @@ export const packages: SafariPackage[] = [
       "serengeti"
     ],
     type: "photographic",
+    bestMonths: ['Jan', 'Feb', 'Mar'],
     priceFrom: 4597.29,
     groupSize: {
       min: 1,
@@ -7534,6 +7548,7 @@ export const packages: SafariPackage[] = [
       "masai-mara"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 5800,
     groupSize: {
       min: 1,
@@ -8238,6 +8253,7 @@ export const packages: SafariPackage[] = [
       "masai-mara"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 7200,
     groupSize: {
       min: 1,
@@ -9209,6 +9225,7 @@ export const packages: SafariPackage[] = [
       "manyara"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 2554,
     groupSize: {
       min: 1,
@@ -9428,6 +9445,7 @@ export const packages: SafariPackage[] = [
       "manyara"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 4600,
     groupSize: {
       min: 2,
@@ -9820,6 +9838,7 @@ export const packages: SafariPackage[] = [
       "tarangire"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 5072,
     groupSize: {
       min: 1,
@@ -10118,6 +10137,7 @@ export const packages: SafariPackage[] = [
       "zanzibar"
     ],
     type: "beach_extension",
+    bestMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     priceFrom: 1957.5,
     groupSize: {
       min: 2,
@@ -10309,6 +10329,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 1250,
     groupSize: {
       min: 2,
@@ -10485,6 +10506,7 @@ export const packages: SafariPackage[] = [
       "nairobi"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 1520,
     groupSize: {
       min: 2,
@@ -10775,6 +10797,7 @@ export const packages: SafariPackage[] = [
       "zanzibar"
     ],
     type: "beach_extension",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Dec', 'Jan', 'Feb'],
     priceFrom: 3847,
     groupSize: {
       min: 1,
@@ -11169,6 +11192,7 @@ export const packages: SafariPackage[] = [
       "serengeti"
     ],
     type: "migration",
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 4775,
     groupSize: {
       min: 1,
@@ -11587,6 +11611,7 @@ export const packages: SafariPackage[] = [
       "serengeti"
     ],
     type: "photographic",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 4597,
     groupSize: {
       min: 1,
@@ -11987,6 +12012,7 @@ export const packages: SafariPackage[] = [
       "masai-mara"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     priceFrom: 1926,
     groupSize: {
       min: 1,
@@ -12296,6 +12322,7 @@ export const packages: SafariPackage[] = [
       "amboseli"
     ],
     type: "big_five_game_drives",
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
     priceFrom: 1295,
     groupSize: {
       min: 1,
@@ -12552,6 +12579,7 @@ export const packages: SafariPackage[] = [
       "ngorongoro"
     ],
     type: "photographic",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
     priceFrom: 6218.75,
     groupSize: {
       min: 2,
@@ -12814,6 +12842,7 @@ export const packages: SafariPackage[] = [
       "zanzibar"
     ],
     type: "gorilla_trekking",
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Dec', 'Jan', 'Feb'],
     priceFrom: 8533.75,
     groupSize: {
       min: 2,
