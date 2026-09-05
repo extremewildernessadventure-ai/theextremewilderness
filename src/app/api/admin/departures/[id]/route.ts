@@ -25,19 +25,13 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   }
   const { id } = await params
   const body = await req.json() as {
-    packageSlug?: string; startDate?: string; endDate?: string
-    adults?: number; children?: number; pricePerAdult?: number | null; pricePerChild?: number | null
-    cancelled?: boolean
+    packageSlug?: string; startDate?: string; endDate?: string; cancelled?: boolean
   }
 
   const columnMap: Record<string, unknown> = {
     package_slug: body.packageSlug,
     start_date: body.startDate,
     end_date: body.endDate,
-    adults: body.adults,
-    children: body.children,
-    price_per_adult: body.pricePerAdult,
-    price_per_child: body.pricePerChild,
     cancelled: body.cancelled === undefined ? undefined : (body.cancelled ? 1 : 0),
   }
   const fields: string[] = []
