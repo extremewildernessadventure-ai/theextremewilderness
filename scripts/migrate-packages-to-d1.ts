@@ -39,6 +39,12 @@ import { extractTranslationPayload, mergeTranslation } from '../src/lib/packageT
 function normalizeForCompare(pkg: SafariPackage): SafariPackage {
   const copy = { ...pkg }
   if (copy.pricingTiersProvisional === false) delete copy.pricingTiersProvisional
+  // operator_name has a DB-level NOT NULL DEFAULT ('EWA Safari Outfitters'),
+  // so every package round-trips with it set even when the source literal
+  // never specified one (true of all 44 packages today -- none has a
+  // partner/DMC operator yet). Same "default == omitted" normalization as
+  // pricingTiersProvisional above, not a real fidelity gap.
+  if (copy.operatorName === 'EWA Safari Outfitters') delete copy.operatorName
   return copy
 }
 
