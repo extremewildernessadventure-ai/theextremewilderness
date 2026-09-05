@@ -1,25 +1,33 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
-import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
-import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck, Star, MapPin, DollarSign } from 'lucide-react'
+import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck, MapPin, DollarSign } from 'lucide-react'
 import Badge from '@/components/shared/Badge'
 import TrustBar from '@/components/home/TrustBar'
 import SafariBookingSidebar from '@/components/safaris/SafariBookingSidebar'
 import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
 import AmenityStay from '@/components/safaris/AmenityStay'
 import RelatedSafaris from '@/components/safaris/RelatedSafaris'
+import OperatorBadge from '@/components/safaris/OperatorBadge'
+import SafariPhotoGallery from '@/components/safaris/SafariPhotoGallery'
+import SafariDetailTabs, { type DetailTabId } from '@/components/safaris/SafariDetailTabs'
+import SafariCampsTab from '@/components/safaris/SafariCampsTab'
+import SafariWildlifeTab from '@/components/safaris/SafariWildlifeTab'
+import SafariSeasonalityGuide from '@/components/safaris/SafariSeasonalityGuide'
+import SafariPracticalTips from '@/components/safaris/SafariPracticalTips'
+import SafariReviewsTab from '@/components/safaris/SafariReviewsTab'
 import { packages } from '@/data/packages'
 import { getPackage, getPackages } from '@/data/packages.i18n'
-import { PACKAGE_REVIEWS } from '@/data/packageReviews'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import { routing } from '@/i18n/routing'
 import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema, buildImageObject, buildPageTitle } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
-import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
+import { getDb } from '@/lib/db'
+import { getPublishedReviewsForPackage, computeReviewStats } from '@/lib/reviews'
+import { buildCampsRoster } from '@/lib/safariCamps'
 
 
 const SAFARI_KEYWORDS: Record<string, string[]> = {
@@ -528,6 +536,7 @@ export default async function SafariPackagePage({ params }: Props) {
   const t = await getTranslations('safari')
   const tc = await getTranslations('common')
   const tf = await getTranslations('forms')
+  const tb = await getTranslations('safariBrowser')
 
   // Keyed on the 8-value ActivityType enum (migration 0031) — reuses
   // forms.tripTypes' existing labels where they already fit (gorilla
@@ -550,15 +559,10 @@ export default async function SafariPackagePage({ params }: Props) {
     locale
   )
 
-  const packageReview = PACKAGE_REVIEWS[pkg.slug]
-  const th = packageReview ? await getTranslations({ locale, namespace: 'home' }) : null
-  const reviewText = packageReview && th
-    ? (packageReview.key === 0 ? th('rev0Text')
-      : packageReview.key === 1 ? th('rev1Text')
-      : packageReview.key === 7 ? th('rev7Text')
-      : th('rev10Text'))
-    : null
-  const reviewCountry = packageReview && th ? th(packageReview.countryKey) : null
+  const db = await getDb()
+  const publishedReviews = await getPublishedReviewsForPackage(db, pkg.slug)
+  const reviewStats = computeReviewStats(publishedReviews)
+  const campsRoster = buildCampsRoster(pkg.itinerary)
 
   const productSchema = {
     '@context': 'https://schema.org',
@@ -585,20 +589,24 @@ export default async function SafariPackagePage({ params }: Props) {
       '@type': 'ItemList',
       numberOfItems: pkg.duration,
     },
-    ...(packageReview && reviewText ? {
-      review: {
+    // Real, published guest reviews from the reviews D1 table -- only ever
+    // reflects what's actually approved and public (getPublishedReviewsForPackage
+    // never reads pending/approved rows), and reviewCount/ratingValue come
+    // from computeReviewStats' real aggregation, not a hardcoded single
+    // review the way this used to work. Omitted entirely when there are no
+    // real published reviews yet, never fabricated, per Google's
+    // structured-data guidelines.
+    ...(publishedReviews.length > 0 ? {
+      review: publishedReviews.map((r) => ({
         '@type': 'Review',
-        reviewRating: { '@type': 'Rating', ratingValue: packageReview.rating, bestRating: 5 },
-        author: { '@type': 'Person', name: packageReview.name },
-        reviewBody: reviewText,
-      },
-      // Real, verified guest rating (same PACKAGE_REVIEWS entry as the
-      // review above) — only added where we have a genuine review behind
-      // it, never fabricated, per Google's structured-data guidelines.
+        reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 },
+        author: { '@type': 'Person', name: r.reviewer_name },
+        reviewBody: r.quote_text,
+      })),
       aggregateRating: {
         '@type': 'AggregateRating',
-        ratingValue: String(packageReview.rating),
-        reviewCount: '1',
+        ratingValue: reviewStats.average.toFixed(1),
+        reviewCount: String(reviewStats.count),
         bestRating: '5',
       },
     } : {}),
@@ -622,6 +630,388 @@ export default async function SafariPackagePage({ params }: Props) {
     { label: pkg.name },
   ]
   const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, `/safaris/${slug}`)
+
+  // Stage B tab content -- every section below preserves the exact same real
+  // data/conditions the page always had; only the visual grouping changed
+  // (into tabs, matching the prototype's structure) plus 3 genuinely new
+  // sections (Camps/Wildlife/Reviews). Tabs with nothing real to show are
+  // simply omitted from `detailTabs` rather than rendered empty.
+  const overviewTabContent = (
+    <div className="space-y-8">
+      {pkg.overview && pkg.overview.length > 0 && (
+        <div className="bg-light-green border border-brand/10 rounded-xl p-5 space-y-3">
+          <h2 className="text-xl font-semibold text-brand mb-1">{t('overview')}</h2>
+          {pkg.overview.map((para, i) => (
+            <p key={i} className="text-base text-text-muted leading-relaxed">{para}</p>
+          ))}
+        </div>
+      )}
+
+      <div className="bg-light-green border border-brand/10 rounded-xl p-5 space-y-6">
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-lg font-semibold text-brand mb-4">{t('atAGlance')}</h2>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="bg-white rounded-lg border border-gray-100 p-3">
+                <DollarSign className="w-4 h-4 text-gold mb-1.5" />
+                <p className="font-bold text-brand text-base leading-tight">${pkg.priceFrom.toLocaleString('en-US')}</p>
+                <p className="text-xs text-text-muted">{tc('from')} · {tc('perPerson')}</p>
+              </div>
+              <div className="bg-white rounded-lg border border-gray-100 p-3">
+                <MapPin className="w-4 h-4 text-gold mb-1.5" />
+                <p className="font-bold text-brand text-base leading-tight line-clamp-2">
+                  {pkg.destinations.map((d) => d.charAt(0).toUpperCase() + d.slice(1)).join(', ')}
+                </p>
+                <p className="text-xs text-text-muted">{t('destinationsLabel')}</p>
+              </div>
+              <div className="bg-white rounded-lg border border-gray-100 p-3">
+                <Clock className="w-4 h-4 text-gold mb-1.5" />
+                <p className="font-bold text-brand text-base leading-tight">{pkg.duration} {tc('days')}</p>
+                <p className="text-xs text-text-muted">{t('duration')}</p>
+              </div>
+              <div className="bg-white rounded-lg border border-gray-100 p-3">
+                <Users className="w-4 h-4 text-gold mb-1.5" />
+                <p className="font-bold text-brand text-base leading-tight">{pkg.groupSize.min}–{pkg.groupSize.max}</p>
+                <p className="text-xs text-text-muted">{t('groupSizeLabel')}</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-semibold text-brand mb-4">{t('packageHighlights')}</h2>
+            <ul className="space-y-2">
+              {pkg.highlights.map((h) => (
+                <li key={h} className="flex items-start gap-2 text-base text-text-muted">
+                  <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {(pkg.bestTimeToTravel || pkg.tagline) && (
+          <div className="flex flex-wrap gap-5 text-base pt-5 border-t border-brand/10">
+            {pkg.bestTimeToTravel && (
+              <div className="flex items-center gap-2 text-text-muted">
+                <Calendar className="w-4 h-4 text-gold" />
+                <span><strong className="text-brand">{t('bestTimeToTravel')}:</strong> {pkg.bestTimeToTravel}</span>
+              </div>
+            )}
+            {pkg.tagline && (
+              <div className="flex items-center gap-2 text-text-muted">
+                <ShieldCheck className="w-4 h-4 text-gold" />
+                <span>{pkg.tagline}</span>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {pkg.whyDifferent && (
+        <div className="bg-light-green border border-brand/10 rounded-xl p-5">
+          <h2 className="text-xl font-semibold text-brand mb-4">{pkg.whyDifferent.heading}</h2>
+          <div className="space-y-3">
+            {pkg.whyDifferent.paragraphs.map((para, i) => (
+              <p key={i} className="text-base text-text-muted leading-relaxed">{para}</p>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {pkg.destinationHighlights && pkg.destinationHighlights.items.length > 0 && (
+        <div>
+          <h2 className="text-xl font-semibold text-brand mb-4">{pkg.destinationHighlights.heading}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {pkg.destinationHighlights.items.map((item) => (
+              <div key={item.title} className="bg-light-green border border-brand/10 rounded-xl p-4">
+                <p className="font-semibold text-brand mb-1.5">{item.title}</p>
+                <p className="text-base text-text-muted leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+
+  const itineraryTabContent = (
+    <div>
+      <h2 className="text-xl font-semibold text-brand mb-5">{t('dayByDayItinerary')}</h2>
+
+      {pkg.itinerary.some((d) => d.location) && (
+        <div className="mb-6">
+          <p className="text-xs font-bold text-text-muted uppercase tracking-wide mb-2">{t('itineraryAtAGlance')}</p>
+          <div className="overflow-x-auto rounded-xl border border-gray-100">
+            <table className="w-full text-base">
+              <thead>
+                <tr className="bg-light-green text-start text-text-muted text-xs uppercase tracking-wide">
+                  <th className="px-4 py-2.5 font-semibold">{t('day')}</th>
+                  <th className="px-4 py-2.5 font-semibold">{t('location')}</th>
+                  <th className="px-4 py-2.5 font-semibold">{t('focus')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pkg.itinerary.map((day) => (
+                  <tr key={day.day} className="border-t border-gray-100">
+                    <td className="px-4 py-2.5 text-brand font-semibold whitespace-nowrap">{day.day}</td>
+                    <td className="px-4 py-2.5 text-text-muted">{day.location ?? '—'}</td>
+                    <td className="px-4 py-2.5 text-text-muted">{day.title}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      <div className="space-y-3">
+        {pkg.itinerary.map((day) => (
+          <details key={day.day} className="group border border-gray-100 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
+                  {day.day}
+                </span>
+                <span className="font-medium text-brand text-base">{day.title}</span>
+              </div>
+              <ChevronDown className="w-4 h-4 text-text-muted group-open:rotate-180 transition-transform" />
+            </summary>
+            <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
+              <p className="text-base text-text-muted leading-relaxed mb-3">{day.description}</p>
+
+              {day.insiderFact && (
+                <div className="border-s-2 border-gold ps-3 mb-3">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-gold-label mb-0.5">
+                    {t('insiderFact')}
+                  </p>
+                  <p className="text-base text-text-muted leading-relaxed">{day.insiderFact}</p>
+                </div>
+              )}
+
+              {day.accommodationByTier ? (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">
+                  {day.accommodationByTier.trail && (
+                    <AmenityStay label={t('tierTrail')} stay={day.accommodationByTier.trail} />
+                  )}
+                  {day.accommodationByTier.reserve && (
+                    <AmenityStay label={t('tierReserve')} stay={day.accommodationByTier.reserve} />
+                  )}
+                  {day.accommodationByTier.sovereign && (
+                    <AmenityStay label={t('tierSovereign')} stay={day.accommodationByTier.sovereign} />
+                  )}
+                </div>
+              ) : null}
+
+              {day.accommodationByFamilyTier ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+                  {day.accommodationByFamilyTier.luxury && (
+                    <AmenityStay label={t('familyTierLuxury')} stay={day.accommodationByFamilyTier.luxury} />
+                  )}
+                  {day.accommodationByFamilyTier.ultraLuxury && (
+                    <AmenityStay label={t('familyTierUltraLuxury')} stay={day.accommodationByFamilyTier.ultraLuxury} />
+                  )}
+                </div>
+              ) : null}
+
+              <div className="flex flex-wrap gap-4 text-base text-text-muted">
+                <span>{day.accommodation}</span>
+                <span>{day.meals}</span>
+              </div>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  )
+
+  const inclusionsTabContent = (
+    <div className="space-y-6">
+      <div className="bg-light-green border border-brand/10 rounded-xl p-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
+            <Check className="w-4 h-4 text-green-500" /> {t('included')}
+          </h3>
+          {pkg.includedCategorized ? (
+            <div className="space-y-4">
+              {pkg.includedCategorized.transfers && pkg.includedCategorized.transfers.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('transfers')}</p>
+                  <ul className="space-y-1.5">
+                    {pkg.includedCategorized.transfers.map((item) => (
+                      <li key={item} className="text-base text-text-muted flex items-start gap-2">
+                        <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {pkg.includedCategorized.accommodationMeals && pkg.includedCategorized.accommodationMeals.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('accommodationMeals')}</p>
+                  <ul className="space-y-1.5">
+                    {pkg.includedCategorized.accommodationMeals.map((item) => (
+                      <li key={item} className="text-base text-text-muted flex items-start gap-2">
+                        <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {pkg.includedCategorized.guidingGameDrives && pkg.includedCategorized.guidingGameDrives.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('guidingGameDrives')}</p>
+                  <ul className="space-y-1.5">
+                    {pkg.includedCategorized.guidingGameDrives.map((item) => (
+                      <li key={item} className="text-base text-text-muted flex items-start gap-2">
+                        <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ) : (
+            <ul className="space-y-1.5">
+              {pkg.included.map((item) => (
+                <li key={item} className="text-base text-text-muted flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div>
+          <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
+            <X className="w-4 h-4 text-red-400" /> {t('notIncluded')}
+          </h3>
+          <ul className="space-y-1.5">
+            {(pkg.excludedCategorized ?? pkg.excluded).map((item) => (
+              <li key={item} className="text-base text-text-muted flex items-start gap-2">
+                <X className="w-3.5 h-3.5 text-red-400 mt-0.5 flex-shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {pkg.notes && pkg.notes.length > 0 && (
+        <div className="bg-light-green border border-brand/10 rounded-xl p-5">
+          <h3 className="font-semibold text-brand mb-2">{t('pleaseNote')}</h3>
+          <ul className="space-y-1">
+            {pkg.notes.map((note) => (
+              <li key={note} className="text-base text-text-muted leading-relaxed">
+                {note}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <SafariPracticalTips tips={pkg.practicalTips ?? []} heading={t('practicalTipsHeading')} />
+    </div>
+  )
+
+  const wildlifeTabContent = (
+    <div className="space-y-8">
+      <SafariWildlifeTab
+        targets={pkg.wildlifeTargets ?? []}
+        labels={{
+          heading: t('wildlifeHeading'),
+          subcopy: t('wildlifeSubcopy'),
+          chanceGuaranteed: t('wildlifeChanceGuaranteed'),
+          chanceHigh: t('wildlifeChanceHigh'),
+          chanceSeasonal: t('wildlifeChanceSeasonal'),
+          chanceRare: t('wildlifeChanceRare'),
+        }}
+      />
+      {pkg.seasonalityGuide && (
+        <SafariSeasonalityGuide
+          guide={pkg.seasonalityGuide}
+          labels={{
+            heading: t('seasonalityHeading'),
+            peakSeason: t('seasonalityPeak'),
+            shoulderSeason: t('seasonalityShoulder'),
+            greenSeason: t('seasonalityGreen'),
+            recommendationPrefix: t('seasonalityRecommendationPrefix'),
+          }}
+        />
+      )}
+    </div>
+  )
+
+  const campsTabContent = (
+    <SafariCampsTab
+      roster={campsRoster}
+      labels={{
+        heading: t('campsHeading'),
+        subcopy: t('campsSubcopy'),
+        tierTrail: t('tierTrail'),
+        tierReserve: t('tierReserve'),
+        tierSovereign: t('tierSovereign'),
+        tierLuxury: t('campsTierLuxury'),
+        tierUltraLuxury: t('campsTierUltraLuxury'),
+      }}
+    />
+  )
+
+  const reviewsTabContent = (
+    <SafariReviewsTab
+      packageSlug={pkg.slug}
+      packageName={pkg.name}
+      initialReviews={publishedReviews}
+      labels={{
+        heading: t('reviewsHeading'),
+        subcopy: t('reviewsSubcopy'),
+        rateThisButton: t('reviewsRateButton'),
+        closeFormButton: t('reviewsCloseFormButton'),
+        basedOnCount: t('reviewsBasedOnCount'),
+        noReviewsYet: t('reviewsNoneYet'),
+        sortRecent: t('reviewsSortRecent'),
+        sortHighest: t('reviewsSortHighest'),
+        sortLabel: t('reviewsSortLabel'),
+        verifiedBadge: t('reviewsVerifiedBadge'),
+        starLabel: t('reviewsStarLabel'),
+        formNameLabel: t('reviewsFormName'),
+        formNamePlaceholder: t('reviewsFormNamePlaceholder'),
+        formRatingLabel: t('reviewsFormRating'),
+        formQuoteLabel: t('reviewsFormQuote'),
+        formQuotePlaceholder: t('reviewsFormQuotePlaceholder'),
+        formQuoteHelper: t('reviewsFormQuoteHelper'),
+        formSubmit: t('reviewsFormSubmit'),
+        formSubmitting: t('reviewsFormSubmitting'),
+        formSuccessTitle: t('reviewsFormSuccessTitle'),
+        formSuccessBody: t('reviewsFormSuccessBody'),
+        formErrorName: t('reviewsFormErrorName'),
+        formErrorQuote: t('reviewsFormErrorQuote'),
+        formErrorGeneric: t('reviewsFormErrorGeneric'),
+        distributionLabel: t('reviewsDistributionLabel'),
+      }}
+    />
+  )
+
+  const detailTabs: { id: DetailTabId; content: React.ReactNode }[] = [
+    ...(pkg.itinerary.length > 0 ? [{ id: 'itinerary' as const, content: itineraryTabContent }] : []),
+    { id: 'overview' as const, content: overviewTabContent },
+    ...(campsRoster.length > 0 ? [{ id: 'camps' as const, content: campsTabContent }] : []),
+    ...((pkg.wildlifeTargets?.length ?? 0) > 0 ? [{ id: 'wildlife' as const, content: wildlifeTabContent }] : []),
+    { id: 'inclusions' as const, content: inclusionsTabContent },
+    { id: 'reviews' as const, content: reviewsTabContent },
+  ]
+
+  const detailTabLabels = {
+    itinerary: t('detailTabItinerary'),
+    overview: t('detailTabOverview'),
+    camps: t('detailTabCamps'),
+    wildlife: t('detailTabWildlife'),
+    inclusions: t('detailTabInclusions'),
+    reviews: t('detailTabReviews').replace('[n]', String(publishedReviews.length)),
+  }
 
   return (
     <>
@@ -651,14 +1041,18 @@ export default async function SafariPackagePage({ params }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/20 to-transparent" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
-          <Breadcrumb items={breadcrumbItems} locale={locale} />
           <div className="flex items-start justify-between flex-wrap gap-4">
             <div>
-              {pkg.badge && (
-                <div className="mb-2">
+              <div className="flex items-center gap-2 mb-2 flex-wrap">
+                {pkg.badge && (
                   <Badge label={pkg.badge === 'bestseller' ? tc('bestseller') : pkg.badge === 'new' ? tc('new') : tc('popular')} />
-                </div>
-              )}
+                )}
+                <OperatorBadge
+                  operatorName={pkg.operatorName ?? 'EWA Safari Outfitters'}
+                  directLabel={tb('card.operatorDirect')}
+                  partnerLabel={tb('card.operatorPartner')}
+                />
+              </div>
               <h1 className="text-3xl lg:text-4xl font-semibold text-white">{pkg.name}</h1>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl px-5 py-3 text-center border border-white/20">
@@ -685,329 +1079,22 @@ export default async function SafariPackagePage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Main content */}
           <Reveal className="lg:col-span-2 space-y-10">
-            {/* Overview */}
-            {pkg.overview && pkg.overview.length > 0 && (
-              <div className="bg-light-green border border-brand/10 rounded-xl p-5 space-y-3">
-                <h2 className="text-xl font-semibold text-brand mb-1">{t('overview')}</h2>
-                {pkg.overview.map((para, i) => (
-                  <p key={i} className="text-base text-text-muted leading-relaxed">{para}</p>
-                ))}
-              </div>
-            )}
+            {/* Photo Gallery — same data/condition as before, now with a real
+                lightbox (SafariPhotoGallery), kept outside the tabs since
+                it's not specific to any one tab. */}
+            <SafariPhotoGallery
+              gallery={pkg.gallery}
+              labels={{
+                heading: t('packageGalleryHeading'),
+                counter: t('galleryCounter'),
+                closeTooltip: t('galleryCloseTooltip'),
+              }}
+            />
 
-            {/* Photo Gallery — only rendered when the package actually has extra
-                gallery photos beyond the hero; below the fold, so no `priority`,
-                and `sizes` matched to the grid's real column widths rather than
-                the oversized-fallback pattern found elsewhere on the site. */}
-            {pkg.gallery.length > 0 && (
-              <div>
-                <h2 className="text-xl font-semibold text-brand mb-4">{t('packageGalleryHeading')}</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {pkg.gallery.map((img) => (
-                    <div key={img.src} className="relative aspect-[4/3] rounded-lg overflow-hidden bg-light-green">
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        loading="lazy"
-                        className="object-cover hover:scale-105 transition-transform duration-500"
-                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 22vw"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* At a Glance + Tour Highlights */}
-            <div className="bg-light-green border border-brand/10 rounded-xl p-5 space-y-6">
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* At a Glance */}
-                <div>
-                  <h2 className="text-lg font-semibold text-brand mb-4">{t('atAGlance')}</h2>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-white rounded-lg border border-gray-100 p-3">
-                      <DollarSign className="w-4 h-4 text-gold mb-1.5" />
-                      <p className="font-bold text-brand text-base leading-tight">${pkg.priceFrom.toLocaleString('en-US')}</p>
-                      <p className="text-xs text-text-muted">{tc('from')} · {tc('perPerson')}</p>
-                    </div>
-                    <div className="bg-white rounded-lg border border-gray-100 p-3">
-                      <MapPin className="w-4 h-4 text-gold mb-1.5" />
-                      <p className="font-bold text-brand text-base leading-tight line-clamp-2">
-                        {pkg.destinations.map((d) => d.charAt(0).toUpperCase() + d.slice(1)).join(', ')}
-                      </p>
-                      <p className="text-xs text-text-muted">{t('destinationsLabel')}</p>
-                    </div>
-                    <div className="bg-white rounded-lg border border-gray-100 p-3">
-                      <Clock className="w-4 h-4 text-gold mb-1.5" />
-                      <p className="font-bold text-brand text-base leading-tight">{pkg.duration} {tc('days')}</p>
-                      <p className="text-xs text-text-muted">{t('duration')}</p>
-                    </div>
-                    <div className="bg-white rounded-lg border border-gray-100 p-3">
-                      <Users className="w-4 h-4 text-gold mb-1.5" />
-                      <p className="font-bold text-brand text-base leading-tight">{pkg.groupSize.min}–{pkg.groupSize.max}</p>
-                      <p className="text-xs text-text-muted">{t('groupSizeLabel')}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Tour Highlights */}
-                <div>
-                  <h2 className="text-lg font-semibold text-brand mb-4">{t('packageHighlights')}</h2>
-                  <ul className="space-y-2">
-                    {pkg.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-2 text-base text-text-muted">
-                        <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {(pkg.bestTimeToTravel || pkg.tagline) && (
-                <div className="flex flex-wrap gap-5 text-base pt-5 border-t border-brand/10">
-                  {pkg.bestTimeToTravel && (
-                    <div className="flex items-center gap-2 text-text-muted">
-                      <Calendar className="w-4 h-4 text-gold" />
-                      <span><strong className="text-brand">{t('bestTimeToTravel')}:</strong> {pkg.bestTimeToTravel}</span>
-                    </div>
-                  )}
-                  {pkg.tagline && (
-                    <div className="flex items-center gap-2 text-text-muted">
-                      <ShieldCheck className="w-4 h-4 text-gold" />
-                      <span>{pkg.tagline}</span>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-
-            {/* Why This Itinerary Is Different */}
-            {pkg.whyDifferent && (
-              <div className="bg-light-green border border-brand/10 rounded-xl p-5">
-                <h2 className="text-xl font-semibold text-brand mb-4">{pkg.whyDifferent.heading}</h2>
-                <div className="space-y-3">
-                  {pkg.whyDifferent.paragraphs.map((para, i) => (
-                    <p key={i} className="text-base text-text-muted leading-relaxed">{para}</p>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Destination / Photography Highlights */}
-            {pkg.destinationHighlights && pkg.destinationHighlights.items.length > 0 && (
-              <div>
-                <h2 className="text-xl font-semibold text-brand mb-4">{pkg.destinationHighlights.heading}</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {pkg.destinationHighlights.items.map((item) => (
-                    <div key={item.title} className="bg-light-green border border-brand/10 rounded-xl p-4">
-                      <p className="font-semibold text-brand mb-1.5">{item.title}</p>
-                      <p className="text-base text-text-muted leading-relaxed">{item.text}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Itinerary */}
-            {pkg.itinerary.length > 0 && (
-              <div>
-                <h2 className="text-xl font-semibold text-brand mb-5">{t('dayByDayItinerary')}</h2>
-
-                {pkg.itinerary.some((d) => d.location) && (
-                  <div className="mb-6">
-                    <p className="text-xs font-bold text-text-muted uppercase tracking-wide mb-2">{t('itineraryAtAGlance')}</p>
-                    <div className="overflow-x-auto rounded-xl border border-gray-100">
-                      <table className="w-full text-base">
-                        <thead>
-                          <tr className="bg-light-green text-start text-text-muted text-xs uppercase tracking-wide">
-                            <th className="px-4 py-2.5 font-semibold">{t('day')}</th>
-                            <th className="px-4 py-2.5 font-semibold">{t('location')}</th>
-                            <th className="px-4 py-2.5 font-semibold">{t('focus')}</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {pkg.itinerary.map((day) => (
-                            <tr key={day.day} className="border-t border-gray-100">
-                              <td className="px-4 py-2.5 text-brand font-semibold whitespace-nowrap">{day.day}</td>
-                              <td className="px-4 py-2.5 text-text-muted">{day.location ?? '—'}</td>
-                              <td className="px-4 py-2.5 text-text-muted">{day.title}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                )}
-
-                <div className="space-y-3">
-                  {pkg.itinerary.map((day) => (
-                    <details key={day.day} className="group border border-gray-100 rounded-xl overflow-hidden">
-                      <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
-                        <div className="flex items-center gap-3">
-                          <span className="w-8 h-8 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
-                            {day.day}
-                          </span>
-                          <span className="font-medium text-brand text-base">{day.title}</span>
-                        </div>
-                        <ChevronDown className="w-4 h-4 text-text-muted group-open:rotate-180 transition-transform" />
-                      </summary>
-                      <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
-                        <p className="text-base text-text-muted leading-relaxed mb-3">{day.description}</p>
-
-                        {day.insiderFact && (
-                          <div className="border-s-2 border-gold ps-3 mb-3">
-                            <p className="text-[10px] font-bold uppercase tracking-wide text-gold-label mb-0.5">
-                              {t('insiderFact')}
-                            </p>
-                            <p className="text-base text-text-muted leading-relaxed">{day.insiderFact}</p>
-                          </div>
-                        )}
-
-                        {day.accommodationByTier ? (
-                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">
-                            {day.accommodationByTier.trail && (
-                              <AmenityStay label={t('tierTrail')} stay={day.accommodationByTier.trail} />
-                            )}
-                            {day.accommodationByTier.reserve && (
-                              <AmenityStay label={t('tierReserve')} stay={day.accommodationByTier.reserve} />
-                            )}
-                            {day.accommodationByTier.sovereign && (
-                              <AmenityStay label={t('tierSovereign')} stay={day.accommodationByTier.sovereign} />
-                            )}
-                          </div>
-                        ) : null}
-
-                        {day.accommodationByFamilyTier ? (
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
-                            {day.accommodationByFamilyTier.luxury && (
-                              <AmenityStay label={t('familyTierLuxury')} stay={day.accommodationByFamilyTier.luxury} />
-                            )}
-                            {day.accommodationByFamilyTier.ultraLuxury && (
-                              <AmenityStay label={t('familyTierUltraLuxury')} stay={day.accommodationByFamilyTier.ultraLuxury} />
-                            )}
-                          </div>
-                        ) : null}
-
-                        <div className="flex flex-wrap gap-4 text-base text-text-muted">
-                          <span>{day.accommodation}</span>
-                          <span>{day.meals}</span>
-                        </div>
-                      </div>
-                    </details>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Included / Excluded */}
-            <div className="bg-light-green border border-brand/10 rounded-xl p-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" /> {t('included')}
-                </h3>
-                {pkg.includedCategorized ? (
-                  <div className="space-y-4">
-                    {pkg.includedCategorized.transfers && pkg.includedCategorized.transfers.length > 0 && (
-                      <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('transfers')}</p>
-                        <ul className="space-y-1.5">
-                          {pkg.includedCategorized.transfers.map((item) => (
-                            <li key={item} className="text-base text-text-muted flex items-start gap-2">
-                              <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {pkg.includedCategorized.accommodationMeals && pkg.includedCategorized.accommodationMeals.length > 0 && (
-                      <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('accommodationMeals')}</p>
-                        <ul className="space-y-1.5">
-                          {pkg.includedCategorized.accommodationMeals.map((item) => (
-                            <li key={item} className="text-base text-text-muted flex items-start gap-2">
-                              <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {pkg.includedCategorized.guidingGameDrives && pkg.includedCategorized.guidingGameDrives.length > 0 && (
-                      <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('guidingGameDrives')}</p>
-                        <ul className="space-y-1.5">
-                          {pkg.includedCategorized.guidingGameDrives.map((item) => (
-                            <li key={item} className="text-base text-text-muted flex items-start gap-2">
-                              <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <ul className="space-y-1.5">
-                    {pkg.included.map((item) => (
-                      <li key={item} className="text-base text-text-muted flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-              <div>
-                <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
-                  <X className="w-4 h-4 text-red-400" /> {t('notIncluded')}
-                </h3>
-                <ul className="space-y-1.5">
-                  {(pkg.excludedCategorized ?? pkg.excluded).map((item) => (
-                    <li key={item} className="text-base text-text-muted flex items-start gap-2">
-                      <X className="w-3.5 h-3.5 text-red-400 mt-0.5 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {pkg.notes && pkg.notes.length > 0 && (
-              <div className="bg-light-green border border-brand/10 rounded-xl p-5">
-                <h3 className="font-semibold text-brand mb-2">{t('pleaseNote')}</h3>
-                <ul className="space-y-1">
-                  {pkg.notes.map((note) => (
-                    <li key={note} className="text-base text-text-muted leading-relaxed">
-                      {note}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Traveler review */}
-            {packageReview && reviewText && (
-              <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
-                <h3 className="font-semibold text-brand mb-3">{t('travelerReviewHeading')}</h3>
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: packageReview.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-gold text-gold" />
-                    ))}
-                  </div>
-                  <span className="text-[10px] bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full border border-green-200 flex-shrink-0">
-                    {t('verifiedTraveler')}
-                  </span>
-                </div>
-                <blockquote className="italic text-base leading-relaxed text-text-muted mb-3">
-                  &ldquo;{reviewText}&rdquo;
-                </blockquote>
-                <p className="text-base font-semibold text-brand">{packageReview.name} · {reviewCountry}</p>
-              </div>
-            )}
+            {/* Tabbed content: Itinerary / Overview / Camps / Wildlife /
+                Inclusions / Reviews — every field the page always showed is
+                still shown, just grouped into tabs (see detailTabs above). */}
+            <SafariDetailTabs tabs={detailTabs} labels={detailTabLabels} />
 
             {/* FAQ */}
             {pkg.faq && pkg.faq.length > 0 && (
