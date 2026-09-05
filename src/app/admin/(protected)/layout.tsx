@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation'
+import { headers } from 'next/headers'
 import Link from 'next/link'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { ADMIN_NAV } from '@/lib/adminNav'
@@ -9,7 +10,15 @@ import AdminSubNavPills from '../AdminSubNavPills'
 export default async function ProtectedAdminLayout({ children }: { children: React.ReactNode }) {
   const authed = await hasValidAdminSession()
   if (!authed) {
-    redirect('/admin/login')
+    // x-pathname is set by middleware.ts (the only way a Server Component
+    // layout can see the current request URL) -- carries the page an
+    // unauthenticated visitor was actually trying to reach through login so
+    // they land back on it afterward, instead of always dumping them on
+    // /admin regardless of what they clicked (e.g. the public "Post Your
+    // Itinerary" link straight into /admin/packages/new).
+    const store = await headers()
+    const pathname = store.get('x-pathname') ?? '/admin'
+    redirect(`/admin/login?redirect=${encodeURIComponent(pathname)}`)
   }
 
   return (
