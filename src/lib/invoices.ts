@@ -14,12 +14,10 @@ export const PAYMENT_METHOD_LABELS: Record<InvoicePayment['method'], string> = {
   correction: 'Correction',
 }
 
-// Shared between the invoices list page and PaymentPanel's per-installment
-// status badges, so a "partial" status always reads the same shade of
-// green/gold/khaki everywhere it appears. unpaid = needs attention;
-// partial = payment in progress; paid = closed out successfully;
-// cancelled = void (list-page-only; an installment leg is never cancelled
-// on its own, see InstallmentLeg's status type below).
+// Shared between the invoices list page and the client detail page's
+// invoice list, so "partial" always reads the same shade of green/gold/
+// khaki everywhere it appears. unpaid = needs attention; partial = payment
+// in progress; paid = closed out successfully; cancelled = void.
 export const INVOICE_STATUS_PILL_CLASS: Record<Invoice['status'], string> = {
   unpaid: 'few',
   partial: 'open',
@@ -39,75 +37,68 @@ export function deriveStatus(currentStatus: Invoice['status'] | undefined, amoun
   return 'partial'
 }
 
-export interface InstallmentLeg {
-  amount: number
-  dueDate: string | null
-  paid: number
-  // 'cancelled' is a whole-invoice concept (see deriveStatus), not something
-  // one leg of a split can independently be -- excluded here deliberately.
-  status: Exclude<Invoice['status'], 'cancelled'>
-}
-
-export interface InstallmentBreakdown {
-  deposit: InstallmentLeg
-  balance: InstallmentLeg
-}
-
-// null return means "no split" -- the caller falls back to today's flat
-// single-total rendering. Deposit/balance dollar amounts are always derived
-// from the invoice's current `amount` here, never stored: an invoice's
-// amount is itself already a derived value recalculated whenever line
-// items change (recalculateInvoiceTotals above), so computing the split at
-// read time is what keeps a later item edit from leaving a stale deposit
-// figure behind. Payments aren't allocated to a specific installment in the
-// schema (invoice_payments has no installment reference) -- they're applied
-// deposit-first here instead, which matches how a real payer's money is
-// actually meant to be used and needs no new schema at all.
-export function computeInstallments(
-  invoice: Pick<Invoice, 'amount' | 'amount_paid' | 'deposit_percent' | 'due_date' | 'balance_due_date'>
-): InstallmentBreakdown | null {
+// A deposit invoice's `amount` IS the deposit -- these two derive the
+// larger implied total and what's left, from `deposit_percent` alone.
+// Never stored (an invoice's `amount` is itself already a derived value
+// recalculated whenever line items change, so deriving from it at read
+// time is what keeps this from ever going stale). null whenever the
+// invoice isn't a deposit invoice at all.
+export function computeImpliedTotal(invoice: Pick<Invoice, 'amount' | 'deposit_percent'>): number | null {
   if (invoice.deposit_percent == null) return null
-
-  const depositAmount = round2(invoice.amount * invoice.deposit_percent / 100)
-  const balanceAmount = round2(invoice.amount - depositAmount)
-  const depositPaid = round2(Math.min(invoice.amount_paid, depositAmount))
-  const balancePaid = round2(Math.max(0, invoice.amount_paid - depositAmount))
-
-  const legStatus = (amount: number, paid: number): InstallmentLeg['status'] => {
-    if (paid <= 0) return 'unpaid'
-    if (paid >= amount) return 'paid'
-    return 'partial'
-  }
-
-  return {
-    deposit: { amount: depositAmount, dueDate: invoice.due_date, paid: depositPaid, status: legStatus(depositAmount, depositPaid) },
-    balance: { amount: balanceAmount, dueDate: invoice.balance_due_date, paid: balancePaid, status: legStatus(balanceAmount, balancePaid) },
-  }
+  return round2(invoice.amount / (invoice.deposit_percent / 100))
 }
 
-// Shared by both POST /api/admin/invoices and PATCH /api/admin/invoices/[id]
-// so a deposit split can never be created half-configured by either path.
-// depositPercent undefined/null means "no split" and is always valid; a
-// stray balanceDueDate with no depositPercent is rejected rather than
-// silently ignored, since the two fields are only ever meant to appear
-// together. Callers must pass the *effective* post-write value of each
-// field (not just what's in a partial PATCH body) -- see the PATCH route
-// for how it merges the existing row with the incoming body first.
-export function validateDepositSplit(depositPercent: unknown, balanceDueDate: unknown, dueDate: unknown): string | null {
-  if (depositPercent === undefined || depositPercent === null) {
-    if (balanceDueDate) return 'balanceDueDate was provided without depositPercent -- remove one or set both.'
-    return null
-  }
+export function computeRemainingBalance(invoice: Pick<Invoice, 'amount' | 'deposit_percent'>): number | null {
+  const impliedTotal = computeImpliedTotal(invoice)
+  if (impliedTotal == null) return null
+  return round2(impliedTotal - invoice.amount)
+}
+
+// The only validation `deposit_percent` needs now that it no longer has a
+// companion balance-due-date field (that concept moved to the follow-up
+// invoice's own ordinary due_date) -- undefined/null always valid (not a
+// deposit invoice), otherwise a whole number in 1-99.
+export function validateDepositPercent(depositPercent: unknown): string | null {
+  if (depositPercent === undefined || depositPercent === null) return null
   if (typeof depositPercent !== 'number' || !Number.isInteger(depositPercent) || depositPercent < 1 || depositPercent > 99) {
     return 'depositPercent must be a whole number between 1 and 99.'
   }
-  if (!dueDate) {
-    return 'A deposit due date (dueDate) is required when depositPercent is set.'
-  }
-  if (!balanceDueDate) {
-    return 'balanceDueDate is required when depositPercent is set.'
-  }
   return null
+}
+
+// Builds the "what's owed" sentence for the invoice-send email. Every
+// invoice now has exactly one amount and one due date again (no more
+// two-leg split within one invoice) -- the only thing that varies is
+// whether it's a deposit, in which case the client is told what larger
+// total it's a percentage of, rather than left to wonder.
+export function buildPaymentSummary(invoice: Pick<Invoice, 'currency' | 'amount' | 'amount_paid' | 'deposit_percent'>): string {
+  const balanceDue = round2(Math.max(0, invoice.amount - invoice.amount_paid))
+  const impliedTotal = computeImpliedTotal(invoice)
+
+  if (impliedTotal == null) {
+    return `(${invoice.currency} ${balanceDue.toLocaleString()} ${invoice.amount_paid > 0 ? 'balance due' : 'due'}). Payment instructions are on the invoice.`
+  }
+
+  if (invoice.amount_paid >= invoice.amount) {
+    return 'This deposit has been received in full — thank you!'
+  }
+
+  return `This is a deposit of ${invoice.currency} ${invoice.amount.toLocaleString()} `
+    + `(${invoice.deposit_percent}% of the ${invoice.currency} ${impliedTotal.toLocaleString()} total). `
+    + 'Payment instructions are on the invoice.'
+}
+
+// Every invoice this one is linked to in either direction: the one it
+// followed on from (its parent_invoice_id, if any) and any that followed
+// on from it (their parent_invoice_id pointing back at this one). The
+// first self-referencing relationship in this schema -- see the
+// parent_invoice_id comment on the Invoice type for why. Ordered oldest
+// first so a deposit always appears before the balance invoice it led to.
+export async function getRelatedInvoices(db: D1Database, invoice: Pick<Invoice, 'id' | 'parent_invoice_id'>): Promise<Invoice[]> {
+  const { results } = await db.prepare(
+    'SELECT * FROM invoices WHERE (id = ? OR parent_invoice_id = ?) AND id != ? ORDER BY created_at ASC'
+  ).bind(invoice.parent_invoice_id, invoice.id, invoice.id).all<Invoice>()
+  return results
 }
 
 export async function recalculateInvoiceTotals(db: D1Database, invoiceId: number): Promise<void> {

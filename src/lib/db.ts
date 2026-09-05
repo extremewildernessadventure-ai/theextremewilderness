@@ -36,13 +36,20 @@ export interface Invoice {
   departure_notes_other: string | null
   status: 'unpaid' | 'partial' | 'paid' | 'cancelled'
   due_date: string | null
-  // Deposit/balance percentage split -- both NULL means "no split" (today's
-  // exact single-due-date behavior). When deposit_percent is set, due_date
-  // above is reinterpreted as the deposit's due date and balance_due_date
-  // is the remainder's. See computeInstallments() in src/lib/invoices.ts
-  // for how the dollar amounts are derived (never stored) from these.
+  // NULL means a plain, non-deposit invoice (unaffected by any of this).
+  // When set, THIS invoice's amount IS the deposit -- it represents
+  // deposit_percent% of a larger implied total (never stored -- see
+  // computeImpliedTotal()/computeRemainingBalance() in src/lib/invoices.ts).
+  // The remainder isn't a second leg of this same invoice; it gets its own,
+  // separate invoice (see parent_invoice_id below).
   deposit_percent: number | null
-  balance_due_date: string | null
+  // Self-referencing: set on a follow-up invoice (e.g. the balance invoice
+  // generated from a deposit invoice via "Create Linked Invoice") to point
+  // back at the invoice it follows on from. Immutable once set -- not
+  // PATCH-editable, same convention as `slug` elsewhere in this codebase.
+  // The first self-referencing FK in this schema; every other relationship
+  // here is a child row pointing at a distinct parent table.
+  parent_invoice_id: number | null
   notes: string | null
   sent_at: string | null
   sent_r2_key: string | null

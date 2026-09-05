@@ -2,7 +2,7 @@ import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession, ADMIN_SESSION_COOKIE } from '@/lib/adminAuth'
 import { getDb, type Invoice } from '@/lib/db'
-import { markInvoiceSent, computeInstallments } from '@/lib/invoices'
+import { markInvoiceSent, buildPaymentSummary } from '@/lib/invoices'
 import { renderPageToPdf } from '@/lib/browser'
 import { getDocsBucket, invoiceKey } from '@/lib/r2'
 import { buildBrandedEmailHtml } from '@/lib/email'
@@ -57,13 +57,7 @@ export async function POST(req: NextRequest, { params }: Params) {
     console.error('Invoice R2 storage failed:', err)
   }
 
-  const balanceDue = Math.max(0, invoice.amount - invoice.amount_paid)
-  const installments = computeInstallments(invoice)
-  const paymentSummary = installments
-    ? `This invoice is split into a deposit of ${invoice.currency} ${installments.deposit.amount.toLocaleString()}`
-      + `${installments.deposit.dueDate ? ` (due ${installments.deposit.dueDate})` : ''} and a balance of ${invoice.currency} ${installments.balance.amount.toLocaleString()}`
-      + `${installments.balance.dueDate ? ` (due ${installments.balance.dueDate})` : ''}. Full schedule and payment instructions are on the invoice.`
-    : `(${invoice.currency} ${balanceDue.toLocaleString()} ${invoice.amount_paid > 0 ? 'balance due' : 'due'}). Payment instructions are on the invoice.`
+  const paymentSummary = buildPaymentSummary(invoice)
   const base64Pdf = Buffer.from(pdf).toString('base64')
   const resend = new Resend(process.env.RESEND_API_KEY)
   const { error } = await resend.emails.send({

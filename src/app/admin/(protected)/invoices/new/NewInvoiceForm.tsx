@@ -39,16 +39,17 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
   const searchParams = useSearchParams()
   // Pre-fill from a Quote's "Convert to Invoice" link (/admin/quotes/[id]) —
   // a plain query-param deep-link, not a fetch, so no extra round-trip.
+  const parentInvoiceId = searchParams.get('parentInvoiceId')
+  const parentInvoiceNumber = searchParams.get('parentInvoiceNumber')
   const [form, setForm] = useState({
-    clientId: '',
+    clientId: searchParams.get('clientId') ?? '',
     clientName: searchParams.get('clientName') ?? '',
     clientEmail: searchParams.get('clientEmail') ?? '',
     bookingReference: '',
     currency: searchParams.get('currency') || 'USD',
-    departureId: '',
+    departureId: searchParams.get('departureId') ?? '',
     dueDate: '',
     depositPercent: '',
-    balanceDueDate: '',
     notes: '',
   })
   const [departureNotesOther, setDepartureNotesOther] = useState('')
@@ -91,15 +92,15 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
     setItems((rows) => (rows.length === 1 ? rows : rows.filter((_, i) => i !== index)))
   }
 
+  // The running total of whatever's typed in the line items below -- when a
+  // deposit % is set, this is the *real trip cost* the deposit is a
+  // percentage of, not what gets billed on this invoice (see handleSubmit).
   const total = items.reduce((sum, row) => sum + lineTotal(row), 0)
-  // Client-side preview only, mirroring computeInstallments()'s rounding —
-  // the server independently validates + persists depositPercent, this is
-  // just so the admin sees real dollar figures before submitting.
   const depositPercentNum = parseInt(form.depositPercent, 10)
-  const hasDepositSplit = form.depositPercent.trim() !== '' && Number.isFinite(depositPercentNum) && depositPercentNum > 0
+  const hasDepositPercent = form.depositPercent.trim() !== '' && Number.isFinite(depositPercentNum) && depositPercentNum > 0
   const round2 = (n: number) => Math.round(n * 100) / 100
-  const depositAmount = hasDepositSplit ? round2((total * depositPercentNum) / 100) : 0
-  const balanceAmount = hasDepositSplit ? round2(total - depositAmount) : 0
+  const depositAmount = hasDepositPercent ? round2((total * depositPercentNum) / 100) : 0
+  const remainingBalance = hasDepositPercent ? round2(total - depositAmount) : 0
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -124,23 +125,27 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
       setLoading(false)
       return
     }
-    if (hasDepositSplit) {
-      if (depositPercentNum < 1 || depositPercentNum > 99) {
-        setError('Deposit % must be between 1 and 99.')
-        setLoading(false)
-        return
-      }
-      if (!form.dueDate) {
-        setError('A deposit due date is required when using a deposit split.')
-        setLoading(false)
-        return
-      }
-      if (!form.balanceDueDate) {
-        setError('A balance due date is required when using a deposit split.')
-        setLoading(false)
-        return
-      }
+    if (hasDepositPercent && (depositPercentNum < 1 || depositPercentNum > 99)) {
+      setError('Deposit % must be between 1 and 99.')
+      setLoading(false)
+      return
     }
+
+    // When a deposit % is set, what actually gets billed on THIS invoice is
+    // only the deposit -- the typed line items above are the real trip cost
+    // (so the % can be computed against something real), collapsed here into
+    // a single synthesized item. This keeps `amount` exactly equal to the
+    // sum of this invoice's own line items everywhere else in the codebase
+    // relies on (status derivation, the PDF, etc.) -- the remaining balance
+    // isn't a second leg of this invoice, it's a separate one, created later
+    // via "Create Linked Invoice" on this invoice's detail page.
+    const billedItems = hasDepositPercent
+      ? [{
+          description: `Deposit (${depositPercentNum}%) — ${parsedItems.map((i) => i.description).join(', ')}`,
+          quantity: 1,
+          unitPrice: depositAmount,
+        }]
+      : parsedItems
 
     try {
       const isCustomDeparture = form.departureId === CUSTOM_OPTION_VALUE
@@ -152,9 +157,9 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
           clientId: form.clientId ? Number(form.clientId) : undefined,
           departureId: isCustomDeparture || !form.departureId ? undefined : Number(form.departureId),
           departureNotesOther: isCustomDeparture ? departureNotesOther.trim() : undefined,
-          depositPercent: hasDepositSplit ? depositPercentNum : undefined,
-          balanceDueDate: hasDepositSplit ? form.balanceDueDate : undefined,
-          items: parsedItems,
+          depositPercent: hasDepositPercent ? depositPercentNum : undefined,
+          parentInvoiceId: parentInvoiceId ? Number(parentInvoiceId) : undefined,
+          items: billedItems,
         }),
       })
       if (!res.ok) {
@@ -174,7 +179,12 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
   return (
     <div className="max-w-2xl">
       <Link href="/admin/invoices" className="detail-back">← Back to Invoices</Link>
-      <h1 className="mb-6">New Invoice</h1>
+      <h1 className={parentInvoiceNumber ? 'mb-1' : 'mb-6'}>New Invoice</h1>
+      {parentInvoiceNumber && (
+        <p className="text-xs text-gray-400 mb-6">
+          Linked to invoice <Link href={`/admin/invoices/${parentInvoiceId}`} className="font-semibold text-brand hover:underline">{parentInvoiceNumber}</Link>
+        </p>
+      )}
       <form onSubmit={handleSubmit} className="panel space-y-4">
         <div>
           <label className={labelCls}>Existing Client (optional)</label>
@@ -227,7 +237,7 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
                   value={row.description}
                   onChange={(e) => updateItem(i, 'description', e.target.value)}
                   className={inputCls}
-                  placeholder="e.g. Deposit — 7 Day Serengeti & Ngorongoro Safari"
+                  placeholder="e.g. 7 Day Serengeti & Ngorongoro Safari"
                 />
                 <input
                   type="number" min="0" step="1" value={row.quantity}
@@ -273,14 +283,14 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
         </div>
 
         <div>
-          <label className={labelCls}>{hasDepositSplit ? 'Deposit Due Date' : 'Due Date'}</label>
+          <label className={labelCls}>Due Date</label>
           <input type="date" value={form.dueDate} onChange={(e) => update('dueDate', e.target.value)} className={inputCls} />
         </div>
 
         <div className="pt-2 border-t border-gray-100">
           <label className={labelCls}>Deposit % (optional)</label>
           <p className="text-[11px] text-gray-400 mb-1.5 -mt-0.5">
-            Leave blank to invoice the full amount on one due date, as today. Set a percentage to split into a deposit due now and a balance due later.
+            Leave blank to invoice the full amount above, as today. Set a percentage to bill only a deposit on this invoice — the line items above are the real trip cost the deposit is a share of, not what gets billed here. Issue a separate invoice for the remaining balance later, whenever it&apos;s actually due, via &quot;Create Linked Invoice&quot; on this invoice&apos;s page.
           </p>
           <div className="flex items-center gap-2">
             <input
@@ -303,21 +313,15 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
             </div>
           </div>
 
-          {hasDepositSplit && (
-            <div className="mt-3 space-y-3">
-              <div>
-                <label className={labelCls}>Balance Due Date</label>
-                <input type="date" value={form.balanceDueDate} onChange={(e) => update('balanceDueDate', e.target.value)} className={inputCls} />
+          {hasDepositPercent && (
+            <div className="mt-3 rounded-lg px-4 py-3 text-sm space-y-1" style={{ background: 'var(--green-bg)' }}>
+              <div className="flex justify-between">
+                <span style={{ color: 'var(--pine)' }}>This invoice bills ({depositPercentNum}% deposit)</span>
+                <span className="font-semibold mono">{form.currency} {depositAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
               </div>
-              <div className="rounded-lg px-4 py-3 text-sm space-y-1" style={{ background: 'var(--green-bg)' }}>
-                <div className="flex justify-between">
-                  <span style={{ color: 'var(--pine)' }}>Deposit ({depositPercentNum}%){form.dueDate ? ` — due ${form.dueDate}` : ''}</span>
-                  <span className="font-semibold mono">{form.currency} {depositAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span style={{ color: 'var(--pine)' }}>Balance{form.balanceDueDate ? ` — due ${form.balanceDueDate}` : ''}</span>
-                  <span className="font-semibold mono">{form.currency} {balanceAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                </div>
+              <div className="flex justify-between">
+                <span style={{ color: 'var(--pine)' }}>Remaining balance (a later, separate invoice)</span>
+                <span className="font-semibold mono">{form.currency} {remainingBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
               </div>
             </div>
           )}

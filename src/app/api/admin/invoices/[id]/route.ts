@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
-import { validateDepositSplit } from '@/lib/invoices'
+import { validateDepositPercent } from '@/lib/invoices'
 
 export const dynamic = 'force-dynamic'
 
@@ -30,35 +30,22 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     amount?: number; currency?: string; description?: string; departureId?: number | null
     departureNotesOther?: string | null
     status?: string; dueDate?: string; notes?: string
-    depositPercent?: number | null; balanceDueDate?: string | null
+    depositPercent?: number | null
   }
 
   const db = await getDb()
 
-  // A partial PATCH only sends the field(s) actually changing, so validating
-  // the split needs the *effective* post-write state, not just this body in
-  // isolation -- e.g. PATCHing depositPercent alone must be checked against
-  // the due_date/balanceDueDate already on the row, not against undefined.
-  if (body.depositPercent !== undefined || body.balanceDueDate !== undefined || body.dueDate !== undefined) {
-    const current = await db.prepare(
-      'SELECT deposit_percent, balance_due_date, due_date FROM invoices WHERE id = ?'
-    ).bind(id).first<{ deposit_percent: number | null; balance_due_date: string | null; due_date: string | null }>()
-    if (!current) {
-      return NextResponse.json({ error: 'Not found' }, { status: 404 })
-    }
-    const effectiveDepositPercent = body.depositPercent !== undefined ? body.depositPercent : current.deposit_percent
-    const effectiveBalanceDueDate = body.balanceDueDate !== undefined ? body.balanceDueDate : current.balance_due_date
-    const effectiveDueDate = body.dueDate !== undefined ? body.dueDate : current.due_date
-    const depositError = validateDepositSplit(effectiveDepositPercent, effectiveBalanceDueDate, effectiveDueDate)
-    if (depositError) {
-      return NextResponse.json({ error: depositError }, { status: 400 })
-    }
+  const depositError = validateDepositPercent(body.depositPercent)
+  if (depositError) {
+    return NextResponse.json({ error: depositError }, { status: 400 })
   }
 
   // `amount` is derived from invoice_items (see PUT .../items and
   // src/lib/invoices.ts's recalculateInvoiceTotals) — the current admin UI
   // no longer sends it here, but the column map is left in place since a
-  // direct PATCH with `amount` is still harmless to support.
+  // direct PATCH with `amount` is still harmless to support. parent_invoice_id
+  // is deliberately not PATCH-editable -- immutable once set at creation,
+  // same convention as `slug` elsewhere in this codebase.
   const columnMap: Record<string, unknown> = {
     client_name: body.clientName,
     client_email: body.clientEmail,
@@ -69,7 +56,6 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     status: body.status,
     due_date: body.dueDate,
     deposit_percent: body.depositPercent,
-    balance_due_date: body.balanceDueDate,
     notes: body.notes,
   }
   const fields: string[] = []
