@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
-import { recalculateSeatsBooked } from '@/lib/departures'
 import { BOOKING_STATUSES, type Booking } from '@/lib/bookings'
 
 export const dynamic = 'force-dynamic'
@@ -58,19 +57,12 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   fields.push('updated_at = CURRENT_TIMESTAMP')
 
   const db = await getDb()
-  const booking = await db.prepare('SELECT departure_id FROM bookings WHERE id = ?').bind(id).first<{ departure_id: number | null }>()
+  const booking = await db.prepare('SELECT id FROM bookings WHERE id = ?').bind(id).first()
   if (!booking) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 })
   }
 
   await db.prepare(`UPDATE bookings SET ${fields.join(', ')} WHERE id = ?`).bind(...values, id).run()
-
-  // status/guestsCount changes both affect how many seats this booking
-  // occupies — recalculate whenever either could have changed. No-op for
-  // custom bookings, which have no departure to hold a seat count.
-  if ((body.status !== undefined || body.guestsCount !== undefined) && booking.departure_id !== null) {
-    await recalculateSeatsBooked(db, booking.departure_id)
-  }
 
   return NextResponse.json({ success: true })
 }
@@ -81,7 +73,7 @@ export async function DELETE(_req: NextRequest, { params }: Params) {
   }
   const { id } = await params
   const db = await getDb()
-  const booking = await db.prepare('SELECT departure_id FROM bookings WHERE id = ?').bind(id).first<{ departure_id: number | null }>()
+  const booking = await db.prepare('SELECT id FROM bookings WHERE id = ?').bind(id).first()
   if (!booking) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 })
   }
@@ -91,9 +83,6 @@ export async function DELETE(_req: NextRequest, { params }: Params) {
     db.prepare('DELETE FROM custom_bookings WHERE booking_id = ?').bind(id),
     db.prepare('DELETE FROM bookings WHERE id = ?').bind(id),
   ])
-  if (booking.departure_id !== null) {
-    await recalculateSeatsBooked(db, booking.departure_id)
-  }
 
   return NextResponse.json({ success: true })
 }

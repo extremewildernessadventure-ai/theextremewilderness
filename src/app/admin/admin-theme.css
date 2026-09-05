@@ -167,6 +167,14 @@
 .ewa-admin tbody tr { transition: background .12s ease; }
 .ewa-admin tbody tr:hover { background: var(--sand); }
 .ewa-admin tbody tr.warn { border-left: 3px solid var(--gold); }
+.ewa-admin tbody tr.cancelled { opacity: 0.6; }
+/* A linked/follow-up invoice's sub-row -- indented under its root, subtly
+   set apart, but still a real full-width row (not nested markup) since
+   AdminTable stays a flat <tr>-per-row renderer. */
+.ewa-admin tbody tr.invoice-subrow { background: var(--sand); }
+.ewa-admin tbody tr.invoice-subrow:hover { background: var(--sand-2); }
+.ewa-admin .invoice-subrow-link { padding-left: 18px; }
+.ewa-admin .invoice-subrow-arrow { display: inline-block; margin-right: 6px; color: var(--grey); font-weight: 400; }
 
 .ewa-admin .pkg-name { font-weight: 700; color: var(--ink); font-family: var(--font-bitter), serif; font-size: 14.5px; }
 .ewa-admin .pkg-sub { font-size: 11.5px; color: var(--grey); margin-top: 2px; }

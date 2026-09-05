@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
-import type { Departure } from '@/lib/departures'
-import { computeImpliedTotal, computeRemainingBalance, getRelatedInvoices, INVOICE_STATUS_PILL_CLASS } from '@/lib/invoices'
+import { computeDepartureTotalCost, type Departure } from '@/lib/departures'
+import { getInvoiceFamily, computeInvoiceBalanceSchedule, INVOICE_STATUS_PILL_CLASS } from '@/lib/invoices'
 import InvoiceEditForm from './InvoiceEditForm'
 import InvoiceItemsEditor from './InvoiceItemsEditor'
 import PaymentPanel from './PaymentPanel'
@@ -23,23 +23,34 @@ export default async function InvoiceDetailPage({ params }: Props) {
 
   if (!invoice) notFound()
 
-  const [{ results: items }, { results: payments }, { results: pesapalOrders }, { results: departures }, relatedInvoices] = await Promise.all([
+  const [{ results: items }, { results: payments }, { results: pesapalOrders }, { results: departures }, family] = await Promise.all([
     db.prepare('SELECT * FROM invoice_items WHERE invoice_id = ? ORDER BY sort_order').bind(id).all<InvoiceItem>(),
     db.prepare('SELECT * FROM invoice_payments WHERE invoice_id = ? ORDER BY confirmed_at DESC').bind(id).all<InvoicePayment>(),
     db.prepare('SELECT * FROM invoice_pesapal_orders WHERE invoice_id = ? ORDER BY created_at DESC').bind(id).all<InvoicePesapalOrder>(),
-    db.prepare("SELECT * FROM departures WHERE status != 'cancelled' ORDER BY start_date DESC").all<Departure>(),
-    getRelatedInvoices(db, invoice),
+    db.prepare("SELECT * FROM departures WHERE cancelled = 0 ORDER BY start_date DESC").all<Departure>(),
+    getInvoiceFamily(db, invoice.id),
   ])
 
   const latestOrder = pesapalOrders[0] ?? null
-  const impliedTotal = computeImpliedTotal(invoice)
+  const relatedInvoices = family.filter((inv) => inv.id !== invoice.id)
+  const isRootInvoice = invoice.parent_invoice_id == null
+
+  // The invoice's own departure, fetched directly by id (not filtered
+  // through the `cancelled = 0` dropdown list above) so a departure that
+  // was cancelled after this invoice was created still contributes its real
+  // total cost here rather than silently vanishing from the schedule below.
+  const departure = invoice.departure_id
+    ? await db.prepare('SELECT * FROM departures WHERE id = ?').bind(invoice.departure_id).first<Departure>()
+    : null
+  const schedule = computeInvoiceBalanceSchedule(invoice, family, departure ? computeDepartureTotalCost(departure) : null)
 
   // "Create Linked Invoice" prefills the new-invoice form via query params
   // (the same mechanism already used for the Quote -> Invoice deep link) --
   // client/departure carried over, parentInvoiceId set so the two invoices
-  // show up under each other's "Related Invoices" below. When this invoice
-  // is itself a deposit, also prefill the description/amount with the real
-  // remaining balance so issuing it later is a due-date pick, not arithmetic.
+  // show up under each other's "Related Invoices" below. When a balance
+  // schedule applies, also prefill the description/amount/priorBalance with
+  // the real current remaining balance so issuing the next invoice is a
+  // due-date pick, not arithmetic.
   const linkedInvoiceParams = new URLSearchParams({
     parentInvoiceId: String(invoice.id),
     parentInvoiceNumber: invoice.invoice_number,
@@ -49,15 +60,15 @@ export default async function InvoiceDetailPage({ params }: Props) {
     ...(invoice.departure_id ? { departureId: String(invoice.departure_id) } : {}),
     currency: invoice.currency,
   })
-  if (impliedTotal != null) {
-    const remaining = computeRemainingBalance(invoice)!
-    // Reuses the deposit line item's own label (real invoices only ever
-    // have the one synthesized "Deposit (X%) — ..." item at this point --
-    // description is legacy/unused since multi-line-items landed) rather
-    // than falling back to something less meaningful like the invoice number.
-    const tripLabel = items[0]?.description.replace(/^Deposit \(\d+%\)\s*—\s*/, '') ?? invoice.invoice_number
+  if (schedule != null) {
+    // Reuses the deposit/balance line item's own label (real invoices only
+    // ever have the one synthesized item at this point -- description is
+    // legacy/unused since multi-line-items landed) rather than falling back
+    // to something less meaningful like the invoice number.
+    const tripLabel = items[0]?.description.replace(/^(?:Deposit|Balance|Payment)\s*(?:\(\d+%\))?\s*[—-]\s*/, '') ?? invoice.invoice_number
     linkedInvoiceParams.set('itemDescription', `Balance — ${tripLabel}`)
-    linkedInvoiceParams.set('itemPrice', String(remaining))
+    linkedInvoiceParams.set('itemPrice', String(schedule.newBalance))
+    linkedInvoiceParams.set('priorBalance', String(schedule.newBalance))
   }
 
   return (
@@ -101,13 +112,39 @@ export default async function InvoiceDetailPage({ params }: Props) {
                 <span>{invoice.due_date}</span>
               </div>
             )}
-            {impliedTotal != null && (
+            {invoice.deposit_percent != null && (
               <div className="flex justify-between">
                 <span style={{ color: 'var(--grey)' }}>Deposit</span>
-                <span>{invoice.deposit_percent}% of {invoice.currency} {impliedTotal.toLocaleString()}</span>
+                <span>{invoice.deposit_percent}% of the total</span>
               </div>
             )}
           </div>
+
+          {schedule != null && (
+            <div className="panel space-y-3">
+              <h2 className="mb-1">{isRootInvoice ? 'Trip Cost Schedule' : 'Balance Schedule'}</h2>
+              <div className="grid grid-cols-3 gap-3">
+                <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand)' }}>
+                  <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--grey)' }}>
+                    {isRootInvoice ? 'Total Cost' : 'Previous Balance'}
+                  </p>
+                  <p className="text-sm font-semibold mono">
+                    {invoice.currency} {(isRootInvoice ? schedule.totalCost : schedule.previousBalance).toLocaleString()}
+                  </p>
+                </div>
+                <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand)' }}>
+                  <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--grey)' }}>Amount Billed</p>
+                  <p className="text-sm font-semibold mono" style={{ color: 'var(--pine)' }}>{invoice.currency} {schedule.thisAmount.toLocaleString()}</p>
+                </div>
+                <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand)' }}>
+                  <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--grey)' }}>
+                    {isRootInvoice ? 'Balance' : 'New Balance'}
+                  </p>
+                  <p className="text-sm font-semibold text-brand mono">{invoice.currency} {schedule.newBalance.toLocaleString()}</p>
+                </div>
+              </div>
+            </div>
+          )}
 
           {relatedInvoices.length > 0 && (
             <div className="panel space-y-2">

@@ -10,7 +10,7 @@ export default async function NewExpensePage() {
   const db = await getDb()
   const [{ results: vehicles }, { results: departures }, { results: staff }] = await Promise.all([
     db.prepare('SELECT * FROM vehicles ORDER BY plate_number ASC').all<Vehicle>(),
-    db.prepare("SELECT * FROM departures WHERE status != 'cancelled' ORDER BY start_date DESC").all<Departure>(),
+    db.prepare("SELECT * FROM departures WHERE cancelled = 0 ORDER BY start_date DESC").all<Departure>(),
     db.prepare('SELECT * FROM staff_members WHERE active = 1 ORDER BY name ASC').all<StaffMember>(),
   ])
 

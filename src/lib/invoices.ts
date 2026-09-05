@@ -70,8 +70,28 @@ export function validateDepositPercent(depositPercent: unknown): string | null {
 // invoice now has exactly one amount and one due date again (no more
 // two-leg split within one invoice) -- the only thing that varies is
 // whether it's a deposit, in which case the client is told what larger
-// total it's a percentage of, rather than left to wonder.
-export function buildPaymentSummary(invoice: Pick<Invoice, 'currency' | 'amount' | 'amount_paid' | 'deposit_percent'>): string {
+// total it's a percentage of, rather than left to wonder. `schedule` (from
+// computeInvoiceBalanceSchedule) is optional -- when present and this
+// invoice isn't the family's root, the carried-in balance is mentioned
+// instead of the generic wording below, since "balance due" alone doesn't
+// explain that a chunk of a bigger trip cost was already paid off.
+export function buildPaymentSummary(
+  invoice: Pick<Invoice, 'currency' | 'amount' | 'amount_paid' | 'deposit_percent'>,
+  schedule?: InvoiceBalanceSchedule | null,
+  isFollowUp?: boolean,
+): string {
+  if (schedule && isFollowUp) {
+    if (invoice.amount_paid >= invoice.amount) {
+      return schedule.newBalance <= 0
+        ? 'This invoice settles your remaining balance in full — thank you!'
+        : 'This invoice has been received in full — thank you!'
+    }
+    return `You previously owed ${invoice.currency} ${schedule.previousBalance.toLocaleString()}; `
+      + `this invoice bills ${invoice.currency} ${schedule.thisAmount.toLocaleString()}, `
+      + `leaving ${invoice.currency} ${schedule.newBalance.toLocaleString()}. `
+      + 'Payment instructions are on the invoice.'
+  }
+
   const balanceDue = round2(Math.max(0, invoice.amount - invoice.amount_paid))
   const impliedTotal = computeImpliedTotal(invoice)
 
@@ -88,17 +108,87 @@ export function buildPaymentSummary(invoice: Pick<Invoice, 'currency' | 'amount'
     + 'Payment instructions are on the invoice.'
 }
 
-// Every invoice this one is linked to in either direction: the one it
-// followed on from (its parent_invoice_id, if any) and any that followed
-// on from it (their parent_invoice_id pointing back at this one). The
-// first self-referencing relationship in this schema -- see the
-// parent_invoice_id comment on the Invoice type for why. Ordered oldest
-// first so a deposit always appears before the balance invoice it led to.
-export async function getRelatedInvoices(db: D1Database, invoice: Pick<Invoice, 'id' | 'parent_invoice_id'>): Promise<Invoice[]> {
+// Every invoice in the same chain as `invoiceId`, root-first: walks up
+// parent_invoice_id to find the ultimate root (a bounded loop -- chain
+// depth is always tiny in practice), then a single recursive CTE collects
+// every descendant of that root at ANY depth. A plain one-hop `WHERE id = ?
+// OR parent_invoice_id = ?` (this function's earlier shape) only ever saw
+// one generation up/down, so a chain longer than deposit->balance (nothing
+// stops "Create Linked Invoice" being used again on a follow-up) would hide
+// a grandparent from a grandchild and vice versa. Includes `invoiceId`
+// itself. Ordered created_at ASC so the root always sorts first and
+// everything after it is oldest-issued-first.
+export async function getInvoiceFamily(db: D1Database, invoiceId: number): Promise<Invoice[]> {
+  const start = await db.prepare('SELECT * FROM invoices WHERE id = ?').bind(invoiceId).first<Invoice>()
+  if (!start) return []
+
+  let rootId = start.id
+  let parentId = start.parent_invoice_id
+  const seen = new Set([rootId])
+  while (parentId != null && !seen.has(parentId)) {
+    const parent = await db.prepare('SELECT id, parent_invoice_id FROM invoices WHERE id = ?').bind(parentId).first<Pick<Invoice, 'id' | 'parent_invoice_id'>>()
+    if (!parent) break
+    rootId = parent.id
+    parentId = parent.parent_invoice_id
+    seen.add(rootId)
+  }
+
   const { results } = await db.prepare(
-    'SELECT * FROM invoices WHERE (id = ? OR parent_invoice_id = ?) AND id != ? ORDER BY created_at ASC'
-  ).bind(invoice.parent_invoice_id, invoice.id, invoice.id).all<Invoice>()
+    `WITH RECURSIVE descendants(id) AS (
+       SELECT id FROM invoices WHERE id = ?
+       UNION ALL
+       SELECT i.id FROM invoices i JOIN descendants d ON i.parent_invoice_id = d.id
+     )
+     SELECT invoices.* FROM invoices JOIN descendants ON invoices.id = descendants.id
+     ORDER BY invoices.created_at ASC`
+  ).bind(rootId).all<Invoice>()
   return results
+}
+
+// Every invoice this one is linked to (either direction, any depth) --
+// everything getInvoiceFamily finds, minus this invoice itself. Kept as its
+// own export since "every OTHER invoice in the family" is what the detail
+// page's "Related Invoices" panel actually wants to list.
+export async function getRelatedInvoices(db: D1Database, invoice: Pick<Invoice, 'id' | 'parent_invoice_id'>): Promise<Invoice[]> {
+  const family = await getInvoiceFamily(db, invoice.id)
+  return family.filter((inv) => inv.id !== invoice.id)
+}
+
+export interface InvoiceBalanceSchedule {
+  totalCost: number
+  // Owed immediately before this invoice -- equals totalCost for the
+  // family's root (nothing billed yet), and totalCost minus every earlier
+  // family member's amount for anything after it.
+  previousBalance: number
+  thisAmount: number
+  // previousBalance - thisAmount, floored at 0 for display -- an
+  // overpayment shouldn't render as a negative "balance owed."
+  newBalance: number
+}
+
+// The three numbers a departure-priced invoice family needs: what the whole
+// trip costs, what was owed coming into this specific invoice, and what's
+// left after it (down to exactly 0.00 once fully settled). Deliberately
+// additive -- computeImpliedTotal/computeRemainingBalance stay exactly as
+// they are and serve as the fallback here for a family whose departure has
+// no price entered yet (or isn't linked to a departure at all), so
+// pre-existing deposit_percent invoices keep rendering exactly as before
+// until someone prices their departure.
+export function computeInvoiceBalanceSchedule(
+  invoice: Invoice,
+  family: Invoice[], // from getInvoiceFamily -- root-first, created_at ASC, includes `invoice` itself
+  departureTotalCost: number | null,
+): InvoiceBalanceSchedule | null {
+  const root = family.find((i) => i.parent_invoice_id == null) ?? family[0] ?? invoice
+  const totalCost = departureTotalCost ?? computeImpliedTotal(root)
+  if (totalCost == null) return null
+
+  const billedBefore = round2(
+    family.filter((i) => i.id !== invoice.id && i.created_at < invoice.created_at).reduce((sum, i) => sum + i.amount, 0)
+  )
+  const previousBalance = round2(totalCost - billedBefore)
+  const newBalance = Math.max(0, round2(previousBalance - invoice.amount))
+  return { totalCost, previousBalance, thisAmount: invoice.amount, newBalance }
 }
 
 export async function recalculateInvoiceTotals(db: D1Database, invoiceId: number): Promise<void> {
