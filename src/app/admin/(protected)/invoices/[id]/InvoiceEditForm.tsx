@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import type { Invoice } from '@/lib/db'
 import type { Departure } from '@/lib/departures'
 import { packages } from '@/data/packages'
+import { INVOICE_STATUS_PILL_CLASS } from '@/lib/invoices'
 import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 
 // unpaid/partial/paid are never set here — they're always derived from
@@ -17,12 +18,6 @@ const STATUS_LABELS: Record<Invoice['status'], string> = {
   partial: 'Partially Paid',
   paid: 'Paid',
   cancelled: 'Cancelled',
-}
-const PILL_CLASS: Record<Invoice['status'], string> = {
-  unpaid: 'few',
-  partial: 'open',
-  paid: 'full',
-  cancelled: 'cancelled',
 }
 
 function departureLabel(d: Departure): string {
@@ -41,11 +36,14 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
       ? String(invoice.departure_id)
       : invoice.departure_notes_other ? CUSTOM_OPTION_VALUE : '',
     dueDate: invoice.due_date ?? '',
+    depositPercent: invoice.deposit_percent != null ? String(invoice.deposit_percent) : '',
+    balanceDueDate: invoice.balance_due_date ?? '',
     notes: invoice.notes ?? '',
   })
   const [departureNotesOther, setDepartureNotesOther] = useState(invoice.departure_notes_other ?? '')
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [error, setError] = useState('')
   const [togglingCancel, setTogglingCancel] = useState(false)
 
   function update<K extends keyof typeof form>(key: K, value: string) {
@@ -53,20 +51,45 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
     setSaved(false)
   }
 
+  const depositPercentNum = parseInt(form.depositPercent, 10)
+  const hasDepositSplit = form.depositPercent.trim() !== '' && Number.isFinite(depositPercentNum) && depositPercentNum > 0
+
   async function handleSave() {
     setSaving(true)
     setSaved(false)
+    setError('')
+
+    if (hasDepositSplit) {
+      if (depositPercentNum < 1 || depositPercentNum > 99) {
+        setError('Deposit % must be between 1 and 99.')
+        setSaving(false)
+        return
+      }
+      if (!form.dueDate || !form.balanceDueDate) {
+        setError('Both a deposit due date and a balance due date are required when using a deposit split.')
+        setSaving(false)
+        return
+      }
+    }
+
     const isCustomDeparture = form.departureId === CUSTOM_OPTION_VALUE
-    await fetch(`/api/admin/invoices/${invoice.id}`, {
+    const res = await fetch(`/api/admin/invoices/${invoice.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         ...form,
         departureId: isCustomDeparture || !form.departureId ? null : Number(form.departureId),
         departureNotesOther: isCustomDeparture ? departureNotesOther.trim() : null,
+        depositPercent: hasDepositSplit ? depositPercentNum : null,
+        balanceDueDate: hasDepositSplit ? form.balanceDueDate : null,
       }),
     })
     setSaving(false)
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}))
+      setError(data.error ?? 'Failed to save changes.')
+      return
+    }
     setSaved(true)
     router.refresh()
   }
@@ -130,13 +153,28 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
         Amount is calculated from line items — edit those in the panel below.
       </p>
       <div>
-        <label className="field-label">Due Date</label>
+        <label className="field-label">{hasDepositSplit ? 'Deposit Due Date' : 'Due Date'}</label>
         <input type="date" value={form.dueDate} onChange={(e) => update('dueDate', e.target.value)} className="field-input" />
       </div>
       <div>
+        <label className="field-label">Deposit % (optional)</label>
+        <p className="text-[11px] text-gray-400 mb-1.5 -mt-0.5">Leave blank for a single-total invoice, as before.</p>
+        <input
+          type="number" min="1" max="99" step="1" value={form.depositPercent}
+          onChange={(e) => update('depositPercent', e.target.value)}
+          className="field-input" style={{ maxWidth: 100 }} placeholder="e.g. 30"
+        />
+      </div>
+      {hasDepositSplit && (
+        <div>
+          <label className="field-label">Balance Due Date</label>
+          <input type="date" value={form.balanceDueDate} onChange={(e) => update('balanceDueDate', e.target.value)} className="field-input" />
+        </div>
+      )}
+      <div>
         <label className="field-label">Status</label>
         <div className="flex items-center gap-3">
-          <span className={`pill ${PILL_CLASS[invoice.status]}`}><i />{STATUS_LABELS[invoice.status]}</span>
+          <span className={`pill ${INVOICE_STATUS_PILL_CLASS[invoice.status]}`}><i />{STATUS_LABELS[invoice.status]}</span>
           <button
             type="button"
             onClick={handleToggleCancel}
@@ -152,6 +190,7 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
         <label className="field-label">Internal Notes</label>
         <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} rows={4} className="field-input" />
       </div>
+      {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
       <div className="flex items-center gap-3">
         <button type="button" onClick={handleSave} disabled={saving} className="btn-primary" style={{ opacity: saving ? 0.5 : 1 }}>
           {saving ? 'Saving…' : 'Save Changes'}

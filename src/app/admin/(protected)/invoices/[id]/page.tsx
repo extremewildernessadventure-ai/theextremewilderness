@@ -68,9 +68,23 @@ export default async function InvoiceDetailPage({ params }: Props) {
             </div>
             {invoice.due_date && (
               <div className="flex justify-between">
-                <span style={{ color: 'var(--grey)' }}>Due Date</span>
+                <span style={{ color: 'var(--grey)' }}>{invoice.deposit_percent != null ? 'Deposit Due Date' : 'Due Date'}</span>
                 <span>{invoice.due_date}</span>
               </div>
+            )}
+            {invoice.deposit_percent != null && (
+              <>
+                <div className="flex justify-between">
+                  <span style={{ color: 'var(--grey)' }}>Deposit</span>
+                  <span>{invoice.deposit_percent}%</span>
+                </div>
+                {invoice.balance_due_date && (
+                  <div className="flex justify-between">
+                    <span style={{ color: 'var(--grey)' }}>Balance Due Date</span>
+                    <span>{invoice.balance_due_date}</span>
+                  </div>
+                )}
+              </>
             )}
           </div>
 
