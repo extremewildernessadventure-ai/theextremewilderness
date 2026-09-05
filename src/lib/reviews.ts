@@ -32,16 +32,31 @@ export function isVerifiedReview(review: Pick<Review, 'client_id' | 'booking_id'
   return review.client_id !== null || review.booking_id !== null
 }
 
+export interface PublishedReview extends Review {
+  // Resolved display name: the real client's name (joined from `clients`,
+  // for staff-entered reviews linked by client_id) or the free-text name a
+  // public visitor supplied (client_name_other) -- never both null, since
+  // every review has one or the other by the time it's `published`.
+  reviewer_name: string
+}
+
 // Public read path for the Guest Reviews tab -- only ever returns
 // `status: 'published'` rows (the final state in the pending -> approved ->
 // published moderation flow every review, staff-pasted or visitor-submitted,
 // must pass through). Never reads 'pending'/'approved' rows, which is what
 // keeps an unmoderated visitor submission from ever reaching the public site.
-export async function getPublishedReviewsForPackage(db: D1Database, packageSlug: string): Promise<Review[]> {
+export async function getPublishedReviewsForPackage(db: D1Database, packageSlug: string): Promise<PublishedReview[]> {
   const { results } = await db.prepare(
-    `SELECT * FROM reviews WHERE package_slug = ? AND status = 'published' ORDER BY created_at DESC`
-  ).bind(packageSlug).all<Review>()
-  return results
+    `SELECT reviews.*, clients.name AS resolved_client_name
+     FROM reviews LEFT JOIN clients ON clients.id = reviews.client_id
+     WHERE reviews.package_slug = ? AND reviews.status = 'published'
+     ORDER BY reviews.created_at DESC`
+  ).bind(packageSlug).all<Review & { resolved_client_name: string | null }>()
+
+  return results.map(({ resolved_client_name, ...review }) => ({
+    ...review,
+    reviewer_name: review.client_name_other ?? resolved_client_name ?? 'Guest',
+  }))
 }
 
 export interface ReviewStats {
