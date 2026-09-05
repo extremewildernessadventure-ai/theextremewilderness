@@ -16,6 +16,7 @@ function makeSafari(overrides: Partial<BrowsableSafari> = {}): BrowsableSafari {
     destinationSlugs: ['serengeti'],
     destinationNames: ['Serengeti National Park'],
     countries: ['tanzania'],
+    highlights: ['Game drives in the Serengeti', 'Private guide', 'All park fees'],
     type: 'big_five_game_drives',
     operatorName: 'EWA Safari Outfitters',
     tiersAvailable: ['trail', 'reserve'],

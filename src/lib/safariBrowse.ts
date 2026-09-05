@@ -33,6 +33,7 @@ export interface BrowsableSafari {
   destinationSlugs: string[]
   destinationNames: string[]
   countries: string[] // 'tanzania' | 'kenya' | 'rwanda', deduped
+  highlights: string[]
   groupSize?: { min: number; max: number }
   badge?: 'bestseller' | 'new' | 'popular'
   type: BrowsableActivityType
