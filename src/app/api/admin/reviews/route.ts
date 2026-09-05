@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
   const body = await req.json() as {
     clientId?: number | null; clientNameOther?: string | null
     bookingId?: number | null; bookingRefOther?: string | null
-    rating?: number; quoteText?: string; source?: string; parkTag?: string
+    rating?: number; quoteText?: string; source?: string; parkTag?: string; packageSlug?: string
   }
   if (!body.quoteText?.trim()) {
     return NextResponse.json({ error: 'quoteText is required' }, { status: 400 })
@@ -31,12 +31,12 @@ export async function POST(req: NextRequest) {
 
   const db = await getDb()
   const result = await db.prepare(
-    `INSERT INTO reviews (client_id, client_name_other, booking_id, booking_ref_other, rating, quote_text, source, park_tag)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
+    `INSERT INTO reviews (client_id, client_name_other, booking_id, booking_ref_other, rating, quote_text, source, park_tag, package_slug)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
   ).bind(
     body.clientId ?? null, body.clientId ? null : (body.clientNameOther || null),
     body.bookingId ?? null, body.bookingId ? null : (body.bookingRefOther || null),
-    body.rating, body.quoteText.trim(), body.source ?? null, body.parkTag ?? null,
+    body.rating, body.quoteText.trim(), body.source ?? null, body.parkTag ?? null, body.packageSlug ?? null,
   ).run()
 
   return NextResponse.json({ success: true, id: result.meta?.last_row_id })
