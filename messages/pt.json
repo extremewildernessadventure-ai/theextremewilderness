@@ -3464,6 +3464,20 @@
     "companyPayments": "Efetuar um Pagamento"
   },
   "common": {
+    "months": {
+      "jan": "Jan",
+      "feb": "Fev",
+      "mar": "Mar",
+      "apr": "Abr",
+      "may": "Mai",
+      "jun": "Jun",
+      "jul": "Jul",
+      "aug": "Ago",
+      "sep": "Set",
+      "oct": "Out",
+      "nov": "Nov",
+      "dec": "Dez"
+    },
     "bookNow": "Reservar Agora",
     "perPerson": "por pessoa",
     "nights": "noites",
