@@ -89,7 +89,7 @@ describe('filterSafaris', () => {
 
   it('tiers filter matches if the package offers any of the selected tiers', () => {
     const items = [makeSafari({ tiersAvailable: ['trail'] }), makeSafari({ slug: 'b', tiersAvailable: ['sovereign'] })]
-    const f = { ...makeInitialFilters(BOUNDS), tiers: ['sovereign'] as const }
+    const f = { ...makeInitialFilters(BOUNDS), tiers: ['sovereign' as const] }
     expect(filterSafaris(items, f).map((r) => r.slug)).toEqual(['b'])
   })
 
