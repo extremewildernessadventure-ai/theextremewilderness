@@ -23,6 +23,7 @@ const TYPE_LABELS: Record<SafariPackage['type'], string> = {
   mountain_trekking: 'Mountain Trekking (Kilimanjaro)',
 }
 const BADGE_OPTIONS: Array<SafariPackage['badge'] | ''> = ['', 'bestseller', 'new', 'popular']
+const MONTHS: NonNullable<SafariPackage['bestMonths']> = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 // Covers every "flat" SafariPackage field (identity, marketing, SEO) plus
 // the simple string-list fields that have no internal structure
@@ -49,17 +50,33 @@ export default function PackageEditForm({ id, pkg }: { id: number; pkg: SafariPa
     heroImageAlt: pkg.heroImageAlt ?? '',
     metaTitle: pkg.metaTitle ?? '',
     metaDescription: pkg.metaDescription ?? '',
+    operatorName: pkg.operatorName ?? 'EWA Safari Outfitters',
+    seasonalityPeak: pkg.seasonalityGuide?.peakSeason ?? '',
+    seasonalityShoulder: pkg.seasonalityGuide?.shoulderSeason ?? '',
+    seasonalityGreen: pkg.seasonalityGuide?.greenSeason ?? '',
+    seasonalityRecommendation: pkg.seasonalityGuide?.recommendation ?? '',
   })
   const [destinations, setDestinations] = useState(pkg.destinations)
   const [highlights, setHighlights] = useState(pkg.highlights)
   const [bestFor, setBestFor] = useState(pkg.bestFor)
   const [overview, setOverview] = useState(pkg.overview ?? [])
+  const [practicalTips, setPracticalTips] = useState(pkg.practicalTips ?? [])
+  const [bestMonths, setBestMonths] = useState<Set<string>>(new Set(pkg.bestMonths ?? []))
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
   const [error, setError] = useState('')
 
   function update<K extends keyof typeof form>(key: K, value: string) {
     setForm((f) => ({ ...f, [key]: value }))
+    setSaved(false)
+  }
+  function toggleMonth(month: string) {
+    setBestMonths((prev) => {
+      const next = new Set(prev)
+      if (next.has(month)) next.delete(month)
+      else next.add(month)
+      return next
+    })
     setSaved(false)
   }
 
@@ -126,6 +143,23 @@ export default function PackageEditForm({ id, pkg }: { id: number; pkg: SafariPa
     const cleanOverview = overview.filter((o) => o.trim() !== '')
     if (cleanOverview.length > 0) updated.overview = cleanOverview
     else delete updated.overview
+
+    updated.operatorName = form.operatorName.trim() || 'EWA Safari Outfitters'
+
+    const cleanTips = practicalTips.filter((t) => t.trim() !== '')
+    if (cleanTips.length > 0) updated.practicalTips = cleanTips
+    else delete updated.practicalTips
+
+    if (bestMonths.size > 0) updated.bestMonths = MONTHS.filter((m) => bestMonths.has(m))
+    else delete updated.bestMonths
+
+    const seasonality: NonNullable<SafariPackage['seasonalityGuide']> = {}
+    if (form.seasonalityPeak.trim()) seasonality.peakSeason = form.seasonalityPeak.trim()
+    if (form.seasonalityShoulder.trim()) seasonality.shoulderSeason = form.seasonalityShoulder.trim()
+    if (form.seasonalityGreen.trim()) seasonality.greenSeason = form.seasonalityGreen.trim()
+    if (form.seasonalityRecommendation.trim()) seasonality.recommendation = form.seasonalityRecommendation.trim()
+    if (Object.keys(seasonality).length > 0) updated.seasonalityGuide = seasonality
+    else delete updated.seasonalityGuide
 
     const res = await fetch(`/api/admin/packages/${id}`, {
       method: 'PATCH',
@@ -206,6 +240,47 @@ export default function PackageEditForm({ id, pkg }: { id: number; pkg: SafariPa
       <StringListEditor label="Highlights" values={highlights} onChange={setHighlights} addLabel="Add highlight" />
       <StringListEditor label="Best For" values={bestFor} onChange={setBestFor} addLabel="Add audience" placeholder="e.g. Honeymooners" />
       <StringListEditor label="Overview Paragraphs" values={overview} onChange={setOverview} addLabel="Add paragraph" textarea />
+
+      <div className="pt-2 border-t border-gray-100 space-y-4">
+        <h3 className="text-sm font-semibold text-gray-500">Operator &amp; Seasonality</h3>
+        <div>
+          <label className={labelCls}>Operator Name</label>
+          <input value={form.operatorName} onChange={(e) => update('operatorName', e.target.value)} className={inputCls} placeholder="EWA Safari Outfitters" />
+          <p className="text-[11px] text-gray-400 mt-1">Leave as &quot;EWA Safari Outfitters&quot; unless this itinerary is run by a partner outfitter.</p>
+        </div>
+        <div>
+          <label className={labelCls}>Best Months (real seasonal data only — leave unchecked if none apply)</label>
+          <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 mt-1">
+            {MONTHS.map((m) => (
+              <label key={m} className="inline-flex items-center gap-1.5 text-sm">
+                <input type="checkbox" checked={bestMonths.has(m)} onChange={() => toggleMonth(m)} />
+                {m}
+              </label>
+            ))}
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className={labelCls}>Peak Season (optional)</label>
+            <input value={form.seasonalityPeak} onChange={(e) => update('seasonalityPeak', e.target.value)} className={inputCls} />
+          </div>
+          <div>
+            <label className={labelCls}>Shoulder Season (optional)</label>
+            <input value={form.seasonalityShoulder} onChange={(e) => update('seasonalityShoulder', e.target.value)} className={inputCls} />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className={labelCls}>Green Season (optional)</label>
+            <input value={form.seasonalityGreen} onChange={(e) => update('seasonalityGreen', e.target.value)} className={inputCls} />
+          </div>
+          <div>
+            <label className={labelCls}>Recommendation (optional)</label>
+            <input value={form.seasonalityRecommendation} onChange={(e) => update('seasonalityRecommendation', e.target.value)} className={inputCls} />
+          </div>
+        </div>
+        <StringListEditor label="Practical Tips" values={practicalTips} onChange={setPracticalTips} addLabel="Add tip" />
+      </div>
 
       <div className="pt-2 border-t border-gray-100 space-y-4">
         <h3 className="text-sm font-semibold text-gray-500">SEO</h3>
