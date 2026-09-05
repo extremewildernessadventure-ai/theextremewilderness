@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { ArrowRight, Clock, Users, MapPin } from 'lucide-react'
+import { ArrowRight, Clock, Users, MapPin, Compass } from 'lucide-react'
 import { getPackages } from '@/data/packages.i18n'
 import NewsletterForm from '@/components/home/NewsletterForm'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
@@ -11,12 +11,17 @@ import { getTranslations } from 'next-intl/server'
 import PlanBuilderEntryCard from '@/components/plan/PlanBuilderEntryCard'
 import FilteredPackageGrid from '@/components/itineraries/FilteredPackageGrid'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
-import Breadcrumb from '@/components/ui/Breadcrumb'
 import { buildAlternates, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
-type Props = { params: Promise<{ locale: string }> }
+type Props = {
+  params: Promise<{ locale: string }>
+  // Read only by the hero's tier quick-cards, to highlight whichever tier
+  // (if any) FilteredPackageGrid below is currently pre-filtered to via the
+  // same ?tier= param — generateMetadata ignores this.
+  searchParams: Promise<{ tier?: string }>
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
@@ -53,8 +58,27 @@ const EXTRA_META = [
   { slug: '7-day-southern-circuit', image: '/images/gallery/birdlife-tanzania-safari-route.webp', badgeKey: null },
 ] as const
 
-export default async function SafarisPage({ params }: Props) {
+// Hero tier quick-cards need, per tier, how many packages actually offer it
+// and the cheapest confirmed rate for it — same "a package has a tier if any
+// pricing row carries it" presence check FilteredPackageGrid already uses,
+// applied here across every package rather than per-card.
+function tierStats(packages: { pricingTiers?: { trail?: number; reserve?: number; sovereign?: number }[] }[], tier: 'trail' | 'reserve' | 'sovereign') {
+  let count = 0
+  let minPrice: number | null = null
+  for (const pkg of packages) {
+    const rows = (pkg.pricingTiers ?? []).filter((r) => r[tier] !== undefined && r[tier]! > 0)
+    if (rows.length === 0) continue
+    count += 1
+    for (const row of rows) {
+      if (minPrice === null || row[tier]! < minPrice) minPrice = row[tier]!
+    }
+  }
+  return { count, minPrice }
+}
+
+export default async function SafarisPage({ params, searchParams }: Props) {
   const { locale } = await params
+  const { tier: selectedHeroTier } = await searchParams
   const packages = await getPackages(locale)
   const t = await getTranslations('itineraries')
   const tc = await getTranslations('common')
@@ -65,6 +89,7 @@ export default async function SafarisPage({ params }: Props) {
     { key: 'reserve' as const,   kicker: t('tierKicker2'), name: ts('tierReserve'),   desc: t('tierReserveDesc') },
     { key: 'sovereign' as const, kicker: t('tierKicker3'), name: ts('tierSovereign'), desc: t('tierSovereignDesc') },
   ]
+  const heroTierCards = tierCards.map((c) => ({ ...c, ...tierStats(packages, c.key) }))
 
   const findPkg = (slug: string) => packages.find((p) => p.slug === slug)!
   const smallGroupSafaris = t('smallGroupSafaris')
@@ -122,7 +147,6 @@ export default async function SafarisPage({ params }: Props) {
     { q: t('faq10q'), a: t('faq10a') },
   ]
 
-  const tBullets = [t('heroBullet1'), t('heroBullet2'), t('heroBullet3'), t('heroBullet4')]
   const tStats = [
     { value: t('stat1Value'), label: t('stat1Label') },
     { value: t('stat2Value'), label: t('stat2Label') },
@@ -142,55 +166,82 @@ export default async function SafarisPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      {/* ── 1. HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[60vh] flex items-end pb-16 pt-32 overflow-hidden">
-        <Image
-          src="/images/gallery/village-life-safari-circuit.webp"
-          alt={t('heroImageAlt')}
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent" />
+      {/* ── 1. HERO (matches the SafariBookings-style prototype's structure:
+           eyebrow pill, headline, live-count subheading, tier quick-cards row
+           — restyled to this site's own tokens, no breadcrumb per standing
+           hero rule, no background photo per the prototype's light editorial
+           layout) ──────────────────────────────────────────────────────────── */}
+      <section className="bg-white border-b border-black/5 pt-32 pb-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-3xl space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/8 text-brand text-xs font-semibold uppercase tracking-wider">
+                <Compass className="w-3.5 h-3.5 text-gold-label" />
+                <span>{t('heroPill')}</span>
+              </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumb items={breadcrumbItems} locale={locale} />
-          <p className="text-gold-label font-semibold text-xs uppercase tracking-widest mb-4">{t('heroPill')}</p>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-brand tracking-tight leading-[1.1]">
+                {t('heroTitle')}
+              </h1>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] mb-6 max-w-3xl">
-            {t('heroTitle')}<br />
-            <span className="text-gold">{t('heroTitleGold')}</span>
-          </h1>
+              <p className="text-text-muted text-sm sm:text-base leading-relaxed max-w-2xl">
+                {t('heroSubtitle', { count: packages.length })}
+              </p>
+            </div>
 
-          <p className="text-white/70 text-lg max-w-xl leading-relaxed mb-8">
-            {t('heroSubtitle')}
-          </p>
-
-          <div className="flex flex-wrap gap-3 mb-10">
-            <BookNowButton
-              packageName="Custom Safari"
-              packageType={tc('packageTypes.safari')}
-              label={t('startPlanningButton')}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-lg"
-            />
-            <a
-              href="#itineraries"
-              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl transition-colors"
-            >
-              {t('browseItinerariesButton')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-            </a>
+            <div className="flex flex-wrap gap-3 shrink-0">
+              <BookNowButton
+                packageName="Custom Safari"
+                packageType={tc('packageTypes.safari')}
+                label={t('startPlanningButton')}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-dark text-brand font-bold rounded-xl transition-colors shadow-md"
+              />
+              <a
+                href="#itineraries"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-brand/20 hover:border-brand text-brand font-semibold rounded-xl transition-colors"
+              >
+                {t('browseItinerariesButton')} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+              </a>
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-x-8 gap-y-3 text-white/75 text-base">
-            {tBullets.map((text) => (
-              <span key={text} className="flex items-center gap-2">
-                <span className="text-gold text-[10px]">✦</span>
-                {text}
-              </span>
-            ))}
+          {/* Tier quick-cards — a first-class filter, not just descriptive
+              copy: each links straight into the grid below pre-filtered to
+              that tier, same ?tier= param FilteredPackageGrid already reads. */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            {heroTierCards.map(({ key, kicker, name, desc, count, minPrice }) => {
+              const isSelected = selectedHeroTier === key
+              return (
+                <Link
+                  key={key}
+                  href={isSelected ? '/safaris#itineraries' : `/safaris?tier=${key}#itineraries`}
+                  className={`text-left p-4 rounded-2xl border transition-all group ${
+                    isSelected
+                      ? 'border-brand bg-brand text-white shadow-md'
+                      : 'border-gray-200 bg-white hover:border-brand/40 hover:bg-light-green/40'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <span className={`text-[11px] font-semibold uppercase tracking-wider ${isSelected ? 'text-gold' : 'text-gold-label'}`}>
+                      {kicker}
+                    </span>
+                    <span className={`text-xs font-medium ${isSelected ? 'text-white/70' : 'text-text-muted'}`}>
+                      {minPrice !== null ? `${t('fromPrefix')} $${minPrice.toLocaleString('en-US')}` : t('heroTierCustomLabel')}
+                    </span>
+                  </div>
+
+                  <h3 className={`font-semibold text-lg mb-1 ${isSelected ? 'text-white' : 'text-brand'}`}>{name}</h3>
+                  <p className={`text-xs leading-relaxed line-clamp-2 mb-2.5 ${isSelected ? 'text-white/80' : 'text-text-muted'}`}>{desc}</p>
+
+                  <div className={`pt-2.5 border-t flex items-center justify-between text-[11px] ${isSelected ? 'border-white/20 text-white/70' : 'border-gray-100 text-text-muted'}`}>
+                    <span>{t('heroTierTripsCount', { count })}</span>
+                    <span className={`font-semibold underline underline-offset-2 ${isSelected ? 'text-white' : 'text-brand group-hover:text-gold-label'}`}>
+                      {isSelected ? t('heroTierSelectedCta') : t('heroTierFilterCta')}
+                    </span>
+                  </div>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </section>
