@@ -25,7 +25,6 @@ import { routing } from '@/i18n/routing'
 import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema, buildImageObject, buildPageTitle } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
 import Reveal from '@/components/motion/Reveal'
-import { getDb } from '@/lib/db'
 import { getPublishedReviewsForPackage, computeReviewStats } from '@/lib/reviews'
 import { buildCampsRoster } from '@/lib/safariCamps'
 
@@ -559,8 +558,7 @@ export default async function SafariPackagePage({ params }: Props) {
     locale
   )
 
-  const db = await getDb()
-  const publishedReviews = await getPublishedReviewsForPackage(db, pkg.slug)
+  const publishedReviews = await getPublishedReviewsForPackage(pkg.slug)
   const reviewStats = computeReviewStats(publishedReviews)
   const campsRoster = buildCampsRoster(pkg.itinerary)
 
