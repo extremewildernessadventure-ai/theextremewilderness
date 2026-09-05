@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { deriveStatus, round2, validateItems } from './invoices'
+import { deriveStatus, round2, validateItems, computeInstallments } from './invoices'
 
 describe('deriveStatus', () => {
   it('is unpaid at zero paid', () => {
@@ -72,5 +72,58 @@ describe('validateItems', () => {
       { description: 'valid', quantity: 1, unitPrice: 100 },
       { description: '', quantity: 1, unitPrice: 50 },
     ])).toBe(false)
+  })
+})
+
+describe('computeInstallments', () => {
+  it('returns null when no deposit split is set (today\'s exact single-total behavior)', () => {
+    expect(computeInstallments({ amount: 1000, amount_paid: 0, deposit_percent: null, due_date: '2026-01-01', balance_due_date: null })).toBeNull()
+  })
+
+  it('splits a round percentage correctly', () => {
+    const result = computeInstallments({ amount: 5000, amount_paid: 0, deposit_percent: 30, due_date: '2026-01-01', balance_due_date: '2026-03-01' })
+    expect(result).not.toBeNull()
+    expect(result!.deposit.amount).toBe(1500)
+    expect(result!.balance.amount).toBe(3500)
+    expect(result!.deposit.dueDate).toBe('2026-01-01')
+    expect(result!.balance.dueDate).toBe('2026-03-01')
+  })
+
+  it('rounds an uneven percentage split to 2 decimal places without losing money (deposit + balance == amount)', () => {
+    const result = computeInstallments({ amount: 1000, amount_paid: 0, deposit_percent: 33, due_date: null, balance_due_date: null })!
+    expect(result.deposit.amount).toBe(330)
+    expect(result.balance.amount).toBe(670)
+    expect(round2(result.deposit.amount + result.balance.amount)).toBe(1000)
+  })
+
+  it('applies payments deposit-first: a payment smaller than the deposit only covers the deposit', () => {
+    const result = computeInstallments({ amount: 5000, amount_paid: 1000, deposit_percent: 30, due_date: null, balance_due_date: null })!
+    expect(result.deposit.paid).toBe(1000)
+    expect(result.deposit.status).toBe('partial')
+    expect(result.balance.paid).toBe(0)
+    expect(result.balance.status).toBe('unpaid')
+  })
+
+  it('applies payments deposit-first: once the deposit is fully covered, the rest flows to the balance', () => {
+    const result = computeInstallments({ amount: 5000, amount_paid: 2000, deposit_percent: 30, due_date: null, balance_due_date: null })!
+    expect(result.deposit.amount).toBe(1500)
+    expect(result.deposit.paid).toBe(1500)
+    expect(result.deposit.status).toBe('paid')
+    expect(result.balance.paid).toBe(500)
+    expect(result.balance.status).toBe('partial')
+  })
+
+  it('marks both legs paid once the full amount is covered', () => {
+    const result = computeInstallments({ amount: 5000, amount_paid: 5000, deposit_percent: 30, due_date: null, balance_due_date: null })!
+    expect(result.deposit.status).toBe('paid')
+    expect(result.balance.status).toBe('paid')
+  })
+
+  it('treats a payment exactly equal to the deposit as a boundary: deposit paid, balance still unpaid', () => {
+    const result = computeInstallments({ amount: 5000, amount_paid: 1500, deposit_percent: 30, due_date: null, balance_due_date: null })!
+    expect(result.deposit.paid).toBe(1500)
+    expect(result.deposit.status).toBe('paid')
+    expect(result.balance.paid).toBe(0)
+    expect(result.balance.status).toBe('unpaid')
   })
 })
