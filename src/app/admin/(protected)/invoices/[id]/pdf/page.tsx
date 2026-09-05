@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { CheckCircle2 } from 'lucide-react'
 import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
 import { BANK_DETAILS } from '@/lib/bankDetails'
-import { PAYMENT_METHOD_LABELS } from '@/lib/invoices'
+import { PAYMENT_METHOD_LABELS, computeInstallments } from '@/lib/invoices'
 import {
   printCssFullBleed, sanitizeForPdf,
   PdfDarkPage, PdfDarkHeader, PdfDarkLabel, PdfDarkDivider, PdfDarkTag, PdfDarkFooter,
@@ -49,6 +49,8 @@ export default async function InvoicePdfPage({ params }: Props) {
   ])
   const balanceDue = Math.max(0, invoice.amount - invoice.amount_paid)
   const clientName = sanitizeForPdf(invoice.client_name)
+  const installments = computeInstallments(invoice)
+  const formatDate = (d: string) => new Date(d).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })
 
   return (
     <>
@@ -87,9 +89,22 @@ export default async function InvoicePdfPage({ params }: Props) {
             </div>
             <div className="text-end">
               <PdfDarkTag tone={STATUS_TONES[invoice.status]}>{STATUS_LABELS[invoice.status].toUpperCase()}</PdfDarkTag>
-              {invoice.due_date && (
+              {installments ? (
+                <>
+                  {installments.deposit.dueDate && (
+                    <div style={{ fontSize: 13, color: '#dfe6e0', marginTop: 8 }}>
+                      Deposit Due <strong>{formatDate(installments.deposit.dueDate)}</strong>
+                    </div>
+                  )}
+                  {installments.balance.dueDate && (
+                    <div style={{ fontSize: 13, color: '#dfe6e0', marginTop: 2 }}>
+                      Balance Due <strong>{formatDate(installments.balance.dueDate)}</strong>
+                    </div>
+                  )}
+                </>
+              ) : invoice.due_date && (
                 <div style={{ fontSize: 13, color: '#dfe6e0', marginTop: 8 }}>
-                  Due <strong>{new Date(invoice.due_date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</strong>
+                  Due <strong>{formatDate(invoice.due_date)}</strong>
                 </div>
               )}
             </div>
@@ -128,12 +143,44 @@ export default async function InvoicePdfPage({ params }: Props) {
             </div>
 
             <div className="flex justify-end" style={{ marginTop: 16 }}>
-              <div style={{ width: 280 }}>
+              <div style={{ width: 320 }}>
                 <div className="flex justify-between items-baseline" style={{ padding: '8px 0', fontSize: 13.5 }}>
                   <span style={{ color: '#dfe6e0' }}>Total Due</span>
                   <span style={{ fontVariantNumeric: 'tabular-nums' }}>{invoice.currency} {invoice.amount.toLocaleString()}</span>
                 </div>
-                {invoice.amount_paid > 0 && (
+
+                {installments ? (
+                  <>
+                    <div className="flex justify-between items-baseline" style={{ padding: '8px 0', fontSize: 13.5, borderTop: '1px solid rgba(255,255,255,0.18)' }}>
+                      <span style={{ color: '#dfe6e0' }}>
+                        Deposit{installments.deposit.dueDate ? ` (due ${formatDate(installments.deposit.dueDate)})` : ''}
+                      </span>
+                      <span style={{ fontVariantNumeric: 'tabular-nums' }}>
+                        {invoice.currency} {installments.deposit.amount.toLocaleString()}
+                        {installments.deposit.status === 'paid' && <span style={{ color: 'var(--color-gold)' }}> · Paid</span>}
+                        {installments.deposit.status === 'partial' && <span style={{ color: 'var(--color-gold)' }}> · {invoice.currency} {installments.deposit.paid.toLocaleString()} paid</span>}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-baseline" style={{ padding: '8px 0', fontSize: 13.5, borderTop: '1px solid rgba(255,255,255,0.18)' }}>
+                      <span style={{ color: '#dfe6e0' }}>
+                        Balance{installments.balance.dueDate ? ` (due ${formatDate(installments.balance.dueDate)})` : ''}
+                      </span>
+                      <span style={{ fontVariantNumeric: 'tabular-nums' }}>
+                        {invoice.currency} {installments.balance.amount.toLocaleString()}
+                        {installments.balance.status === 'paid' && <span style={{ color: 'var(--color-gold)' }}> · Paid</span>}
+                        {installments.balance.status === 'partial' && <span style={{ color: 'var(--color-gold)' }}> · {invoice.currency} {installments.balance.paid.toLocaleString()} paid</span>}
+                      </span>
+                    </div>
+                    {invoice.amount_paid > 0 && invoice.status !== 'paid' && (
+                      <div className="flex justify-between items-baseline" style={{ padding: '12px 0 4px', fontSize: 16, borderTop: '1px solid rgba(255,255,255,0.35)', marginTop: 2 }}>
+                        <span style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: PDF_DARK_HEADING_WEIGHT }}>Balance Remaining</span>
+                        <span style={{ fontFamily: PDF_DARK_HEADING_FONT, fontWeight: PDF_DARK_HEADING_WEIGHT, color: 'var(--color-gold)', fontVariantNumeric: 'tabular-nums' }}>
+                          {invoice.currency} {balanceDue.toLocaleString()}
+                        </span>
+                      </div>
+                    )}
+                  </>
+                ) : invoice.amount_paid > 0 && (
                   <>
                     <div className="flex justify-between items-baseline" style={{ padding: '8px 0', fontSize: 13.5, borderTop: '1px solid rgba(255,255,255,0.18)' }}>
                       <span style={{ color: '#dfe6e0' }}>Amount Paid</span>
