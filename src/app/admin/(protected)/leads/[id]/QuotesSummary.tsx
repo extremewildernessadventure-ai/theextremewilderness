@@ -10,12 +10,17 @@ const PILL_CLASS: Record<QuoteStatus, string> = {
   expired: 'departed',
 }
 
-export default function QuotesSummary({ leadId, quotes }: { leadId: number; quotes: Quote[] }) {
+// Shared by the lead detail page and the client detail page -- a quote
+// attaches to exactly one of the two (see the Quote type's own comment),
+// so this takes whichever id applies and builds the "+ New Quote" link
+// accordingly.
+export default function QuotesSummary({ leadId, clientId, quotes }: { leadId?: number; clientId?: number; quotes: Quote[] }) {
+  const newQuoteHref = leadId ? `/admin/quotes/new?leadId=${leadId}` : `/admin/quotes/new?clientId=${clientId}`
   return (
     <div className="panel">
       <div className="flex items-center justify-between mb-4">
         <h2>Quotes</h2>
-        <Link href={`/admin/quotes/new?leadId=${leadId}`} className="text-xs font-semibold text-brand hover:underline">
+        <Link href={newQuoteHref} className="text-xs font-semibold text-brand hover:underline">
           + New Quote
         </Link>
       </div>
