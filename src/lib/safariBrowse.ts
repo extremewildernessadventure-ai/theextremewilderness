@@ -4,19 +4,19 @@
 // usable from both the server component that builds the initial dataset and
 // the client component that filters/sorts/paginates it.
 
-import type { PricingTierRow } from '@/data/packages'
+import type { PricingTierRow, SafariPackage } from '@/data/packages'
 
 export type TierKey = 'trail' | 'reserve' | 'sovereign'
 export type OperatorTypeFilter = 'ewa' | 'other'
 export type SortOption = 'recommended' | 'price-asc' | 'price-desc' | 'duration-asc' | 'duration-desc'
 
-// Every real ActivityType value a package can have (migration 0031's 8-value
-// enum) -- mountain_trekking is deliberately excluded from this browsing
-// surface (those 2 packages are marketed through the dedicated /trekking
-// pages, same as today's listing page).
-export type BrowsableActivityType =
-  | 'big_five_game_drives' | 'migration' | 'photographic' | 'walking'
-  | 'cultural' | 'gorilla_trekking' | 'beach_extension'
+// The full real ActivityType union, not a narrowed subset -- one of the two
+// mountain_trekking packages (14-days-kilimanjaro-lemosho-safari, a genuine
+// safari+climb combo) has always appeared in this general listing, same as
+// today's site; only kilimanjaro-machame-7day (marketed solely via the
+// dedicated /trekking pages) is excluded, by slug, at the call site that
+// builds the browsable dataset -- not by narrowing this type.
+export type BrowsableActivityType = SafariPackage['type']
 
 const EWA_OPERATOR_NAME = 'EWA Safari Outfitters'
 
@@ -206,4 +206,52 @@ export function activeFilterCount(f: SafariFilterState, bounds: { minDuration: n
   if (f.minDuration > bounds.minDuration || f.maxDuration < bounds.maxDuration) count += 1
   count += f.operatorTypes.length
   return count
+}
+
+// Builds one BrowsableSafari from a real SafariPackage -- the single place
+// that reconciles package data with destination lookups, real review data,
+// and the curated "signature edition" flag. `destinationLookup` keys by
+// destination slug (see src/data/destinations.ts); a slug missing from it is
+// skipped for name/country resolution rather than throwing, since a package
+// referencing a destination slug that doesn't exist in destinations.ts is a
+// real data-integrity issue worth surfacing elsewhere, not crashing this page.
+export function buildBrowsableSafari(
+  pkg: SafariPackage,
+  destinationLookup: Map<string, { name: string; country: string }>,
+  review: { rating: number } | undefined,
+  isSignature: boolean
+): BrowsableSafari {
+  const destinationNames: string[] = []
+  const countries = new Set<string>()
+  for (const slug of pkg.destinations) {
+    const dest = destinationLookup.get(slug)
+    if (!dest) continue
+    destinationNames.push(dest.name)
+    countries.add(dest.country)
+  }
+
+  const { tiersAvailable, tierMinPrice } = tiersAndMinPrices(pkg.pricingTiers)
+
+  const safari: BrowsableSafari = {
+    slug: pkg.slug,
+    name: pkg.name,
+    duration: pkg.duration,
+    priceFrom: pkg.priceFrom,
+    heroImage: pkg.heroImage,
+    destinationSlugs: pkg.destinations,
+    destinationNames,
+    countries: [...countries],
+    highlights: pkg.highlights,
+    type: pkg.type,
+    operatorName: pkg.operatorName ?? EWA_OPERATOR_NAME,
+    tiersAvailable,
+    tierMinPrice,
+    isSignature,
+  }
+  if (pkg.heroImageAlt) safari.heroImageAlt = pkg.heroImageAlt
+  if (pkg.groupSize) safari.groupSize = pkg.groupSize
+  if (pkg.badge) safari.badge = pkg.badge
+  if (pkg.bestMonths && pkg.bestMonths.length > 0) safari.bestMonths = pkg.bestMonths
+  if (review) safari.reviewRating = review.rating
+  return safari
 }

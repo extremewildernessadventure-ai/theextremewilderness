@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest'
 import {
   filterSafaris, sortSafaris, diagnoseEmptyState, activeFilterCount, makeInitialFilters,
-  tiersAndMinPrices, type BrowsableSafari, type SafariFilterState,
+  tiersAndMinPrices, buildBrowsableSafari, type BrowsableSafari, type SafariFilterState,
 } from './safariBrowse'
+import type { SafariPackage } from '@/data/packages'
 
 const BOUNDS = { minDuration: 2, maxDuration: 14, maxPrice: 10000 }
 
@@ -212,5 +213,60 @@ describe('tiersAndMinPrices', () => {
     const rows = [{ pax: 2, trail: 2000, reserve: 0 }]
     const { tiersAvailable } = tiersAndMinPrices(rows)
     expect(tiersAvailable).toEqual(['trail'])
+  })
+})
+
+describe('buildBrowsableSafari', () => {
+  const pkg: SafariPackage = {
+    slug: 'test-pkg',
+    name: 'Test Package',
+    duration: 7,
+    destinations: ['serengeti', 'nowhere-real'],
+    type: 'big_five_game_drives',
+    priceFrom: 3000,
+    groupSize: { min: 1, max: 8 },
+    highlights: ['Game drives'],
+    itinerary: [],
+    included: [],
+    excluded: [],
+    heroImage: '/hero.jpg',
+    gallery: [],
+    bestFor: [],
+  }
+  const destinationLookup = new Map([['serengeti', { name: 'Serengeti National Park', country: 'tanzania' }]])
+
+  it('resolves destination names/countries and skips slugs missing from the lookup', () => {
+    const result = buildBrowsableSafari(pkg, destinationLookup, undefined, false)
+    expect(result.destinationNames).toEqual(['Serengeti National Park'])
+    expect(result.countries).toEqual(['tanzania'])
+  })
+
+  it('defaults operatorName when the package has none set', () => {
+    const result = buildBrowsableSafari(pkg, destinationLookup, undefined, false)
+    expect(result.operatorName).toBe('EWA Safari Outfitters')
+  })
+
+  it('only sets reviewRating when a real review is passed in', () => {
+    const withReview = buildBrowsableSafari(pkg, destinationLookup, { rating: 5 }, false)
+    expect(withReview.reviewRating).toBe(5)
+    const withoutReview = buildBrowsableSafari(pkg, destinationLookup, undefined, false)
+    expect(withoutReview.reviewRating).toBeUndefined()
+  })
+
+  it('carries the isSignature flag straight through', () => {
+    expect(buildBrowsableSafari(pkg, destinationLookup, undefined, true).isSignature).toBe(true)
+    expect(buildBrowsableSafari(pkg, destinationLookup, undefined, false).isSignature).toBe(false)
+  })
+
+  it('omits bestMonths entirely when the package has none (not an empty array)', () => {
+    const result = buildBrowsableSafari(pkg, destinationLookup, undefined, false)
+    expect(result.bestMonths).toBeUndefined()
+  })
+
+  it('derives tiersAvailable/tierMinPrice from real pricingTiers', () => {
+    const withPricing: SafariPackage = { ...pkg, pricingTiers: [{ pax: 2, trail: 2000, reserve: 3000 }] }
+    const result = buildBrowsableSafari(withPricing, destinationLookup, undefined, false)
+    expect(result.tiersAvailable).toEqual(['trail', 'reserve'])
+    expect(result.tierMinPrice).toEqual({ trail: 2000, reserve: 3000 })
   })
 })
