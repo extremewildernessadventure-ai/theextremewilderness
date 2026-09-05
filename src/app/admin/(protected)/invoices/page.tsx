@@ -1,26 +1,12 @@
 import Link from 'next/link'
 import { getDb, type Invoice } from '@/lib/db'
-import { INVOICE_STATUS_PILL_CLASS, computeInstallments } from '@/lib/invoices'
+import { INVOICE_STATUS_PILL_CLASS } from '@/lib/invoices'
 import AdminTable, { type AdminTableColumn } from '@/components/admin/AdminTable'
 
 export const dynamic = 'force-dynamic'
 
-// For a plain (un-split) invoice this is exactly today's check: overdue
-// once due_date has passed and it isn't fully paid. For a deposit-split
-// invoice, each leg is checked independently against its own due date and
-// its own paid state -- a fully-paid deposit whose due date has passed
-// doesn't count as overdue just because the invoice as a whole is still
-// 'partial' waiting on the (not-yet-due) balance.
 function isOverdue(inv: Invoice): boolean {
-  if (inv.status !== 'unpaid' && inv.status !== 'partial') return false
-  const today = new Date().toISOString().slice(0, 10)
-  const installments = computeInstallments(inv)
-  if (installments) {
-    const depositOverdue = installments.deposit.status !== 'paid' && !!installments.deposit.dueDate && installments.deposit.dueDate < today
-    const balanceOverdue = installments.balance.status !== 'paid' && !!installments.balance.dueDate && installments.balance.dueDate < today
-    return depositOverdue || balanceOverdue
-  }
-  return !!inv.due_date && inv.due_date < today
+  return (inv.status === 'unpaid' || inv.status === 'partial') && !!inv.due_date && inv.due_date < new Date().toISOString().slice(0, 10)
 }
 
 const columns: AdminTableColumn<Invoice>[] = [
@@ -34,21 +20,17 @@ const columns: AdminTableColumn<Invoice>[] = [
     ),
   },
   { header: 'Client', className: 'text-gray-700', render: (inv) => inv.client_name },
-  { header: 'Amount', className: 'mono', render: (inv) => `${inv.currency} ${inv.amount.toLocaleString()}` },
   {
-    header: 'Due Date',
-    className: 'dates-cell',
-    render: (inv) => {
-      const installments = computeInstallments(inv)
-      if (!installments) return inv.due_date ?? '—'
-      return (
-        <span className="text-xs leading-tight block">
-          <span className="block">Deposit: {installments.deposit.dueDate ?? '—'}</span>
-          <span className="block" style={{ color: 'var(--grey)' }}>Balance: {installments.balance.dueDate ?? '—'}</span>
-        </span>
-      )
-    },
+    header: 'Amount',
+    className: 'mono',
+    render: (inv) => (
+      <>
+        {inv.currency} {inv.amount.toLocaleString()}
+        {inv.deposit_percent != null && <span className="text-xs ms-1.5" style={{ color: 'var(--grey)' }}>(deposit, {inv.deposit_percent}%)</span>}
+      </>
+    ),
   },
+  { header: 'Due Date', className: 'dates-cell', render: (inv) => inv.due_date ?? '—' },
   { header: 'Status', render: (inv) => <span className={`pill ${INVOICE_STATUS_PILL_CLASS[inv.status]}`}><i />{inv.status}</span> },
 ]
 

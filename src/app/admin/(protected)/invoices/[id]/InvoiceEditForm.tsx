@@ -37,7 +37,6 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
       : invoice.departure_notes_other ? CUSTOM_OPTION_VALUE : '',
     dueDate: invoice.due_date ?? '',
     depositPercent: invoice.deposit_percent != null ? String(invoice.deposit_percent) : '',
-    balanceDueDate: invoice.balance_due_date ?? '',
     notes: invoice.notes ?? '',
   })
   const [departureNotesOther, setDepartureNotesOther] = useState(invoice.departure_notes_other ?? '')
@@ -52,24 +51,17 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
   }
 
   const depositPercentNum = parseInt(form.depositPercent, 10)
-  const hasDepositSplit = form.depositPercent.trim() !== '' && Number.isFinite(depositPercentNum) && depositPercentNum > 0
+  const hasDepositPercent = form.depositPercent.trim() !== '' && Number.isFinite(depositPercentNum) && depositPercentNum > 0
 
   async function handleSave() {
     setSaving(true)
     setSaved(false)
     setError('')
 
-    if (hasDepositSplit) {
-      if (depositPercentNum < 1 || depositPercentNum > 99) {
-        setError('Deposit % must be between 1 and 99.')
-        setSaving(false)
-        return
-      }
-      if (!form.dueDate || !form.balanceDueDate) {
-        setError('Both a deposit due date and a balance due date are required when using a deposit split.')
-        setSaving(false)
-        return
-      }
+    if (hasDepositPercent && (depositPercentNum < 1 || depositPercentNum > 99)) {
+      setError('Deposit % must be between 1 and 99.')
+      setSaving(false)
+      return
     }
 
     const isCustomDeparture = form.departureId === CUSTOM_OPTION_VALUE
@@ -80,8 +72,7 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
         ...form,
         departureId: isCustomDeparture || !form.departureId ? null : Number(form.departureId),
         departureNotesOther: isCustomDeparture ? departureNotesOther.trim() : null,
-        depositPercent: hasDepositSplit ? depositPercentNum : null,
-        balanceDueDate: hasDepositSplit ? form.balanceDueDate : null,
+        depositPercent: hasDepositPercent ? depositPercentNum : null,
       }),
     })
     setSaving(false)
@@ -153,24 +144,20 @@ export default function InvoiceEditForm({ invoice, departures }: { invoice: Invo
         Amount is calculated from line items — edit those in the panel below.
       </p>
       <div>
-        <label className="field-label">{hasDepositSplit ? 'Deposit Due Date' : 'Due Date'}</label>
+        <label className="field-label">Due Date</label>
         <input type="date" value={form.dueDate} onChange={(e) => update('dueDate', e.target.value)} className="field-input" />
       </div>
       <div>
         <label className="field-label">Deposit % (optional)</label>
-        <p className="text-[11px] text-gray-400 mb-1.5 -mt-0.5">Leave blank for a single-total invoice, as before.</p>
+        <p className="text-[11px] text-gray-400 mb-1.5 -mt-0.5">
+          Set this if this invoice&apos;s amount is a deposit -- it just labels what percentage of a larger total it represents; the amount itself is still whatever the line items below add up to.
+        </p>
         <input
           type="number" min="1" max="99" step="1" value={form.depositPercent}
           onChange={(e) => update('depositPercent', e.target.value)}
           className="field-input" style={{ maxWidth: 100 }} placeholder="e.g. 30"
         />
       </div>
-      {hasDepositSplit && (
-        <div>
-          <label className="field-label">Balance Due Date</label>
-          <input type="date" value={form.balanceDueDate} onChange={(e) => update('balanceDueDate', e.target.value)} className="field-input" />
-        </div>
-      )}
       <div>
         <label className="field-label">Status</label>
         <div className="flex items-center gap-3">
