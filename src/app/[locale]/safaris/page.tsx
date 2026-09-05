@@ -2,16 +2,19 @@ import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { ArrowRight, Clock, Users, MapPin, Compass } from 'lucide-react'
+import { ArrowRight, Compass } from 'lucide-react'
 import { getPackages } from '@/data/packages.i18n'
+import { getDestinations } from '@/data/destinations.i18n'
+import { PACKAGE_REVIEWS } from '@/data/packageReviews'
 import NewsletterForm from '@/components/home/NewsletterForm'
 import WhyChooseUs from '@/components/home/WhyChooseUs'
 import BookNowButton from '@/components/booking/BookNowButton'
 import { getTranslations } from 'next-intl/server'
 import PlanBuilderEntryCard from '@/components/plan/PlanBuilderEntryCard'
-import FilteredPackageGrid from '@/components/itineraries/FilteredPackageGrid'
+import SafariBrowser, { type SafariBrowserLabels } from '@/components/itineraries/SafariBrowser'
 import FaqAccordion from '@/components/itineraries/FaqAccordion'
 import { buildAlternates, buildBreadcrumbSchema, buildPageTitle } from '@/lib/site'
+import { buildBrowsableSafari, type BrowsableActivityType } from '@/lib/safariBrowse'
 import Reveal from '@/components/motion/Reveal'
 import { RevealGroup, RevealItem } from '@/components/motion/RevealGroup'
 
@@ -51,13 +54,6 @@ const EDITION_META = [
   { slug: '10-day-safari-zanzibar', image: '/images/gallery/zanzibar-nungwi-aerial.webp', badgeKey: 'badgePopular' },
 ] as const
 
-const EXTRA_META = [
-  { slug: '5-day-serengeti-fly-in', image: '/images/gallery/kilimanjaro-trekkers-rocky-trail.webp', badgeKey: 'badgeLuxury' },
-  { slug: '11-days-kenya-undisputed', image: '/images/gallery/giraffe-walking-savanna-dusk.webp', badgeKey: null },
-  { slug: '10-day-northern-circuit', image: '/images/gallery/lion-resting-on-serengeti-kopje.webp', badgeKey: null },
-  { slug: '7-day-southern-circuit', image: '/images/gallery/birdlife-tanzania-safari-route.webp', badgeKey: null },
-] as const
-
 // Hero tier quick-cards need, per tier, how many packages actually offer it
 // and the cheapest confirmed rate for it — same "a package has a tier if any
 // pricing row carries it" presence check FilteredPackageGrid already uses,
@@ -80,9 +76,12 @@ export default async function SafarisPage({ params, searchParams }: Props) {
   const { locale } = await params
   const { tier: selectedHeroTier } = await searchParams
   const packages = await getPackages(locale)
+  const destinations = await getDestinations(locale)
   const t = await getTranslations('itineraries')
   const tc = await getTranslations('common')
   const ts = await getTranslations('safari')
+  const tf = await getTranslations('forms')
+  const tb = await getTranslations('safariBrowser')
 
   const tierCards = [
     { key: 'trail' as const,     kicker: t('tierKicker1'), name: ts('tierTrail'),     desc: t('tierTrailDesc') },
@@ -109,31 +108,117 @@ export default async function SafarisPage({ params, searchParams }: Props) {
     }
   })
 
-  const extra = EXTRA_META.map(({ slug, image, badgeKey }, i) => {
-    const n = i + 1
-    const pkg = findPkg(slug)
-    return {
-      slug: `/safaris/${slug}`,
-      name: t(`extra${n}Name` as 'extra1Name'),
-      duration: pkg.duration,
-      priceFrom: pkg.priceFrom,
-      image,
-      destinations: [t(`extra${n}Destinations` as 'extra1Destinations')],
-      badge: badgeKey ? t(badgeKey as 'badgeLuxury') : null,
-    }
-  })
-  // Packages already rendered via `extra` (with a custom image/badge override)
-  // must not also be pulled in generically below, or they'd render twice.
-  // 'kilimanjaro-machame-7day' is excluded here deliberately — it's marketed
-  // through the dedicated /trekking landing page, not this general
-  // safari-itinerary grid. Kept as an explicit slug exclusion (not a
-  // `pkg.type !== 'mountain_trekking'` filter) because the other
-  // mountain-trekking package, 14-days-kilimanjaro-lemosho-safari, is a
-  // genuine safari+climb combo that has always shown here too — that's the
-  // pre-existing behavior, preserved as-is; whether that's still the right
-  // call is a product decision for the Stage A listing-page rebuild, not
-  // a side effect of the type-taxonomy migration.
-  const extraSlugs = new Set<string>(EXTRA_META.map((e) => e.slug))
+  // ── SafariBrowser dataset + labels (Stage A filter/grid rebuild) ────────
+  // Every package is browsable here regardless of whether it also appears in
+  // the curated `editions` cards above -- unlike the old FilteredPackageGrid
+  // (which excluded packages already shown via editions/extra to avoid
+  // duplicate rendering), this is meant to be the single comprehensive,
+  // filterable view of the whole catalog, matching the prototype's own "one
+  // grid, everything filterable" design -- so every package now uses its own
+  // real heroImage/badge here, not the old grid's separate curated overrides
+  // (that EXTRA_META/`extra` array is gone; it had no other consumer once
+  // FilteredPackageGrid was removed).
+  // 'kilimanjaro-machame-7day' stays excluded (marketed only via /trekking);
+  // '14-days-kilimanjaro-lemosho-safari' (the other mountain_trekking
+  // package, a genuine safari+climb combo) stays included, same as today.
+  const destinationLookup = new Map(destinations.map((d) => [d.slug, { name: d.name, country: d.country }]))
+  const signatureSlugs = new Set<string>(EDITION_META.map((e) => e.slug))
+  const browsableItems = packages
+    .filter((pkg) => pkg.slug !== 'kilimanjaro-machame-7day')
+    .map((pkg) => buildBrowsableSafari(pkg, destinationLookup, PACKAGE_REVIEWS[pkg.slug], signatureSlugs.has(pkg.slug)))
+
+  // Same forms.tripTypes keys the detail page uses for this exact enum, so
+  // an activity type reads identically everywhere on the site.
+  const activityTypeLabel: Record<BrowsableActivityType, string> = {
+    big_five_game_drives: tf('tripTypes.wildlifeSafari'),
+    migration: tf('tripTypes.migrationSafari'),
+    photographic: tf('tripTypes.photographySafari'),
+    walking: tf('tripTypes.walkingSafari'),
+    cultural: tf('tripTypes.culturalSafari'),
+    gorilla_trekking: tf('tripTypes.gorillaTrekking'),
+    beach_extension: tf('tripTypes.beachSafariCombo'),
+    mountain_trekking: tf('tripTypes.kilimanjaroTrek'),
+  }
+  const countryName: Record<string, string> = {
+    tanzania: t('filterTanzania'), kenya: t('filterKenya'), rwanda: t('filterRwanda'),
+  }
+  const monthName: Record<string, string> = {
+    Jan: tc('months.jan'), Feb: tc('months.feb'), Mar: tc('months.mar'), Apr: tc('months.apr'),
+    May: tc('months.may'), Jun: tc('months.jun'), Jul: tc('months.jul'), Aug: tc('months.aug'),
+    Sep: tc('months.sep'), Oct: tc('months.oct'), Nov: tc('months.nov'), Dec: tc('months.dec'),
+  }
+  const parkName: Record<string, string> = Object.fromEntries(destinations.map((d) => [d.slug, d.name]))
+  const tierName = { trail: ts('tierTrail'), reserve: ts('tierReserve'), sovereign: ts('tierSovereign') } as const
+
+  const safariBrowserLabels: SafariBrowserLabels = {
+    card: {
+      daysLabel: t('daysLabel'), maxLabel: t('maxLabel'), paxLabel: t('paxLabel'),
+      fromLabel: t('fromPrefix'), viewLabel: t('viewLabel'), bestLabel: tb('card.bestLabel'),
+      tierTrail: tierName.trail, tierReserve: tierName.reserve, tierSovereign: tierName.sovereign,
+      badgeBestseller: tb('card.badgeBestseller'), badgeNew: tb('card.badgeNew'), badgePopular: tb('card.badgePopular'),
+      badgeSignature: tb('card.badgeSignature'), operatorDirect: tb('card.operatorDirect'), operatorPartner: tb('card.operatorPartner'),
+      reviewedLabel: tb('card.reviewedLabel'), compareLabel: tb('card.compareLabel'), compareTooltip: tb('card.compareTooltip'),
+      saveTooltip: tb('card.saveTooltip'), savedTooltip: tb('card.savedTooltip'),
+      enquireLabel: tb('card.enquireLabel'), packageTypeLabel: tc('packageTypes.safari'),
+    },
+    sidebar: {
+      eyebrow: tb('sidebar.eyebrow'), title: tb('sidebar.title'), resetAll: tb('sidebar.resetAll'),
+      durationLabel: tb('sidebar.durationLabel'), durationReadout: tb('sidebar.durationReadout'),
+      durationPreset1: tb('sidebar.durationPreset1'), durationPreset2: tb('sidebar.durationPreset2'),
+      durationPreset3: tb('sidebar.durationPreset3'), durationPresetAny: tb('sidebar.durationPresetAny'),
+      tierLabel: tb('sidebar.tierLabel'), tierCaption: tb('sidebar.tierCaption'),
+      tierTrail: tierName.trail, tierReserve: tierName.reserve, tierSovereign: tierName.sovereign,
+      tierTrailDesc: t('tierTrailDesc'), tierReserveDesc: t('tierReserveDesc'), tierSovereignDesc: t('tierSovereignDesc'),
+      outfitterLabel: tb('sidebar.outfitterLabel'), clearOperators: tb('sidebar.clearOperators'), outfitterIntro: tb('sidebar.outfitterIntro'),
+      ewaTitle: tb('sidebar.ewaTitle'), ewaBadge: tb('sidebar.ewaBadge'), ewaDesc: tb('sidebar.ewaDesc'),
+      otherTitle: tb('sidebar.otherTitle'), otherBadge: tb('sidebar.otherBadge'), otherDesc: tb('sidebar.otherDesc'),
+      partnerFootnote: tb('sidebar.partnerFootnote'),
+      priceLabel: tb('sidebar.priceLabel'), priceReadout: tb('sidebar.priceReadout'),
+      pricePresetUnder1: tb('sidebar.pricePresetUnder1'), pricePresetUnder2: tb('sidebar.pricePresetUnder2'), pricePresetAll: tb('sidebar.pricePresetAll'),
+      monthLabel: tb('sidebar.monthLabel'), clearMonth: tb('sidebar.clearMonth'), monthIntro: tb('sidebar.monthIntro'),
+      countryLabel: tb('sidebar.countryLabel'), activityLabel: tb('sidebar.activityLabel'), parkLabel: tb('sidebar.parkLabel'),
+      clearParks: tb('sidebar.clearParks'),
+      mobileTitle: tb('sidebar.mobileTitle'), mobileMatchOne: tb('sidebar.mobileMatchOne'), mobileMatchMany: tb('sidebar.mobileMatchMany'),
+      mobileReset: tb('sidebar.mobileReset'), mobileApply: tb('sidebar.mobileApply'),
+      countryName, monthName, activityValue: activityTypeLabel,
+    },
+    chips: {
+      matchOne: tb('chips.matchOne'), matchMany: tb('chips.matchMany'), showingRange: tb('chips.showingRange'),
+      curationSubtitle: tb('chips.curationSubtitle'), filtersButton: tb('chips.filtersButton'),
+      sortLabel: tb('chips.sortLabel'), sortRecommended: tb('chips.sortRecommended'), sortPriceAsc: tb('chips.sortPriceAsc'),
+      sortPriceDesc: tb('chips.sortPriceDesc'), sortDurationAsc: tb('chips.sortDurationAsc'), sortDurationDesc: tb('chips.sortDurationDesc'),
+      activeCriteriaLabel: tb('chips.activeCriteriaLabel'), clearAll: tb('chips.clearAll'),
+      chipSearch: tb('chips.chipSearch'), chipTier: tb('chips.chipTier'), chipCountry: tb('chips.chipCountry'),
+      chipPark: tb('chips.chipPark'), chipActivity: tb('chips.chipActivity'), chipMonth: tb('chips.chipMonth'),
+      chipPrice: tb('chips.chipPrice'), chipDuration: tb('chips.chipDuration'),
+      chipOperatorEwa: tb('chips.chipOperatorEwa'), chipOperatorOther: tb('chips.chipOperatorOther'),
+      tierName, countryName, activityValue: activityTypeLabel, monthName, parkName,
+    },
+    empty: {
+      eyebrow: tb('empty.eyebrow'), heading: tb('empty.heading'), body: tb('empty.body'),
+      diagnosisHeader: tb('empty.diagnosisHeader'), diagnosisBody: tb('empty.diagnosisBody'), relaxCta: tb('empty.relaxCta'),
+      resetAll: tb('empty.resetAll'), matchOne: tb('empty.matchOne'), matchMany: tb('empty.matchMany'),
+      fieldName: {
+        searchQuery: tb('empty.fieldSearchQuery'), tiers: tb('empty.fieldTiers'), price: tb('empty.fieldPrice'),
+        countries: tb('empty.fieldCountries'), parks: tb('empty.fieldParks'), activityTypes: tb('empty.fieldActivityTypes'),
+        duration: tb('empty.fieldDuration'), selectedMonth: tb('empty.fieldSelectedMonth'), operatorTypes: tb('empty.fieldOperatorTypes'),
+      },
+    },
+    compareBar: {
+      header: tb('compareBar.header'), counter: tb('compareBar.counter'), clear: tb('compareBar.clear'),
+      compareTable: tb('compareBar.compareTable'), selectTwo: tb('compareBar.selectTwo'),
+    },
+    compareModal: {
+      eyebrow: tb('compareModal.eyebrow'), title: tb('compareModal.title'), viewFullDetails: tb('compareModal.viewFullDetails'),
+      rowItinerary: tb('compareModal.rowItinerary'), rowPrice: tb('compareModal.rowPrice'), rowPriceSuffix: tb('compareModal.rowPriceSuffix'),
+      rowTier: tb('compareModal.rowTier'), rowDuration: tb('compareModal.rowDuration'), rowDurationValue: tb('compareModal.rowDurationValue'),
+      rowDestination: tb('compareModal.rowDestination'), rowParks: tb('compareModal.rowParks'), rowActivity: tb('compareModal.rowActivity'),
+      rowBestMonths: tb('compareModal.rowBestMonths'), rowInclusions: tb('compareModal.rowInclusions'), ctaPlan: tb('compareModal.ctaPlan'),
+      tierName, activityValue: activityTypeLabel, monthName,
+    },
+    prevPage: tb('prevPage'), nextPage: tb('nextPage'),
+  }
+
   const tFaqs = [
     { q: t('faq1q'), a: t('faq1a') },
     { q: t('faq2q'), a: t('faq2a') },
@@ -406,60 +491,7 @@ export default async function SafarisPage({ params, searchParams }: Props) {
           </Reveal>
 
           <Suspense fallback={null}>
-          <FilteredPackageGrid
-            packages={[
-              ...packages
-                .filter((pkg) => pkg.slug !== 'kilimanjaro-machame-7day' && !extraSlugs.has(pkg.slug))
-                .map((pkg) => ({
-                  slug: `/safaris/${pkg.slug}`,
-                  name: pkg.name,
-                  duration: pkg.duration,
-                  priceFrom: pkg.priceFrom,
-                  image: pkg.heroImage,
-                  imageAlt: pkg.heroImageAlt,
-                  destinations: pkg.destinations,
-                  groupSize: pkg.groupSize,
-                  badge: pkg.badge ?? null,
-                  pricingTiers: pkg.pricingTiers,
-                })),
-              ...extra.map((it) => ({
-                slug: it.slug,
-                name: it.name,
-                duration: it.duration,
-                priceFrom: it.priceFrom,
-                image: it.image,
-                destinations: [it.destinations[0]?.toLowerCase() ?? ''],
-                badge: it.badge ?? null,
-                pricingTiers: findPkg(it.slug.replace('/safaris/', '')).pricingTiers,
-              })),
-            ]}
-            labels={{
-              durationLabel:  t('filterDurationLabel'),
-              dur2to5:        t('filterDur2to5'),
-              dur6to9:        t('filterDur6to9'),
-              dur10plus:      t('filterDur10plus'),
-              filterByPrice:  t('filterByPrice'),
-              countryLabel:   t('filterCountryLabel'),
-              filterAll:      t('filterAll'),
-              filterTanzania: t('filterTanzania'),
-              filterKenya:    t('filterKenya'),
-              filterRwanda:   t('filterRwanda'),
-              filterCombined: t('filterCombined'),
-              filterTanzaniaRwanda: t('filterTanzaniaRwanda'),
-              tierLabel:      t('filterTierLabel'),
-              tierTrail:      ts('tierTrail'),
-              tierReserve:    ts('tierReserve'),
-              tierSovereign:  ts('tierSovereign'),
-              days:           t('daysLabel'),
-              max:            t('maxLabel'),
-              pax:            t('paxLabel'),
-              from:           t('fromPrefix'),
-              view:           t('viewLabel'),
-              loadMore:       t('filterLoadMore'),
-              showingOf:      t('filterShowingOf'),
-              noResults:      t('filterNoResults'),
-            }}
-          />
+            <SafariBrowser items={browsableItems} labels={safariBrowserLabels} />
           </Suspense>
         </div>
       </section>
@@ -526,73 +558,3 @@ export default async function SafarisPage({ params, searchParams }: Props) {
   )
 }
 
-// ── Package card ──────────────────────────────────────────────────────────────
-function PackageCard({
-  slug, name, duration, priceFrom, image, destinations, groupSize, badge,
-  daysLabel = 'days', maxLabel = 'Max', paxLabel = 'pax', fromLabel = 'From', viewLabel = 'View',
-}: {
-  slug: string
-  name: string
-  duration: number
-  priceFrom: number
-  image: string
-  destinations: string[]
-  groupSize?: { min: number; max: number }
-  badge?: string
-  daysLabel?: string
-  maxLabel?: string
-  paxLabel?: string
-  fromLabel?: string
-  viewLabel?: string
-}) {
-  return (
-    <Link
-      href={slug}
-      className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-0.5 transition-all flex flex-col"
-    >
-      <div className="relative h-52 overflow-hidden">
-        <Image
-          src={image}
-          alt={name}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
-        {badge && (
-          <div className="absolute top-3 start-3">
-            <span className="px-2.5 py-1 bg-gold text-brand text-[10px] font-bold uppercase tracking-wider rounded-full">
-              {badge}
-            </span>
-          </div>
-        )}
-      </div>
-      <div className="p-5 flex flex-col flex-1">
-        <h3 className="font-semibold text-brand text-base leading-snug mb-3">{name}</h3>
-        <div className="flex flex-wrap gap-3 text-xs text-text-muted mb-3">
-          <span className="flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5 text-gold" />{duration} {daysLabel}
-          </span>
-          {groupSize && (
-            <span className="flex items-center gap-1.5">
-              <Users className="w-3.5 h-3.5 text-gold" />{maxLabel} {groupSize.max} {paxLabel}
-            </span>
-          )}
-          <span className="flex items-center gap-1.5">
-            <MapPin className="w-3.5 h-3.5 text-gold" />
-            {destinations[0]}
-          </span>
-        </div>
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-          <div>
-            <span className="text-text-muted text-xs">{fromLabel} </span>
-            <span className="text-brand font-bold text-lg">${priceFrom.toLocaleString('en-US')}</span>
-            <span className="text-text-muted text-xs">/pp</span>
-          </div>
-          <span className="flex items-center gap-1 text-sm font-semibold text-brand group-hover:text-gold transition-colors">
-            {viewLabel} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
-          </span>
-        </div>
-      </div>
-    </Link>
-  )
-}
