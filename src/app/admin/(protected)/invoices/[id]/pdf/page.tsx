@@ -4,7 +4,7 @@ import { CheckCircle2 } from 'lucide-react'
 import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
 import { BANK_DETAILS } from '@/lib/bankDetails'
 import { PAYMENT_METHOD_LABELS, getInvoiceFamily, computeInvoiceBalanceSchedule } from '@/lib/invoices'
-import { computeDepartureTotalCost, type Departure } from '@/lib/departures'
+import { computeQuoteTotalCost, type Quote } from '@/lib/quotes'
 import {
   printCssFullBleed, sanitizeForPdf,
   PdfDarkPage, PdfDarkHeader, PdfDarkLabel, PdfDarkDivider, PdfDarkTag, PdfDarkFooter,
@@ -49,10 +49,10 @@ export default async function InvoicePdfPage({ params }: Props) {
     db.prepare('SELECT * FROM invoice_payments WHERE invoice_id = ? ORDER BY confirmed_at DESC LIMIT 1').bind(id).first<InvoicePayment>(),
     getInvoiceFamily(db, invoice.id),
   ])
-  const departure = invoice.departure_id
-    ? await db.prepare('SELECT * FROM departures WHERE id = ?').bind(invoice.departure_id).first<Departure>()
+  const quote = invoice.quote_id
+    ? await db.prepare('SELECT * FROM quotes WHERE id = ?').bind(invoice.quote_id).first<Quote>()
     : null
-  const schedule = computeInvoiceBalanceSchedule(invoice, family, departure ? computeDepartureTotalCost(departure) : null)
+  const schedule = computeInvoiceBalanceSchedule(invoice, family, quote ? computeQuoteTotalCost(quote) : null)
   const isRootInvoice = invoice.parent_invoice_id == null
   const balanceDue = Math.max(0, invoice.amount - invoice.amount_paid)
   const clientName = sanitizeForPdf(invoice.client_name)

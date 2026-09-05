@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
-import { QUOTE_STATUSES, type Quote } from '@/lib/quotes'
+import { QUOTE_STATUSES, computeQuoteTotalCost, type Quote } from '@/lib/quotes'
 import type { Lead } from '@/lib/leads'
+import type { Client } from '@/lib/clients'
 
 export const dynamic = 'force-dynamic'
 
@@ -18,8 +19,9 @@ export async function GET(_req: NextRequest, { params }: Params) {
   if (!quote) {
     return NextResponse.json({ error: 'Not found' }, { status: 404 })
   }
-  const lead = await db.prepare('SELECT * FROM leads WHERE id = ?').bind(quote.lead_id).first<Lead>()
-  return NextResponse.json({ quote, lead })
+  const lead = quote.lead_id ? await db.prepare('SELECT * FROM leads WHERE id = ?').bind(quote.lead_id).first<Lead>() : null
+  const client = quote.client_id ? await db.prepare('SELECT * FROM clients WHERE id = ?').bind(quote.client_id).first<Client>() : null
+  return NextResponse.json({ quote, lead, client })
 }
 
 export async function PATCH(req: NextRequest, { params }: Params) {
@@ -28,8 +30,9 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   }
   const { id } = await params
   const body = await req.json() as {
-    packageSlug?: string; price?: number; currency?: string
+    packageSlug?: string; currency?: string
     status?: string; validUntil?: string; notes?: string
+    adults?: number; children?: number; pricePerAdult?: number | null; pricePerChild?: number | null
   }
 
   if (body.status !== undefined && !QUOTE_STATUSES.includes(body.status as Quote['status'])) {
@@ -38,12 +41,27 @@ export async function PATCH(req: NextRequest, { params }: Params) {
 
   const columnMap: Record<string, unknown> = {
     package_slug: body.packageSlug,
-    price: body.price,
     currency: body.currency,
     status: body.status,
     valid_until: body.validUntil,
     notes: body.notes,
+    adults: body.adults,
+    children: body.children,
+    price_per_adult: body.pricePerAdult,
+    price_per_child: body.pricePerChild,
   }
+  // `price` is derived, never taken directly from the request -- recomputed
+  // here whenever the full pricing group is present together (the edit form
+  // always resends all four together, same convention DepartureEditForm
+  // used before it). A status-only PATCH (e.g. QuoteStatusSelect) sends
+  // none of these and leaves the stored price untouched.
+  if (body.adults !== undefined && body.children !== undefined && body.pricePerAdult !== undefined) {
+    columnMap.price = computeQuoteTotalCost({
+      adults: body.adults, children: body.children,
+      price_per_adult: body.pricePerAdult, price_per_child: body.pricePerChild ?? null,
+    }) ?? 0
+  }
+
   const fields: string[] = []
   const values: unknown[] = []
   for (const [col, val] of Object.entries(columnMap)) {

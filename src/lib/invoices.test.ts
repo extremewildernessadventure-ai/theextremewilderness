@@ -24,6 +24,7 @@ function makeInvoice(overrides: Partial<Invoice> & { amount: number; created_at:
     due_date: null,
     deposit_percent: null,
     parent_invoice_id: null,
+    quote_id: null,
     notes: null,
     sent_at: null,
     sent_r2_key: null,

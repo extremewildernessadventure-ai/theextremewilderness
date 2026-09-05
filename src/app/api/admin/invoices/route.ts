@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
     clientId?: number; clientName?: string; clientEmail?: string; bookingReference?: string
     currency?: string; departureId?: number; departureNotesOther?: string
     dueDate?: string; notes?: string; items?: InvoiceItemInput[]
-    depositPercent?: number; parentInvoiceId?: number
+    depositPercent?: number; parentInvoiceId?: number; quoteId?: number
   }
   if (!body.clientName) {
     return NextResponse.json({ error: 'clientName is required' }, { status: 400 })
@@ -64,6 +64,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'parentInvoiceId does not reference an existing invoice' }, { status: 400 })
     }
   }
+  // Same pattern as parentInvoiceId above -- a bad quoteId gets a clear 400
+  // instead of a raw SQL error from the FK constraint.
+  if (body.quoteId != null) {
+    const quote = await db.prepare('SELECT id FROM quotes WHERE id = ?').bind(body.quoteId).first()
+    if (!quote) {
+      return NextResponse.json({ error: 'quoteId does not reference an existing quote' }, { status: 400 })
+    }
+  }
   // Resolved once, outside the retry loop below — resolveClientId isn't
   // idempotent to call twice for an email-less client (it would create a
   // second client row on a booking_reference collision retry).
@@ -86,8 +94,8 @@ export async function POST(req: NextRequest) {
       // amount starts at 0 (the column is NOT NULL) — replaceInvoiceItems
       // below sets the real, derived total from the line items.
       const result = await db.prepare(
-        `INSERT INTO invoices (invoice_number, client_id, client_name, client_email, booking_reference, amount, currency, departure_id, departure_notes_other, due_date, deposit_percent, parent_invoice_id, notes)
-         VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?)`
+        `INSERT INTO invoices (invoice_number, client_id, client_name, client_email, booking_reference, amount, currency, departure_id, departure_notes_other, due_date, deposit_percent, parent_invoice_id, quote_id, notes)
+         VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?)`
       ).bind(
         invoiceNumber,
         clientId,
@@ -100,6 +108,7 @@ export async function POST(req: NextRequest) {
         body.dueDate ?? null,
         body.depositPercent ?? null,
         body.parentInvoiceId ?? null,
+        body.quoteId ?? null,
         body.notes ?? null,
       ).run()
 

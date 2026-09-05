@@ -166,21 +166,21 @@ export interface InvoiceBalanceSchedule {
   newBalance: number
 }
 
-// The three numbers a departure-priced invoice family needs: what the whole
-// trip costs, what was owed coming into this specific invoice, and what's
-// left after it (down to exactly 0.00 once fully settled). Deliberately
-// additive -- computeImpliedTotal/computeRemainingBalance stay exactly as
-// they are and serve as the fallback here for a family whose departure has
-// no price entered yet (or isn't linked to a departure at all), so
-// pre-existing deposit_percent invoices keep rendering exactly as before
-// until someone prices their departure.
+// The three numbers a quote-priced invoice family needs: what the whole
+// trip costs (per the linked quote's computeQuoteTotalCost), what was owed
+// coming into this specific invoice, and what's left after it (down to
+// exactly 0.00 once fully settled). Deliberately additive --
+// computeImpliedTotal/computeRemainingBalance stay exactly as they are and
+// serve as the fallback here for a family with no linked quote (or a quote
+// with no price entered yet), so pre-existing deposit_percent invoices keep
+// rendering exactly as before.
 export function computeInvoiceBalanceSchedule(
   invoice: Invoice,
   family: Invoice[], // from getInvoiceFamily -- root-first, created_at ASC, includes `invoice` itself
-  departureTotalCost: number | null,
+  quoteTotalCost: number | null,
 ): InvoiceBalanceSchedule | null {
   const root = family.find((i) => i.parent_invoice_id == null) ?? family[0] ?? invoice
-  const totalCost = departureTotalCost ?? computeImpliedTotal(root)
+  const totalCost = quoteTotalCost ?? computeImpliedTotal(root)
   if (totalCost == null) return null
 
   const billedBefore = round2(

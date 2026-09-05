@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getDb } from '@/lib/db'
-import { computeDepartureTotalCost, type Departure } from '@/lib/departures'
+import type { Departure } from '@/lib/departures'
 import type { Booking } from '@/lib/bookings'
 import { packages } from '@/data/packages'
 import DetailTwoColumn from '@/components/admin/DetailTwoColumn'
@@ -24,7 +24,6 @@ export default async function DepartureDetailPage({ params }: Props) {
   ).bind(id).all<Booking>()
 
   const pkg = packages.find((p) => p.slug === departure.package_slug)
-  const totalCost = computeDepartureTotalCost(departure)
 
   return (
     <DetailTwoColumn
@@ -34,19 +33,6 @@ export default async function DepartureDetailPage({ params }: Props) {
       subtitle={`${departure.start_date} → ${departure.end_date}${departure.cancelled ? ' · Cancelled' : ''}`}
       main={
         <>
-          <div className="panel space-y-2 text-sm">
-            <div className="flex justify-between items-center">
-              <span style={{ color: 'var(--grey)' }}>Party</span>
-              <span className="font-semibold">{departure.adults} adult{departure.adults === 1 ? '' : 's'}{departure.children > 0 ? `, ${departure.children} child${departure.children === 1 ? '' : 'ren'}` : ''}</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span style={{ color: 'var(--grey)' }}>Total Cost</span>
-              <span className="font-semibold mono" style={{ color: 'var(--pine)' }}>
-                {totalCost != null ? `USD ${totalCost.toLocaleString()}` : 'Not priced yet'}
-              </span>
-            </div>
-          </div>
-
           <div className="panel">
             <div className="flex items-center justify-between mb-4">
               <h2>Bookings</h2>

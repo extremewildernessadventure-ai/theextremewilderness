@@ -1,7 +1,9 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
-import { computeDepartureTotalCost, type Departure } from '@/lib/departures'
+import type { Departure } from '@/lib/departures'
+import { computeQuoteTotalCost, type Quote } from '@/lib/quotes'
+import { packages } from '@/data/packages'
 import { getInvoiceFamily, computeInvoiceBalanceSchedule, INVOICE_STATUS_PILL_CLASS } from '@/lib/invoices'
 import InvoiceEditForm from './InvoiceEditForm'
 import InvoiceItemsEditor from './InvoiceItemsEditor'
@@ -35,22 +37,24 @@ export default async function InvoiceDetailPage({ params }: Props) {
   const relatedInvoices = family.filter((inv) => inv.id !== invoice.id)
   const isRootInvoice = invoice.parent_invoice_id == null
 
-  // The invoice's own departure, fetched directly by id (not filtered
-  // through the `cancelled = 0` dropdown list above) so a departure that
-  // was cancelled after this invoice was created still contributes its real
-  // total cost here rather than silently vanishing from the schedule below.
-  const departure = invoice.departure_id
-    ? await db.prepare('SELECT * FROM departures WHERE id = ?').bind(invoice.departure_id).first<Departure>()
+  // The invoice's own quote, fetched directly by id -- this is now the
+  // authoritative source for the balance schedule below (see migration
+  // 0034's comment). departure_id stays on the invoice too, but purely for
+  // tagging which trip this is (used by the profitability report) -- it no
+  // longer feeds any pricing math.
+  const quote = invoice.quote_id
+    ? await db.prepare('SELECT * FROM quotes WHERE id = ?').bind(invoice.quote_id).first<Quote>()
     : null
-  const schedule = computeInvoiceBalanceSchedule(invoice, family, departure ? computeDepartureTotalCost(departure) : null)
+  const schedule = computeInvoiceBalanceSchedule(invoice, family, quote ? computeQuoteTotalCost(quote) : null)
+  const quoteLabel = quote ? (packages.find((p) => p.slug === quote.package_slug)?.name ?? 'Custom Safari') : null
 
   // "Create Linked Invoice" prefills the new-invoice form via query params
   // (the same mechanism already used for the Quote -> Invoice deep link) --
-  // client/departure carried over, parentInvoiceId set so the two invoices
-  // show up under each other's "Related Invoices" below. When a balance
-  // schedule applies, also prefill the description/amount/priorBalance with
-  // the real current remaining balance so issuing the next invoice is a
-  // due-date pick, not arithmetic.
+  // client/departure/quote carried over, parentInvoiceId set so the two
+  // invoices show up under each other's "Related Invoices" below. When a
+  // balance schedule applies, also prefill the description/amount/
+  // priorBalance with the real current remaining balance so issuing the
+  // next invoice is a due-date pick, not arithmetic.
   const linkedInvoiceParams = new URLSearchParams({
     parentInvoiceId: String(invoice.id),
     parentInvoiceNumber: invoice.invoice_number,
@@ -58,14 +62,15 @@ export default async function InvoiceDetailPage({ params }: Props) {
     ...(invoice.client_id ? { clientId: String(invoice.client_id) } : {}),
     ...(invoice.client_email ? { clientEmail: invoice.client_email } : {}),
     ...(invoice.departure_id ? { departureId: String(invoice.departure_id) } : {}),
+    ...(invoice.quote_id ? { quoteId: String(invoice.quote_id) } : {}),
     currency: invoice.currency,
   })
   if (schedule != null) {
-    // Reuses the deposit/balance line item's own label (real invoices only
-    // ever have the one synthesized item at this point -- description is
-    // legacy/unused since multi-line-items landed) rather than falling back
-    // to something less meaningful like the invoice number.
-    const tripLabel = items[0]?.description.replace(/^(?:Deposit|Balance|Payment)\s*(?:\(\d+%\))?\s*[—-]\s*/, '') ?? invoice.invoice_number
+    const tripLabel = quoteLabel
+      ?? items[0]?.description.replace(/^(?:Deposit|Balance|Payment)\s*(?:\(\d+%\))?\s*[—-]\s*/, '')
+      ?? invoice.invoice_number
+    linkedInvoiceParams.set('quoteTotalCost', String(schedule.totalCost))
+    linkedInvoiceParams.set('quoteLabel', tripLabel)
     linkedInvoiceParams.set('itemDescription', `Balance — ${tripLabel}`)
     linkedInvoiceParams.set('itemPrice', String(schedule.newBalance))
     linkedInvoiceParams.set('priorBalance', String(schedule.newBalance))

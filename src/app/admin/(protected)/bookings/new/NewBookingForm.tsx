@@ -40,6 +40,7 @@ function NewBookingFormInner({ departures, clients }: { departures: Departure[];
     clientName: initialClient?.name ?? '',
     clientEmail: initialClient?.email ?? '',
     clientPhone: initialClient?.phone ?? '',
+    guestsCount: '1',
     departureId: initialDepartureId,
   })
   const [error, setError] = useState('')
@@ -48,15 +49,6 @@ function NewBookingFormInner({ departures, clients }: { departures: Departure[];
   function update<K extends keyof typeof form>(key: K, value: string) {
     setForm((f) => ({ ...f, [key]: value }))
   }
-
-  // Guests is no longer a separate input -- a departure now carries its own
-  // adults/children headcount (it's a single private party's booking, not a
-  // shared trip), so the booking's guest count is derived from whichever
-  // departure is selected. A venue/facility booking with no departure at all
-  // has no headcount to derive from, so it falls back to the same default
-  // (1) POST /api/admin/bookings already applies server-side.
-  const selectedDeparture = departures.find((d) => String(d.id) === form.departureId)
-  const guestsCount = selectedDeparture ? selectedDeparture.adults + selectedDeparture.children : 1
 
   // Picking an existing client fills in Name/Email/Phone from their record
   // — same "same one client, read everywhere else" idea as picking a guide
@@ -78,6 +70,11 @@ function NewBookingFormInner({ departures, clients }: { departures: Departure[];
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
+    const guestsCount = parseInt(form.guestsCount, 10)
+    if (!Number.isFinite(guestsCount) || guestsCount <= 0) {
+      setError('Guests must be a positive whole number.')
+      return
+    }
 
     setLoading(true)
     setError('')
@@ -142,15 +139,15 @@ function NewBookingFormInner({ departures, clients }: { departures: Departure[];
           </div>
         </div>
         <div>
+          <label className={labelCls}>Guests *</label>
+          <input type="number" min="1" step="1" required value={form.guestsCount} onChange={(e) => update('guestsCount', e.target.value)} className={`${inputCls} max-w-[140px]`} />
+        </div>
+        <div>
           <label className={labelCls}>Departure (optional)</label>
           <select value={form.departureId} onChange={(e) => update('departureId', e.target.value)} className={inputCls}>
             <option value="">— No departure (venue/facility booking) —</option>
             {departures.map((d) => <option key={d.id} value={d.id}>{departureLabel(d)}</option>)}
           </select>
-          <p className="text-xs text-gray-400 mt-1">
-            Guests: {guestsCount} {guestsCount === 1 ? 'guest' : 'guests'}
-            {selectedDeparture ? ' (from the departure’s adults/children)' : ' (default — no departure selected)'}
-          </p>
         </div>
         {error && <p role="alert" className="text-red-500 text-xs">{error}</p>}
         <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', opacity: loading ? 0.5 : 1 }}>

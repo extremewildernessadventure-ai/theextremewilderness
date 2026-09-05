@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession, ADMIN_SESSION_COOKIE } from '@/lib/adminAuth'
 import { getDb, type Invoice } from '@/lib/db'
 import { markInvoiceSent, buildPaymentSummary, getInvoiceFamily, computeInvoiceBalanceSchedule } from '@/lib/invoices'
-import { computeDepartureTotalCost, type Departure } from '@/lib/departures'
+import { computeQuoteTotalCost, type Quote } from '@/lib/quotes'
 import { renderPageToPdf } from '@/lib/browser'
 import { getDocsBucket, invoiceKey } from '@/lib/r2'
 import { buildBrandedEmailHtml } from '@/lib/email'
@@ -59,10 +59,10 @@ export async function POST(req: NextRequest, { params }: Params) {
   }
 
   const family = await getInvoiceFamily(db, invoice.id)
-  const departure = invoice.departure_id
-    ? await db.prepare('SELECT * FROM departures WHERE id = ?').bind(invoice.departure_id).first<Departure>()
+  const quote = invoice.quote_id
+    ? await db.prepare('SELECT * FROM quotes WHERE id = ?').bind(invoice.quote_id).first<Quote>()
     : null
-  const schedule = computeInvoiceBalanceSchedule(invoice, family, departure ? computeDepartureTotalCost(departure) : null)
+  const schedule = computeInvoiceBalanceSchedule(invoice, family, quote ? computeQuoteTotalCost(quote) : null)
   const paymentSummary = buildPaymentSummary(invoice, schedule, invoice.parent_invoice_id != null)
   const base64Pdf = Buffer.from(pdf).toString('base64')
   const resend = new Resend(process.env.RESEND_API_KEY)

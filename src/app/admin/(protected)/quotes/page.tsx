@@ -8,7 +8,7 @@ import QuoteStatusSelect from './QuoteStatusSelect'
 
 export const dynamic = 'force-dynamic'
 
-type QuoteRow = Quote & { lead_name: string | null; lead_email: string }
+type QuoteRow = Quote & { lead_name: string | null; lead_email: string | null; client_name: string | null; client_email: string | null }
 
 function packageName(slug: string | null): string {
   if (!slug) return '—'
@@ -28,14 +28,16 @@ export default async function QuotesListPage({ searchParams }: Props) {
     args.push(status)
   }
   if (q?.trim()) {
-    conditions.push('(leads.name LIKE ? OR leads.email LIKE ?)')
-    args.push(`%${q.trim()}%`, `%${q.trim()}%`)
+    conditions.push('(leads.name LIKE ? OR leads.email LIKE ? OR clients.name LIKE ? OR clients.email LIKE ?)')
+    args.push(`%${q.trim()}%`, `%${q.trim()}%`, `%${q.trim()}%`, `%${q.trim()}%`)
   }
   const where = conditions.length ? `WHERE ${conditions.join(' AND ')}` : ''
 
   const { results } = await db.prepare(`
-    SELECT quotes.*, leads.name AS lead_name, leads.email AS lead_email
-    FROM quotes JOIN leads ON leads.id = quotes.lead_id
+    SELECT quotes.*, leads.name AS lead_name, leads.email AS lead_email, clients.name AS client_name, clients.email AS client_email
+    FROM quotes
+    LEFT JOIN leads ON leads.id = quotes.lead_id
+    LEFT JOIN clients ON clients.id = quotes.client_id
     ${where}
     ORDER BY quotes.created_at DESC
   `).bind(...args).all<QuoteRow>()
@@ -54,7 +56,7 @@ export default async function QuotesListPage({ searchParams }: Props) {
       header: 'Client',
       render: (row) => (
         <Link href={`/admin/quotes/${row.id}`} className="text-brand font-medium hover:underline">
-          {row.lead_name || row.lead_email}
+          {row.lead_name || row.lead_email || row.client_name || row.client_email}
         </Link>
       ),
     },
