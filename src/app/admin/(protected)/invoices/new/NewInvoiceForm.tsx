@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { Plus, Trash2 } from 'lucide-react'
-import { computeDepartureTotalCost, type Departure } from '@/lib/departures'
+import type { Departure } from '@/lib/departures'
 import type { Client } from '@/lib/clients'
 import { packages } from '@/data/packages'
 import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
@@ -34,9 +34,7 @@ function packageName(slug: string): string {
 }
 
 function departureLabel(d: Departure): string {
-  const totalCost = computeDepartureTotalCost(d)
-  const label = `${packageName(d.package_slug)} (${d.start_date})`
-  return totalCost != null ? `${label} — USD ${totalCost.toLocaleString()}` : label
+  return `${packageName(d.package_slug)} (${d.start_date})`
 }
 
 function clientLabel(c: Client): string {
@@ -52,6 +50,14 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
   const parentInvoiceId = searchParams.get('parentInvoiceId')
   const parentInvoiceNumber = searchParams.get('parentInvoiceNumber')
   const priorBalanceParam = searchParams.get('priorBalance')
+  // A Quote's "Convert to Invoice" link (or another invoice's "Create Linked
+  // Invoice" button) precomputes these -- quoteTotalCost is the linked
+  // quote's real total (see computeQuoteTotalCost in src/lib/quotes.ts),
+  // read directly from the URL rather than fetched here, same "one-time
+  // deep link, no round trip" convention as itemDescription/itemPrice below.
+  const quoteId = searchParams.get('quoteId')
+  const quoteTotalCostParam = searchParams.get('quoteTotalCost')
+  const quoteLabelParam = searchParams.get('quoteLabel')
 
   const [form, setForm] = useState({
     clientId: searchParams.get('clientId') ?? '',
@@ -107,36 +113,36 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
   }
 
   const isCustomDeparture = form.departureId === CUSTOM_OPTION_VALUE
-  const selectedDeparture = !isCustomDeparture && form.departureId
-    ? departures.find((d) => String(d.id) === form.departureId)
-    : undefined
-  const departureTotalCost = selectedDeparture ? computeDepartureTotalCost(selectedDeparture) : null
-  // A priced departure is the authoritative source of the trip's total cost
-  // -- when one's selected, billing is driven off that total/the running
-  // balance chain instead of whatever's typed into Line Items below (an
-  // older departure with no price entered yet, or no departure at all,
-  // falls back to exactly today's manual-line-items + Deposit % behavior).
-  const useDepartureSchedule = departureTotalCost != null
-  const tripLabel = selectedDeparture ? packageName(selectedDeparture.package_slug) : ''
-  const previousBalance = useDepartureSchedule
-    ? (priorBalanceParam != null && Number.isFinite(Number(priorBalanceParam)) ? Number(priorBalanceParam) : departureTotalCost!)
+
+  const quoteTotalCost = quoteTotalCostParam != null && Number.isFinite(Number(quoteTotalCostParam)) ? Number(quoteTotalCostParam) : null
+  // A linked Quote is the authoritative source of the trip's total cost --
+  // when one's present (via "Convert to Invoice"/"Create Linked Invoice"),
+  // billing is driven off that total/the running balance chain instead of
+  // whatever's typed into Line Items below (no quote at all falls back to
+  // exactly today's manual-line-items + Deposit % behavior). The Departure
+  // picker below stays purely for tagging which trip this is -- it no
+  // longer has any pricing of its own.
+  const useQuoteSchedule = quoteTotalCost != null
+  const tripLabel = quoteLabelParam ?? ''
+  const previousBalance = useQuoteSchedule
+    ? (priorBalanceParam != null && Number.isFinite(Number(priorBalanceParam)) ? Number(priorBalanceParam) : quoteTotalCost!)
     : 0
 
   const percentNum = parseInt(form.depositPercent, 10)
   const hasPercent = form.depositPercent.trim() !== '' && Number.isFinite(percentNum) && percentNum > 0
-  const percentAmount = useDepartureSchedule && hasPercent ? round2((departureTotalCost! * percentNum) / 100) : 0
+  const percentAmount = useQuoteSchedule && hasPercent ? round2((quoteTotalCost! * percentNum) / 100) : 0
   const explicitNum = parseFloat(explicitAmount)
   const hasExplicit = explicitAmount.trim() !== '' && Number.isFinite(explicitNum) && explicitNum >= 0
   const scheduleThisAmount = billingMode === 'percent' ? percentAmount : (hasExplicit ? explicitNum : 0)
-  const scheduleNewBalance = useDepartureSchedule ? Math.max(0, round2(previousBalance - scheduleThisAmount)) : 0
+  const scheduleNewBalance = useQuoteSchedule ? Math.max(0, round2(previousBalance - scheduleThisAmount)) : 0
 
   // The running total of whatever's typed in the line items below -- used
-  // only in the legacy (no priced departure) path. When a deposit % is set
+  // only in the legacy (no linked quote) path. When a deposit % is set
   // there, this is the *real trip cost* the deposit is a percentage of, not
   // what gets billed on this invoice (see handleSubmit).
   const total = items.reduce((sum, row) => sum + lineTotal(row), 0)
   const legacyDepositPercentNum = parseInt(form.depositPercent, 10)
-  const hasLegacyDepositPercent = !useDepartureSchedule && form.depositPercent.trim() !== '' && Number.isFinite(legacyDepositPercentNum) && legacyDepositPercentNum > 0
+  const hasLegacyDepositPercent = !useQuoteSchedule && form.depositPercent.trim() !== '' && Number.isFinite(legacyDepositPercentNum) && legacyDepositPercentNum > 0
   const legacyDepositAmount = hasLegacyDepositPercent ? round2((total * legacyDepositPercentNum) / 100) : 0
   const legacyRemainingBalance = hasLegacyDepositPercent ? round2(total - legacyDepositAmount) : 0
 
@@ -148,7 +154,7 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
     let billedItems: { description: string; quantity: number; unitPrice: number }[]
     let finalDepositPercent: number | undefined
 
-    if (useDepartureSchedule) {
+    if (useQuoteSchedule) {
       if (billingMode === 'percent') {
         if (!hasPercent || percentNum < 1 || percentNum > 99) {
           setError('Deposit % must be between 1 and 99.')
@@ -222,6 +228,7 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
           departureNotesOther: isCustomDeparture ? departureNotesOther.trim() : undefined,
           depositPercent: finalDepositPercent,
           parentInvoiceId: parentInvoiceId ? Number(parentInvoiceId) : undefined,
+          quoteId: quoteId ? Number(quoteId) : undefined,
           items: billedItems,
         }),
       })
@@ -291,13 +298,13 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
           </div>
         </div>
 
-        {useDepartureSchedule ? (
+        {useQuoteSchedule ? (
           <div className="pt-2 border-t border-gray-100 space-y-3">
-            <label className={labelCls}>Billing</label>
+            <label className={labelCls}>Billing (from quote{tripLabel ? `: ${tripLabel}` : ''})</label>
             <div className="rounded-lg px-4 py-3 text-sm space-y-1" style={{ background: 'var(--sand)' }}>
               <div className="flex justify-between">
                 <span style={{ color: 'var(--grey)' }}>Total Cost</span>
-                <span className="font-semibold mono">{form.currency} {departureTotalCost!.toLocaleString()}</span>
+                <span className="font-semibold mono">{form.currency} {quoteTotalCost!.toLocaleString()}</span>
               </div>
               <div className="flex justify-between">
                 <span style={{ color: 'var(--grey)' }}>Previous Balance</span>
