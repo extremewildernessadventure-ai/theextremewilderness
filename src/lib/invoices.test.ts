@@ -1,5 +1,36 @@
 import { describe, it, expect } from 'vitest'
-import { deriveStatus, round2, validateItems, computeImpliedTotal, computeRemainingBalance, validateDepositPercent, buildPaymentSummary } from './invoices'
+import {
+  deriveStatus, round2, validateItems, computeImpliedTotal, computeRemainingBalance,
+  validateDepositPercent, buildPaymentSummary, computeInvoiceBalanceSchedule,
+} from './invoices'
+import type { Invoice } from './db'
+
+let nextTestInvoiceId = 1
+function makeInvoice(overrides: Partial<Invoice> & { amount: number; created_at: string }): Invoice {
+  const id = overrides.id ?? nextTestInvoiceId++
+  return {
+    id,
+    invoice_number: `INV-TEST-${id}`,
+    client_id: null,
+    client_name: 'Test Client',
+    client_email: null,
+    booking_reference: null,
+    amount_paid: 0,
+    currency: 'USD',
+    description: null,
+    departure_id: null,
+    departure_notes_other: null,
+    status: 'unpaid',
+    due_date: null,
+    deposit_percent: null,
+    parent_invoice_id: null,
+    notes: null,
+    sent_at: null,
+    sent_r2_key: null,
+    updated_at: null,
+    ...overrides,
+  }
+}
 
 describe('deriveStatus', () => {
   it('is unpaid at zero paid', () => {
@@ -151,5 +182,49 @@ describe('buildPaymentSummary', () => {
     const summary = buildPaymentSummary({ currency: 'USD', amount: 902.88, amount_paid: 902.88, deposit_percent: 30 })
     expect(summary).toContain('received in full')
     expect(summary).not.toContain('30%')
+  })
+})
+
+describe('computeInvoiceBalanceSchedule', () => {
+  it('returns null when there is no departure price and no deposit_percent to fall back on', () => {
+    const root = makeInvoice({ amount: 1000, created_at: '2026-01-01' })
+    expect(computeInvoiceBalanceSchedule(root, [root], null)).toBeNull()
+  })
+
+  it('falls back to computeImpliedTotal when no departure total cost is given (pre-existing deposit_percent invoices)', () => {
+    const root = makeInvoice({ amount: 902.88, deposit_percent: 30, created_at: '2026-01-01' })
+    const schedule = computeInvoiceBalanceSchedule(root, [root], null)
+    expect(schedule).toEqual({ totalCost: 3009.6, previousBalance: 3009.6, thisAmount: 902.88, newBalance: 2106.72 })
+  })
+
+  it('the family root has previousBalance == totalCost -- nothing billed before it', () => {
+    const root = makeInvoice({ amount: 1050, created_at: '2026-01-01' })
+    const schedule = computeInvoiceBalanceSchedule(root, [root], 3500)
+    expect(schedule).toEqual({ totalCost: 3500, previousBalance: 3500, thisAmount: 1050, newBalance: 2450 })
+  })
+
+  it('a 3-invoice chain correctly nets out every earlier invoice for the 3rd one', () => {
+    const root = makeInvoice({ amount: 1050, created_at: '2026-01-01' })
+    const second = makeInvoice({ amount: 1200, parent_invoice_id: root.id, created_at: '2026-02-01' })
+    const third = makeInvoice({ amount: 1250, parent_invoice_id: root.id, created_at: '2026-03-01' })
+    const family = [root, second, third]
+
+    // 3500 total, 1050 + 1200 already billed before the 3rd invoice -> 1250 owed coming in.
+    const schedule = computeInvoiceBalanceSchedule(third, family, 3500)
+    expect(schedule).toEqual({ totalCost: 3500, previousBalance: 1250, thisAmount: 1250, newBalance: 0 })
+  })
+
+  it('a fully-settled final invoice lands on exactly 0', () => {
+    const root = makeInvoice({ amount: 2000, created_at: '2026-01-01' })
+    const final = makeInvoice({ amount: 1500, parent_invoice_id: root.id, created_at: '2026-02-01' })
+    const schedule = computeInvoiceBalanceSchedule(final, [root, final], 3500)
+    expect(schedule).toEqual({ totalCost: 3500, previousBalance: 1500, thisAmount: 1500, newBalance: 0 })
+  })
+
+  it('clamps an overpayment to 0 rather than a negative "balance"', () => {
+    const root = makeInvoice({ amount: 2000, created_at: '2026-01-01' })
+    const final = makeInvoice({ amount: 1600, parent_invoice_id: root.id, created_at: '2026-02-01' })
+    const schedule = computeInvoiceBalanceSchedule(final, [root, final], 3500)
+    expect(schedule!.newBalance).toBe(0)
   })
 })

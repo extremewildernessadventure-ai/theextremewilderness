@@ -2,7 +2,8 @@ import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession, ADMIN_SESSION_COOKIE } from '@/lib/adminAuth'
 import { getDb, type Invoice } from '@/lib/db'
-import { markInvoiceSent, buildPaymentSummary } from '@/lib/invoices'
+import { markInvoiceSent, buildPaymentSummary, getInvoiceFamily, computeInvoiceBalanceSchedule } from '@/lib/invoices'
+import { computeDepartureTotalCost, type Departure } from '@/lib/departures'
 import { renderPageToPdf } from '@/lib/browser'
 import { getDocsBucket, invoiceKey } from '@/lib/r2'
 import { buildBrandedEmailHtml } from '@/lib/email'
@@ -57,7 +58,12 @@ export async function POST(req: NextRequest, { params }: Params) {
     console.error('Invoice R2 storage failed:', err)
   }
 
-  const paymentSummary = buildPaymentSummary(invoice)
+  const family = await getInvoiceFamily(db, invoice.id)
+  const departure = invoice.departure_id
+    ? await db.prepare('SELECT * FROM departures WHERE id = ?').bind(invoice.departure_id).first<Departure>()
+    : null
+  const schedule = computeInvoiceBalanceSchedule(invoice, family, departure ? computeDepartureTotalCost(departure) : null)
+  const paymentSummary = buildPaymentSummary(invoice, schedule, invoice.parent_invoice_id != null)
   const base64Pdf = Buffer.from(pdf).toString('base64')
   const resend = new Resend(process.env.RESEND_API_KEY)
   const { error } = await resend.emails.send({

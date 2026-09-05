@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { CheckCircle2 } from 'lucide-react'
 import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
 import { BANK_DETAILS } from '@/lib/bankDetails'
-import { PAYMENT_METHOD_LABELS, computeImpliedTotal } from '@/lib/invoices'
+import { PAYMENT_METHOD_LABELS, getInvoiceFamily, computeInvoiceBalanceSchedule } from '@/lib/invoices'
+import { computeDepartureTotalCost, type Departure } from '@/lib/departures'
 import {
   printCssFullBleed, sanitizeForPdf,
   PdfDarkPage, PdfDarkHeader, PdfDarkLabel, PdfDarkDivider, PdfDarkTag, PdfDarkFooter,
@@ -42,14 +43,19 @@ export default async function InvoicePdfPage({ params }: Props) {
 
   if (!invoice) notFound()
 
-  const [{ results: items }, latestOrder, latestPayment] = await Promise.all([
+  const [{ results: items }, latestOrder, latestPayment, family] = await Promise.all([
     db.prepare('SELECT * FROM invoice_items WHERE invoice_id = ? ORDER BY sort_order').bind(id).all<InvoiceItem>(),
     db.prepare('SELECT * FROM invoice_pesapal_orders WHERE invoice_id = ? ORDER BY created_at DESC LIMIT 1').bind(id).first<InvoicePesapalOrder>(),
     db.prepare('SELECT * FROM invoice_payments WHERE invoice_id = ? ORDER BY confirmed_at DESC LIMIT 1').bind(id).first<InvoicePayment>(),
+    getInvoiceFamily(db, invoice.id),
   ])
+  const departure = invoice.departure_id
+    ? await db.prepare('SELECT * FROM departures WHERE id = ?').bind(invoice.departure_id).first<Departure>()
+    : null
+  const schedule = computeInvoiceBalanceSchedule(invoice, family, departure ? computeDepartureTotalCost(departure) : null)
+  const isRootInvoice = invoice.parent_invoice_id == null
   const balanceDue = Math.max(0, invoice.amount - invoice.amount_paid)
   const clientName = sanitizeForPdf(invoice.client_name)
-  const impliedTotal = computeImpliedTotal(invoice)
   const formatDate = (d: string) => new Date(d).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })
 
   return (
@@ -94,9 +100,10 @@ export default async function InvoicePdfPage({ params }: Props) {
                   Due <strong>{formatDate(invoice.due_date)}</strong>
                 </div>
               )}
-              {impliedTotal != null && (
+              {schedule != null && (
                 <div style={{ fontSize: 12, color: '#9fb0a4', marginTop: 4 }}>
-                  Deposit — {invoice.deposit_percent}% of a {invoice.currency} {impliedTotal.toLocaleString()} total
+                  <div>{isRootInvoice ? 'Total Cost' : 'Previous Balance'}: {invoice.currency} {(isRootInvoice ? schedule.totalCost : schedule.previousBalance).toLocaleString()}</div>
+                  <div>{isRootInvoice ? 'Balance' : 'New Balance'}: {invoice.currency} {schedule.newBalance.toLocaleString()}</div>
                 </div>
               )}
             </div>
