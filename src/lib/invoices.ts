@@ -85,6 +85,40 @@ export function computeInstallments(
   }
 }
 
+// Builds the "what's owed" sentence for the invoice-send email -- adapts
+// across a deposit-split invoice's whole lifecycle instead of always
+// re-describing the full schedule from scratch. "Send Invoice" becomes
+// "Resend Invoice" after the first send and is meant to be clicked again
+// once the balance comes due; without this, a resend after the deposit had
+// already cleared would re-announce it as if still pending, which reads as
+// wrong/confusing to a client who already paid it (the attached PDF itself
+// was already accurate here -- this is purely the email body text).
+export function buildPaymentSummary(invoice: Pick<Invoice, 'currency' | 'amount' | 'amount_paid' | 'deposit_percent' | 'due_date' | 'balance_due_date'>): string {
+  const installments = computeInstallments(invoice)
+
+  if (!installments) {
+    const balanceDue = round2(Math.max(0, invoice.amount - invoice.amount_paid))
+    return `(${invoice.currency} ${balanceDue.toLocaleString()} ${invoice.amount_paid > 0 ? 'balance due' : 'due'}). Payment instructions are on the invoice.`
+  }
+
+  const { deposit, balance } = installments
+
+  if (deposit.status === 'paid' && balance.status === 'paid') {
+    return 'This invoice has been paid in full — thank you! A receipt is on the attached invoice.'
+  }
+
+  if (deposit.status === 'paid') {
+    const balanceRemaining = round2(balance.amount - balance.paid)
+    return `Thank you — your deposit of ${invoice.currency} ${deposit.amount.toLocaleString()} has been received. `
+      + `Your remaining balance of ${invoice.currency} ${balanceRemaining.toLocaleString()}`
+      + `${balance.dueDate ? ` is due ${balance.dueDate}` : ' is now due'}. Payment instructions are on the invoice.`
+  }
+
+  return `This invoice is split into a deposit of ${invoice.currency} ${deposit.amount.toLocaleString()}`
+    + `${deposit.dueDate ? ` (due ${deposit.dueDate})` : ''} and a balance of ${invoice.currency} ${balance.amount.toLocaleString()}`
+    + `${balance.dueDate ? ` (due ${balance.dueDate})` : ''}. Full schedule and payment instructions are on the invoice.`
+}
+
 // Shared by both POST /api/admin/invoices and PATCH /api/admin/invoices/[id]
 // so a deposit split can never be created half-configured by either path.
 // depositPercent undefined/null means "no split" and is always valid; a

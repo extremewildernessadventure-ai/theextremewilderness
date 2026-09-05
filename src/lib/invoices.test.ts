@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { deriveStatus, round2, validateItems, computeInstallments } from './invoices'
+import { deriveStatus, round2, validateItems, computeInstallments, buildPaymentSummary } from './invoices'
 
 describe('deriveStatus', () => {
   it('is unpaid at zero paid', () => {
@@ -125,5 +125,50 @@ describe('computeInstallments', () => {
     expect(result.deposit.status).toBe('paid')
     expect(result.balance.paid).toBe(0)
     expect(result.balance.status).toBe('unpaid')
+  })
+})
+
+describe('buildPaymentSummary', () => {
+  it('describes a plain (un-split) invoice as "due" when nothing has been paid', () => {
+    const summary = buildPaymentSummary({ currency: 'USD', amount: 1000, amount_paid: 0, deposit_percent: null, due_date: null, balance_due_date: null })
+    expect(summary).toContain('due')
+    expect(summary).not.toContain('balance due')
+  })
+
+  it('describes a plain (un-split) invoice as "balance due" once something has been paid', () => {
+    const summary = buildPaymentSummary({ currency: 'USD', amount: 1000, amount_paid: 400, deposit_percent: null, due_date: null, balance_due_date: null })
+    expect(summary).toContain('balance due')
+  })
+
+  // The actual bug being fixed: resending after the deposit has cleared
+  // must not re-announce it as if still pending -- only the attached PDF
+  // was accurate before this fix, the email body text always described the
+  // full schedule from scratch regardless of what had already been paid.
+  it('describes the full deposit+balance schedule when neither leg is paid yet (first send)', () => {
+    const summary = buildPaymentSummary({ currency: 'USD', amount: 5000, amount_paid: 0, deposit_percent: 30, due_date: '2026-01-01', balance_due_date: '2026-03-01' })
+    expect(summary).toContain('deposit of USD 1,500')
+    expect(summary).toContain('due 2026-01-01')
+    expect(summary).toContain('balance of USD 3,500')
+    expect(summary).toContain('due 2026-03-01')
+  })
+
+  it('thanks the client for the deposit and states only the remaining balance once the deposit has cleared', () => {
+    const summary = buildPaymentSummary({ currency: 'USD', amount: 5000, amount_paid: 1500, deposit_percent: 30, due_date: '2026-01-01', balance_due_date: '2026-03-01' })
+    expect(summary).toContain('deposit of USD 1,500 has been received')
+    expect(summary).toContain('remaining balance of USD 3,500')
+    expect(summary).toContain('due 2026-03-01')
+    // must NOT re-describe the deposit as still owed/pending
+    expect(summary).not.toContain('is split into')
+  })
+
+  it('accounts for a partial balance payment when stating the remaining amount', () => {
+    const summary = buildPaymentSummary({ currency: 'USD', amount: 5000, amount_paid: 2000, deposit_percent: 30, due_date: '2026-01-01', balance_due_date: '2026-03-01' })
+    // deposit (1500) fully covered, 500 of the 3500 balance also paid -> 3000 remaining
+    expect(summary).toContain('remaining balance of USD 3,000')
+  })
+
+  it('announces paid-in-full once both legs are fully covered', () => {
+    const summary = buildPaymentSummary({ currency: 'USD', amount: 5000, amount_paid: 5000, deposit_percent: 30, due_date: '2026-01-01', balance_due_date: '2026-03-01' })
+    expect(summary).toContain('paid in full')
   })
 })
