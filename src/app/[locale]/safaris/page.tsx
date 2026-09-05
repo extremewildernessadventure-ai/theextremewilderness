@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
+import NextLink from 'next/link'
 import { ArrowRight, Compass } from 'lucide-react'
 import { getPackages } from '@/data/packages.i18n'
 import { getDestinations } from '@/data/destinations.i18n'
@@ -327,6 +328,19 @@ export default async function SafarisPage({ params, searchParams }: Props) {
                 </Link>
               )
             })}
+          </div>
+
+          {/* Low-key partner entry point (Stage D) -- deliberately subdued
+              relative to the two customer-facing CTAs above: today every
+              package is EWA's own (no real multi-tenant/operator auth
+              exists yet), so this is the door for a future partner
+              onboarding flow, not something that should compete for a
+              tourist's attention. next/link's Link (not the i18n-aware one
+              imported above), since /admin isn't a locale-prefixed route. */}
+          <div className="mt-4 text-end">
+            <NextLink href="/admin/login?redirect=%2Fadmin%2Fpackages%2Fnew" className="text-xs text-text-muted hover:text-brand underline underline-offset-2">
+              {t('postItineraryLink')}
+            </NextLink>
           </div>
         </div>
       </section>
