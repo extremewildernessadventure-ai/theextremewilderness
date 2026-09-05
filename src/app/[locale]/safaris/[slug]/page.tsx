@@ -12,6 +12,7 @@ import AmenityStay from '@/components/safaris/AmenityStay'
 import RelatedSafaris from '@/components/safaris/RelatedSafaris'
 import { packages } from '@/data/packages'
 import { getPackage, getPackages } from '@/data/packages.i18n'
+import { PACKAGE_REVIEWS } from '@/data/packageReviews'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import { routing } from '@/i18n/routing'
@@ -476,17 +477,6 @@ const SAFARI_BLOG_MAP: Record<string, string> = {
   'rwanda-primates-zanzibar-seniors-groups': 'gorilla-trekking-rwanda',
 }
 const DEFAULT_BLOG_SLUG = 'tanzania-safari-cost'
-
-// Real, verified guest reviews (also displayed in the homepage Testimonials
-// carousel) mapped to the specific package their itinerary matches — only
-// wired up where the reviewer's stated duration and destinations line up
-// with a real package, so the schema and on-page quote stay accurate.
-const PACKAGE_REVIEWS: Record<string, { key: 0 | 1 | 7 | 10; name: string; countryKey: 'countryUS' | 'countryUK' | 'countryFR'; rating: number }> = {
-  '10-day-northern-circuit':         { key: 0,  name: 'James Kowalski',              countryKey: 'countryUS', rating: 5 },
-  '5-day-serengeti-fly-in':          { key: 1,  name: 'Erick Edwin',                 countryKey: 'countryUS', rating: 5 },
-  '7-day-serengeti-ngorongoro':      { key: 7,  name: 'Sarah & Michael Thompson',    countryKey: 'countryUK', rating: 5 },
-  '9-day-honeymoon-safari-zanzibar': { key: 10, name: 'Marie & François Dupont',     countryKey: 'countryFR', rating: 5 },
-}
 
 interface Props {
   params: Promise<{ locale: string; slug: string }>
