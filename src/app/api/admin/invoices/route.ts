@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
-import { replaceInvoiceItems, validateItems, type InvoiceItemInput } from '@/lib/invoices'
+import { replaceInvoiceItems, validateItems, validateDepositSplit, type InvoiceItemInput } from '@/lib/invoices'
 import { resolveClientId } from '@/lib/clients'
 
 export const dynamic = 'force-dynamic'
@@ -37,6 +37,7 @@ export async function POST(req: NextRequest) {
     clientId?: number; clientName?: string; clientEmail?: string; bookingReference?: string
     currency?: string; departureId?: number; departureNotesOther?: string
     dueDate?: string; notes?: string; items?: InvoiceItemInput[]
+    depositPercent?: number; balanceDueDate?: string
   }
   if (!body.clientName) {
     return NextResponse.json({ error: 'clientName is required' }, { status: 400 })
@@ -45,6 +46,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'At least one valid line item (description, quantity > 0, unitPrice >= 0) is required' }, { status: 400 })
   }
   const items = body.items
+
+  const depositError = validateDepositSplit(body.depositPercent, body.balanceDueDate, body.dueDate)
+  if (depositError) {
+    return NextResponse.json({ error: depositError }, { status: 400 })
+  }
 
   const db = await getDb()
   // Resolved once, outside the retry loop below — resolveClientId isn't
@@ -69,8 +75,8 @@ export async function POST(req: NextRequest) {
       // amount starts at 0 (the column is NOT NULL) — replaceInvoiceItems
       // below sets the real, derived total from the line items.
       const result = await db.prepare(
-        `INSERT INTO invoices (invoice_number, client_id, client_name, client_email, booking_reference, amount, currency, departure_id, departure_notes_other, due_date, notes)
-         VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?)`
+        `INSERT INTO invoices (invoice_number, client_id, client_name, client_email, booking_reference, amount, currency, departure_id, departure_notes_other, due_date, deposit_percent, balance_due_date, notes)
+         VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?)`
       ).bind(
         invoiceNumber,
         clientId,
@@ -81,6 +87,8 @@ export async function POST(req: NextRequest) {
         body.departureId ?? null,
         body.departureId ? null : (body.departureNotesOther || null),
         body.dueDate ?? null,
+        body.depositPercent ?? null,
+        body.balanceDueDate ?? null,
         body.notes ?? null,
       ).run()
 

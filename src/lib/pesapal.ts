@@ -4,6 +4,17 @@
 // confirmed against a live call yet — each is marked with a FLAG comment.
 // Verify against a real sandbox/production response before trusting this
 // blind, especially in getTransactionStatus (the payment-confirmation path).
+//
+// IMPORTANT — a real gap that already bit us once: PESAPAL_CONSUMER_KEY/
+// PESAPAL_CONSUMER_SECRET/PESAPAL_IPN_ID/PESAPAL_BASE_URL are all read
+// lazily (inside function bodies here, never at module scope), so a missing
+// one NEVER fails `next build` the way e.g. RESEND_API_KEY would (that
+// client is constructed at module scope elsewhere) — there's no CI signal
+// forcing anyone to notice. Setting these in .dev.vars only ever affects
+// local dev; the deployed Cloudflare Worker needs each one separately
+// provisioned with `wrangler secret put <NAME>` (or via the Cloudflare
+// dashboard) — check `wrangler secret list` against .dev.vars.example
+// after touching anything here.
 
 const PESAPAL_BASE_URL = process.env.PESAPAL_BASE_URL || 'https://pay.pesapal.com/v3'
 

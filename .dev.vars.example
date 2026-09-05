@@ -1,0 +1,53 @@
+# Copy this file to .dev.vars and fill in real values for local dev
+# (`next dev`/`wrangler dev`). .dev.vars is gitignored -- never commit real
+# secrets. This file documents every var the app reads; keep it in sync
+# whenever a new one is added.
+#
+# IMPORTANT: these are LOCAL-only. Setting a value here does nothing for
+# the deployed production Worker -- that has its own, separate secret
+# store, provisioned with `wrangler secret put <NAME>` (or via the
+# Cloudflare dashboard), independent of anything in this repo. A var
+# read lazily (inside a function body, not at module scope) can be present
+# locally, work fine in `next dev`, and still be silently missing in
+# production with zero build-time warning -- this exact gap is what caused
+# the Pesapal "credentials are not configured" bug (see src/lib/pesapal.ts's
+# own comment). Check `wrangler secret list` against this file's keys after
+# adding anything here to make sure production actually has it too.
+
+NEXTJS_ENV=development
+
+# Resend (transactional email)
+RESEND_API_KEY=
+RESEND_AUDIENCE_ID=
+
+# AI providers (used by various content/chat features)
+GROQ_API_KEY=
+CEREBRAS_API_KEY=
+GEMINI_API_KEY=
+
+# Pexels (stock photo search, admin content tools)
+PEXELS_API_KEY=
+
+# Admin dashboard login password
+ADMIN_PASSWORD=
+
+# Shared secret for authenticating cron-triggered API routes
+CRON_SECRET=
+
+# Gmail OAuth (admin inbox sync)
+GMAIL_CLIENT_ID=
+GMAIL_CLIENT_SECRET=
+
+# Pesapal (payment link generation + IPN webhook) -- see
+# https://developer.pesapal.com for how to obtain these from your Pesapal
+# merchant account. PESAPAL_BASE_URL defaults to the live production API
+# (https://pay.pesapal.com/v3) if left unset; use
+# https://cybqa.pesapal.com/pesapalv3 for Pesapal's sandbox/demo
+# environment instead. PESAPAL_IPN_ID is not just any string -- it's
+# obtained by registering your IPN callback URL in the Pesapal merchant
+# dashboard first (this project has no code that does that registration
+# automatically; it's a manual one-time setup step per Pesapal account).
+PESAPAL_CONSUMER_KEY=
+PESAPAL_CONSUMER_SECRET=
+PESAPAL_BASE_URL=
+PESAPAL_IPN_ID=

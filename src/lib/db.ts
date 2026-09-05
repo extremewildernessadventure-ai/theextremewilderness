@@ -36,6 +36,13 @@ export interface Invoice {
   departure_notes_other: string | null
   status: 'unpaid' | 'partial' | 'paid' | 'cancelled'
   due_date: string | null
+  // Deposit/balance percentage split -- both NULL means "no split" (today's
+  // exact single-due-date behavior). When deposit_percent is set, due_date
+  // above is reinterpreted as the deposit's due date and balance_due_date
+  // is the remainder's. See computeInstallments() in src/lib/invoices.ts
+  // for how the dollar amounts are derived (never stored) from these.
+  deposit_percent: number | null
+  balance_due_date: string | null
   notes: string | null
   sent_at: string | null
   sent_r2_key: string | null

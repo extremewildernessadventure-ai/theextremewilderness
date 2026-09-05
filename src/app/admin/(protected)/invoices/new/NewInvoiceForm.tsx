@@ -47,6 +47,8 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
     currency: searchParams.get('currency') || 'USD',
     departureId: '',
     dueDate: '',
+    depositPercent: '',
+    balanceDueDate: '',
     notes: '',
   })
   const [departureNotesOther, setDepartureNotesOther] = useState('')
@@ -90,6 +92,14 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
   }
 
   const total = items.reduce((sum, row) => sum + lineTotal(row), 0)
+  // Client-side preview only, mirroring computeInstallments()'s rounding —
+  // the server independently validates + persists depositPercent, this is
+  // just so the admin sees real dollar figures before submitting.
+  const depositPercentNum = parseInt(form.depositPercent, 10)
+  const hasDepositSplit = form.depositPercent.trim() !== '' && Number.isFinite(depositPercentNum) && depositPercentNum > 0
+  const round2 = (n: number) => Math.round(n * 100) / 100
+  const depositAmount = hasDepositSplit ? round2((total * depositPercentNum) / 100) : 0
+  const balanceAmount = hasDepositSplit ? round2(total - depositAmount) : 0
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -114,6 +124,23 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
       setLoading(false)
       return
     }
+    if (hasDepositSplit) {
+      if (depositPercentNum < 1 || depositPercentNum > 99) {
+        setError('Deposit % must be between 1 and 99.')
+        setLoading(false)
+        return
+      }
+      if (!form.dueDate) {
+        setError('A deposit due date is required when using a deposit split.')
+        setLoading(false)
+        return
+      }
+      if (!form.balanceDueDate) {
+        setError('A balance due date is required when using a deposit split.')
+        setLoading(false)
+        return
+      }
+    }
 
     try {
       const isCustomDeparture = form.departureId === CUSTOM_OPTION_VALUE
@@ -125,6 +152,8 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
           clientId: form.clientId ? Number(form.clientId) : undefined,
           departureId: isCustomDeparture || !form.departureId ? undefined : Number(form.departureId),
           departureNotesOther: isCustomDeparture ? departureNotesOther.trim() : undefined,
+          depositPercent: hasDepositSplit ? depositPercentNum : undefined,
+          balanceDueDate: hasDepositSplit ? form.balanceDueDate : undefined,
           items: parsedItems,
         }),
       })
@@ -244,9 +273,56 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
         </div>
 
         <div>
-          <label className={labelCls}>Due Date</label>
+          <label className={labelCls}>{hasDepositSplit ? 'Deposit Due Date' : 'Due Date'}</label>
           <input type="date" value={form.dueDate} onChange={(e) => update('dueDate', e.target.value)} className={inputCls} />
         </div>
+
+        <div className="pt-2 border-t border-gray-100">
+          <label className={labelCls}>Deposit % (optional)</label>
+          <p className="text-[11px] text-gray-400 mb-1.5 -mt-0.5">
+            Leave blank to invoice the full amount on one due date, as today. Set a percentage to split into a deposit due now and a balance due later.
+          </p>
+          <div className="flex items-center gap-2">
+            <input
+              type="number" min="1" max="99" step="1" value={form.depositPercent}
+              onChange={(e) => update('depositPercent', e.target.value)}
+              className={inputCls} style={{ maxWidth: 100 }} placeholder="e.g. 30"
+            />
+            <span className="text-sm text-gray-400">%</span>
+            <div className="flex gap-1.5 ms-2">
+              {[25, 30, 50].map((preset) => (
+                <button
+                  key={preset}
+                  type="button"
+                  onClick={() => update('depositPercent', String(preset))}
+                  className="px-2.5 py-1 text-xs font-semibold rounded-md border border-gray-200 text-gray-600 hover:border-brand hover:text-brand"
+                >
+                  {preset}%
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {hasDepositSplit && (
+            <div className="mt-3 space-y-3">
+              <div>
+                <label className={labelCls}>Balance Due Date</label>
+                <input type="date" value={form.balanceDueDate} onChange={(e) => update('balanceDueDate', e.target.value)} className={inputCls} />
+              </div>
+              <div className="rounded-lg px-4 py-3 text-sm space-y-1" style={{ background: 'var(--green-bg)' }}>
+                <div className="flex justify-between">
+                  <span style={{ color: 'var(--pine)' }}>Deposit ({depositPercentNum}%){form.dueDate ? ` — due ${form.dueDate}` : ''}</span>
+                  <span className="font-semibold mono">{form.currency} {depositAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span style={{ color: 'var(--pine)' }}>Balance{form.balanceDueDate ? ` — due ${form.balanceDueDate}` : ''}</span>
+                  <span className="font-semibold mono">{form.currency} {balanceAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
         <div>
           <label className={labelCls}>Internal Notes</label>
           <textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} className={inputCls} rows={3} />
