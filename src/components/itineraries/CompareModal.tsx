@@ -7,14 +7,14 @@ import type { BrowsableSafari, TierKey } from '@/lib/safariBrowse'
 
 export interface CompareModalLabels {
   eyebrow: string
-  title: string // "Comparing {n} Safari Expeditions"
+  title: string // "Comparing [n] Safari Expeditions"
   viewFullDetails: string
   rowItinerary: string
   rowPrice: string
   rowPriceSuffix: string
   rowTier: string
   rowDuration: string
-  rowDurationValue: string // "{d} Days / {n} Nights"
+  rowDurationValue: string // "[d] Days / [n] Nights"
   rowDestination: string
   rowParks: string
   rowActivity: string
@@ -44,7 +44,7 @@ export default function CompareModal({ isOpen, onClose, safaris, onPlan, labels 
         <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-gray-100">
           <div>
             <span className="text-[11px] font-semibold uppercase tracking-wider text-gold-label">{labels.eyebrow}</span>
-            <h3 className="text-xl sm:text-2xl font-semibold text-brand">{labels.title.replace('{n}', String(safaris.length))}</h3>
+            <h3 className="text-xl sm:text-2xl font-semibold text-brand">{labels.title.replace('[n]', String(safaris.length))}</h3>
           </div>
           <button type="button" onClick={onClose} aria-label={labels.viewFullDetails} className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
             <X className="w-4 h-4 text-brand" />
@@ -98,7 +98,7 @@ export default function CompareModal({ isOpen, onClose, safaris, onPlan, labels 
                 <td className="py-3 pe-3 font-semibold text-brand align-top">{labels.rowDuration}</td>
                 {safaris.map((s) => (
                   <td key={s.slug} className="py-3 px-3 align-top text-text-muted">
-                    {labels.rowDurationValue.replace('{d}', String(s.duration)).replace('{n}', String(s.duration - 1))}
+                    {labels.rowDurationValue.replace('[d]', String(s.duration)).replace('[n]', String(s.duration - 1))}
                   </td>
                 ))}
               </tr>

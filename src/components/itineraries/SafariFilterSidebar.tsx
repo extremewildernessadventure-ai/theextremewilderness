@@ -9,7 +9,7 @@ export interface FilterSidebarLabels {
   title: string
   resetAll: string
   durationLabel: string
-  durationReadout: string // "{min} – {max} Days" -- {min}/{max} interpolated by caller
+  durationReadout: string // "[min] – [max] Days" -- [min]/[max] interpolated by caller
   durationPreset1: string // "3–5 days" equivalent, real copy supplied by caller per locale
   durationPreset2: string
   durationPreset3: string
@@ -33,7 +33,7 @@ export interface FilterSidebarLabels {
   otherDesc: string
   partnerFootnote: string
   priceLabel: string
-  priceReadout: string // "Up to ${max}" -- caller interpolates the number
+  priceReadout: string // "Up to $[max]" -- caller interpolates the number
   pricePresetUnder1: string
   pricePresetUnder2: string
   pricePresetAll: string
@@ -44,12 +44,12 @@ export interface FilterSidebarLabels {
   activityLabel: string
   activityValue: Record<string, string> // ActivityType -> translated label
   parkLabel: string
-  clearParks: string // "Clear parks ({n})" -- caller interpolates {n}
+  clearParks: string // "Clear parks ([n])" -- caller interpolates [n]
   mobileTitle: string
   mobileMatchOne: string
-  mobileMatchMany: string // "{n} safaris match" -- caller interpolates
+  mobileMatchMany: string // "[n] safaris match" -- caller interpolates
   mobileReset: string
-  mobileApply: string // "View {n} Safaris" -- caller interpolates
+  mobileApply: string // "View [n] Safaris" -- caller interpolates
   countryName: Record<string, string> // 'tanzania'|'kenya'|'rwanda' -> translated label
   monthName: Record<string, string> // 'Jan'..'Dec' -> translated abbreviation
 }
@@ -104,7 +104,7 @@ export default function SafariFilterSidebar({
           <Clock className="w-3.5 h-3.5" />{labels.durationLabel}
         </p>
         <p className="text-sm font-semibold text-brand mb-3">
-          {labels.durationReadout.replace('{min}', String(filters.minDuration)).replace('{max}', String(filters.maxDuration))}
+          {labels.durationReadout.replace('[min]', String(filters.minDuration)).replace('[max]', String(filters.maxDuration))}
         </p>
         <div className="flex flex-wrap gap-2">
           {durationPresets.map(([label, min, max]) => {
@@ -223,7 +223,7 @@ export default function SafariFilterSidebar({
         <p className="flex items-center gap-2 text-[10px] font-black text-gold-label uppercase tracking-[0.15em] mb-3">
           <DollarSign className="w-3.5 h-3.5" />{labels.priceLabel}
         </p>
-        <p className="text-sm font-semibold text-brand mb-3">{labels.priceReadout.replace('{max}', filters.maxPrice.toLocaleString('en-US'))}</p>
+        <p className="text-sm font-semibold text-brand mb-3">{labels.priceReadout.replace('[max]', filters.maxPrice.toLocaleString('en-US'))}</p>
         <input
           type="range"
           min={0}
@@ -339,7 +339,7 @@ export default function SafariFilterSidebar({
             </p>
             {filters.parks.length > 0 && (
               <button type="button" onClick={() => onFilterChange({ ...filters, parks: [] })} className="text-[11px] text-gold-label font-semibold">
-                {labels.clearParks.replace('{n}', String(filters.parks.length))}
+                {labels.clearParks.replace('[n]', String(filters.parks.length))}
               </button>
             )}
           </div>
@@ -381,7 +381,7 @@ export default function SafariFilterSidebar({
               <div>
                 <h3 className="font-semibold text-brand text-lg">{labels.mobileTitle}</h3>
                 <p className="text-xs text-text-muted">
-                  {totalMatches === 1 ? labels.mobileMatchOne : labels.mobileMatchMany.replace('{n}', String(totalMatches))}
+                  {totalMatches === 1 ? labels.mobileMatchOne : labels.mobileMatchMany.replace('[n]', String(totalMatches))}
                 </p>
               </div>
               <button type="button" onClick={onCloseMobile} aria-label={labels.mobileReset} className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
@@ -394,7 +394,7 @@ export default function SafariFilterSidebar({
                 {labels.mobileReset}
               </button>
               <button type="button" onClick={onCloseMobile} className="flex-[2] py-3 rounded-xl bg-brand text-white text-sm font-semibold">
-                {labels.mobileApply.replace('{n}', String(totalMatches))}
+                {labels.mobileApply.replace('[n]', String(totalMatches))}
               </button>
             </div>
           </div>

@@ -6,7 +6,7 @@ import type { BrowsableSafari } from '@/lib/safariBrowse'
 
 export interface CompareBarLabels {
   header: string
-  counter: string // "{n} of 3 selected"
+  counter: string // "[n] of 3 selected"
   clear: string
   compareTable: string
   selectTwo: string
@@ -30,7 +30,7 @@ export default function CompareBar({ comparedSafaris, onRemoveCompare, onClearCo
         <div className="flex items-center gap-2 text-white shrink-0">
           <Columns3 className="w-4 h-4 text-gold" />
           <span className="text-sm font-semibold">{labels.header}</span>
-          <span className="text-xs text-white/60">{labels.counter.replace('{n}', String(comparedSafaris.length))}</span>
+          <span className="text-xs text-white/60">{labels.counter.replace('[n]', String(comparedSafaris.length))}</span>
         </div>
 
         <div className="flex items-center gap-2 flex-1 overflow-x-auto">

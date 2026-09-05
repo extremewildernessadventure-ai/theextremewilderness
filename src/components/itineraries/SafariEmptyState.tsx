@@ -8,13 +8,13 @@ export interface EmptyStateLabels {
   eyebrow: string
   heading: string
   body: string
-  diagnosisHeader: string // "Most Restrictive Filter: {label}"
-  diagnosisBody: string // "{message} Relaxing this single setting will immediately reveal {n} {safari|safaris}."
+  diagnosisHeader: string // "Most Restrictive Filter: [label]"
+  diagnosisBody: string // "Relaxing this single setting will immediately reveal [n] [matchWord]." -- [matchWord] filled by the caller with matchOne/matchMany below
   fieldName: Record<string, string> // safariBrowse field name -> human label, e.g. 'tiers' -> 'Accommodation Tier'
-  relaxCta: string // "Relax {label}"
+  relaxCta: string // "Relax [label]"
   resetAll: string
   matchOne: string
-  matchMany: string // "{n} safaris"
+  matchMany: string // "[n] safaris"
 }
 
 interface Props {
@@ -45,19 +45,19 @@ export default function SafariEmptyState({ allSafaris, currentFilters, onFilterC
         <div className="max-w-md mx-auto mb-8 p-5 rounded-xl bg-light-green/50 border border-brand/10 text-start">
           <p className="flex items-center gap-2 text-sm font-semibold text-brand mb-1.5">
             <Sparkles className="w-4 h-4 text-gold-label shrink-0" />
-            {labels.diagnosisHeader.replace('{label}', labels.fieldName[diagnosis.field] ?? diagnosis.field)}
+            {labels.diagnosisHeader.replace('[label]', labels.fieldName[diagnosis.field] ?? diagnosis.field)}
           </p>
           <p className="text-xs text-text-muted leading-relaxed mb-3">
             {labels.diagnosisBody
-              .replace('{n}', String(diagnosis.matchCount))
-              .replace('{safari|safaris}', diagnosis.matchCount === 1 ? labels.matchOne : labels.matchMany.replace('{n}', String(diagnosis.matchCount)))}
+              .replace('[n]', String(diagnosis.matchCount))
+              .replace('[matchWord]', diagnosis.matchCount === 1 ? labels.matchOne : labels.matchMany.replace('[n]', String(diagnosis.matchCount)))}
           </p>
           <button
             type="button"
             onClick={() => onFilterChange(diagnosis.relax(currentFilters))}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:text-gold-label transition-colors"
           >
-            {labels.relaxCta.replace('{label}', labels.fieldName[diagnosis.field] ?? diagnosis.field)}
+            {labels.relaxCta.replace('[label]', labels.fieldName[diagnosis.field] ?? diagnosis.field)}
             <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
           </button>
         </div>

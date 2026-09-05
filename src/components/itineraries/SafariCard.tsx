@@ -32,7 +32,7 @@ export interface SafariCardLabels {
   badgeSignature: string
   operatorDirect: string
   operatorPartner: string
-  reviewedLabel: string // "{rating} · Verified guest review" -- {rating} interpolated by caller
+  reviewedLabel: string // "[rating] · Verified guest review" -- [rating] interpolated by caller
   compareLabel: string
   compareTooltip: string
   saveTooltip: string
@@ -63,7 +63,7 @@ export default function SafariCard({ safari, isCompared, onToggleCompare, labels
   let primaryBadge: { text: string; tone: 'bestseller' | 'signature' | 'reviewed' | 'new' | 'popular' } | null = null
   if (safari.badge === 'bestseller') primaryBadge = { text: labels.badgeBestseller, tone: 'bestseller' }
   else if (safari.isSignature) primaryBadge = { text: labels.badgeSignature, tone: 'signature' }
-  else if (safari.reviewRating !== undefined) primaryBadge = { text: labels.reviewedLabel.replace('{rating}', safari.reviewRating.toFixed(1)), tone: 'reviewed' }
+  else if (safari.reviewRating !== undefined) primaryBadge = { text: labels.reviewedLabel.replace('[rating]', safari.reviewRating.toFixed(1)), tone: 'reviewed' }
   else if (safari.badge === 'new') primaryBadge = { text: labels.badgeNew, tone: 'new' }
   else if (safari.badge === 'popular') primaryBadge = { text: labels.badgePopular, tone: 'popular' }
 

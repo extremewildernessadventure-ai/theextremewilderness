@@ -5,8 +5,8 @@ import type { SafariFilterState, SortOption, TierKey } from '@/lib/safariBrowse'
 
 export interface ActiveFilterChipsLabels {
   matchOne: string
-  matchMany: string // "{n} safaris match" -- caller interpolates {n}
-  showingRange: string // "(Showing {start}–{end} of {total})" -- caller interpolates
+  matchMany: string // "[n] safaris match" -- caller interpolates [n]
+  showingRange: string // "(Showing [start]–[end] of [total])" -- caller interpolates
   curationSubtitle: string
   filtersButton: string
   sortLabel: string
@@ -16,15 +16,15 @@ export interface ActiveFilterChipsLabels {
   sortDurationAsc: string
   sortDurationDesc: string
   activeCriteriaLabel: string
-  clearAll: string // "Clear all ({n})" -- caller interpolates {n}
-  chipSearch: string // 'Search: "{q}"'
-  chipTier: string // "Tier: {v}"
-  chipCountry: string // "Country: {v}"
-  chipPark: string // "Park: {v}"
-  chipActivity: string // "Experience: {v}"
-  chipMonth: string // "Best Month: {v}"
-  chipPrice: string // "Budget: Up to ${v}"
-  chipDuration: string // "Duration: {min}–{max} Days"
+  clearAll: string // "Clear all ([n])" -- caller interpolates [n]
+  chipSearch: string // 'Search: "[q]"'
+  chipTier: string // "Tier: [v]"
+  chipCountry: string // "Country: [v]"
+  chipPark: string // "Park: [v]"
+  chipActivity: string // "Experience: [v]"
+  chipMonth: string // "Best Month: [v]"
+  chipPrice: string // "Budget: Up to $[v]"
+  chipDuration: string // "Duration: [min]–[max] Days"
   chipOperatorEwa: string
   chipOperatorOther: string
   tierName: Record<TierKey, string>
@@ -62,33 +62,33 @@ export default function ActiveFilterChips({
   const chips: Chip[] = []
 
   if (filters.searchQuery.trim() !== '') {
-    chips.push({ key: 'search', text: labels.chipSearch.replace('{q}', filters.searchQuery.trim()), onRemove: () => onFilterChange({ ...filters, searchQuery: '' }) })
+    chips.push({ key: 'search', text: labels.chipSearch.replace('[q]', filters.searchQuery.trim()), onRemove: () => onFilterChange({ ...filters, searchQuery: '' }) })
   }
   filters.tiers.forEach((t) => chips.push({
-    key: `tier-${t}`, text: labels.chipTier.replace('{v}', labels.tierName[t]),
+    key: `tier-${t}`, text: labels.chipTier.replace('[v]', labels.tierName[t]),
     onRemove: () => onFilterChange({ ...filters, tiers: filters.tiers.filter((x) => x !== t) }),
   }))
   filters.countries.forEach((c) => chips.push({
-    key: `country-${c}`, text: labels.chipCountry.replace('{v}', labels.countryName[c] ?? c),
+    key: `country-${c}`, text: labels.chipCountry.replace('[v]', labels.countryName[c] ?? c),
     onRemove: () => onFilterChange({ ...filters, countries: filters.countries.filter((x) => x !== c) }),
   }))
   filters.parks.forEach((p) => chips.push({
-    key: `park-${p}`, text: labels.chipPark.replace('{v}', labels.parkName[p] ?? p),
+    key: `park-${p}`, text: labels.chipPark.replace('[v]', labels.parkName[p] ?? p),
     onRemove: () => onFilterChange({ ...filters, parks: filters.parks.filter((x) => x !== p) }),
   }))
   filters.activityTypes.forEach((a) => chips.push({
-    key: `activity-${a}`, text: labels.chipActivity.replace('{v}', labels.activityValue[a] ?? a),
+    key: `activity-${a}`, text: labels.chipActivity.replace('[v]', labels.activityValue[a] ?? a),
     onRemove: () => onFilterChange({ ...filters, activityTypes: filters.activityTypes.filter((x) => x !== a) }),
   }))
   if (filters.selectedMonth) {
-    chips.push({ key: 'month', text: labels.chipMonth.replace('{v}', labels.monthName[filters.selectedMonth] ?? filters.selectedMonth), onRemove: () => onFilterChange({ ...filters, selectedMonth: null }) })
+    chips.push({ key: 'month', text: labels.chipMonth.replace('[v]', labels.monthName[filters.selectedMonth] ?? filters.selectedMonth), onRemove: () => onFilterChange({ ...filters, selectedMonth: null }) })
   }
   if (filters.maxPrice < bounds.maxPrice) {
-    chips.push({ key: 'price', text: labels.chipPrice.replace('{v}', filters.maxPrice.toLocaleString('en-US')), onRemove: () => onFilterChange({ ...filters, maxPrice: bounds.maxPrice }) })
+    chips.push({ key: 'price', text: labels.chipPrice.replace('[v]', filters.maxPrice.toLocaleString('en-US')), onRemove: () => onFilterChange({ ...filters, maxPrice: bounds.maxPrice }) })
   }
   if (filters.minDuration > bounds.minDuration || filters.maxDuration < bounds.maxDuration) {
     chips.push({
-      key: 'duration', text: labels.chipDuration.replace('{min}', String(filters.minDuration)).replace('{max}', String(filters.maxDuration)),
+      key: 'duration', text: labels.chipDuration.replace('[min]', String(filters.minDuration)).replace('[max]', String(filters.maxDuration)),
       onRemove: () => onFilterChange({ ...filters, minDuration: bounds.minDuration, maxDuration: bounds.maxDuration }),
     })
   }
@@ -120,8 +120,8 @@ export default function ActiveFilterChips({
           </button>
           <p className="text-sm text-brand">
             <span className="font-bold">{totalMatches}</span>{' '}
-            {totalMatches === 1 ? labels.matchOne : labels.matchMany.replace('{n}', String(totalMatches))}
-            {totalMatches > 0 && <span className="text-text-muted font-normal"> {labels.showingRange.replace('{start}', String(start)).replace('{end}', String(end)).replace('{total}', String(totalMatches))}</span>}
+            {totalMatches === 1 ? labels.matchOne : labels.matchMany.replace('[n]', String(totalMatches))}
+            {totalMatches > 0 && <span className="text-text-muted font-normal"> {labels.showingRange.replace('[start]', String(start)).replace('[end]', String(end)).replace('[total]', String(totalMatches))}</span>}
           </p>
           <p className="hidden sm:block text-xs text-text-muted mt-0.5">{labels.curationSubtitle}</p>
         </div>
@@ -157,7 +157,7 @@ export default function ActiveFilterChips({
             </button>
           ))}
           <button type="button" onClick={onReset} className="inline-flex items-center gap-1 text-xs font-semibold text-gold-label">
-            <RotateCcw className="w-3 h-3" />{labels.clearAll.replace('{n}', String(chips.length))}
+            <RotateCcw className="w-3 h-3" />{labels.clearAll.replace('[n]', String(chips.length))}
           </button>
         </div>
       )}
