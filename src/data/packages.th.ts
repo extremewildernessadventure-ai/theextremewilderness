@@ -4308,7 +4308,7 @@ export const packages: SafariPackage[] = [
         description: 'ขับรถสู่โงโรงโกโรและลงสู่ปล่องภูเขาไฟเพื่อใช้เวลาเต็มวันท่ามกลางบิ๊กไฟว์ ความหนาแน่นของสัตว์ป่าภายในปล่องภูเขาไฟโบราณแห่งนี้ทำให้เป็นหนึ่งในจุดชมสัตว์ป่าที่ให้ผลลัพธ์ดีที่สุดในแอฟริกา แรดดำพบเห็นได้อย่างสม่ำเสมอที่นี่',
         accommodation: 'ลอดจ์เซเรนา โงโรงโกโร',
         meals: 'อาหารทุกมื้อ',
-        accommodationByTier: { reserve: { name: 'Ngorongoro Serena Lodge', image: '/images/lodges/ngorongoro-serena-safari-lodge.webp', amenities: ['view', 'restaurant'] } },
+        accommodationByTier: { reserve: { name: 'Kitela Lodge', image: '/images/lodges/kitela-lodge.webp', amenities: ['pool', 'view', 'garden'] } },
       },
       {
         day: 11,

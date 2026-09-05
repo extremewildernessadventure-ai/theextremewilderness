@@ -656,6 +656,11 @@ export const packages: SafariPackage[] = [
       "Die je nach Stufe angegebenen Inlandsflüge",
       "Flughafentransfers",
     ],
+    includedCategorized: {
+      transfers: ['Flughafentransfers', 'Interne(r) Flug/Flüge je nach Kategorie'],
+      accommodationMeals: ['Vollpension während der gesamten Reise', 'Unterkunft gemäß Reiseroute'],
+      guidingGameDrives: ['Alle Park- und Schutzgebietsgebühren', 'Alle aufgeführten Pirschfahrten und Aktivitäten', 'Durchgehend professioneller Guide'],
+    },
     excluded: ["Internationale Flüge nach Daressalam", "Visa", "Reiseversicherung", "Trinkgelder", "Persönliche Ausgaben"],
     notes: [
       'Preise pro Person im Doppel-/Zweibettzimmer; Einzelzimmerzuschlag auf Anfrage.',
@@ -5126,6 +5131,11 @@ export const packages: SafariPackage[] = [
       { pax: 6, trail: 5072 },
     ],
     included: ['Alle Park- und Schutzgebühren (Kenia und Tansania)', 'Alle Game Drives im privaten 4x4', 'Professioneller Guide während der gesamten Reise', 'Grenzübertrittsassistenz in Sirari (Kenia/Tansania)', 'Alle Mahlzeiten gemäß Programm', 'Unterkunft gemäß Reiseprogramm', 'Flughafen- und Zwischen-Unterkunft-Transfers'],
+    includedCategorized: {
+      transfers: ['Unterstützung beim Grenzübertritt in Sirari (Kenia/Tansania)', 'Flughafen- und Unterkunftstransfers'],
+      accommodationMeals: ['Alle Mahlzeiten wie angegeben', 'Unterkunft gemäß Reiseroute'],
+      guidingGameDrives: ['Alle Park- und Naturschutzgebühren (Kenia und Tansania)', 'Alle Pirschfahrten in einem privaten 4x4', 'Durchgehend professioneller Guide'],
+    },
     excluded: ['Internationale Flüge', 'Einreisevisa Kenia und Tansania', 'Reiseversicherung', 'Trinkgelder und Gratifikationen', 'Optionale Aktivitäten (Ballonsafari, Kulturbesuche)'],
     notes: ['Preise gelten pro Person im Doppel-/Zwillingszimmer; Einzelzimmerzuschlag auf Anfrage.', 'Guides und Fahrzeuge wechseln an der Kenya–Tansania-Grenze in Sirari; EWA koordiniert die Übergabe.', 'Unterkunft und Preise sind verfügbarkeitsabhängig und können je nach genauen Reisedaten variieren.', 'Tansanische und kenianische Parkgebühren werden von den jeweiligen Regierungen festgelegt und können sich ohne Vorankündigung ändern.', '35 % Anzahlung zur Buchungsbestätigung erforderlich; Restzahlung 60 Tage vor Abreise fällig.'],
     itinerary: [
@@ -5284,6 +5294,11 @@ export const packages: SafariPackage[] = [
     ],
     pricingTiers: [{ pax: 2, trail: 1820 }, { pax: 3, trail: 1455 }, { pax: 4, trail: 1395 }, { pax: 5, trail: 1310 }, { pax: 6, trail: 1250 }],
     included: ['Alle Park- und Schutzgebietsgebühren', 'Lake-Eyasi-Kulturerlebnis (Hadza- und Datoga-Guide)', 'Alle Game Drives im privaten 4x4', 'Professioneller Guide während der gesamten Reise', 'Alle Mahlzeiten gemäß Programm', 'Unterkunft gemäß Reiseprogramm', 'Flughafen- und Zwischen-Unterkunft-Transfers'],
+    includedCategorized: {
+      transfers: ['Flughafen- und Unterkunftstransfers'],
+      accommodationMeals: ['Alle Mahlzeiten wie angegeben', 'Unterkunft gemäß Reiseroute'],
+      guidingGameDrives: ['Alle Park- und Schutzgebietsgebühren', 'Kulturelles Erlebnis am Eyasisee (Hadzabe- und Datoga-Guide)', 'Alle Pirschfahrten in einem privaten 4x4', 'Durchgehend professioneller Guide'],
+    },
     excluded: ['Internationale Flüge', 'Tansanisches Visum (ca. 50 USD für die meisten Nationalitäten)', 'Reiseversicherung', 'Trinkgelder und Gratifikationen', 'Optionale Aktivitäten (Nashorn-Tracking, Wandersafari)'],
     notes: ['Preise gelten pro Person im Doppel-/Zwillingszimmer; Einzelzimmerzuschlag auf Anfrage.', 'Unterkunft und Preise sind verfügbarkeitsabhängig und können je nach genauen Reisedaten variieren.', 'Tansanische National-Park- und Schutzgebietsgebühren werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.', '10 % Anzahlung zur Buchungsbestätigung erforderlich; Restzahlung 28 Tage vor Abreise fällig.'],
     itinerary: [
@@ -5318,6 +5333,11 @@ export const packages: SafariPackage[] = [
     pricingTiersProvisional: true,
     pricingTiers: [{ pax: 2, trail: 1950, reserve: 2850, sovereign: 4200 }, { pax: 3, trail: 1780, reserve: 2650, sovereign: 3950 }, { pax: 4, trail: 1650, reserve: 2480, sovereign: 3750 }, { pax: 5, trail: 1580, reserve: 2380, sovereign: 3600 }, { pax: 6, trail: 1520, reserve: 2290, sovereign: 3480 }],
     included: ['Alle Park- und Schutzgebühren', 'Alle Game Drives im privaten 4x4', 'Professioneller Guide während der gesamten Reise', "Hell's Gate Rad-/Wanderaktivität", 'Alle Mahlzeiten gemäß Programm', 'Unterkunft gemäß Reiseprogramm', 'Flughafen- und Zwischen-Unterkunft-Transfers'],
+    includedCategorized: {
+      transfers: ['Flughafen- und Unterkunftstransfers'],
+      accommodationMeals: ['Alle Mahlzeiten wie angegeben', 'Unterkunft gemäß Reiseroute'],
+      guidingGameDrives: ['Alle Park- und Schutzgebietsgebühren', 'Alle Pirschfahrten in einem privaten 4x4', 'Durchgehend professioneller Guide', 'Fahrrad-/Wanderaktivität am Hell\'s Gate'],
+    },
     excluded: ['Internationale Flüge', 'Kenianisches Visum (ca. 30 USD für die meisten Nationalitäten)', 'Reiseversicherung', 'Trinkgelder und Gratifikationen', 'Optionale Aktivitäten (Heißluftballon, Maasai-Kulturbesuch)'],
     notes: ['Preise gelten pro Person im Doppel-/Zwillingszimmer; Einzelzimmerzuschlag auf Anfrage.', 'Preise sind marktgeschätzt; Lodge-Auswahl ist vorgeschlagen und vorbehaltlich Verfügbarkeitsbestätigung.', 'Unterkunft und Preise sind verfügbarkeitsabhängig und können je nach genauen Reisedaten variieren.', 'Kenianische Nationalpark-Gebühren werden von der Regierung festgelegt und können sich ohne Vorankündigung ändern.', '10 % Anzahlung zur Buchungsbestätigung erforderlich; Restzahlung 28 Tage vor Abreise fällig.'],
     itinerary: [
