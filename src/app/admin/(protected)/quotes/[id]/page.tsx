@@ -5,6 +5,7 @@ import type { Lead } from '@/lib/leads'
 import type { Client } from '@/lib/clients'
 import { computeQuoteTotalCost, type Quote } from '@/lib/quotes'
 import { packages } from '@/data/packages'
+import type { TripCatalogEntry } from '@/lib/tripCatalog'
 import DetailTwoColumn from '@/components/admin/DetailTwoColumn'
 import QuoteEditForm from './QuoteEditForm'
 import DeleteQuoteButton from './DeleteQuoteButton'
@@ -21,9 +22,18 @@ export default async function QuoteDetailPage({ params }: Props) {
 
   const lead = quote.lead_id ? await db.prepare('SELECT * FROM leads WHERE id = ?').bind(quote.lead_id).first<Lead>() : null
   const client = quote.client_id ? await db.prepare('SELECT * FROM clients WHERE id = ?').bind(quote.client_id).first<Client>() : null
+  const { results: tripCatalog } = await db.prepare(
+    'SELECT * FROM trip_catalog WHERE archived = 0 ORDER BY name ASC'
+  ).all<TripCatalogEntry>()
   const ownerName = lead?.name || lead?.email || client?.name || client?.email || ''
   const ownerEmail = lead?.email ?? client?.email ?? ''
   const pkg = packages.find((p) => p.slug === quote.package_slug)
+  // A registered Trip Catalog entry or a one-off "Custom / Bespoke Package"
+  // name is never in the static marketing `packages` array -- and since
+  // that's now the overwhelmingly common case, fall back to the raw stored
+  // name (same convention every other admin package-name display already
+  // uses) rather than a generic placeholder that would hide the real name.
+  const packageDisplayName = pkg?.name ?? quote.package_slug ?? null
   const totalCost = computeQuoteTotalCost(quote)
 
   // "Convert to Invoice" -- a plain query-string deep link into New Invoice,
@@ -38,10 +48,10 @@ export default async function QuoteDetailPage({ params }: Props) {
     clientName: ownerName,
     clientEmail: ownerEmail,
     currency: quote.currency,
-    itemDescription: pkg ? `Deposit — ${pkg.name}` : 'Safari deposit',
+    itemDescription: packageDisplayName ? `Deposit — ${packageDisplayName}` : 'Safari deposit',
     itemPrice: String(quote.price),
     quoteId: String(quote.id),
-    quoteLabel: pkg?.name ?? 'Custom Safari',
+    quoteLabel: packageDisplayName ?? 'Custom Safari',
     ...(totalCost != null ? { quoteTotalCost: String(totalCost) } : {}),
     ...(client ? { clientId: String(client.id) } : {}),
   })
@@ -50,7 +60,7 @@ export default async function QuoteDetailPage({ params }: Props) {
     <DetailTwoColumn
       backHref={lead ? `/admin/leads/${lead.id}` : client ? `/admin/clients/${client.id}` : '/admin/quotes'}
       backLabel={lead ? `Back to ${lead.name || lead.email}` : client ? `Back to ${client.name}` : 'Back to Quotes'}
-      title={pkg?.name ?? 'Quote'}
+      title={packageDisplayName ?? 'Quote'}
       subtitle={`Created ${new Date(quote.created_at).toLocaleString()}`}
       main={
         <>
@@ -63,7 +73,7 @@ export default async function QuoteDetailPage({ params }: Props) {
             )}
             <div className="flex justify-between">
               <span style={{ color: 'var(--grey)' }}>Package</span>
-              <span>{pkg?.name ?? '—'}</span>
+              <span>{packageDisplayName ?? '—'}</span>
             </div>
             <div className="flex justify-between">
               <span style={{ color: 'var(--grey)' }}>Party</span>
@@ -101,7 +111,7 @@ export default async function QuoteDetailPage({ params }: Props) {
           </div>
         </>
       }
-      sidebar={<QuoteEditForm quote={quote} />}
+      sidebar={<QuoteEditForm quote={quote} tripCatalog={tripCatalog} />}
     />
   )
 }

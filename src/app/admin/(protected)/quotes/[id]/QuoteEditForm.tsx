@@ -2,17 +2,19 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { QUOTE_STATUSES, computeQuoteTotalCost, type Quote } from '@/lib/quotes'
-import { packages } from '@/data/packages'
+import type { TripCatalogEntry } from '@/lib/tripCatalog'
 import SelectWithCustom, { CUSTOM_OPTION_VALUE } from '@/components/admin/SelectWithCustom'
 import { todayIso } from '@/lib/dates'
 
-const isKnownPackage = (slug: string) => packages.some((p) => p.slug === slug)
-
-export default function QuoteEditForm({ quote }: { quote: Quote }) {
+export default function QuoteEditForm({ quote, tripCatalog }: { quote: Quote; tripCatalog: TripCatalogEntry[] }) {
   const router = useRouter()
   const initialSlug = quote.package_slug ?? ''
-  const initialIsCustom = initialSlug !== '' && !isKnownPackage(initialSlug)
+  // A quote created before the Trip Catalog existed (or one whose entry has
+  // since been archived) won't match any current option -- treat it as
+  // "Custom" pre-filled with the raw stored name rather than losing it.
+  const initialIsCustom = initialSlug !== '' && !tripCatalog.some((p) => p.name === initialSlug)
   const [form, setForm] = useState({
     packageSlug: initialIsCustom ? CUSTOM_OPTION_VALUE : initialSlug,
     customPackageName: initialIsCustom ? initialSlug : '',
@@ -72,8 +74,8 @@ export default function QuoteEditForm({ quote }: { quote: Quote }) {
       <div>
         <label className="field-label">Package</label>
         <SelectWithCustom
-          options={packages}
-          getOptionValue={(p) => p.slug}
+          options={tripCatalog}
+          getOptionValue={(p) => p.name}
           getOptionLabel={(p) => p.name}
           value={form.packageSlug}
           onChange={(v) => update('packageSlug', v)}
@@ -84,6 +86,9 @@ export default function QuoteEditForm({ quote }: { quote: Quote }) {
           customLabel="Custom Package Name *"
           customPlaceholder="e.g. Private Family Safari — Smith Family"
         />
+        <p className="text-xs text-gray-400 mt-1">
+          Not listed? Choose &quot;Custom / Bespoke Package&quot; above, or add it to the <Link href="/admin/trip-catalog" className="text-brand hover:underline">Trip Catalog</Link> first to reuse it later.
+        </p>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
