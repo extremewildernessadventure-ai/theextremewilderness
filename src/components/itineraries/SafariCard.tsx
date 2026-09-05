@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { Clock, Users, MapPin, ArrowRight, Star, Heart, Check, Plus, Sparkles } from 'lucide-react'
+import BookNowButton from '@/components/booking/BookNowButton'
 import type { BrowsableSafari, TierKey } from '@/lib/safariBrowse'
 
 // Real tier copy/colors -- same three tiers as everywhere else on the site
@@ -36,6 +37,8 @@ export interface SafariCardLabels {
   compareTooltip: string
   saveTooltip: string
   savedTooltip: string
+  enquireLabel: string
+  packageTypeLabel: string // e.g. translated "Safari" -- passed straight through to BookNowButton
 }
 
 interface Props {
@@ -173,15 +176,25 @@ export default function SafariCard({ safari, isCompared, onToggleCompare, labels
           </span>
         </div>
 
-        <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
+        <div className="flex items-center justify-between gap-3 mt-auto pt-4 border-t border-gray-100">
           <div>
             <span className="text-text-muted text-xs">{labels.fromLabel} </span>
             <span className="text-brand font-bold text-lg">${safari.priceFrom.toLocaleString('en-US')}</span>
             <span className="text-text-muted text-xs">/pp</span>
           </div>
-          <Link href={`/safaris/${safari.slug}`} className="flex items-center gap-1 text-sm font-semibold text-brand hover:text-gold-label transition-colors">
-            {labels.viewLabel} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
-          </Link>
+          <div className="flex items-center gap-3 shrink-0">
+            <Link href={`/safaris/${safari.slug}`} className="hidden sm:flex items-center gap-1 text-sm font-semibold text-brand hover:text-gold-label transition-colors">
+              {labels.viewLabel} <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
+            </Link>
+            <BookNowButton
+              packageName={safari.name}
+              packageType={labels.packageTypeLabel}
+              priceFrom={String(safari.priceFrom)}
+              duration={String(safari.duration)}
+              label={labels.enquireLabel}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand text-white text-xs font-semibold hover:bg-brand-dark transition-colors"
+            />
+          </div>
         </div>
       </div>
     </div>
