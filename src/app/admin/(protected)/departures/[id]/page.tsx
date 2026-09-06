@@ -24,27 +24,15 @@ export default async function DepartureDetailPage({ params }: Props) {
   ).bind(id).all<Booking>()
 
   const pkg = packages.find((p) => p.slug === departure.package_slug)
-  const occupancyPct = departure.capacity > 0 ? Math.min(100, Math.round((departure.seats_booked / departure.capacity) * 100)) : 0
-  const fillClass = departure.status === 'few_left' ? 'warn' : departure.status === 'full' ? 'full' : ''
 
   return (
     <DetailTwoColumn
       backHref="/admin/departures"
       backLabel="Back to Departures"
       title={pkg?.name ?? departure.package_slug}
-      subtitle={`${departure.start_date} → ${departure.end_date}`}
+      subtitle={`${departure.start_date} → ${departure.end_date}${departure.cancelled ? ' · Cancelled' : ''}`}
       main={
         <>
-          <div className="panel space-y-3 text-sm">
-            <div className="capacity-cell" style={{ minWidth: 0 }}>
-              <div className="flex justify-between items-center">
-                <span style={{ color: 'var(--grey)' }}>Occupancy</span>
-                <span className="capacity-num">{departure.seats_booked} / {departure.capacity} seats</span>
-              </div>
-              <div className="capacity-bar"><div className={`capacity-fill ${fillClass}`} style={{ width: `${occupancyPct}%` }} /></div>
-            </div>
-          </div>
-
           <div className="panel">
             <div className="flex items-center justify-between mb-4">
               <h2>Bookings</h2>

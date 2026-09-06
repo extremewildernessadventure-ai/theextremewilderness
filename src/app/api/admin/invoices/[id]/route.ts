@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
+import { validateDepositPercent } from '@/lib/invoices'
 
 export const dynamic = 'force-dynamic'
 
@@ -29,12 +30,22 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     amount?: number; currency?: string; description?: string; departureId?: number | null
     departureNotesOther?: string | null
     status?: string; dueDate?: string; notes?: string
+    depositPercent?: number | null
+  }
+
+  const db = await getDb()
+
+  const depositError = validateDepositPercent(body.depositPercent)
+  if (depositError) {
+    return NextResponse.json({ error: depositError }, { status: 400 })
   }
 
   // `amount` is derived from invoice_items (see PUT .../items and
   // src/lib/invoices.ts's recalculateInvoiceTotals) — the current admin UI
   // no longer sends it here, but the column map is left in place since a
-  // direct PATCH with `amount` is still harmless to support.
+  // direct PATCH with `amount` is still harmless to support. parent_invoice_id
+  // is deliberately not PATCH-editable -- immutable once set at creation,
+  // same convention as `slug` elsewhere in this codebase.
   const columnMap: Record<string, unknown> = {
     client_name: body.clientName,
     client_email: body.clientEmail,
@@ -44,6 +55,7 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     description: body.description,
     status: body.status,
     due_date: body.dueDate,
+    deposit_percent: body.depositPercent,
     notes: body.notes,
   }
   const fields: string[] = []
@@ -63,7 +75,6 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   }
   fields.push('updated_at = CURRENT_TIMESTAMP')
 
-  const db = await getDb()
   await db.prepare(`UPDATE invoices SET ${fields.join(', ')} WHERE id = ?`).bind(...values, id).run()
 
   return NextResponse.json({ success: true })

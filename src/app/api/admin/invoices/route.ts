@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
-import { replaceInvoiceItems, validateItems, type InvoiceItemInput } from '@/lib/invoices'
+import { replaceInvoiceItems, validateItems, validateDepositPercent, type InvoiceItemInput } from '@/lib/invoices'
 import { resolveClientId } from '@/lib/clients'
 
 export const dynamic = 'force-dynamic'
@@ -37,6 +37,7 @@ export async function POST(req: NextRequest) {
     clientId?: number; clientName?: string; clientEmail?: string; bookingReference?: string
     currency?: string; departureId?: number; departureNotesOther?: string
     dueDate?: string; notes?: string; items?: InvoiceItemInput[]
+    depositPercent?: number; parentInvoiceId?: number; quoteId?: number
   }
   if (!body.clientName) {
     return NextResponse.json({ error: 'clientName is required' }, { status: 400 })
@@ -46,7 +47,31 @@ export async function POST(req: NextRequest) {
   }
   const items = body.items
 
+  const depositError = validateDepositPercent(body.depositPercent)
+  if (depositError) {
+    return NextResponse.json({ error: depositError }, { status: 400 })
+  }
+
   const db = await getDb()
+
+  // parentInvoiceId ("Create Linked Invoice") must reference a real,
+  // already-existing invoice -- checked once here rather than relying on
+  // the DB's FK constraint alone, so a bad id gets a clear 400 instead of
+  // a raw SQL error.
+  if (body.parentInvoiceId != null) {
+    const parent = await db.prepare('SELECT id FROM invoices WHERE id = ?').bind(body.parentInvoiceId).first()
+    if (!parent) {
+      return NextResponse.json({ error: 'parentInvoiceId does not reference an existing invoice' }, { status: 400 })
+    }
+  }
+  // Same pattern as parentInvoiceId above -- a bad quoteId gets a clear 400
+  // instead of a raw SQL error from the FK constraint.
+  if (body.quoteId != null) {
+    const quote = await db.prepare('SELECT id FROM quotes WHERE id = ?').bind(body.quoteId).first()
+    if (!quote) {
+      return NextResponse.json({ error: 'quoteId does not reference an existing quote' }, { status: 400 })
+    }
+  }
   // Resolved once, outside the retry loop below — resolveClientId isn't
   // idempotent to call twice for an email-less client (it would create a
   // second client row on a booking_reference collision retry).
@@ -69,8 +94,8 @@ export async function POST(req: NextRequest) {
       // amount starts at 0 (the column is NOT NULL) — replaceInvoiceItems
       // below sets the real, derived total from the line items.
       const result = await db.prepare(
-        `INSERT INTO invoices (invoice_number, client_id, client_name, client_email, booking_reference, amount, currency, departure_id, departure_notes_other, due_date, notes)
-         VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?)`
+        `INSERT INTO invoices (invoice_number, client_id, client_name, client_email, booking_reference, amount, currency, departure_id, departure_notes_other, due_date, deposit_percent, parent_invoice_id, quote_id, notes)
+         VALUES (?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?, ?)`
       ).bind(
         invoiceNumber,
         clientId,
@@ -81,6 +106,9 @@ export async function POST(req: NextRequest) {
         body.departureId ?? null,
         body.departureId ? null : (body.departureNotesOther || null),
         body.dueDate ?? null,
+        body.depositPercent ?? null,
+        body.parentInvoiceId ?? null,
+        body.quoteId ?? null,
         body.notes ?? null,
       ).run()
 

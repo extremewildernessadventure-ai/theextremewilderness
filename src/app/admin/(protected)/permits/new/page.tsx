@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic'
 export default async function NewPermitPage() {
   const db = await getDb()
   const { results: departures } = await db.prepare(
-    "SELECT * FROM departures WHERE status != 'cancelled' ORDER BY start_date DESC"
+    "SELECT * FROM departures WHERE cancelled = 0 ORDER BY start_date DESC"
   ).all<Departure>()
 
   return <NewPermitForm departures={departures} />

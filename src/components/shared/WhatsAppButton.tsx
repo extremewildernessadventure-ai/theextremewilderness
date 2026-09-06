@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import { usePathname } from '@/i18n/navigation'
+import { trackFormFillConversion } from '@/lib/analytics'
 
 export default function WhatsAppButton() {
   const t = useTranslations('common')
@@ -17,6 +18,7 @@ export default function WhatsAppButton() {
       href="https://wa.me/255747999070"
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => trackFormFillConversion()}
       aria-label={t('whatsAppAriaLabel')}
       // Forced LTR regardless of page direction: this widget is always
       // pinned to the physical-left edge (see left-6 above — Tawk's chat

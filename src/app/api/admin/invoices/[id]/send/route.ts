@@ -2,7 +2,8 @@ import { Resend } from 'resend'
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession, ADMIN_SESSION_COOKIE } from '@/lib/adminAuth'
 import { getDb, type Invoice } from '@/lib/db'
-import { markInvoiceSent } from '@/lib/invoices'
+import { markInvoiceSent, buildPaymentSummary, getInvoiceFamily, computeInvoiceBalanceSchedule } from '@/lib/invoices'
+import { computeQuoteTotalCost, type Quote } from '@/lib/quotes'
 import { renderPageToPdf } from '@/lib/browser'
 import { getDocsBucket, invoiceKey } from '@/lib/r2'
 import { buildBrandedEmailHtml } from '@/lib/email'
@@ -57,7 +58,12 @@ export async function POST(req: NextRequest, { params }: Params) {
     console.error('Invoice R2 storage failed:', err)
   }
 
-  const balanceDue = Math.max(0, invoice.amount - invoice.amount_paid)
+  const family = await getInvoiceFamily(db, invoice.id)
+  const quote = invoice.quote_id
+    ? await db.prepare('SELECT * FROM quotes WHERE id = ?').bind(invoice.quote_id).first<Quote>()
+    : null
+  const schedule = computeInvoiceBalanceSchedule(invoice, family, quote ? computeQuoteTotalCost(quote) : null)
+  const paymentSummary = buildPaymentSummary(invoice, schedule, invoice.parent_invoice_id != null)
   const base64Pdf = Buffer.from(pdf).toString('base64')
   const resend = new Resend(process.env.RESEND_API_KEY)
   const { error } = await resend.emails.send({
@@ -70,9 +76,8 @@ export async function POST(req: NextRequest, { params }: Params) {
       bodyHtml: `
         <p style="margin:0 0 14px;font-size:15px;color:#1a1a1a">Hi ${invoice.client_name},</p>
         <p style="margin:0 0 22px;font-size:14px;line-height:1.6;color:#374151">
-          Please find invoice ${invoice.invoice_number} attached
-          (${invoice.currency} ${balanceDue.toLocaleString()} ${invoice.amount_paid > 0 ? 'balance due' : 'due'}).
-          Payment instructions are on the invoice. If anything looks off, just
+          Please find invoice ${invoice.invoice_number} attached.
+          ${paymentSummary} If anything looks off, just
           reply to this email and we'll sort it out.
         </p>
         <p style="margin:0;font-size:14px;color:#374151">Warm regards,<br><strong style="color:#1C3A2A">The EWA Safari Outfitters Team</strong></p>

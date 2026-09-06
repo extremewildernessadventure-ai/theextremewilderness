@@ -36,6 +36,29 @@ export interface Invoice {
   departure_notes_other: string | null
   status: 'unpaid' | 'partial' | 'paid' | 'cancelled'
   due_date: string | null
+  // NULL means a plain, non-deposit invoice (unaffected by any of this).
+  // When set, THIS invoice's amount IS the deposit -- it represents
+  // deposit_percent% of a larger implied total (never stored -- see
+  // computeImpliedTotal()/computeRemainingBalance() in src/lib/invoices.ts).
+  // The remainder isn't a second leg of this same invoice; it gets its own,
+  // separate invoice (see parent_invoice_id below).
+  deposit_percent: number | null
+  // Self-referencing: set on a follow-up invoice (e.g. the balance invoice
+  // generated from a deposit invoice via "Create Linked Invoice") to point
+  // back at the invoice it follows on from. Immutable once set -- not
+  // PATCH-editable, same convention as `slug` elsewhere in this codebase.
+  // The first self-referencing FK in this schema; every other relationship
+  // here is a child row pointing at a distinct parent table.
+  parent_invoice_id: number | null
+  // The quote this invoice's amount is billed against -- a real, permanent
+  // FK (unlike the old one-time "Convert to Invoice" URL-param copy).
+  // Immutable once set, not PATCH-editable, same convention as
+  // parent_invoice_id above. Denormalized onto every invoice in a
+  // parent_invoice_id chain, not just the root -- same convention
+  // departure_id already follows. See computeQuoteTotalCost in
+  // src/lib/quotes.ts / computeInvoiceBalanceSchedule in
+  // src/lib/invoices.ts for the read side.
+  quote_id: number | null
   notes: string | null
   sent_at: string | null
   sent_r2_key: string | null

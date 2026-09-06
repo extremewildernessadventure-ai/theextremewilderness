@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { CheckCircle2 } from 'lucide-react'
 import { getDb, type Invoice, type InvoiceItem, type InvoicePayment, type InvoicePesapalOrder } from '@/lib/db'
 import { BANK_DETAILS } from '@/lib/bankDetails'
-import { PAYMENT_METHOD_LABELS } from '@/lib/invoices'
+import { PAYMENT_METHOD_LABELS, getInvoiceFamily, computeInvoiceBalanceSchedule } from '@/lib/invoices'
+import { computeQuoteTotalCost, type Quote } from '@/lib/quotes'
 import {
   printCssFullBleed, sanitizeForPdf,
   PdfDarkPage, PdfDarkHeader, PdfDarkLabel, PdfDarkDivider, PdfDarkTag, PdfDarkFooter,
@@ -42,13 +43,20 @@ export default async function InvoicePdfPage({ params }: Props) {
 
   if (!invoice) notFound()
 
-  const [{ results: items }, latestOrder, latestPayment] = await Promise.all([
+  const [{ results: items }, latestOrder, latestPayment, family] = await Promise.all([
     db.prepare('SELECT * FROM invoice_items WHERE invoice_id = ? ORDER BY sort_order').bind(id).all<InvoiceItem>(),
     db.prepare('SELECT * FROM invoice_pesapal_orders WHERE invoice_id = ? ORDER BY created_at DESC LIMIT 1').bind(id).first<InvoicePesapalOrder>(),
     db.prepare('SELECT * FROM invoice_payments WHERE invoice_id = ? ORDER BY confirmed_at DESC LIMIT 1').bind(id).first<InvoicePayment>(),
+    getInvoiceFamily(db, invoice.id),
   ])
+  const quote = invoice.quote_id
+    ? await db.prepare('SELECT * FROM quotes WHERE id = ?').bind(invoice.quote_id).first<Quote>()
+    : null
+  const schedule = computeInvoiceBalanceSchedule(invoice, family, quote ? computeQuoteTotalCost(quote) : null)
+  const isRootInvoice = invoice.parent_invoice_id == null
   const balanceDue = Math.max(0, invoice.amount - invoice.amount_paid)
   const clientName = sanitizeForPdf(invoice.client_name)
+  const formatDate = (d: string) => new Date(d).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })
 
   return (
     <>
@@ -89,7 +97,13 @@ export default async function InvoicePdfPage({ params }: Props) {
               <PdfDarkTag tone={STATUS_TONES[invoice.status]}>{STATUS_LABELS[invoice.status].toUpperCase()}</PdfDarkTag>
               {invoice.due_date && (
                 <div style={{ fontSize: 13, color: '#dfe6e0', marginTop: 8 }}>
-                  Due <strong>{new Date(invoice.due_date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</strong>
+                  Due <strong>{formatDate(invoice.due_date)}</strong>
+                </div>
+              )}
+              {schedule != null && (
+                <div style={{ fontSize: 12, color: '#9fb0a4', marginTop: 4 }}>
+                  <div>{isRootInvoice ? 'Total Cost' : 'Previous Balance'}: {invoice.currency} {(isRootInvoice ? schedule.totalCost : schedule.previousBalance).toLocaleString()}</div>
+                  <div>{isRootInvoice ? 'Balance' : 'New Balance'}: {invoice.currency} {schedule.newBalance.toLocaleString()}</div>
                 </div>
               )}
             </div>

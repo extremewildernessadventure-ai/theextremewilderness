@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getDb } from '@/lib/db'
 import type { Lead } from '@/lib/leads'
+import type { Client } from '@/lib/clients'
 import type { Quote } from '@/lib/quotes'
 import { packages } from '@/data/packages'
 import { printCss, PdfCover, PdfRunningHeader, PdfSectionHeading, PdfClosingCta, PdfFooter } from '@/components/pdf/PdfChrome'
@@ -19,8 +20,16 @@ export default async function QuotePdfPage({ params }: Props) {
   const quote = await db.prepare('SELECT * FROM quotes WHERE id = ?').bind(id).first<Quote>()
   if (!quote) notFound()
 
-  const lead = await db.prepare('SELECT * FROM leads WHERE id = ?').bind(quote.lead_id).first<Lead>()
+  const lead = quote.lead_id ? await db.prepare('SELECT * FROM leads WHERE id = ?').bind(quote.lead_id).first<Lead>() : null
+  const client = quote.client_id ? await db.prepare('SELECT * FROM clients WHERE id = ?').bind(quote.client_id).first<Client>() : null
+  const ownerName = lead?.name || lead?.email || client?.name || client?.email
+  const ownerEmail = lead?.email ?? client?.email ?? null
   const pkg = packages.find((p) => p.slug === quote.package_slug)
+  // See quotes/[id]/page.tsx's identical comment -- a registered Trip
+  // Catalog entry or custom name is never in the marketing `packages`
+  // array, which is now the common case, so fall back to the raw stored
+  // name instead of a generic placeholder.
+  const packageDisplayName = pkg?.name ?? quote.package_slug ?? null
 
   return (
     <>
@@ -32,7 +41,7 @@ export default async function QuotePdfPage({ params }: Props) {
           <Link href={`/admin/quotes/${quote.id}`} className="detail-back">
             ← Back to Quote
           </Link>
-          <h1 className="text-xl font-bold text-brand">{pkg?.name ?? 'Quote'}</h1>
+          <h1 className="text-xl font-bold text-brand">{packageDisplayName ?? 'Quote'}</h1>
         </div>
         <PrintButton />
       </div>
@@ -41,10 +50,10 @@ export default async function QuotePdfPage({ params }: Props) {
       <div id="pdf-quote" className="max-w-3xl mx-auto bg-white font-sans print:max-w-none">
         <PdfCover
           image={pkg?.heroImage ?? '/images/gallery/masai-mara-lion-pride-sunset.webp'}
-          imageAlt={pkg?.name ?? 'Safari'}
+          imageAlt={packageDisplayName ?? 'Safari'}
           eyebrow="Your Safari Quote"
-          title={pkg?.name ?? 'Custom Safari'}
-          subtitle={lead?.name ? `Prepared for ${lead.name}` : undefined}
+          title={packageDisplayName ?? 'Custom Safari'}
+          subtitle={ownerName ? `Prepared for ${ownerName}` : undefined}
           metaLeft={new Date(quote.created_at).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
         />
 
@@ -54,8 +63,8 @@ export default async function QuotePdfPage({ params }: Props) {
           {/* ── Prepared for ── */}
           <div className="mb-7 no-break">
             <PdfSectionHeading>Prepared For</PdfSectionHeading>
-            <p className="text-sm font-bold text-gray-900">{lead?.name || lead?.email}</p>
-            {lead?.email && <p className="text-sm text-gray-600">{lead.email}</p>}
+            <p className="text-sm font-bold text-gray-900">{ownerName}</p>
+            {ownerEmail && <p className="text-sm text-gray-600">{ownerEmail}</p>}
           </div>
 
           {/* ── Package + price ── */}
@@ -69,7 +78,7 @@ export default async function QuotePdfPage({ params }: Props) {
               </thead>
               <tbody>
                 <tr className="border-b border-gray-200">
-                  <td className="px-4 py-4 text-gray-700 align-top">{pkg?.name ?? 'Custom safari'}</td>
+                  <td className="px-4 py-4 text-gray-700 align-top">{packageDisplayName ?? 'Custom safari'}</td>
                   <td className="px-4 py-4 text-end font-semibold text-gray-900 align-top whitespace-nowrap">
                     {quote.currency} {quote.price.toLocaleString()}
                   </td>

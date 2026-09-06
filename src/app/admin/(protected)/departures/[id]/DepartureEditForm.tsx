@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { DEPARTURE_STATUSES, type Departure } from '@/lib/departures'
+import type { Departure } from '@/lib/departures'
 import { todayIso } from '@/lib/dates'
 
 const inputCls = 'field-input'
@@ -13,13 +13,12 @@ export default function DepartureEditForm({ departure }: { departure: Departure 
   const [form, setForm] = useState({
     startDate: departure.start_date,
     endDate: departure.end_date,
-    capacity: String(departure.capacity),
-    status: departure.status,
+    cancelled: departure.cancelled === 1,
   })
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
 
-  function update<K extends keyof typeof form>(key: K, value: string) {
+  function update<K extends keyof typeof form>(key: K, value: typeof form[K]) {
     setForm((f) => ({ ...f, [key]: value }))
     setSaved(false)
   }
@@ -30,7 +29,7 @@ export default function DepartureEditForm({ departure }: { departure: Departure 
     await fetch(`/api/admin/departures/${departure.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...form, capacity: parseInt(form.capacity, 10) }),
+      body: JSON.stringify(form),
     })
     setSaving(false)
     setSaved(true)
@@ -51,14 +50,10 @@ export default function DepartureEditForm({ departure }: { departure: Departure 
         </div>
       </div>
       <div>
-        <label className={labelCls}>Capacity</label>
-        <input type="number" min="1" step="1" value={form.capacity} onChange={(e) => update('capacity', e.target.value)} className={`${inputCls} max-w-[140px]`} />
-      </div>
-      <div>
-        <label className={labelCls}>Status</label>
-        <select value={form.status} onChange={(e) => update('status', e.target.value)} className={`${inputCls} capitalize`}>
-          {DEPARTURE_STATUSES.map((s) => <option key={s} value={s} className="capitalize">{s.replace('_', ' ')}</option>)}
-        </select>
+        <label className="flex items-center gap-2 text-sm">
+          <input type="checkbox" checked={form.cancelled} onChange={(e) => update('cancelled', e.target.checked)} />
+          Cancelled
+        </label>
       </div>
       <div className="flex items-center gap-3">
         <button type="button" onClick={handleSave} disabled={saving} className="btn-primary" style={{ opacity: saving ? 0.5 : 1 }}>

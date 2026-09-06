@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { hasValidAdminSession } from '@/lib/adminAuth'
 import { getDb } from '@/lib/db'
-import { DEPARTURE_STATUSES, type Departure } from '@/lib/departures'
 
 export const dynamic = 'force-dynamic'
 
@@ -26,19 +25,14 @@ export async function PATCH(req: NextRequest, { params }: Params) {
   }
   const { id } = await params
   const body = await req.json() as {
-    packageSlug?: string; startDate?: string; endDate?: string; capacity?: number; status?: string
-  }
-
-  if (body.status !== undefined && !DEPARTURE_STATUSES.includes(body.status as Departure['status'])) {
-    return NextResponse.json({ error: 'Invalid status' }, { status: 400 })
+    packageSlug?: string; startDate?: string; endDate?: string; cancelled?: boolean
   }
 
   const columnMap: Record<string, unknown> = {
     package_slug: body.packageSlug,
     start_date: body.startDate,
     end_date: body.endDate,
-    capacity: body.capacity,
-    status: body.status,
+    cancelled: body.cancelled === undefined ? undefined : (body.cancelled ? 1 : 0),
   }
   const fields: string[] = []
   const values: unknown[] = []
