@@ -3,11 +3,14 @@
 import { useState } from 'react'
 import { Clock, Sparkles, ShieldCheck, DollarSign, Calendar, Globe2, TreePine, MapPin, RotateCcw, ChevronDown, X } from 'lucide-react'
 import type { SafariFilterState, TierKey, OperatorTypeFilter } from '@/lib/safariBrowse'
+import SafariSearchBar, { type SafariSearchBarLabels } from './SafariSearchBar'
+import YourSafariCard, { type YourSafariCardLabels } from './YourSafariCard'
 
 export interface FilterSidebarLabels {
   eyebrow: string
   title: string
   resetAll: string
+  search: SafariSearchBarLabels
   durationLabel: string
   durationReadout: string // "[min] – [max] Days" -- [min]/[max] interpolated by caller
   durationPreset1: string // "3–5 days" equivalent, real copy supplied by caller per locale
@@ -68,6 +71,11 @@ interface Props {
   availableActivityTypes: string[]
   operatorCounts: { ewa: number; other: number }
   labels: FilterSidebarLabels
+  // "Your Safari" quick-search card, rendered stacked directly above the
+  // filter panel on desktop (and reused as-is inside the mobile drawer) --
+  // a single SafariFilterSidebar mount handles both rather than duplicating
+  // this whole component (and its own mobile-drawer state) per breakpoint.
+  yourSafariLabels: YourSafariCardLabels
 }
 
 const TIER_KEYS: TierKey[] = ['trail', 'reserve', 'sovereign']
@@ -76,7 +84,7 @@ const PRICE_STEP = 200
 export default function SafariFilterSidebar({
   filters, onFilterChange, onReset, totalMatches, isMobileOpen, onCloseMobile,
   bounds, availableParks, availableCountries, availableMonths, availableActivityTypes,
-  operatorCounts, labels,
+  operatorCounts, labels, yourSafariLabels,
 }: Props) {
   const [showPartnerNote, setShowPartnerNote] = useState(false)
 
@@ -358,8 +366,18 @@ export default function SafariFilterSidebar({
 
   return (
     <>
-      {/* Desktop */}
-      <aside className="hidden lg:block w-80 shrink-0">
+      {/* Desktop -- "Your Safari" stacked directly on top of the filter panel,
+          both in the same left column. */}
+      <aside className="hidden lg:block w-96 shrink-0 space-y-4">
+        <YourSafariCard
+          filters={filters}
+          onFilterChange={onFilterChange}
+          availableCountries={availableCountries}
+          availableParks={availableParks}
+          availableActivityTypes={availableActivityTypes}
+          availableMonths={availableMonths}
+          labels={yourSafariLabels}
+        />
         <div className="bg-white rounded-2xl border border-gray-100 p-6 sticky top-24">
           <div className="flex items-center justify-between mb-1">
             <span className="text-[11px] font-semibold uppercase tracking-wider text-gold-label">{labels.eyebrow}</span>
@@ -388,7 +406,17 @@ export default function SafariFilterSidebar({
                 <X className="w-4 h-4 text-brand" />
               </button>
             </div>
-            <div className="overflow-y-auto px-5 py-5 flex-1">{content}</div>
+            <div className="overflow-y-auto px-5 py-5 flex-1 space-y-7">
+              {/* Search -- the mobile drawer's own search box; on desktop
+                  the adjacent YourSafariCard already covers this, so it's
+                  not duplicated into the shared `content` there. */}
+              <SafariSearchBar
+                searchQuery={filters.searchQuery}
+                onSearchChange={(q) => onFilterChange({ ...filters, searchQuery: q })}
+                labels={labels.search}
+              />
+              {content}
+            </div>
             <div className="flex items-center gap-3 px-5 py-4 border-t border-gray-100">
               <button type="button" onClick={onReset} className="flex-1 py-3 rounded-xl border border-gray-200 text-sm font-semibold text-brand">
                 {labels.mobileReset}

@@ -69,7 +69,7 @@ function sleepSync(ms: number): void {
 // surfaces after MAX_ATTEMPTS.
 const MAX_ATTEMPTS = 3
 
-function execSql(databaseName: string, sql: string): RawStatementResult[] {
+function execSql(databaseName: string, sql: string, target: '--local' | '--remote' = '--local'): RawStatementResult[] {
   const tmpFile = join(tmpdir(), `d1-local-${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2)}.sql`)
   writeFileSync(tmpFile, sql, 'utf8')
   try {
@@ -78,7 +78,7 @@ function execSql(databaseName: string, sql: string): RawStatementResult[] {
       try {
         const out = execFileSync(
           'node',
-          [WRANGLER_BIN, 'd1', 'execute', databaseName, '--local', '--json', '--file', tmpFile],
+          [WRANGLER_BIN, 'd1', 'execute', databaseName, target, '--json', '--file', tmpFile],
           { encoding: 'utf8', maxBuffer: 1024 * 1024 * 64 }
         )
         return JSON.parse(out) as RawStatementResult[]
@@ -103,7 +103,7 @@ interface LocalStatement extends D1PreparedStatement {
   _finalSql(): string
 }
 
-export function makeLocalWranglerD1(databaseName: string): D1Database {
+function makeWranglerD1(databaseName: string, target: '--local' | '--remote'): D1Database {
   return {
     prepare(sql: string): D1PreparedStatement {
       let bound: unknown[] = []
@@ -114,11 +114,11 @@ export function makeLocalWranglerD1(databaseName: string): D1Database {
         },
         _finalSql: () => substitutePlaceholders(sql, bound),
         async all<T>() {
-          const [result] = execSql(databaseName, stmt._finalSql())
+          const [result] = execSql(databaseName, stmt._finalSql(), target)
           return { results: (result?.results ?? []) as T[] }
         },
         async first<T>() {
-          const [result] = execSql(databaseName, stmt._finalSql())
+          const [result] = execSql(databaseName, stmt._finalSql(), target)
           const rows = (result?.results ?? []) as T[]
           return rows[0] ?? null
         },
@@ -130,7 +130,7 @@ export function makeLocalWranglerD1(databaseName: string): D1Database {
           // fresh connection, so a separate follow-up call would see no
           // rowid at all.
           const combined = isInsert ? `${finalSql};\nSELECT last_insert_rowid() as id;` : finalSql
-          const results = execSql(databaseName, combined)
+          const results = execSql(databaseName, combined, target)
           if (isInsert) {
             const idRow = results[results.length - 1]?.results?.[0] as { id?: number } | undefined
             return { success: true, meta: { last_row_id: idRow?.id } }
@@ -152,11 +152,24 @@ export function makeLocalWranglerD1(databaseName: string): D1Database {
       const withSql = statements as LocalStatement[]
       if (withSql.length === 0) return []
       const combinedSql = withSql.map((s) => `${s._finalSql()};`).join('\n')
-      const results = execSql(databaseName, combinedSql)
+      const results = execSql(databaseName, combinedSql, target)
       if (results.length !== statements.length) {
         throw new Error(`batch(): expected ${statements.length} results, got ${results.length}`)
       }
       return results.map((r) => ({ success: r.success, results: (r.results ?? []) as T[] }))
     },
   }
+}
+
+export function makeLocalWranglerD1(databaseName: string): D1Database {
+  return makeWranglerD1(databaseName, '--local')
+}
+
+// Talks to the real production D1 over Cloudflare's API (`wrangler d1
+// execute --remote`) -- deliberately a separate, explicitly-named function
+// rather than a flag most callers could flip by accident. Only ever used by
+// read-only reporting/snapshot scripts (e.g. generate-review-data.ts's
+// --remote mode); nothing in this codebase uses it to write to production.
+export function makeRemoteWranglerD1(databaseName: string): D1Database {
+  return makeWranglerD1(databaseName, '--remote')
 }

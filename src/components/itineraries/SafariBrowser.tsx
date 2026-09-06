@@ -8,6 +8,7 @@ import {
   type BrowsableSafari, type SafariFilterState, type SortOption, type TierKey,
 } from '@/lib/safariBrowse'
 import SafariFilterSidebar, { type FilterSidebarLabels } from './SafariFilterSidebar'
+import YourSafariCard, { type YourSafariCardLabels } from './YourSafariCard'
 import ActiveFilterChips, { type ActiveFilterChipsLabels } from './ActiveFilterChips'
 import SafariCard, { type SafariCardLabels } from './SafariCard'
 import SafariEmptyState, { type EmptyStateLabels } from './SafariEmptyState'
@@ -21,6 +22,7 @@ const MAX_COMPARE = 3
 export interface SafariBrowserLabels {
   card: SafariCardLabels
   sidebar: FilterSidebarLabels
+  yourSafari: YourSafariCardLabels
   chips: ActiveFilterChipsLabels
   empty: EmptyStateLabels
   compareBar: CompareBarLabels
@@ -127,6 +129,11 @@ export default function SafariBrowser({ items, labels }: Props) {
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 items-start">
+      {/* "Your Safari" renders once, inside SafariFilterSidebar itself, stacked
+          directly above its filter panel (desktop) / inside its bottom-sheet
+          drawer (mobile) -- a single SafariFilterSidebar mount handles both,
+          same as before, rather than mounting the whole sidebar (with its own
+          mobile-drawer state) twice per breakpoint. */}
       <SafariFilterSidebar
         filters={filters}
         onFilterChange={setFilters}
@@ -141,9 +148,22 @@ export default function SafariBrowser({ items, labels }: Props) {
         availableActivityTypes={availableActivityTypes}
         operatorCounts={operatorCounts}
         labels={labels.sidebar}
+        yourSafariLabels={labels.yourSafari}
       />
 
       <div className="flex-1 w-full min-w-0">
+        <div className="lg:hidden mb-4">
+          <YourSafariCard
+            filters={filters}
+            onFilterChange={setFilters}
+            availableCountries={availableCountries}
+            availableParks={availableParks}
+            availableActivityTypes={availableActivityTypes}
+            availableMonths={availableMonths}
+            labels={labels.yourSafari}
+          />
+        </div>
+
         <ActiveFilterChips
           filters={filters}
           totalMatches={filtered.length}

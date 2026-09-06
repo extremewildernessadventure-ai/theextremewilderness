@@ -2,6 +2,10 @@ export interface TierStay {
   name: string
   image: string
   amenities: string[]
+  // Prototype-matching lodge profile text shown on its Camps-tab card, below
+  // the amenities. Optional — no existing lodge has this authored yet; the
+  // card simply omits the paragraph until it does (no fabricated filler).
+  description?: string
 }
 
 export interface ItineraryDay {
@@ -14,6 +18,16 @@ export interface ItineraryDay {
   // "Location" column for the optional "Itinerary at a Glance" summary table —
   // the "Focus" column is just `title`, so no separate field is needed for that.
   location?: string
+  // Prototype-matching "Morning Schedule" / "Afternoon & Sunset" breakdown,
+  // shown under the day's description when authored. Optional — no existing
+  // day has this content yet (only `description`, one paragraph per day);
+  // left unset rather than split synthetically.
+  morningActivity?: string
+  afternoonActivity?: string
+  // Per-day highlights (distinct from the package-level `highlights` field
+  // on SafariPackage) -- e.g. "Cross-border private transfer" for this
+  // specific day. Optional, same reasoning as morning/afternoonActivity.
+  dayHighlights?: string[]
   accommodationByTier?: {
     trail?: TierStay
     reserve?: TierStay

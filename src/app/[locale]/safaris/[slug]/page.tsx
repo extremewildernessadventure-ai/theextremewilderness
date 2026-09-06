@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
-import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck, MapPin, DollarSign } from 'lucide-react'
+import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck, MapPin, DollarSign, ArrowLeft, Star, Compass, Sparkles } from 'lucide-react'
+import { Link } from '@/i18n/navigation'
 import Badge from '@/components/shared/Badge'
 import TrustBar from '@/components/home/TrustBar'
 import SafariBookingSidebar from '@/components/safaris/SafariBookingSidebar'
 import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
-import AmenityStay from '@/components/safaris/AmenityStay'
+import BookNowButton from '@/components/booking/BookNowButton'
 import RelatedSafaris from '@/components/safaris/RelatedSafaris'
 import OperatorBadge from '@/components/safaris/OperatorBadge'
 import SafariPhotoGallery from '@/components/safaris/SafariPhotoGallery'
@@ -19,6 +19,8 @@ import SafariPracticalTips from '@/components/safaris/SafariPracticalTips'
 import SafariReviewsTab from '@/components/safaris/SafariReviewsTab'
 import { packages } from '@/data/packages'
 import { getPackage, getPackages } from '@/data/packages.i18n'
+import { getDestinations } from '@/data/destinations.i18n'
+import ShareLinkButton from '@/components/safaris/ShareLinkButton'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import { routing } from '@/i18n/routing'
@@ -205,14 +207,6 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'anniversary safari Africa', 'group safari Rwanda Zanzibar', 'luxury Rwanda Zanzibar combination',
     'gorilla trekking beach extension', 'multi-generational safari', 'private guided safari Rwanda', 'book Rwanda safari 2027',
   ],
-}
-
-// Per-package hero image crop override — most hero photos are fine with the
-// default center crop, but a few (e.g. subjects positioned toward the top
-// of the source frame) need a different object-position to avoid cropping
-// out the actual subject on the short/wide hero banner.
-const HERO_IMAGE_POSITION: Record<string, string> = {
-  '5-day-gombe-chimpanzee-trekking': 'object-top',
 }
 
 const DEFAULT_SAFARI_KEYWORDS = [
@@ -622,12 +616,57 @@ export default async function SafariPackagePage({ params }: Props) {
 
   const allPackages = await getPackages(locale)
 
+  // Real country badge -- resolved from the package's actual destinations
+  // (same lookup the listing page uses), not the prototype's fabricated
+  // "{country} • {circuit} Circuit" label: this app has no tracked "circuit"
+  // concept per package, so only the country half is real and shown.
+  const ti = await getTranslations('itineraries')
+  const COUNTRY_LABEL: Record<string, string> = {
+    tanzania: ti('filterTanzania'), kenya: ti('filterKenya'), rwanda: ti('filterRwanda'),
+  }
+  const allDestinations = await getDestinations(locale)
+  const destinationCountryLookup = new Map(allDestinations.map((d) => [d.slug, d.country]))
+  const packageCountries = [...new Set(
+    pkg.destinations
+      .map((d) => destinationCountryLookup.get(d))
+      .filter((c): c is NonNullable<typeof c> => c !== undefined)
+  )]
+  const countryLabel = packageCountries.map((c) => COUNTRY_LABEL[c] ?? c).join(' • ')
+
   const breadcrumbItems = [
     { label: 'EWA Safari Outfitters', href: `/${locale}` },
     { label: t('breadcrumbLabel'), href: `/${locale}/safaris` },
     { label: pkg.name },
   ]
   const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, `/safaris/${slug}`)
+
+  // Quick Facts "Tier Level" -- the prototype's `safari.tier` has no direct
+  // equivalent here (a real package usually offers a range of tiers rather
+  // than one fixed tier), so this derives the same tier vocabulary already
+  // used across pricing/camps (Wilderness Trail/Reserve/Sovereign or the
+  // family Luxury/Ultra-Luxury pair) from whichever pricing grid the
+  // package actually has populated.
+  const TIER_KEYS = ['trail', 'reserve', 'sovereign'] as const
+  const availablePricingTiers = pkg.pricingTiers
+    ? TIER_KEYS.filter((tr) => pkg.pricingTiers!.some((r) => r[tr] !== undefined && r[tr]! > 0))
+    : []
+  const TIER_LABEL: Record<(typeof TIER_KEYS)[number], string> = {
+    trail: t('tierTrail'), reserve: t('tierReserve'), sovereign: t('tierSovereign'),
+  }
+  const tierLevelLabel = availablePricingTiers.length > 0
+    ? availablePricingTiers.map((tr) => TIER_LABEL[tr]).join(' · ')
+    : (pkg.familyPricing && pkg.familyPricing.length > 0)
+      ? `${t('familyTierLuxury')} · ${t('familyTierUltraLuxury')}`
+      : '—'
+
+  // Peak Months -- a handful of packages run genuinely year-round (all 12
+  // months), which would overflow the Quick Facts tile as a raw comma join;
+  // those show a plain "Year-Round" label instead.
+  const peakMonthsDisplay = !pkg.bestMonths || pkg.bestMonths.length === 0
+    ? '—'
+    : pkg.bestMonths.length >= 10
+      ? t('quickFactYearRound')
+      : pkg.bestMonths.join(', ')
 
   // Stage B tab content -- every section below preserves the exact same real
   // data/conditions the page always had; only the visual grouping changed
@@ -740,7 +779,7 @@ export default async function SafariPackagePage({ params }: Props) {
       {pkg.itinerary.some((d) => d.location) && (
         <div className="mb-6">
           <p className="text-xs font-bold text-text-muted uppercase tracking-wide mb-2">{t('itineraryAtAGlance')}</p>
-          <div className="overflow-x-auto rounded-xl border border-gray-100">
+          <div className="overflow-x-auto rounded-xl border border-brand/30">
             <table className="w-full text-base">
               <thead>
                 <tr className="bg-light-green text-start text-text-muted text-xs uppercase tracking-wide">
@@ -751,7 +790,7 @@ export default async function SafariPackagePage({ params }: Props) {
               </thead>
               <tbody>
                 {pkg.itinerary.map((day) => (
-                  <tr key={day.day} className="border-t border-gray-100">
+                  <tr key={day.day} className="border-t border-brand/15">
                     <td className="px-4 py-2.5 text-brand font-semibold whitespace-nowrap">{day.day}</td>
                     <td className="px-4 py-2.5 text-text-muted">{day.location ?? '—'}</td>
                     <td className="px-4 py-2.5 text-text-muted">{day.title}</td>
@@ -787,33 +826,56 @@ export default async function SafariPackagePage({ params }: Props) {
                 </div>
               )}
 
-              {day.accommodationByTier ? (
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">
-                  {day.accommodationByTier.trail && (
-                    <AmenityStay label={t('tierTrail')} stay={day.accommodationByTier.trail} />
-                  )}
-                  {day.accommodationByTier.reserve && (
-                    <AmenityStay label={t('tierReserve')} stay={day.accommodationByTier.reserve} />
-                  )}
-                  {day.accommodationByTier.sovereign && (
-                    <AmenityStay label={t('tierSovereign')} stay={day.accommodationByTier.sovereign} />
-                  )}
-                </div>
-              ) : null}
-
-              {day.accommodationByFamilyTier ? (
+              {/* Morning/Afternoon schedule -- not yet authored for any
+                  package (only a single `description` paragraph exists per
+                  day today); the admin itinerary-day editor already has
+                  fields for these, so this block activates automatically
+                  once real content is entered there, with no code change. */}
+              {(day.morningActivity || day.afternoonActivity) && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
-                  {day.accommodationByFamilyTier.luxury && (
-                    <AmenityStay label={t('familyTierLuxury')} stay={day.accommodationByFamilyTier.luxury} />
+                  {day.morningActivity && (
+                    <div className="bg-light-green border border-gray-100 rounded-lg p-3">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-brand flex items-center gap-1.5 mb-1">
+                        <Sparkles className="w-3 h-3 text-gold" />
+                        {t('morningSchedule')}
+                      </p>
+                      <p className="text-sm text-text-muted leading-relaxed">{day.morningActivity}</p>
+                    </div>
                   )}
-                  {day.accommodationByFamilyTier.ultraLuxury && (
-                    <AmenityStay label={t('familyTierUltraLuxury')} stay={day.accommodationByFamilyTier.ultraLuxury} />
+                  {day.afternoonActivity && (
+                    <div className="bg-light-green border border-gray-100 rounded-lg p-3">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-brand flex items-center gap-1.5 mb-1">
+                        <Compass className="w-3 h-3 text-gold" />
+                        {t('afternoonSchedule')}
+                      </p>
+                      <p className="text-sm text-text-muted leading-relaxed">{day.afternoonActivity}</p>
+                    </div>
                   )}
                 </div>
-              ) : null}
+              )}
 
+              {day.dayHighlights && day.dayHighlights.length > 0 && (
+                <div className="mb-3">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-text-muted mb-1.5">
+                    {t('dayHighlightsHeading').replace('[day]', String(day.day))}
+                  </p>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-sm">
+                    {day.dayHighlights.map((hl) => (
+                      <li key={hl} className="flex items-start gap-1.5 text-text-muted">
+                        <span className="text-gold font-bold">•</span>
+                        <span>{hl}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Accommodation is shown as plain text only here, matching the
+                  prototype exactly -- the rich lodge profile (photo,
+                  description, amenities) lives solely in the Camps tab via
+                  AmenityStay/SafariCampsTab, not duplicated here. */}
               <div className="flex flex-wrap gap-4 text-base text-text-muted">
-                <span>{day.accommodation}</span>
+                <span>{t('lodgePrefix')} {day.accommodation}</span>
                 <span>{day.meals}</span>
               </div>
             </div>
@@ -1027,40 +1089,53 @@ export default async function SafariPackagePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      {/* Hero */}
-      <section className="relative h-[55vh] min-h-80 bg-brand flex items-end">
-        <Image
-          src={pkg.heroImage}
-          alt={pkg.heroImageAlt ?? pkg.name}
-          fill
-          className={`object-cover ${HERO_IMAGE_POSITION[slug] ?? ''}`}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/20 to-transparent" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
-          <div className="flex items-start justify-between flex-wrap gap-4">
-            <div>
-              <div className="flex items-center gap-2 mb-2 flex-wrap">
-                {pkg.badge && (
-                  <Badge label={pkg.badge === 'bestseller' ? tc('bestseller') : pkg.badge === 'new' ? tc('new') : tc('popular')} />
-                )}
-                <OperatorBadge
-                  operatorName={pkg.operatorName ?? 'EWA Safari Outfitters'}
-                  directLabel={tb('card.operatorDirect')}
-                  partnerLabel={tb('card.operatorPartner')}
-                />
-              </div>
-              <h1 className="text-3xl lg:text-4xl font-semibold text-white">{pkg.name}</h1>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl px-5 py-3 text-center border border-white/20">
-              <div className="text-white/70 text-xs uppercase tracking-wide">{tc('from')}</div>
-              <div className="text-white font-bold text-2xl">${pkg.priceFrom.toLocaleString('en-US')}</div>
-              <div className="text-white/60 text-xs">{tc('perPerson')}</div>
+      {/* Breadcrumb + back link -- replaces the old full-bleed hero banner
+          entirely. The prototype has no hero image at all, but with no dark
+          photo behind it the site's fixed header (white nav text, normally
+          meant to float over a hero image) had nothing to sit on -- so this
+          bar carries the brand-green background itself, forming one solid
+          band with the header above it (which now forces itself opaque on
+          every /safaris route, see Navbar's NO_HERO_PREFIXES). pt-32 clears
+          the header's own height (h-16 lg:h-20). */}
+      <nav aria-label="Breadcrumb" className="bg-brand pt-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3 flex-wrap">
+          <div className="flex items-center gap-3 min-w-0">
+            <Link
+              href="/safaris"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-white/20 bg-white/10 text-xs font-semibold text-white hover:bg-white/20 transition-colors shrink-0"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              {tc('allSafaris')}
+            </Link>
+            <div className="hidden sm:flex items-center gap-1.5 text-xs text-white/70 truncate">
+              <Link href="/" className="hover:text-white">EWA Safari Outfitters</Link>
+              <span>•</span>
+              <Link href="/safaris" className="hover:text-white">{t('breadcrumbLabel')}</Link>
+              <span>•</span>
+              <span className="text-white font-semibold truncate">{pkg.name}</span>
             </div>
           </div>
+
+          {/* Quick actions -- Share (real, client-side) + Enquire. "Add to
+              Compare" and "Edit Safari" from the prototype are deliberately
+              not ported here: compare state only exists locally within the
+              listing page's SafariBrowser today (no cross-page/shared
+              compare architecture yet), and "Edit Safari" is an admin-only
+              concept with no public-site equivalent. */}
+          <div className="flex items-center gap-2 shrink-0">
+            <ShareLinkButton title={t('shareLabel')} copiedLabel={t('shareCopied')} tooltip={t('shareTooltip')} dark />
+            <BookNowButton
+              packageName={pkg.name}
+              packageType={TRIP_TYPE_LABEL[pkg.type]}
+              priceFrom={`$${pkg.priceFrom.toLocaleString('en-US')}`}
+              duration={`${pkg.duration} ${tc('days')}`}
+              label={tb('card.enquireLabel')}
+              arrow={false}
+              className="inline-flex items-center justify-center whitespace-nowrap px-4 py-1.5 rounded-md bg-gold text-brand text-xs font-semibold uppercase tracking-wider hover:bg-gold-dark transition-colors"
+            />
+          </div>
         </div>
-      </section>
+      </nav>
 
       <MobileEnquireBanner
         eyebrow={`${tc('from')} $${pkg.priceFrom.toLocaleString('en-US')}`}
@@ -1073,22 +1148,152 @@ export default async function SafariPackagePage({ params }: Props) {
         duration={`${pkg.duration} ${tc('days')}`}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        {/* Title & Metadata block */}
+        <Reveal className="space-y-3 mb-8">
+          <div className="flex flex-wrap items-center gap-2">
+            {pkg.badge && (
+              <Badge label={pkg.badge === 'bestseller' ? tc('bestseller') : pkg.badge === 'new' ? tc('new') : tc('popular')} />
+            )}
+            {countryLabel && (
+              <span className="px-2.5 py-0.5 rounded bg-brand/10 text-brand text-xs font-semibold uppercase tracking-wide">
+                {countryLabel}
+              </span>
+            )}
+            {tierLevelLabel !== '—' && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium border border-gold/40 bg-light-green text-brand">
+                <Sparkles className="w-3 h-3 text-gold" />
+                {tierLevelLabel}
+              </span>
+            )}
+            <span className="px-2.5 py-0.5 rounded bg-light-green text-brand text-xs font-medium border border-brand/10">
+              {TRIP_TYPE_LABEL[pkg.type]}
+            </span>
+          </div>
+
+          <h1 className="text-3xl lg:text-5xl font-semibold text-brand tracking-tight leading-tight">
+            {pkg.name}
+          </h1>
+
+          {/* Star rating + operator line */}
+          <div className="flex flex-wrap items-center gap-3 text-xs pt-0.5">
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <div className="flex items-center text-amber-500">
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <Star
+                    key={s}
+                    className={`w-4 h-4 ${s <= Math.round(reviewStats.average || 5) ? 'fill-amber-400 text-amber-400' : 'text-gray-300'}`}
+                  />
+                ))}
+              </div>
+              <span className="font-bold text-brand text-sm">{(reviewStats.average || 5).toFixed(1)}</span>
+              <span className="text-text-muted">/ 5.0</span>
+              {reviewStats.count > 0 && (
+                <a href="#tab-reviews" className="text-text-muted hover:text-brand underline underline-offset-2 transition-colors">
+                  {t('packageReviewsCount', { count: reviewStats.count })}
+                </a>
+              )}
+            </div>
+
+            <span className="text-gray-300">•</span>
+
+            <div className="flex items-center gap-2 text-text-muted flex-wrap">
+              <span>{t('operatedBy')}</span>
+              <span className="font-semibold text-brand underline underline-offset-2">
+                {pkg.operatorName ?? 'EWA Safari Outfitters'}
+              </span>
+              <OperatorBadge
+                operatorName={pkg.operatorName ?? 'EWA Safari Outfitters'}
+                directLabel={tb('card.operatorDirect')}
+                partnerLabel={tb('card.operatorPartner')}
+              />
+            </div>
+          </div>
+
+          {pkg.tagline && (
+            <p className="italic text-base sm:text-lg text-text-muted max-w-3xl leading-relaxed pt-1">
+              &ldquo;{pkg.tagline}&rdquo;
+            </p>
+          )}
+
+          {/* Parks & concessions tags */}
+          <div className="flex items-center gap-2 flex-wrap pt-1 text-xs text-text-muted">
+            <span className="font-semibold text-brand flex items-center gap-1">
+              <MapPin className="w-3.5 h-3.5 text-gold" />
+              {t('parksAndConcessions')}
+            </span>
+            {pkg.destinations.map((d) => (
+              <span key={d} className="px-2.5 py-0.5 rounded bg-white border border-gray-100 font-medium text-brand">
+                {d.charAt(0).toUpperCase() + d.slice(1)}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+
+        {/* Hero Photo Gallery Showcase -- this gallery is the page's visual
+            centerpiece; there's no separate hero banner above it. */}
+        <Reveal delay={0.05} className="mb-8">
+          <SafariPhotoGallery
+            gallery={pkg.gallery}
+            locationLabel={countryLabel || undefined}
+            labels={{
+              heading: t('packageGalleryHeading'),
+              counter: t('galleryCounter'),
+              closeTooltip: t('galleryCloseTooltip'),
+              expandGallery: t('galleryExpand'),
+              morePhotos: t('galleryMorePhotos'),
+            }}
+          />
+        </Reveal>
+
+        {/* Quick Facts strip */}
+        <Reveal delay={0.1} className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-white border border-gray-100 mb-10 shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-light-green border border-gray-100 flex items-center justify-center shrink-0">
+              <Clock className="w-5 h-5 text-gold" />
+            </div>
+            <div>
+              <span className="text-[11px] uppercase tracking-wider text-text-muted block">{t('quickFactDuration')}</span>
+              <span className="text-sm font-bold text-brand">
+                {t('quickFactDurationValue', { days: pkg.duration, nights: pkg.duration - 1 })}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-light-green border border-gray-100 flex items-center justify-center shrink-0">
+              <Compass className="w-5 h-5 text-gold" />
+            </div>
+            <div>
+              <span className="text-[11px] uppercase tracking-wider text-text-muted block">{t('quickFactExpeditionStyle')}</span>
+              <span className="text-sm font-bold text-brand">{TRIP_TYPE_LABEL[pkg.type]}</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-light-green border border-gray-100 flex items-center justify-center shrink-0">
+              <Calendar className="w-5 h-5 text-gold" />
+            </div>
+            <div>
+              <span className="text-[11px] uppercase tracking-wider text-text-muted block">{t('quickFactPeakMonths')}</span>
+              <span className="text-sm font-bold text-brand">{peakMonthsDisplay}</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-light-green border border-gray-100 flex items-center justify-center shrink-0">
+              <Sparkles className="w-5 h-5 text-gold" />
+            </div>
+            <div>
+              <span className="text-[11px] uppercase tracking-wider text-text-muted block">{t('quickFactTierLevel')}</span>
+              <span className="text-sm font-bold text-brand">{tierLevelLabel}</span>
+            </div>
+          </div>
+        </Reveal>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Main content */}
-          <Reveal className="lg:col-span-2 space-y-10">
-            {/* Photo Gallery — same data/condition as before, now with a real
-                lightbox (SafariPhotoGallery), kept outside the tabs since
-                it's not specific to any one tab. */}
-            <SafariPhotoGallery
-              gallery={pkg.gallery}
-              labels={{
-                heading: t('packageGalleryHeading'),
-                counter: t('galleryCounter'),
-                closeTooltip: t('galleryCloseTooltip'),
-              }}
-            />
-
+          <Reveal delay={0.15} className="lg:col-span-2 space-y-10">
             {/* Tabbed content: Itinerary / Overview / Camps / Wildlife /
                 Inclusions / Reviews — every field the page always showed is
                 still shown, just grouped into tabs (see detailTabs above). */}
@@ -1133,6 +1338,18 @@ export default async function SafariPackagePage({ params }: Props) {
                 bookThisPackageLabel={t('bookThisPackage')}
                 responseNoteLabel={t('responseNote')}
                 noPaymentLabel={t('noPayment')}
+                sidebarEyebrow={t('sidebarEyebrow')}
+                sidebarHeading={t('sidebarHeading')}
+                sidebarSubtitle={t('sidebarSubtitle')}
+                autoCalculatedRateLabel={t('autoCalculatedRate')}
+                peakWindowLabel={t('quickMetaPeakWindow')}
+                peakWindowValue={peakMonthsDisplay}
+                depositLabel={t('quickMetaDeposit')}
+                depositValue={t('quickMetaDepositValue')}
+                specialistPromiseHeading={t('specialistPromiseHeading')}
+                specialistPromiseBody={t('specialistPromiseBody')}
+                quickContactHeading={t('quickContactHeading')}
+                quickContactBody={t('quickContactBody')}
               />
 
               {/* Featured blog post */}

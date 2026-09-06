@@ -34,6 +34,9 @@ export interface BrowsableSafari {
   destinationNames: string[]
   countries: string[] // 'tanzania' | 'kenya' | 'rwanda', deduped
   highlights: string[]
+  // The short editorial hook shown as an italic quote on the card -- matches
+  // the prototype's `safari.hook`; not every package has authored one.
+  tagline?: string
   groupSize?: { min: number; max: number }
   badge?: 'bestseller' | 'new' | 'popular'
   type: BrowsableActivityType
@@ -221,11 +224,20 @@ export function buildBrowsableSafari(
   review: { rating: number } | undefined,
   isSignature: boolean
 ): BrowsableSafari {
+  // destinationSlugs and destinationNames are built together from the same
+  // filtered pass so they stay index-aligned -- previously destinationSlugs
+  // used pkg.destinations raw (unfiltered) while destinationNames dropped
+  // any slug missing from destinationLookup, so a single unresolved slug
+  // shifted every later name out of alignment with its real slug, showing
+  // up in the parks filter as another park's name attached to a different
+  // slug (visually indistinguishable from a genuine duplicate).
+  const destinationSlugs: string[] = []
   const destinationNames: string[] = []
   const countries = new Set<string>()
   for (const slug of pkg.destinations) {
     const dest = destinationLookup.get(slug)
     if (!dest) continue
+    destinationSlugs.push(slug)
     destinationNames.push(dest.name)
     countries.add(dest.country)
   }
@@ -238,7 +250,7 @@ export function buildBrowsableSafari(
     duration: pkg.duration,
     priceFrom: pkg.priceFrom,
     heroImage: pkg.heroImage,
-    destinationSlugs: pkg.destinations,
+    destinationSlugs,
     destinationNames,
     countries: [...countries],
     highlights: pkg.highlights,
@@ -249,6 +261,7 @@ export function buildBrowsableSafari(
     isSignature,
   }
   if (pkg.heroImageAlt) safari.heroImageAlt = pkg.heroImageAlt
+  if (pkg.tagline) safari.tagline = pkg.tagline
   if (pkg.groupSize) safari.groupSize = pkg.groupSize
   if (pkg.badge) safari.badge = pkg.badge
   if (pkg.bestMonths && pkg.bestMonths.length > 0) safari.bestMonths = pkg.bestMonths

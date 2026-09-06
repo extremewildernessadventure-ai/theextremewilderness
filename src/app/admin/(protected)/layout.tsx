@@ -14,8 +14,7 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
     // layout can see the current request URL) -- carries the page an
     // unauthenticated visitor was actually trying to reach through login so
     // they land back on it afterward, instead of always dumping them on
-    // /admin regardless of what they clicked (e.g. the public "Post Your
-    // Itinerary" link straight into /admin/packages/new).
+    // /admin regardless of what they clicked.
     const store = await headers()
     const pathname = store.get('x-pathname') ?? '/admin'
     redirect(`/admin/login?redirect=${encodeURIComponent(pathname)}`)

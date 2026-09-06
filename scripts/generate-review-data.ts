@@ -8,26 +8,29 @@
 //
 // Reviews are the first genuinely D1-backed (not checked-in-source-file)
 // piece of public content this site has, so unlike packages/destinations/
-// etc. this snapshot can't be regenerated from scratch in CI (the deploy
-// pipeline has no access to the real production D1, and even if it did, a
-// fresh CI checkout's local D1 has no data at all). It's the same
-// "run a script, review the diff, commit the regenerated data" workflow
-// already used for the bestMonths/wildlifeTargets content backfills earlier
-// in this project -- run this manually after moderating new reviews, then
-// commit the result and redeploy for them to actually reach the public
-// site (the real, non-obvious tradeoff of this whole approach: a newly-
-// approved review needs this script + a rebuild, it does not appear the
-// instant an admin approves it).
+// etc. this snapshot can't be regenerated from scratch in CI on its own --
+// this is the same "run a script, review the diff, commit the regenerated
+// data" workflow already used for the bestMonths/wildlifeTargets content
+// backfills earlier in this project: run this manually after moderating new
+// reviews, then commit the result and redeploy for them to actually reach
+// the public site (the real, non-obvious tradeoff of this whole approach: a
+// newly-approved review needs this script + a rebuild, it does not appear
+// the instant an admin approves it).
 //
-// Usage: npx tsx scripts/generate-review-data.ts
+// Usage:
+//   npx tsx scripts/generate-review-data.ts             (local D1 -- dev/testing data only)
+//   npx tsx scripts/generate-review-data.ts --remote     (real production D1 -- run this before a deploy
+//                                                          that should include newly-published reviews)
 
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
-import { makeLocalWranglerD1 } from './localD1Client'
+import { makeLocalWranglerD1, makeRemoteWranglerD1 } from './localD1Client'
 import type { Review, PublishedReview } from '../src/lib/reviews'
 
 async function main() {
-  const db = makeLocalWranglerD1('ewa-invoices')
+  const remote = process.argv.includes('--remote')
+  const db = remote ? makeRemoteWranglerD1('ewa-invoices') : makeLocalWranglerD1('ewa-invoices')
+  console.log(`Reading published reviews from ${remote ? 'REMOTE (production)' : 'local'} D1...`)
 
   const { results } = await db.prepare(
     `SELECT reviews.*, clients.name AS resolved_client_name
