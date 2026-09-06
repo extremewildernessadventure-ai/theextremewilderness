@@ -10,15 +10,18 @@ import { useSearch } from '@/context/SearchContext'
 
 // Pages with no dark hero section behind the fixed nav — the transparent
 // white-text state has poor contrast there, so these start opaque immediately
-// instead of waiting for the user to scroll.
-const NO_HERO_ROUTES = ['/plan', '/trekking/pdf', '/safaris/sample-itinerary/pdf']
+// instead of waiting for the user to scroll. /safaris and every /safaris/[slug]
+// package page dropped their hero image in the prototype-fidelity rebuild, so
+// they're matched by prefix rather than one exact path per slug.
+const NO_HERO_ROUTES = ['/plan', '/trekking/pdf']
+const NO_HERO_PREFIXES = ['/safaris']
 
 export default function Navbar() {
   const t = useTranslations('nav')
   const tSearch = useTranslations('search')
   const { openSearch } = useSearch()
   const pathname = usePathname()
-  const forceOpaque = NO_HERO_ROUTES.includes(pathname)
+  const forceOpaque = NO_HERO_ROUTES.includes(pathname) || NO_HERO_PREFIXES.some((p) => pathname === p || pathname.startsWith(`${p}/`))
   const [scrolled, setScrolled] = useState(false)
 
   const navLinks = [

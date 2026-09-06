@@ -51,6 +51,18 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 308)
   }
 
+  // /admin never goes through next-intl or the geo-redirect below (it isn't
+  // locale-prefixed) -- it's in the matcher solely so the (protected) layout
+  // can recover the current pathname for its ?redirect= support after an
+  // auth bounce. App Router layouts have no other way to see the request
+  // URL (searchParams isn't passed to layouts, and there's no pathname API
+  // for Server Components), so this header is the standard workaround.
+  if (request.nextUrl.pathname.startsWith('/admin')) {
+    const res = NextResponse.next()
+    res.headers.set('x-pathname', request.nextUrl.pathname)
+    return res
+  }
+
   // SEO-safe geo-redirect: only fires for non-bot, unprefixed, first-time
   // visitors. 302 (not 301) because this is a personalized, per-visit
   // routing decision, not a permanent URL move — the unprefixed English URL
@@ -89,5 +101,5 @@ export const config = {
   // non-localized Pesapal return page (see app/payments/). Without this it
   // gets handed to next-intl's middleware, which 404s it trying to resolve
   // it as if it lived under a locale.
-  matcher: ['/((?!api|admin|payments/|_next|.*\\..*).*)'],
+  matcher: ['/((?!api|payments/|_next|.*\\..*).*)'],
 }

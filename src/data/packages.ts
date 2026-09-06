@@ -2,6 +2,10 @@ export interface TierStay {
   name: string
   image: string
   amenities: string[]
+  // Prototype-matching lodge profile text shown on its Camps-tab card, below
+  // the amenities. Optional — no existing lodge has this authored yet; the
+  // card simply omits the paragraph until it does (no fabricated filler).
+  description?: string
 }
 
 export interface ItineraryDay {
@@ -14,6 +18,16 @@ export interface ItineraryDay {
   // "Location" column for the optional "Itinerary at a Glance" summary table —
   // the "Focus" column is just `title`, so no separate field is needed for that.
   location?: string
+  // Prototype-matching "Morning Schedule" / "Afternoon & Sunset" breakdown,
+  // shown under the day's description when authored. Optional — no existing
+  // day has this content yet (only `description`, one paragraph per day);
+  // left unset rather than split synthetically.
+  morningActivity?: string
+  afternoonActivity?: string
+  // Per-day highlights (distinct from the package-level `highlights` field
+  // on SafariPackage) -- e.g. "Cross-border private transfer" for this
+  // specific day. Optional, same reasoning as morning/afternoonActivity.
+  dayHighlights?: string[]
   accommodationByTier?: {
     trail?: TierStay
     reserve?: TierStay
@@ -55,7 +69,19 @@ export interface SafariPackage {
   name: string
   duration: number
   destinations: string[]
-  type: 'wildlife' | 'trekking' | 'beach' | 'combination'
+  // Replaced (not extended) the old 4-value union as part of the
+  // SafariBookings-style rebuild — every package's value was remapped by
+  // reading its actual content (see the migration/remap commit for the
+  // reviewed old→new mapping), not mechanically renamed.
+  type:
+    | 'big_five_game_drives'
+    | 'migration'
+    | 'photographic'
+    | 'walking'
+    | 'cultural'
+    | 'gorilla_trekking'
+    | 'beach_extension'
+    | 'mountain_trekking'
   priceFrom: number
   groupSize: { min: number; max: number }
   highlights: string[]
@@ -104,6 +130,27 @@ export interface SafariPackage {
   // supplies its own SEO-authored copy instead of relying on the name/highlights fallback.
   metaTitle?: string
   metaDescription?: string
+  // "Wildlife Radar" tab data — target species and their real sighting likelihood
+  // on this specific itinerary/route, not a generic country-wide checklist.
+  wildlifeTargets?: { name: string; chance: 'Guaranteed' | 'High' | 'Seasonal' | 'Rare'; note?: string }[]
+  // Structured peak/shoulder/green season breakdown + a plain-language
+  // recommendation — kept alongside bestTimeToTravel (that stays the short
+  // quick-info chip string), not replacing it.
+  seasonalityGuide?: {
+    peakSeason?: string
+    shoulderSeason?: string
+    greenSeason?: string
+    recommendation?: string
+  }
+  // Packing/travel advice shown in its own "Practical Tips" section.
+  practicalTips?: string[]
+  // Who's actually running this trip. Real, typed field — defaults to
+  // 'EWA Safari Outfitters' for every package today (cosmetic until partner/
+  // DMC listings exist), not a stub.
+  operatorName?: string
+  // Short month labels (e.g. ["Jun","Jul","Aug"]) for the listing page's
+  // month-picker filter and the card's "best months" pill.
+  bestMonths?: string[]
 }
 
 export const packages: SafariPackage[] = [
@@ -112,7 +159,9 @@ export const packages: SafariPackage[] = [
     name: '7 Days Serengeti & Ngorongoro Safari',
     duration: 7,
     destinations: ['serengeti', 'ngorongoro', 'tarangire'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    wildlifeTargets: [{ name: 'Lion', chance: 'High' }, { name: 'African Elephant', chance: 'High' }, { name: 'Cape Buffalo', chance: 'High' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Wildebeest', chance: 'Seasonal', note: 'Great Migration, timing varies by month' }, { name: 'Maasai Giraffe', chance: 'High' }],
     priceFrom: 3400.63,
     groupSize: { min: 1, max: 8 },
     badge: 'bestseller',
@@ -301,7 +350,8 @@ export const packages: SafariPackage[] = [
     name: '10 Days Ultimate Northern Circuit',
     duration: 10,
     destinations: ['serengeti', 'ngorongoro', 'tarangire', 'manyara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    wildlifeTargets: [{ name: 'Wildebeest', chance: 'Seasonal', note: 'Great Migration' }, { name: 'Lion', chance: 'High' }, { name: 'African Elephant', chance: 'High' }, { name: 'Cape Buffalo', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Flamingo', chance: 'Seasonal', note: 'Lake Manyara' }],
     priceFrom: 4800,
     groupSize: { min: 1, max: 6 },
     badge: 'popular',
@@ -345,7 +395,8 @@ export const packages: SafariPackage[] = [
     name: '10 Days Tanzania Safari & Zanzibar Beach',
     duration: 10,
     destinations: ['tarangire', 'ngorongoro', 'serengeti', 'zanzibar'],
-    type: 'combination',
+    type: 'big_five_game_drives',
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }, { name: 'Cheetah', chance: 'Rare' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Cape Buffalo', chance: 'High' }],
     priceFrom: 4413.96,
     groupSize: { min: 2, max: 6 },
     badge: 'bestseller',
@@ -554,7 +605,9 @@ export const packages: SafariPackage[] = [
     name: '5 Days Serengeti Fly-In Safari',
     duration: 5,
     destinations: ['serengeti', 'ngorongoro', 'manyara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    wildlifeTargets: [{ name: 'Lion', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }, { name: 'Cheetah', chance: 'Rare' }, { name: 'Black Rhino', chance: 'High', note: '~25 resident individuals in the crater' }, { name: 'Cape Buffalo', chance: 'High' }, { name: 'Flamingo', chance: 'Seasonal' }],
     priceFrom: 2475,
     groupSize: { min: 1, max: 6 },
     badge: 'popular',
@@ -682,7 +735,8 @@ export const packages: SafariPackage[] = [
     name: 'Kilimanjaro Machame Route — 7 Days',
     duration: 7,
     destinations: ['arusha'],
-    type: 'trekking',
+    type: 'mountain_trekking',
+    wildlifeTargets: [{ name: 'Blue Monkey', chance: 'High', note: 'montane rainforest zone, Day 1' }, { name: 'Black-and-White Colobus Monkey', chance: 'Rare' }, { name: 'Hartlaub\'s Turaco', chance: 'High', note: 'rainforest belt birdlife' }, { name: 'Bushbuck', chance: 'Rare', note: 'forest-edge sighting' }],
     priceFrom: 2100,
     groupSize: { min: 1, max: 12 },
     bestFor: ['solo', 'couples', 'groups'],
@@ -726,7 +780,9 @@ export const packages: SafariPackage[] = [
     name: '7 Days Southern Circuit — Ruaha & Nyerere',
     duration: 7,
     destinations: ['nyerere', 'ruaha'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'Lion', chance: 'High', note: 'Ruaha holds an estimated 10% of the world\'s remaining lion population' }, { name: 'African Wild Dog', chance: 'Rare' }, { name: 'Hippopotamus', chance: 'High', note: 'Rufiji River boat safaris' }, { name: 'African Elephant', chance: 'High' }, { name: 'Cape Buffalo', chance: 'High' }, { name: 'Sable Antelope', chance: 'Rare' }],
     priceFrom: 4320,
     groupSize: { min: 1, max: 6 },
     bestFor: ['solo', 'couples', 'wildlife-enthusiasts'],
@@ -904,7 +960,9 @@ export const packages: SafariPackage[] = [
     name: '5 Days Highlights Safari',
     duration: 5,
     destinations: ['serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    wildlifeTargets: [{ name: 'Lion', chance: 'High' }, { name: 'African Elephant', chance: 'High' }, { name: 'Cape Buffalo', chance: 'High' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }, { name: 'Wildebeest', chance: 'Seasonal', note: 'Great Migration' }],
     priceFrom: 3336.88,
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
@@ -1034,7 +1092,9 @@ export const packages: SafariPackage[] = [
     name: '8-Day Honeymoon Safari — Bush Lovers',
     duration: 8,
     destinations: ['tarangire', 'manyara', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Cape Buffalo', chance: 'High' }, { name: 'Wildebeest', chance: 'Seasonal', note: 'Jul-Oct migration' }],
     priceFrom: 3824,
     groupSize: { min: 2, max: 2 },
     badge: 'popular',
@@ -1234,7 +1294,9 @@ export const packages: SafariPackage[] = [
     name: '7 Days Crown Jewels Safari',
     duration: 7,
     destinations: ['tarangire', 'manyara', 'ngorongoro', 'serengeti'],
-    type: 'combination',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Dec', 'Jan', 'Feb'],
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }, { name: 'Genet', chance: 'Rare', note: 'Tarangire night game drive' }, { name: 'Hippopotamus', chance: 'High', note: 'Lake Manyara mokoro safari' }],
     priceFrom: 5334.38,
     groupSize: { min: 1, max: 8 },
     badge: 'bestseller',
@@ -1419,7 +1481,9 @@ export const packages: SafariPackage[] = [
     name: 'Southern Edition: Tanzania Calving Season Migration Safari — Ndutu & Ngorongoro Crater',
     duration: 9,
     destinations: ['ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'migration',
+    bestMonths: ['Jan', 'Feb', 'Mar'],
+    wildlifeTargets: [{ name: 'Wildebeest', chance: 'Seasonal', note: 'newborn calves, up to 8,000/day, Jan-Mar' }, { name: 'Cheetah', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Spotted Hyena', chance: 'High' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Golden Jackal', chance: 'Rare' }],
     priceFrom: 5790.63,
     groupSize: { min: 1, max: 6 },
     bestFor: ['photography', 'wildlife-enthusiasts', 'solo'],
@@ -1640,7 +1704,8 @@ export const packages: SafariPackage[] = [
     name: '10 Days Tanzania Luxury Family Safari',
     duration: 10,
     destinations: ['arusha', 'tarangire', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    wildlifeTargets: [{ name: 'Giraffe', chance: 'Guaranteed', note: 'Arusha National Park' }, { name: 'Black-and-White Colobus Monkey', chance: 'High' }, { name: 'African Elephant', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Lion', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }],
     priceFrom: 6025.21,
     groupSize: { min: 3, max: 8 },
     badge: 'popular',
@@ -1842,7 +1907,9 @@ export const packages: SafariPackage[] = [
     name: '12-Day Wilderness Safari, Cultural Encounters & Kilimanjaro Day Hike',
     duration: 12,
     destinations: ['kilimanjaro', 'manyara', 'tarangire', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Jan', 'Feb'],
+    wildlifeTargets: [{ name: 'Elephant', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Cape Buffalo', chance: 'High' }, { name: 'Giraffe', chance: 'High' }, { name: 'Wildebeest', chance: 'Seasonal' }],
     priceFrom: 5857,
     groupSize: { min: 1, max: 6 },
     bestFor: ['wildlife-enthusiasts', 'couples', 'solo'],
@@ -2084,7 +2151,9 @@ export const packages: SafariPackage[] = [
     name: '8 Days Great Northern Migration',
     duration: 8,
     destinations: ['tarangire', 'manyara', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'migration',
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'Wildebeest', chance: 'Seasonal', note: 'Mara River crossings, Jul-Oct' }, { name: 'Nile Crocodile', chance: 'Seasonal' }, { name: 'Zebra', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Elephant', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }],
     priceFrom: 4976.88,
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
@@ -2267,7 +2336,9 @@ export const packages: SafariPackage[] = [
     name: 'Ultimate Tanzania Safari & Gombe Chimpanzee Trekking',
     duration: 11,
     destinations: ['arusha', 'tarangire', 'ngorongoro', 'gombe'],
-    type: 'combination',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'Chimpanzee', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Lion', chance: 'High' }, { name: 'Elephant', chance: 'High' }, { name: 'Giraffe', chance: 'High' }, { name: 'Colobus Monkey', chance: 'High' }],
     priceFrom: 5908.96,
     groupSize: { min: 2, max: 6 },
     badge: 'bestseller',
@@ -2439,7 +2510,8 @@ export const packages: SafariPackage[] = [
     name: '7 Days Gems of the North',
     duration: 7,
     destinations: ['tarangire', 'manyara', 'serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    wildlifeTargets: [{ name: 'Lion', chance: 'High' }, { name: 'Elephant', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Cheetah', chance: 'Rare' }, { name: 'Wildebeest', chance: 'Seasonal' }],
     priceFrom: 3300,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'families'],
@@ -2529,7 +2601,9 @@ export const packages: SafariPackage[] = [
     name: '7 Days Flight Over Ndutu Migration',
     duration: 7,
     destinations: ['serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'migration',
+    bestMonths: ['Jan', 'Feb', 'Mar'],
+    wildlifeTargets: [{ name: 'Wildebeest', chance: 'Seasonal', note: 'newborn calves, Jan-Mar calving season' }, { name: 'Cheetah', chance: 'Seasonal' }, { name: 'Spotted Hyena', chance: 'Seasonal' }, { name: 'Lion', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Leopard', chance: 'Rare' }],
     priceFrom: 4000,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
@@ -2620,7 +2694,9 @@ export const packages: SafariPackage[] = [
     name: '8-Day Wildebeest River Crossing Safari',
     duration: 8,
     destinations: ['serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'migration',
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'Wildebeest', chance: 'Seasonal', note: 'Mara River crossings, Jul-Oct' }, { name: 'Nile Crocodile', chance: 'Seasonal' }, { name: 'Lion', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }, { name: 'Cheetah', chance: 'Rare' }, { name: 'Black Rhino', chance: 'Rare' }],
     priceFrom: 3852.29,
     groupSize: { min: 2, max: 6 },
     badge: 'popular',
@@ -2805,7 +2881,8 @@ export const packages: SafariPackage[] = [
     name: '11 Days Rwanda Tanzania Safari',
     duration: 11,
     destinations: ['volcanoes', 'kigali', 'serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'gorilla_trekking',
+    wildlifeTargets: [{ name: 'Mountain Gorilla', chance: 'Guaranteed' }, { name: 'Golden Monkey', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Giraffe', chance: 'High' }, { name: 'Wildebeest', chance: 'Seasonal' }],
     priceFrom: 6500,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
@@ -2927,7 +3004,8 @@ export const packages: SafariPackage[] = [
     name: '12 Days Rwanda, Tanzania & Zanzibar',
     duration: 12,
     destinations: ['volcanoes', 'tarangire', 'ngorongoro', 'serengeti', 'zanzibar'],
-    type: 'combination',
+    type: 'big_five_game_drives',
+    wildlifeTargets: [{ name: 'Mountain Gorilla', chance: 'Guaranteed' }, { name: 'Golden Monkey', chance: 'High' }, { name: 'Elephant', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Lion', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }],
     priceFrom: 9375,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'honeymoon', 'wildlife-enthusiasts'],
@@ -3136,7 +3214,8 @@ export const packages: SafariPackage[] = [
     name: 'Rwanda Primate Safari & Zanzibar Beach Escape',
     duration: 12,
     destinations: ['kigali', 'nyungwe', 'volcanoes', 'zanzibar'],
-    type: 'combination',
+    type: 'gorilla_trekking',
+    wildlifeTargets: [{ name: 'Chimpanzee', chance: 'High' }, { name: 'Mountain Gorilla', chance: 'Guaranteed' }, { name: 'Golden Monkey', chance: 'High' }, { name: 'Angolan Colobus', chance: 'Rare' }],
     priceFrom: 7742.08,
     groupSize: { min: 2, max: 6 },
     bestFor: ['couples', 'honeymoon', 'wildlife-enthusiasts'],
@@ -3311,7 +3390,8 @@ export const packages: SafariPackage[] = [
     name: '4 Days Rwanda Gorilla Trekking',
     duration: 4,
     destinations: ['volcanoes', 'kigali'],
-    type: 'wildlife',
+    type: 'gorilla_trekking',
+    wildlifeTargets: [{ name: 'Mountain Gorilla', chance: 'Guaranteed' }, { name: 'Golden Monkey', chance: 'High' }, { name: 'Forest Buffalo', chance: 'Rare' }, { name: 'Forest Elephant', chance: 'Rare' }],
     priceFrom: 3414.58,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
@@ -3423,7 +3503,9 @@ export const packages: SafariPackage[] = [
     name: '5 Days Private Gombe Chimpanzee Trekking',
     duration: 5,
     destinations: ['gombe'],
-    type: 'wildlife',
+    type: 'gorilla_trekking',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'Chimpanzee', chance: 'High' }, { name: 'Olive Baboon', chance: 'High' }, { name: 'Red Colobus Monkey', chance: 'Rare' }, { name: 'Blue Monkey', chance: 'Rare' }],
     priceFrom: 4206.25,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
@@ -3565,7 +3647,8 @@ export const packages: SafariPackage[] = [
     name: '12-Day Tanzania Safari for Seniors, Anniversaries & Groups',
     duration: 12,
     destinations: ['arusha', 'tarangire', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Giraffe', chance: 'High' }, { name: 'Black-and-White Colobus Monkey', chance: 'High' }, { name: 'Cape Buffalo', chance: 'High' }],
     priceFrom: 6036.46,
     groupSize: { min: 2, max: 6 },
     bestFor: ['couples', 'families', 'wildlife-enthusiasts'],
@@ -3781,7 +3864,9 @@ export const packages: SafariPackage[] = [
     name: '7-Day Tanzania Photography & Adventure Safari',
     duration: 7,
     destinations: ['tarangire', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'photographic',
+    bestMonths: ['Jan', 'Feb', 'Mar'],
+    wildlifeTargets: [{ name: 'Wildebeest', chance: 'Seasonal', note: 'Ndutu calving, Jan-Mar' }, { name: 'African Elephant', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Cheetah', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Spotted Hyena', chance: 'High' }],
     priceFrom: 4597.29,
     groupSize: { min: 1, max: 6 },
     bestFor: ['solo', 'couples', 'wildlife-enthusiasts'],
@@ -3948,7 +4033,9 @@ export const packages: SafariPackage[] = [
     name: '11 Days Kenya Undisputed',
     duration: 11,
     destinations: ['masai-mara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Grevy\'s Zebra', chance: 'High' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Reticulated Giraffe', chance: 'High' }, { name: 'Chimpanzee', chance: 'High', note: 'Ol Pejeta sanctuary' }],
     priceFrom: 5800,
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
@@ -4071,7 +4158,8 @@ export const packages: SafariPackage[] = [
     name: '10 Days Southern Tanzania Secrets',
     duration: 10,
     destinations: ['nyerere', 'ruaha'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    wildlifeTargets: [{ name: 'Lion', chance: 'High' }, { name: 'African Elephant', chance: 'High' }, { name: 'African Wild Dog', chance: 'Rare' }, { name: 'Hippopotamus', chance: 'High' }, { name: 'Cheetah', chance: 'High' }, { name: 'Nile Crocodile', chance: 'High' }],
     priceFrom: 5200,
     groupSize: { min: 1, max: 6 },
     bestFor: ['solo', 'couples', 'wildlife-enthusiasts'],
@@ -4185,7 +4273,8 @@ export const packages: SafariPackage[] = [
     name: '11 Days Southern Wildlife & Spice Isles',
     duration: 11,
     destinations: ['nyerere', 'ruaha', 'zanzibar'],
-    type: 'combination',
+    type: 'big_five_game_drives',
+    wildlifeTargets: [{ name: 'Lion', chance: 'High' }, { name: 'African Elephant', chance: 'High' }, { name: 'African Wild Dog', chance: 'Rare' }, { name: 'Hippopotamus', chance: 'High' }, { name: 'Spinner Dolphin', chance: 'High', note: 'Kizimkazi, Zanzibar' }, { name: 'Aldabra Giant Tortoise', chance: 'Guaranteed', note: 'Prison Island' }],
     priceFrom: 6100,
     groupSize: { min: 1, max: 8 },
     badge: 'new',
@@ -4308,7 +4397,9 @@ export const packages: SafariPackage[] = [
     name: '12 Days Tanzania Kenya Expedition',
     duration: 12,
     destinations: ['serengeti', 'ngorongoro', 'manyara', 'masai-mara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'Wildebeest', chance: 'Seasonal', note: 'Jul-Oct migration' }, { name: 'Lion', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Flamingo', chance: 'Seasonal' }, { name: 'African Elephant', chance: 'High' }, { name: 'Cheetah', chance: 'High' }],
     priceFrom: 7200,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'solo', 'wildlife-enthusiasts'],
@@ -4438,7 +4529,8 @@ export const packages: SafariPackage[] = [
     name: 'Kilimanjaro Lemosho Climb & 5-Day Highlights Safari',
     duration: 14,
     destinations: ['arusha', 'serengeti', 'ngorongoro'],
-    type: 'combination',
+    type: 'mountain_trekking',
+    wildlifeTargets: [{ name: 'Lion', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'African Elephant', chance: 'High' }, { name: 'Cape Buffalo', chance: 'High' }, { name: 'Wildebeest', chance: 'Seasonal' }],
     priceFrom: 6607.58,
     groupSize: { min: 2, max: 4 },
     badge: 'new',
@@ -4647,7 +4739,8 @@ export const packages: SafariPackage[] = [
     name: '5-Day Kilimanjaro Extension Safari',
     duration: 5,
     destinations: ['arusha', 'tarangire', 'serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Cheetah', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Cape Buffalo', chance: 'High' }, { name: 'Maasai Giraffe', chance: 'High' }],
     priceFrom: 2118.96,
     groupSize: { min: 2, max: 6 },
     badge: 'new',
@@ -4775,7 +4868,8 @@ export const packages: SafariPackage[] = [
     name: '5-Day Comfort Tanzania Safari',
     duration: 5,
     destinations: ['tarangire', 'ngorongoro', 'serengeti', 'manyara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Cheetah', chance: 'High' }, { name: 'Flamingo', chance: 'Seasonal' }, { name: 'Blue Monkey', chance: 'Rare' }],
     priceFrom: 1909,
     groupSize: { min: 1, max: 8 },
     badge: 'popular',
@@ -4912,7 +5006,9 @@ export const packages: SafariPackage[] = [
     name: '6-Day Comfort Tanzania Safari',
     duration: 6,
     destinations: ['tarangire', 'serengeti', 'ngorongoro', 'manyara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Cheetah', chance: 'High' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Cape Buffalo', chance: 'High' }, { name: 'Hippopotamus', chance: 'High' }],
     priceFrom: 2554,
     groupSize: { min: 1, max: 8 },
     bestFor: ['couples', 'first-time', 'families', 'wildlife-enthusiasts'],
@@ -5059,7 +5155,9 @@ export const packages: SafariPackage[] = [
     name: 'Highlights of Kenya & Tanzania Safari',
     duration: 10,
     destinations: ['nairobi', 'amboseli', 'masai-mara', 'serengeti', 'ngorongoro', 'manyara'],
-    type: 'combination',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Wildebeest', chance: 'Seasonal', note: 'Mara River crossing, Jul-Oct' }, { name: 'Cheetah', chance: 'High' }, { name: 'Cape Buffalo', chance: 'High' }],
     priceFrom: 4600,
     groupSize: { min: 2, max: 8 },
     bestFor: ['luxury', 'couples', 'wildlife-enthusiasts', 'photography'],
@@ -5264,7 +5362,9 @@ export const packages: SafariPackage[] = [
     name: '10-Day Kenya & Tanzania Safari',
     duration: 10,
     destinations: ['masai-mara', 'nairobi', 'serengeti', 'ngorongoro', 'tarangire'],
-    type: 'combination',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'Lion', chance: 'Guaranteed' }, { name: 'African Elephant', chance: 'High' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Leopard', chance: 'High' }, { name: 'Cheetah', chance: 'High' }, { name: 'Wildebeest', chance: 'Seasonal' }],
     priceFrom: 5072,
     groupSize: { min: 1, max: 6 },
     badge: 'new',
@@ -5444,7 +5544,9 @@ export const packages: SafariPackage[] = [
     name: '2-Day Nyerere Safari from Zanzibar',
     duration: 2,
     destinations: ['nyerere', 'zanzibar'],
-    type: 'wildlife',
+    type: 'beach_extension',
+    bestMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    wildlifeTargets: [{ name: 'Hippopotamus', chance: 'Guaranteed' }, { name: 'Nile Crocodile', chance: 'High' }, { name: 'African Elephant', chance: 'High' }, { name: 'African Buffalo', chance: 'High' }, { name: 'African Wild Dog', chance: 'Rare' }],
     priceFrom: 1957.50,
     groupSize: { min: 2, max: 6 },
     badge: 'popular',
@@ -5564,7 +5666,9 @@ export const packages: SafariPackage[] = [
     name: '4-Day Tarangire, Ngorongoro & Lake Eyasi',
     duration: 4,
     destinations: ['tarangire', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'Guaranteed' }, { name: 'Black Rhino', chance: 'High' }, { name: 'African Buffalo', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }],
     priceFrom: 1250,
     groupSize: { min: 2, max: 6 },
     badge: 'new',
@@ -5678,7 +5782,9 @@ export const packages: SafariPackage[] = [
     name: "5 Days Kenya Safari — Hell's Gate, Lake Nakuru & Masai Mara",
     duration: 5,
     destinations: ['masai-mara', 'nairobi'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'Black Rhino', chance: 'High' }, { name: 'White Rhino', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Wildebeest', chance: 'Seasonal' }, { name: 'Rothschild\'s Giraffe', chance: 'High' }, { name: 'Cheetah', chance: 'Rare' }],
     priceFrom: 1520,
     groupSize: { min: 2, max: 6 },
     badge: 'new',
@@ -5810,7 +5916,9 @@ export const packages: SafariPackage[] = [
     name: '9-Day Honeymoon Safari & Zanzibar Beach Escape',
     duration: 9,
     destinations: ['tarangire', 'ngorongoro', 'serengeti', 'zanzibar'],
-    type: 'combination',
+    type: 'beach_extension',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Dec', 'Jan', 'Feb'],
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'Guaranteed' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }, { name: 'African Buffalo', chance: 'High' }],
     priceFrom: 3847,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'honeymoon', 'luxury'],
@@ -6009,7 +6117,9 @@ export const packages: SafariPackage[] = [
     name: '10-Day Ultimate Great Migration — Mara River-Crossing Safari',
     duration: 10,
     destinations: ['tarangire', 'manyara', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'migration',
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'Wildebeest', chance: 'Seasonal', note: 'Mara River crossing' }, { name: 'Plains Zebra', chance: 'Seasonal' }, { name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'Guaranteed' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Nile Crocodile', chance: 'Seasonal' }],
     priceFrom: 4775,
     groupSize: { min: 1, max: 6 },
     bestFor: ['couples', 'photography', 'luxury'],
@@ -6221,7 +6331,9 @@ export const packages: SafariPackage[] = [
     name: 'Tanzania Photographic Safari — Tarangire, Ngorongoro Crater & Serengeti',
     duration: 10,
     destinations: ['tarangire', 'ngorongoro', 'serengeti'],
-    type: 'wildlife',
+    type: 'photographic',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Lion', chance: 'Guaranteed' }, { name: 'Leopard', chance: 'High' }, { name: 'Cheetah', chance: 'High' }, { name: 'Black Rhino', chance: 'Rare' }, { name: 'Wildebeest', chance: 'Seasonal' }],
     priceFrom: 4597,
     groupSize: { min: 1, max: 6 },
     badge: 'new',
@@ -6430,7 +6542,9 @@ export const packages: SafariPackage[] = [
     name: 'Authentic, Exclusive Kenya — Amboseli, Samburu & the Masai Mara',
     duration: 9,
     destinations: ['amboseli', 'samburu', 'masai-mara'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    wildlifeTargets: [{ name: 'African Elephant', chance: 'High' }, { name: 'Grevy\'s Zebra', chance: 'Rare' }, { name: 'Reticulated Giraffe', chance: 'High' }, { name: 'Lion', chance: 'High' }, { name: 'Cheetah', chance: 'Rare' }, { name: 'Wildebeest', chance: 'Seasonal' }],
     priceFrom: 1926,
     groupSize: { min: 1, max: 6 },
     badge: 'new',
@@ -6613,7 +6727,9 @@ export const packages: SafariPackage[] = [
     name: 'Classic Kenya Safari — Masai Mara, the Rift Valley & Amboseli',
     duration: 7,
     destinations: ['masai-mara', 'lake-nakuru', 'amboseli'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
+    bestMonths: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    wildlifeTargets: [{ name: 'Lion', chance: 'High' }, { name: 'African Elephant', chance: 'High' }, { name: 'Flamingo', chance: 'Seasonal' }, { name: 'Black Rhino', chance: 'High' }, { name: 'Wildebeest', chance: 'Seasonal' }, { name: 'Cheetah', chance: 'Rare' }],
     priceFrom: 1295,
     groupSize: { min: 1, max: 6 },
     badge: 'new',
@@ -6765,7 +6881,9 @@ export const packages: SafariPackage[] = [
     name: '8-Day Off The Beaten Track Photography Safari',
     duration: 8,
     destinations: ['serengeti', 'ngorongoro'],
-    type: 'wildlife',
+    type: 'photographic',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+    wildlifeTargets: [{ name: 'Lion', chance: 'High' }, { name: 'Cheetah', chance: 'High' }, { name: 'Leopard', chance: 'Rare' }, { name: 'Side-striped Jackal', chance: 'Rare' }, { name: 'Serval', chance: 'Rare' }, { name: 'Black Rhino', chance: 'High' }],
     priceFrom: 6218.75,
     groupSize: { min: 2, max: 6 },
     badge: 'new',
@@ -6934,7 +7052,9 @@ export const packages: SafariPackage[] = [
     name: '12-Day Rwanda Primate Safari & Zanzibar Beach Escape',
     duration: 12,
     destinations: ['kigali', 'nyungwe', 'volcanoes', 'zanzibar'],
-    type: 'combination',
+    type: 'gorilla_trekking',
+    bestMonths: ['Jun', 'Jul', 'Aug', 'Sep', 'Dec', 'Jan', 'Feb'],
+    wildlifeTargets: [{ name: 'Mountain Gorilla', chance: 'Guaranteed' }, { name: 'Chimpanzee', chance: 'High' }, { name: 'Golden Monkey', chance: 'High' }, { name: 'Angola Colobus Monkey', chance: 'High' }, { name: 'L\'Hoest\'s Monkey', chance: 'Rare' }],
     priceFrom: 8533.75,
     groupSize: { min: 2, max: 6 },
     badge: 'new',

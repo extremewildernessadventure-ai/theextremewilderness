@@ -8,7 +8,7 @@ const pkg: SafariPackage = {
   name: 'Test Package',
   duration: 7,
   destinations: ['serengeti'],
-  type: 'wildlife',
+  type: 'big_five_game_drives',
   priceFrom: 1000,
   groupSize: { min: 1, max: 8 },
   highlights: ['Big Five'],

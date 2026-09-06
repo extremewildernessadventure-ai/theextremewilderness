@@ -1,24 +1,34 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
-import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
-import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck, Star, MapPin, DollarSign } from 'lucide-react'
+import { Clock, Users, Check, X, ChevronDown, Calendar, ShieldCheck, MapPin, DollarSign, ArrowLeft, Star, Compass, Sparkles } from 'lucide-react'
+import { Link } from '@/i18n/navigation'
 import Badge from '@/components/shared/Badge'
 import TrustBar from '@/components/home/TrustBar'
 import SafariBookingSidebar from '@/components/safaris/SafariBookingSidebar'
 import MobileEnquireBanner from '@/components/booking/MobileEnquireBanner'
-import AmenityStay from '@/components/safaris/AmenityStay'
+import BookNowButton from '@/components/booking/BookNowButton'
 import RelatedSafaris from '@/components/safaris/RelatedSafaris'
+import OperatorBadge from '@/components/safaris/OperatorBadge'
+import SafariPhotoGallery from '@/components/safaris/SafariPhotoGallery'
+import SafariDetailTabs, { type DetailTabId } from '@/components/safaris/SafariDetailTabs'
+import SafariCampsTab from '@/components/safaris/SafariCampsTab'
+import SafariWildlifeTab from '@/components/safaris/SafariWildlifeTab'
+import SafariSeasonalityGuide from '@/components/safaris/SafariSeasonalityGuide'
+import SafariPracticalTips from '@/components/safaris/SafariPracticalTips'
+import SafariReviewsTab from '@/components/safaris/SafariReviewsTab'
 import { packages } from '@/data/packages'
 import { getPackage, getPackages } from '@/data/packages.i18n'
+import { getDestinations } from '@/data/destinations.i18n'
+import ShareLinkButton from '@/components/safaris/ShareLinkButton'
 import { getBlogPostMeta } from '@/data/blog/index.i18n'
 import BlogSuggestionCard from '@/components/trekking/BlogSuggestionCard'
 import { routing } from '@/i18n/routing'
 import { SITE_URL, localeUrl, buildAlternates, buildBreadcrumbSchema, buildImageObject, buildPageTitle } from '@/lib/site'
 import { CORE_KEYWORDS_BY_LOCALE } from '@/data/coreKeywords'
-import Breadcrumb from '@/components/ui/Breadcrumb'
 import Reveal from '@/components/motion/Reveal'
+import { getPublishedReviewsForPackage, computeReviewStats } from '@/lib/reviews'
+import { buildCampsRoster } from '@/lib/safariCamps'
 
 
 const SAFARI_KEYWORDS: Record<string, string[]> = {
@@ -197,14 +207,6 @@ const SAFARI_KEYWORDS: Record<string, string[]> = {
     'anniversary safari Africa', 'group safari Rwanda Zanzibar', 'luxury Rwanda Zanzibar combination',
     'gorilla trekking beach extension', 'multi-generational safari', 'private guided safari Rwanda', 'book Rwanda safari 2027',
   ],
-}
-
-// Per-package hero image crop override — most hero photos are fine with the
-// default center crop, but a few (e.g. subjects positioned toward the top
-// of the source frame) need a different object-position to avoid cropping
-// out the actual subject on the short/wide hero banner.
-const HERO_IMAGE_POSITION: Record<string, string> = {
-  '5-day-gombe-chimpanzee-trekking': 'object-top',
 }
 
 const DEFAULT_SAFARI_KEYWORDS = [
@@ -477,17 +479,6 @@ const SAFARI_BLOG_MAP: Record<string, string> = {
 }
 const DEFAULT_BLOG_SLUG = 'tanzania-safari-cost'
 
-// Real, verified guest reviews (also displayed in the homepage Testimonials
-// carousel) mapped to the specific package their itinerary matches — only
-// wired up where the reviewer's stated duration and destinations line up
-// with a real package, so the schema and on-page quote stay accurate.
-const PACKAGE_REVIEWS: Record<string, { key: 0 | 1 | 7 | 10; name: string; countryKey: 'countryUS' | 'countryUK' | 'countryFR'; rating: number }> = {
-  '10-day-northern-circuit':         { key: 0,  name: 'James Kowalski',              countryKey: 'countryUS', rating: 5 },
-  '5-day-serengeti-fly-in':          { key: 1,  name: 'Erick Edwin',                 countryKey: 'countryUS', rating: 5 },
-  '7-day-serengeti-ngorongoro':      { key: 7,  name: 'Sarah & Michael Thompson',    countryKey: 'countryUK', rating: 5 },
-  '9-day-honeymoon-safari-zanzibar': { key: 10, name: 'Marie & François Dupont',     countryKey: 'countryFR', rating: 5 },
-}
-
 interface Props {
   params: Promise<{ locale: string; slug: string }>
 }
@@ -538,12 +529,22 @@ export default async function SafariPackagePage({ params }: Props) {
   const t = await getTranslations('safari')
   const tc = await getTranslations('common')
   const tf = await getTranslations('forms')
+  const tb = await getTranslations('safariBrowser')
 
+  // Keyed on the 8-value ActivityType enum (migration 0031) — reuses
+  // forms.tripTypes' existing labels where they already fit (gorilla
+  // trekking, photography, beach, Kilimanjaro), and 3 new keys added
+  // there for the values that had no equivalent (migration/walking/
+  // cultural), rather than a separate parallel taxonomy for this one map.
   const TRIP_TYPE_LABEL: Record<typeof pkg.type, string> = {
-    wildlife: tf('tripTypes.wildlifeSafari'),
-    trekking: tf('tripTypes.kilimanjaroTrek'),
-    beach: tf('tripTypes.beachSafariCombo'),
-    combination: tf('tripTypes.multiCountry'),
+    big_five_game_drives: tf('tripTypes.wildlifeSafari'),
+    migration: tf('tripTypes.migrationSafari'),
+    photographic: tf('tripTypes.photographySafari'),
+    walking: tf('tripTypes.walkingSafari'),
+    cultural: tf('tripTypes.culturalSafari'),
+    gorilla_trekking: tf('tripTypes.gorillaTrekking'),
+    beach_extension: tf('tripTypes.beachSafariCombo'),
+    mountain_trekking: tf('tripTypes.kilimanjaroTrek'),
   }
 
   const featuredPost = await getBlogPostMeta(
@@ -551,15 +552,9 @@ export default async function SafariPackagePage({ params }: Props) {
     locale
   )
 
-  const packageReview = PACKAGE_REVIEWS[pkg.slug]
-  const th = packageReview ? await getTranslations({ locale, namespace: 'home' }) : null
-  const reviewText = packageReview && th
-    ? (packageReview.key === 0 ? th('rev0Text')
-      : packageReview.key === 1 ? th('rev1Text')
-      : packageReview.key === 7 ? th('rev7Text')
-      : th('rev10Text'))
-    : null
-  const reviewCountry = packageReview && th ? th(packageReview.countryKey) : null
+  const publishedReviews = await getPublishedReviewsForPackage(pkg.slug)
+  const reviewStats = computeReviewStats(publishedReviews)
+  const campsRoster = buildCampsRoster(pkg.itinerary)
 
   const productSchema = {
     '@context': 'https://schema.org',
@@ -586,20 +581,24 @@ export default async function SafariPackagePage({ params }: Props) {
       '@type': 'ItemList',
       numberOfItems: pkg.duration,
     },
-    ...(packageReview && reviewText ? {
-      review: {
+    // Real, published guest reviews from the reviews D1 table -- only ever
+    // reflects what's actually approved and public (getPublishedReviewsForPackage
+    // never reads pending/approved rows), and reviewCount/ratingValue come
+    // from computeReviewStats' real aggregation, not a hardcoded single
+    // review the way this used to work. Omitted entirely when there are no
+    // real published reviews yet, never fabricated, per Google's
+    // structured-data guidelines.
+    ...(publishedReviews.length > 0 ? {
+      review: publishedReviews.map((r) => ({
         '@type': 'Review',
-        reviewRating: { '@type': 'Rating', ratingValue: packageReview.rating, bestRating: 5 },
-        author: { '@type': 'Person', name: packageReview.name },
-        reviewBody: reviewText,
-      },
-      // Real, verified guest rating (same PACKAGE_REVIEWS entry as the
-      // review above) — only added where we have a genuine review behind
-      // it, never fabricated, per Google's structured-data guidelines.
+        reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 },
+        author: { '@type': 'Person', name: r.reviewer_name },
+        reviewBody: r.quote_text,
+      })),
       aggregateRating: {
         '@type': 'AggregateRating',
-        ratingValue: String(packageReview.rating),
-        reviewCount: '1',
+        ratingValue: reviewStats.average.toFixed(1),
+        reviewCount: String(reviewStats.count),
         bestRating: '5',
       },
     } : {}),
@@ -617,12 +616,462 @@ export default async function SafariPackagePage({ params }: Props) {
 
   const allPackages = await getPackages(locale)
 
+  // Real country badge -- resolved from the package's actual destinations
+  // (same lookup the listing page uses), not the prototype's fabricated
+  // "{country} • {circuit} Circuit" label: this app has no tracked "circuit"
+  // concept per package, so only the country half is real and shown.
+  const ti = await getTranslations('itineraries')
+  const COUNTRY_LABEL: Record<string, string> = {
+    tanzania: ti('filterTanzania'), kenya: ti('filterKenya'), rwanda: ti('filterRwanda'),
+  }
+  const allDestinations = await getDestinations(locale)
+  const destinationCountryLookup = new Map(allDestinations.map((d) => [d.slug, d.country]))
+  const packageCountries = [...new Set(
+    pkg.destinations
+      .map((d) => destinationCountryLookup.get(d))
+      .filter((c): c is NonNullable<typeof c> => c !== undefined)
+  )]
+  const countryLabel = packageCountries.map((c) => COUNTRY_LABEL[c] ?? c).join(' • ')
+
   const breadcrumbItems = [
     { label: 'EWA Safari Outfitters', href: `/${locale}` },
     { label: t('breadcrumbLabel'), href: `/${locale}/safaris` },
     { label: pkg.name },
   ]
   const breadcrumbSchema = buildBreadcrumbSchema(locale, breadcrumbItems, `/safaris/${slug}`)
+
+  // Quick Facts "Tier Level" -- the prototype's `safari.tier` has no direct
+  // equivalent here (a real package usually offers a range of tiers rather
+  // than one fixed tier), so this derives the same tier vocabulary already
+  // used across pricing/camps (Wilderness Trail/Reserve/Sovereign or the
+  // family Luxury/Ultra-Luxury pair) from whichever pricing grid the
+  // package actually has populated.
+  const TIER_KEYS = ['trail', 'reserve', 'sovereign'] as const
+  const availablePricingTiers = pkg.pricingTiers
+    ? TIER_KEYS.filter((tr) => pkg.pricingTiers!.some((r) => r[tr] !== undefined && r[tr]! > 0))
+    : []
+  const TIER_LABEL: Record<(typeof TIER_KEYS)[number], string> = {
+    trail: t('tierTrail'), reserve: t('tierReserve'), sovereign: t('tierSovereign'),
+  }
+  const tierLevelLabel = availablePricingTiers.length > 0
+    ? availablePricingTiers.map((tr) => TIER_LABEL[tr]).join(' · ')
+    : (pkg.familyPricing && pkg.familyPricing.length > 0)
+      ? `${t('familyTierLuxury')} · ${t('familyTierUltraLuxury')}`
+      : '—'
+
+  // Peak Months -- a handful of packages run genuinely year-round (all 12
+  // months), which would overflow the Quick Facts tile as a raw comma join;
+  // those show a plain "Year-Round" label instead.
+  const peakMonthsDisplay = !pkg.bestMonths || pkg.bestMonths.length === 0
+    ? '—'
+    : pkg.bestMonths.length >= 10
+      ? t('quickFactYearRound')
+      : pkg.bestMonths.join(', ')
+
+  // Stage B tab content -- every section below preserves the exact same real
+  // data/conditions the page always had; only the visual grouping changed
+  // (into tabs, matching the prototype's structure) plus 3 genuinely new
+  // sections (Camps/Wildlife/Reviews). Tabs with nothing real to show are
+  // simply omitted from `detailTabs` rather than rendered empty.
+  const overviewTabContent = (
+    <div className="space-y-8">
+      {pkg.overview && pkg.overview.length > 0 && (
+        <div className="bg-light-green border border-brand/10 rounded-xl p-5 space-y-3">
+          <h2 className="text-xl font-semibold text-brand mb-1">{t('overview')}</h2>
+          {pkg.overview.map((para, i) => (
+            <p key={i} className="text-base text-text-muted leading-relaxed">{para}</p>
+          ))}
+        </div>
+      )}
+
+      <div className="bg-light-green border border-brand/10 rounded-xl p-5 space-y-6">
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-lg font-semibold text-brand mb-4">{t('atAGlance')}</h2>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="bg-white rounded-lg border border-gray-100 p-3">
+                <DollarSign className="w-4 h-4 text-gold mb-1.5" />
+                <p className="font-bold text-brand text-base leading-tight">${pkg.priceFrom.toLocaleString('en-US')}</p>
+                <p className="text-xs text-text-muted">{tc('from')} · {tc('perPerson')}</p>
+              </div>
+              <div className="bg-white rounded-lg border border-gray-100 p-3">
+                <MapPin className="w-4 h-4 text-gold mb-1.5" />
+                <p className="font-bold text-brand text-base leading-tight line-clamp-2">
+                  {pkg.destinations.map((d) => d.charAt(0).toUpperCase() + d.slice(1)).join(', ')}
+                </p>
+                <p className="text-xs text-text-muted">{t('destinationsLabel')}</p>
+              </div>
+              <div className="bg-white rounded-lg border border-gray-100 p-3">
+                <Clock className="w-4 h-4 text-gold mb-1.5" />
+                <p className="font-bold text-brand text-base leading-tight">{pkg.duration} {tc('days')}</p>
+                <p className="text-xs text-text-muted">{t('duration')}</p>
+              </div>
+              <div className="bg-white rounded-lg border border-gray-100 p-3">
+                <Users className="w-4 h-4 text-gold mb-1.5" />
+                <p className="font-bold text-brand text-base leading-tight">{pkg.groupSize.min}–{pkg.groupSize.max}</p>
+                <p className="text-xs text-text-muted">{t('groupSizeLabel')}</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-semibold text-brand mb-4">{t('packageHighlights')}</h2>
+            <ul className="space-y-2">
+              {pkg.highlights.map((h) => (
+                <li key={h} className="flex items-start gap-2 text-base text-text-muted">
+                  <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {(pkg.bestTimeToTravel || pkg.tagline) && (
+          <div className="flex flex-wrap gap-5 text-base pt-5 border-t border-brand/10">
+            {pkg.bestTimeToTravel && (
+              <div className="flex items-center gap-2 text-text-muted">
+                <Calendar className="w-4 h-4 text-gold" />
+                <span><strong className="text-brand">{t('bestTimeToTravel')}:</strong> {pkg.bestTimeToTravel}</span>
+              </div>
+            )}
+            {pkg.tagline && (
+              <div className="flex items-center gap-2 text-text-muted">
+                <ShieldCheck className="w-4 h-4 text-gold" />
+                <span>{pkg.tagline}</span>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      {pkg.whyDifferent && (
+        <div className="bg-light-green border border-brand/10 rounded-xl p-5">
+          <h2 className="text-xl font-semibold text-brand mb-4">{pkg.whyDifferent.heading}</h2>
+          <div className="space-y-3">
+            {pkg.whyDifferent.paragraphs.map((para, i) => (
+              <p key={i} className="text-base text-text-muted leading-relaxed">{para}</p>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {pkg.destinationHighlights && pkg.destinationHighlights.items.length > 0 && (
+        <div>
+          <h2 className="text-xl font-semibold text-brand mb-4">{pkg.destinationHighlights.heading}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {pkg.destinationHighlights.items.map((item) => (
+              <div key={item.title} className="bg-light-green border border-brand/10 rounded-xl p-4">
+                <p className="font-semibold text-brand mb-1.5">{item.title}</p>
+                <p className="text-base text-text-muted leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+
+  const itineraryTabContent = (
+    <div>
+      <h2 className="text-xl font-semibold text-brand mb-5">{t('dayByDayItinerary')}</h2>
+
+      {pkg.itinerary.some((d) => d.location) && (
+        <div className="mb-6">
+          <p className="text-xs font-bold text-text-muted uppercase tracking-wide mb-2">{t('itineraryAtAGlance')}</p>
+          <div className="overflow-x-auto rounded-xl border border-brand/30">
+            <table className="w-full text-base">
+              <thead>
+                <tr className="bg-light-green text-start text-text-muted text-xs uppercase tracking-wide">
+                  <th className="px-4 py-2.5 font-semibold">{t('day')}</th>
+                  <th className="px-4 py-2.5 font-semibold">{t('location')}</th>
+                  <th className="px-4 py-2.5 font-semibold">{t('focus')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pkg.itinerary.map((day) => (
+                  <tr key={day.day} className="border-t border-brand/15">
+                    <td className="px-4 py-2.5 text-brand font-semibold whitespace-nowrap">{day.day}</td>
+                    <td className="px-4 py-2.5 text-text-muted">{day.location ?? '—'}</td>
+                    <td className="px-4 py-2.5 text-text-muted">{day.title}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      <div className="space-y-3">
+        {pkg.itinerary.map((day) => (
+          <details key={day.day} className="group border border-gray-100 rounded-xl overflow-hidden">
+            <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
+                  {day.day}
+                </span>
+                <span className="font-medium text-brand text-base">{day.title}</span>
+              </div>
+              <ChevronDown className="w-4 h-4 text-text-muted group-open:rotate-180 transition-transform" />
+            </summary>
+            <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
+              <p className="text-base text-text-muted leading-relaxed mb-3">{day.description}</p>
+
+              {day.insiderFact && (
+                <div className="border-s-2 border-gold ps-3 mb-3">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-gold-label mb-0.5">
+                    {t('insiderFact')}
+                  </p>
+                  <p className="text-base text-text-muted leading-relaxed">{day.insiderFact}</p>
+                </div>
+              )}
+
+              {/* Morning/Afternoon schedule -- not yet authored for any
+                  package (only a single `description` paragraph exists per
+                  day today); the admin itinerary-day editor already has
+                  fields for these, so this block activates automatically
+                  once real content is entered there, with no code change. */}
+              {(day.morningActivity || day.afternoonActivity) && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
+                  {day.morningActivity && (
+                    <div className="bg-light-green border border-gray-100 rounded-lg p-3">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-brand flex items-center gap-1.5 mb-1">
+                        <Sparkles className="w-3 h-3 text-gold" />
+                        {t('morningSchedule')}
+                      </p>
+                      <p className="text-sm text-text-muted leading-relaxed">{day.morningActivity}</p>
+                    </div>
+                  )}
+                  {day.afternoonActivity && (
+                    <div className="bg-light-green border border-gray-100 rounded-lg p-3">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-brand flex items-center gap-1.5 mb-1">
+                        <Compass className="w-3 h-3 text-gold" />
+                        {t('afternoonSchedule')}
+                      </p>
+                      <p className="text-sm text-text-muted leading-relaxed">{day.afternoonActivity}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {day.dayHighlights && day.dayHighlights.length > 0 && (
+                <div className="mb-3">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-text-muted mb-1.5">
+                    {t('dayHighlightsHeading').replace('[day]', String(day.day))}
+                  </p>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-sm">
+                    {day.dayHighlights.map((hl) => (
+                      <li key={hl} className="flex items-start gap-1.5 text-text-muted">
+                        <span className="text-gold font-bold">•</span>
+                        <span>{hl}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Accommodation is shown as plain text only here, matching the
+                  prototype exactly -- the rich lodge profile (photo,
+                  description, amenities) lives solely in the Camps tab via
+                  AmenityStay/SafariCampsTab, not duplicated here. */}
+              <div className="flex flex-wrap gap-4 text-base text-text-muted">
+                <span>{t('lodgePrefix')} {day.accommodation}</span>
+                <span>{day.meals}</span>
+              </div>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  )
+
+  const inclusionsTabContent = (
+    <div className="space-y-6">
+      <div className="bg-light-green border border-brand/10 rounded-xl p-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
+            <Check className="w-4 h-4 text-green-500" /> {t('included')}
+          </h3>
+          {pkg.includedCategorized ? (
+            <div className="space-y-4">
+              {pkg.includedCategorized.transfers && pkg.includedCategorized.transfers.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('transfers')}</p>
+                  <ul className="space-y-1.5">
+                    {pkg.includedCategorized.transfers.map((item) => (
+                      <li key={item} className="text-base text-text-muted flex items-start gap-2">
+                        <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {pkg.includedCategorized.accommodationMeals && pkg.includedCategorized.accommodationMeals.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('accommodationMeals')}</p>
+                  <ul className="space-y-1.5">
+                    {pkg.includedCategorized.accommodationMeals.map((item) => (
+                      <li key={item} className="text-base text-text-muted flex items-start gap-2">
+                        <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {pkg.includedCategorized.guidingGameDrives && pkg.includedCategorized.guidingGameDrives.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('guidingGameDrives')}</p>
+                  <ul className="space-y-1.5">
+                    {pkg.includedCategorized.guidingGameDrives.map((item) => (
+                      <li key={item} className="text-base text-text-muted flex items-start gap-2">
+                        <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ) : (
+            <ul className="space-y-1.5">
+              {pkg.included.map((item) => (
+                <li key={item} className="text-base text-text-muted flex items-start gap-2">
+                  <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <div>
+          <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
+            <X className="w-4 h-4 text-red-400" /> {t('notIncluded')}
+          </h3>
+          <ul className="space-y-1.5">
+            {(pkg.excludedCategorized ?? pkg.excluded).map((item) => (
+              <li key={item} className="text-base text-text-muted flex items-start gap-2">
+                <X className="w-3.5 h-3.5 text-red-400 mt-0.5 flex-shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {pkg.notes && pkg.notes.length > 0 && (
+        <div className="bg-light-green border border-brand/10 rounded-xl p-5">
+          <h3 className="font-semibold text-brand mb-2">{t('pleaseNote')}</h3>
+          <ul className="space-y-1">
+            {pkg.notes.map((note) => (
+              <li key={note} className="text-base text-text-muted leading-relaxed">
+                {note}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <SafariPracticalTips tips={pkg.practicalTips ?? []} heading={t('practicalTipsHeading')} />
+    </div>
+  )
+
+  const wildlifeTabContent = (
+    <div className="space-y-8">
+      <SafariWildlifeTab
+        targets={pkg.wildlifeTargets ?? []}
+        labels={{
+          heading: t('wildlifeHeading'),
+          subcopy: t('wildlifeSubcopy'),
+          chanceGuaranteed: t('wildlifeChanceGuaranteed'),
+          chanceHigh: t('wildlifeChanceHigh'),
+          chanceSeasonal: t('wildlifeChanceSeasonal'),
+          chanceRare: t('wildlifeChanceRare'),
+        }}
+      />
+      {pkg.seasonalityGuide && (
+        <SafariSeasonalityGuide
+          guide={pkg.seasonalityGuide}
+          labels={{
+            heading: t('seasonalityHeading'),
+            peakSeason: t('seasonalityPeak'),
+            shoulderSeason: t('seasonalityShoulder'),
+            greenSeason: t('seasonalityGreen'),
+            recommendationPrefix: t('seasonalityRecommendationPrefix'),
+          }}
+        />
+      )}
+    </div>
+  )
+
+  const campsTabContent = (
+    <SafariCampsTab
+      roster={campsRoster}
+      labels={{
+        heading: t('campsHeading'),
+        subcopy: t('campsSubcopy'),
+        tierTrail: t('tierTrail'),
+        tierReserve: t('tierReserve'),
+        tierSovereign: t('tierSovereign'),
+        tierLuxury: t('campsTierLuxury'),
+        tierUltraLuxury: t('campsTierUltraLuxury'),
+      }}
+    />
+  )
+
+  const reviewsTabContent = (
+    <SafariReviewsTab
+      packageSlug={pkg.slug}
+      packageName={pkg.name}
+      initialReviews={publishedReviews}
+      labels={{
+        heading: t('reviewsHeading'),
+        subcopy: t('reviewsSubcopy'),
+        rateThisButton: t('reviewsRateButton'),
+        closeFormButton: t('reviewsCloseFormButton'),
+        basedOnCount: t('reviewsBasedOnCount'),
+        noReviewsYet: t('reviewsNoneYet'),
+        sortRecent: t('reviewsSortRecent'),
+        sortHighest: t('reviewsSortHighest'),
+        sortLabel: t('reviewsSortLabel'),
+        verifiedBadge: t('reviewsVerifiedBadge'),
+        starLabel: t('reviewsStarLabel'),
+        formNameLabel: t('reviewsFormName'),
+        formNamePlaceholder: t('reviewsFormNamePlaceholder'),
+        formRatingLabel: t('reviewsFormRating'),
+        formQuoteLabel: t('reviewsFormQuote'),
+        formQuotePlaceholder: t('reviewsFormQuotePlaceholder'),
+        formQuoteHelper: t('reviewsFormQuoteHelper'),
+        formSubmit: t('reviewsFormSubmit'),
+        formSubmitting: t('reviewsFormSubmitting'),
+        formSuccessTitle: t('reviewsFormSuccessTitle'),
+        formSuccessBody: t('reviewsFormSuccessBody'),
+        formErrorName: t('reviewsFormErrorName'),
+        formErrorQuote: t('reviewsFormErrorQuote'),
+        formErrorGeneric: t('reviewsFormErrorGeneric'),
+        distributionLabel: t('reviewsDistributionLabel'),
+      }}
+    />
+  )
+
+  const detailTabs: { id: DetailTabId; content: React.ReactNode }[] = [
+    ...(pkg.itinerary.length > 0 ? [{ id: 'itinerary' as const, content: itineraryTabContent }] : []),
+    { id: 'overview' as const, content: overviewTabContent },
+    ...(campsRoster.length > 0 ? [{ id: 'camps' as const, content: campsTabContent }] : []),
+    ...((pkg.wildlifeTargets?.length ?? 0) > 0 ? [{ id: 'wildlife' as const, content: wildlifeTabContent }] : []),
+    { id: 'inclusions' as const, content: inclusionsTabContent },
+    { id: 'reviews' as const, content: reviewsTabContent },
+  ]
+
+  const detailTabLabels = {
+    itinerary: t('detailTabItinerary'),
+    overview: t('detailTabOverview'),
+    camps: t('detailTabCamps'),
+    wildlife: t('detailTabWildlife'),
+    inclusions: t('detailTabInclusions'),
+    reviews: t('detailTabReviews').replace('[n]', String(publishedReviews.length)),
+  }
 
   return (
     <>
@@ -640,36 +1089,53 @@ export default async function SafariPackagePage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      {/* Hero */}
-      <section className="relative h-[55vh] min-h-80 bg-brand flex items-end">
-        <Image
-          src={pkg.heroImage}
-          alt={pkg.heroImageAlt ?? pkg.name}
-          fill
-          className={`object-cover ${HERO_IMAGE_POSITION[slug] ?? ''}`}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand/80 via-brand/20 to-transparent" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
-          <Breadcrumb items={breadcrumbItems} locale={locale} />
-          <div className="flex items-start justify-between flex-wrap gap-4">
-            <div>
-              {pkg.badge && (
-                <div className="mb-2">
-                  <Badge label={pkg.badge === 'bestseller' ? tc('bestseller') : pkg.badge === 'new' ? tc('new') : tc('popular')} />
-                </div>
-              )}
-              <h1 className="text-3xl lg:text-4xl font-semibold text-white">{pkg.name}</h1>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl px-5 py-3 text-center border border-white/20">
-              <div className="text-white/70 text-xs uppercase tracking-wide">{tc('from')}</div>
-              <div className="text-white font-bold text-2xl">${pkg.priceFrom.toLocaleString('en-US')}</div>
-              <div className="text-white/60 text-xs">{tc('perPerson')}</div>
+      {/* Breadcrumb + back link -- replaces the old full-bleed hero banner
+          entirely. The prototype has no hero image at all, but with no dark
+          photo behind it the site's fixed header (white nav text, normally
+          meant to float over a hero image) had nothing to sit on -- so this
+          bar carries the brand-green background itself, forming one solid
+          band with the header above it (which now forces itself opaque on
+          every /safaris route, see Navbar's NO_HERO_PREFIXES). pt-32 clears
+          the header's own height (h-16 lg:h-20). */}
+      <nav aria-label="Breadcrumb" className="bg-brand pt-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3 flex-wrap">
+          <div className="flex items-center gap-3 min-w-0">
+            <Link
+              href="/safaris"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-white/20 bg-white/10 text-xs font-semibold text-white hover:bg-white/20 transition-colors shrink-0"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              {tc('allSafaris')}
+            </Link>
+            <div className="hidden sm:flex items-center gap-1.5 text-xs text-white/70 truncate">
+              <Link href="/" className="hover:text-white">EWA Safari Outfitters</Link>
+              <span>•</span>
+              <Link href="/safaris" className="hover:text-white">{t('breadcrumbLabel')}</Link>
+              <span>•</span>
+              <span className="text-white font-semibold truncate">{pkg.name}</span>
             </div>
           </div>
+
+          {/* Quick actions -- Share (real, client-side) + Enquire. "Add to
+              Compare" and "Edit Safari" from the prototype are deliberately
+              not ported here: compare state only exists locally within the
+              listing page's SafariBrowser today (no cross-page/shared
+              compare architecture yet), and "Edit Safari" is an admin-only
+              concept with no public-site equivalent. */}
+          <div className="flex items-center gap-2 shrink-0">
+            <ShareLinkButton title={t('shareLabel')} copiedLabel={t('shareCopied')} tooltip={t('shareTooltip')} dark />
+            <BookNowButton
+              packageName={pkg.name}
+              packageType={TRIP_TYPE_LABEL[pkg.type]}
+              priceFrom={`$${pkg.priceFrom.toLocaleString('en-US')}`}
+              duration={`${pkg.duration} ${tc('days')}`}
+              label={tb('card.enquireLabel')}
+              arrow={false}
+              className="inline-flex items-center justify-center whitespace-nowrap px-4 py-1.5 rounded-md bg-gold text-brand text-xs font-semibold uppercase tracking-wider hover:bg-gold-dark transition-colors"
+            />
+          </div>
         </div>
-      </section>
+      </nav>
 
       <MobileEnquireBanner
         eyebrow={`${tc('from')} $${pkg.priceFrom.toLocaleString('en-US')}`}
@@ -682,333 +1148,156 @@ export default async function SafariPackagePage({ params }: Props) {
         duration={`${pkg.duration} ${tc('days')}`}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {/* Main content */}
-          <Reveal className="lg:col-span-2 space-y-10">
-            {/* Overview */}
-            {pkg.overview && pkg.overview.length > 0 && (
-              <div className="bg-light-green border border-brand/10 rounded-xl p-5 space-y-3">
-                <h2 className="text-xl font-semibold text-brand mb-1">{t('overview')}</h2>
-                {pkg.overview.map((para, i) => (
-                  <p key={i} className="text-base text-text-muted leading-relaxed">{para}</p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        {/* Title & Metadata block */}
+        <Reveal className="space-y-3 mb-8">
+          <div className="flex flex-wrap items-center gap-2">
+            {pkg.badge && (
+              <Badge label={pkg.badge === 'bestseller' ? tc('bestseller') : pkg.badge === 'new' ? tc('new') : tc('popular')} />
+            )}
+            {countryLabel && (
+              <span className="px-2.5 py-0.5 rounded bg-brand/10 text-brand text-xs font-semibold uppercase tracking-wide">
+                {countryLabel}
+              </span>
+            )}
+            {tierLevelLabel !== '—' && (
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium border border-gold/40 bg-light-green text-brand">
+                <Sparkles className="w-3 h-3 text-gold" />
+                {tierLevelLabel}
+              </span>
+            )}
+            <span className="px-2.5 py-0.5 rounded bg-light-green text-brand text-xs font-medium border border-brand/10">
+              {TRIP_TYPE_LABEL[pkg.type]}
+            </span>
+          </div>
+
+          <h1 className="text-3xl lg:text-5xl font-semibold text-brand tracking-tight leading-tight">
+            {pkg.name}
+          </h1>
+
+          {/* Star rating + operator line */}
+          <div className="flex flex-wrap items-center gap-3 text-xs pt-0.5">
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <div className="flex items-center text-amber-500">
+                {[1, 2, 3, 4, 5].map((s) => (
+                  <Star
+                    key={s}
+                    className={`w-4 h-4 ${s <= Math.round(reviewStats.average || 5) ? 'fill-amber-400 text-amber-400' : 'text-gray-300'}`}
+                  />
                 ))}
               </div>
-            )}
-
-            {/* Photo Gallery — only rendered when the package actually has extra
-                gallery photos beyond the hero; below the fold, so no `priority`,
-                and `sizes` matched to the grid's real column widths rather than
-                the oversized-fallback pattern found elsewhere on the site. */}
-            {pkg.gallery.length > 0 && (
-              <div>
-                <h2 className="text-xl font-semibold text-brand mb-4">{t('packageGalleryHeading')}</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                  {pkg.gallery.map((img) => (
-                    <div key={img.src} className="relative aspect-[4/3] rounded-lg overflow-hidden bg-light-green">
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        loading="lazy"
-                        className="object-cover hover:scale-105 transition-transform duration-500"
-                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 22vw"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* At a Glance + Tour Highlights */}
-            <div className="bg-light-green border border-brand/10 rounded-xl p-5 space-y-6">
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* At a Glance */}
-                <div>
-                  <h2 className="text-lg font-semibold text-brand mb-4">{t('atAGlance')}</h2>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-white rounded-lg border border-gray-100 p-3">
-                      <DollarSign className="w-4 h-4 text-gold mb-1.5" />
-                      <p className="font-bold text-brand text-base leading-tight">${pkg.priceFrom.toLocaleString('en-US')}</p>
-                      <p className="text-xs text-text-muted">{tc('from')} · {tc('perPerson')}</p>
-                    </div>
-                    <div className="bg-white rounded-lg border border-gray-100 p-3">
-                      <MapPin className="w-4 h-4 text-gold mb-1.5" />
-                      <p className="font-bold text-brand text-base leading-tight line-clamp-2">
-                        {pkg.destinations.map((d) => d.charAt(0).toUpperCase() + d.slice(1)).join(', ')}
-                      </p>
-                      <p className="text-xs text-text-muted">{t('destinationsLabel')}</p>
-                    </div>
-                    <div className="bg-white rounded-lg border border-gray-100 p-3">
-                      <Clock className="w-4 h-4 text-gold mb-1.5" />
-                      <p className="font-bold text-brand text-base leading-tight">{pkg.duration} {tc('days')}</p>
-                      <p className="text-xs text-text-muted">{t('duration')}</p>
-                    </div>
-                    <div className="bg-white rounded-lg border border-gray-100 p-3">
-                      <Users className="w-4 h-4 text-gold mb-1.5" />
-                      <p className="font-bold text-brand text-base leading-tight">{pkg.groupSize.min}–{pkg.groupSize.max}</p>
-                      <p className="text-xs text-text-muted">{t('groupSizeLabel')}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Tour Highlights */}
-                <div>
-                  <h2 className="text-lg font-semibold text-brand mb-4">{t('packageHighlights')}</h2>
-                  <ul className="space-y-2">
-                    {pkg.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-2 text-base text-text-muted">
-                        <Check className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {(pkg.bestTimeToTravel || pkg.tagline) && (
-                <div className="flex flex-wrap gap-5 text-base pt-5 border-t border-brand/10">
-                  {pkg.bestTimeToTravel && (
-                    <div className="flex items-center gap-2 text-text-muted">
-                      <Calendar className="w-4 h-4 text-gold" />
-                      <span><strong className="text-brand">{t('bestTimeToTravel')}:</strong> {pkg.bestTimeToTravel}</span>
-                    </div>
-                  )}
-                  {pkg.tagline && (
-                    <div className="flex items-center gap-2 text-text-muted">
-                      <ShieldCheck className="w-4 h-4 text-gold" />
-                      <span>{pkg.tagline}</span>
-                    </div>
-                  )}
-                </div>
+              <span className="font-bold text-brand text-sm">{(reviewStats.average || 5).toFixed(1)}</span>
+              <span className="text-text-muted">/ 5.0</span>
+              {reviewStats.count > 0 && (
+                <a href="#tab-reviews" className="text-text-muted hover:text-brand underline underline-offset-2 transition-colors">
+                  {t('packageReviewsCount', { count: reviewStats.count })}
+                </a>
               )}
             </div>
 
-            {/* Why This Itinerary Is Different */}
-            {pkg.whyDifferent && (
-              <div className="bg-light-green border border-brand/10 rounded-xl p-5">
-                <h2 className="text-xl font-semibold text-brand mb-4">{pkg.whyDifferent.heading}</h2>
-                <div className="space-y-3">
-                  {pkg.whyDifferent.paragraphs.map((para, i) => (
-                    <p key={i} className="text-base text-text-muted leading-relaxed">{para}</p>
-                  ))}
-                </div>
-              </div>
-            )}
+            <span className="text-gray-300">•</span>
 
-            {/* Destination / Photography Highlights */}
-            {pkg.destinationHighlights && pkg.destinationHighlights.items.length > 0 && (
-              <div>
-                <h2 className="text-xl font-semibold text-brand mb-4">{pkg.destinationHighlights.heading}</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {pkg.destinationHighlights.items.map((item) => (
-                    <div key={item.title} className="bg-light-green border border-brand/10 rounded-xl p-4">
-                      <p className="font-semibold text-brand mb-1.5">{item.title}</p>
-                      <p className="text-base text-text-muted leading-relaxed">{item.text}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Itinerary */}
-            {pkg.itinerary.length > 0 && (
-              <div>
-                <h2 className="text-xl font-semibold text-brand mb-5">{t('dayByDayItinerary')}</h2>
-
-                {pkg.itinerary.some((d) => d.location) && (
-                  <div className="mb-6">
-                    <p className="text-xs font-bold text-text-muted uppercase tracking-wide mb-2">{t('itineraryAtAGlance')}</p>
-                    <div className="overflow-x-auto rounded-xl border border-gray-100">
-                      <table className="w-full text-base">
-                        <thead>
-                          <tr className="bg-light-green text-start text-text-muted text-xs uppercase tracking-wide">
-                            <th className="px-4 py-2.5 font-semibold">{t('day')}</th>
-                            <th className="px-4 py-2.5 font-semibold">{t('location')}</th>
-                            <th className="px-4 py-2.5 font-semibold">{t('focus')}</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {pkg.itinerary.map((day) => (
-                            <tr key={day.day} className="border-t border-gray-100">
-                              <td className="px-4 py-2.5 text-brand font-semibold whitespace-nowrap">{day.day}</td>
-                              <td className="px-4 py-2.5 text-text-muted">{day.location ?? '—'}</td>
-                              <td className="px-4 py-2.5 text-text-muted">{day.title}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                )}
-
-                <div className="space-y-3">
-                  {pkg.itinerary.map((day) => (
-                    <details key={day.day} className="group border border-gray-100 rounded-xl overflow-hidden">
-                      <summary className="flex items-center justify-between p-4 cursor-pointer bg-white hover:bg-light-green transition-colors list-none">
-                        <div className="flex items-center gap-3">
-                          <span className="w-8 h-8 rounded-full bg-brand text-white text-xs font-bold flex items-center justify-center flex-shrink-0">
-                            {day.day}
-                          </span>
-                          <span className="font-medium text-brand text-base">{day.title}</span>
-                        </div>
-                        <ChevronDown className="w-4 h-4 text-text-muted group-open:rotate-180 transition-transform" />
-                      </summary>
-                      <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
-                        <p className="text-base text-text-muted leading-relaxed mb-3">{day.description}</p>
-
-                        {day.insiderFact && (
-                          <div className="border-s-2 border-gold ps-3 mb-3">
-                            <p className="text-[10px] font-bold uppercase tracking-wide text-gold-label mb-0.5">
-                              {t('insiderFact')}
-                            </p>
-                            <p className="text-base text-text-muted leading-relaxed">{day.insiderFact}</p>
-                          </div>
-                        )}
-
-                        {day.accommodationByTier ? (
-                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">
-                            {day.accommodationByTier.trail && (
-                              <AmenityStay label={t('tierTrail')} stay={day.accommodationByTier.trail} />
-                            )}
-                            {day.accommodationByTier.reserve && (
-                              <AmenityStay label={t('tierReserve')} stay={day.accommodationByTier.reserve} />
-                            )}
-                            {day.accommodationByTier.sovereign && (
-                              <AmenityStay label={t('tierSovereign')} stay={day.accommodationByTier.sovereign} />
-                            )}
-                          </div>
-                        ) : null}
-
-                        {day.accommodationByFamilyTier ? (
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
-                            {day.accommodationByFamilyTier.luxury && (
-                              <AmenityStay label={t('familyTierLuxury')} stay={day.accommodationByFamilyTier.luxury} />
-                            )}
-                            {day.accommodationByFamilyTier.ultraLuxury && (
-                              <AmenityStay label={t('familyTierUltraLuxury')} stay={day.accommodationByFamilyTier.ultraLuxury} />
-                            )}
-                          </div>
-                        ) : null}
-
-                        <div className="flex flex-wrap gap-4 text-base text-text-muted">
-                          <span>{day.accommodation}</span>
-                          <span>{day.meals}</span>
-                        </div>
-                      </div>
-                    </details>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Included / Excluded */}
-            <div className="bg-light-green border border-brand/10 rounded-xl p-5 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" /> {t('included')}
-                </h3>
-                {pkg.includedCategorized ? (
-                  <div className="space-y-4">
-                    {pkg.includedCategorized.transfers && pkg.includedCategorized.transfers.length > 0 && (
-                      <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('transfers')}</p>
-                        <ul className="space-y-1.5">
-                          {pkg.includedCategorized.transfers.map((item) => (
-                            <li key={item} className="text-base text-text-muted flex items-start gap-2">
-                              <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {pkg.includedCategorized.accommodationMeals && pkg.includedCategorized.accommodationMeals.length > 0 && (
-                      <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('accommodationMeals')}</p>
-                        <ul className="space-y-1.5">
-                          {pkg.includedCategorized.accommodationMeals.map((item) => (
-                            <li key={item} className="text-base text-text-muted flex items-start gap-2">
-                              <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {pkg.includedCategorized.guidingGameDrives && pkg.includedCategorized.guidingGameDrives.length > 0 && (
-                      <div>
-                        <p className="text-[11px] font-bold uppercase tracking-wide text-text-muted mb-1.5">{t('guidingGameDrives')}</p>
-                        <ul className="space-y-1.5">
-                          {pkg.includedCategorized.guidingGameDrives.map((item) => (
-                            <li key={item} className="text-base text-text-muted flex items-start gap-2">
-                              <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <ul className="space-y-1.5">
-                    {pkg.included.map((item) => (
-                      <li key={item} className="text-base text-text-muted flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-green-500 mt-0.5 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-              <div>
-                <h3 className="font-semibold text-brand mb-3 flex items-center gap-2">
-                  <X className="w-4 h-4 text-red-400" /> {t('notIncluded')}
-                </h3>
-                <ul className="space-y-1.5">
-                  {(pkg.excludedCategorized ?? pkg.excluded).map((item) => (
-                    <li key={item} className="text-base text-text-muted flex items-start gap-2">
-                      <X className="w-3.5 h-3.5 text-red-400 mt-0.5 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="flex items-center gap-2 text-text-muted flex-wrap">
+              <span>{t('operatedBy')}</span>
+              <span className="font-semibold text-brand underline underline-offset-2">
+                {pkg.operatorName ?? 'EWA Safari Outfitters'}
+              </span>
+              <OperatorBadge
+                operatorName={pkg.operatorName ?? 'EWA Safari Outfitters'}
+                directLabel={tb('card.operatorDirect')}
+                partnerLabel={tb('card.operatorPartner')}
+              />
             </div>
+          </div>
 
-            {pkg.notes && pkg.notes.length > 0 && (
-              <div className="bg-light-green border border-brand/10 rounded-xl p-5">
-                <h3 className="font-semibold text-brand mb-2">{t('pleaseNote')}</h3>
-                <ul className="space-y-1">
-                  {pkg.notes.map((note) => (
-                    <li key={note} className="text-base text-text-muted leading-relaxed">
-                      {note}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+          {pkg.tagline && (
+            <p className="italic text-base sm:text-lg text-text-muted max-w-3xl leading-relaxed pt-1">
+              &ldquo;{pkg.tagline}&rdquo;
+            </p>
+          )}
 
-            {/* Traveler review */}
-            {packageReview && reviewText && (
-              <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
-                <h3 className="font-semibold text-brand mb-3">{t('travelerReviewHeading')}</h3>
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: packageReview.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-gold text-gold" />
-                    ))}
-                  </div>
-                  <span className="text-[10px] bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full border border-green-200 flex-shrink-0">
-                    {t('verifiedTraveler')}
-                  </span>
-                </div>
-                <blockquote className="italic text-base leading-relaxed text-text-muted mb-3">
-                  &ldquo;{reviewText}&rdquo;
-                </blockquote>
-                <p className="text-base font-semibold text-brand">{packageReview.name} · {reviewCountry}</p>
-              </div>
-            )}
+          {/* Parks & concessions tags */}
+          <div className="flex items-center gap-2 flex-wrap pt-1 text-xs text-text-muted">
+            <span className="font-semibold text-brand flex items-center gap-1">
+              <MapPin className="w-3.5 h-3.5 text-gold" />
+              {t('parksAndConcessions')}
+            </span>
+            {pkg.destinations.map((d) => (
+              <span key={d} className="px-2.5 py-0.5 rounded bg-white border border-gray-100 font-medium text-brand">
+                {d.charAt(0).toUpperCase() + d.slice(1)}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+
+        {/* Hero Photo Gallery Showcase -- this gallery is the page's visual
+            centerpiece; there's no separate hero banner above it. */}
+        <Reveal delay={0.05} className="mb-8">
+          <SafariPhotoGallery
+            gallery={pkg.gallery}
+            locationLabel={countryLabel || undefined}
+            labels={{
+              heading: t('packageGalleryHeading'),
+              counter: t('galleryCounter'),
+              closeTooltip: t('galleryCloseTooltip'),
+              expandGallery: t('galleryExpand'),
+              morePhotos: t('galleryMorePhotos'),
+            }}
+          />
+        </Reveal>
+
+        {/* Quick Facts strip */}
+        <Reveal delay={0.1} className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-white border border-gray-100 mb-10 shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-light-green border border-gray-100 flex items-center justify-center shrink-0">
+              <Clock className="w-5 h-5 text-gold" />
+            </div>
+            <div>
+              <span className="text-[11px] uppercase tracking-wider text-text-muted block">{t('quickFactDuration')}</span>
+              <span className="text-sm font-bold text-brand">
+                {t('quickFactDurationValue', { days: pkg.duration, nights: pkg.duration - 1 })}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-light-green border border-gray-100 flex items-center justify-center shrink-0">
+              <Compass className="w-5 h-5 text-gold" />
+            </div>
+            <div>
+              <span className="text-[11px] uppercase tracking-wider text-text-muted block">{t('quickFactExpeditionStyle')}</span>
+              <span className="text-sm font-bold text-brand">{TRIP_TYPE_LABEL[pkg.type]}</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-light-green border border-gray-100 flex items-center justify-center shrink-0">
+              <Calendar className="w-5 h-5 text-gold" />
+            </div>
+            <div>
+              <span className="text-[11px] uppercase tracking-wider text-text-muted block">{t('quickFactPeakMonths')}</span>
+              <span className="text-sm font-bold text-brand">{peakMonthsDisplay}</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-light-green border border-gray-100 flex items-center justify-center shrink-0">
+              <Sparkles className="w-5 h-5 text-gold" />
+            </div>
+            <div>
+              <span className="text-[11px] uppercase tracking-wider text-text-muted block">{t('quickFactTierLevel')}</span>
+              <span className="text-sm font-bold text-brand">{tierLevelLabel}</span>
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          {/* Main content */}
+          <Reveal delay={0.15} className="lg:col-span-2 space-y-10">
+            {/* Tabbed content: Itinerary / Overview / Camps / Wildlife /
+                Inclusions / Reviews — every field the page always showed is
+                still shown, just grouped into tabs (see detailTabs above). */}
+            <SafariDetailTabs tabs={detailTabs} labels={detailTabLabels} />
 
             {/* FAQ */}
             {pkg.faq && pkg.faq.length > 0 && (
@@ -1049,6 +1338,18 @@ export default async function SafariPackagePage({ params }: Props) {
                 bookThisPackageLabel={t('bookThisPackage')}
                 responseNoteLabel={t('responseNote')}
                 noPaymentLabel={t('noPayment')}
+                sidebarEyebrow={t('sidebarEyebrow')}
+                sidebarHeading={t('sidebarHeading')}
+                sidebarSubtitle={t('sidebarSubtitle')}
+                autoCalculatedRateLabel={t('autoCalculatedRate')}
+                peakWindowLabel={t('quickMetaPeakWindow')}
+                peakWindowValue={peakMonthsDisplay}
+                depositLabel={t('quickMetaDeposit')}
+                depositValue={t('quickMetaDepositValue')}
+                specialistPromiseHeading={t('specialistPromiseHeading')}
+                specialistPromiseBody={t('specialistPromiseBody')}
+                quickContactHeading={t('quickContactHeading')}
+                quickContactBody={t('quickContactBody')}
               />
 
               {/* Featured blog post */}

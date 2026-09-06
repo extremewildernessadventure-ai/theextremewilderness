@@ -8,7 +8,7 @@ function pkg(overrides: Partial<SafariPackage>): SafariPackage {
     name: 'Test Package',
     duration: 7,
     destinations: ['serengeti'],
-    type: 'wildlife',
+    type: 'big_five_game_drives',
     priceFrom: 3500,
     groupSize: { min: 1, max: 8 },
     highlights: [],

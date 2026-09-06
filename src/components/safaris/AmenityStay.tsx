@@ -28,6 +28,12 @@ export default function AmenityStay({ label, stay }: { label: string; stay: Tier
       <div className="p-2.5">
         <p className="text-[10px] font-bold uppercase tracking-wide text-gold-label">{label}</p>
         <p className="text-xs font-semibold text-brand leading-tight mt-0.5">{stay.name}</p>
+        {/* Not yet authored for any lodge -- the admin lodge editor already
+            has a field for it, so this activates automatically once real
+            copy is entered there, with no code change. */}
+        {stay.description && (
+          <p className="text-[11px] text-text-muted leading-snug mt-1 line-clamp-3">{stay.description}</p>
+        )}
         <div className="flex gap-1.5 mt-1.5">
           {stay.amenities.slice(0, 4).map((a) => {
             const Icon = AMENITY_ICONS[a] ?? BadgeCheck

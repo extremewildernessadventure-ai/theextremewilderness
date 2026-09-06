@@ -59,8 +59,20 @@ cloudflare-env.d.ts
 .dev.vars*
 !.dev.vars.example
 
-# generated per-locale data assets (regenerated from src/data on every build)
-/public/locale-data/
+# generated per-locale data assets (regenerated from src/data on every build).
+# Excludes contents (trailing /*, not a bare trailing /) rather than the
+# directory itself, specifically so the negation below can still reach into
+# it -- git never descends into a directory excluded as a unit to evaluate
+# per-file re-include rules.
+/public/locale-data/*
+# ...except reviews.json: unlike every other file in this directory, it has
+# no checked-in source to regenerate from (it's a snapshot of real D1 review
+# rows, not static *.ts content) -- CI has no access to the real production
+# D1 at build time, so this one file is committed, versioned content, kept
+# up to date by re-running scripts/generate-review-data.ts locally and
+# committing the diff whenever a new review is approved. See that script's
+# and src/lib/reviews.ts's own comments for the full reasoning.
+!/public/locale-data/reviews.json
 
 # generated content-freshness dates for the sitemap (regenerated from git log)
 /src/data/generated/
