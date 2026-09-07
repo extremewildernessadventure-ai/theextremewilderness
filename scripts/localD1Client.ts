@@ -70,6 +70,39 @@ function sleepSync(ms: number): void {
 const MAX_ATTEMPTS = 3
 
 function execSql(databaseName: string, sql: string, target: '--local' | '--remote' = '--local'): RawStatementResult[] {
+  // `--remote --file <path>` silently goes through wrangler's bulk-import API
+  // ("Checking if file needs uploading" / "Processing...") instead of running
+  // the query and returning its rows -- it comes back "success" with a fake
+  // results row ({"Total queries executed": ..., "Rows read": ...}) even for
+  // a plain SELECT, discarding whatever the query actually returned. Only
+  // discovered because a read-back check ("does this review already exist")
+  // silently returned a truthy garbage row for every slug, making a real
+  // migration look like a no-op. `--command` runs the query directly and
+  // returns real results for --remote; kept as --file for --local (already
+  // proven reliable there, and there's no reason to touch a working path).
+  if (target === '--remote') {
+    let lastErr: unknown
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      try {
+        const out = execFileSync(
+          'node',
+          [WRANGLER_BIN, 'd1', 'execute', databaseName, '--remote', '--json', '--command', sql],
+          { encoding: 'utf8', maxBuffer: 1024 * 1024 * 64 }
+        )
+        const jsonStart = out.indexOf('[')
+        const jsonText = jsonStart >= 0 ? out.slice(jsonStart) : out
+        return JSON.parse(jsonText) as RawStatementResult[]
+      } catch (err) {
+        lastErr = err
+        if (attempt < MAX_ATTEMPTS) {
+          console.warn(`  (retrying wrangler d1 execute after attempt ${attempt}/${MAX_ATTEMPTS} failed)`)
+          sleepSync(500 * attempt)
+        }
+      }
+    }
+    throw lastErr
+  }
+
   const tmpFile = join(tmpdir(), `d1-local-${process.pid}-${Date.now()}-${Math.random().toString(36).slice(2)}.sql`)
   writeFileSync(tmpFile, sql, 'utf8')
   try {

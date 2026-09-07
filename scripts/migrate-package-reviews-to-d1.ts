@@ -12,9 +12,11 @@
 // Safe to re-run: skips a slug if a review is already present for it
 // (checked by package_slug), so this never creates duplicates.
 //
-// Usage: npx tsx scripts/migrate-package-reviews-to-d1.ts
+// Usage:
+//   npx tsx scripts/migrate-package-reviews-to-d1.ts             (local D1)
+//   npx tsx scripts/migrate-package-reviews-to-d1.ts --remote    (real production D1)
 
-import { makeLocalWranglerD1 } from './localD1Client'
+import { makeLocalWranglerD1, makeRemoteWranglerD1 } from './localD1Client'
 
 const REVIEWS: { packageSlug: string; name: string; country: string; rating: number; quoteText: string }[] = [
   {
@@ -48,7 +50,9 @@ const REVIEWS: { packageSlug: string; name: string; country: string; rating: num
 ]
 
 async function main() {
-  const db = makeLocalWranglerD1('ewa-invoices')
+  const remote = process.argv.includes('--remote')
+  const db = remote ? makeRemoteWranglerD1('ewa-invoices') : makeLocalWranglerD1('ewa-invoices')
+  console.log(`Writing to ${remote ? 'REMOTE (production)' : 'local'} D1...`)
 
   for (const review of REVIEWS) {
     const existing = await db.prepare(
