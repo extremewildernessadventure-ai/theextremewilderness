@@ -1,22 +1,10 @@
 'use client'
 
-import { Suspense, useState } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
-// Only ever redirect back into /admin -- a ?redirect= value is untrusted
-// user-controlled input (it comes straight off the URL), so this guards
-// against it being used to bounce a freshly-authenticated session off to an
-// arbitrary external site (open-redirect).
-function safeRedirectTarget(value: string | null): string {
-  if (value && value.startsWith('/admin')) return value
-  return '/admin'
-}
-
-function AdminLoginForm() {
+export default function AdminLoginPage() {
   const router = useRouter()
-  const searchParams = useSearchParams()
-  const redirectTo = safeRedirectTarget(searchParams.get('redirect'))
-
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -36,7 +24,7 @@ function AdminLoginForm() {
         setLoading(false)
         return
       }
-      router.push(redirectTo)
+      router.push('/admin')
       router.refresh()
     } catch {
       setError('Something went wrong. Please try again.')
@@ -72,13 +60,5 @@ function AdminLoginForm() {
         </form>
       </div>
     </div>
-  )
-}
-
-export default function AdminLoginPage() {
-  return (
-    <Suspense fallback={null}>
-      <AdminLoginForm />
-    </Suspense>
   )
 }
