@@ -31,6 +31,7 @@ const COUNTRY_TO_LOCALE: Record<string, string> = {
   IL: 'he',
   IN: 'hi',
   TH: 'th',
+  DK: 'da',
 }
 
 const GEO_REDIRECT_COOKIE = 'geo-locale-decided'

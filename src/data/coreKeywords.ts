@@ -119,4 +119,10 @@ export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
     'ฮันนีมูนซาฟารีแอฟริกา', 'บริษัททัวร์แทนซาเนีย', 'ซาฟารีแอฟริกาตะวันออก',
     'ซาฟารีชายหาดแซนซิบาร์', 'เส้นทางมาชาเมคิลิมันจาโร', 'บริษัททัวร์ที่ได้รับการรับรอง TATO',
   ],
+  da: [
+    'safari Tanzania', 'safari i Tanzania 2026', 'Serengeti safari', 'Kilimanjaro bestigning',
+    'gorillatrekking Rwanda', 'luksussafari Afrika', 'safari Tanzania pris',
+    'bryllupsrejse safari Afrika', 'rejsebureau Tanzania safari', 'familiesafari Afrika',
+    'Machame-ruten Kilimanjaro', 'Zanzibar strand og safari', 'TATO-certificeret safarioperatør',
+  ],
 }
