@@ -22,6 +22,7 @@ export const LANGUAGES: Record<string, { code: string; native: string; flagCode:
   hi: { code: 'HI', native: 'हिन्दी', flagCode: 'in' },
   th: { code: 'TH', native: 'ไทย', flagCode: 'th' },
   da: { code: 'DA', native: 'Dansk', flagCode: 'dk' },
+  pl: { code: 'PL', native: 'Polski', flagCode: 'pl' },
 }
 
 // Maps a browser navigator.language tag (e.g. "fr-FR", "zh-Hant-TW", "pt-BR")
