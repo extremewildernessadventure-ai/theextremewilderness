@@ -71,6 +71,7 @@ const LOCALE_LANGUAGE: Record<string, string> = {
   da: 'Danish',
   pl: 'Polish',
   cs: 'Czech',
+  no: 'Norwegian',
 }
 
 export const RESULTS_SENTINEL = '<<<RESULTS>>>'
