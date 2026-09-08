@@ -35,6 +35,7 @@ const COUNTRY_TO_LOCALE: Record<string, string> = {
   PL: 'pl',
   CZ: 'cs',
   NO: 'no',
+  SE: 'sv',
 }
 
 const GEO_REDIRECT_COOKIE = 'geo-locale-decided'
