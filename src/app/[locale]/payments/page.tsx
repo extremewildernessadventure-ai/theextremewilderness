@@ -91,6 +91,10 @@ const PAYMENTS_KEYWORDS: Record<Locale, string[]> = {
     'zaplatit zálohu na safari online', 'platba EWA Safari Outfitters', 'platba za safari Pesapal',
     'způsoby platby safari Tanzanie', 'zaplatit doplatek za safari', 'mobilní platba safari',
   ],
+  no: [
+    'betale depositum for safari online', 'betaling EWA Safari Outfitters', 'betaling for safari Pesapal',
+    'betalingsmåter safari Tanzania', 'betale restbeløp for safari', 'mobilbetaling safari',
+  ],
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
