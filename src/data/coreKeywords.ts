@@ -143,4 +143,10 @@ export const CORE_KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
     'bryllupsreise safari Afrika', 'reisebyrå safari Tanzania', 'familiesafari Afrika',
     'Machame-ruten Kilimanjaro', 'strand og safari Zanzibar', 'sertifisert safarioperatør TATO',
   ],
+  sv: [
+    'safari Tanzania', 'safari i Tanzania 2026', 'safari Serengeti', 'Kilimanjaro-bestigning',
+    'gorillatrekking Rwanda', 'lyxsafari Afrika', 'pris safari Tanzania',
+    'bröllopsresa safari Afrika', 'resebyrå safari Tanzania', 'familjesafari Afrika',
+    'Machame-leden Kilimanjaro', 'strand och safari Zanzibar', 'certifierad safarioperatör TATO',
+  ],
 }
