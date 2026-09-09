@@ -41,7 +41,10 @@ export async function POST(req: NextRequest, { params }: Params) {
 
   let pdf: ArrayBuffer
   try {
-    pdf = await renderPageToPdf(invoiceUrl, `${ADMIN_SESSION_COOKIE}=${sessionCookie}`)
+    // preferCSSPageSize: true — same dark full-bleed print family as the
+    // booking voucher; see that route's identical comment and
+    // renderPageToPdf's own comment in src/lib/browser.ts.
+    pdf = await renderPageToPdf(invoiceUrl, `${ADMIN_SESSION_COOKIE}=${sessionCookie}`, 'A4', true)
   } catch (err) {
     console.error('Invoice PDF generation failed:', err)
     return NextResponse.json({ error: 'Could not generate the invoice PDF. Please try again.' }, { status: 502 })

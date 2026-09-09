@@ -41,7 +41,12 @@ export async function POST(req: NextRequest, { params }: Params) {
 
   let pdf: ArrayBuffer
   try {
-    pdf = await renderPageToPdf(voucherUrl, `${ADMIN_SESSION_COOKIE}=${sessionCookie}`)
+    // preferCSSPageSize: true — this page uses the dark full-bleed print
+    // family (PdfDarkPage/printCssFullBleed in PdfChrome.tsx), whose
+    // per-page inset now comes from CSS @page margin; that only takes
+    // effect server-side when this is set (see renderPageToPdf's own
+    // comment for why it isn't the default).
+    pdf = await renderPageToPdf(voucherUrl, `${ADMIN_SESSION_COOKIE}=${sessionCookie}`, 'A4', true)
   } catch (err) {
     console.error('Voucher PDF generation failed:', err)
     return NextResponse.json({ error: 'Could not generate the voucher PDF. Please try again.' }, { status: 502 })
