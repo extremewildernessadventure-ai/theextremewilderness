@@ -30,7 +30,22 @@ const VIEWPORT_BY_FORMAT: Record<PdfPageFormat, { width: number; height: number 
 export async function renderPageToPdf(
   url: string,
   cookieHeader: string | null,
-  format: PdfPageFormat = 'A4'
+  format: PdfPageFormat = 'A4',
+  // Off by default: CDP's printToPDF ignores the page's own CSS `@page`
+  // margin unless this is true, using a flat (Puppeteer-option-driven,
+  // defaulting to 0 here since we never pass `margin`) margin instead — a
+  // raw post-render crop, not a real layout pass, so the browser never
+  // reflows content to fit whatever margin ends up applied. That's exactly
+  // why it's safe as the always-off default: every existing caller
+  // (src/lib/publicGuides.ts, the trekking/family-itinerary guides) already
+  // depends on today's flat-0-margin behavior and must keep working
+  // unchanged. The dark voucher/invoice family opts in explicitly (see
+  // their route.ts call sites) because printCssFullBleed()'s @page margin
+  // only takes effect here, in the server-rendered PDF, when this is true —
+  // true makes CDP do a genuine print-media layout pass honoring that CSS
+  // margin (reflowing content to fit, like window.print() already does),
+  // avoiding the right-edge-clipping risk a raw crop would otherwise risk.
+  preferCSSPageSize = false
 ): Promise<ArrayBuffer> {
   const { env } = await getCloudflareContext({ async: true })
   if (!env.BROWSER) {
@@ -72,7 +87,7 @@ export async function renderPageToPdf(
     // images) is both immune to that and the more appropriate choice for a
     // static server-rendered page in production too.
     await page.goto(url, { waitUntil: 'load', timeout: 45000 })
-    const pdf = await page.pdf({ format, printBackground: true })
+    const pdf = await page.pdf({ format, printBackground: true, preferCSSPageSize })
     return pdf.buffer.slice(pdf.byteOffset, pdf.byteOffset + pdf.byteLength) as ArrayBuffer
   } finally {
     await browser.close()

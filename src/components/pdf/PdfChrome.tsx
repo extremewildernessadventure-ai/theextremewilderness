@@ -258,18 +258,68 @@ export function PdfClosingCta({ heading, body }: { heading: string; body?: strin
 // when this function's own <style> is on the page (i.e. only for the two
 // documents using this dark family), so quote/payslip's print output is
 // untouched.
+// A long invoice/voucher overflows onto page 2+, and CSS box padding on a
+// single continuous flow div (see PdfDarkPage below) is not page-aware — it
+// only appears once, at the very top and bottom of the *whole* flow, not
+// re-inserted at each physical page boundary Chromium slices the box at.
+// `@page margin` is the one thing Chromium genuinely re-applies on every
+// page, so — unlike the original `margin: 0` full-bleed approach — the
+// per-page inset now comes from here instead of from PdfDarkPage's own
+// padding (moved to the .pdf-dark-page class below, base rule for on-screen
+// preview, print rule zeroed out so it isn't double-applied on page 1 on
+// top of this @page margin). Same 0.85in/0.9in values PdfDarkPage always
+// used, so page 1 looks identical to before.
+//
+// Because @page no longer carves the page down to zero margin, "full
+// bleed" (the background reaching every physical edge on every page,
+// including short pages 1 and long overflow pages 2+) needs to come from
+// somewhere independent of both the flow div's height and the page margin.
+// `@page { background }` is that thing — confirmed live (not just per spec)
+// to actually paint the full physical page, margin box included, on every
+// page Chromium generates, both via window.print() and via Puppeteer/CDP's
+// printToPDF with preferCSSPageSize (see renderPageToPdf in
+// src/lib/browser.ts). Two alternatives were tried first and both failed
+// for the same underlying reason — a `position: fixed` backdrop (the usual
+// go-to for a repeating print background) turned out to be clipped to the
+// printable/content area rather than the full page once @page margin is
+// non-zero, confirmed by rendering real multi-page output and inspecting
+// it pixel-by-pixel: a white margin border appeared on every page,
+// including page 1, instead of true bleed. Negative insets sized to
+// escape that clip were tried next and made no difference, meaning it's a
+// hard clip at the printable-area boundary, not a containing-block sizing
+// quirk that could be compensated for. `@page background` sidesteps the
+// whole question by painting at the page level in the first place.
 export function printCssFullBleed(): string {
   return `
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pdf-dark-page { padding: 0.85in 0.9in; }
     @media print {
-      @page { size: A4; margin: 0; }
+      @page { size: A4; margin: 0.85in 0.9in; background: #1C3A2A; }
       .pdf-page-break { break-after: page; page-break-after: always; }
       .pdf-page-break-before { break-before: page; page-break-before: always; }
       .no-break { page-break-inside: avoid; break-inside: avoid; }
       .ewa-admin .main { padding: 0; max-width: none; margin: 0; }
+      .pdf-dark-page { padding: 0; }
     }
   `
 }
+
+// Known residual limitation (confirmed live, not theoretical): on a
+// multi-page document, `@page background` reliably paints every page up to
+// wherever the flowing content (plus its min-height floor, see PdfDarkPage)
+// actually reaches on that page — but on the *last* page specifically, if
+// the content ends well before the physical page bottom, the background
+// stops there too, leaving a residual pale gap below the footer. Verified
+// this is a genuine Chromium page-sizing behavior on the final fragment,
+// not a bug in this CSS: forcing PdfDarkPage's min-height higher visibly
+// pushed that gap further down, and shrinking it back is what causes it in
+// the first place. A fixed min-height large enough to always reach the
+// bottom isn't a real fix — for the common case (content that fits on one
+// page) it would force a spurious, mostly-blank second page instead. Left
+// as-is: this is a much narrower and less visible failure than the bug
+// this file was written to fix (which affected any page 2+, top to
+// bottom), and closing it fully would need knowing the real page count in
+// advance, which isn't available at this layer.
 
 // The two typefaces the new design system specifies — loaded per-page via
 // a scoped Google Fonts <link> tag (see the invoice/voucher pages), same
@@ -288,15 +338,32 @@ export const PDF_DARK_HEADING_WEIGHT = 600
 // clipping — this project already hit and fixed exactly that failure mode
 // on the Kilimanjaro guide (fixed-height overflow:hidden boxes), not
 // repeating it here.
+//
+// The `calc(297mm - 1.7in)` (rather than a flat 297mm) accounts for the
+// 0.85in top+bottom @page margin printCssFullBleed() now carves out
+// separately (see that function's own comment) — asking this div for a
+// full 297mm of height *on top of* 1.7in of page margin would demand more
+// than one physical page's worth of space even for a short, single-page
+// document, reproducing the exact "spurious near-blank second page" shape
+// already described (and fixed for a different cause, the .main padding
+// below) in this file.
+//
+// This div's own `background` stays alongside printCssFullBleed()'s
+// `@page background` (not a replacement for it) — the @page rule paints
+// the full physical page including the margin box, this div's own
+// background paints exactly where its (padding-less-in-print) content
+// area sits; both are the same color, so on screen (where @page doesn't
+// apply at all) this div's background is what actually renders, and in
+// print they simply overlap losslessly rather than one substituting for
+// the other.
 export function PdfDarkPage({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="flex flex-col"
+      className="flex flex-col pdf-dark-page"
       style={{
-        minHeight: '297mm',
+        minHeight: 'calc(297mm - 1.7in)',
         background: '#1C3A2A',
         color: '#f3f2f2',
-        padding: '0.85in 0.9in',
         boxSizing: 'border-box',
         fontFamily: PDF_DARK_BODY_FONT,
       }}
