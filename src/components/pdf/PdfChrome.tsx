@@ -274,25 +274,49 @@ export function PdfClosingCta({ heading, body }: { heading: string; body?: strin
 // bleed" (the background reaching every physical edge on every page,
 // including short pages 1 and long overflow pages 2+) needs to come from
 // somewhere independent of both the flow div's height and the page margin.
-// `@page { background }` is that thing — confirmed live (not just per spec)
-// to actually paint the full physical page, margin box included, on every
-// page Chromium generates, both via window.print() and via Puppeteer/CDP's
-// printToPDF with preferCSSPageSize (see renderPageToPdf in
-// src/lib/browser.ts). Two alternatives were tried first and both failed
-// for the same underlying reason — a `position: fixed` backdrop (the usual
-// go-to for a repeating print background) turned out to be clipped to the
-// printable/content area rather than the full page once @page margin is
-// non-zero, confirmed by rendering real multi-page output and inspecting
-// it pixel-by-pixel: a white margin border appeared on every page,
-// including page 1, instead of true bleed. Negative insets sized to
-// escape that clip were tried next and made no difference, meaning it's a
-// hard clip at the printable-area boundary, not a containing-block sizing
-// quirk that could be compensated for. `@page background` sidesteps the
-// whole question by painting at the page level in the first place.
+// Two mechanisms, covering two different regions of the page, together:
+//
+// - `@page { background }` paints the full physical page, margin box
+//   included — confirmed live (not just per spec) via window.print() and
+//   via Puppeteer/CDP's printToPDF with preferCSSPageSize (see
+//   renderPageToPdf in src/lib/browser.ts). But it's bound to the flowing
+//   content box's own rendered extent on the *last* fragment specifically:
+//   if real content ends well before the physical bottom of that final
+//   page, the painted region stops there too instead of continuing to the
+//   page edge, leaving a pale gap below the footer — confirmed live by
+//   swapping the content div's own background to a contrasting color and
+//   inspecting real rendered PDFs pixel-by-pixel. That's a genuine
+//   Chromium page-sizing behavior on the final fragment, not a CSS bug.
+// - `.pdf-dark-backdrop`, a `position: fixed` layer, is what actually
+//   closes that gap. Fixed-position elements in CSS Paged Media are
+//   conceptually repeated onto every generated page regardless of how much
+//   flowing content that page holds — confirmed live via real multi-page
+//   output — which is exactly the property a JS-measured "filler" element
+//   can't reliably match: this project tried computing a trailing filler's
+//   height at runtime first (round the flow's total height up to the next
+//   page boundary), and it doesn't work in general once any content uses
+//   break-avoidance (`.no-break` below, or a table row Chromium refuses to
+//   split) — avoiding a break can shift a whole block onto the next page,
+//   leaving irregular slack at a page boundary that a simple
+//   total-height-modulo-page-height calculation can't see coming, since
+//   that information only exists inside Chromium's real pagination engine,
+//   never exposed to page JS. A `position: fixed` layer sidesteps needing
+//   to predict any of that: it doesn't care how tall the content is or
+//   where Chromium chose to break it, it simply repaints on every page.
+//   Its own containing block, once @page margin is non-zero, is the page's
+//   *printable* area (not the full physical page) — confirmed live: an
+//   early attempt at using this as the *only* full-bleed mechanism showed
+//   a white margin border on every page, page 1 included, since the layer
+//   couldn't reach past that boundary (negative insets sized to escape it
+//   made no difference — a hard clip, not a sizing quirk to compensate
+//   for). That's not a problem here: `@page background` above already owns
+//   the margin box, so `inset: 0` landing exactly on the printable-area
+//   edges is precisely the coverage still missing.
 export function printCssFullBleed(): string {
   return `
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .pdf-dark-page { padding: 0.85in 0.9in; }
+    .pdf-dark-backdrop { display: none; }
     @media print {
       @page { size: A4; margin: 0.85in 0.9in; background: #1C3A2A; }
       .pdf-page-break { break-after: page; page-break-after: always; }
@@ -300,26 +324,16 @@ export function printCssFullBleed(): string {
       .no-break { page-break-inside: avoid; break-inside: avoid; }
       .ewa-admin .main { padding: 0; max-width: none; margin: 0; }
       .pdf-dark-page { padding: 0; }
+      .pdf-dark-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: #1C3A2A;
+        z-index: -1;
+      }
     }
   `
 }
-
-// Known residual limitation (confirmed live, not theoretical): on a
-// multi-page document, `@page background` reliably paints every page up to
-// wherever the flowing content (plus its min-height floor, see PdfDarkPage)
-// actually reaches on that page — but on the *last* page specifically, if
-// the content ends well before the physical page bottom, the background
-// stops there too, leaving a residual pale gap below the footer. Verified
-// this is a genuine Chromium page-sizing behavior on the final fragment,
-// not a bug in this CSS: forcing PdfDarkPage's min-height higher visibly
-// pushed that gap further down, and shrinking it back is what causes it in
-// the first place. A fixed min-height large enough to always reach the
-// bottom isn't a real fix — for the common case (content that fits on one
-// page) it would force a spurious, mostly-blank second page instead. Left
-// as-is: this is a much narrower and less visible failure than the bug
-// this file was written to fix (which affected any page 2+, top to
-// bottom), and closing it fully would need knowing the real page count in
-// advance, which isn't available at this layer.
 
 // The two typefaces the new design system specifies — loaded per-page via
 // a scoped Google Fonts <link> tag (see the invoice/voucher pages), same
@@ -368,6 +382,12 @@ export function PdfDarkPage({ children }: { children: React.ReactNode }) {
         fontFamily: PDF_DARK_BODY_FONT,
       }}
     >
+      {/* Repeats on every physical page independent of this div's own
+          height — see printCssFullBleed()'s own comment for why this,
+          alongside @page background, is what actually closes the
+          last-page gap. aria-hidden since it's pure print-layout plumbing,
+          never content; position:fixed takes it out of flow either way. */}
+      <div className="pdf-dark-backdrop" aria-hidden="true" />
       {children}
     </div>
   )
