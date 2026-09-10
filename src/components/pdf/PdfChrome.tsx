@@ -327,7 +327,19 @@ export function printCssFullBleed(): string {
       .pdf-dark-backdrop {
         display: block;
         position: fixed;
-        inset: 0;
+        /* Deliberately overshoots the printable area by a couple of px
+           rather than sitting flush at inset:0 — confirmed live a plain
+           inset:0 can leave a hairline sliver of the page's default white
+           canvas showing through on one edge, apparently from independent
+           sub-pixel rounding between the position:fixed box model and the
+           pagination engine's own page-box geometry (the two don't always
+           agree to the pixel). Since this layer is already hard-clipped at
+           the printable-area boundary regardless of how far past it this
+           box extends (see this function's own comment above), overshooting
+           is free insurance: the excess is simply clipped away exactly as
+           inset:0's edge was, so this can only close a gap, never create
+           one. */
+        inset: -2px;
         background: #1C3A2A;
         z-index: -1;
       }
