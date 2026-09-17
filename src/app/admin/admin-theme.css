@@ -244,18 +244,38 @@
 .ewa-admin .user-dropdown .nav-logout { width: 100%; }
 
 /* ===== main ===== */
-.ewa-admin .main { padding: 36px 40px 60px; max-width: 1400px; margin: 0 auto; }
+/* No max-width here (dropped from an earlier 1400px cap) — confirmed via
+   a full page audit that every page NARROWER than full-width already has
+   its own inner wrapper that caps it regardless of what .main allows:
+   detail pages re-cap at 1280px via .detail-page-shell, and single-panel
+   edit forms cap themselves via their own Tailwind max-w-xl/max-w-2xl
+   wrapper div. Both are nested inside .main and unaffected by this rule
+   either way. That leaves list pages (leads/quotes/invoices/departures/
+   etc., which have no such inner wrapper) as the only pages this
+   actually changes — they were leaving a large block of unused width on
+   a wide monitor, confirmed live on the deployed site.
+   `width: 100%` (not just a dropped max-width) is the actual fix here —
+   confirmed via real computed-style measurement that `.main` was never
+   stretching to fill .app-content's width at all, on ANY page, dashboard
+   included: it's a flex item inside .app-content's `flex-direction:
+   column`, and `margin: 0 auto` sets its cross-axis (horizontal) margins
+   to auto, which disables flexbox's default cross-axis stretch — so
+   without an explicit width, it was shrink-wrapping to its own content's
+   natural size and centering that within whatever space was available,
+   regardless of what max-width allowed. This had been true since the
+   sidebar shell was introduced; it was only ever masked on pages whose
+   content (e.g. a wide table) happened to naturally need most of the
+   space anyway. `margin: 0 auto` is dropped along with it — centering is
+   meaningless once the element is told to be exactly 100% wide. */
+.ewa-admin .main { padding: 36px 40px 60px; width: 100%; }
 /* The dashboard specifically packs a lot of stacked sections (greeting,
    4 stat cards, 2 chart rows, operational alerts) into one page — trims
    .main's generous top/bottom padding just for it via :has(), rather than
    lowering it for every admin page (list/detail/form pages want the
-   normal breathing room). It also drops the 1400px cap entirely (not
-   just raises it) — every other admin page is a list/table or a
-   form/detail layout genuinely tuned to read well at that width, but the
-   dashboard's charts/cards are grid-based and benefit from the full
-   window on a wide monitor instead of leaving space unused on both
-   sides. */
-.ewa-admin .main:has(> .dashboard-root) { max-width: none; padding-top: 20px; padding-bottom: 32px; }
+   normal breathing room). (Used to also carry `max-width: none` here
+   specifically for the dashboard — now redundant since that's the shared
+   default above, so it's dropped from this rule.) */
+.ewa-admin .main:has(> .dashboard-root) { padding-top: 20px; padding-bottom: 32px; }
 .ewa-admin .page-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 16px; }
 .ewa-admin .page-head h1 { font-size: 30px; }
 .ewa-admin .page-head p { color: var(--grey); font-size: 13.5px; margin-top: 6px; }
@@ -287,13 +307,21 @@
      .stats-row on a narrow/mobile viewport overflows the page instead of
      letting long labels wrap. */
   background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--pine);
-  border-radius: 8px; padding: 14px 18px; display: flex; flex-direction: column; gap: 6px; min-width: 0;
+  border-radius: 8px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0;
 }
 .ewa-admin .stat-card.gold { border-left-color: var(--gold); }
 .ewa-admin .stat-card.rust { border-left-color: var(--rust); }
 .ewa-admin .stat-card.grey { border-left-color: var(--khaki); }
 .ewa-admin .stat-label { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey); }
-.ewa-admin .stat-num { font-family: var(--font-jetbrains-mono), monospace; font-weight: 700; font-size: 24px; color: var(--ink); }
+.ewa-admin .stat-num { font-family: var(--font-jetbrains-mono), monospace; font-weight: 700; font-size: 28px; color: var(--ink); }
+/* This class is shared by every list page's own KPI tiles (leads, quotes,
+   invoices, etc.) as well as the dashboard's — a padding/font-size trim
+   made here to fit the dashboard's own tightly-packed vertical stack
+   (PR #63) had no scoping and shrank every other page's tiles too, which
+   never had a fitting problem. Re-applied here scoped to .dashboard-root
+   only, so every other page gets its normal, comfortable size back. */
+.ewa-admin .dashboard-root .stat-card { padding: 14px 18px; gap: 6px; }
+.ewa-admin .dashboard-root .stat-num { font-size: 24px; }
 .ewa-admin .stat-sub { font-size: 11.5px; color: var(--grey); }
 @media (max-width: 1100px) { .ewa-admin .stats-row { grid-template-columns: repeat(2, 1fr); } }
 
