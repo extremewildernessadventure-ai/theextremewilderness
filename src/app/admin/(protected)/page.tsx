@@ -234,8 +234,8 @@ export default async function AdminDashboardPage() {
   ]
 
   return (
-    <div>
-      <div className="page-head">
+    <div className="dashboard-root">
+      <div className="page-head" style={{ marginBottom: 14 }}>
         <div>
           <h1>Dashboard</h1>
         </div>
@@ -245,9 +245,9 @@ export default async function AdminDashboardPage() {
           per-admin-user identity in this app (a single shared password,
           no user accounts table), so a "Congratulations Jhon" style
           greeting would have to invent a name that isn't real. */}
-      <div className="panel" style={{ marginBottom: 20, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
+      <div className="panel" style={{ marginBottom: 14, padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
         <div>
-          <h2 style={{ marginBottom: 6 }}>Welcome back 👋</h2>
+          <h2 style={{ marginBottom: 4, fontSize: 17 }}>Welcome back 👋</h2>
           <p style={{ color: 'var(--grey)', fontSize: 13.5 }}>
             {bookingsThisMonth} confirmed booking{bookingsThisMonth === 1 ? '' : 's'} and {usd(revenueThisMonth)} in paid revenue so far this month.
           </p>
@@ -255,7 +255,7 @@ export default async function AdminDashboardPage() {
         <Link href="/admin/reports/profitability" className="btn-primary">View Details</Link>
       </div>
 
-      <div className="stats-row">
+      <div className="stats-row" style={{ marginBottom: 14 }}>
         <StatCard
           icon={DollarSign}
           label="Revenue This Month (USD)"
@@ -292,18 +292,18 @@ export default async function AdminDashboardPage() {
       </div>
 
       <div className="dash-row-a">
-        <div className="panel">
-          <h2 style={{ marginBottom: 14 }}>Order Status</h2>
+        <div className="panel" style={{ padding: '16px 20px' }}>
+          <h2 style={{ marginBottom: 8, fontSize: 15 }}>Order Status</h2>
           <DonutChart data={donutData} centerLabel="Total Bookings" centerValue={totalBookings} />
         </div>
-        <div className="panel">
-          <h2 style={{ marginBottom: 14 }}>Sales &amp; Bookings</h2>
+        <div className="panel" style={{ padding: '16px 20px' }}>
+          <h2 style={{ marginBottom: 8, fontSize: 15 }}>Sales &amp; Bookings</h2>
           <MonthlyBarChart data={monthlyChartData} />
         </div>
       </div>
 
       <div className="dash-row-b">
-        <div className="panel">
+        <div className="panel" style={{ padding: '14px 20px' }}>
           <RadialProgressCard
             label="Monthly"
             percent={monthlyPercent}
@@ -312,7 +312,7 @@ export default async function AdminDashboardPage() {
             color={CHART_GOOD}
           />
         </div>
-        <div className="panel">
+        <div className="panel" style={{ padding: '14px 20px' }}>
           <RadialProgressCard
             label="Yearly"
             percent={yearlyPercent}
@@ -323,7 +323,7 @@ export default async function AdminDashboardPage() {
         </div>
       </div>
 
-      <h2 style={{ marginTop: 32, marginBottom: 14 }}>Operational Alerts</h2>
+      <h2 style={{ marginTop: 20, marginBottom: 10, fontSize: 15 }}>Operational Alerts</h2>
       <div className="stats-row" style={{ marginBottom: 0 }}>
         {operationalKpis.map((kpi) => <OperationalTile key={kpi.label} kpi={kpi} />)}
       </div>

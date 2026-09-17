@@ -29,10 +29,10 @@ function MiniBarPanel({ title, data, dataKey, color, formatValue }: {
 }) {
   return (
     <div style={{ flex: 1, minWidth: 0 }}>
-      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: 10 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase', color: 'var(--grey)', marginBottom: 6 }}>
         {title}
       </div>
-      <ResponsiveContainer width="100%" height={180}>
+      <ResponsiveContainer width="100%" height={132}>
         <BarChart data={data} margin={{ top: 4, right: 4, bottom: 0, left: 0 }}>
           <CartesianGrid vertical={false} stroke="var(--line)" />
           <XAxis dataKey="month" tick={AXIS_STYLE} axisLine={{ stroke: 'var(--line)' }} tickLine={false} />

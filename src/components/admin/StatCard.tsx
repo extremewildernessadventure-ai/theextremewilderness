@@ -34,15 +34,15 @@ export default function StatCard({
   const trendColor = trendDirection === 'down' ? 'var(--rust)' : 'var(--pine-fg)'
 
   return (
-    <div className="stat-card" style={{ borderLeftColor: accentColor, gap: 14 }}>
+    <div className="stat-card" style={{ borderLeftColor: accentColor, gap: 10 }}>
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
         <div
           style={{
-            width: 38, height: 38, borderRadius: 9, display: 'flex', alignItems: 'center', justifyContent: 'center',
+            width: 32, height: 32, borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center',
             background: `${accentColor}22`, color: accentColor,
           }}
         >
-          <Icon size={19} />
+          <Icon size={16} />
         </div>
         {trendPercent != null && (
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 3, fontSize: 12, fontWeight: 700, color: trendColor }}>

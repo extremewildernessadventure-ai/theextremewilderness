@@ -27,7 +27,7 @@ export default function DonutChart({
 
   return (
     <div style={{ position: 'relative' }}>
-      <ResponsiveContainer width="100%" height={220}>
+      <ResponsiveContainer width="100%" height={170}>
         <PieChart>
           <Pie
             data={data}
@@ -35,8 +35,8 @@ export default function DonutChart({
             nameKey="label"
             cx="50%"
             cy="50%"
-            innerRadius={62}
-            outerRadius={88}
+            innerRadius={48}
+            outerRadius={68}
             paddingAngle={total > 0 ? 3 : 0}
             stroke="none"
             isAnimationActive={false}
@@ -66,10 +66,10 @@ export default function DonutChart({
           textAlign: 'center', pointerEvents: 'none',
         }}
       >
-        <div style={{ fontFamily: 'var(--font-jetbrains-mono), monospace', fontWeight: 700, fontSize: 26, color: 'var(--ink)' }}>
+        <div style={{ fontFamily: 'var(--font-jetbrains-mono), monospace', fontWeight: 700, fontSize: 21, color: 'var(--ink)' }}>
           {centerValue}
         </div>
-        <div style={{ fontSize: 11.5, color: 'var(--grey)' }}>{centerLabel}</div>
+        <div style={{ fontSize: 10.5, color: 'var(--grey)' }}>{centerLabel}</div>
       </div>
     </div>
   )
