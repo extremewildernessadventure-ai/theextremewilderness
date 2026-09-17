@@ -249,8 +249,13 @@
    4 stat cards, 2 chart rows, operational alerts) into one page — trims
    .main's generous top/bottom padding just for it via :has(), rather than
    lowering it for every admin page (list/detail/form pages want the
-   normal breathing room). */
-.ewa-admin .main:has(> .dashboard-root) { padding-top: 20px; padding-bottom: 32px; }
+   normal breathing room). It also drops the 1400px cap entirely (not
+   just raises it) — every other admin page is a list/table or a
+   form/detail layout genuinely tuned to read well at that width, but the
+   dashboard's charts/cards are grid-based and benefit from the full
+   window on a wide monitor instead of leaving space unused on both
+   sides. */
+.ewa-admin .main:has(> .dashboard-root) { max-width: none; padding-top: 20px; padding-bottom: 32px; }
 .ewa-admin .page-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 16px; }
 .ewa-admin .page-head h1 { font-size: 30px; }
 .ewa-admin .page-head p { color: var(--grey); font-size: 13.5px; margin-top: 6px; }
