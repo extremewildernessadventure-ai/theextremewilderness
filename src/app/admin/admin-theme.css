@@ -253,8 +253,21 @@
    either way. That leaves list pages (leads/quotes/invoices/departures/
    etc., which have no such inner wrapper) as the only pages this
    actually changes — they were leaving a large block of unused width on
-   a wide monitor, confirmed live on the deployed site. */
-.ewa-admin .main { padding: 36px 40px 60px; max-width: none; margin: 0 auto; }
+   a wide monitor, confirmed live on the deployed site.
+   `width: 100%` (not just a dropped max-width) is the actual fix here —
+   confirmed via real computed-style measurement that `.main` was never
+   stretching to fill .app-content's width at all, on ANY page, dashboard
+   included: it's a flex item inside .app-content's `flex-direction:
+   column`, and `margin: 0 auto` sets its cross-axis (horizontal) margins
+   to auto, which disables flexbox's default cross-axis stretch — so
+   without an explicit width, it was shrink-wrapping to its own content's
+   natural size and centering that within whatever space was available,
+   regardless of what max-width allowed. This had been true since the
+   sidebar shell was introduced; it was only ever masked on pages whose
+   content (e.g. a wide table) happened to naturally need most of the
+   space anyway. `margin: 0 auto` is dropped along with it — centering is
+   meaningless once the element is told to be exactly 100% wide. */
+.ewa-admin .main { padding: 36px 40px 60px; width: 100%; }
 /* The dashboard specifically packs a lot of stacked sections (greeting,
    4 stat cards, 2 chart rows, operational alerts) into one page — trims
    .main's generous top/bottom padding just for it via :has(), rather than
