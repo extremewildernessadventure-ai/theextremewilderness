@@ -41,7 +41,7 @@ export default function SupplierPaymentPanel({ supplierId, payments }: { supplie
     <div className="panel">
       <div className="flex items-center justify-between mb-4">
         <h2>Payments Owed</h2>
-        <button type="button" onClick={() => setOpen((v) => !v)} className="text-xs font-semibold hover:underline" style={{ color: 'var(--pine)' }}>
+        <button type="button" onClick={() => setOpen((v) => !v)} className="text-xs font-semibold hover:underline" style={{ color: 'var(--pine-fg)' }}>
           {open ? 'Cancel' : '+ Add Payment'}
         </button>
       </div>

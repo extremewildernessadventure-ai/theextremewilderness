@@ -50,7 +50,7 @@ export default function SendVoucherButton({ bookingId, hasClientEmail, lastSentA
         >
           {sending ? 'Sending…' : lastSentAt ? 'Resend Voucher' : 'Send Voucher'}
         </button>
-        <Link href={`/admin/bookings/${bookingId}/voucher`} className="text-xs font-semibold hover:underline" style={{ color: 'var(--pine)' }} target="_blank">
+        <Link href={`/admin/bookings/${bookingId}/voucher`} className="text-xs font-semibold hover:underline" style={{ color: 'var(--pine-fg)' }} target="_blank">
           View Voucher
         </Link>
         {sent && <span className="text-green-600 text-sm">Sent</span>}

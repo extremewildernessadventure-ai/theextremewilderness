@@ -129,7 +129,7 @@ export default async function InvoiceDetailPage({ params }: Props) {
             <div className="panel space-y-3">
               <h2 className="mb-1">{isRootInvoice ? 'Trip Cost Schedule' : 'Balance Schedule'}</h2>
               <div className="grid grid-cols-3 gap-3">
-                <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand)' }}>
+                <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand-2)' }}>
                   <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--grey)' }}>
                     {isRootInvoice ? 'Total Cost' : 'Previous Balance'}
                   </p>
@@ -137,11 +137,11 @@ export default async function InvoiceDetailPage({ params }: Props) {
                     {invoice.currency} {(isRootInvoice ? schedule.totalCost : schedule.previousBalance).toLocaleString()}
                   </p>
                 </div>
-                <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand)' }}>
+                <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand-2)' }}>
                   <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--grey)' }}>Amount Billed</p>
-                  <p className="text-sm font-semibold mono" style={{ color: 'var(--pine)' }}>{invoice.currency} {schedule.thisAmount.toLocaleString()}</p>
+                  <p className="text-sm font-semibold mono" style={{ color: 'var(--pine-fg)' }}>{invoice.currency} {schedule.thisAmount.toLocaleString()}</p>
                 </div>
-                <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand)' }}>
+                <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand-2)' }}>
                   <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--grey)' }}>
                     {isRootInvoice ? 'Balance' : 'New Balance'}
                   </p>

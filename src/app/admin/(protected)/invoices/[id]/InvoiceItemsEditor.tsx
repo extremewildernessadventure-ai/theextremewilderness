@@ -130,7 +130,7 @@ export default function InvoiceItemsEditor({ invoice, items }: { invoice: Invoic
 
       <div className="flex justify-end pt-2 border-t border-gray-100">
         <div className="w-full max-w-[220px] flex justify-between items-baseline rounded-lg px-4 py-3" style={{ background: 'var(--green-bg)' }}>
-          <span className="text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--pine)' }}>Total</span>
+          <span className="text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--pine-fg)' }}>Total</span>
           <span className="text-lg font-black text-brand mono">
             {invoice.currency} {total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </span>

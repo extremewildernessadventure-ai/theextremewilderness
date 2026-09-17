@@ -82,7 +82,7 @@ export default async function ProfitabilityReportPage() {
                     <span className="pkg-name">{packageName(r.package_slug)}</span>
                     <span className="pkg-sub" style={{ marginLeft: 8 }}>{r.start_date} → {r.end_date}</span>
                   </div>
-                  <span className="capacity-num" style={{ color: margin >= 0 ? 'var(--pine)' : 'var(--rust)' }}>
+                  <span className="capacity-num" style={{ color: margin >= 0 ? 'var(--pine-fg)' : 'var(--rust)' }}>
                     ${r.revenue.toLocaleString()} rev · ${costs.toLocaleString()} cost · {marginPct !== null ? `${marginPct.toFixed(1)}%` : '—'} margin
                   </span>
                 </div>

@@ -10,25 +10,49 @@
    future non-admin usage of this stylesheet via normal CSS cascade rules,
    which don't respect React/Next.js component boundaries. */
 
+/* Dark reskin (2026-09-17, admin dashboard redesign): every token *name*
+   below is unchanged from the original light palette on purpose, even
+   where its meaning shifted — every existing page only ever consumes
+   these tokens through semantic classes (.stat-card, .table-card, .panel,
+   .field-input, .pill.*, etc.), never a raw hex value, so redefining the
+   values here is enough to reskin ~25 admin pages with zero markup
+   changes. The one token worth calling out explicitly: --white is kept as
+   a name but now means "card/surface color", not literal white — every
+   `background: var(--white)` rule (stat-card, table-card, panel,
+   filter-bar, field-input, pager, empty-state, nav-logout) becomes "dark
+   card on dark page" automatically. --sand is similarly repurposed from
+   "page background" to "cream text on dark" -- but a handful of rules
+   that used --sand as a *recessed surface tint* (table header, hover
+   rows, table footer, the search/select field fills) needed an actual
+   selector-level fix instead of just a token-value swap, since a token
+   can't mean both "text color" and "surface tint" at once — those rules
+   were repointed at the new --sand-2 token instead (see each site below). */
 .ewa-admin {
   --pine: #1C3A2A;
-  --pine-deep: #12281E;
+  --pine-deep: #0D1F16;
   --pine-light: #2F5C46;
-  --sand: #F3EEE1;
-  --sand-2: #E8DFC8;
-  --khaki: #A9906B;
-  --rust: #B5502E;
-  --rust-bg: #F7E9E3;
-  --gold: #C9A227;
-  --gold-bg: #F8F1DC;
-  --ink: #1E1E1A;
-  --grey: #6B685F;
-  --line: rgba(30, 30, 26, 0.12);
-  --white: #FFFFFF;
-  --green-bg: #E6EFE8;
-  --shadow: 0 16px 36px -18px rgba(18, 40, 30, 0.28);
+  /* --pine itself is too dark to read as *text* on the new dark page —
+     it still works fine as a background/border (an "active surface"),
+     which is most of its uses, but the handful of spots that use it as a
+     foreground/text color (a positive-margin figure, an "open" status
+     pill, a hover accent) need a brighter green that still reads as
+     "pine" — this token exists only for those text/icon-role cases. */
+  --pine-fg: #5FAE82;
+  --sand: #EDE7D6;
+  --sand-2: rgba(244, 241, 232, 0.08);
+  --khaki: #C2AE86;
+  --rust: #E2734A;
+  --rust-bg: rgba(226, 115, 74, 0.16);
+  --gold: #D4AF37;
+  --gold-bg: rgba(212, 175, 55, 0.14);
+  --ink: #F4F1E8;
+  --grey: #9CA79C;
+  --line: rgba(244, 241, 232, 0.10);
+  --white: #16241C;
+  --green-bg: rgba(28, 58, 42, 0.35);
+  --shadow: 0 16px 36px -18px rgba(0, 0, 0, 0.55);
 
-  background: var(--sand);
+  background: var(--pine-deep);
   color: var(--ink);
   font-family: var(--font-inter), sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -43,12 +67,60 @@
   margin: 0;
   color: var(--ink);
 }
+
+/* Many admin detail/form pages (invoice line items, payment panels,
+   booking/guide/supplier sub-panels, etc. — confirmed via a repo-wide
+   grep, ~25 files) style their own text hierarchy with raw Tailwind gray
+   utilities (text-gray-900/700/600/500/400) rather than this file's
+   tokens, on the assumption of a light page — dark grays read as
+   "primary/secondary text" there, but on this dark reskin they read as
+   near-invisible dark-on-dark. Rather than hand-edit every call site,
+   this maps the exact shades actually in use (grepped, not guessed) to
+   this page's real text tokens in one place. Excluded from every rule:
+   the four old-style PDF document trees (#pdf-quote, #pdf-payslip still
+   use a real bg-white content box awaiting their own redesign; #pdf-
+   invoice/#pdf-voucher already have their own hardcoded dark colors via
+   PdfChrome.tsx) — letting cream-toned --ink text leak into a literal
+   white PDF page would make that text unreadable in the opposite
+   direction. `:not(#id *)` is a CSS Selectors Level 4 complex :not()
+   argument, supported by the Chromium versions both a real browser and
+   Cloudflare Browser Rendering use here. */
+.ewa-admin .text-gray-900:not(#pdf-quote *):not(#pdf-payslip *):not(#pdf-invoice *):not(#pdf-voucher *),
+.ewa-admin .text-gray-700:not(#pdf-quote *):not(#pdf-payslip *):not(#pdf-invoice *):not(#pdf-voucher *) {
+  color: var(--ink);
+}
+.ewa-admin .text-gray-600:not(#pdf-quote *):not(#pdf-payslip *):not(#pdf-invoice *):not(#pdf-voucher *),
+.ewa-admin .text-gray-500:not(#pdf-quote *):not(#pdf-payslip *):not(#pdf-invoice *):not(#pdf-voucher *),
+.ewa-admin .text-gray-400:not(#pdf-quote *):not(#pdf-payslip *):not(#pdf-invoice *):not(#pdf-voucher *) {
+  color: var(--grey);
+}
+.ewa-admin .bg-gray-50:not(#pdf-quote *):not(#pdf-payslip *):not(#pdf-invoice *):not(#pdf-voucher *),
+.ewa-admin .bg-gray-100:not(#pdf-quote *):not(#pdf-payslip *):not(#pdf-invoice *):not(#pdf-voucher *) {
+  background: var(--sand-2);
+}
+.ewa-admin .border-gray-100:not(#pdf-quote *):not(#pdf-payslip *):not(#pdf-invoice *):not(#pdf-voucher *),
+.ewa-admin .border-gray-200:not(#pdf-quote *):not(#pdf-payslip *):not(#pdf-invoice *):not(#pdf-voucher *),
+.ewa-admin .border-gray-300:not(#pdf-quote *):not(#pdf-payslip *):not(#pdf-invoice *):not(#pdf-voucher *) {
+  border-color: var(--line);
+}
+/* text-brand (74 uses, confirmed via grep — a much wider pattern than the
+   gray-scale one above) is the public site's globals.css `--color-brand`
+   Tailwind utility, `#1C3A2A` — the same dark pine green as this file's
+   own --pine, and the exact same "unreadable as text on a dark page"
+   problem this file already solved for --pine by introducing --pine-fg
+   (see that token's own comment). border-brand/bg-brand are left alone —
+   sampled several real uses (segmented-toggle borders, a timeline rule, a
+   solid pine badge with white text) and none of them have this problem;
+   only the text color needs remapping. */
+.ewa-admin .text-brand:not(#pdf-quote *):not(#pdf-payslip *):not(#pdf-invoice *):not(#pdf-voucher *) {
+  color: var(--pine-fg);
+}
 .ewa-admin .mono { font-family: var(--font-jetbrains-mono), monospace; }
 .ewa-admin p { margin: 0; }
 .ewa-admin a { color: inherit; text-decoration: none; }
 .ewa-admin button { font-family: var(--font-inter), sans-serif; }
 
-/* Admin chrome (topbar + subnav) hidden at print time — same reasoning as
+/* Admin chrome (sidebar + topbar) hidden at print time — same reasoning as
    the public site's print:hidden on Navbar/Footer/etc. in
    src/app/[locale]/layout.tsx: the shared printCss() (see
    src/components/pdf/PdfChrome.tsx) relies on the surrounding layout
@@ -56,48 +128,120 @@
    printable content isolating itself, so multi-page documents actually
    paginate correctly instead of being clipped to one page. */
 @media print {
-  .ewa-admin .topbar,
-  .ewa-admin .subtabs-wrap {
+  .ewa-admin .sidebar,
+  .ewa-admin .app-topbar {
     display: none !important;
   }
+  .ewa-admin .app-shell { display: block !important; }
+  .ewa-admin .app-content { margin-left: 0 !important; }
 }
 
-/* ===== topo header ===== */
-.ewa-admin .topbar { position: relative; background: var(--white); border-bottom: 1px solid var(--line); overflow: hidden; }
-.ewa-admin .topo-strip { position: absolute; inset: 0; opacity: 0.05; pointer-events: none; }
-.ewa-admin .topbar-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; gap: 24px; }
-.ewa-admin .brand { display: flex; align-items: center; gap: 11px; flex-shrink: 0; }
-.ewa-admin .brand svg { width: 34px; height: 34px; color: var(--pine); }
-.ewa-admin .brand-text { font-family: var(--font-bitter), serif; font-weight: 800; font-size: 20px; color: var(--pine); letter-spacing: -0.01em; }
+/* ===== app shell (sidebar + topbar + content) ===== */
+/* Replaces the old stacked topbar/subtabs-pills rows with a persistent
+   left sidebar, per the 2026-09-17 dashboard redesign — see
+   src/components/admin/Sidebar.tsx and Topbar.tsx. .app-shell is the
+   outermost flex row; .sidebar is fixed-position (so it doesn't scroll
+   with page content) and .app-content is offset by its width to sit
+   beside it. */
+.ewa-admin .app-shell { display: flex; align-items: stretch; min-height: 100vh; }
+.ewa-admin .app-content { flex: 1; min-width: 0; margin-left: 260px; display: flex; flex-direction: column; }
+@media (max-width: 960px) { .ewa-admin .app-content { margin-left: 0; } }
 
-.ewa-admin .nav-links { display: flex; align-items: center; flex-wrap: wrap; row-gap: 6px; }
-.ewa-admin .nav-link {
-  font-size: 14px; font-weight: 600; color: var(--grey); padding: 6px 0; margin-right: 32px; position: relative; cursor: pointer;
-  white-space: nowrap; background: none; border: none;
+/* ===== sidebar ===== */
+.ewa-admin .sidebar {
+  position: fixed; top: 0; left: 0; bottom: 0; width: 260px; z-index: 40;
+  background: var(--white); border-right: 1px solid var(--line);
+  display: flex; flex-direction: column; overflow-y: auto;
+  transition: transform .2s ease;
 }
-.ewa-admin .nav-link:last-of-type { margin-right: 0; }
-.ewa-admin .nav-link:hover { color: var(--ink); }
-.ewa-admin .nav-link.active { color: var(--pine); }
-.ewa-admin .nav-link.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2.5px; background: var(--gold); border-radius: 2px; }
+@media (max-width: 960px) {
+  .ewa-admin .sidebar { transform: translateX(-100%); }
+  .ewa-admin .sidebar.open { transform: translateX(0); box-shadow: var(--shadow); }
+}
+.ewa-admin .sidebar-backdrop {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 39;
+}
+@media (max-width: 960px) { .ewa-admin .sidebar-backdrop.open { display: block; } }
+
+.ewa-admin .brand { display: flex; align-items: center; gap: 11px; flex-shrink: 0; padding: 22px 20px; border-bottom: 1px solid var(--line); }
+.ewa-admin .brand svg { width: 30px; height: 30px; color: var(--gold); }
+.ewa-admin .brand-text { font-family: var(--font-bitter), serif; font-weight: 800; font-size: 18px; color: var(--ink); letter-spacing: -0.01em; }
+
+.ewa-admin .sidebar-nav { flex: 1; padding: 14px 12px; overflow-y: auto; }
+.ewa-admin .sidebar-link {
+  display: flex; align-items: center; gap: 11px; padding: 11px 12px; border-radius: 8px;
+  font-size: 13.5px; font-weight: 700; color: var(--grey); cursor: pointer; margin-bottom: 2px;
+}
+.ewa-admin .sidebar-link:hover { color: var(--ink); background: var(--sand-2); }
+.ewa-admin .sidebar-link.active { color: var(--gold); }
+.ewa-admin .sidebar-link svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+.ewa-admin .sidebar-group { margin-bottom: 4px; }
+.ewa-admin .sidebar-group-head {
+  display: flex; align-items: center; gap: 11px; padding: 11px 12px; border-radius: 8px;
+  font-size: 13px; font-weight: 700; color: var(--grey); cursor: pointer; width: 100%; background: none; border: none;
+  text-align: left; font-family: var(--font-inter), sans-serif;
+}
+.ewa-admin .sidebar-group-head:hover { color: var(--ink); background: var(--sand-2); }
+.ewa-admin .sidebar-group-head.active-group { color: var(--ink); }
+.ewa-admin .sidebar-group-head svg.group-icon { width: 17px; height: 17px; flex-shrink: 0; color: inherit; }
+.ewa-admin .sidebar-group-head svg.chevron { width: 14px; height: 14px; margin-left: auto; flex-shrink: 0; transition: transform .15s ease; }
+.ewa-admin .sidebar-group-head[aria-expanded="true"] svg.chevron { transform: rotate(90deg); }
+.ewa-admin .sidebar-sublinks { padding-left: 34px; display: flex; flex-direction: column; gap: 1px; }
+.ewa-admin .sidebar-sublink {
+  display: block; padding: 8px 10px; border-radius: 7px; font-size: 13px; font-weight: 600;
+  color: var(--grey); position: relative;
+}
+.ewa-admin .sidebar-sublink:hover { color: var(--ink); background: var(--sand-2); }
+.ewa-admin .sidebar-sublink.active { color: var(--gold); background: var(--gold-bg); }
+
+/* ===== topbar ===== */
+.ewa-admin .app-topbar {
+  position: sticky; top: 0; z-index: 20; background: var(--white); border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; gap: 18px; padding: 14px 28px;
+}
+.ewa-admin .topbar-menu-btn {
+  display: none; background: none; border: none; color: var(--grey); cursor: pointer; padding: 6px;
+}
+@media (max-width: 960px) { .ewa-admin .topbar-menu-btn { display: flex; } }
+.ewa-admin .topbar-menu-btn svg { width: 22px; height: 22px; }
+.ewa-admin .topbar-search {
+  flex: 1; max-width: 360px; display: flex; align-items: center; gap: 10px; background: var(--sand-2);
+  border: 1px solid var(--line); border-radius: 8px; padding: 9px 14px;
+}
+.ewa-admin .topbar-search svg { width: 15px; height: 15px; color: var(--grey); flex-shrink: 0; }
+.ewa-admin .topbar-search input {
+  border: none; background: none; outline: none; font-size: 13.5px; color: var(--ink); width: 100%; font-family: var(--font-inter), sans-serif;
+}
+.ewa-admin .topbar-search input::placeholder { color: var(--grey); }
+.ewa-admin .topbar-actions { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.ewa-admin .topbar-icon-btn {
+  position: relative; width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  color: var(--grey); background: none; border: none; cursor: pointer; transition: all .15s ease;
+}
+.ewa-admin .topbar-icon-btn:hover { background: var(--sand-2); color: var(--ink); }
+.ewa-admin .topbar-icon-btn svg { width: 19px; height: 19px; }
+.ewa-admin .topbar-badge {
+  position: absolute; top: 4px; right: 4px; min-width: 15px; height: 15px; padding: 0 3px; border-radius: 8px;
+  background: var(--rust); color: #fff; font-size: 9.5px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+}
+.ewa-admin .topbar-avatar {
+  width: 38px; height: 38px; border-radius: 50%; background: var(--pine); color: var(--gold);
+  display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px;
+  border: 1.5px solid var(--gold); cursor: pointer; flex-shrink: 0; font-family: var(--font-bitter), serif;
+}
+.ewa-admin .topbar-avatar-wrap { position: relative; }
+.ewa-admin .user-dropdown {
+  position: absolute; top: calc(100% + 10px); right: 0; min-width: 160px; background: var(--white);
+  border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 8px; z-index: 30;
+}
 .ewa-admin .nav-logout {
-  font-size: 13px; font-weight: 700; color: var(--rust); cursor: pointer;
-  background: var(--white); border: 1.5px solid var(--rust-bg); border-radius: 7px;
-  padding: 7px 14px; margin-left: 32px; flex-shrink: 0; transition: all .15s ease;
+  display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--rust); cursor: pointer;
+  background: var(--rust-bg); border: 1.5px solid var(--rust-bg); border-radius: 7px;
+  padding: 8px 14px; transition: all .15s ease;
 }
-.ewa-admin .nav-logout:hover { background: var(--rust-bg); border-color: var(--rust); }
-
-/* ===== sub tabs ===== */
-.ewa-admin .subtabs-wrap { background: var(--white); border-bottom: 1px solid var(--line); padding: 16px 40px; }
-.ewa-admin .subtabs { display: flex; gap: 10px; flex-wrap: wrap; }
-.ewa-admin .subtab {
-  display: flex; align-items: center; gap: 7px; padding: 9px 18px; border-radius: 7px;
-  font-size: 13.5px; font-weight: 700; cursor: pointer; border: 1.5px solid var(--line); color: var(--grey);
-  background: var(--white); transition: all .15s ease;
-}
-.ewa-admin .subtab svg { width: 15px; height: 15px; opacity: .75; }
-.ewa-admin .subtab:hover { border-color: var(--pine-light); color: var(--pine); }
-.ewa-admin .subtab.active { background: var(--pine); border-color: var(--pine); color: var(--white); box-shadow: var(--shadow); }
-.ewa-admin .subtab.active svg { opacity: 1; }
+.ewa-admin .nav-logout:hover { background: transparent; border-color: var(--rust); }
+.ewa-admin .user-dropdown .nav-logout { width: 100%; }
 
 /* ===== main ===== */
 .ewa-admin .main { padding: 36px 40px 60px; max-width: 1400px; margin: 0 auto; }
@@ -105,7 +249,12 @@
 .ewa-admin .page-head h1 { font-size: 30px; }
 .ewa-admin .page-head p { color: var(--grey); font-size: 13.5px; margin-top: 6px; }
 .ewa-admin .btn-primary {
-  display: inline-flex; align-items: center; gap: 9px; background: var(--pine); color: var(--white);
+  /* color is --ink (this page's light/cream text color), not --white —
+     --white means "card surface" now (see the token block's own comment),
+     so `color: var(--white)` here would render near-invisible dark text
+     on this button's dark pine background. --ink already is the correct
+     light-on-dark color, same as the rest of the page's body text. */
+  display: inline-flex; align-items: center; gap: 9px; background: var(--pine); color: var(--ink);
   font-weight: 700; font-size: 13.5px; padding: 13px 22px; border-radius: 8px; border: none; cursor: pointer;
   box-shadow: var(--shadow); transition: all .15s ease;
 }
@@ -116,13 +265,18 @@
   font-weight: 700; font-size: 13.5px; padding: 13px 22px; border-radius: 8px; border: 1.5px solid var(--line); cursor: pointer;
   transition: all .15s ease;
 }
-.ewa-admin .btn-outline:hover { border-color: var(--pine-light); color: var(--pine); }
+.ewa-admin .btn-outline:hover { border-color: var(--pine-light); color: var(--pine-fg); }
 
 /* ===== stat cards ===== */
 .ewa-admin .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 26px; }
 .ewa-admin .stat-card {
+  /* min-width: 0 overrides a grid item's default min-width:auto, which
+     otherwise refuses to shrink a track below its content's intrinsic
+     width (a well-known CSS Grid gotcha) — without it, a 2-column
+     .stats-row on a narrow/mobile viewport overflows the page instead of
+     letting long labels wrap. */
   background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--pine);
-  border-radius: 8px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px;
+  border-radius: 8px; padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0;
 }
 .ewa-admin .stat-card.gold { border-left-color: var(--gold); }
 .ewa-admin .stat-card.rust { border-left-color: var(--rust); }
@@ -138,7 +292,7 @@
   background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px;
 }
 .ewa-admin .search-field {
-  flex: 1; min-width: 220px; display: flex; align-items: center; gap: 10px; background: var(--sand);
+  flex: 1; min-width: 220px; display: flex; align-items: center; gap: 10px; background: var(--sand-2);
   border: 1px solid var(--line); border-radius: 6px; padding: 9px 14px;
 }
 .ewa-admin .search-field svg { width: 15px; height: 15px; color: var(--grey); flex-shrink: 0; }
@@ -148,7 +302,7 @@
 .ewa-admin .select-field { position: relative; display: flex; align-items: center; }
 .ewa-admin .select-field select {
   appearance: none; font-family: var(--font-inter), sans-serif; font-size: 13px; font-weight: 600; color: var(--ink);
-  background: var(--sand); border: 1px solid var(--line); border-radius: 6px; padding: 9px 32px 9px 14px; cursor: pointer;
+  background: var(--sand-2); border: 1px solid var(--line); border-radius: 6px; padding: 9px 32px 9px 14px; cursor: pointer;
 }
 .ewa-admin .select-field::after {
   content: ""; position: absolute; right: 12px; width: 8px; height: 8px; border-right: 1.6px solid var(--grey); border-bottom: 1.6px solid var(--grey);
@@ -160,19 +314,19 @@
 .ewa-admin table { width: 100%; border-collapse: collapse; }
 .ewa-admin thead th {
   text-align: left; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--grey); padding: 13px 18px; border-bottom: 1px solid var(--line); background: var(--sand); white-space: nowrap;
+  color: var(--grey); padding: 13px 18px; border-bottom: 1px solid var(--line); background: var(--sand-2); white-space: nowrap;
 }
 .ewa-admin tbody td { padding: 16px 18px; border-bottom: 1px solid var(--line); font-size: 13.5px; vertical-align: middle; }
 .ewa-admin tbody tr:last-child td { border-bottom: none; }
 .ewa-admin tbody tr { transition: background .12s ease; }
-.ewa-admin tbody tr:hover { background: var(--sand); }
+.ewa-admin tbody tr:hover { background: var(--sand-2); }
 .ewa-admin tbody tr.warn { border-left: 3px solid var(--gold); }
 .ewa-admin tbody tr.cancelled { opacity: 0.6; }
 /* A linked/follow-up invoice's sub-row -- indented under its root, subtly
    set apart, but still a real full-width row (not nested markup) since
    AdminTable stays a flat <tr>-per-row renderer. */
-.ewa-admin tbody tr.invoice-subrow { background: var(--sand); }
-.ewa-admin tbody tr.invoice-subrow:hover { background: var(--sand-2); }
+.ewa-admin tbody tr.invoice-subrow { background: var(--sand-2); }
+.ewa-admin tbody tr.invoice-subrow:hover { background: rgba(244, 241, 232, 0.14); }
 .ewa-admin .invoice-subrow-link { padding-left: 18px; }
 .ewa-admin .invoice-subrow-arrow { display: inline-block; margin-right: 6px; color: var(--grey); font-weight: 400; }
 
@@ -189,10 +343,10 @@
 
 .ewa-admin .pill { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; padding: 5px 11px; border-radius: 20px; border: none; }
 .ewa-admin .pill i { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
-.ewa-admin .pill.open { background: var(--green-bg); color: var(--pine); } .ewa-admin .pill.open i { background: var(--pine); }
-.ewa-admin .pill.few { background: var(--gold-bg); color: #8A6E1B; } .ewa-admin .pill.few i { background: var(--gold); }
-.ewa-admin .pill.full { background: #EFEBE1; color: var(--khaki); } .ewa-admin .pill.full i { background: var(--khaki); }
-.ewa-admin .pill.departed { background: #E9EEF2; color: #4A6478; } .ewa-admin .pill.departed i { background: #4A6478; }
+.ewa-admin .pill.open { background: var(--green-bg); color: var(--pine-fg); } .ewa-admin .pill.open i { background: var(--pine-fg); }
+.ewa-admin .pill.few { background: var(--gold-bg); color: var(--gold); } .ewa-admin .pill.few i { background: var(--gold); }
+.ewa-admin .pill.full { background: rgba(194, 174, 134, 0.18); color: var(--khaki); } .ewa-admin .pill.full i { background: var(--khaki); }
+.ewa-admin .pill.departed { background: rgba(127, 163, 191, 0.18); color: #9FC3DB; } .ewa-admin .pill.departed i { background: #9FC3DB; }
 .ewa-admin .pill.cancelled { background: var(--rust-bg); color: var(--rust); } .ewa-admin .pill.cancelled i { background: var(--rust); }
 /* select-as-pill (InlineStatusSelect) needs the same look but stays a real <select> for editability */
 .ewa-admin select.pill {
@@ -213,10 +367,10 @@
   width: 30px; height: 30px; border-radius: 7px; display: flex; align-items: center; justify-content: center;
   color: var(--grey); cursor: pointer; transition: all .15s ease; background: transparent; border: none;
 }
-.ewa-admin .action-btn:hover { background: var(--sand-2); color: var(--pine); }
+.ewa-admin .action-btn:hover { background: var(--sand-2); color: var(--pine-fg); }
 .ewa-admin .action-btn svg { width: 15px; height: 15px; }
 
-.ewa-admin .table-footer { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: var(--sand); font-size: 12px; color: var(--grey); flex-wrap: wrap; gap: 10px; }
+.ewa-admin .table-footer { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: var(--sand-2); font-size: 12px; color: var(--grey); flex-wrap: wrap; gap: 10px; }
 .ewa-admin .pager { display: flex; gap: 6px; align-items: center; }
 .ewa-admin .pager a, .ewa-admin .pager span {
   min-width: 30px; height: 30px; padding: 0 8px; border-radius: 6px; border: 1px solid var(--line); background: var(--white);
@@ -230,7 +384,15 @@
 }
 
 /* ===== detail pages: forms/panels ===== */
-.ewa-admin .panel { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 22px 24px; }
+.ewa-admin .panel { background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 22px 24px; min-width: 0; }
+/* The dashboard's two-column chart rows — same min-width:0 grid gotcha as
+   .stat-card above, plus an actual mobile breakpoint so two chart panels
+   don't get squeezed to near-nothing on a phone. */
+.ewa-admin .dash-row-a { display: grid; grid-template-columns: 1fr 1.6fr; gap: 20px; margin-top: 20px; }
+.ewa-admin .dash-row-b { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+@media (max-width: 960px) {
+  .ewa-admin .dash-row-a, .ewa-admin .dash-row-b { grid-template-columns: 1fr; }
+}
 .ewa-admin .panel h2 { font-size: 15px; margin-bottom: 14px; }
 .ewa-admin .field-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey); margin-bottom: 6px; }
 .ewa-admin .field-input {
@@ -238,6 +400,16 @@
   font-family: var(--font-inter), sans-serif; background: var(--white); outline: none; transition: border-color .12s ease;
 }
 .ewa-admin .field-input:focus { border-color: var(--pine-light); }
+/* Native date/time picker icons are drawn by the browser, not styleable
+   via color/fill — Chromium renders them as a dark grey glyph that's
+   nearly invisible on this page's dark input fields. This is the one
+   vendor-specific hook Chromium exposes for it. */
+.ewa-admin input[type="date"]::-webkit-calendar-picker-indicator,
+.ewa-admin input[type="datetime-local"]::-webkit-calendar-picker-indicator,
+.ewa-admin input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.85);
+  cursor: pointer;
+}
 .ewa-admin .btn-danger {
   display: inline-flex; align-items: center; gap: 9px; background: var(--white); color: var(--rust);
   font-weight: 700; font-size: 13.5px; padding: 11px 20px; border-radius: 8px; border: 1.5px solid var(--rust-bg); cursor: pointer;
@@ -253,7 +425,7 @@
    margin, leaving up to ~440px of dead space on wide viewports. */
 .ewa-admin .detail-page-shell { max-width: 1280px; margin: 0 auto; }
 .ewa-admin .detail-back { font-size: 13.5px; color: var(--grey); margin-bottom: 16px; display: inline-block; }
-.ewa-admin .detail-back:hover { color: var(--pine); }
+.ewa-admin .detail-back:hover { color: var(--pine-fg); }
 .ewa-admin .detail-title-row { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
 .ewa-admin .detail-subtitle { color: var(--grey); font-size: 13.5px; margin-bottom: 24px; }
 /* 3fr/2fr, not 1fr/1fr: every DetailTwoColumn page follows the same shape —

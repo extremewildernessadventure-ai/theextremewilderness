@@ -1,10 +1,7 @@
 import { redirect } from 'next/navigation'
-import Link from 'next/link'
 import { hasValidAdminSession } from '@/lib/adminAuth'
-import { ADMIN_NAV } from '@/lib/adminNav'
-import LogoutButton from '../LogoutButton'
-import AdminDepartmentTabs from '../AdminDepartmentTabs'
-import AdminSubNavPills from '../AdminSubNavPills'
+import { getDb } from '@/lib/db'
+import AppShell from '@/components/admin/AppShell'
 
 export default async function ProtectedAdminLayout({ children }: { children: React.ReactNode }) {
   const authed = await hasValidAdminSession()
@@ -12,28 +9,20 @@ export default async function ProtectedAdminLayout({ children }: { children: Rea
     redirect('/admin/login')
   }
 
-  return (
-    <>
-      <div className="topbar">
-        <svg className="topo-strip" viewBox="0 0 1400 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,110 Q150,60 300,100 T600,90 T900,110 T1200,85 T1400,100" fill="none" stroke="#1C3A2A" strokeWidth="2" />
-          <path d="M0,80 Q150,30 300,70 T600,60 T900,80 T1200,55 T1400,70" fill="none" stroke="#1C3A2A" strokeWidth="2" />
-          <path d="M0,50 Q150,10 300,40 T600,30 T900,50 T1200,25 T1400,40" fill="none" stroke="#1C3A2A" strokeWidth="2" />
-        </svg>
-        <div className="topbar-inner">
-          <Link href="/admin" className="brand">
-            <span className="brand-text">EWA Admin</span>
-          </Link>
-          <div className="nav-links">
-            <AdminDepartmentTabs groups={ADMIN_NAV} />
-            <LogoutButton />
-          </div>
-        </div>
-      </div>
-      <AdminSubNavPills groups={ADMIN_NAV} />
-      <div className="main">
-        {children}
-      </div>
-    </>
-  )
+  // Runs on every admin page (the topbar's notification badge is part of
+  // the shared shell, not just the dashboard) — the same three
+  // "needs attention" queries the dashboard page itself runs, reused
+  // rather than re-invented, summed into one real count. Three cheap
+  // COUNT(*) queries via Promise.all is an acceptable cost here: every
+  // other admin page already does its own per-page D1 reads in a Server
+  // Component, this is no heavier than one of those.
+  const db = await getDb()
+  const [leadsFollowUp, pendingPermits, pendingDocuments] = await Promise.all([
+    db.prepare("SELECT COUNT(*) as count FROM leads WHERE status = 'new' AND created_at <= datetime('now', '-2 days')").first<{ count: number }>(),
+    db.prepare("SELECT COUNT(*) as count FROM permits WHERE status = 'pending'").first<{ count: number }>(),
+    db.prepare("SELECT COUNT(*) as count FROM documents WHERE status = 'pending'").first<{ count: number }>(),
+  ])
+  const notificationCount = (leadsFollowUp?.count ?? 0) + (pendingPermits?.count ?? 0) + (pendingDocuments?.count ?? 0)
+
+  return <AppShell notificationCount={notificationCount}>{children}</AppShell>
 }
