@@ -51,7 +51,7 @@ export default function AddAsClientButton({ endpoint, clientId, leadId, showBook
       onClick={handleClick}
       disabled={saving}
       className="text-xs font-semibold hover:underline disabled:opacity-50"
-      style={{ color: 'var(--pine)' }}
+      style={{ color: 'var(--pine-fg)' }}
     >
       {saving ? 'Adding…' : '+ Add as Client'}
     </button>

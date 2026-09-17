@@ -160,7 +160,7 @@ export default function CustomBookingsPanel({ bookingId, customBookings }: {
           type="button"
           onClick={() => { setEditingId(null); setOpen((v) => !v) }}
           className="text-xs font-semibold hover:underline"
-          style={{ color: 'var(--pine)' }}
+          style={{ color: 'var(--pine-fg)' }}
         >
           {open ? 'Cancel' : '+ Add Entry'}
         </button>
@@ -193,7 +193,7 @@ export default function CustomBookingsPanel({ bookingId, customBookings }: {
                     {cb.notes && <p className="text-xs text-gray-500 mt-0.5">{cb.notes}</p>}
                   </div>
                   <div className="flex items-center gap-3">
-                    <button type="button" onClick={() => startEdit(cb)} className="text-xs font-semibold hover:underline" style={{ color: 'var(--pine)' }}>
+                    <button type="button" onClick={() => startEdit(cb)} className="text-xs font-semibold hover:underline" style={{ color: 'var(--pine-fg)' }}>
                       Edit
                     </button>
                     <InlineStatusSelect

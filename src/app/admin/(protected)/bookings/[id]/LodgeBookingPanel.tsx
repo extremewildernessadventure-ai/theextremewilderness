@@ -206,7 +206,7 @@ export default function LodgeBookingPanel({ bookingId, lodgeBookings, lodges }: 
           type="button"
           onClick={() => { setEditingId(null); setOpen((v) => !v) }}
           className="text-xs font-semibold hover:underline"
-          style={{ color: 'var(--pine)' }}
+          style={{ color: 'var(--pine-fg)' }}
         >
           {open ? 'Cancel' : '+ Add Entry'}
         </button>
@@ -241,7 +241,7 @@ export default function LodgeBookingPanel({ bookingId, lodgeBookings, lodges }: 
                     {lb.inclusions && <p className="text-xs text-gray-500 mt-0.5">Includes: {lb.inclusions}</p>}
                   </div>
                   <div className="flex items-center gap-3">
-                    <button type="button" onClick={() => startEdit(lb)} className="text-xs font-semibold hover:underline" style={{ color: 'var(--pine)' }}>
+                    <button type="button" onClick={() => startEdit(lb)} className="text-xs font-semibold hover:underline" style={{ color: 'var(--pine-fg)' }}>
                       Edit
                     </button>
                     <InlineStatusSelect

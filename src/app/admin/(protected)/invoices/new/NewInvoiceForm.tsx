@@ -301,7 +301,7 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
         {useQuoteSchedule ? (
           <div className="pt-2 border-t border-gray-100 space-y-3">
             <label className={labelCls}>Billing (from quote{tripLabel ? `: ${tripLabel}` : ''})</label>
-            <div className="rounded-lg px-4 py-3 text-sm space-y-1" style={{ background: 'var(--sand)' }}>
+            <div className="rounded-lg px-4 py-3 text-sm space-y-1" style={{ background: 'var(--sand-2)' }}>
               <div className="flex justify-between">
                 <span style={{ color: 'var(--grey)' }}>Total Cost</span>
                 <span className="font-semibold mono">{form.currency} {quoteTotalCost!.toLocaleString()}</span>
@@ -369,11 +369,11 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
 
             <div className="rounded-lg px-4 py-3 text-sm space-y-1" style={{ background: 'var(--green-bg)' }}>
               <div className="flex justify-between">
-                <span style={{ color: 'var(--pine)' }}>This invoice bills</span>
+                <span style={{ color: 'var(--pine-fg)' }}>This invoice bills</span>
                 <span className="font-semibold mono">{form.currency} {scheduleThisAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
               </div>
               <div className="flex justify-between">
-                <span style={{ color: 'var(--pine)' }}>New Balance</span>
+                <span style={{ color: 'var(--pine-fg)' }}>New Balance</span>
                 <span className="font-semibold mono">{form.currency} {scheduleNewBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
               </div>
             </div>
@@ -427,7 +427,7 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
 
             <div className="flex justify-end pt-2 border-t border-gray-100">
               <div className="w-full max-w-[220px] flex justify-between items-baseline rounded-lg px-4 py-3" style={{ background: 'var(--green-bg)' }}>
-                <span className="text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--pine)' }}>Total</span>
+                <span className="text-xs font-bold uppercase tracking-wide" style={{ color: 'var(--pine-fg)' }}>Total</span>
                 <span className="text-lg font-black text-brand mono">
                   {form.currency} {total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
@@ -463,11 +463,11 @@ export default function NewInvoiceForm({ departures, clients }: { departures: De
               {hasLegacyDepositPercent && (
                 <div className="mt-3 rounded-lg px-4 py-3 text-sm space-y-1" style={{ background: 'var(--green-bg)' }}>
                   <div className="flex justify-between">
-                    <span style={{ color: 'var(--pine)' }}>This invoice bills ({legacyDepositPercentNum}% deposit)</span>
+                    <span style={{ color: 'var(--pine-fg)' }}>This invoice bills ({legacyDepositPercentNum}% deposit)</span>
                     <span className="font-semibold mono">{form.currency} {legacyDepositAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span style={{ color: 'var(--pine)' }}>Remaining balance (a later, separate invoice)</span>
+                    <span style={{ color: 'var(--pine-fg)' }}>Remaining balance (a later, separate invoice)</span>
                     <span className="font-semibold mono">{form.currency} {legacyRemainingBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                   </div>
                 </div>

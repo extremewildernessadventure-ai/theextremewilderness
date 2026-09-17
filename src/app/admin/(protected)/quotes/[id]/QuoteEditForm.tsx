@@ -116,7 +116,7 @@ export default function QuoteEditForm({ quote, tripCatalog }: { quote: Quote; tr
       </div>
       {totalCost != null && (
         <p className="text-sm" style={{ color: 'var(--grey)' }}>
-          Total: <span className="font-semibold mono" style={{ color: 'var(--pine)' }}>{form.currency} {totalCost.toLocaleString()}</span>
+          Total: <span className="font-semibold mono" style={{ color: 'var(--pine-fg)' }}>{form.currency} {totalCost.toLocaleString()}</span>
         </p>
       )}
       <div>

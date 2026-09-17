@@ -11,15 +11,15 @@ export default function PaymentPanel({ invoice, payments }: { invoice: Invoice; 
       <h2 className="mb-4">Payments</h2>
 
       <div className="grid grid-cols-3 gap-3 mb-5">
-        <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand)' }}>
+        <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand-2)' }}>
           <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--grey)' }}>Amount</p>
           <p className="text-sm font-semibold mono">{invoice.currency} {invoice.amount.toLocaleString()}</p>
         </div>
-        <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand)' }}>
+        <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand-2)' }}>
           <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--grey)' }}>Paid</p>
-          <p className="text-sm font-semibold mono" style={{ color: 'var(--pine)' }}>{invoice.currency} {invoice.amount_paid.toLocaleString()}</p>
+          <p className="text-sm font-semibold mono" style={{ color: 'var(--pine-fg)' }}>{invoice.currency} {invoice.amount_paid.toLocaleString()}</p>
         </div>
-        <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand)' }}>
+        <div className="rounded-lg px-3 py-2.5" style={{ background: 'var(--sand-2)' }}>
           <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--grey)' }}>Balance Due</p>
           <p className="text-sm font-semibold text-brand mono">{invoice.currency} {balanceDue.toLocaleString()}</p>
         </div>

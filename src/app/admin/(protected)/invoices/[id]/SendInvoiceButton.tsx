@@ -50,7 +50,7 @@ export default function SendInvoiceButton({ invoiceId, hasClientEmail, lastSentA
         <Link
           href={`/admin/invoices/${invoiceId}/pdf`}
           className="text-xs font-semibold hover:underline"
-          style={{ color: 'var(--pine)' }}
+          style={{ color: 'var(--pine-fg)' }}
           target="_blank"
         >
           Print / Download PDF
